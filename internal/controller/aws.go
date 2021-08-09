@@ -17,13 +17,13 @@ limitations under the License.
 package controller
 
 import (
-	"github.com/crossplane/provider-tf-aws/internal/controller/ec2/vpc"
 	"k8s.io/client-go/util/workqueue"
 	ctrl "sigs.k8s.io/controller-runtime"
 
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 
 	"github.com/crossplane/provider-tf-aws/internal/controller/config"
+	"github.com/crossplane/provider-tf-aws/internal/controller/ec2/vpc"
 )
 
 // Setup creates all Template controllers with the supplied logger and adds them to
