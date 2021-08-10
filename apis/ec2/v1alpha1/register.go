@@ -25,7 +25,7 @@ import (
 
 // Package type metadata.
 const (
-	Group   = "sample.template.crossplane.io"
+	Group   = "aws.terraform.crossplane.io"
 	Version = "v1alpha1"
 )
 

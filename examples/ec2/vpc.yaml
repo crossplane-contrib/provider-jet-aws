@@ -1,4 +1,4 @@
-apiVersion: ec2.aws.terraform.crossplane.io/v1alpha1
+apiVersion: aws.terraform.crossplane.io/v1alpha1
 kind: VPC
 metadata:
   name: sample-vpc
