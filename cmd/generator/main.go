@@ -16,8 +16,36 @@ limitations under the License.
 
 package main
 
-import "fmt"
+import (
+	"os"
+	"strings"
+
+	"github.com/iancoleman/strcase"
+
+	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
+	"github.com/pkg/errors"
+	"github.com/terraform-providers/terraform-provider-aws/aws"
+)
 
 func main() {
-	fmt.Println("Hello World!")
+	wd, err := os.Getwd()
+	if err != nil {
+		panic(errors.Wrap(err, "cannot get working directory"))
+	}
+	groupGen := pipeline.NewVersionGenerator(wd, "ec2.aws.tf.crossplane.io", "v1alpha1")
+	if err := groupGen.Generate(); err != nil {
+		panic(errors.Wrap(err, "cannot generate version files"))
+	}
+	list := []string{
+		"aws_vpc",
+		"aws_instance",
+		"aws_db_instance",
+	}
+	for _, r := range list {
+		kind := strcase.ToCamel(strings.TrimPrefix(r, "aws_"))
+		crdGen := pipeline.NewCRDGenerator(wd, "ec2.aws.tf.crossplane.io", "v1alpha1", kind, aws.Provider().ResourcesMap[r])
+		if err := crdGen.Generate(); err != nil {
+			panic(errors.Wrap(err, "cannot generate crd"))
+		}
+	}
 }
