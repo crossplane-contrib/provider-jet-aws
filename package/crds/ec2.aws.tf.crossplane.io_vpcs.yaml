@@ -4,35 +4,34 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.3.0
   creationTimestamp: null
-  name: vpcs.aws.terraform.crossplane.io
+  name: vpcs.ec2.aws.tf.crossplane.io
 spec:
-  group: aws.terraform.crossplane.io
+  group: ec2.aws.tf.crossplane.io
   names:
     categories:
     - crossplane
     - managed
-    - PROVIDER-NAME
-    kind: VPC
-    listKind: VPCList
+    - aws
+    kind: Vpc
+    listKind: VpcList
     plural: vpcs
     singular: vpc
   scope: Cluster
   versions:
   - additionalPrinterColumns:
-    - jsonPath: .status.bindingPhase
-      name: STATUS
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
       type: string
-    - jsonPath: .status.atProvider.state
-      name: STATE
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
       type: string
-    - jsonPath: .metadata.creationTimestamp
-      name: AGE
-      type: date
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: A VPC is an example API type. Please replace `PROVIDER-NAME`
-          with your actual provider name, like `aws`, `azure`, `gcp`, `alibaba`
+        description: Vpc is the Schema for the Vpcs API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -47,7 +46,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: A VPCSpec defines the desired state of a VPC.
+            description: VpcSpec defines the desired state of Vpc
             properties:
               deletionPolicy:
                 default: Delete
@@ -59,12 +58,39 @@ spec:
                 - Delete
                 type: string
               forProvider:
-                description: VPCParameters are the configurable fields of a VPC.
                 properties:
-                  configurableField:
+                  assignGeneratedIpv6CidrBlock:
+                    type: boolean
+                  cidrBlock:
                     type: string
+                  enableClassiclink:
+                    type: boolean
+                  enableClassiclinkDnsSupport:
+                    type: boolean
+                  enableDnsHostnames:
+                    type: boolean
+                  enableDnsSupport:
+                    type: boolean
+                  instanceTenancy:
+                    type: string
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
                 required:
-                - configurableField
+                - assignGeneratedIpv6CidrBlock
+                - cidrBlock
+                - enableClassiclink
+                - enableClassiclinkDnsSupport
+                - enableDnsHostnames
+                - enableDnsSupport
+                - instanceTenancy
+                - tags
+                - tagsAll
                 type: object
               providerConfigRef:
                 default:
@@ -111,13 +137,38 @@ spec:
             - forProvider
             type: object
           status:
-            description: A VPCStatus represents the observed state of a VPC.
+            description: VpcStatus defines the observed state of Vpc.
             properties:
               atProvider:
-                description: VPCObservation are the observable fields of a VPC.
                 properties:
-                  observableField:
+                  arn:
                     type: string
+                  defaultNetworkAclId:
+                    type: string
+                  defaultRouteTableId:
+                    type: string
+                  defaultSecurityGroupId:
+                    type: string
+                  dhcpOptionsId:
+                    type: string
+                  ipv6AssociationId:
+                    type: string
+                  ipv6CidrBlock:
+                    type: string
+                  mainRouteTableId:
+                    type: string
+                  ownerId:
+                    type: string
+                required:
+                - arn
+                - defaultNetworkAclId
+                - defaultRouteTableId
+                - defaultSecurityGroupId
+                - dhcpOptionsId
+                - ipv6AssociationId
+                - ipv6CidrBlock
+                - mainRouteTableId
+                - ownerId
                 type: object
               conditions:
                 description: Conditions of the resource.
