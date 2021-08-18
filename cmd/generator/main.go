@@ -30,6 +30,11 @@ import (
 	"github.com/terraform-providers/terraform-provider-aws/aws"
 )
 
+const (
+	ModulePath  = "github.com/crossplane-contrib/provider-tf-aws"
+	GroupSuffix = ".aws.tf.crossplane.io"
+)
+
 func main() {
 	wd, err := os.Getwd()
 	if err != nil {
@@ -58,15 +63,15 @@ func main() {
 
 	for group, resources := range groups {
 		version := "v1alpha1"
-		groupGen := pipeline.NewVersionGenerator(wd, strings.ToLower(group)+".aws.tf.crossplane.io", version)
+		groupGen := pipeline.NewVersionGenerator(wd, strings.ToLower(group)+GroupSuffix, version)
 		if err := groupGen.Generate(); err != nil {
 			panic(errors.Wrap(err, "cannot generate version files"))
 		}
 		groupDir := filepath.Join(wd, "apis", group)
-		crdGen := pipeline.NewCRDGenerator(groupDir, "github.com/crossplane-contrib/provider-tf-aws", strings.ToLower(group)+".aws.tf.crossplane.io")
+		crdGen := pipeline.NewCRDGenerator(groupDir, ModulePath, strings.ToLower(group)+GroupSuffix)
 		for name, resource := range resources {
 			// We don't want Aws prefix in all kinds.
-			kind := strcase.ToCamel(strings.Join(strings.Split(name, "_")[1:], ""))
+			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
 			if err := crdGen.Generate(version, kind, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
