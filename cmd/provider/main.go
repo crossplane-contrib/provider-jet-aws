@@ -27,8 +27,8 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 
-	"github.com/crossplane/provider-tf-aws/apis"
-	"github.com/crossplane/provider-tf-aws/internal/controller"
+	"github.com/crossplane-contrib/provider-tf-aws/apis"
+	"github.com/crossplane-contrib/provider-tf-aws/internal/controller"
 )
 
 func main() {

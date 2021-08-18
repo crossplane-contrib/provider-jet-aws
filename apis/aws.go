@@ -20,7 +20,7 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	awsv1alpha1 "github.com/crossplane/provider-tf-aws/apis/v1alpha1"
+	awsv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
 )
 
 func init() {

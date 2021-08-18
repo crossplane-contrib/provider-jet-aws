@@ -42,11 +42,14 @@ func main() {
 			// that we will address later.
 			continue
 		}
-		words := strings.Split(name, "_")
-		groupName := words[1]
+		// Both aws_config_configuration_recorder_status and aws_config_configuration_recorder
+		// exist as resource which makes kubebuilder confuse them as same resource
+		// and expect a storage version.
 		if name == "aws_config_configuration_recorder_status" {
 			continue
 		}
+		words := strings.Split(name, "_")
+		groupName := words[1]
 		if len(groups[groupName]) == 0 {
 			groups[groupName] = map[string]*schema.Resource{}
 		}
@@ -54,15 +57,17 @@ func main() {
 	}
 
 	for group, resources := range groups {
-		groupGen := pipeline.NewVersionGenerator(wd, group+".aws.tf.crossplane.io", "v1alpha1")
+		version := "v1alpha1"
+		groupGen := pipeline.NewVersionGenerator(wd, strings.ToLower(group)+".aws.tf.crossplane.io", version)
 		if err := groupGen.Generate(); err != nil {
 			panic(errors.Wrap(err, "cannot generate version files"))
 		}
-		groupDir := filepath.Join(wd, "apis", group, "v1alpha1")
+		groupDir := filepath.Join(wd, "apis", group)
+		crdGen := pipeline.NewCRDGenerator(groupDir, "github.com/crossplane-contrib/provider-tf-aws", strings.ToLower(group)+".aws.tf.crossplane.io")
 		for name, resource := range resources {
-			kind := strcase.ToCamel(name)
-			crdGen := pipeline.NewCRDGenerator(groupDir, "github.com/crossplane/provider-tf-aws", group+".aws.tf.crossplane.io", "v1alpha1", kind, resource)
-			if err := crdGen.Generate(); err != nil {
+			// We don't want Aws prefix in all kinds.
+			kind := strcase.ToCamel(strings.Join(strings.Split(name, "_")[1:], ""))
+			if err := crdGen.Generate(version, kind, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
 		}
