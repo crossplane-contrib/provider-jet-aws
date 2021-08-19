@@ -30,6 +30,7 @@ import (
 	"github.com/terraform-providers/terraform-provider-aws/aws"
 )
 
+// Constants to use in generated artifacts.
 const (
 	ModulePath  = "github.com/crossplane-contrib/provider-tf-aws"
 	GroupSuffix = ".aws.tf.crossplane.io"

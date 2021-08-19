@@ -1,0 +1,430 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.4.0
+  creationTimestamp: null
+  name: spotinstancerequests.spot.aws.tf.crossplane.io
+spec:
+  group: spot.aws.tf.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - aws
+    kind: SpotInstanceRequest
+    listKind: SpotInstanceRequestList
+    plural: spotinstancerequests
+    singular: spotinstancerequest
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: SpotInstanceRequest is the Schema for the SpotInstanceRequests
+          API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: SpotInstanceRequestSpec defines the desired state of SpotInstanceRequest
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource.
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  ami:
+                    type: string
+                  associatePublicIpAddress:
+                    type: boolean
+                  availabilityZone:
+                    type: string
+                  blockDurationMinutes:
+                    format: int64
+                    type: integer
+                  capacityReservationSpecification:
+                    items:
+                      properties:
+                        capacityReservationPreference:
+                          type: string
+                        capacityReservationTarget:
+                          items:
+                            properties:
+                              capacityReservationId:
+                                type: string
+                            type: object
+                          type: array
+                      type: object
+                    type: array
+                  cpuCoreCount:
+                    format: int64
+                    type: integer
+                  cpuThreadsPerCore:
+                    format: int64
+                    type: integer
+                  creditSpecification:
+                    items:
+                      properties:
+                        cpuCredits:
+                          type: string
+                      type: object
+                    type: array
+                  disableApiTermination:
+                    type: boolean
+                  ebsBlockDevice:
+                    items:
+                      properties:
+                        deleteOnTermination:
+                          type: boolean
+                        deviceName:
+                          type: string
+                        encrypted:
+                          type: boolean
+                        iops:
+                          format: int64
+                          type: integer
+                        kmsKeyId:
+                          type: string
+                        snapshotId:
+                          type: string
+                        tags:
+                          additionalProperties:
+                            type: string
+                          type: object
+                        throughput:
+                          format: int64
+                          type: integer
+                        volumeSize:
+                          format: int64
+                          type: integer
+                        volumeType:
+                          type: string
+                      required:
+                      - deviceName
+                      type: object
+                    type: array
+                  ebsOptimized:
+                    type: boolean
+                  enclaveOptions:
+                    items:
+                      properties:
+                        enabled:
+                          type: boolean
+                      type: object
+                    type: array
+                  ephemeralBlockDevice:
+                    items:
+                      properties:
+                        deviceName:
+                          type: string
+                        noDevice:
+                          type: boolean
+                        virtualName:
+                          type: string
+                      required:
+                      - deviceName
+                      type: object
+                    type: array
+                  getPasswordData:
+                    type: boolean
+                  hibernation:
+                    type: boolean
+                  hostId:
+                    type: string
+                  iamInstanceProfile:
+                    type: string
+                  instanceInitiatedShutdownBehavior:
+                    type: string
+                  instanceInterruptionBehavior:
+                    type: string
+                  instanceInterruptionBehaviour:
+                    type: string
+                  instanceType:
+                    type: string
+                  ipv6AddressCount:
+                    format: int64
+                    type: integer
+                  ipv6Addresses:
+                    items:
+                      type: string
+                    type: array
+                  keyName:
+                    type: string
+                  launchGroup:
+                    type: string
+                  launchTemplate:
+                    items:
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        version:
+                          type: string
+                      type: object
+                    type: array
+                  metadataOptions:
+                    items:
+                      properties:
+                        httpEndpoint:
+                          type: string
+                        httpPutResponseHopLimit:
+                          format: int64
+                          type: integer
+                        httpTokens:
+                          type: string
+                      type: object
+                    type: array
+                  monitoring:
+                    type: boolean
+                  networkInterface:
+                    items:
+                      properties:
+                        deleteOnTermination:
+                          type: boolean
+                        deviceIndex:
+                          format: int64
+                          type: integer
+                        networkInterfaceId:
+                          type: string
+                      required:
+                      - deviceIndex
+                      - networkInterfaceId
+                      type: object
+                    type: array
+                  placementGroup:
+                    type: string
+                  privateIp:
+                    type: string
+                  rootBlockDevice:
+                    items:
+                      properties:
+                        deleteOnTermination:
+                          type: boolean
+                        encrypted:
+                          type: boolean
+                        iops:
+                          format: int64
+                          type: integer
+                        kmsKeyId:
+                          type: string
+                        tags:
+                          additionalProperties:
+                            type: string
+                          type: object
+                        throughput:
+                          format: int64
+                          type: integer
+                        volumeSize:
+                          format: int64
+                          type: integer
+                        volumeType:
+                          type: string
+                      type: object
+                    type: array
+                  secondaryPrivateIps:
+                    items:
+                      type: string
+                    type: array
+                  securityGroups:
+                    items:
+                      type: string
+                    type: array
+                  sourceDestCheck:
+                    type: boolean
+                  spotPrice:
+                    type: string
+                  spotType:
+                    type: string
+                  subnetId:
+                    type: string
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  tenancy:
+                    type: string
+                  userData:
+                    type: string
+                  userDataBase64:
+                    type: string
+                  validFrom:
+                    type: string
+                  validUntil:
+                    type: string
+                  volumeTags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  vpcSecurityGroupIds:
+                    items:
+                      type: string
+                    type: array
+                  waitForFulfillment:
+                    type: boolean
+                type: object
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+          status:
+            description: SpotInstanceRequestStatus defines the observed state of SpotInstanceRequest.
+            properties:
+              atProvider:
+                properties:
+                  arn:
+                    type: string
+                  instanceState:
+                    type: string
+                  outpostArn:
+                    type: string
+                  passwordData:
+                    type: string
+                  primaryNetworkInterfaceId:
+                    type: string
+                  privateDns:
+                    type: string
+                  publicDns:
+                    type: string
+                  publicIp:
+                    type: string
+                  spotBidStatus:
+                    type: string
+                  spotInstanceId:
+                    type: string
+                  spotRequestState:
+                    type: string
+                required:
+                - arn
+                - instanceState
+                - outpostArn
+                - passwordData
+                - primaryNetworkInterfaceId
+                - privateDns
+                - publicDns
+                - publicIp
+                - spotBidStatus
+                - spotInstanceId
+                - spotRequestState
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
