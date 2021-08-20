@@ -61,6 +61,484 @@ type AndStatementParameters struct {
 	Statement []StatementParameters `json:"statement" tf:"statement"`
 }
 
+type AndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []AndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []AndStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []AndStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []AndStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []AndStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []AndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []AndStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type AndStatementStatementByteMatchStatementObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []AndStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []AndStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type AndStatementStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type AndStatementStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type AndStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type AndStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type AndStatementStatementGeoMatchStatementObservation struct {
+}
+
+type AndStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []AndStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type AndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type AndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type AndStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type AndStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []AndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type AndStatementStatementObservation struct {
+}
+
+type AndStatementStatementParameters struct {
+	AndStatement []AndStatementParameters `json:"andStatement,omitempty" tf:"and_statement"`
+
+	ByteMatchStatement []StatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []StatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []StatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	NotStatement []NotStatementParameters `json:"notStatement,omitempty" tf:"not_statement"`
+
+	OrStatement []OrStatementParameters `json:"orStatement,omitempty" tf:"or_statement"`
+
+	RegexPatternSetReferenceStatement []AndStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []AndStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []AndStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []AndStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []AndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type AndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []AndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []AndStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []AndStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []AndStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []AndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []AndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []AndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type AndStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []AndStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []AndStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type AndStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type AndStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []AndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []AndStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []AndStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []AndStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []AndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []AndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []AndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type AndStatementStatementSqliMatchStatementObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []AndStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []AndStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type AndStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type AndStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []AndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []AndStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []AndStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []AndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []AndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []AndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []AndStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type AndStatementStatementXssMatchStatementObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []AndStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []AndStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type AndStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type AndStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
 type BlockObservation struct {
 }
 
@@ -72,6 +550,69 @@ type BodyObservation struct {
 }
 
 type BodyParameters struct {
+}
+
+type ByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type ByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type ByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type ByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type ByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type ByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type ByteMatchStatementFieldToMatchObservation struct {
+}
+
+type ByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []ByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []ByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []ByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []ByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []ByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []ByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []ByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type ByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type ByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type ByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type ByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type ByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type ByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type ByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type ByteMatchStatementFieldToMatchUriPathParameters struct {
 }
 
 type ByteMatchStatementObservation struct {
@@ -87,11 +628,36 @@ type ByteMatchStatementParameters struct {
 	TextTransformation []TextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
+type ByteMatchStatementTextTransformationObservation struct {
+}
+
+type ByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type CountCustomRequestHandlingObservation struct {
+}
+
+type CountCustomRequestHandlingParameters struct {
+	InsertHeader []CustomRequestHandlingInsertHeaderParameters `json:"insertHeader" tf:"insert_header"`
+}
+
 type CountObservation struct {
 }
 
 type CountParameters struct {
-	CustomRequestHandling []CustomRequestHandlingParameters `json:"customRequestHandling,omitempty" tf:"custom_request_handling"`
+	CustomRequestHandling []CountCustomRequestHandlingParameters `json:"customRequestHandling,omitempty" tf:"custom_request_handling"`
+}
+
+type CustomRequestHandlingInsertHeaderObservation struct {
+}
+
+type CustomRequestHandlingInsertHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+
+	Value string `json:"value" tf:"value"`
 }
 
 type CustomRequestHandlingObservation struct {
@@ -108,6 +674,24 @@ type CustomResponseParameters struct {
 	ResponseCode int64 `json:"responseCode" tf:"response_code"`
 
 	ResponseHeader []ResponseHeaderParameters `json:"responseHeader,omitempty" tf:"response_header"`
+}
+
+type FieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type FieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type FieldToMatchBodyObservation struct {
+}
+
+type FieldToMatchBodyParameters struct {
+}
+
+type FieldToMatchMethodObservation struct {
+}
+
+type FieldToMatchMethodParameters struct {
 }
 
 type FieldToMatchObservation struct {
@@ -129,10 +713,45 @@ type FieldToMatchParameters struct {
 	UriPath []UriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
+type FieldToMatchQueryStringObservation struct {
+}
+
+type FieldToMatchQueryStringParameters struct {
+}
+
+type FieldToMatchSingleHeaderObservation struct {
+}
+
+type FieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type FieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type FieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type FieldToMatchUriPathObservation struct {
+}
+
+type FieldToMatchUriPathParameters struct {
+}
+
 type ForwardedIpConfigObservation struct {
 }
 
 type ForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type GeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type GeoMatchStatementForwardedIpConfigParameters struct {
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
 	HeaderName string `json:"headerName" tf:"header_name"`
@@ -167,6 +786,17 @@ type IpSetForwardedIpConfigParameters struct {
 	Position string `json:"position" tf:"position"`
 }
 
+type IpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type IpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
 type IpSetReferenceStatementObservation struct {
 }
 
@@ -186,14 +816,2266 @@ type NotStatementObservation struct {
 }
 
 type NotStatementParameters struct {
-	Statement []StatementParameters `json:"statement" tf:"statement"`
+	Statement []NotStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type NotStatementStatementAndStatementObservation struct {
+}
+
+type NotStatementStatementAndStatementParameters struct {
+	Statement []StatementAndStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []NotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []NotStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []NotStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []NotStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []NotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []NotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []NotStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type NotStatementStatementByteMatchStatementObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []StatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []StatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type NotStatementStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type NotStatementStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type NotStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type NotStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type NotStatementStatementGeoMatchStatementObservation struct {
+}
+
+type NotStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []StatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type NotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type NotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type NotStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type NotStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []StatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type NotStatementStatementNotStatementStatementByteMatchStatementObservation struct {
+}
+
+type NotStatementStatementNotStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []StatementNotStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []StatementNotStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type NotStatementStatementNotStatementStatementGeoMatchStatementObservation struct {
+}
+
+type NotStatementStatementNotStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []StatementNotStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type NotStatementStatementNotStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type NotStatementStatementNotStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []StatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type NotStatementStatementObservation struct {
+}
+
+type NotStatementStatementParameters struct {
+	ByteMatchStatement []NotStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []NotStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []NotStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	RegexPatternSetReferenceStatement []StatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []StatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []StatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []StatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []NotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type NotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []NotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []NotStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []NotStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []NotStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []NotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []NotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []NotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type NotStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []NotStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []NotStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type NotStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type NotStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []NotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []NotStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []NotStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []NotStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []NotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []NotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []NotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type NotStatementStatementSqliMatchStatementObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []NotStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []NotStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type NotStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type NotStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []NotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []NotStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []NotStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []NotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []NotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []NotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []NotStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type NotStatementStatementXssMatchStatementObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []NotStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []NotStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type NotStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type NotStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
 }
 
 type OrStatementObservation struct {
 }
 
 type OrStatementParameters struct {
-	Statement []StatementParameters `json:"statement" tf:"statement"`
+	Statement []OrStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type OrStatementStatementAndStatementObservation struct {
+}
+
+type OrStatementStatementAndStatementParameters struct {
+	Statement []OrStatementStatementAndStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type OrStatementStatementAndStatementStatementObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementParameters struct {
+	ByteMatchStatement []StatementAndStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []StatementAndStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []StatementAndStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	RegexPatternSetReferenceStatement []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []OrStatementStatementAndStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []OrStatementStatementAndStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []OrStatementStatementAndStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []OrStatementStatementAndStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementAndStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementAndStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementAndStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementByteMatchStatementObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []OrStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type OrStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type OrStatementStatementGeoMatchStatementObservation struct {
+}
+
+type OrStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []OrStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type OrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type OrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type OrStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type OrStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []OrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type OrStatementStatementNotStatementObservation struct {
+}
+
+type OrStatementStatementNotStatementParameters struct {
+	Statement []OrStatementStatementNotStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []OrStatementStatementNotStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type OrStatementStatementNotStatementStatementGeoMatchStatementObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []OrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type OrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type OrStatementStatementNotStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []OrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type OrStatementStatementNotStatementStatementObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementParameters struct {
+	ByteMatchStatement []OrStatementStatementNotStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []OrStatementStatementNotStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []OrStatementStatementNotStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	RegexPatternSetReferenceStatement []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []OrStatementStatementNotStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []OrStatementStatementNotStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []OrStatementStatementNotStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []OrStatementStatementNotStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementNotStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementNotStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementNotStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementParameters struct {
+	Statement []OrStatementStatementOrStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []OrStatementStatementOrStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type OrStatementStatementOrStatementStatementGeoMatchStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []OrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type OrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type OrStatementStatementOrStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []OrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type OrStatementStatementOrStatementStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementParameters struct {
+	ByteMatchStatement []OrStatementStatementOrStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []OrStatementStatementOrStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []OrStatementStatementOrStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	RegexPatternSetReferenceStatement []OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []OrStatementStatementOrStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []OrStatementStatementOrStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []OrStatementStatementOrStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []OrStatementStatementOrStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementOrStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementOrStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementOrStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementParameters struct {
+	ByteMatchStatement []OrStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []OrStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []OrStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	RegexPatternSetReferenceStatement []OrStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []OrStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []OrStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []OrStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []OrStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []OrStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementSqliMatchStatementObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type OrStatementStatementXssMatchStatementObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []OrStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []OrStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type OrStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type OrStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
 }
 
 type QueryStringObservation struct {
@@ -202,15 +3084,87 @@ type QueryStringObservation struct {
 type QueryStringParameters struct {
 }
 
+type RegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []FieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []FieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []FieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []FieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []FieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []FieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []FieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type RegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
 type RegexPatternSetReferenceStatementObservation struct {
 }
 
 type RegexPatternSetReferenceStatementParameters struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	FieldToMatch []FieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+	FieldToMatch []RegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
-	TextTransformation []TextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	TextTransformation []RegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type RegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
 }
 
 type ResponseHeaderObservation struct {
@@ -232,9 +3186,1004 @@ type RuleParameters struct {
 
 	Priority int64 `json:"priority" tf:"priority"`
 
-	Statement []StatementParameters `json:"statement" tf:"statement"`
+	Statement []RuleStatementParameters `json:"statement" tf:"statement"`
 
 	VisibilityConfig []VisibilityConfigParameters `json:"visibilityConfig" tf:"visibility_config"`
+}
+
+type RuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementByteMatchStatementObservation struct {
+}
+
+type RuleStatementByteMatchStatementParameters struct {
+	FieldToMatch []RuleStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []RuleStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type RuleStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RuleStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type RuleStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type RuleStatementGeoMatchStatementObservation struct {
+}
+
+type RuleStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []RuleStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type RuleStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type RuleStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type RuleStatementIpSetReferenceStatementObservation struct {
+}
+
+type RuleStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []RuleStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type RuleStatementNotStatementObservation struct {
+}
+
+type RuleStatementNotStatementParameters struct {
+	Statement []RuleStatementNotStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type RuleStatementNotStatementStatementObservation struct {
+}
+
+type RuleStatementNotStatementStatementParameters struct {
+	AndStatement []NotStatementStatementAndStatementParameters `json:"andStatement,omitempty" tf:"and_statement"`
+
+	ByteMatchStatement []StatementNotStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []StatementNotStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []StatementNotStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	NotStatement []StatementNotStatementParameters `json:"notStatement,omitempty" tf:"not_statement"`
+
+	OrStatement []StatementOrStatementParameters `json:"orStatement,omitempty" tf:"or_statement"`
+
+	RegexPatternSetReferenceStatement []StatementNotStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []StatementNotStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []StatementNotStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []StatementNotStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type RuleStatementObservation struct {
+}
+
+type RuleStatementOrStatementObservation struct {
+}
+
+type RuleStatementOrStatementParameters struct {
+	Statement []RuleStatementOrStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []RuleStatementOrStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type RuleStatementOrStatementStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type RuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type RuleStatementOrStatementStatementGeoMatchStatementObservation struct {
+}
+
+type RuleStatementOrStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []RuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type RuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type RuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type RuleStatementOrStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type RuleStatementOrStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []RuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type RuleStatementOrStatementStatementObservation struct {
+}
+
+type RuleStatementOrStatementStatementParameters struct {
+	AndStatement []OrStatementStatementAndStatementParameters `json:"andStatement,omitempty" tf:"and_statement"`
+
+	ByteMatchStatement []RuleStatementOrStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []RuleStatementOrStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []RuleStatementOrStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	NotStatement []OrStatementStatementNotStatementParameters `json:"notStatement,omitempty" tf:"not_statement"`
+
+	OrStatement []OrStatementStatementOrStatementParameters `json:"orStatement,omitempty" tf:"or_statement"`
+
+	RegexPatternSetReferenceStatement []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []RuleStatementOrStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []RuleStatementOrStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []RuleStatementOrStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []RuleStatementOrStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type RuleStatementOrStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []RuleStatementOrStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type RuleStatementOrStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []RuleStatementOrStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type RuleStatementOrStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RuleStatementParameters struct {
+	AndStatement []StatementAndStatementParameters `json:"andStatement,omitempty" tf:"and_statement"`
+
+	ByteMatchStatement []RuleStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []RuleStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []RuleStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	NotStatement []RuleStatementNotStatementParameters `json:"notStatement,omitempty" tf:"not_statement"`
+
+	OrStatement []RuleStatementOrStatementParameters `json:"orStatement,omitempty" tf:"or_statement"`
+
+	RegexPatternSetReferenceStatement []RuleStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []RuleStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []RuleStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []RuleStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []RuleStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []RuleStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type RuleStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementSizeConstraintStatementObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []RuleStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []RuleStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type RuleStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementSqliMatchStatementObservation struct {
+}
+
+type RuleStatementSqliMatchStatementParameters struct {
+	FieldToMatch []RuleStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []RuleStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type RuleStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []RuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RuleStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RuleStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RuleStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RuleStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RuleStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type RuleStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type RuleStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type RuleStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type RuleStatementXssMatchStatementObservation struct {
+}
+
+type RuleStatementXssMatchStatementParameters struct {
+	FieldToMatch []RuleStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []RuleStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type RuleStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type RuleStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
 }
 
 type SingleHeaderObservation struct {
@@ -251,43 +4200,1741 @@ type SingleQueryArgumentParameters struct {
 	Name string `json:"name" tf:"name"`
 }
 
+type SizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type SizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type SizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type SizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type SizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type SizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type SizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type SizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []SizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []SizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []SizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []SizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []SizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []SizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []SizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type SizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type SizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type SizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type SizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type SizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type SizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type SizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type SizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
 type SizeConstraintStatementObservation struct {
 }
 
 type SizeConstraintStatementParameters struct {
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
-	FieldToMatch []FieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+	FieldToMatch []SizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
 	Size int64 `json:"size" tf:"size"`
 
-	TextTransformation []TextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	TextTransformation []SizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type SizeConstraintStatementTextTransformationObservation struct {
+}
+
+type SizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type SqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type SqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type SqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type SqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type SqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type SqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type SqliMatchStatementFieldToMatchObservation struct {
+}
+
+type SqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []SqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []SqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []SqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []SqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []SqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []SqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []SqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type SqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type SqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type SqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type SqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type SqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type SqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type SqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type SqliMatchStatementFieldToMatchUriPathParameters struct {
 }
 
 type SqliMatchStatementObservation struct {
 }
 
 type SqliMatchStatementParameters struct {
-	FieldToMatch []FieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+	FieldToMatch []SqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
-	TextTransformation []TextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	TextTransformation []SqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type SqliMatchStatementTextTransformationObservation struct {
+}
+
+type SqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementAndStatementObservation struct {
+}
+
+type StatementAndStatementParameters struct {
+	Statement []AndStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementAndStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementAndStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementAndStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementAndStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []StatementAndStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []StatementAndStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementAndStatementStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type StatementAndStatementStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementAndStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type StatementAndStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type StatementAndStatementStatementGeoMatchStatementObservation struct {
+}
+
+type StatementAndStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []StatementAndStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type StatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type StatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type StatementAndStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type StatementAndStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []StatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type StatementAndStatementStatementObservation struct {
+}
+
+type StatementAndStatementStatementParameters struct {
+	ByteMatchStatement []AndStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []AndStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []AndStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	RegexPatternSetReferenceStatement []StatementAndStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []StatementAndStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []StatementAndStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []StatementAndStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type StatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementAndStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementAndStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []StatementAndStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []StatementAndStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementAndStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type StatementAndStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementAndStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementAndStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []StatementAndStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementAndStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementAndStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type StatementAndStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementAndStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementAndStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementAndStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []StatementAndStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementAndStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementAndStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type StatementAndStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementByteMatchStatementObservation struct {
+}
+
+type StatementByteMatchStatementParameters struct {
+	FieldToMatch []ByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []ByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type StatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type StatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type StatementGeoMatchStatementObservation struct {
+}
+
+type StatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []GeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type StatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type StatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type StatementIpSetReferenceStatementObservation struct {
+}
+
+type StatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []IpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type StatementNotStatementObservation struct {
+}
+
+type StatementNotStatementParameters struct {
+	Statement []StatementNotStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementNotStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementNotStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementNotStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []NotStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []NotStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementNotStatementStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type StatementNotStatementStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementNotStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type StatementNotStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type StatementNotStatementStatementGeoMatchStatementObservation struct {
+}
+
+type StatementNotStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []NotStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type StatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type StatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type StatementNotStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type StatementNotStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []NotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type StatementNotStatementStatementObservation struct {
+}
+
+type StatementNotStatementStatementParameters struct {
+	ByteMatchStatement []NotStatementStatementNotStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []NotStatementStatementNotStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []NotStatementStatementNotStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	RegexPatternSetReferenceStatement []NotStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []NotStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []NotStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []NotStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type StatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementNotStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementNotStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []StatementNotStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []StatementNotStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementNotStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type StatementNotStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementNotStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementNotStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []StatementNotStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementNotStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementNotStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type StatementNotStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementNotStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementNotStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementNotStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []StatementNotStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementNotStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementNotStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type StatementNotStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
 }
 
 type StatementObservation struct {
 }
 
-type StatementParameters struct {
-	AndStatement []AndStatementParameters `json:"andStatement,omitempty" tf:"and_statement"`
+type StatementOrStatementObservation struct {
+}
 
+type StatementOrStatementParameters struct {
+	Statement []StatementOrStatementStatementParameters `json:"statement" tf:"statement"`
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementOrStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementOrStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementParameters struct {
+	FieldToMatch []StatementOrStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
+
+	SearchString string `json:"searchString" tf:"search_string"`
+
+	TextTransformation []StatementOrStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementOrStatementStatementByteMatchStatementTextTransformationObservation struct {
+}
+
+type StatementOrStatementStatementByteMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementOrStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+}
+
+type StatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+}
+
+type StatementOrStatementStatementGeoMatchStatementObservation struct {
+}
+
+type StatementOrStatementStatementGeoMatchStatementParameters struct {
+	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
+
+	ForwardedIpConfig []StatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type StatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+}
+
+type StatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	Position string `json:"position" tf:"position"`
+}
+
+type StatementOrStatementStatementIpSetReferenceStatementObservation struct {
+}
+
+type StatementOrStatementStatementIpSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	IpSetForwardedIpConfig []StatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+}
+
+type StatementOrStatementStatementObservation struct {
+}
+
+type StatementOrStatementStatementParameters struct {
+	ByteMatchStatement []StatementOrStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+
+	GeoMatchStatement []StatementOrStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+
+	IpSetReferenceStatement []StatementOrStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+
+	RegexPatternSetReferenceStatement []StatementOrStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+
+	SizeConstraintStatement []StatementOrStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+
+	SqliMatchStatement []StatementOrStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	XssMatchStatement []StatementOrStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type StatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []StatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []StatementOrStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementOrStatementStatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type StatementOrStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementOrStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementOrStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementParameters struct {
+	FieldToMatch []StatementOrStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementOrStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementOrStatementStatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type StatementOrStatementStatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementParameters struct {
+	FieldToMatch []StatementOrStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementOrStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementOrStatementStatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type StatementOrStatementStatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementParameters struct {
 	ByteMatchStatement []ByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
 	GeoMatchStatement []GeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
 	IpSetReferenceStatement []IpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
-
-	NotStatement []NotStatementParameters `json:"notStatement,omitempty" tf:"not_statement"`
-
-	OrStatement []OrStatementParameters `json:"orStatement,omitempty" tf:"or_statement"`
 
 	RegexPatternSetReferenceStatement []RegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
@@ -296,6 +5943,336 @@ type StatementParameters struct {
 	SqliMatchStatement []SqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
 	XssMatchStatement []XssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+	AllQueryArguments []RegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []RegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []RegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []RegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []RegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []RegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []RegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementRegexPatternSetReferenceStatementObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementParameters struct {
+	Arn string `json:"arn" tf:"arn"`
+
+	FieldToMatch []StatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementRegexPatternSetReferenceStatementTextTransformationObservation struct {
+}
+
+type StatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementSizeConstraintStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchObservation struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementSizeConstraintStatementObservation struct {
+}
+
+type StatementSizeConstraintStatementParameters struct {
+	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
+
+	FieldToMatch []StatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	TextTransformation []StatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementSizeConstraintStatementTextTransformationObservation struct {
+}
+
+type StatementSizeConstraintStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementSqliMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementSqliMatchStatementObservation struct {
+}
+
+type StatementSqliMatchStatementParameters struct {
+	FieldToMatch []StatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementSqliMatchStatementTextTransformationObservation struct {
+}
+
+type StatementSqliMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type StatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type StatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type StatementXssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type StatementXssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type StatementXssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type StatementXssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type StatementXssMatchStatementFieldToMatchObservation struct {
+}
+
+type StatementXssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []StatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []StatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []StatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []StatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []StatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []StatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []StatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type StatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type StatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type StatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type StatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type StatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type StatementXssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type StatementXssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
+type StatementXssMatchStatementObservation struct {
+}
+
+type StatementXssMatchStatementParameters struct {
+	FieldToMatch []StatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	TextTransformation []StatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type StatementXssMatchStatementTextTransformationObservation struct {
+}
+
+type StatementXssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
 }
 
 type TextTransformationObservation struct {
@@ -348,13 +6325,85 @@ type Wafv2RuleGroupParameters struct {
 	VisibilityConfig []VisibilityConfigParameters `json:"visibilityConfig" tf:"visibility_config"`
 }
 
+type XssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+}
+
+type XssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+}
+
+type XssMatchStatementFieldToMatchBodyObservation struct {
+}
+
+type XssMatchStatementFieldToMatchBodyParameters struct {
+}
+
+type XssMatchStatementFieldToMatchMethodObservation struct {
+}
+
+type XssMatchStatementFieldToMatchMethodParameters struct {
+}
+
+type XssMatchStatementFieldToMatchObservation struct {
+}
+
+type XssMatchStatementFieldToMatchParameters struct {
+	AllQueryArguments []XssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+
+	Body []XssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+
+	Method []XssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+
+	QueryString []XssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+
+	SingleHeader []XssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+
+	SingleQueryArgument []XssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	UriPath []XssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+}
+
+type XssMatchStatementFieldToMatchQueryStringObservation struct {
+}
+
+type XssMatchStatementFieldToMatchQueryStringParameters struct {
+}
+
+type XssMatchStatementFieldToMatchSingleHeaderObservation struct {
+}
+
+type XssMatchStatementFieldToMatchSingleHeaderParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type XssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+}
+
+type XssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+	Name string `json:"name" tf:"name"`
+}
+
+type XssMatchStatementFieldToMatchUriPathObservation struct {
+}
+
+type XssMatchStatementFieldToMatchUriPathParameters struct {
+}
+
 type XssMatchStatementObservation struct {
 }
 
 type XssMatchStatementParameters struct {
-	FieldToMatch []FieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+	FieldToMatch []XssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
-	TextTransformation []TextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	TextTransformation []XssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+}
+
+type XssMatchStatementTextTransformationObservation struct {
+}
+
+type XssMatchStatementTextTransformationParameters struct {
+	Priority int64 `json:"priority" tf:"priority"`
+
+	Type string `json:"type" tf:"type"`
 }
 
 // Wafv2RuleGroupSpec defines the desired state of Wafv2RuleGroup

@@ -282,6 +282,22 @@ type LambdaOutputParameters struct {
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 
+type MappingParametersCsvMappingParametersObservation struct {
+}
+
+type MappingParametersCsvMappingParametersParameters struct {
+	RecordColumnDelimiter string `json:"recordColumnDelimiter" tf:"record_column_delimiter"`
+
+	RecordRowDelimiter string `json:"recordRowDelimiter" tf:"record_row_delimiter"`
+}
+
+type MappingParametersJsonMappingParametersObservation struct {
+}
+
+type MappingParametersJsonMappingParametersParameters struct {
+	RecordRowPath string `json:"recordRowPath" tf:"record_row_path"`
+}
+
 type MappingParametersObservation struct {
 }
 
@@ -351,6 +367,15 @@ type RecordColumnParameters struct {
 	SqlType string `json:"sqlType" tf:"sql_type"`
 }
 
+type RecordFormatMappingParametersObservation struct {
+}
+
+type RecordFormatMappingParametersParameters struct {
+	CsvMappingParameters []MappingParametersCsvMappingParametersParameters `json:"csvMappingParameters,omitempty" tf:"csv_mapping_parameters"`
+
+	JsonMappingParameters []MappingParametersJsonMappingParametersParameters `json:"jsonMappingParameters,omitempty" tf:"json_mapping_parameters"`
+}
+
 type RecordFormatObservation struct {
 }
 
@@ -376,11 +401,31 @@ type ReferenceSchemaObservation struct {
 }
 
 type ReferenceSchemaParameters struct {
-	RecordColumn []RecordColumnParameters `json:"recordColumn" tf:"record_column"`
+	RecordColumn []ReferenceSchemaRecordColumnParameters `json:"recordColumn" tf:"record_column"`
 
 	RecordEncoding *string `json:"recordEncoding,omitempty" tf:"record_encoding"`
 
-	RecordFormat []RecordFormatParameters `json:"recordFormat" tf:"record_format"`
+	RecordFormat []ReferenceSchemaRecordFormatParameters `json:"recordFormat" tf:"record_format"`
+}
+
+type ReferenceSchemaRecordColumnObservation struct {
+}
+
+type ReferenceSchemaRecordColumnParameters struct {
+	Mapping *string `json:"mapping,omitempty" tf:"mapping"`
+
+	Name string `json:"name" tf:"name"`
+
+	SqlType string `json:"sqlType" tf:"sql_type"`
+}
+
+type ReferenceSchemaRecordFormatObservation struct {
+}
+
+type ReferenceSchemaRecordFormatParameters struct {
+	MappingParameters []RecordFormatMappingParametersParameters `json:"mappingParameters" tf:"mapping_parameters"`
+
+	RecordFormatType string `json:"recordFormatType" tf:"record_format_type"`
 }
 
 type RunConfigurationObservation struct {

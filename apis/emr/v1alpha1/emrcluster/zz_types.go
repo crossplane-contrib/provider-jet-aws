@@ -70,6 +70,19 @@ type CoreInstanceFleetParameters struct {
 	TargetSpotCapacity *int64 `json:"targetSpotCapacity,omitempty" tf:"target_spot_capacity"`
 }
 
+type CoreInstanceGroupEbsConfigObservation struct {
+}
+
+type CoreInstanceGroupEbsConfigParameters struct {
+	Iops *int64 `json:"iops,omitempty" tf:"iops"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	Type string `json:"type" tf:"type"`
+
+	VolumesPerInstance *int64 `json:"volumesPerInstance,omitempty" tf:"volumes_per_instance"`
+}
+
 type CoreInstanceGroupObservation struct {
 	Id string `json:"id" tf:"id"`
 }
@@ -79,7 +92,7 @@ type CoreInstanceGroupParameters struct {
 
 	BidPrice *string `json:"bidPrice,omitempty" tf:"bid_price"`
 
-	EbsConfig []EbsConfigParameters `json:"ebsConfig,omitempty" tf:"ebs_config"`
+	EbsConfig []CoreInstanceGroupEbsConfigParameters `json:"ebsConfig,omitempty" tf:"ebs_config"`
 
 	InstanceCount *int64 `json:"instanceCount,omitempty" tf:"instance_count"`
 
@@ -201,6 +214,28 @@ type HadoopJarStepParameters struct {
 	Properties map[string]string `json:"properties,omitempty" tf:"properties"`
 }
 
+type InstanceTypeConfigsConfigurationsObservation struct {
+}
+
+type InstanceTypeConfigsConfigurationsParameters struct {
+	Classification *string `json:"classification,omitempty" tf:"classification"`
+
+	Properties map[string]string `json:"properties,omitempty" tf:"properties"`
+}
+
+type InstanceTypeConfigsEbsConfigObservation struct {
+}
+
+type InstanceTypeConfigsEbsConfigParameters struct {
+	Iops *int64 `json:"iops,omitempty" tf:"iops"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	Type string `json:"type" tf:"type"`
+
+	VolumesPerInstance *int64 `json:"volumesPerInstance,omitempty" tf:"volumes_per_instance"`
+}
+
 type InstanceTypeConfigsObservation struct {
 }
 
@@ -236,10 +271,56 @@ type KerberosAttributesParameters struct {
 type LaunchSpecificationsObservation struct {
 }
 
+type LaunchSpecificationsOnDemandSpecificationObservation struct {
+}
+
+type LaunchSpecificationsOnDemandSpecificationParameters struct {
+	AllocationStrategy string `json:"allocationStrategy" tf:"allocation_strategy"`
+}
+
 type LaunchSpecificationsParameters struct {
 	OnDemandSpecification []OnDemandSpecificationParameters `json:"onDemandSpecification,omitempty" tf:"on_demand_specification"`
 
 	SpotSpecification []SpotSpecificationParameters `json:"spotSpecification,omitempty" tf:"spot_specification"`
+}
+
+type LaunchSpecificationsSpotSpecificationObservation struct {
+}
+
+type LaunchSpecificationsSpotSpecificationParameters struct {
+	AllocationStrategy string `json:"allocationStrategy" tf:"allocation_strategy"`
+
+	BlockDurationMinutes *int64 `json:"blockDurationMinutes,omitempty" tf:"block_duration_minutes"`
+
+	TimeoutAction string `json:"timeoutAction" tf:"timeout_action"`
+
+	TimeoutDurationMinutes int64 `json:"timeoutDurationMinutes" tf:"timeout_duration_minutes"`
+}
+
+type MasterInstanceFleetInstanceTypeConfigsObservation struct {
+}
+
+type MasterInstanceFleetInstanceTypeConfigsParameters struct {
+	BidPrice *string `json:"bidPrice,omitempty" tf:"bid_price"`
+
+	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"bidPriceAsPercentageOfOnDemandPrice,omitempty" tf:"bid_price_as_percentage_of_on_demand_price"`
+
+	Configurations []InstanceTypeConfigsConfigurationsParameters `json:"configurations,omitempty" tf:"configurations"`
+
+	EbsConfig []InstanceTypeConfigsEbsConfigParameters `json:"ebsConfig,omitempty" tf:"ebs_config"`
+
+	InstanceType string `json:"instanceType" tf:"instance_type"`
+
+	WeightedCapacity *int64 `json:"weightedCapacity,omitempty" tf:"weighted_capacity"`
+}
+
+type MasterInstanceFleetLaunchSpecificationsObservation struct {
+}
+
+type MasterInstanceFleetLaunchSpecificationsParameters struct {
+	OnDemandSpecification []LaunchSpecificationsOnDemandSpecificationParameters `json:"onDemandSpecification,omitempty" tf:"on_demand_specification"`
+
+	SpotSpecification []LaunchSpecificationsSpotSpecificationParameters `json:"spotSpecification,omitempty" tf:"spot_specification"`
 }
 
 type MasterInstanceFleetObservation struct {
@@ -251,15 +332,28 @@ type MasterInstanceFleetObservation struct {
 }
 
 type MasterInstanceFleetParameters struct {
-	InstanceTypeConfigs []InstanceTypeConfigsParameters `json:"instanceTypeConfigs,omitempty" tf:"instance_type_configs"`
+	InstanceTypeConfigs []MasterInstanceFleetInstanceTypeConfigsParameters `json:"instanceTypeConfigs,omitempty" tf:"instance_type_configs"`
 
-	LaunchSpecifications []LaunchSpecificationsParameters `json:"launchSpecifications,omitempty" tf:"launch_specifications"`
+	LaunchSpecifications []MasterInstanceFleetLaunchSpecificationsParameters `json:"launchSpecifications,omitempty" tf:"launch_specifications"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
 	TargetOnDemandCapacity *int64 `json:"targetOnDemandCapacity,omitempty" tf:"target_on_demand_capacity"`
 
 	TargetSpotCapacity *int64 `json:"targetSpotCapacity,omitempty" tf:"target_spot_capacity"`
+}
+
+type MasterInstanceGroupEbsConfigObservation struct {
+}
+
+type MasterInstanceGroupEbsConfigParameters struct {
+	Iops *int64 `json:"iops,omitempty" tf:"iops"`
+
+	Size int64 `json:"size" tf:"size"`
+
+	Type string `json:"type" tf:"type"`
+
+	VolumesPerInstance *int64 `json:"volumesPerInstance,omitempty" tf:"volumes_per_instance"`
 }
 
 type MasterInstanceGroupObservation struct {
@@ -269,7 +363,7 @@ type MasterInstanceGroupObservation struct {
 type MasterInstanceGroupParameters struct {
 	BidPrice *string `json:"bidPrice,omitempty" tf:"bid_price"`
 
-	EbsConfig []EbsConfigParameters `json:"ebsConfig,omitempty" tf:"ebs_config"`
+	EbsConfig []MasterInstanceGroupEbsConfigParameters `json:"ebsConfig,omitempty" tf:"ebs_config"`
 
 	InstanceCount *int64 `json:"instanceCount,omitempty" tf:"instance_count"`
 

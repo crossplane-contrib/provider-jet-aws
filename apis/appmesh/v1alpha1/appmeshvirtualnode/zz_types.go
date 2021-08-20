@@ -30,11 +30,18 @@ import (
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/appmesh/v1alpha1"
 )
 
+type AccessLogFileObservation struct {
+}
+
+type AccessLogFileParameters struct {
+	Path string `json:"path" tf:"path"`
+}
+
 type AccessLogObservation struct {
 }
 
 type AccessLogParameters struct {
-	File []FileParameters `json:"file,omitempty" tf:"file"`
+	File []AccessLogFileParameters `json:"file,omitempty" tf:"file"`
 }
 
 type AcmObservation struct {
@@ -79,11 +86,18 @@ type AwsCloudMapParameters struct {
 	ServiceName string `json:"serviceName" tf:"service_name"`
 }
 
+type BackendDefaultsClientPolicyObservation struct {
+}
+
+type BackendDefaultsClientPolicyParameters struct {
+	Tls []ClientPolicyTlsParameters `json:"tls,omitempty" tf:"tls"`
+}
+
 type BackendDefaultsObservation struct {
 }
 
 type BackendDefaultsParameters struct {
-	ClientPolicy []ClientPolicyParameters `json:"clientPolicy,omitempty" tf:"client_policy"`
+	ClientPolicy []BackendDefaultsClientPolicyParameters `json:"clientPolicy,omitempty" tf:"client_policy"`
 }
 
 type BackendObservation struct {
@@ -102,6 +116,22 @@ type BaseEjectionDurationParameters struct {
 	Value int64 `json:"value" tf:"value"`
 }
 
+type CertificateAcmObservation struct {
+}
+
+type CertificateAcmParameters struct {
+	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
+}
+
+type CertificateFileObservation struct {
+}
+
+type CertificateFileParameters struct {
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+
+	PrivateKey string `json:"privateKey" tf:"private_key"`
+}
+
 type CertificateObservation struct {
 }
 
@@ -111,11 +141,31 @@ type CertificateParameters struct {
 	Sds []SdsParameters `json:"sds,omitempty" tf:"sds"`
 }
 
+type CertificateSdsObservation struct {
+}
+
+type CertificateSdsParameters struct {
+	SecretName string `json:"secretName" tf:"secret_name"`
+}
+
 type ClientPolicyObservation struct {
 }
 
 type ClientPolicyParameters struct {
 	Tls []TlsParameters `json:"tls,omitempty" tf:"tls"`
+}
+
+type ClientPolicyTlsObservation struct {
+}
+
+type ClientPolicyTlsParameters struct {
+	Certificate []TlsCertificateParameters `json:"certificate,omitempty" tf:"certificate"`
+
+	Enforce *bool `json:"enforce,omitempty" tf:"enforce"`
+
+	Ports []int64 `json:"ports,omitempty" tf:"ports"`
+
+	Validation []TlsValidationParameters `json:"validation" tf:"validation"`
 }
 
 type ConnectionPoolObservation struct {
@@ -173,11 +223,38 @@ type HealthCheckParameters struct {
 	UnhealthyThreshold int64 `json:"unhealthyThreshold" tf:"unhealthy_threshold"`
 }
 
+type Http2IdleObservation struct {
+}
+
+type Http2IdleParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type Http2Observation struct {
 }
 
 type Http2Parameters struct {
 	MaxRequests int64 `json:"maxRequests" tf:"max_requests"`
+}
+
+type Http2PerRequestObservation struct {
+}
+
+type Http2PerRequestParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
+type HttpIdleObservation struct {
+}
+
+type HttpIdleParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
 }
 
 type HttpObservation struct {
@@ -187,6 +264,24 @@ type HttpParameters struct {
 	MaxConnections int64 `json:"maxConnections" tf:"max_connections"`
 
 	MaxPendingRequests *int64 `json:"maxPendingRequests,omitempty" tf:"max_pending_requests"`
+}
+
+type HttpPerRequestObservation struct {
+}
+
+type HttpPerRequestParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
+type IdleObservation struct {
+}
+
+type IdleParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
 }
 
 type IntervalObservation struct {
@@ -212,7 +307,38 @@ type ListenerParameters struct {
 
 	Timeout []TimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
 
-	Tls []TlsParameters `json:"tls,omitempty" tf:"tls"`
+	Tls []ListenerTlsParameters `json:"tls,omitempty" tf:"tls"`
+}
+
+type ListenerTlsCertificateObservation struct {
+}
+
+type ListenerTlsCertificateParameters struct {
+	Acm []CertificateAcmParameters `json:"acm,omitempty" tf:"acm"`
+
+	File []TlsCertificateFileParameters `json:"file,omitempty" tf:"file"`
+
+	Sds []TlsCertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type ListenerTlsObservation struct {
+}
+
+type ListenerTlsParameters struct {
+	Certificate []ListenerTlsCertificateParameters `json:"certificate" tf:"certificate"`
+
+	Mode string `json:"mode" tf:"mode"`
+
+	Validation []ListenerTlsValidationParameters `json:"validation,omitempty" tf:"validation"`
+}
+
+type ListenerTlsValidationObservation struct {
+}
+
+type ListenerTlsValidationParameters struct {
+	SubjectAlternativeNames []TlsValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
+
+	Trust []TlsValidationTrustParameters `json:"trust" tf:"trust"`
 }
 
 type LoggingObservation struct {
@@ -240,6 +366,15 @@ type OutlierDetectionParameters struct {
 	MaxEjectionPercent int64 `json:"maxEjectionPercent" tf:"max_ejection_percent"`
 
 	MaxServerErrors int64 `json:"maxServerErrors" tf:"max_server_errors"`
+}
+
+type PerRequestObservation struct {
+}
+
+type PerRequestParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
 }
 
 type PortMappingObservation struct {
@@ -282,11 +417,27 @@ type SpecParameters struct {
 	ServiceDiscovery []ServiceDiscoveryParameters `json:"serviceDiscovery,omitempty" tf:"service_discovery"`
 }
 
+type SubjectAlternativeNamesMatchObservation struct {
+}
+
+type SubjectAlternativeNamesMatchParameters struct {
+	Exact []string `json:"exact" tf:"exact"`
+}
+
 type SubjectAlternativeNamesObservation struct {
 }
 
 type SubjectAlternativeNamesParameters struct {
 	Match []MatchParameters `json:"match" tf:"match"`
+}
+
+type TcpIdleObservation struct {
+}
+
+type TcpIdleParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
 }
 
 type TcpObservation struct {
@@ -296,17 +447,76 @@ type TcpParameters struct {
 	MaxConnections int64 `json:"maxConnections" tf:"max_connections"`
 }
 
+type TimeoutGrpcObservation struct {
+}
+
+type TimeoutGrpcParameters struct {
+	Idle []IdleParameters `json:"idle,omitempty" tf:"idle"`
+
+	PerRequest []PerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
+}
+
+type TimeoutHttp2Observation struct {
+}
+
+type TimeoutHttp2Parameters struct {
+	Idle []Http2IdleParameters `json:"idle,omitempty" tf:"idle"`
+
+	PerRequest []Http2PerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
+}
+
+type TimeoutHttpObservation struct {
+}
+
+type TimeoutHttpParameters struct {
+	Idle []HttpIdleParameters `json:"idle,omitempty" tf:"idle"`
+
+	PerRequest []HttpPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
+}
+
 type TimeoutObservation struct {
 }
 
 type TimeoutParameters struct {
-	Grpc []GrpcParameters `json:"grpc,omitempty" tf:"grpc"`
+	Grpc []TimeoutGrpcParameters `json:"grpc,omitempty" tf:"grpc"`
 
-	Http []HttpParameters `json:"http,omitempty" tf:"http"`
+	Http []TimeoutHttpParameters `json:"http,omitempty" tf:"http"`
 
-	Http2 []Http2Parameters `json:"http2,omitempty" tf:"http2"`
+	Http2 []TimeoutHttp2Parameters `json:"http2,omitempty" tf:"http2"`
 
-	Tcp []TcpParameters `json:"tcp,omitempty" tf:"tcp"`
+	Tcp []TimeoutTcpParameters `json:"tcp,omitempty" tf:"tcp"`
+}
+
+type TimeoutTcpObservation struct {
+}
+
+type TimeoutTcpParameters struct {
+	Idle []TcpIdleParameters `json:"idle,omitempty" tf:"idle"`
+}
+
+type TlsCertificateFileObservation struct {
+}
+
+type TlsCertificateFileParameters struct {
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+
+	PrivateKey string `json:"privateKey" tf:"private_key"`
+}
+
+type TlsCertificateObservation struct {
+}
+
+type TlsCertificateParameters struct {
+	File []CertificateFileParameters `json:"file,omitempty" tf:"file"`
+
+	Sds []CertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type TlsCertificateSdsObservation struct {
+}
+
+type TlsCertificateSdsParameters struct {
+	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
 type TlsObservation struct {
@@ -322,15 +532,75 @@ type TlsParameters struct {
 	Validation []ValidationParameters `json:"validation" tf:"validation"`
 }
 
+type TlsValidationObservation struct {
+}
+
+type TlsValidationParameters struct {
+	SubjectAlternativeNames []ValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
+
+	Trust []ValidationTrustParameters `json:"trust" tf:"trust"`
+}
+
+type TlsValidationSubjectAlternativeNamesObservation struct {
+}
+
+type TlsValidationSubjectAlternativeNamesParameters struct {
+	Match []ValidationSubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
+}
+
+type TlsValidationTrustFileObservation struct {
+}
+
+type TlsValidationTrustFileParameters struct {
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+}
+
+type TlsValidationTrustObservation struct {
+}
+
+type TlsValidationTrustParameters struct {
+	File []TlsValidationTrustFileParameters `json:"file,omitempty" tf:"file"`
+
+	Sds []TlsValidationTrustSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type TlsValidationTrustSdsObservation struct {
+}
+
+type TlsValidationTrustSdsParameters struct {
+	SecretName string `json:"secretName" tf:"secret_name"`
+}
+
+type TrustAcmObservation struct {
+}
+
+type TrustAcmParameters struct {
+	CertificateAuthorityArns []string `json:"certificateAuthorityArns" tf:"certificate_authority_arns"`
+}
+
+type TrustFileObservation struct {
+}
+
+type TrustFileParameters struct {
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+}
+
 type TrustObservation struct {
 }
 
 type TrustParameters struct {
 	Acm []AcmParameters `json:"acm,omitempty" tf:"acm"`
 
-	File []FileParameters `json:"file,omitempty" tf:"file"`
+	File []TrustFileParameters `json:"file,omitempty" tf:"file"`
 
-	Sds []SdsParameters `json:"sds,omitempty" tf:"sds"`
+	Sds []TrustSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type TrustSdsObservation struct {
+}
+
+type TrustSdsParameters struct {
+	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
 type ValidationObservation struct {
@@ -340,6 +610,45 @@ type ValidationParameters struct {
 	SubjectAlternativeNames []SubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
 
 	Trust []TrustParameters `json:"trust" tf:"trust"`
+}
+
+type ValidationSubjectAlternativeNamesMatchObservation struct {
+}
+
+type ValidationSubjectAlternativeNamesMatchParameters struct {
+	Exact []string `json:"exact" tf:"exact"`
+}
+
+type ValidationSubjectAlternativeNamesObservation struct {
+}
+
+type ValidationSubjectAlternativeNamesParameters struct {
+	Match []SubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
+}
+
+type ValidationTrustFileObservation struct {
+}
+
+type ValidationTrustFileParameters struct {
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+}
+
+type ValidationTrustObservation struct {
+}
+
+type ValidationTrustParameters struct {
+	Acm []TrustAcmParameters `json:"acm,omitempty" tf:"acm"`
+
+	File []ValidationTrustFileParameters `json:"file,omitempty" tf:"file"`
+
+	Sds []ValidationTrustSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type ValidationTrustSdsObservation struct {
+}
+
+type ValidationTrustSdsParameters struct {
+	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
 type VirtualServiceObservation struct {

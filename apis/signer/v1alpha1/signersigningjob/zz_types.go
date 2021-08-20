@@ -54,16 +54,23 @@ type S3Observation struct {
 type S3Parameters struct {
 	Bucket string `json:"bucket" tf:"bucket"`
 
-	Key string `json:"key" tf:"key"`
-
-	Version string `json:"version" tf:"version"`
+	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 }
 
 type SignedObjectObservation struct {
-	S3 []S3Observation `json:"s3" tf:"s3"`
+	S3 []SignedObjectS3Observation `json:"s3" tf:"s3"`
 }
 
 type SignedObjectParameters struct {
+}
+
+type SignedObjectS3Observation struct {
+	Bucket string `json:"bucket" tf:"bucket"`
+
+	Key string `json:"key" tf:"key"`
+}
+
+type SignedObjectS3Parameters struct {
 }
 
 type SignerSigningJobObservation struct {
@@ -110,7 +117,18 @@ type SourceObservation struct {
 }
 
 type SourceParameters struct {
-	S3 []S3Parameters `json:"s3" tf:"s3"`
+	S3 []SourceS3Parameters `json:"s3" tf:"s3"`
+}
+
+type SourceS3Observation struct {
+}
+
+type SourceS3Parameters struct {
+	Bucket string `json:"bucket" tf:"bucket"`
+
+	Key string `json:"key" tf:"key"`
+
+	Version string `json:"version" tf:"version"`
 }
 
 // SignerSigningJobSpec defines the desired state of SignerSigningJob

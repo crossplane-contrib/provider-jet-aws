@@ -94,6 +94,13 @@ type Dynamodbv2Parameters struct {
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
+type Dynamodbv2PutItemObservation struct {
+}
+
+type Dynamodbv2PutItemParameters struct {
+	TableName string `json:"tableName" tf:"table_name"`
+}
+
 type ElasticsearchObservation struct {
 }
 
@@ -109,19 +116,98 @@ type ElasticsearchParameters struct {
 	Type string `json:"type" tf:"type"`
 }
 
+type ErrorActionCloudwatchAlarmObservation struct {
+}
+
+type ErrorActionCloudwatchAlarmParameters struct {
+	AlarmName string `json:"alarmName" tf:"alarm_name"`
+
+	RoleArn string `json:"roleArn" tf:"role_arn"`
+
+	StateReason string `json:"stateReason" tf:"state_reason"`
+
+	StateValue string `json:"stateValue" tf:"state_value"`
+}
+
+type ErrorActionCloudwatchMetricObservation struct {
+}
+
+type ErrorActionCloudwatchMetricParameters struct {
+	MetricName string `json:"metricName" tf:"metric_name"`
+
+	MetricNamespace string `json:"metricNamespace" tf:"metric_namespace"`
+
+	MetricTimestamp *string `json:"metricTimestamp,omitempty" tf:"metric_timestamp"`
+
+	MetricUnit string `json:"metricUnit" tf:"metric_unit"`
+
+	MetricValue string `json:"metricValue" tf:"metric_value"`
+
+	RoleArn string `json:"roleArn" tf:"role_arn"`
+}
+
+type ErrorActionDynamodbObservation struct {
+}
+
+type ErrorActionDynamodbParameters struct {
+	HashKeyField string `json:"hashKeyField" tf:"hash_key_field"`
+
+	HashKeyType *string `json:"hashKeyType,omitempty" tf:"hash_key_type"`
+
+	HashKeyValue string `json:"hashKeyValue" tf:"hash_key_value"`
+
+	Operation *string `json:"operation,omitempty" tf:"operation"`
+
+	PayloadField *string `json:"payloadField,omitempty" tf:"payload_field"`
+
+	RangeKeyField *string `json:"rangeKeyField,omitempty" tf:"range_key_field"`
+
+	RangeKeyType *string `json:"rangeKeyType,omitempty" tf:"range_key_type"`
+
+	RangeKeyValue *string `json:"rangeKeyValue,omitempty" tf:"range_key_value"`
+
+	RoleArn string `json:"roleArn" tf:"role_arn"`
+
+	TableName string `json:"tableName" tf:"table_name"`
+}
+
+type ErrorActionDynamodbv2Observation struct {
+}
+
+type ErrorActionDynamodbv2Parameters struct {
+	PutItem []Dynamodbv2PutItemParameters `json:"putItem,omitempty" tf:"put_item"`
+
+	RoleArn string `json:"roleArn" tf:"role_arn"`
+}
+
+type ErrorActionElasticsearchObservation struct {
+}
+
+type ErrorActionElasticsearchParameters struct {
+	Endpoint string `json:"endpoint" tf:"endpoint"`
+
+	Id string `json:"id" tf:"id"`
+
+	Index string `json:"index" tf:"index"`
+
+	RoleArn string `json:"roleArn" tf:"role_arn"`
+
+	Type string `json:"type" tf:"type"`
+}
+
 type ErrorActionObservation struct {
 }
 
 type ErrorActionParameters struct {
-	CloudwatchAlarm []CloudwatchAlarmParameters `json:"cloudwatchAlarm,omitempty" tf:"cloudwatch_alarm"`
+	CloudwatchAlarm []ErrorActionCloudwatchAlarmParameters `json:"cloudwatchAlarm,omitempty" tf:"cloudwatch_alarm"`
 
-	CloudwatchMetric []CloudwatchMetricParameters `json:"cloudwatchMetric,omitempty" tf:"cloudwatch_metric"`
+	CloudwatchMetric []ErrorActionCloudwatchMetricParameters `json:"cloudwatchMetric,omitempty" tf:"cloudwatch_metric"`
 
-	Dynamodb []DynamodbParameters `json:"dynamodb,omitempty" tf:"dynamodb"`
+	Dynamodb []ErrorActionDynamodbParameters `json:"dynamodb,omitempty" tf:"dynamodb"`
 
-	Dynamodbv2 []Dynamodbv2Parameters `json:"dynamodbv2,omitempty" tf:"dynamodbv2"`
+	Dynamodbv2 []ErrorActionDynamodbv2Parameters `json:"dynamodbv2,omitempty" tf:"dynamodbv2"`
 
-	Elasticsearch []ElasticsearchParameters `json:"elasticsearch,omitempty" tf:"elasticsearch"`
+	Elasticsearch []ErrorActionElasticsearchParameters `json:"elasticsearch,omitempty" tf:"elasticsearch"`
 
 	Firehose []FirehoseParameters `json:"firehose,omitempty" tf:"firehose"`
 

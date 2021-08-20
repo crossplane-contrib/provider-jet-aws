@@ -162,13 +162,55 @@ type LaunchTemplateParameters struct {
 	Version *string `json:"version,omitempty" tf:"version"`
 }
 
+type LaunchTemplateSpecificationObservation struct {
+}
+
+type LaunchTemplateSpecificationParameters struct {
+	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+
+	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
+
+	Version *string `json:"version,omitempty" tf:"version"`
+}
+
+type MixedInstancesPolicyLaunchTemplateObservation struct {
+}
+
+type MixedInstancesPolicyLaunchTemplateParameters struct {
+	LaunchTemplateSpecification []LaunchTemplateSpecificationParameters `json:"launchTemplateSpecification" tf:"launch_template_specification"`
+
+	Override []OverrideParameters `json:"override,omitempty" tf:"override"`
+}
+
 type MixedInstancesPolicyObservation struct {
 }
 
 type MixedInstancesPolicyParameters struct {
 	InstancesDistribution []InstancesDistributionParameters `json:"instancesDistribution,omitempty" tf:"instances_distribution"`
 
-	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate" tf:"launch_template"`
+	LaunchTemplate []MixedInstancesPolicyLaunchTemplateParameters `json:"launchTemplate" tf:"launch_template"`
+}
+
+type OverrideLaunchTemplateSpecificationObservation struct {
+}
+
+type OverrideLaunchTemplateSpecificationParameters struct {
+	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+
+	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
+
+	Version *string `json:"version,omitempty" tf:"version"`
+}
+
+type OverrideObservation struct {
+}
+
+type OverrideParameters struct {
+	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
+
+	LaunchTemplateSpecification []OverrideLaunchTemplateSpecificationParameters `json:"launchTemplateSpecification,omitempty" tf:"launch_template_specification"`
+
+	WeightedCapacity *string `json:"weightedCapacity,omitempty" tf:"weighted_capacity"`
 }
 
 type PreferencesObservation struct {

@@ -75,6 +75,15 @@ type LifecycleParameters struct {
 	DeleteAfter *int64 `json:"deleteAfter,omitempty" tf:"delete_after"`
 }
 
+type RuleLifecycleObservation struct {
+}
+
+type RuleLifecycleParameters struct {
+	ColdStorageAfter *int64 `json:"coldStorageAfter,omitempty" tf:"cold_storage_after"`
+
+	DeleteAfter *int64 `json:"deleteAfter,omitempty" tf:"delete_after"`
+}
+
 type RuleObservation struct {
 }
 
@@ -85,7 +94,7 @@ type RuleParameters struct {
 
 	EnableContinuousBackup *bool `json:"enableContinuousBackup,omitempty" tf:"enable_continuous_backup"`
 
-	Lifecycle []LifecycleParameters `json:"lifecycle,omitempty" tf:"lifecycle"`
+	Lifecycle []RuleLifecycleParameters `json:"lifecycle,omitempty" tf:"lifecycle"`
 
 	RecoveryPointTags map[string]string `json:"recoveryPointTags,omitempty" tf:"recovery_point_tags"`
 

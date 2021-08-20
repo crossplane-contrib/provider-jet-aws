@@ -39,6 +39,30 @@ type AndParameters struct {
 	TagScopeTerm []TagScopeTermParameters `json:"tagScopeTerm,omitempty" tf:"tag_scope_term"`
 }
 
+type AndSimpleScopeTermObservation struct {
+}
+
+type AndSimpleScopeTermParameters struct {
+	Comparator *string `json:"comparator,omitempty" tf:"comparator"`
+
+	Key *string `json:"key,omitempty" tf:"key"`
+
+	Values []string `json:"values,omitempty" tf:"values"`
+}
+
+type AndTagScopeTermObservation struct {
+}
+
+type AndTagScopeTermParameters struct {
+	Comparator *string `json:"comparator,omitempty" tf:"comparator"`
+
+	Key *string `json:"key,omitempty" tf:"key"`
+
+	TagValues []TagScopeTermTagValuesParameters `json:"tagValues,omitempty" tf:"tag_values"`
+
+	Target *string `json:"target,omitempty" tf:"target"`
+}
+
 type BucketDefinitionsObservation struct {
 }
 
@@ -55,11 +79,20 @@ type ExcludesParameters struct {
 	And []AndParameters `json:"and,omitempty" tf:"and"`
 }
 
+type IncludesAndObservation struct {
+}
+
+type IncludesAndParameters struct {
+	SimpleScopeTerm []AndSimpleScopeTermParameters `json:"simpleScopeTerm,omitempty" tf:"simple_scope_term"`
+
+	TagScopeTerm []AndTagScopeTermParameters `json:"tagScopeTerm,omitempty" tf:"tag_scope_term"`
+}
+
 type IncludesObservation struct {
 }
 
 type IncludesParameters struct {
-	And []AndParameters `json:"and,omitempty" tf:"and"`
+	And []IncludesAndParameters `json:"and,omitempty" tf:"and"`
 }
 
 type Macie2ClassificationJobObservation struct {
@@ -149,6 +182,15 @@ type TagScopeTermParameters struct {
 	TagValues []TagValuesParameters `json:"tagValues,omitempty" tf:"tag_values"`
 
 	Target *string `json:"target,omitempty" tf:"target"`
+}
+
+type TagScopeTermTagValuesObservation struct {
+}
+
+type TagScopeTermTagValuesParameters struct {
+	Key *string `json:"key,omitempty" tf:"key"`
+
+	Value *string `json:"value,omitempty" tf:"value"`
 }
 
 type TagValuesObservation struct {

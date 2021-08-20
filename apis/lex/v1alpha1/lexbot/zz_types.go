@@ -39,13 +39,24 @@ type AbortStatementParameters struct {
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 
+type ClarificationPromptMessageObservation struct {
+}
+
+type ClarificationPromptMessageParameters struct {
+	Content string `json:"content" tf:"content"`
+
+	ContentType string `json:"contentType" tf:"content_type"`
+
+	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
+}
+
 type ClarificationPromptObservation struct {
 }
 
 type ClarificationPromptParameters struct {
 	MaxAttempts int64 `json:"maxAttempts" tf:"max_attempts"`
 
-	Message []MessageParameters `json:"message" tf:"message"`
+	Message []ClarificationPromptMessageParameters `json:"message" tf:"message"`
 
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }

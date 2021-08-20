@@ -101,6 +101,8 @@ type UserPoolConfigParameters struct {
 
 	AwsRegion *string `json:"awsRegion,omitempty" tf:"aws_region"`
 
+	DefaultAction string `json:"defaultAction" tf:"default_action"`
+
 	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
 }
 

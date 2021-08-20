@@ -134,11 +134,22 @@ type Ec2TagFilterParameters struct {
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
+type Ec2TagSetEc2TagFilterObservation struct {
+}
+
+type Ec2TagSetEc2TagFilterParameters struct {
+	Key *string `json:"key,omitempty" tf:"key"`
+
+	Type *string `json:"type,omitempty" tf:"type"`
+
+	Value *string `json:"value,omitempty" tf:"value"`
+}
+
 type Ec2TagSetObservation struct {
 }
 
 type Ec2TagSetParameters struct {
-	Ec2TagFilter []Ec2TagFilterParameters `json:"ec2TagFilter,omitempty" tf:"ec2_tag_filter"`
+	Ec2TagFilter []Ec2TagSetEc2TagFilterParameters `json:"ec2TagFilter,omitempty" tf:"ec2_tag_filter"`
 }
 
 type EcsServiceObservation struct {

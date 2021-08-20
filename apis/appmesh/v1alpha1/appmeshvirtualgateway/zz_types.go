@@ -30,11 +30,18 @@ import (
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/appmesh/v1alpha1"
 )
 
+type AccessLogFileObservation struct {
+}
+
+type AccessLogFileParameters struct {
+	Path string `json:"path" tf:"path"`
+}
+
 type AccessLogObservation struct {
 }
 
 type AccessLogParameters struct {
-	File []FileParameters `json:"file,omitempty" tf:"file"`
+	File []AccessLogFileParameters `json:"file,omitempty" tf:"file"`
 }
 
 type AcmObservation struct {
@@ -75,6 +82,22 @@ type BackendDefaultsParameters struct {
 	ClientPolicy []ClientPolicyParameters `json:"clientPolicy,omitempty" tf:"client_policy"`
 }
 
+type CertificateAcmObservation struct {
+}
+
+type CertificateAcmParameters struct {
+	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
+}
+
+type CertificateFileObservation struct {
+}
+
+type CertificateFileParameters struct {
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+
+	PrivateKey string `json:"privateKey" tf:"private_key"`
+}
+
 type CertificateObservation struct {
 }
 
@@ -82,6 +105,13 @@ type CertificateParameters struct {
 	File []FileParameters `json:"file,omitempty" tf:"file"`
 
 	Sds []SdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type CertificateSdsObservation struct {
+}
+
+type CertificateSdsParameters struct {
+	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
 type ClientPolicyObservation struct {
@@ -163,7 +193,18 @@ type ListenerParameters struct {
 
 	PortMapping []PortMappingParameters `json:"portMapping" tf:"port_mapping"`
 
-	Tls []TlsParameters `json:"tls,omitempty" tf:"tls"`
+	Tls []ListenerTlsParameters `json:"tls,omitempty" tf:"tls"`
+}
+
+type ListenerTlsObservation struct {
+}
+
+type ListenerTlsParameters struct {
+	Certificate []TlsCertificateParameters `json:"certificate" tf:"certificate"`
+
+	Mode string `json:"mode" tf:"mode"`
+
+	Validation []TlsValidationParameters `json:"validation,omitempty" tf:"validation"`
 }
 
 type LoggingObservation struct {
@@ -207,11 +248,29 @@ type SpecParameters struct {
 	Logging []LoggingParameters `json:"logging,omitempty" tf:"logging"`
 }
 
+type SubjectAlternativeNamesMatchObservation struct {
+}
+
+type SubjectAlternativeNamesMatchParameters struct {
+	Exact []string `json:"exact" tf:"exact"`
+}
+
 type SubjectAlternativeNamesObservation struct {
 }
 
 type SubjectAlternativeNamesParameters struct {
 	Match []MatchParameters `json:"match" tf:"match"`
+}
+
+type TlsCertificateObservation struct {
+}
+
+type TlsCertificateParameters struct {
+	Acm []CertificateAcmParameters `json:"acm,omitempty" tf:"acm"`
+
+	File []CertificateFileParameters `json:"file,omitempty" tf:"file"`
+
+	Sds []CertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
 }
 
 type TlsObservation struct {
@@ -227,15 +286,38 @@ type TlsParameters struct {
 	Validation []ValidationParameters `json:"validation" tf:"validation"`
 }
 
+type TlsValidationObservation struct {
+}
+
+type TlsValidationParameters struct {
+	SubjectAlternativeNames []ValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
+
+	Trust []ValidationTrustParameters `json:"trust" tf:"trust"`
+}
+
+type TrustFileObservation struct {
+}
+
+type TrustFileParameters struct {
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+}
+
 type TrustObservation struct {
 }
 
 type TrustParameters struct {
 	Acm []AcmParameters `json:"acm,omitempty" tf:"acm"`
 
-	File []FileParameters `json:"file,omitempty" tf:"file"`
+	File []TrustFileParameters `json:"file,omitempty" tf:"file"`
 
-	Sds []SdsParameters `json:"sds,omitempty" tf:"sds"`
+	Sds []TrustSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type TrustSdsObservation struct {
+}
+
+type TrustSdsParameters struct {
+	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
 type ValidationObservation struct {
@@ -245,6 +327,36 @@ type ValidationParameters struct {
 	SubjectAlternativeNames []SubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
 
 	Trust []TrustParameters `json:"trust" tf:"trust"`
+}
+
+type ValidationSubjectAlternativeNamesObservation struct {
+}
+
+type ValidationSubjectAlternativeNamesParameters struct {
+	Match []SubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
+}
+
+type ValidationTrustFileObservation struct {
+}
+
+type ValidationTrustFileParameters struct {
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+}
+
+type ValidationTrustObservation struct {
+}
+
+type ValidationTrustParameters struct {
+	File []ValidationTrustFileParameters `json:"file,omitempty" tf:"file"`
+
+	Sds []ValidationTrustSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type ValidationTrustSdsObservation struct {
+}
+
+type ValidationTrustSdsParameters struct {
+	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
 // AppmeshVirtualGatewaySpec defines the desired state of AppmeshVirtualGateway

@@ -37,6 +37,20 @@ type ActionParameters struct {
 	Target []TargetParameters `json:"target" tf:"target"`
 }
 
+type ActionTargetObservation struct {
+}
+
+type ActionTargetParameters struct {
+	VirtualService []TargetVirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
+}
+
+type ActionTargetVirtualServiceObservation struct {
+}
+
+type ActionTargetVirtualServiceParameters struct {
+	VirtualServiceName string `json:"virtualServiceName" tf:"virtual_service_name"`
+}
+
 type AppmeshGatewayRouteObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
@@ -72,22 +86,57 @@ type GrpcRouteParameters struct {
 	Match []MatchParameters `json:"match" tf:"match"`
 }
 
+type Http2RouteActionObservation struct {
+}
+
+type Http2RouteActionParameters struct {
+	Target []ActionTargetParameters `json:"target" tf:"target"`
+}
+
+type Http2RouteMatchObservation struct {
+}
+
+type Http2RouteMatchParameters struct {
+	Prefix string `json:"prefix" tf:"prefix"`
+}
+
 type Http2RouteObservation struct {
 }
 
 type Http2RouteParameters struct {
-	Action []ActionParameters `json:"action" tf:"action"`
+	Action []Http2RouteActionParameters `json:"action" tf:"action"`
 
-	Match []MatchParameters `json:"match" tf:"match"`
+	Match []Http2RouteMatchParameters `json:"match" tf:"match"`
+}
+
+type HttpRouteActionObservation struct {
+}
+
+type HttpRouteActionParameters struct {
+	Target []HttpRouteActionTargetParameters `json:"target" tf:"target"`
+}
+
+type HttpRouteActionTargetObservation struct {
+}
+
+type HttpRouteActionTargetParameters struct {
+	VirtualService []ActionTargetVirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
+}
+
+type HttpRouteMatchObservation struct {
+}
+
+type HttpRouteMatchParameters struct {
+	Prefix string `json:"prefix" tf:"prefix"`
 }
 
 type HttpRouteObservation struct {
 }
 
 type HttpRouteParameters struct {
-	Action []ActionParameters `json:"action" tf:"action"`
+	Action []HttpRouteActionParameters `json:"action" tf:"action"`
 
-	Match []MatchParameters `json:"match" tf:"match"`
+	Match []HttpRouteMatchParameters `json:"match" tf:"match"`
 }
 
 type MatchObservation struct {
@@ -113,6 +162,13 @@ type TargetObservation struct {
 
 type TargetParameters struct {
 	VirtualService []VirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
+}
+
+type TargetVirtualServiceObservation struct {
+}
+
+type TargetVirtualServiceParameters struct {
+	VirtualServiceName string `json:"virtualServiceName" tf:"virtual_service_name"`
 }
 
 type VirtualServiceObservation struct {

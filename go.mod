@@ -3,7 +3,7 @@ module github.com/crossplane-contrib/provider-tf-aws
 go 1.16
 
 require (
-	github.com/crossplane-contrib/terrajet v0.0.0-20210819124559-48f7e68db859
+	github.com/crossplane-contrib/terrajet v0.0.0-20210823173012-03ca4b1a77e2
 	github.com/crossplane/crossplane-runtime v0.14.1-0.20210805220729-047d9387efbb
 	github.com/crossplane/crossplane-tools v0.0.0-20210320162312-1baca298c527
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.7.0

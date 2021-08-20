@@ -61,6 +61,17 @@ type CorsRuleParameters struct {
 	MaxAgeSeconds *int64 `json:"maxAgeSeconds,omitempty" tf:"max_age_seconds"`
 }
 
+type DefaultRetentionObservation struct {
+}
+
+type DefaultRetentionParameters struct {
+	Days *int64 `json:"days,omitempty" tf:"days"`
+
+	Mode string `json:"mode" tf:"mode"`
+
+	Years *int64 `json:"years,omitempty" tf:"years"`
+}
+
 type DestinationObservation struct {
 }
 
@@ -179,9 +190,7 @@ type RuleObservation struct {
 }
 
 type RuleParameters struct {
-	ApplyServerSideEncryptionByDefault []ApplyServerSideEncryptionByDefaultParameters `json:"applyServerSideEncryptionByDefault" tf:"apply_server_side_encryption_by_default"`
-
-	BucketKeyEnabled *bool `json:"bucketKeyEnabled,omitempty" tf:"bucket_key_enabled"`
+	DefaultRetention []DefaultRetentionParameters `json:"defaultRetention" tf:"default_retention"`
 }
 
 type RulesObservation struct {
@@ -263,7 +272,16 @@ type ServerSideEncryptionConfigurationObservation struct {
 }
 
 type ServerSideEncryptionConfigurationParameters struct {
-	Rule []RuleParameters `json:"rule" tf:"rule"`
+	Rule []ServerSideEncryptionConfigurationRuleParameters `json:"rule" tf:"rule"`
+}
+
+type ServerSideEncryptionConfigurationRuleObservation struct {
+}
+
+type ServerSideEncryptionConfigurationRuleParameters struct {
+	ApplyServerSideEncryptionByDefault []ApplyServerSideEncryptionByDefaultParameters `json:"applyServerSideEncryptionByDefault" tf:"apply_server_side_encryption_by_default"`
+
+	BucketKeyEnabled *bool `json:"bucketKeyEnabled,omitempty" tf:"bucket_key_enabled"`
 }
 
 type SourceSelectionCriteriaObservation struct {

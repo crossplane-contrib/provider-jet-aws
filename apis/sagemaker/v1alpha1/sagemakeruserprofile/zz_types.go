@@ -57,13 +57,22 @@ type JupyterServerAppSettingsParameters struct {
 	DefaultResourceSpec []DefaultResourceSpecParameters `json:"defaultResourceSpec" tf:"default_resource_spec"`
 }
 
+type KernelGatewayAppSettingsDefaultResourceSpecObservation struct {
+}
+
+type KernelGatewayAppSettingsDefaultResourceSpecParameters struct {
+	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
+
+	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
+}
+
 type KernelGatewayAppSettingsObservation struct {
 }
 
 type KernelGatewayAppSettingsParameters struct {
 	CustomImage []CustomImageParameters `json:"customImage,omitempty" tf:"custom_image"`
 
-	DefaultResourceSpec []DefaultResourceSpecParameters `json:"defaultResourceSpec" tf:"default_resource_spec"`
+	DefaultResourceSpec []KernelGatewayAppSettingsDefaultResourceSpecParameters `json:"defaultResourceSpec" tf:"default_resource_spec"`
 }
 
 type SagemakerUserProfileObservation struct {
@@ -99,11 +108,20 @@ type SharingSettingsParameters struct {
 	S3OutputPath *string `json:"s3OutputPath,omitempty" tf:"s3_output_path"`
 }
 
+type TensorBoardAppSettingsDefaultResourceSpecObservation struct {
+}
+
+type TensorBoardAppSettingsDefaultResourceSpecParameters struct {
+	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
+
+	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
+}
+
 type TensorBoardAppSettingsObservation struct {
 }
 
 type TensorBoardAppSettingsParameters struct {
-	DefaultResourceSpec []DefaultResourceSpecParameters `json:"defaultResourceSpec" tf:"default_resource_spec"`
+	DefaultResourceSpec []TensorBoardAppSettingsDefaultResourceSpecParameters `json:"defaultResourceSpec" tf:"default_resource_spec"`
 }
 
 type UserSettingsObservation struct {

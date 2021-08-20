@@ -48,13 +48,24 @@ type ConclusionStatementParameters struct {
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 
+type ConfirmationPromptMessageObservation struct {
+}
+
+type ConfirmationPromptMessageParameters struct {
+	Content string `json:"content" tf:"content"`
+
+	ContentType string `json:"contentType" tf:"content_type"`
+
+	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
+}
+
 type ConfirmationPromptObservation struct {
 }
 
 type ConfirmationPromptParameters struct {
 	MaxAttempts int64 `json:"maxAttempts" tf:"max_attempts"`
 
-	Message []MessageParameters `json:"message" tf:"message"`
+	Message []ConfirmationPromptMessageParameters `json:"message" tf:"message"`
 
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
@@ -135,22 +146,44 @@ type MessageParameters struct {
 	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 
+type PromptMessageObservation struct {
+}
+
+type PromptMessageParameters struct {
+	Content string `json:"content" tf:"content"`
+
+	ContentType string `json:"contentType" tf:"content_type"`
+
+	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
+}
+
 type PromptObservation struct {
 }
 
 type PromptParameters struct {
 	MaxAttempts int64 `json:"maxAttempts" tf:"max_attempts"`
 
-	Message []MessageParameters `json:"message" tf:"message"`
+	Message []PromptMessageParameters `json:"message" tf:"message"`
 
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
+}
+
+type RejectionStatementMessageObservation struct {
+}
+
+type RejectionStatementMessageParameters struct {
+	Content string `json:"content" tf:"content"`
+
+	ContentType string `json:"contentType" tf:"content_type"`
+
+	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 
 type RejectionStatementObservation struct {
 }
 
 type RejectionStatementParameters struct {
-	Message []MessageParameters `json:"message" tf:"message"`
+	Message []RejectionStatementMessageParameters `json:"message" tf:"message"`
 
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
@@ -178,13 +211,24 @@ type SlotParameters struct {
 	ValueElicitationPrompt []ValueElicitationPromptParameters `json:"valueElicitationPrompt,omitempty" tf:"value_elicitation_prompt"`
 }
 
+type ValueElicitationPromptMessageObservation struct {
+}
+
+type ValueElicitationPromptMessageParameters struct {
+	Content string `json:"content" tf:"content"`
+
+	ContentType string `json:"contentType" tf:"content_type"`
+
+	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
+}
+
 type ValueElicitationPromptObservation struct {
 }
 
 type ValueElicitationPromptParameters struct {
 	MaxAttempts int64 `json:"maxAttempts" tf:"max_attempts"`
 
-	Message []MessageParameters `json:"message" tf:"message"`
+	Message []ValueElicitationPromptMessageParameters `json:"message" tf:"message"`
 
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }

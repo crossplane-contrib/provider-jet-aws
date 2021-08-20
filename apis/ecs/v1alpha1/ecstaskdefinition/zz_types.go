@@ -118,11 +118,20 @@ type EphemeralStorageParameters struct {
 	SizeInGib int64 `json:"sizeInGib" tf:"size_in_gib"`
 }
 
+type FsxWindowsFileServerVolumeConfigurationAuthorizationConfigObservation struct {
+}
+
+type FsxWindowsFileServerVolumeConfigurationAuthorizationConfigParameters struct {
+	CredentialsParameter string `json:"credentialsParameter" tf:"credentials_parameter"`
+
+	Domain string `json:"domain" tf:"domain"`
+}
+
 type FsxWindowsFileServerVolumeConfigurationObservation struct {
 }
 
 type FsxWindowsFileServerVolumeConfigurationParameters struct {
-	AuthorizationConfig []AuthorizationConfigParameters `json:"authorizationConfig" tf:"authorization_config"`
+	AuthorizationConfig []FsxWindowsFileServerVolumeConfigurationAuthorizationConfigParameters `json:"authorizationConfig" tf:"authorization_config"`
 
 	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
 

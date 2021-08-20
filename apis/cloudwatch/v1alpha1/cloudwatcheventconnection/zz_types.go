@@ -119,15 +119,48 @@ type InvocationHttpParametersParameters struct {
 	QueryString []QueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 }
 
+type OauthHttpParametersBodyObservation struct {
+}
+
+type OauthHttpParametersBodyParameters struct {
+	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
+
+	Key *string `json:"key,omitempty" tf:"key"`
+
+	Value *string `json:"value,omitempty" tf:"value"`
+}
+
+type OauthHttpParametersHeaderObservation struct {
+}
+
+type OauthHttpParametersHeaderParameters struct {
+	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
+
+	Key *string `json:"key,omitempty" tf:"key"`
+
+	Value *string `json:"value,omitempty" tf:"value"`
+}
+
 type OauthHttpParametersObservation struct {
 }
 
 type OauthHttpParametersParameters struct {
-	Body []BodyParameters `json:"body,omitempty" tf:"body"`
+	Body []OauthHttpParametersBodyParameters `json:"body,omitempty" tf:"body"`
 
-	Header []HeaderParameters `json:"header,omitempty" tf:"header"`
+	Header []OauthHttpParametersHeaderParameters `json:"header,omitempty" tf:"header"`
 
-	QueryString []QueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	QueryString []OauthHttpParametersQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+}
+
+type OauthHttpParametersQueryStringObservation struct {
+}
+
+type OauthHttpParametersQueryStringParameters struct {
+	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
+
+	Key *string `json:"key,omitempty" tf:"key"`
+
+	Value *string `json:"value,omitempty" tf:"value"`
 }
 
 type OauthObservation struct {

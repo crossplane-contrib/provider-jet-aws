@@ -82,6 +82,15 @@ type ParameterParameters struct {
 type RunCommandParametersObservation struct {
 }
 
+type RunCommandParametersParameterObservation struct {
+}
+
+type RunCommandParametersParameterParameters struct {
+	Name string `json:"name" tf:"name"`
+
+	Values []string `json:"values" tf:"values"`
+}
+
 type RunCommandParametersParameters struct {
 	CloudwatchConfig []CloudwatchConfigParameters `json:"cloudwatchConfig,omitempty" tf:"cloudwatch_config"`
 
@@ -99,7 +108,7 @@ type RunCommandParametersParameters struct {
 
 	OutputS3KeyPrefix *string `json:"outputS3KeyPrefix,omitempty" tf:"output_s3_key_prefix"`
 
-	Parameter []ParameterParameters `json:"parameter,omitempty" tf:"parameter"`
+	Parameter []RunCommandParametersParameterParameters `json:"parameter,omitempty" tf:"parameter"`
 
 	ServiceRoleArn *string `json:"serviceRoleArn,omitempty" tf:"service_role_arn"`
 

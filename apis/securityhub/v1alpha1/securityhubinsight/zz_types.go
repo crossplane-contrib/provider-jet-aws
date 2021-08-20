@@ -356,11 +356,20 @@ type FindingProviderFieldsTypesParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
+type FirstObservedAtDateRangeObservation struct {
+}
+
+type FirstObservedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type FirstObservedAtObservation struct {
 }
 
 type FirstObservedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []FirstObservedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 
@@ -392,11 +401,20 @@ type KeywordParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
+type LastObservedAtDateRangeObservation struct {
+}
+
+type LastObservedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type LastObservedAtObservation struct {
 }
 
 type LastObservedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []LastObservedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 
@@ -543,11 +561,20 @@ type NoteTextParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
+type NoteUpdatedAtDateRangeObservation struct {
+}
+
+type NoteUpdatedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type NoteUpdatedAtObservation struct {
 }
 
 type NoteUpdatedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []NoteUpdatedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 
@@ -563,11 +590,20 @@ type NoteUpdatedByParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
+type ProcessLaunchedAtDateRangeObservation struct {
+}
+
+type ProcessLaunchedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type ProcessLaunchedAtObservation struct {
 }
 
 type ProcessLaunchedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []ProcessLaunchedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 
@@ -614,11 +650,20 @@ type ProcessPidParameters struct {
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
+type ProcessTerminatedAtDateRangeObservation struct {
+}
+
+type ProcessTerminatedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type ProcessTerminatedAtObservation struct {
 }
 
 type ProcessTerminatedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []ProcessTerminatedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 
@@ -731,11 +776,20 @@ type ResourceAwsEc2InstanceKeyNameParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
+type ResourceAwsEc2InstanceLaunchedAtDateRangeObservation struct {
+}
+
+type ResourceAwsEc2InstanceLaunchedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type ResourceAwsEc2InstanceLaunchedAtObservation struct {
 }
 
 type ResourceAwsEc2InstanceLaunchedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []ResourceAwsEc2InstanceLaunchedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 
@@ -769,11 +823,20 @@ type ResourceAwsEc2InstanceVpcIdParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
+type ResourceAwsIamAccessKeyCreatedAtDateRangeObservation struct {
+}
+
+type ResourceAwsIamAccessKeyCreatedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type ResourceAwsIamAccessKeyCreatedAtObservation struct {
 }
 
 type ResourceAwsIamAccessKeyCreatedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []ResourceAwsIamAccessKeyCreatedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 
@@ -834,11 +897,20 @@ type ResourceContainerImageNameParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
+type ResourceContainerLaunchedAtDateRangeObservation struct {
+}
+
+type ResourceContainerLaunchedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type ResourceContainerLaunchedAtObservation struct {
 }
 
 type ResourceContainerLaunchedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []ResourceContainerLaunchedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 
@@ -951,11 +1023,20 @@ type ThreatIntelIndicatorCategoryParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
+type ThreatIntelIndicatorLastObservedAtDateRangeObservation struct {
+}
+
+type ThreatIntelIndicatorLastObservedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type ThreatIntelIndicatorLastObservedAtObservation struct {
 }
 
 type ThreatIntelIndicatorLastObservedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []ThreatIntelIndicatorLastObservedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 
@@ -1016,11 +1097,20 @@ type TypeParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
+type UpdatedAtDateRangeObservation struct {
+}
+
+type UpdatedAtDateRangeParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
 type UpdatedAtObservation struct {
 }
 
 type UpdatedAtParameters struct {
-	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
+	DateRange []UpdatedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
 	End *string `json:"end,omitempty" tf:"end"`
 

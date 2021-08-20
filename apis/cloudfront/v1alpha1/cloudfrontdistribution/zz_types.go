@@ -190,6 +190,15 @@ type FailoverCriteriaParameters struct {
 	StatusCodes []int64 `json:"statusCodes" tf:"status_codes"`
 }
 
+type ForwardedValuesCookiesObservation struct {
+}
+
+type ForwardedValuesCookiesParameters struct {
+	Forward string `json:"forward" tf:"forward"`
+
+	WhitelistedNames []string `json:"whitelistedNames,omitempty" tf:"whitelisted_names"`
+}
+
 type ForwardedValuesObservation struct {
 }
 
@@ -222,7 +231,7 @@ type GeoRestrictionParameters struct {
 }
 
 type ItemsObservation struct {
-	AwsAccountNumber string `json:"awsAccountNumber" tf:"aws_account_number"`
+	KeyGroupId string `json:"keyGroupId" tf:"key_group_id"`
 
 	KeyPairIds []string `json:"keyPairIds" tf:"key_pair_ids"`
 }
@@ -259,6 +268,39 @@ type MemberParameters struct {
 	OriginId string `json:"originId" tf:"origin_id"`
 }
 
+type OrderedCacheBehaviorForwardedValuesObservation struct {
+}
+
+type OrderedCacheBehaviorForwardedValuesParameters struct {
+	Cookies []ForwardedValuesCookiesParameters `json:"cookies" tf:"cookies"`
+
+	Headers []string `json:"headers,omitempty" tf:"headers"`
+
+	QueryString bool `json:"queryString" tf:"query_string"`
+
+	QueryStringCacheKeys []string `json:"queryStringCacheKeys,omitempty" tf:"query_string_cache_keys"`
+}
+
+type OrderedCacheBehaviorFunctionAssociationObservation struct {
+}
+
+type OrderedCacheBehaviorFunctionAssociationParameters struct {
+	EventType string `json:"eventType" tf:"event_type"`
+
+	FunctionArn string `json:"functionArn" tf:"function_arn"`
+}
+
+type OrderedCacheBehaviorLambdaFunctionAssociationObservation struct {
+}
+
+type OrderedCacheBehaviorLambdaFunctionAssociationParameters struct {
+	EventType string `json:"eventType" tf:"event_type"`
+
+	IncludeBody *bool `json:"includeBody,omitempty" tf:"include_body"`
+
+	LambdaArn string `json:"lambdaArn" tf:"lambda_arn"`
+}
+
 type OrderedCacheBehaviorObservation struct {
 }
 
@@ -275,11 +317,11 @@ type OrderedCacheBehaviorParameters struct {
 
 	FieldLevelEncryptionId *string `json:"fieldLevelEncryptionId,omitempty" tf:"field_level_encryption_id"`
 
-	ForwardedValues []ForwardedValuesParameters `json:"forwardedValues,omitempty" tf:"forwarded_values"`
+	ForwardedValues []OrderedCacheBehaviorForwardedValuesParameters `json:"forwardedValues,omitempty" tf:"forwarded_values"`
 
-	FunctionAssociation []FunctionAssociationParameters `json:"functionAssociation,omitempty" tf:"function_association"`
+	FunctionAssociation []OrderedCacheBehaviorFunctionAssociationParameters `json:"functionAssociation,omitempty" tf:"function_association"`
 
-	LambdaFunctionAssociation []LambdaFunctionAssociationParameters `json:"lambdaFunctionAssociation,omitempty" tf:"lambda_function_association"`
+	LambdaFunctionAssociation []OrderedCacheBehaviorLambdaFunctionAssociationParameters `json:"lambdaFunctionAssociation,omitempty" tf:"lambda_function_association"`
 
 	MaxTtl *int64 `json:"maxTtl,omitempty" tf:"max_ttl"`
 
@@ -368,10 +410,19 @@ type TrustedKeyGroupsObservation struct {
 type TrustedKeyGroupsParameters struct {
 }
 
+type TrustedSignersItemsObservation struct {
+	AwsAccountNumber string `json:"awsAccountNumber" tf:"aws_account_number"`
+
+	KeyPairIds []string `json:"keyPairIds" tf:"key_pair_ids"`
+}
+
+type TrustedSignersItemsParameters struct {
+}
+
 type TrustedSignersObservation struct {
 	Enabled bool `json:"enabled" tf:"enabled"`
 
-	Items []ItemsObservation `json:"items" tf:"items"`
+	Items []TrustedSignersItemsObservation `json:"items" tf:"items"`
 }
 
 type TrustedSignersParameters struct {

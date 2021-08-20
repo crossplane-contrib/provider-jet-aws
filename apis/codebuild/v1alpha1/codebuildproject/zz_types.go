@@ -296,19 +296,44 @@ type SecondarySourcesParameters struct {
 	Type string `json:"type" tf:"type"`
 }
 
+type SourceAuthObservation struct {
+}
+
+type SourceAuthParameters struct {
+	Resource *string `json:"resource,omitempty" tf:"resource"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type SourceBuildStatusConfigObservation struct {
+}
+
+type SourceBuildStatusConfigParameters struct {
+	Context *string `json:"context,omitempty" tf:"context"`
+
+	TargetUrl *string `json:"targetUrl,omitempty" tf:"target_url"`
+}
+
+type SourceGitSubmodulesConfigObservation struct {
+}
+
+type SourceGitSubmodulesConfigParameters struct {
+	FetchSubmodules bool `json:"fetchSubmodules" tf:"fetch_submodules"`
+}
+
 type SourceObservation struct {
 }
 
 type SourceParameters struct {
-	Auth []AuthParameters `json:"auth,omitempty" tf:"auth"`
+	Auth []SourceAuthParameters `json:"auth,omitempty" tf:"auth"`
 
-	BuildStatusConfig []BuildStatusConfigParameters `json:"buildStatusConfig,omitempty" tf:"build_status_config"`
+	BuildStatusConfig []SourceBuildStatusConfigParameters `json:"buildStatusConfig,omitempty" tf:"build_status_config"`
 
 	Buildspec *string `json:"buildspec,omitempty" tf:"buildspec"`
 
 	GitCloneDepth *int64 `json:"gitCloneDepth,omitempty" tf:"git_clone_depth"`
 
-	GitSubmodulesConfig []GitSubmodulesConfigParameters `json:"gitSubmodulesConfig,omitempty" tf:"git_submodules_config"`
+	GitSubmodulesConfig []SourceGitSubmodulesConfigParameters `json:"gitSubmodulesConfig,omitempty" tf:"git_submodules_config"`
 
 	InsecureSsl *bool `json:"insecureSsl,omitempty" tf:"insecure_ssl"`
 

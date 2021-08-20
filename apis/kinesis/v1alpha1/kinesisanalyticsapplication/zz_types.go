@@ -40,6 +40,15 @@ type CloudwatchLoggingOptionsParameters struct {
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
+type CsvObservation struct {
+}
+
+type CsvParameters struct {
+	RecordColumnDelimiter string `json:"recordColumnDelimiter" tf:"record_column_delimiter"`
+
+	RecordRowDelimiter string `json:"recordRowDelimiter" tf:"record_row_delimiter"`
+}
+
 type InputsObservation struct {
 	Id string `json:"id" tf:"id"`
 
@@ -60,6 +69,13 @@ type InputsParameters struct {
 	Schema []SchemaParameters `json:"schema" tf:"schema"`
 
 	StartingPositionConfiguration []StartingPositionConfigurationParameters `json:"startingPositionConfiguration,omitempty" tf:"starting_position_configuration"`
+}
+
+type JsonObservation struct {
+}
+
+type JsonParameters struct {
+	RecordRowPath string `json:"recordRowPath" tf:"record_row_path"`
 }
 
 type KinesisAnalyticsApplicationObservation struct {
@@ -123,20 +139,79 @@ type LambdaParameters struct {
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
+type MappingParametersCsvObservation struct {
+}
+
+type MappingParametersCsvParameters struct {
+	RecordColumnDelimiter string `json:"recordColumnDelimiter" tf:"record_column_delimiter"`
+
+	RecordRowDelimiter string `json:"recordRowDelimiter" tf:"record_row_delimiter"`
+}
+
+type MappingParametersJsonObservation struct {
+}
+
+type MappingParametersJsonParameters struct {
+	RecordRowPath string `json:"recordRowPath" tf:"record_row_path"`
+}
+
+type MappingParametersObservation struct {
+}
+
+type MappingParametersParameters struct {
+	Csv []CsvParameters `json:"csv,omitempty" tf:"csv"`
+
+	Json []JsonParameters `json:"json,omitempty" tf:"json"`
+}
+
+type OutputsKinesisFirehoseObservation struct {
+}
+
+type OutputsKinesisFirehoseParameters struct {
+	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+
+	RoleArn string `json:"roleArn" tf:"role_arn"`
+}
+
+type OutputsKinesisStreamObservation struct {
+}
+
+type OutputsKinesisStreamParameters struct {
+	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+
+	RoleArn string `json:"roleArn" tf:"role_arn"`
+}
+
+type OutputsLambdaObservation struct {
+}
+
+type OutputsLambdaParameters struct {
+	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+
+	RoleArn string `json:"roleArn" tf:"role_arn"`
+}
+
 type OutputsObservation struct {
 	Id string `json:"id" tf:"id"`
 }
 
 type OutputsParameters struct {
-	KinesisFirehose []KinesisFirehoseParameters `json:"kinesisFirehose,omitempty" tf:"kinesis_firehose"`
+	KinesisFirehose []OutputsKinesisFirehoseParameters `json:"kinesisFirehose,omitempty" tf:"kinesis_firehose"`
 
-	KinesisStream []KinesisStreamParameters `json:"kinesisStream,omitempty" tf:"kinesis_stream"`
+	KinesisStream []OutputsKinesisStreamParameters `json:"kinesisStream,omitempty" tf:"kinesis_stream"`
 
-	Lambda []LambdaParameters `json:"lambda,omitempty" tf:"lambda"`
+	Lambda []OutputsLambdaParameters `json:"lambda,omitempty" tf:"lambda"`
 
 	Name string `json:"name" tf:"name"`
 
-	Schema []SchemaParameters `json:"schema" tf:"schema"`
+	Schema []OutputsSchemaParameters `json:"schema" tf:"schema"`
+}
+
+type OutputsSchemaObservation struct {
+}
+
+type OutputsSchemaParameters struct {
+	RecordFormatType string `json:"recordFormatType" tf:"record_format_type"`
 }
 
 type ParallelismObservation struct {
@@ -153,6 +228,34 @@ type ProcessingConfigurationParameters struct {
 	Lambda []LambdaParameters `json:"lambda" tf:"lambda"`
 }
 
+type RecordColumnsObservation struct {
+}
+
+type RecordColumnsParameters struct {
+	Mapping *string `json:"mapping,omitempty" tf:"mapping"`
+
+	Name string `json:"name" tf:"name"`
+
+	SqlType string `json:"sqlType" tf:"sql_type"`
+}
+
+type RecordFormatMappingParametersObservation struct {
+}
+
+type RecordFormatMappingParametersParameters struct {
+	Csv []MappingParametersCsvParameters `json:"csv,omitempty" tf:"csv"`
+
+	Json []MappingParametersJsonParameters `json:"json,omitempty" tf:"json"`
+}
+
+type RecordFormatObservation struct {
+	RecordFormatType string `json:"recordFormatType" tf:"record_format_type"`
+}
+
+type RecordFormatParameters struct {
+	MappingParameters []MappingParametersParameters `json:"mappingParameters,omitempty" tf:"mapping_parameters"`
+}
+
 type ReferenceDataSourcesObservation struct {
 	Id string `json:"id" tf:"id"`
 }
@@ -160,9 +263,20 @@ type ReferenceDataSourcesObservation struct {
 type ReferenceDataSourcesParameters struct {
 	S3 []S3Parameters `json:"s3" tf:"s3"`
 
-	Schema []SchemaParameters `json:"schema" tf:"schema"`
+	Schema []ReferenceDataSourcesSchemaParameters `json:"schema" tf:"schema"`
 
 	TableName string `json:"tableName" tf:"table_name"`
+}
+
+type ReferenceDataSourcesSchemaObservation struct {
+}
+
+type ReferenceDataSourcesSchemaParameters struct {
+	RecordColumns []SchemaRecordColumnsParameters `json:"recordColumns" tf:"record_columns"`
+
+	RecordEncoding *string `json:"recordEncoding,omitempty" tf:"record_encoding"`
+
+	RecordFormat []SchemaRecordFormatParameters `json:"recordFormat" tf:"record_format"`
 }
 
 type S3Observation struct {
@@ -180,7 +294,30 @@ type SchemaObservation struct {
 }
 
 type SchemaParameters struct {
+	RecordColumns []RecordColumnsParameters `json:"recordColumns" tf:"record_columns"`
+
+	RecordEncoding *string `json:"recordEncoding,omitempty" tf:"record_encoding"`
+
+	RecordFormat []RecordFormatParameters `json:"recordFormat" tf:"record_format"`
+}
+
+type SchemaRecordColumnsObservation struct {
+}
+
+type SchemaRecordColumnsParameters struct {
+	Mapping *string `json:"mapping,omitempty" tf:"mapping"`
+
+	Name string `json:"name" tf:"name"`
+
+	SqlType string `json:"sqlType" tf:"sql_type"`
+}
+
+type SchemaRecordFormatObservation struct {
 	RecordFormatType string `json:"recordFormatType" tf:"record_format_type"`
+}
+
+type SchemaRecordFormatParameters struct {
+	MappingParameters []RecordFormatMappingParametersParameters `json:"mappingParameters,omitempty" tf:"mapping_parameters"`
 }
 
 type StartingPositionConfigurationObservation struct {

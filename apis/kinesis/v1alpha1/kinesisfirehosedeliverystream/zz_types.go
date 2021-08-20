@@ -103,6 +103,17 @@ type ElasticsearchConfigurationParameters struct {
 	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 }
 
+type ExtendedS3ConfigurationCloudwatchLoggingOptionsObservation struct {
+}
+
+type ExtendedS3ConfigurationCloudwatchLoggingOptionsParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
+
+	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
+}
+
 type ExtendedS3ConfigurationObservation struct {
 }
 
@@ -113,7 +124,7 @@ type ExtendedS3ConfigurationParameters struct {
 
 	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size"`
 
-	CloudwatchLoggingOptions []CloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
+	CloudwatchLoggingOptions []ExtendedS3ConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
@@ -125,7 +136,7 @@ type ExtendedS3ConfigurationParameters struct {
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
-	ProcessingConfiguration []ProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
+	ProcessingConfiguration []ExtendedS3ConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
@@ -134,11 +145,31 @@ type ExtendedS3ConfigurationParameters struct {
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 }
 
+type ExtendedS3ConfigurationProcessingConfigurationObservation struct {
+}
+
+type ExtendedS3ConfigurationProcessingConfigurationParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	Processors []ProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
+}
+
 type HiveJsonSerDeObservation struct {
 }
 
 type HiveJsonSerDeParameters struct {
 	TimestampFormats []string `json:"timestampFormats,omitempty" tf:"timestamp_formats"`
+}
+
+type HttpEndpointConfigurationCloudwatchLoggingOptionsObservation struct {
+}
+
+type HttpEndpointConfigurationCloudwatchLoggingOptionsParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
+
+	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
 type HttpEndpointConfigurationObservation struct {
@@ -151,11 +182,11 @@ type HttpEndpointConfigurationParameters struct {
 
 	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size"`
 
-	CloudwatchLoggingOptions []CloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
+	CloudwatchLoggingOptions []HttpEndpointConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	ProcessingConfiguration []ProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
+	ProcessingConfiguration []HttpEndpointConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
 	RequestConfiguration []RequestConfigurationParameters `json:"requestConfiguration,omitempty" tf:"request_configuration"`
 
@@ -166,6 +197,24 @@ type HttpEndpointConfigurationParameters struct {
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 
 	Url string `json:"url" tf:"url"`
+}
+
+type HttpEndpointConfigurationProcessingConfigurationObservation struct {
+}
+
+type HttpEndpointConfigurationProcessingConfigurationParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	Processors []HttpEndpointConfigurationProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
+}
+
+type HttpEndpointConfigurationProcessingConfigurationProcessorsObservation struct {
+}
+
+type HttpEndpointConfigurationProcessingConfigurationProcessorsParameters struct {
+	Parameters []ProcessingConfigurationProcessorsParametersParameters `json:"parameters,omitempty" tf:"parameters"`
+
+	Type string `json:"type" tf:"type"`
 }
 
 type InputFormatConfigurationObservation struct {
@@ -297,6 +346,24 @@ type ProcessingConfigurationParameters struct {
 	Processors []ProcessorsParameters `json:"processors,omitempty" tf:"processors"`
 }
 
+type ProcessingConfigurationProcessorsObservation struct {
+}
+
+type ProcessingConfigurationProcessorsParameters struct {
+	Parameters []ProcessorsParametersParameters `json:"parameters,omitempty" tf:"parameters"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type ProcessingConfigurationProcessorsParametersObservation struct {
+}
+
+type ProcessingConfigurationProcessorsParametersParameters struct {
+	ParameterName string `json:"parameterName" tf:"parameter_name"`
+
+	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
+}
+
 type ProcessorsObservation struct {
 }
 
@@ -306,11 +373,31 @@ type ProcessorsParameters struct {
 	Type string `json:"type" tf:"type"`
 }
 
+type ProcessorsParametersObservation struct {
+}
+
+type ProcessorsParametersParameters struct {
+	ParameterName string `json:"parameterName" tf:"parameter_name"`
+
+	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
+}
+
+type RedshiftConfigurationCloudwatchLoggingOptionsObservation struct {
+}
+
+type RedshiftConfigurationCloudwatchLoggingOptionsParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
+
+	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
+}
+
 type RedshiftConfigurationObservation struct {
 }
 
 type RedshiftConfigurationParameters struct {
-	CloudwatchLoggingOptions []CloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
+	CloudwatchLoggingOptions []RedshiftConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
 	ClusterJdbcurl string `json:"clusterJdbcurl" tf:"cluster_jdbcurl"`
 
@@ -322,17 +409,76 @@ type RedshiftConfigurationParameters struct {
 
 	Password string `json:"password" tf:"password"`
 
-	ProcessingConfiguration []ProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
+	ProcessingConfiguration []RedshiftConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
 	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration"`
 
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
-	S3BackupConfiguration []S3BackupConfigurationParameters `json:"s3BackupConfiguration,omitempty" tf:"s3_backup_configuration"`
+	S3BackupConfiguration []RedshiftConfigurationS3BackupConfigurationParameters `json:"s3BackupConfiguration,omitempty" tf:"s3_backup_configuration"`
 
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 
 	Username string `json:"username" tf:"username"`
+}
+
+type RedshiftConfigurationProcessingConfigurationObservation struct {
+}
+
+type RedshiftConfigurationProcessingConfigurationParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	Processors []RedshiftConfigurationProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
+}
+
+type RedshiftConfigurationProcessingConfigurationProcessorsObservation struct {
+}
+
+type RedshiftConfigurationProcessingConfigurationProcessorsParameters struct {
+	Parameters []RedshiftConfigurationProcessingConfigurationProcessorsParametersParameters `json:"parameters,omitempty" tf:"parameters"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type RedshiftConfigurationProcessingConfigurationProcessorsParametersObservation struct {
+}
+
+type RedshiftConfigurationProcessingConfigurationProcessorsParametersParameters struct {
+	ParameterName string `json:"parameterName" tf:"parameter_name"`
+
+	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
+}
+
+type RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsObservation struct {
+}
+
+type RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
+
+	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
+}
+
+type RedshiftConfigurationS3BackupConfigurationObservation struct {
+}
+
+type RedshiftConfigurationS3BackupConfigurationParameters struct {
+	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
+
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval"`
+
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size"`
+
+	CloudwatchLoggingOptions []RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
+
+	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
+
+	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+
+	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
+
+	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
 type RequestConfigurationObservation struct {
@@ -342,6 +488,17 @@ type RequestConfigurationParameters struct {
 	CommonAttributes []CommonAttributesParameters `json:"commonAttributes,omitempty" tf:"common_attributes"`
 
 	ContentEncoding *string `json:"contentEncoding,omitempty" tf:"content_encoding"`
+}
+
+type S3BackupConfigurationCloudwatchLoggingOptionsObservation struct {
+}
+
+type S3BackupConfigurationCloudwatchLoggingOptionsParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
+
+	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
 type S3BackupConfigurationObservation struct {
@@ -354,7 +511,7 @@ type S3BackupConfigurationParameters struct {
 
 	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size"`
 
-	CloudwatchLoggingOptions []CloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
+	CloudwatchLoggingOptions []S3BackupConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
@@ -363,6 +520,17 @@ type S3BackupConfigurationParameters struct {
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
 	RoleArn string `json:"roleArn" tf:"role_arn"`
+}
+
+type S3ConfigurationCloudwatchLoggingOptionsObservation struct {
+}
+
+type S3ConfigurationCloudwatchLoggingOptionsParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
+
+	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
 type S3ConfigurationObservation struct {
@@ -375,7 +543,7 @@ type S3ConfigurationParameters struct {
 
 	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size"`
 
-	CloudwatchLoggingOptions []CloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
+	CloudwatchLoggingOptions []S3ConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
@@ -423,11 +591,22 @@ type ServerSideEncryptionParameters struct {
 	KeyType *string `json:"keyType,omitempty" tf:"key_type"`
 }
 
+type SplunkConfigurationCloudwatchLoggingOptionsObservation struct {
+}
+
+type SplunkConfigurationCloudwatchLoggingOptionsParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
+
+	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
+}
+
 type SplunkConfigurationObservation struct {
 }
 
 type SplunkConfigurationParameters struct {
-	CloudwatchLoggingOptions []CloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
+	CloudwatchLoggingOptions []SplunkConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
 	HecAcknowledgmentTimeout *int64 `json:"hecAcknowledgmentTimeout,omitempty" tf:"hec_acknowledgment_timeout"`
 
@@ -437,11 +616,38 @@ type SplunkConfigurationParameters struct {
 
 	HecToken string `json:"hecToken" tf:"hec_token"`
 
-	ProcessingConfiguration []ProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
+	ProcessingConfiguration []SplunkConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
 	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration"`
 
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
+}
+
+type SplunkConfigurationProcessingConfigurationObservation struct {
+}
+
+type SplunkConfigurationProcessingConfigurationParameters struct {
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	Processors []SplunkConfigurationProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
+}
+
+type SplunkConfigurationProcessingConfigurationProcessorsObservation struct {
+}
+
+type SplunkConfigurationProcessingConfigurationProcessorsParameters struct {
+	Parameters []SplunkConfigurationProcessingConfigurationProcessorsParametersParameters `json:"parameters,omitempty" tf:"parameters"`
+
+	Type string `json:"type" tf:"type"`
+}
+
+type SplunkConfigurationProcessingConfigurationProcessorsParametersObservation struct {
+}
+
+type SplunkConfigurationProcessingConfigurationProcessorsParametersParameters struct {
+	ParameterName string `json:"parameterName" tf:"parameter_name"`
+
+	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
 }
 
 type VpcConfigObservation struct {

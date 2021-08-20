@@ -61,6 +61,13 @@ type InferenceExecutionConfigParameters struct {
 	Mode string `json:"mode" tf:"mode"`
 }
 
+type PrimaryContainerImageConfigObservation struct {
+}
+
+type PrimaryContainerImageConfigParameters struct {
+	RepositoryAccessMode string `json:"repositoryAccessMode" tf:"repository_access_mode"`
+}
+
 type PrimaryContainerObservation struct {
 }
 
@@ -71,7 +78,7 @@ type PrimaryContainerParameters struct {
 
 	Image string `json:"image" tf:"image"`
 
-	ImageConfig []ImageConfigParameters `json:"imageConfig,omitempty" tf:"image_config"`
+	ImageConfig []PrimaryContainerImageConfigParameters `json:"imageConfig,omitempty" tf:"image_config"`
 
 	Mode *string `json:"mode,omitempty" tf:"mode"`
 
