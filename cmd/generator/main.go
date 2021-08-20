@@ -17,23 +17,23 @@ limitations under the License.
 package main
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-
 	"github.com/iancoleman/strcase"
-
-	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 	"github.com/pkg/errors"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
+
+	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 )
 
 // Constants to use in generated artifacts.
 const (
-	ModulePath  = "github.com/crossplane-contrib/provider-tf-aws"
-	GroupSuffix = ".aws.tf.crossplane.io"
+	modulePath  = "github.com/crossplane-contrib/provider-tf-aws"
+	groupSuffix = ".aws.tf.crossplane.io"
 )
 
 func main() {
@@ -46,12 +46,14 @@ func main() {
 		if len(resource.Schema) == 0 {
 			// There are resources with no schema, like aws_securityhub_account
 			// that we will address later.
+			fmt.Printf("Skipping resource %s because it has no schema\n", name)
 			continue
 		}
 		// Both aws_config_configuration_recorder_status and aws_config_configuration_recorder
 		// exist as resource which makes kubebuilder confuse them as same resource
 		// and expect a storage version.
 		if name == "aws_config_configuration_recorder_status" {
+			fmt.Printf("Skipping resource %s because there is a resource whose name is prefix of this resource\n", name)
 			continue
 		}
 		words := strings.Split(name, "_")
@@ -61,21 +63,23 @@ func main() {
 		}
 		groups[groupName][name] = resource
 	}
-
+	count := 0
 	for group, resources := range groups {
 		version := "v1alpha1"
-		groupGen := pipeline.NewVersionGenerator(wd, strings.ToLower(group)+GroupSuffix, version)
+		groupGen := pipeline.NewVersionGenerator(wd, strings.ToLower(group)+groupSuffix, version)
 		if err := groupGen.Generate(); err != nil {
 			panic(errors.Wrap(err, "cannot generate version files"))
 		}
 		groupDir := filepath.Join(wd, "apis", group)
-		crdGen := pipeline.NewCRDGenerator(groupDir, ModulePath, strings.ToLower(group)+GroupSuffix)
+		crdGen := pipeline.NewCRDGenerator(groupDir, modulePath, strings.ToLower(group)+groupSuffix)
 		for name, resource := range resources {
 			// We don't want Aws prefix in all kinds.
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
 			if err := crdGen.Generate(version, kind, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
+			count++
 		}
 	}
+	fmt.Printf("\nGenerated %d resources!\n", count)
 }
