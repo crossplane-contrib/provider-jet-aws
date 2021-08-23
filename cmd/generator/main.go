@@ -21,11 +21,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-
-	"github.com/iancoleman/strcase"
-
 	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/iancoleman/strcase"
 	"github.com/pkg/errors"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
 )
@@ -33,6 +31,13 @@ import (
 const (
 	ModulePath  = "github.com/crossplane-contrib/provider-tf-aws"
 	GroupSuffix = ".aws.tf.crossplane.io"
+)
+
+var (
+	// We expect a function called "ProviderConfigBuilder" of type
+	// "ProviderConfigFn" (https://github.com/crossplane-contrib/terrajet/blob/4246657031f181fdaf0de83e83ceaa8735307180/pkg/terraform/controller.go#L33)
+	// available at this path
+	providerConfigBuilderPath = filepath.Join(ModulePath, "internal", "clients")
 )
 
 func main() {
@@ -67,13 +72,24 @@ func main() {
 		if err := groupGen.Generate(); err != nil {
 			panic(errors.Wrap(err, "cannot generate version files"))
 		}
-		groupDir := filepath.Join(wd, "apis", group)
-		crdGen := pipeline.NewCRDGenerator(groupDir, ModulePath, strings.ToLower(group)+GroupSuffix)
+		apiGroupDir := filepath.Join(wd, "apis", group)
+		ctrlGroupDir := filepath.Join(wd, "internal", "controller", group)
+
+		crdGen := pipeline.NewCRDGenerator(apiGroupDir, ModulePath, strings.ToLower(group)+GroupSuffix)
+		tfGen := pipeline.NewTerraformedGenerator(apiGroupDir)
+		ctrlGen := pipeline.NewControllerGenerator(apiGroupDir, ctrlGroupDir, ModulePath, strings.ToLower(group)+GroupSuffix, providerConfigBuilderPath)
+
 		for name, resource := range resources {
 			// We don't want Aws prefix in all kinds.
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
 			if err := crdGen.Generate(version, kind, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
+			}
+			if err := tfGen.Generate(version, kind, name, "id"); err != nil {
+				panic(errors.Wrap(err, "cannot generate terraformed"))
+			}
+			if err := ctrlGen.Generate(version, kind); err != nil {
+				panic(errors.Wrap(err, "cannot generate controller"))
 			}
 		}
 	}
