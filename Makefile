@@ -2,7 +2,7 @@
 # Setup Project
 
 PROJECT_NAME := provider-tf-aws
-PROJECT_REPO := github.com/crossplane/$(PROJECT_NAME)
+PROJECT_REPO := github.com/crossplane-contrib/$(PROJECT_NAME)
 
 PLATFORMS ?= linux_amd64 linux_arm64
 
