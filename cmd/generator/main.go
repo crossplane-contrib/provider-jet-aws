@@ -36,6 +36,13 @@ const (
 	groupSuffix = ".aws.tf.crossplane.io"
 )
 
+var (
+	// We expect a function called "ProviderConfigBuilder" of type
+	// "ProviderConfigFn" (https://github.com/crossplane-contrib/terrajet/blob/4246657031f181fdaf0de83e83ceaa8735307180/pkg/terraform/controller.go#L33)
+	// available at this path
+	providerConfigBuilderPath = filepath.Join(modulePath, "internal", "clients")
+)
+
 func main() {
 	wd, err := os.Getwd()
 	if err != nil {
@@ -70,13 +77,24 @@ func main() {
 		if err := groupGen.Generate(); err != nil {
 			panic(errors.Wrap(err, "cannot generate version files"))
 		}
-		groupDir := filepath.Join(wd, "apis", group)
-		crdGen := pipeline.NewCRDGenerator(groupDir, modulePath, strings.ToLower(group)+groupSuffix)
+		apiGroupDir := filepath.Join(wd, "apis", group)
+		ctrlGroupDir := filepath.Join(wd, "internal", "controller", group)
+
+		crdGen := pipeline.NewCRDGenerator(apiGroupDir, modulePath, strings.ToLower(group)+groupSuffix)
+		tfGen := pipeline.NewTerraformedGenerator(apiGroupDir, modulePath, strings.ToLower(group)+groupSuffix)
+		ctrlGen := pipeline.NewControllerGenerator(ctrlGroupDir, modulePath, strings.ToLower(group)+groupSuffix, providerConfigBuilderPath)
+
 		for name, resource := range resources {
 			// We don't want Aws prefix in all kinds.
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
 			if err := crdGen.Generate(version, kind, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
+			}
+			if err := tfGen.Generate(version, kind, name, "id"); err != nil {
+				panic(errors.Wrap(err, "cannot generate terraformed"))
+			}
+			if err := ctrlGen.Generate(version, kind); err != nil {
+				panic(errors.Wrap(err, "cannot generate controller"))
 			}
 			count++
 		}
