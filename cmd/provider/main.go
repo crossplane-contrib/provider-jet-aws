@@ -20,12 +20,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"gopkg.in/alecthomas/kingpin.v2"
-	ctrl "sigs.k8s.io/controller-runtime"
-	"sigs.k8s.io/controller-runtime/pkg/log/zap"
-
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
+	"gopkg.in/alecthomas/kingpin.v2"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	ctrl "sigs.k8s.io/controller-runtime"
+	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	"github.com/crossplane-contrib/provider-tf-aws/apis"
 	"github.com/crossplane-contrib/provider-tf-aws/internal/controller"
@@ -62,7 +62,10 @@ func main() {
 	kingpin.FatalIfError(err, "Cannot create controller manager")
 
 	rl := ratelimiter.NewDefaultProviderRateLimiter(ratelimiter.DefaultProviderRPS)
-	kingpin.FatalIfError(apis.AddToScheme(mgr.GetScheme()), "Cannot add AWS APIs to scheme")
+	for gv, kinds := range apis.SchemaMap {
+		mgr.GetScheme().AddKnownTypes(gv, kinds...)
+		metav1.AddToGroupVersion(mgr.GetScheme(), gv)
+	}
 	kingpin.FatalIfError(controller.Setup(mgr, log, rl), "Cannot setup AWS controllers")
 	kingpin.FatalIfError(mgr.Start(ctrl.SetupSignalHandler()), "Cannot start controller manager")
 }
