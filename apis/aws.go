@@ -19,21 +19,9 @@ package apis
 
 import (
 	"k8s.io/apimachinery/pkg/runtime"
-
-	awsv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
+	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-func init() {
-	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
-	AddToSchemes = append(AddToSchemes,
-		awsv1alpha1.SchemeBuilder.AddToScheme,
-	)
-}
-
-// AddToSchemes may be used to add all resources defined in the project to a Scheme
-var AddToSchemes runtime.SchemeBuilder
-
-// AddToScheme adds all Resources to the Scheme
-func AddToScheme(s *runtime.Scheme) error {
-	return AddToSchemes.AddToScheme(s)
-}
+// SchemaMap holds all schema information of all CRDs, ready to be added
+// to the main scheme.
+var SchemaMap = map[schema.GroupVersion][]runtime.Object{}

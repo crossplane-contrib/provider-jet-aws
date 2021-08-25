@@ -27,6 +27,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
+	apis "github.com/crossplane-contrib/provider-tf-aws/apis"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/elasticache/v1alpha1"
 )
 
@@ -165,5 +166,5 @@ var (
 )
 
 func init() {
-	v1alpha1.SchemeBuilder.Register(&ElasticacheReplicationGroup{}, &ElasticacheReplicationGroupList{})
+	apis.SchemaMap[v1alpha1.GroupVersion] = append(apis.SchemaMap[v1alpha1.GroupVersion], &ElasticacheReplicationGroup{}, &ElasticacheReplicationGroupList{})
 }
