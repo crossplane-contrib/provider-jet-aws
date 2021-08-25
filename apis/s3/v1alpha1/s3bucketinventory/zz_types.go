@@ -27,6 +27,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
+	apis "github.com/crossplane-contrib/provider-tf-aws/apis"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
 )
 
@@ -155,5 +156,5 @@ var (
 )
 
 func init() {
-	v1alpha1.SchemeBuilder.Register(&S3BucketInventory{}, &S3BucketInventoryList{})
+	apis.SchemaMap[v1alpha1.GroupVersion] = append(apis.SchemaMap[v1alpha1.GroupVersion], &S3BucketInventory{}, &S3BucketInventoryList{})
 }

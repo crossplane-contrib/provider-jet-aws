@@ -27,6 +27,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
+	apis "github.com/crossplane-contrib/provider-tf-aws/apis"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/apigatewayv2/v1alpha1"
 )
 
@@ -151,5 +152,5 @@ var (
 )
 
 func init() {
-	v1alpha1.SchemeBuilder.Register(&Apigatewayv2Stage{}, &Apigatewayv2StageList{})
+	apis.SchemaMap[v1alpha1.GroupVersion] = append(apis.SchemaMap[v1alpha1.GroupVersion], &Apigatewayv2Stage{}, &Apigatewayv2StageList{})
 }
