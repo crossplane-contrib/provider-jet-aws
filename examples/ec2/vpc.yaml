@@ -1,13 +1,13 @@
-apiVersion: ec2.aws.terraform.crossplane.io/v1alpha1
-kind: VPC
+apiVersion: vpc.aws.tf.crossplane.io/v1alpha1
+kind: Vpc
 metadata:
-  name: sample-vpc
+  name: sample-vpc-hasan
 spec:
   forProvider:
-    region: us-east-1
     cidrBlock: 10.0.0.0/16
-    enableDnsSupport: true
-    enableDnsHostNames: true
-    instanceTenancy: default
+    tagsAll:
+      Name: DemoVpcHasanUpdated
+    tags:
+      Name: DemoVpcHasanUpdated
   providerConfigRef:
     name: example
