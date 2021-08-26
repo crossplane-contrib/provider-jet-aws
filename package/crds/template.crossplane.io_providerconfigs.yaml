@@ -99,8 +99,12 @@ spec:
                 required:
                 - source
                 type: object
+              region:
+                description: Region is the AWS region to create the managed resources
+                type: string
             required:
             - credentials
+            - region
             type: object
           status:
             description: A ProviderConfigStatus reflects the observed state of a ProviderConfig.
