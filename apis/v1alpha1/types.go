@@ -26,8 +26,6 @@ import (
 type ProviderConfigSpec struct {
 	// Credentials required to authenticate to this provider.
 	Credentials ProviderCredentials `json:"credentials"`
-	// Region is the AWS region to create the managed resources
-	Region string `json:"region"`
 }
 
 // ProviderCredentials required to authenticate.
