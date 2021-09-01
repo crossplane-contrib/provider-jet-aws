@@ -3,7 +3,6 @@ RUN apk --no-cache add ca-certificates bash
 
 ARG ARCH
 ARG TINI_VERSION
-
 ENV USER_ID=1001
 
 # Setup Terraform environment
@@ -20,8 +19,10 @@ ADD https://releases.hashicorp.com/terraform-provider-aws/${TERRAFORM_PROVIDER_A
 ADD terraformrc.hcl ${TF_CLI_CONFIG_FILE}
 
 RUN unzip /tmp/terraform_${TERRAFORM_VERSION}_linux_${ARCH}.zip -d /usr/local/bin \
+  && chmod +x /usr/local/bin/terraform \
   && rm /tmp/terraform_${TERRAFORM_VERSION}_linux_${ARCH}.zip \
   && unzip /tmp/terraform-provider-aws_${TERRAFORM_PROVIDER_AWS_VERSION}_linux_${ARCH}.zip -d ${PLUGIN_DIR} \
+  && chmod +x ${PLUGIN_DIR}/* \
   && rm /tmp/terraform-provider-aws_${TERRAFORM_PROVIDER_AWS_VERSION}_linux_${ARCH}.zip \
   && chown -R ${USER_ID}:${USER_ID} /terraform
 # End of - Setup Terraform environment
