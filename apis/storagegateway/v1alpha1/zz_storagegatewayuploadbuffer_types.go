@@ -28,11 +28,11 @@ type StoragegatewayUploadBufferObservation struct {
 }
 
 type StoragegatewayUploadBufferParameters struct {
-	DiskId *string `json:"diskId,omitempty" tf:"disk_id"`
+	DiskID *string `json:"diskID,omitempty" tf:"disk_id"`
 
 	DiskPath *string `json:"diskPath,omitempty" tf:"disk_path"`
 
-	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+	GatewayARN string `json:"gatewayARN" tf:"gateway_arn"`
 }
 
 // StoragegatewayUploadBufferSpec defines the desired state of StoragegatewayUploadBuffer

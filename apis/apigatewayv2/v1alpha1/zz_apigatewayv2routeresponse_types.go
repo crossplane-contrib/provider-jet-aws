@@ -28,13 +28,13 @@ type Apigatewayv2RouteResponseObservation struct {
 }
 
 type Apigatewayv2RouteResponseParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
 	ModelSelectionExpression *string `json:"modelSelectionExpression,omitempty" tf:"model_selection_expression"`
 
 	ResponseModels map[string]string `json:"responseModels,omitempty" tf:"response_models"`
 
-	RouteId string `json:"routeId" tf:"route_id"`
+	RouteID string `json:"routeID" tf:"route_id"`
 
 	RouteResponseKey string `json:"routeResponseKey" tf:"route_response_key"`
 }

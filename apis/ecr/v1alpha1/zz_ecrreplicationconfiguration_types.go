@@ -30,11 +30,11 @@ type DestinationObservation struct {
 type DestinationParameters struct {
 	Region string `json:"region" tf:"region"`
 
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	RegistryID string `json:"registryID" tf:"registry_id"`
 }
 
 type EcrReplicationConfigurationObservation struct {
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	RegistryID string `json:"registryID" tf:"registry_id"`
 }
 
 type EcrReplicationConfigurationParameters struct {

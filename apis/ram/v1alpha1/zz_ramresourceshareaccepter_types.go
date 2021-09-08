@@ -25,15 +25,15 @@ import (
 )
 
 type RamResourceShareAccepterObservation struct {
-	InvitationArn string `json:"invitationArn" tf:"invitation_arn"`
+	InvitationARN string `json:"invitationARN" tf:"invitation_arn"`
 
-	ReceiverAccountId string `json:"receiverAccountId" tf:"receiver_account_id"`
+	ReceiverAccountID string `json:"receiverAccountID" tf:"receiver_account_id"`
 
 	Resources []string `json:"resources" tf:"resources"`
 
-	SenderAccountId string `json:"senderAccountId" tf:"sender_account_id"`
+	SenderAccountID string `json:"senderAccountID" tf:"sender_account_id"`
 
-	ShareId string `json:"shareId" tf:"share_id"`
+	ShareID string `json:"shareID" tf:"share_id"`
 
 	ShareName string `json:"shareName" tf:"share_name"`
 
@@ -41,7 +41,7 @@ type RamResourceShareAccepterObservation struct {
 }
 
 type RamResourceShareAccepterParameters struct {
-	ShareArn string `json:"shareArn" tf:"share_arn"`
+	ShareARN string `json:"shareARN" tf:"share_arn"`
 }
 
 // RamResourceShareAccepterSpec defines the desired state of RamResourceShareAccepter

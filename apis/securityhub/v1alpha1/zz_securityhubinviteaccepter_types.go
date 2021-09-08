@@ -25,11 +25,11 @@ import (
 )
 
 type SecurityhubInviteAccepterObservation struct {
-	InvitationId string `json:"invitationId" tf:"invitation_id"`
+	InvitationID string `json:"invitationID" tf:"invitation_id"`
 }
 
 type SecurityhubInviteAccepterParameters struct {
-	MasterId string `json:"masterId" tf:"master_id"`
+	MasterID string `json:"masterID" tf:"master_id"`
 }
 
 // SecurityhubInviteAccepterSpec defines the desired state of SecurityhubInviteAccepter

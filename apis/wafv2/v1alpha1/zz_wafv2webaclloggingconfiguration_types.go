@@ -101,7 +101,7 @@ type RedactedFieldsParameters struct {
 
 	SingleQueryArgument []RedactedFieldsSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RedactedFieldsUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	URIPath []RedactedFieldsURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RedactedFieldsQueryStringObservation struct {
@@ -124,10 +124,10 @@ type RedactedFieldsSingleQueryArgumentParameters struct {
 	Name string `json:"name" tf:"name"`
 }
 
-type RedactedFieldsUriPathObservation struct {
+type RedactedFieldsURIPathObservation struct {
 }
 
-type RedactedFieldsUriPathParameters struct {
+type RedactedFieldsURIPathParameters struct {
 }
 
 type Wafv2WebAclLoggingConfigurationObservation struct {
@@ -140,7 +140,7 @@ type Wafv2WebAclLoggingConfigurationParameters struct {
 
 	RedactedFields []RedactedFieldsParameters `json:"redactedFields,omitempty" tf:"redacted_fields"`
 
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 // Wafv2WebAclLoggingConfigurationSpec defines the desired state of Wafv2WebAclLoggingConfiguration

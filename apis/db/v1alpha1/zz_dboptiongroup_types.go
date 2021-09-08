@@ -25,7 +25,7 @@ import (
 )
 
 type DbOptionGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type DbOptionGroupParameters struct {
@@ -50,7 +50,7 @@ type OptionObservation struct {
 }
 
 type OptionParameters struct {
-	DbSecurityGroupMemberships []string `json:"dbSecurityGroupMemberships,omitempty" tf:"db_security_group_memberships"`
+	DBSecurityGroupMemberships []string `json:"dbSecurityGroupMemberships,omitempty" tf:"db_security_group_memberships"`
 
 	OptionName string `json:"optionName" tf:"option_name"`
 
@@ -58,9 +58,9 @@ type OptionParameters struct {
 
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
-	Version *string `json:"version,omitempty" tf:"version"`
+	VPCSecurityGroupMemberships []string `json:"vpcSecurityGroupMemberships,omitempty" tf:"vpc_security_group_memberships"`
 
-	VpcSecurityGroupMemberships []string `json:"vpcSecurityGroupMemberships,omitempty" tf:"vpc_security_group_memberships"`
+	Version *string `json:"version,omitempty" tf:"version"`
 }
 
 type OptionSettingsObservation struct {

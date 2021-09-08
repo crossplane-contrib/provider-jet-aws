@@ -25,7 +25,7 @@ import (
 )
 
 type SecurityhubStandardsControlObservation struct {
-	ControlId string `json:"controlId" tf:"control_id"`
+	ControlID string `json:"controlID" tf:"control_id"`
 
 	ControlStatusUpdatedAt string `json:"controlStatusUpdatedAt" tf:"control_status_updated_at"`
 
@@ -33,7 +33,7 @@ type SecurityhubStandardsControlObservation struct {
 
 	RelatedRequirements []string `json:"relatedRequirements" tf:"related_requirements"`
 
-	RemediationUrl string `json:"remediationUrl" tf:"remediation_url"`
+	RemediationURL string `json:"remediationURL" tf:"remediation_url"`
 
 	SeverityRating string `json:"severityRating" tf:"severity_rating"`
 
@@ -45,7 +45,7 @@ type SecurityhubStandardsControlParameters struct {
 
 	DisabledReason *string `json:"disabledReason,omitempty" tf:"disabled_reason"`
 
-	StandardsControlArn string `json:"standardsControlArn" tf:"standards_control_arn"`
+	StandardsControlARN string `json:"standardsControlARN" tf:"standards_control_arn"`
 }
 
 // SecurityhubStandardsControlSpec defines the desired state of SecurityhubStandardsControl

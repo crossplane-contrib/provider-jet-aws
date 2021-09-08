@@ -25,19 +25,19 @@ import (
 )
 
 type DxHostedPrivateVirtualInterfaceAccepterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type DxHostedPrivateVirtualInterfaceAccepterParameters struct {
-	DxGatewayId *string `json:"dxGatewayId,omitempty" tf:"dx_gateway_id"`
+	DxGatewayID *string `json:"dxGatewayID,omitempty" tf:"dx_gateway_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VirtualInterfaceId string `json:"virtualInterfaceId" tf:"virtual_interface_id"`
+	VirtualInterfaceID string `json:"virtualInterfaceID" tf:"virtual_interface_id"`
 
-	VpnGatewayId *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
+	VpnGatewayID *string `json:"vpnGatewayID,omitempty" tf:"vpn_gateway_id"`
 }
 
 // DxHostedPrivateVirtualInterfaceAccepterSpec defines the desired state of DxHostedPrivateVirtualInterfaceAccepter

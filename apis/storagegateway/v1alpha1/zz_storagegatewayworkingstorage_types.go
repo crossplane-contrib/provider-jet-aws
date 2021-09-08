@@ -28,9 +28,9 @@ type StoragegatewayWorkingStorageObservation struct {
 }
 
 type StoragegatewayWorkingStorageParameters struct {
-	DiskId string `json:"diskId" tf:"disk_id"`
+	DiskID string `json:"diskID" tf:"disk_id"`
 
-	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+	GatewayARN string `json:"gatewayARN" tf:"gateway_arn"`
 }
 
 // StoragegatewayWorkingStorageSpec defines the desired state of StoragegatewayWorkingStorage

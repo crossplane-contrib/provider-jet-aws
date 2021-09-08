@@ -46,7 +46,7 @@ type NetworkfirewallLoggingConfigurationObservation struct {
 }
 
 type NetworkfirewallLoggingConfigurationParameters struct {
-	FirewallArn string `json:"firewallArn" tf:"firewall_arn"`
+	FirewallARN string `json:"firewallARN" tf:"firewall_arn"`
 
 	LoggingConfiguration []LoggingConfigurationParameters `json:"loggingConfiguration" tf:"logging_configuration"`
 }

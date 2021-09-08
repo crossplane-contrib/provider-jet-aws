@@ -25,7 +25,7 @@ import (
 )
 
 type AcmpcaCertificateObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Certificate string `json:"certificate" tf:"certificate"`
 
@@ -33,13 +33,13 @@ type AcmpcaCertificateObservation struct {
 }
 
 type AcmpcaCertificateParameters struct {
-	CertificateAuthorityArn string `json:"certificateAuthorityArn" tf:"certificate_authority_arn"`
+	CertificateAuthorityARN string `json:"certificateAuthorityARN" tf:"certificate_authority_arn"`
 
 	CertificateSigningRequest string `json:"certificateSigningRequest" tf:"certificate_signing_request"`
 
 	SigningAlgorithm string `json:"signingAlgorithm" tf:"signing_algorithm"`
 
-	TemplateArn *string `json:"templateArn,omitempty" tf:"template_arn"`
+	TemplateARN *string `json:"templateARN,omitempty" tf:"template_arn"`
 
 	Validity []ValidityParameters `json:"validity" tf:"validity"`
 }

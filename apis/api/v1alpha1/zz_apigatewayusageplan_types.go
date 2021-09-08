@@ -24,12 +24,21 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
+type APIStagesObservation struct {
+}
+
+type APIStagesParameters struct {
+	APIID string `json:"apiID" tf:"api_id"`
+
+	Stage string `json:"stage" tf:"stage"`
+}
+
 type ApiGatewayUsagePlanObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ApiGatewayUsagePlanParameters struct {
-	ApiStages []ApiStagesParameters `json:"apiStages,omitempty" tf:"api_stages"`
+	APIStages []APIStagesParameters `json:"apiStages,omitempty" tf:"api_stages"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
@@ -53,15 +62,6 @@ type ApiGatewayUsagePlanThrottleSettingsParameters struct {
 	BurstLimit *int64 `json:"burstLimit,omitempty" tf:"burst_limit"`
 
 	RateLimit *float64 `json:"rateLimit,omitempty" tf:"rate_limit"`
-}
-
-type ApiStagesObservation struct {
-}
-
-type ApiStagesParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
-
-	Stage string `json:"stage" tf:"stage"`
 }
 
 type QuotaSettingsObservation struct {

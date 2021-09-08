@@ -25,13 +25,13 @@ import (
 )
 
 type CodecommitRepositoryObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	CloneUrlHttp string `json:"cloneUrlHttp" tf:"clone_url_http"`
+	CloneURLHTTP string `json:"cloneURLHTTP" tf:"clone_url_http"`
 
-	CloneUrlSsh string `json:"cloneUrlSsh" tf:"clone_url_ssh"`
+	CloneURLSSH string `json:"cloneURLSSH" tf:"clone_url_ssh"`
 
-	RepositoryId string `json:"repositoryId" tf:"repository_id"`
+	RepositoryID string `json:"repositoryID" tf:"repository_id"`
 }
 
 type CodecommitRepositoryParameters struct {

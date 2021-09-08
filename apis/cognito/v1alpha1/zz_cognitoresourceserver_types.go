@@ -35,7 +35,7 @@ type CognitoResourceServerParameters struct {
 
 	Scope []ScopeParameters `json:"scope,omitempty" tf:"scope"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	UserPoolID string `json:"userPoolID" tf:"user_pool_id"`
 }
 
 type ScopeObservation struct {

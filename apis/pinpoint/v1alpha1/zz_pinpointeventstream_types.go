@@ -28,11 +28,11 @@ type PinpointEventStreamObservation struct {
 }
 
 type PinpointEventStreamParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
-	DestinationStreamArn string `json:"destinationStreamArn" tf:"destination_stream_arn"`
+	DestinationStreamARN string `json:"destinationStreamARN" tf:"destination_stream_arn"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 // PinpointEventStreamSpec defines the desired state of PinpointEventStream

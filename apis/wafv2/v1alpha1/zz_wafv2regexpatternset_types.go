@@ -32,7 +32,7 @@ type RegularExpressionParameters struct {
 }
 
 type Wafv2RegexPatternSetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	LockToken string `json:"lockToken" tf:"lock_token"`
 }

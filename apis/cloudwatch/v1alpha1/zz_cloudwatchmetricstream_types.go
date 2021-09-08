@@ -25,7 +25,7 @@ import (
 )
 
 type CloudwatchMetricStreamObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreationDate string `json:"creationDate" tf:"creation_date"`
 
@@ -37,7 +37,7 @@ type CloudwatchMetricStreamObservation struct {
 type CloudwatchMetricStreamParameters struct {
 	ExcludeFilter []ExcludeFilterParameters `json:"excludeFilter,omitempty" tf:"exclude_filter"`
 
-	FirehoseArn string `json:"firehoseArn" tf:"firehose_arn"`
+	FirehoseARN string `json:"firehoseARN" tf:"firehose_arn"`
 
 	IncludeFilter []IncludeFilterParameters `json:"includeFilter,omitempty" tf:"include_filter"`
 
@@ -47,7 +47,7 @@ type CloudwatchMetricStreamParameters struct {
 
 	OutputFormat string `json:"outputFormat" tf:"output_format"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

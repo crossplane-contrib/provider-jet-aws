@@ -25,9 +25,9 @@ import (
 )
 
 type Route53ResolverRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
 	ShareStatus string `json:"shareStatus" tf:"share_status"`
 }
@@ -37,7 +37,7 @@ type Route53ResolverRuleParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	ResolverEndpointId *string `json:"resolverEndpointId,omitempty" tf:"resolver_endpoint_id"`
+	ResolverEndpointID *string `json:"resolverEndpointID,omitempty" tf:"resolver_endpoint_id"`
 
 	RuleType string `json:"ruleType" tf:"rule_type"`
 
@@ -45,14 +45,14 @@ type Route53ResolverRuleParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TargetIp []TargetIpParameters `json:"targetIp,omitempty" tf:"target_ip"`
+	TargetIP []TargetIPParameters `json:"targetIP,omitempty" tf:"target_ip"`
 }
 
-type TargetIpObservation struct {
+type TargetIPObservation struct {
 }
 
-type TargetIpParameters struct {
-	Ip string `json:"ip" tf:"ip"`
+type TargetIPParameters struct {
+	IP string `json:"ip" tf:"ip"`
 
 	Port *int64 `json:"port,omitempty" tf:"port"`
 }

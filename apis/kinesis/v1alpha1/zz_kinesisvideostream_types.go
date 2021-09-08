@@ -25,7 +25,7 @@ import (
 )
 
 type KinesisVideoStreamObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreationTime string `json:"creationTime" tf:"creation_time"`
 
@@ -37,7 +37,7 @@ type KinesisVideoStreamParameters struct {
 
 	DeviceName *string `json:"deviceName,omitempty" tf:"device_name"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	MediaType *string `json:"mediaType,omitempty" tf:"media_type"`
 

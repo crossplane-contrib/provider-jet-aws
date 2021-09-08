@@ -40,7 +40,7 @@ type VgwTelemetryObservation struct {
 
 	LastStatusChange string `json:"lastStatusChange" tf:"last_status_change"`
 
-	OutsideIpAddress string `json:"outsideIpAddress" tf:"outside_ip_address"`
+	OutsideIPAddress string `json:"outsideIPAddress" tf:"outside_ip_address"`
 
 	Status string `json:"status" tf:"status"`
 
@@ -51,13 +51,13 @@ type VgwTelemetryParameters struct {
 }
 
 type VpnConnectionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CustomerGatewayConfiguration string `json:"customerGatewayConfiguration" tf:"customer_gateway_configuration"`
 
 	Routes []RoutesObservation `json:"routes" tf:"routes"`
 
-	TransitGatewayAttachmentId string `json:"transitGatewayAttachmentId" tf:"transit_gateway_attachment_id"`
+	TransitGatewayAttachmentID string `json:"transitGatewayAttachmentID" tf:"transit_gateway_attachment_id"`
 
 	Tunnel1Address string `json:"tunnel1Address" tf:"tunnel1_address"`
 
@@ -83,17 +83,17 @@ type VpnConnectionObservation struct {
 }
 
 type VpnConnectionParameters struct {
-	CustomerGatewayId string `json:"customerGatewayId" tf:"customer_gateway_id"`
+	CustomerGatewayID string `json:"customerGatewayID" tf:"customer_gateway_id"`
 
 	EnableAcceleration *bool `json:"enableAcceleration,omitempty" tf:"enable_acceleration"`
 
-	LocalIpv4NetworkCidr *string `json:"localIpv4NetworkCidr,omitempty" tf:"local_ipv4_network_cidr"`
+	LocalIPv4NetworkCidr *string `json:"localIPv4NetworkCidr,omitempty" tf:"local_ipv4_network_cidr"`
 
-	LocalIpv6NetworkCidr *string `json:"localIpv6NetworkCidr,omitempty" tf:"local_ipv6_network_cidr"`
+	LocalIPv6NetworkCidr *string `json:"localIPv6NetworkCidr,omitempty" tf:"local_ipv6_network_cidr"`
 
-	RemoteIpv4NetworkCidr *string `json:"remoteIpv4NetworkCidr,omitempty" tf:"remote_ipv4_network_cidr"`
+	RemoteIPv4NetworkCidr *string `json:"remoteIPv4NetworkCidr,omitempty" tf:"remote_ipv4_network_cidr"`
 
-	RemoteIpv6NetworkCidr *string `json:"remoteIpv6NetworkCidr,omitempty" tf:"remote_ipv6_network_cidr"`
+	RemoteIPv6NetworkCidr *string `json:"remoteIPv6NetworkCidr,omitempty" tf:"remote_ipv6_network_cidr"`
 
 	StaticRoutesOnly *bool `json:"staticRoutesOnly,omitempty" tf:"static_routes_only"`
 
@@ -101,7 +101,7 @@ type VpnConnectionParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TransitGatewayId *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id"`
+	TransitGatewayID *string `json:"transitGatewayID,omitempty" tf:"transit_gateway_id"`
 
 	Tunnel1DpdTimeoutAction *string `json:"tunnel1DpdTimeoutAction,omitempty" tf:"tunnel1_dpd_timeout_action"`
 
@@ -111,7 +111,7 @@ type VpnConnectionParameters struct {
 
 	Tunnel1InsideCidr *string `json:"tunnel1InsideCidr,omitempty" tf:"tunnel1_inside_cidr"`
 
-	Tunnel1InsideIpv6Cidr *string `json:"tunnel1InsideIpv6Cidr,omitempty" tf:"tunnel1_inside_ipv6_cidr"`
+	Tunnel1InsideIPv6Cidr *string `json:"tunnel1InsideIPv6Cidr,omitempty" tf:"tunnel1_inside_ipv6_cidr"`
 
 	Tunnel1Phase1DhGroupNumbers []int64 `json:"tunnel1Phase1DhGroupNumbers,omitempty" tf:"tunnel1_phase1_dh_group_numbers"`
 
@@ -147,7 +147,7 @@ type VpnConnectionParameters struct {
 
 	Tunnel2InsideCidr *string `json:"tunnel2InsideCidr,omitempty" tf:"tunnel2_inside_cidr"`
 
-	Tunnel2InsideIpv6Cidr *string `json:"tunnel2InsideIpv6Cidr,omitempty" tf:"tunnel2_inside_ipv6_cidr"`
+	Tunnel2InsideIPv6Cidr *string `json:"tunnel2InsideIPv6Cidr,omitempty" tf:"tunnel2_inside_ipv6_cidr"`
 
 	Tunnel2Phase1DhGroupNumbers []int64 `json:"tunnel2Phase1DhGroupNumbers,omitempty" tf:"tunnel2_phase1_dh_group_numbers"`
 
@@ -175,11 +175,11 @@ type VpnConnectionParameters struct {
 
 	Tunnel2StartupAction *string `json:"tunnel2StartupAction,omitempty" tf:"tunnel2_startup_action"`
 
-	TunnelInsideIpVersion *string `json:"tunnelInsideIpVersion,omitempty" tf:"tunnel_inside_ip_version"`
+	TunnelInsideIPVersion *string `json:"tunnelInsideIPVersion,omitempty" tf:"tunnel_inside_ip_version"`
 
 	Type string `json:"type" tf:"type"`
 
-	VpnGatewayId *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
+	VpnGatewayID *string `json:"vpnGatewayID,omitempty" tf:"vpn_gateway_id"`
 }
 
 // VpnConnectionSpec defines the desired state of VpnConnection

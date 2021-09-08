@@ -24,10 +24,10 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type AwsAccountIdObservation struct {
+type AwsAccountIDObservation struct {
 }
 
-type AwsAccountIdParameters struct {
+type AwsAccountIDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -106,7 +106,7 @@ type FiltersObservation struct {
 }
 
 type FiltersParameters struct {
-	AwsAccountId []AwsAccountIdParameters `json:"awsAccountId,omitempty" tf:"aws_account_id"`
+	AwsAccountID []AwsAccountIDParameters `json:"awsAccountID,omitempty" tf:"aws_account_id"`
 
 	CompanyName []CompanyNameParameters `json:"companyName,omitempty" tf:"company_name"`
 
@@ -124,9 +124,9 @@ type FiltersParameters struct {
 
 	FindingProviderFieldsCriticality []FindingProviderFieldsCriticalityParameters `json:"findingProviderFieldsCriticality,omitempty" tf:"finding_provider_fields_criticality"`
 
-	FindingProviderFieldsRelatedFindingsId []FindingProviderFieldsRelatedFindingsIdParameters `json:"findingProviderFieldsRelatedFindingsId,omitempty" tf:"finding_provider_fields_related_findings_id"`
+	FindingProviderFieldsRelatedFindingsID []FindingProviderFieldsRelatedFindingsIDParameters `json:"findingProviderFieldsRelatedFindingsID,omitempty" tf:"finding_provider_fields_related_findings_id"`
 
-	FindingProviderFieldsRelatedFindingsProductArn []FindingProviderFieldsRelatedFindingsProductArnParameters `json:"findingProviderFieldsRelatedFindingsProductArn,omitempty" tf:"finding_provider_fields_related_findings_product_arn"`
+	FindingProviderFieldsRelatedFindingsProductARN []FindingProviderFieldsRelatedFindingsProductARNParameters `json:"findingProviderFieldsRelatedFindingsProductARN,omitempty" tf:"finding_provider_fields_related_findings_product_arn"`
 
 	FindingProviderFieldsSeverityLabel []FindingProviderFieldsSeverityLabelParameters `json:"findingProviderFieldsSeverityLabel,omitempty" tf:"finding_provider_fields_severity_label"`
 
@@ -136,9 +136,9 @@ type FiltersParameters struct {
 
 	FirstObservedAt []FirstObservedAtParameters `json:"firstObservedAt,omitempty" tf:"first_observed_at"`
 
-	GeneratorId []GeneratorIdParameters `json:"generatorId,omitempty" tf:"generator_id"`
+	GeneratorID []GeneratorIDParameters `json:"generatorID,omitempty" tf:"generator_id"`
 
-	Id []IdParameters `json:"id,omitempty" tf:"id"`
+	ID []IDParameters `json:"id,omitempty" tf:"id"`
 
 	Keyword []KeywordParameters `json:"keyword,omitempty" tf:"keyword"`
 
@@ -154,9 +154,9 @@ type FiltersParameters struct {
 
 	NetworkDestinationDomain []NetworkDestinationDomainParameters `json:"networkDestinationDomain,omitempty" tf:"network_destination_domain"`
 
-	NetworkDestinationIpv4 []NetworkDestinationIpv4Parameters `json:"networkDestinationIpv4,omitempty" tf:"network_destination_ipv4"`
+	NetworkDestinationIPv4 []NetworkDestinationIPv4Parameters `json:"networkDestinationIPv4,omitempty" tf:"network_destination_ipv4"`
 
-	NetworkDestinationIpv6 []NetworkDestinationIpv6Parameters `json:"networkDestinationIpv6,omitempty" tf:"network_destination_ipv6"`
+	NetworkDestinationIPv6 []NetworkDestinationIPv6Parameters `json:"networkDestinationIPv6,omitempty" tf:"network_destination_ipv6"`
 
 	NetworkDestinationPort []NetworkDestinationPortParameters `json:"networkDestinationPort,omitempty" tf:"network_destination_port"`
 
@@ -166,9 +166,9 @@ type FiltersParameters struct {
 
 	NetworkSourceDomain []NetworkSourceDomainParameters `json:"networkSourceDomain,omitempty" tf:"network_source_domain"`
 
-	NetworkSourceIpv4 []NetworkSourceIpv4Parameters `json:"networkSourceIpv4,omitempty" tf:"network_source_ipv4"`
+	NetworkSourceIPv4 []NetworkSourceIPv4Parameters `json:"networkSourceIPv4,omitempty" tf:"network_source_ipv4"`
 
-	NetworkSourceIpv6 []NetworkSourceIpv6Parameters `json:"networkSourceIpv6,omitempty" tf:"network_source_ipv6"`
+	NetworkSourceIPv6 []NetworkSourceIPv6Parameters `json:"networkSourceIPv6,omitempty" tf:"network_source_ipv6"`
 
 	NetworkSourceMac []NetworkSourceMacParameters `json:"networkSourceMac,omitempty" tf:"network_source_mac"`
 
@@ -192,7 +192,7 @@ type FiltersParameters struct {
 
 	ProcessTerminatedAt []ProcessTerminatedAtParameters `json:"processTerminatedAt,omitempty" tf:"process_terminated_at"`
 
-	ProductArn []ProductArnParameters `json:"productArn,omitempty" tf:"product_arn"`
+	ProductARN []ProductARNParameters `json:"productARN,omitempty" tf:"product_arn"`
 
 	ProductFields []ProductFieldsParameters `json:"productFields,omitempty" tf:"product_fields"`
 
@@ -202,27 +202,27 @@ type FiltersParameters struct {
 
 	RecordState []RecordStateParameters `json:"recordState,omitempty" tf:"record_state"`
 
-	RelatedFindingsId []RelatedFindingsIdParameters `json:"relatedFindingsId,omitempty" tf:"related_findings_id"`
+	RelatedFindingsID []RelatedFindingsIDParameters `json:"relatedFindingsID,omitempty" tf:"related_findings_id"`
 
-	RelatedFindingsProductArn []RelatedFindingsProductArnParameters `json:"relatedFindingsProductArn,omitempty" tf:"related_findings_product_arn"`
+	RelatedFindingsProductARN []RelatedFindingsProductARNParameters `json:"relatedFindingsProductARN,omitempty" tf:"related_findings_product_arn"`
 
-	ResourceAwsEc2InstanceIamInstanceProfileArn []ResourceAwsEc2InstanceIamInstanceProfileArnParameters `json:"resourceAwsEc2InstanceIamInstanceProfileArn,omitempty" tf:"resource_aws_ec2_instance_iam_instance_profile_arn"`
+	ResourceAwsEc2InstanceIPv4Addresses []ResourceAwsEc2InstanceIPv4AddressesParameters `json:"resourceAwsEc2InstanceIPv4Addresses,omitempty" tf:"resource_aws_ec2_instance_ipv4_addresses"`
 
-	ResourceAwsEc2InstanceImageId []ResourceAwsEc2InstanceImageIdParameters `json:"resourceAwsEc2InstanceImageId,omitempty" tf:"resource_aws_ec2_instance_image_id"`
+	ResourceAwsEc2InstanceIPv6Addresses []ResourceAwsEc2InstanceIPv6AddressesParameters `json:"resourceAwsEc2InstanceIPv6Addresses,omitempty" tf:"resource_aws_ec2_instance_ipv6_addresses"`
 
-	ResourceAwsEc2InstanceIpv4Addresses []ResourceAwsEc2InstanceIpv4AddressesParameters `json:"resourceAwsEc2InstanceIpv4Addresses,omitempty" tf:"resource_aws_ec2_instance_ipv4_addresses"`
+	ResourceAwsEc2InstanceIamInstanceProfileARN []ResourceAwsEc2InstanceIamInstanceProfileARNParameters `json:"resourceAwsEc2InstanceIamInstanceProfileARN,omitempty" tf:"resource_aws_ec2_instance_iam_instance_profile_arn"`
 
-	ResourceAwsEc2InstanceIpv6Addresses []ResourceAwsEc2InstanceIpv6AddressesParameters `json:"resourceAwsEc2InstanceIpv6Addresses,omitempty" tf:"resource_aws_ec2_instance_ipv6_addresses"`
+	ResourceAwsEc2InstanceImageID []ResourceAwsEc2InstanceImageIDParameters `json:"resourceAwsEc2InstanceImageID,omitempty" tf:"resource_aws_ec2_instance_image_id"`
 
 	ResourceAwsEc2InstanceKeyName []ResourceAwsEc2InstanceKeyNameParameters `json:"resourceAwsEc2InstanceKeyName,omitempty" tf:"resource_aws_ec2_instance_key_name"`
 
 	ResourceAwsEc2InstanceLaunchedAt []ResourceAwsEc2InstanceLaunchedAtParameters `json:"resourceAwsEc2InstanceLaunchedAt,omitempty" tf:"resource_aws_ec2_instance_launched_at"`
 
-	ResourceAwsEc2InstanceSubnetId []ResourceAwsEc2InstanceSubnetIdParameters `json:"resourceAwsEc2InstanceSubnetId,omitempty" tf:"resource_aws_ec2_instance_subnet_id"`
+	ResourceAwsEc2InstanceSubnetID []ResourceAwsEc2InstanceSubnetIDParameters `json:"resourceAwsEc2InstanceSubnetID,omitempty" tf:"resource_aws_ec2_instance_subnet_id"`
 
 	ResourceAwsEc2InstanceType []ResourceAwsEc2InstanceTypeParameters `json:"resourceAwsEc2InstanceType,omitempty" tf:"resource_aws_ec2_instance_type"`
 
-	ResourceAwsEc2InstanceVpcId []ResourceAwsEc2InstanceVpcIdParameters `json:"resourceAwsEc2InstanceVpcId,omitempty" tf:"resource_aws_ec2_instance_vpc_id"`
+	ResourceAwsEc2InstanceVPCID []ResourceAwsEc2InstanceVPCIDParameters `json:"resourceAwsEc2InstanceVPCID,omitempty" tf:"resource_aws_ec2_instance_vpc_id"`
 
 	ResourceAwsIamAccessKeyCreatedAt []ResourceAwsIamAccessKeyCreatedAtParameters `json:"resourceAwsIamAccessKeyCreatedAt,omitempty" tf:"resource_aws_iam_access_key_created_at"`
 
@@ -230,11 +230,11 @@ type FiltersParameters struct {
 
 	ResourceAwsIamAccessKeyUserName []ResourceAwsIamAccessKeyUserNameParameters `json:"resourceAwsIamAccessKeyUserName,omitempty" tf:"resource_aws_iam_access_key_user_name"`
 
-	ResourceAwsS3BucketOwnerId []ResourceAwsS3BucketOwnerIdParameters `json:"resourceAwsS3BucketOwnerId,omitempty" tf:"resource_aws_s3_bucket_owner_id"`
+	ResourceAwsS3BucketOwnerID []ResourceAwsS3BucketOwnerIDParameters `json:"resourceAwsS3BucketOwnerID,omitempty" tf:"resource_aws_s3_bucket_owner_id"`
 
 	ResourceAwsS3BucketOwnerName []ResourceAwsS3BucketOwnerNameParameters `json:"resourceAwsS3BucketOwnerName,omitempty" tf:"resource_aws_s3_bucket_owner_name"`
 
-	ResourceContainerImageId []ResourceContainerImageIdParameters `json:"resourceContainerImageId,omitempty" tf:"resource_container_image_id"`
+	ResourceContainerImageID []ResourceContainerImageIDParameters `json:"resourceContainerImageID,omitempty" tf:"resource_container_image_id"`
 
 	ResourceContainerImageName []ResourceContainerImageNameParameters `json:"resourceContainerImageName,omitempty" tf:"resource_container_image_name"`
 
@@ -244,7 +244,7 @@ type FiltersParameters struct {
 
 	ResourceDetailsOther []ResourceDetailsOtherParameters `json:"resourceDetailsOther,omitempty" tf:"resource_details_other"`
 
-	ResourceId []ResourceIdParameters `json:"resourceId,omitempty" tf:"resource_id"`
+	ResourceID []ResourceIDParameters `json:"resourceID,omitempty" tf:"resource_id"`
 
 	ResourcePartition []ResourcePartitionParameters `json:"resourcePartition,omitempty" tf:"resource_partition"`
 
@@ -256,7 +256,7 @@ type FiltersParameters struct {
 
 	SeverityLabel []SeverityLabelParameters `json:"severityLabel,omitempty" tf:"severity_label"`
 
-	SourceUrl []SourceUrlParameters `json:"sourceUrl,omitempty" tf:"source_url"`
+	SourceURL []SourceURLParameters `json:"sourceURL,omitempty" tf:"source_url"`
 
 	ThreatIntelIndicatorCategory []ThreatIntelIndicatorCategoryParameters `json:"threatIntelIndicatorCategory,omitempty" tf:"threat_intel_indicator_category"`
 
@@ -264,7 +264,7 @@ type FiltersParameters struct {
 
 	ThreatIntelIndicatorSource []ThreatIntelIndicatorSourceParameters `json:"threatIntelIndicatorSource,omitempty" tf:"threat_intel_indicator_source"`
 
-	ThreatIntelIndicatorSourceUrl []ThreatIntelIndicatorSourceUrlParameters `json:"threatIntelIndicatorSourceUrl,omitempty" tf:"threat_intel_indicator_source_url"`
+	ThreatIntelIndicatorSourceURL []ThreatIntelIndicatorSourceURLParameters `json:"threatIntelIndicatorSourceURL,omitempty" tf:"threat_intel_indicator_source_url"`
 
 	ThreatIntelIndicatorType []ThreatIntelIndicatorTypeParameters `json:"threatIntelIndicatorType,omitempty" tf:"threat_intel_indicator_type"`
 
@@ -305,19 +305,19 @@ type FindingProviderFieldsCriticalityParameters struct {
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
-type FindingProviderFieldsRelatedFindingsIdObservation struct {
+type FindingProviderFieldsRelatedFindingsIDObservation struct {
 }
 
-type FindingProviderFieldsRelatedFindingsIdParameters struct {
+type FindingProviderFieldsRelatedFindingsIDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
 }
 
-type FindingProviderFieldsRelatedFindingsProductArnObservation struct {
+type FindingProviderFieldsRelatedFindingsProductARNObservation struct {
 }
 
-type FindingProviderFieldsRelatedFindingsProductArnParameters struct {
+type FindingProviderFieldsRelatedFindingsProductARNParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -370,19 +370,19 @@ type FirstObservedAtParameters struct {
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
-type GeneratorIdObservation struct {
+type GeneratorIDObservation struct {
 }
 
-type GeneratorIdParameters struct {
+type GeneratorIDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
 }
 
-type IdObservation struct {
+type IDObservation struct {
 }
 
-type IdParameters struct {
+type IDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -460,17 +460,17 @@ type NetworkDestinationDomainParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type NetworkDestinationIpv4Observation struct {
+type NetworkDestinationIPv4Observation struct {
 }
 
-type NetworkDestinationIpv4Parameters struct {
+type NetworkDestinationIPv4Parameters struct {
 	Cidr string `json:"cidr" tf:"cidr"`
 }
 
-type NetworkDestinationIpv6Observation struct {
+type NetworkDestinationIPv6Observation struct {
 }
 
-type NetworkDestinationIpv6Parameters struct {
+type NetworkDestinationIPv6Parameters struct {
 	Cidr string `json:"cidr" tf:"cidr"`
 }
 
@@ -512,17 +512,17 @@ type NetworkSourceDomainParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type NetworkSourceIpv4Observation struct {
+type NetworkSourceIPv4Observation struct {
 }
 
-type NetworkSourceIpv4Parameters struct {
+type NetworkSourceIPv4Parameters struct {
 	Cidr string `json:"cidr" tf:"cidr"`
 }
 
-type NetworkSourceIpv6Observation struct {
+type NetworkSourceIPv6Observation struct {
 }
 
-type NetworkSourceIpv6Parameters struct {
+type NetworkSourceIPv6Parameters struct {
 	Cidr string `json:"cidr" tf:"cidr"`
 }
 
@@ -664,10 +664,10 @@ type ProcessTerminatedAtParameters struct {
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
-type ProductArnObservation struct {
+type ProductARNObservation struct {
 }
 
-type ProductArnParameters struct {
+type ProductARNParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -711,54 +711,54 @@ type RecordStateParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type RelatedFindingsIdObservation struct {
+type RelatedFindingsIDObservation struct {
 }
 
-type RelatedFindingsIdParameters struct {
+type RelatedFindingsIDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
 }
 
-type RelatedFindingsProductArnObservation struct {
+type RelatedFindingsProductARNObservation struct {
 }
 
-type RelatedFindingsProductArnParameters struct {
+type RelatedFindingsProductARNParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceAwsEc2InstanceIamInstanceProfileArnObservation struct {
+type ResourceAwsEc2InstanceIPv4AddressesObservation struct {
 }
 
-type ResourceAwsEc2InstanceIamInstanceProfileArnParameters struct {
-	Comparison string `json:"comparison" tf:"comparison"`
-
-	Value string `json:"value" tf:"value"`
-}
-
-type ResourceAwsEc2InstanceImageIdObservation struct {
-}
-
-type ResourceAwsEc2InstanceImageIdParameters struct {
-	Comparison string `json:"comparison" tf:"comparison"`
-
-	Value string `json:"value" tf:"value"`
-}
-
-type ResourceAwsEc2InstanceIpv4AddressesObservation struct {
-}
-
-type ResourceAwsEc2InstanceIpv4AddressesParameters struct {
+type ResourceAwsEc2InstanceIPv4AddressesParameters struct {
 	Cidr string `json:"cidr" tf:"cidr"`
 }
 
-type ResourceAwsEc2InstanceIpv6AddressesObservation struct {
+type ResourceAwsEc2InstanceIPv6AddressesObservation struct {
 }
 
-type ResourceAwsEc2InstanceIpv6AddressesParameters struct {
+type ResourceAwsEc2InstanceIPv6AddressesParameters struct {
 	Cidr string `json:"cidr" tf:"cidr"`
+}
+
+type ResourceAwsEc2InstanceIamInstanceProfileARNObservation struct {
+}
+
+type ResourceAwsEc2InstanceIamInstanceProfileARNParameters struct {
+	Comparison string `json:"comparison" tf:"comparison"`
+
+	Value string `json:"value" tf:"value"`
+}
+
+type ResourceAwsEc2InstanceImageIDObservation struct {
+}
+
+type ResourceAwsEc2InstanceImageIDParameters struct {
+	Comparison string `json:"comparison" tf:"comparison"`
+
+	Value string `json:"value" tf:"value"`
 }
 
 type ResourceAwsEc2InstanceKeyNameObservation struct {
@@ -790,10 +790,10 @@ type ResourceAwsEc2InstanceLaunchedAtParameters struct {
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
-type ResourceAwsEc2InstanceSubnetIdObservation struct {
+type ResourceAwsEc2InstanceSubnetIDObservation struct {
 }
 
-type ResourceAwsEc2InstanceSubnetIdParameters struct {
+type ResourceAwsEc2InstanceSubnetIDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -808,10 +808,10 @@ type ResourceAwsEc2InstanceTypeParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceAwsEc2InstanceVpcIdObservation struct {
+type ResourceAwsEc2InstanceVPCIDObservation struct {
 }
 
-type ResourceAwsEc2InstanceVpcIdParameters struct {
+type ResourceAwsEc2InstanceVPCIDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -855,10 +855,10 @@ type ResourceAwsIamAccessKeyUserNameParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceAwsS3BucketOwnerIdObservation struct {
+type ResourceAwsS3BucketOwnerIDObservation struct {
 }
 
-type ResourceAwsS3BucketOwnerIdParameters struct {
+type ResourceAwsS3BucketOwnerIDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -873,10 +873,10 @@ type ResourceAwsS3BucketOwnerNameParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceContainerImageIdObservation struct {
+type ResourceContainerImageIDObservation struct {
 }
 
-type ResourceContainerImageIdParameters struct {
+type ResourceContainerImageIDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -931,10 +931,10 @@ type ResourceDetailsOtherParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceIdObservation struct {
+type ResourceIDObservation struct {
 }
 
-type ResourceIdParameters struct {
+type ResourceIDParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -979,7 +979,7 @@ type ResourceTypeParameters struct {
 }
 
 type SecurityhubInsightObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SecurityhubInsightParameters struct {
@@ -999,10 +999,10 @@ type SeverityLabelParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type SourceUrlObservation struct {
+type SourceURLObservation struct {
 }
 
-type SourceUrlParameters struct {
+type SourceURLParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`
@@ -1046,10 +1046,10 @@ type ThreatIntelIndicatorSourceParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type ThreatIntelIndicatorSourceUrlObservation struct {
+type ThreatIntelIndicatorSourceURLObservation struct {
 }
 
-type ThreatIntelIndicatorSourceUrlParameters struct {
+type ThreatIntelIndicatorSourceURLParameters struct {
 	Comparison string `json:"comparison" tf:"comparison"`
 
 	Value string `json:"value" tf:"value"`

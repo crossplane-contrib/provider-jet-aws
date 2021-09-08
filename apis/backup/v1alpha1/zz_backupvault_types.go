@@ -25,13 +25,13 @@ import (
 )
 
 type BackupVaultObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	RecoveryPoints int64 `json:"recoveryPoints" tf:"recovery_points"`
 }
 
 type BackupVaultParameters struct {
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	Name string `json:"name" tf:"name"`
 

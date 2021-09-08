@@ -24,10 +24,10 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type ApiKeyObservation struct {
+type APIKeyObservation struct {
 }
 
-type ApiKeyParameters struct {
+type APIKeyParameters struct {
 	Key string `json:"key" tf:"key"`
 
 	Value string `json:"value" tf:"value"`
@@ -37,11 +37,11 @@ type AuthParametersObservation struct {
 }
 
 type AuthParametersParameters struct {
-	ApiKey []ApiKeyParameters `json:"apiKey,omitempty" tf:"api_key"`
+	APIKey []APIKeyParameters `json:"apiKey,omitempty" tf:"api_key"`
 
 	Basic []BasicParameters `json:"basic,omitempty" tf:"basic"`
 
-	InvocationHttpParameters []InvocationHttpParametersParameters `json:"invocationHttpParameters,omitempty" tf:"invocation_http_parameters"`
+	InvocationHTTPParameters []InvocationHTTPParametersParameters `json:"invocationHTTPParameters,omitempty" tf:"invocation_http_parameters"`
 
 	Oauth []OauthParameters `json:"oauth,omitempty" tf:"oauth"`
 }
@@ -70,15 +70,15 @@ type ClientParametersObservation struct {
 }
 
 type ClientParametersParameters struct {
-	ClientId string `json:"clientId" tf:"client_id"`
+	ClientID string `json:"clientID" tf:"client_id"`
 
 	ClientSecret string `json:"clientSecret" tf:"client_secret"`
 }
 
 type CloudwatchEventConnectionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	SecretArn string `json:"secretArn" tf:"secret_arn"`
+	SecretARN string `json:"secretARN" tf:"secret_arn"`
 }
 
 type CloudwatchEventConnectionParameters struct {
@@ -102,10 +102,10 @@ type HeaderParameters struct {
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
-type InvocationHttpParametersObservation struct {
+type InvocationHTTPParametersObservation struct {
 }
 
-type InvocationHttpParametersParameters struct {
+type InvocationHTTPParametersParameters struct {
 	Body []BodyParameters `json:"body,omitempty" tf:"body"`
 
 	Header []HeaderParameters `json:"header,omitempty" tf:"header"`
@@ -113,10 +113,10 @@ type InvocationHttpParametersParameters struct {
 	QueryString []QueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 }
 
-type OauthHttpParametersBodyObservation struct {
+type OauthHTTPParametersBodyObservation struct {
 }
 
-type OauthHttpParametersBodyParameters struct {
+type OauthHTTPParametersBodyParameters struct {
 	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
 
 	Key *string `json:"key,omitempty" tf:"key"`
@@ -124,10 +124,10 @@ type OauthHttpParametersBodyParameters struct {
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
-type OauthHttpParametersHeaderObservation struct {
+type OauthHTTPParametersHeaderObservation struct {
 }
 
-type OauthHttpParametersHeaderParameters struct {
+type OauthHTTPParametersHeaderParameters struct {
 	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
 
 	Key *string `json:"key,omitempty" tf:"key"`
@@ -135,21 +135,21 @@ type OauthHttpParametersHeaderParameters struct {
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
-type OauthHttpParametersObservation struct {
+type OauthHTTPParametersObservation struct {
 }
 
-type OauthHttpParametersParameters struct {
-	Body []OauthHttpParametersBodyParameters `json:"body,omitempty" tf:"body"`
+type OauthHTTPParametersParameters struct {
+	Body []OauthHTTPParametersBodyParameters `json:"body,omitempty" tf:"body"`
 
-	Header []OauthHttpParametersHeaderParameters `json:"header,omitempty" tf:"header"`
+	Header []OauthHTTPParametersHeaderParameters `json:"header,omitempty" tf:"header"`
 
-	QueryString []OauthHttpParametersQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	QueryString []OauthHTTPParametersQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 }
 
-type OauthHttpParametersQueryStringObservation struct {
+type OauthHTTPParametersQueryStringObservation struct {
 }
 
-type OauthHttpParametersQueryStringParameters struct {
+type OauthHTTPParametersQueryStringParameters struct {
 	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
 
 	Key *string `json:"key,omitempty" tf:"key"`
@@ -165,9 +165,9 @@ type OauthParameters struct {
 
 	ClientParameters []ClientParametersParameters `json:"clientParameters,omitempty" tf:"client_parameters"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
-	OauthHttpParameters []OauthHttpParametersParameters `json:"oauthHttpParameters" tf:"oauth_http_parameters"`
+	OauthHTTPParameters []OauthHTTPParametersParameters `json:"oauthHTTPParameters" tf:"oauth_http_parameters"`
 }
 
 type QueryStringObservation struct {

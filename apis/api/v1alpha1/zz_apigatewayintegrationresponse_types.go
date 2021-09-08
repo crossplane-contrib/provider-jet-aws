@@ -30,15 +30,15 @@ type ApiGatewayIntegrationResponseObservation struct {
 type ApiGatewayIntegrationResponseParameters struct {
 	ContentHandling *string `json:"contentHandling,omitempty" tf:"content_handling"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
 	ResponseParameters map[string]string `json:"responseParameters,omitempty" tf:"response_parameters"`
 
 	ResponseTemplates map[string]string `json:"responseTemplates,omitempty" tf:"response_templates"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 
 	SelectionPattern *string `json:"selectionPattern,omitempty" tf:"selection_pattern"`
 

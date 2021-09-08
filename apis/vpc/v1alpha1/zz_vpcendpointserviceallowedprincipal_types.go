@@ -28,9 +28,9 @@ type VpcEndpointServiceAllowedPrincipalObservation struct {
 }
 
 type VpcEndpointServiceAllowedPrincipalParameters struct {
-	PrincipalArn string `json:"principalArn" tf:"principal_arn"`
+	PrincipalARN string `json:"principalARN" tf:"principal_arn"`
 
-	VpcEndpointServiceId string `json:"vpcEndpointServiceId" tf:"vpc_endpoint_service_id"`
+	VPCEndpointServiceID string `json:"vpcEndpointServiceID" tf:"vpc_endpoint_service_id"`
 }
 
 // VpcEndpointServiceAllowedPrincipalSpec defines the desired state of VpcEndpointServiceAllowedPrincipal

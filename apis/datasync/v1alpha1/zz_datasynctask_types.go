@@ -25,13 +25,13 @@ import (
 )
 
 type DatasyncTaskObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type DatasyncTaskParameters struct {
-	CloudwatchLogGroupArn *string `json:"cloudwatchLogGroupArn,omitempty" tf:"cloudwatch_log_group_arn"`
+	CloudwatchLogGroupARN *string `json:"cloudwatchLogGroupARN,omitempty" tf:"cloudwatch_log_group_arn"`
 
-	DestinationLocationArn string `json:"destinationLocationArn" tf:"destination_location_arn"`
+	DestinationLocationARN string `json:"destinationLocationARN" tf:"destination_location_arn"`
 
 	Excludes []ExcludesParameters `json:"excludes,omitempty" tf:"excludes"`
 
@@ -41,7 +41,7 @@ type DatasyncTaskParameters struct {
 
 	Schedule []ScheduleParameters `json:"schedule,omitempty" tf:"schedule"`
 
-	SourceLocationArn string `json:"sourceLocationArn" tf:"source_location_arn"`
+	SourceLocationARN string `json:"sourceLocationARN" tf:"source_location_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -65,7 +65,7 @@ type OptionsParameters struct {
 
 	BytesPerSecond *int64 `json:"bytesPerSecond,omitempty" tf:"bytes_per_second"`
 
-	Gid *string `json:"gid,omitempty" tf:"gid"`
+	GID *string `json:"gid,omitempty" tf:"gid"`
 
 	LogLevel *string `json:"logLevel,omitempty" tf:"log_level"`
 
@@ -83,7 +83,7 @@ type OptionsParameters struct {
 
 	TransferMode *string `json:"transferMode,omitempty" tf:"transfer_mode"`
 
-	Uid *string `json:"uid,omitempty" tf:"uid"`
+	UID *string `json:"uid,omitempty" tf:"uid"`
 
 	VerifyMode *string `json:"verifyMode,omitempty" tf:"verify_mode"`
 }

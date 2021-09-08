@@ -25,7 +25,7 @@ import (
 )
 
 type Macie2CustomDataIdentifierObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedAt string `json:"createdAt" tf:"created_at"`
 }

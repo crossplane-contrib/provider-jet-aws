@@ -53,7 +53,7 @@ type AudioParameters struct {
 }
 
 type ElastictranscoderPresetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ElastictranscoderPresetParameters struct {
@@ -138,7 +138,7 @@ type VideoWatermarksParameters struct {
 
 	HorizontalOffset *string `json:"horizontalOffset,omitempty" tf:"horizontal_offset"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	MaxHeight *string `json:"maxHeight,omitempty" tf:"max_height"`
 

@@ -47,9 +47,9 @@ type Route53KeySigningKeyObservation struct {
 }
 
 type Route53KeySigningKeyParameters struct {
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneID" tf:"hosted_zone_id"`
 
-	KeyManagementServiceArn string `json:"keyManagementServiceArn" tf:"key_management_service_arn"`
+	KeyManagementServiceARN string `json:"keyManagementServiceARN" tf:"key_management_service_arn"`
 
 	Name string `json:"name" tf:"name"`
 

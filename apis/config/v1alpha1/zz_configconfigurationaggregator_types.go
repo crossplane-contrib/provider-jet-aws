@@ -36,7 +36,7 @@ type AccountAggregationSourceParameters struct {
 }
 
 type ConfigConfigurationAggregatorObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ConfigConfigurationAggregatorParameters struct {
@@ -59,7 +59,7 @@ type OrganizationAggregationSourceParameters struct {
 
 	Regions []string `json:"regions,omitempty" tf:"regions"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 // ConfigConfigurationAggregatorSpec defines the desired state of ConfigConfigurationAggregator

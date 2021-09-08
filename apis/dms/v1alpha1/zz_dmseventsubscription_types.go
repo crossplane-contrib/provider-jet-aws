@@ -25,7 +25,7 @@ import (
 )
 
 type DmsEventSubscriptionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type DmsEventSubscriptionParameters struct {
@@ -35,7 +35,7 @@ type DmsEventSubscriptionParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
+	SnsTopicARN string `json:"snsTopicARN" tf:"sns_topic_arn"`
 
 	SourceIds []string `json:"sourceIds,omitempty" tf:"source_ids"`
 

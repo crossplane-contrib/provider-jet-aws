@@ -64,7 +64,7 @@ type ConditionsParameters struct {
 }
 
 type GlueTriggerObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	State string `json:"state" tf:"state"`
 }

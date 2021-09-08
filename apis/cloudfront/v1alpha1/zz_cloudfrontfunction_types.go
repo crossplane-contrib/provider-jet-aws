@@ -25,7 +25,7 @@ import (
 )
 
 type CloudfrontFunctionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Etag string `json:"etag" tf:"etag"`
 

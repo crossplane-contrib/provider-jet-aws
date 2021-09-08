@@ -25,7 +25,7 @@ import (
 )
 
 type SsoadminPermissionSetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedDate string `json:"createdDate" tf:"created_date"`
 }
@@ -33,7 +33,7 @@ type SsoadminPermissionSetObservation struct {
 type SsoadminPermissionSetParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	InstanceArn string `json:"instanceArn" tf:"instance_arn"`
+	InstanceARN string `json:"instanceARN" tf:"instance_arn"`
 
 	Name string `json:"name" tf:"name"`
 

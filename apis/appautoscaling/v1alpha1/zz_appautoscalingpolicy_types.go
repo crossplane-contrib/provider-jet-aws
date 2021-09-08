@@ -25,7 +25,7 @@ import (
 )
 
 type AppautoscalingPolicyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type AppautoscalingPolicyParameters struct {
@@ -33,7 +33,7 @@ type AppautoscalingPolicyParameters struct {
 
 	PolicyType *string `json:"policyType,omitempty" tf:"policy_type"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
 	ScalableDimension string `json:"scalableDimension" tf:"scalable_dimension"`
 

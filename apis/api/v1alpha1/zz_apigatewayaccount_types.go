@@ -29,7 +29,7 @@ type ApiGatewayAccountObservation struct {
 }
 
 type ApiGatewayAccountParameters struct {
-	CloudwatchRoleArn *string `json:"cloudwatchRoleArn,omitempty" tf:"cloudwatch_role_arn"`
+	CloudwatchRoleARN *string `json:"cloudwatchRoleARN,omitempty" tf:"cloudwatch_role_arn"`
 }
 
 type ThrottleSettingsObservation struct {

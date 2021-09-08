@@ -32,17 +32,17 @@ type CacheAttributesParameters struct {
 }
 
 type StoragegatewayFileSystemAssociationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type StoragegatewayFileSystemAssociationParameters struct {
-	AuditDestinationArn *string `json:"auditDestinationArn,omitempty" tf:"audit_destination_arn"`
+	AuditDestinationARN *string `json:"auditDestinationARN,omitempty" tf:"audit_destination_arn"`
 
 	CacheAttributes []CacheAttributesParameters `json:"cacheAttributes,omitempty" tf:"cache_attributes"`
 
-	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+	GatewayARN string `json:"gatewayARN" tf:"gateway_arn"`
 
-	LocationArn string `json:"locationArn" tf:"location_arn"`
+	LocationARN string `json:"locationARN" tf:"location_arn"`
 
 	Password string `json:"password" tf:"password"`
 

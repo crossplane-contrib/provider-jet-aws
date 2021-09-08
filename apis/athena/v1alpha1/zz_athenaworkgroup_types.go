@@ -25,7 +25,7 @@ import (
 )
 
 type AthenaWorkgroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type AthenaWorkgroupParameters struct {
@@ -65,7 +65,7 @@ type ResultConfigurationEncryptionConfigurationObservation struct {
 type ResultConfigurationEncryptionConfigurationParameters struct {
 	EncryptionOption *string `json:"encryptionOption,omitempty" tf:"encryption_option"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 }
 
 type ResultConfigurationObservation struct {

@@ -25,7 +25,7 @@ import (
 )
 
 type BatchJobDefinitionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Revision int64 `json:"revision" tf:"revision"`
 }

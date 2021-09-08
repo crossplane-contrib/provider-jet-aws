@@ -28,9 +28,9 @@ type SnapshotCreateVolumePermissionObservation struct {
 }
 
 type SnapshotCreateVolumePermissionParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountID" tf:"account_id"`
 
-	SnapshotId string `json:"snapshotId" tf:"snapshot_id"`
+	SnapshotID string `json:"snapshotID" tf:"snapshot_id"`
 }
 
 // SnapshotCreateVolumePermissionSpec defines the desired state of SnapshotCreateVolumePermission

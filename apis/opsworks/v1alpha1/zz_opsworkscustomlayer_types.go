@@ -44,7 +44,7 @@ type EbsVolumeParameters struct {
 }
 
 type OpsworksCustomLayerObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type OpsworksCustomLayerParameters struct {
@@ -58,9 +58,9 @@ type OpsworksCustomLayerParameters struct {
 
 	CustomDeployRecipes []string `json:"customDeployRecipes,omitempty" tf:"custom_deploy_recipes"`
 
-	CustomInstanceProfileArn *string `json:"customInstanceProfileArn,omitempty" tf:"custom_instance_profile_arn"`
+	CustomInstanceProfileARN *string `json:"customInstanceProfileARN,omitempty" tf:"custom_instance_profile_arn"`
 
-	CustomJson *string `json:"customJson,omitempty" tf:"custom_json"`
+	CustomJSON *string `json:"customJSON,omitempty" tf:"custom_json"`
 
 	CustomSecurityGroupIds []string `json:"customSecurityGroupIds,omitempty" tf:"custom_security_group_ids"`
 
@@ -84,7 +84,7 @@ type OpsworksCustomLayerParameters struct {
 
 	ShortName string `json:"shortName" tf:"short_name"`
 
-	StackId string `json:"stackId" tf:"stack_id"`
+	StackID string `json:"stackID" tf:"stack_id"`
 
 	SystemPackages []string `json:"systemPackages,omitempty" tf:"system_packages"`
 

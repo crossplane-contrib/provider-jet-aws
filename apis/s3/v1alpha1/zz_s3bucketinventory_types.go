@@ -28,9 +28,9 @@ type BucketObservation struct {
 }
 
 type BucketParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
+	AccountID *string `json:"accountID,omitempty" tf:"account_id"`
 
-	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
+	BucketARN string `json:"bucketARN" tf:"bucket_arn"`
 
 	Encryption []EncryptionParameters `json:"encryption,omitempty" tf:"encryption"`
 
@@ -94,7 +94,7 @@ type SseKmsObservation struct {
 }
 
 type SseKmsParameters struct {
-	KeyId string `json:"keyId" tf:"key_id"`
+	KeyID string `json:"keyID" tf:"key_id"`
 }
 
 type SseS3Observation struct {

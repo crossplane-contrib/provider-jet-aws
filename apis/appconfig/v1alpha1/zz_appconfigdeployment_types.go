@@ -25,23 +25,23 @@ import (
 )
 
 type AppconfigDeploymentObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DeploymentNumber int64 `json:"deploymentNumber" tf:"deployment_number"`
 }
 
 type AppconfigDeploymentParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
-	ConfigurationProfileId string `json:"configurationProfileId" tf:"configuration_profile_id"`
+	ConfigurationProfileID string `json:"configurationProfileID" tf:"configuration_profile_id"`
 
 	ConfigurationVersion string `json:"configurationVersion" tf:"configuration_version"`
 
-	DeploymentStrategyId string `json:"deploymentStrategyId" tf:"deployment_strategy_id"`
+	DeploymentStrategyID string `json:"deploymentStrategyID" tf:"deployment_strategy_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	EnvironmentId string `json:"environmentId" tf:"environment_id"`
+	EnvironmentID string `json:"environmentID" tf:"environment_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

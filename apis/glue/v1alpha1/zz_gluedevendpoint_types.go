@@ -25,7 +25,7 @@ import (
 )
 
 type GlueDevEndpointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	AvailabilityZone string `json:"availabilityZone" tf:"availability_zone"`
 
@@ -37,7 +37,7 @@ type GlueDevEndpointObservation struct {
 
 	Status string `json:"status" tf:"status"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 
 	YarnEndpointAddress string `json:"yarnEndpointAddress" tf:"yarn_endpoint_address"`
 
@@ -63,13 +63,13 @@ type GlueDevEndpointParameters struct {
 
 	PublicKeys []string `json:"publicKeys,omitempty" tf:"public_keys"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	SecurityConfiguration *string `json:"securityConfiguration,omitempty" tf:"security_configuration"`
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

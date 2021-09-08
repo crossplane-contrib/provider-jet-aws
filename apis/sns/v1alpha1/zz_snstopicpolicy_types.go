@@ -29,7 +29,7 @@ type SnsTopicPolicyObservation struct {
 }
 
 type SnsTopicPolicyParameters struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Policy string `json:"policy" tf:"policy"`
 }

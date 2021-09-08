@@ -25,7 +25,7 @@ import (
 )
 
 type StoragegatewayStoredIscsiVolumeObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ChapEnabled bool `json:"chapEnabled" tf:"chap_enabled"`
 
@@ -33,11 +33,11 @@ type StoragegatewayStoredIscsiVolumeObservation struct {
 
 	NetworkInterfacePort int64 `json:"networkInterfacePort" tf:"network_interface_port"`
 
-	TargetArn string `json:"targetArn" tf:"target_arn"`
+	TargetARN string `json:"targetARN" tf:"target_arn"`
 
 	VolumeAttachmentStatus string `json:"volumeAttachmentStatus" tf:"volume_attachment_status"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeID" tf:"volume_id"`
 
 	VolumeSizeInBytes int64 `json:"volumeSizeInBytes" tf:"volume_size_in_bytes"`
 
@@ -47,19 +47,19 @@ type StoragegatewayStoredIscsiVolumeObservation struct {
 }
 
 type StoragegatewayStoredIscsiVolumeParameters struct {
-	DiskId string `json:"diskId" tf:"disk_id"`
+	DiskID string `json:"diskID" tf:"disk_id"`
 
-	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+	GatewayARN string `json:"gatewayARN" tf:"gateway_arn"`
 
 	KmsEncrypted *bool `json:"kmsEncrypted,omitempty" tf:"kms_encrypted"`
 
 	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceID" tf:"network_interface_id"`
 
 	PreserveExistingData bool `json:"preserveExistingData" tf:"preserve_existing_data"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotID,omitempty" tf:"snapshot_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

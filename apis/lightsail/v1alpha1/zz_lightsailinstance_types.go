@@ -25,23 +25,23 @@ import (
 )
 
 type LightsailInstanceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	CpuCount int64 `json:"cpuCount" tf:"cpu_count"`
+	CPUCount int64 `json:"cpuCount" tf:"cpu_count"`
 
 	CreatedAt string `json:"createdAt" tf:"created_at"`
 
-	Ipv6Address string `json:"ipv6Address" tf:"ipv6_address"`
+	IPv6Address string `json:"ipv6Address" tf:"ipv6_address"`
 
-	Ipv6Addresses []string `json:"ipv6Addresses" tf:"ipv6_addresses"`
+	IPv6Addresses []string `json:"ipv6Addresses" tf:"ipv6_addresses"`
 
-	IsStaticIp bool `json:"isStaticIp" tf:"is_static_ip"`
+	IsStaticIP bool `json:"isStaticIP" tf:"is_static_ip"`
 
-	PrivateIpAddress string `json:"privateIpAddress" tf:"private_ip_address"`
+	PrivateIPAddress string `json:"privateIPAddress" tf:"private_ip_address"`
 
-	PublicIpAddress string `json:"publicIpAddress" tf:"public_ip_address"`
+	PublicIPAddress string `json:"publicIPAddress" tf:"public_ip_address"`
 
-	RamSize float64 `json:"ramSize" tf:"ram_size"`
+	RAMSize float64 `json:"ramSize" tf:"ram_size"`
 
 	Username string `json:"username" tf:"username"`
 }
@@ -49,9 +49,9 @@ type LightsailInstanceObservation struct {
 type LightsailInstanceParameters struct {
 	AvailabilityZone string `json:"availabilityZone" tf:"availability_zone"`
 
-	BlueprintId string `json:"blueprintId" tf:"blueprint_id"`
+	BlueprintID string `json:"blueprintID" tf:"blueprint_id"`
 
-	BundleId string `json:"bundleId" tf:"bundle_id"`
+	BundleID string `json:"bundleID" tf:"bundle_id"`
 
 	KeyPairName *string `json:"keyPairName,omitempty" tf:"key_pair_name"`
 

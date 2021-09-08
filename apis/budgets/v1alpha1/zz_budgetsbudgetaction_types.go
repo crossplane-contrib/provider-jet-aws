@@ -34,15 +34,15 @@ type ActionThresholdParameters struct {
 }
 
 type BudgetsBudgetActionObservation struct {
-	ActionId string `json:"actionId" tf:"action_id"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	ActionID string `json:"actionID" tf:"action_id"`
 
 	Status string `json:"status" tf:"status"`
 }
 
 type BudgetsBudgetActionParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
+	AccountID *string `json:"accountID,omitempty" tf:"account_id"`
 
 	ActionThreshold []ActionThresholdParameters `json:"actionThreshold" tf:"action_threshold"`
 
@@ -54,7 +54,7 @@ type BudgetsBudgetActionParameters struct {
 
 	Definition []DefinitionParameters `json:"definition" tf:"definition"`
 
-	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
+	ExecutionRoleARN string `json:"executionRoleARN" tf:"execution_role_arn"`
 
 	NotificationType string `json:"notificationType" tf:"notification_type"`
 
@@ -78,7 +78,7 @@ type IamActionDefinitionObservation struct {
 type IamActionDefinitionParameters struct {
 	Groups []string `json:"groups,omitempty" tf:"groups"`
 
-	PolicyArn string `json:"policyArn" tf:"policy_arn"`
+	PolicyARN string `json:"policyARN" tf:"policy_arn"`
 
 	Roles []string `json:"roles,omitempty" tf:"roles"`
 
@@ -89,7 +89,7 @@ type ScpActionDefinitionObservation struct {
 }
 
 type ScpActionDefinitionParameters struct {
-	PolicyId string `json:"policyId" tf:"policy_id"`
+	PolicyID string `json:"policyID" tf:"policy_id"`
 
 	TargetIds []string `json:"targetIds" tf:"target_ids"`
 }

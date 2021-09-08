@@ -80,13 +80,13 @@ type RulesParameters struct {
 
 	Priority int64 `json:"priority" tf:"priority"`
 
-	RuleId string `json:"ruleId" tf:"rule_id"`
+	RuleID string `json:"ruleID" tf:"rule_id"`
 
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
 type WafWebAclObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type WafWebAclParameters struct {

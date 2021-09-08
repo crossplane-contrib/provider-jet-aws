@@ -25,7 +25,7 @@ import (
 )
 
 type OrganizationsDelegatedAdministratorObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DelegationEnabledDate string `json:"delegationEnabledDate" tf:"delegation_enabled_date"`
 
@@ -41,7 +41,7 @@ type OrganizationsDelegatedAdministratorObservation struct {
 }
 
 type OrganizationsDelegatedAdministratorParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountID" tf:"account_id"`
 
 	ServicePrincipal string `json:"servicePrincipal" tf:"service_principal"`
 }

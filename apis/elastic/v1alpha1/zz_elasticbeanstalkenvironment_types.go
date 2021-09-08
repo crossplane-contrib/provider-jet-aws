@@ -38,15 +38,15 @@ type AllSettingsParameters struct {
 }
 
 type ElasticBeanstalkEnvironmentObservation struct {
-	AllSettings []AllSettingsObservation `json:"allSettings" tf:"all_settings"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	AllSettings []AllSettingsObservation `json:"allSettings" tf:"all_settings"`
 
 	AutoscalingGroups []string `json:"autoscalingGroups" tf:"autoscaling_groups"`
 
 	Cname string `json:"cname" tf:"cname"`
 
-	EndpointUrl string `json:"endpointUrl" tf:"endpoint_url"`
+	EndpointURL string `json:"endpointURL" tf:"endpoint_url"`
 
 	Instances []string `json:"instances" tf:"instances"`
 
@@ -68,7 +68,7 @@ type ElasticBeanstalkEnvironmentParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	PlatformArn *string `json:"platformArn,omitempty" tf:"platform_arn"`
+	PlatformARN *string `json:"platformARN,omitempty" tf:"platform_arn"`
 
 	PollInterval *string `json:"pollInterval,omitempty" tf:"poll_interval"`
 

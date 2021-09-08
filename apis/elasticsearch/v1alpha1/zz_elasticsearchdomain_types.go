@@ -66,11 +66,11 @@ type CognitoOptionsObservation struct {
 type CognitoOptionsParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	IdentityPoolId string `json:"identityPoolId" tf:"identity_pool_id"`
+	IdentityPoolID string `json:"identityPoolID" tf:"identity_pool_id"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	UserPoolID string `json:"userPoolID" tf:"user_pool_id"`
 }
 
 type DomainEndpointOptionsObservation struct {
@@ -79,13 +79,13 @@ type DomainEndpointOptionsObservation struct {
 type DomainEndpointOptionsParameters struct {
 	CustomEndpoint *string `json:"customEndpoint,omitempty" tf:"custom_endpoint"`
 
-	CustomEndpointCertificateArn *string `json:"customEndpointCertificateArn,omitempty" tf:"custom_endpoint_certificate_arn"`
+	CustomEndpointCertificateARN *string `json:"customEndpointCertificateARN,omitempty" tf:"custom_endpoint_certificate_arn"`
 
 	CustomEndpointEnabled *bool `json:"customEndpointEnabled,omitempty" tf:"custom_endpoint_enabled"`
 
-	EnforceHttps *bool `json:"enforceHttps,omitempty" tf:"enforce_https"`
+	EnforceHTTPS *bool `json:"enforceHTTPS,omitempty" tf:"enforce_https"`
 
-	TlsSecurityPolicy *string `json:"tlsSecurityPolicy,omitempty" tf:"tls_security_policy"`
+	TLSSecurityPolicy *string `json:"tlsSecurityPolicy,omitempty" tf:"tls_security_policy"`
 }
 
 type EbsOptionsObservation struct {
@@ -102,9 +102,9 @@ type EbsOptionsParameters struct {
 }
 
 type ElasticsearchDomainObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DomainId string `json:"domainId" tf:"domain_id"`
+	DomainID string `json:"domainID" tf:"domain_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
@@ -142,7 +142,7 @@ type ElasticsearchDomainParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcOptions []VpcOptionsParameters `json:"vpcOptions,omitempty" tf:"vpc_options"`
+	VPCOptions []VPCOptionsParameters `json:"vpcOptions,omitempty" tf:"vpc_options"`
 }
 
 type EncryptAtRestObservation struct {
@@ -151,14 +151,14 @@ type EncryptAtRestObservation struct {
 type EncryptAtRestParameters struct {
 	Enabled bool `json:"enabled" tf:"enabled"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 }
 
 type LogPublishingOptionsObservation struct {
 }
 
 type LogPublishingOptionsParameters struct {
-	CloudwatchLogGroupArn string `json:"cloudwatchLogGroupArn" tf:"cloudwatch_log_group_arn"`
+	CloudwatchLogGroupARN string `json:"cloudwatchLogGroupARN" tf:"cloudwatch_log_group_arn"`
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
@@ -169,7 +169,7 @@ type MasterUserOptionsObservation struct {
 }
 
 type MasterUserOptionsParameters struct {
-	MasterUserArn *string `json:"masterUserArn,omitempty" tf:"master_user_arn"`
+	MasterUserARN *string `json:"masterUserARN,omitempty" tf:"master_user_arn"`
 
 	MasterUserName *string `json:"masterUserName,omitempty" tf:"master_user_name"`
 
@@ -190,13 +190,13 @@ type SnapshotOptionsParameters struct {
 	AutomatedSnapshotStartHour int64 `json:"automatedSnapshotStartHour" tf:"automated_snapshot_start_hour"`
 }
 
-type VpcOptionsObservation struct {
+type VPCOptionsObservation struct {
 	AvailabilityZones []string `json:"availabilityZones" tf:"availability_zones"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
-type VpcOptionsParameters struct {
+type VPCOptionsParameters struct {
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`

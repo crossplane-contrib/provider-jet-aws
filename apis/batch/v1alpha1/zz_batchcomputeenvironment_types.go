@@ -25,9 +25,9 @@ import (
 )
 
 type BatchComputeEnvironmentObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	EcsClusterArn string `json:"ecsClusterArn" tf:"ecs_cluster_arn"`
+	EcsClusterARN string `json:"ecsClusterARN" tf:"ecs_cluster_arn"`
 
 	Status string `json:"status" tf:"status"`
 
@@ -64,7 +64,7 @@ type ComputeResourcesParameters struct {
 
 	Ec2KeyPair *string `json:"ec2KeyPair,omitempty" tf:"ec2_key_pair"`
 
-	ImageId *string `json:"imageId,omitempty" tf:"image_id"`
+	ImageID *string `json:"imageID,omitempty" tf:"image_id"`
 
 	InstanceRole *string `json:"instanceRole,omitempty" tf:"instance_role"`
 
@@ -91,7 +91,7 @@ type LaunchTemplateObservation struct {
 }
 
 type LaunchTemplateParameters struct {
-	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+	LaunchTemplateID *string `json:"launchTemplateID,omitempty" tf:"launch_template_id"`
 
 	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
 

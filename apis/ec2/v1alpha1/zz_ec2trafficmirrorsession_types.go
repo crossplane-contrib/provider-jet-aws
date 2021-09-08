@@ -25,15 +25,15 @@ import (
 )
 
 type Ec2TrafficMirrorSessionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type Ec2TrafficMirrorSessionParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceID" tf:"network_interface_id"`
 
 	PacketLength *int64 `json:"packetLength,omitempty" tf:"packet_length"`
 
@@ -43,11 +43,11 @@ type Ec2TrafficMirrorSessionParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TrafficMirrorFilterId string `json:"trafficMirrorFilterId" tf:"traffic_mirror_filter_id"`
+	TrafficMirrorFilterID string `json:"trafficMirrorFilterID" tf:"traffic_mirror_filter_id"`
 
-	TrafficMirrorTargetId string `json:"trafficMirrorTargetId" tf:"traffic_mirror_target_id"`
+	TrafficMirrorTargetID string `json:"trafficMirrorTargetID" tf:"traffic_mirror_target_id"`
 
-	VirtualNetworkId *int64 `json:"virtualNetworkId,omitempty" tf:"virtual_network_id"`
+	VirtualNetworkID *int64 `json:"virtualNetworkID,omitempty" tf:"virtual_network_id"`
 }
 
 // Ec2TrafficMirrorSessionSpec defines the desired state of Ec2TrafficMirrorSession

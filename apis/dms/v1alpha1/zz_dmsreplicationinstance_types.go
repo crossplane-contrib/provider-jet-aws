@@ -25,7 +25,7 @@ import (
 )
 
 type DmsReplicationInstanceObservation struct {
-	ReplicationInstanceArn string `json:"replicationInstanceArn" tf:"replication_instance_arn"`
+	ReplicationInstanceARN string `json:"replicationInstanceARN" tf:"replication_instance_arn"`
 
 	ReplicationInstancePrivateIps []string `json:"replicationInstancePrivateIps" tf:"replication_instance_private_ips"`
 
@@ -45,7 +45,7 @@ type DmsReplicationInstanceParameters struct {
 
 	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	MultiAz *bool `json:"multiAz,omitempty" tf:"multi_az"`
 
@@ -55,15 +55,15 @@ type DmsReplicationInstanceParameters struct {
 
 	ReplicationInstanceClass string `json:"replicationInstanceClass" tf:"replication_instance_class"`
 
-	ReplicationInstanceId string `json:"replicationInstanceId" tf:"replication_instance_id"`
+	ReplicationInstanceID string `json:"replicationInstanceID" tf:"replication_instance_id"`
 
-	ReplicationSubnetGroupId *string `json:"replicationSubnetGroupId,omitempty" tf:"replication_subnet_group_id"`
+	ReplicationSubnetGroupID *string `json:"replicationSubnetGroupID,omitempty" tf:"replication_subnet_group_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 }
 
 // DmsReplicationInstanceSpec defines the desired state of DmsReplicationInstance

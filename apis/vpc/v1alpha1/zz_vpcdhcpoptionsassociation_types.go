@@ -28,9 +28,9 @@ type VpcDhcpOptionsAssociationObservation struct {
 }
 
 type VpcDhcpOptionsAssociationParameters struct {
-	DhcpOptionsId string `json:"dhcpOptionsId" tf:"dhcp_options_id"`
+	DhcpOptionsID string `json:"dhcpOptionsID" tf:"dhcp_options_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // VpcDhcpOptionsAssociationSpec defines the desired state of VpcDhcpOptionsAssociation

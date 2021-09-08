@@ -25,7 +25,7 @@ import (
 )
 
 type EksFargateProfileObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Status string `json:"status" tf:"status"`
 }
@@ -35,7 +35,7 @@ type EksFargateProfileParameters struct {
 
 	FargateProfileName string `json:"fargateProfileName" tf:"fargate_profile_name"`
 
-	PodExecutionRoleArn string `json:"podExecutionRoleArn" tf:"pod_execution_role_arn"`
+	PodExecutionRoleARN string `json:"podExecutionRoleARN" tf:"pod_execution_role_arn"`
 
 	Selector []SelectorParameters `json:"selector" tf:"selector"`
 

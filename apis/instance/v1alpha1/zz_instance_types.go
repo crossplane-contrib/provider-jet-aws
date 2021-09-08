@@ -37,18 +37,18 @@ type CapacityReservationTargetObservation struct {
 }
 
 type CapacityReservationTargetParameters struct {
-	CapacityReservationId *string `json:"capacityReservationId,omitempty" tf:"capacity_reservation_id"`
+	CapacityReservationID *string `json:"capacityReservationID,omitempty" tf:"capacity_reservation_id"`
 }
 
 type CreditSpecificationObservation struct {
 }
 
 type CreditSpecificationParameters struct {
-	CpuCredits *string `json:"cpuCredits,omitempty" tf:"cpu_credits"`
+	CPUCredits *string `json:"cpuCredits,omitempty" tf:"cpu_credits"`
 }
 
 type EbsBlockDeviceObservation struct {
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeID" tf:"volume_id"`
 }
 
 type EbsBlockDeviceParameters struct {
@@ -60,9 +60,9 @@ type EbsBlockDeviceParameters struct {
 
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotID,omitempty" tf:"snapshot_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -92,39 +92,39 @@ type EphemeralBlockDeviceParameters struct {
 }
 
 type InstanceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	InstanceState string `json:"instanceState" tf:"instance_state"`
 
-	OutpostArn string `json:"outpostArn" tf:"outpost_arn"`
+	OutpostARN string `json:"outpostARN" tf:"outpost_arn"`
 
 	PasswordData string `json:"passwordData" tf:"password_data"`
 
-	PrimaryNetworkInterfaceId string `json:"primaryNetworkInterfaceId" tf:"primary_network_interface_id"`
+	PrimaryNetworkInterfaceID string `json:"primaryNetworkInterfaceID" tf:"primary_network_interface_id"`
 
-	PrivateDns string `json:"privateDns" tf:"private_dns"`
+	PrivateDNS string `json:"privateDNS" tf:"private_dns"`
 
-	PublicDns string `json:"publicDns" tf:"public_dns"`
+	PublicDNS string `json:"publicDNS" tf:"public_dns"`
 
-	PublicIp string `json:"publicIp" tf:"public_ip"`
+	PublicIP string `json:"publicIP" tf:"public_ip"`
 }
 
 type InstanceParameters struct {
 	Ami *string `json:"ami,omitempty" tf:"ami"`
 
-	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress,omitempty" tf:"associate_public_ip_address"`
+	AssociatePublicIPAddress *bool `json:"associatePublicIPAddress,omitempty" tf:"associate_public_ip_address"`
 
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
+	CPUCoreCount *int64 `json:"cpuCoreCount,omitempty" tf:"cpu_core_count"`
+
+	CPUThreadsPerCore *int64 `json:"cpuThreadsPerCore,omitempty" tf:"cpu_threads_per_core"`
+
 	CapacityReservationSpecification []CapacityReservationSpecificationParameters `json:"capacityReservationSpecification,omitempty" tf:"capacity_reservation_specification"`
-
-	CpuCoreCount *int64 `json:"cpuCoreCount,omitempty" tf:"cpu_core_count"`
-
-	CpuThreadsPerCore *int64 `json:"cpuThreadsPerCore,omitempty" tf:"cpu_threads_per_core"`
 
 	CreditSpecification []CreditSpecificationParameters `json:"creditSpecification,omitempty" tf:"credit_specification"`
 
-	DisableApiTermination *bool `json:"disableApiTermination,omitempty" tf:"disable_api_termination"`
+	DisableAPITermination *bool `json:"disableAPITermination,omitempty" tf:"disable_api_termination"`
 
 	EbsBlockDevice []EbsBlockDeviceParameters `json:"ebsBlockDevice,omitempty" tf:"ebs_block_device"`
 
@@ -138,17 +138,17 @@ type InstanceParameters struct {
 
 	Hibernation *bool `json:"hibernation,omitempty" tf:"hibernation"`
 
-	HostId *string `json:"hostId,omitempty" tf:"host_id"`
+	HostID *string `json:"hostID,omitempty" tf:"host_id"`
+
+	IPv6AddressCount *int64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count"`
+
+	IPv6Addresses []string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses"`
 
 	IamInstanceProfile *string `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile"`
 
 	InstanceInitiatedShutdownBehavior *string `json:"instanceInitiatedShutdownBehavior,omitempty" tf:"instance_initiated_shutdown_behavior"`
 
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
-
-	Ipv6AddressCount *int64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count"`
-
-	Ipv6Addresses []string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses"`
 
 	KeyName *string `json:"keyName,omitempty" tf:"key_name"`
 
@@ -162,7 +162,7 @@ type InstanceParameters struct {
 
 	PlacementGroup *string `json:"placementGroup,omitempty" tf:"placement_group"`
 
-	PrivateIp *string `json:"privateIp,omitempty" tf:"private_ip"`
+	PrivateIP *string `json:"privateIP,omitempty" tf:"private_ip"`
 
 	RootBlockDevice []RootBlockDeviceParameters `json:"rootBlockDevice,omitempty" tf:"root_block_device"`
 
@@ -172,7 +172,7 @@ type InstanceParameters struct {
 
 	SourceDestCheck *bool `json:"sourceDestCheck,omitempty" tf:"source_dest_check"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -184,16 +184,16 @@ type InstanceParameters struct {
 
 	UserDataBase64 *string `json:"userDataBase64,omitempty" tf:"user_data_base64"`
 
-	VolumeTags map[string]string `json:"volumeTags,omitempty" tf:"volume_tags"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VolumeTags map[string]string `json:"volumeTags,omitempty" tf:"volume_tags"`
 }
 
 type LaunchTemplateObservation struct {
 }
 
 type LaunchTemplateParameters struct {
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
@@ -204,11 +204,11 @@ type MetadataOptionsObservation struct {
 }
 
 type MetadataOptionsParameters struct {
-	HttpEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint"`
+	HTTPEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint"`
 
-	HttpPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit"`
+	HTTPPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit"`
 
-	HttpTokens *string `json:"httpTokens,omitempty" tf:"http_tokens"`
+	HTTPTokens *string `json:"httpTokens,omitempty" tf:"http_tokens"`
 }
 
 type NetworkInterfaceObservation struct {
@@ -219,13 +219,13 @@ type NetworkInterfaceParameters struct {
 
 	DeviceIndex int64 `json:"deviceIndex" tf:"device_index"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceID" tf:"network_interface_id"`
 }
 
 type RootBlockDeviceObservation struct {
 	DeviceName string `json:"deviceName" tf:"device_name"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeID" tf:"volume_id"`
 }
 
 type RootBlockDeviceParameters struct {
@@ -235,7 +235,7 @@ type RootBlockDeviceParameters struct {
 
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

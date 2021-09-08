@@ -25,9 +25,9 @@ import (
 )
 
 type InternetGatewayObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type InternetGatewayParameters struct {
@@ -35,7 +35,7 @@ type InternetGatewayParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VPCID *string `json:"vpcID,omitempty" tf:"vpc_id"`
 }
 
 // InternetGatewaySpec defines the desired state of InternetGateway

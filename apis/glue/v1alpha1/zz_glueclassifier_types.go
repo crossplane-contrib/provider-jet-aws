@@ -49,11 +49,11 @@ type GlueClassifierParameters struct {
 
 	GrokClassifier []GrokClassifierParameters `json:"grokClassifier,omitempty" tf:"grok_classifier"`
 
-	JsonClassifier []JsonClassifierParameters `json:"jsonClassifier,omitempty" tf:"json_classifier"`
+	JSONClassifier []JSONClassifierParameters `json:"jsonClassifier,omitempty" tf:"json_classifier"`
 
 	Name string `json:"name" tf:"name"`
 
-	XmlClassifier []XmlClassifierParameters `json:"xmlClassifier,omitempty" tf:"xml_classifier"`
+	XMLClassifier []XMLClassifierParameters `json:"xmlClassifier,omitempty" tf:"xml_classifier"`
 }
 
 type GrokClassifierObservation struct {
@@ -67,17 +67,17 @@ type GrokClassifierParameters struct {
 	GrokPattern string `json:"grokPattern" tf:"grok_pattern"`
 }
 
-type JsonClassifierObservation struct {
+type JSONClassifierObservation struct {
 }
 
-type JsonClassifierParameters struct {
-	JsonPath string `json:"jsonPath" tf:"json_path"`
+type JSONClassifierParameters struct {
+	JSONPath string `json:"jsonPath" tf:"json_path"`
 }
 
-type XmlClassifierObservation struct {
+type XMLClassifierObservation struct {
 }
 
-type XmlClassifierParameters struct {
+type XMLClassifierParameters struct {
 	Classification string `json:"classification" tf:"classification"`
 
 	RowTag string `json:"rowTag" tf:"row_tag"`

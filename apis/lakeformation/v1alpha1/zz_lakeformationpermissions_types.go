@@ -28,16 +28,16 @@ type DataLocationObservation struct {
 }
 
 type DataLocationParameters struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 }
 
 type DatabaseObservation struct {
 }
 
 type DatabaseParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	Name string `json:"name" tf:"name"`
 }
@@ -46,7 +46,7 @@ type LakeformationPermissionsObservation struct {
 }
 
 type LakeformationPermissionsParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	CatalogResource *bool `json:"catalogResource,omitempty" tf:"catalog_resource"`
 
@@ -69,7 +69,7 @@ type TableObservation struct {
 }
 
 type TableParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
@@ -82,7 +82,7 @@ type TableWithColumnsObservation struct {
 }
 
 type TableWithColumnsParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	ColumnNames []string `json:"columnNames,omitempty" tf:"column_names"`
 

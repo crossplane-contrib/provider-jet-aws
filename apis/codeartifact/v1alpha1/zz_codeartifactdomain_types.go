@@ -25,7 +25,7 @@ import (
 )
 
 type CodeartifactDomainObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	AssetSizeBytes int64 `json:"assetSizeBytes" tf:"asset_size_bytes"`
 

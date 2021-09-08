@@ -25,17 +25,17 @@ import (
 )
 
 type DatasyncLocationFsxWindowsFileSystemObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreationTime string `json:"creationTime" tf:"creation_time"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type DatasyncLocationFsxWindowsFileSystemParameters struct {
 	Domain *string `json:"domain,omitempty" tf:"domain"`
 
-	FsxFilesystemArn string `json:"fsxFilesystemArn" tf:"fsx_filesystem_arn"`
+	FsxFilesystemARN string `json:"fsxFilesystemARN" tf:"fsx_filesystem_arn"`
 
 	Password string `json:"password" tf:"password"`
 

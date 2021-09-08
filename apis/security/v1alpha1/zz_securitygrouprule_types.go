@@ -34,17 +34,17 @@ type SecurityGroupRuleParameters struct {
 
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
-	Ipv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
+	IPv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
 
 	PrefixListIds []string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
 	Protocol string `json:"protocol" tf:"protocol"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	SecurityGroupID string `json:"securityGroupID" tf:"security_group_id"`
 
 	Self *bool `json:"self,omitempty" tf:"self"`
 
-	SourceSecurityGroupId *string `json:"sourceSecurityGroupId,omitempty" tf:"source_security_group_id"`
+	SourceSecurityGroupID *string `json:"sourceSecurityGroupID,omitempty" tf:"source_security_group_id"`
 
 	ToPort int64 `json:"toPort" tf:"to_port"`
 

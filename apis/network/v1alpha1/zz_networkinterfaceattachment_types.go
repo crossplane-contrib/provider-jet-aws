@@ -25,7 +25,7 @@ import (
 )
 
 type NetworkInterfaceAttachmentObservation struct {
-	AttachmentId string `json:"attachmentId" tf:"attachment_id"`
+	AttachmentID string `json:"attachmentID" tf:"attachment_id"`
 
 	Status string `json:"status" tf:"status"`
 }
@@ -33,9 +33,9 @@ type NetworkInterfaceAttachmentObservation struct {
 type NetworkInterfaceAttachmentParameters struct {
 	DeviceIndex int64 `json:"deviceIndex" tf:"device_index"`
 
-	InstanceId string `json:"instanceId" tf:"instance_id"`
+	InstanceID string `json:"instanceID" tf:"instance_id"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceID" tf:"network_interface_id"`
 }
 
 // NetworkInterfaceAttachmentSpec defines the desired state of NetworkInterfaceAttachment

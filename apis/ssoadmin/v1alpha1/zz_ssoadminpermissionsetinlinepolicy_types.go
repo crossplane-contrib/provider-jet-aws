@@ -30,9 +30,9 @@ type SsoadminPermissionSetInlinePolicyObservation struct {
 type SsoadminPermissionSetInlinePolicyParameters struct {
 	InlinePolicy string `json:"inlinePolicy" tf:"inline_policy"`
 
-	InstanceArn string `json:"instanceArn" tf:"instance_arn"`
+	InstanceARN string `json:"instanceARN" tf:"instance_arn"`
 
-	PermissionSetArn string `json:"permissionSetArn" tf:"permission_set_arn"`
+	PermissionSetARN string `json:"permissionSetARN" tf:"permission_set_arn"`
 }
 
 // SsoadminPermissionSetInlinePolicySpec defines the desired state of SsoadminPermissionSetInlinePolicy

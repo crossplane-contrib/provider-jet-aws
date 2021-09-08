@@ -25,7 +25,7 @@ import (
 )
 
 type ConfigRemediationConfigurationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ConfigRemediationConfigurationParameters struct {
@@ -35,7 +35,7 @@ type ConfigRemediationConfigurationParameters struct {
 
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type"`
 
-	TargetId string `json:"targetId" tf:"target_id"`
+	TargetID string `json:"targetID" tf:"target_id"`
 
 	TargetType string `json:"targetType" tf:"target_type"`
 

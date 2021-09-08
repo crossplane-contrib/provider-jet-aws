@@ -25,7 +25,7 @@ import (
 )
 
 type AmplifyBranchObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	AssociatedResources []string `json:"associatedResources" tf:"associated_resources"`
 
@@ -37,9 +37,9 @@ type AmplifyBranchObservation struct {
 }
 
 type AmplifyBranchParameters struct {
-	AppId string `json:"appId" tf:"app_id"`
+	AppID string `json:"appID" tf:"app_id"`
 
-	BackendEnvironmentArn *string `json:"backendEnvironmentArn,omitempty" tf:"backend_environment_arn"`
+	BackendEnvironmentARN *string `json:"backendEnvironmentARN,omitempty" tf:"backend_environment_arn"`
 
 	BasicAuthCredentials *string `json:"basicAuthCredentials,omitempty" tf:"basic_auth_credentials"`
 
@@ -67,11 +67,11 @@ type AmplifyBranchParameters struct {
 
 	Stage *string `json:"stage,omitempty" tf:"stage"`
 
+	TTL *string `json:"ttl,omitempty" tf:"ttl"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
-
-	Ttl *string `json:"ttl,omitempty" tf:"ttl"`
 }
 
 // AmplifyBranchSpec defines the desired state of AmplifyBranch

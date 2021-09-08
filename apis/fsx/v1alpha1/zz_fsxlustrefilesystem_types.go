@@ -25,17 +25,17 @@ import (
 )
 
 type FsxLustreFileSystemObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
 	MountName string `json:"mountName" tf:"mount_name"`
 
 	NetworkInterfaceIds []string `json:"networkInterfaceIds" tf:"network_interface_ids"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type FsxLustreFileSystemParameters struct {
@@ -59,7 +59,7 @@ type FsxLustreFileSystemParameters struct {
 
 	ImportedFileChunkSize *int64 `json:"importedFileChunkSize,omitempty" tf:"imported_file_chunk_size"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	PerUnitStorageThroughput *int64 `json:"perUnitStorageThroughput,omitempty" tf:"per_unit_storage_throughput"`
 

@@ -25,15 +25,15 @@ import (
 )
 
 type EfsFileSystemObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	AvailabilityZoneId string `json:"availabilityZoneId" tf:"availability_zone_id"`
+	AvailabilityZoneID string `json:"availabilityZoneID" tf:"availability_zone_id"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
 	NumberOfMountTargets int64 `json:"numberOfMountTargets" tf:"number_of_mount_targets"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
 	SizeInBytes []SizeInBytesObservation `json:"sizeInBytes" tf:"size_in_bytes"`
 }
@@ -45,7 +45,7 @@ type EfsFileSystemParameters struct {
 
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	LifecyclePolicy []LifecyclePolicyParameters `json:"lifecyclePolicy,omitempty" tf:"lifecycle_policy"`
 

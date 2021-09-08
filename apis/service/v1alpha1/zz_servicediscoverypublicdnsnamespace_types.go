@@ -25,7 +25,7 @@ import (
 )
 
 type ServiceDiscoveryPublicDnsNamespaceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	HostedZone string `json:"hostedZone" tf:"hosted_zone"`
 }

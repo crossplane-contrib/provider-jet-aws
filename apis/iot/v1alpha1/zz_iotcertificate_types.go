@@ -25,7 +25,7 @@ import (
 )
 
 type IotCertificateObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CertificatePem string `json:"certificatePem" tf:"certificate_pem"`
 

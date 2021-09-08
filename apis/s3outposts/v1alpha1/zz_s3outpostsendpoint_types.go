@@ -25,14 +25,14 @@ import (
 )
 
 type NetworkInterfacesObservation struct {
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceID" tf:"network_interface_id"`
 }
 
 type NetworkInterfacesParameters struct {
 }
 
 type S3OutpostsEndpointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CidrBlock string `json:"cidrBlock" tf:"cidr_block"`
 
@@ -42,11 +42,11 @@ type S3OutpostsEndpointObservation struct {
 }
 
 type S3OutpostsEndpointParameters struct {
-	OutpostId string `json:"outpostId" tf:"outpost_id"`
+	OutpostID string `json:"outpostID" tf:"outpost_id"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	SecurityGroupID string `json:"securityGroupID" tf:"security_group_id"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetID" tf:"subnet_id"`
 }
 
 // S3OutpostsEndpointSpec defines the desired state of S3OutpostsEndpoint

@@ -25,11 +25,11 @@ import (
 )
 
 type Route53ResolverFirewallRuleGroupAssociationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type Route53ResolverFirewallRuleGroupAssociationParameters struct {
-	FirewallRuleGroupId string `json:"firewallRuleGroupId" tf:"firewall_rule_group_id"`
+	FirewallRuleGroupID string `json:"firewallRuleGroupID" tf:"firewall_rule_group_id"`
 
 	MutationProtection *string `json:"mutationProtection,omitempty" tf:"mutation_protection"`
 
@@ -41,7 +41,7 @@ type Route53ResolverFirewallRuleGroupAssociationParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // Route53ResolverFirewallRuleGroupAssociationSpec defines the desired state of Route53ResolverFirewallRuleGroupAssociation

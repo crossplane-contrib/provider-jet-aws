@@ -28,15 +28,15 @@ type EndpointConfigurationObservation struct {
 }
 
 type EndpointConfigurationParameters struct {
-	ClientIpPreservationEnabled *bool `json:"clientIpPreservationEnabled,omitempty" tf:"client_ip_preservation_enabled"`
+	ClientIPPreservationEnabled *bool `json:"clientIPPreservationEnabled,omitempty" tf:"client_ip_preservation_enabled"`
 
-	EndpointId *string `json:"endpointId,omitempty" tf:"endpoint_id"`
+	EndpointID *string `json:"endpointID,omitempty" tf:"endpoint_id"`
 
 	Weight *int64 `json:"weight,omitempty" tf:"weight"`
 }
 
 type GlobalacceleratorEndpointGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GlobalacceleratorEndpointGroupParameters struct {
@@ -52,7 +52,7 @@ type GlobalacceleratorEndpointGroupParameters struct {
 
 	HealthCheckProtocol *string `json:"healthCheckProtocol,omitempty" tf:"health_check_protocol"`
 
-	ListenerArn string `json:"listenerArn" tf:"listener_arn"`
+	ListenerARN string `json:"listenerARN" tf:"listener_arn"`
 
 	PortOverride []PortOverrideParameters `json:"portOverride,omitempty" tf:"port_override"`
 

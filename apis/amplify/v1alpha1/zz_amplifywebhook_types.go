@@ -25,13 +25,13 @@ import (
 )
 
 type AmplifyWebhookObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type AmplifyWebhookParameters struct {
-	AppId string `json:"appId" tf:"app_id"`
+	AppID string `json:"appID" tf:"app_id"`
 
 	BranchName string `json:"branchName" tf:"branch_name"`
 

@@ -47,9 +47,9 @@ type ApplicationConfigurationParameters struct {
 
 	RunConfiguration []RunConfigurationParameters `json:"runConfiguration,omitempty" tf:"run_configuration"`
 
-	SqlApplicationConfiguration []SqlApplicationConfigurationParameters `json:"sqlApplicationConfiguration,omitempty" tf:"sql_application_configuration"`
+	SQLApplicationConfiguration []SQLApplicationConfigurationParameters `json:"sqlApplicationConfiguration,omitempty" tf:"sql_application_configuration"`
 
-	VpcConfiguration []VpcConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
+	VPCConfiguration []VPCConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
 }
 
 type ApplicationRestoreConfigurationObservation struct {
@@ -82,11 +82,11 @@ type CheckpointConfigurationParameters struct {
 }
 
 type CloudwatchLoggingOptionsObservation struct {
-	CloudwatchLoggingOptionId string `json:"cloudwatchLoggingOptionId" tf:"cloudwatch_logging_option_id"`
+	CloudwatchLoggingOptionID string `json:"cloudwatchLoggingOptionID" tf:"cloudwatch_logging_option_id"`
 }
 
 type CloudwatchLoggingOptionsParameters struct {
-	LogStreamArn string `json:"logStreamArn" tf:"log_stream_arn"`
+	LogStreamARN string `json:"logStreamARN" tf:"log_stream_arn"`
 }
 
 type CodeContentObservation struct {
@@ -143,13 +143,13 @@ type InputLambdaProcessorObservation struct {
 }
 
 type InputLambdaProcessorParameters struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 type InputObservation struct {
 	InAppStreamNames []string `json:"inAppStreamNames" tf:"in_app_stream_names"`
 
-	InputId string `json:"inputId" tf:"input_id"`
+	InputID string `json:"inputID" tf:"input_id"`
 }
 
 type InputParallelismObservation struct {
@@ -200,10 +200,10 @@ type InputStartingPositionConfigurationParameters struct {
 	InputStartingPosition *string `json:"inputStartingPosition,omitempty" tf:"input_starting_position"`
 }
 
-type JsonMappingParametersObservation struct {
+type JSONMappingParametersObservation struct {
 }
 
-type JsonMappingParametersParameters struct {
+type JSONMappingParametersParameters struct {
 	RecordRowPath string `json:"recordRowPath" tf:"record_row_path"`
 }
 
@@ -211,32 +211,32 @@ type KinesisFirehoseInputObservation struct {
 }
 
 type KinesisFirehoseInputParameters struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 type KinesisFirehoseOutputObservation struct {
 }
 
 type KinesisFirehoseOutputParameters struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 type KinesisStreamsInputObservation struct {
 }
 
 type KinesisStreamsInputParameters struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 type KinesisStreamsOutputObservation struct {
 }
 
 type KinesisStreamsOutputParameters struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 type Kinesisanalyticsv2ApplicationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreateTimestamp string `json:"createTimestamp" tf:"create_timestamp"`
 
@@ -244,7 +244,7 @@ type Kinesisanalyticsv2ApplicationObservation struct {
 
 	Status string `json:"status" tf:"status"`
 
-	VersionId int64 `json:"versionId" tf:"version_id"`
+	VersionID int64 `json:"versionID" tf:"version_id"`
 }
 
 type Kinesisanalyticsv2ApplicationParameters struct {
@@ -273,7 +273,7 @@ type LambdaOutputObservation struct {
 }
 
 type LambdaOutputParameters struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 type MappingParametersCsvMappingParametersObservation struct {
@@ -285,10 +285,10 @@ type MappingParametersCsvMappingParametersParameters struct {
 	RecordRowDelimiter string `json:"recordRowDelimiter" tf:"record_row_delimiter"`
 }
 
-type MappingParametersJsonMappingParametersObservation struct {
+type MappingParametersJSONMappingParametersObservation struct {
 }
 
-type MappingParametersJsonMappingParametersParameters struct {
+type MappingParametersJSONMappingParametersParameters struct {
 	RecordRowPath string `json:"recordRowPath" tf:"record_row_path"`
 }
 
@@ -298,7 +298,7 @@ type MappingParametersObservation struct {
 type MappingParametersParameters struct {
 	CsvMappingParameters []CsvMappingParametersParameters `json:"csvMappingParameters,omitempty" tf:"csv_mapping_parameters"`
 
-	JsonMappingParameters []JsonMappingParametersParameters `json:"jsonMappingParameters,omitempty" tf:"json_mapping_parameters"`
+	JSONMappingParameters []JSONMappingParametersParameters `json:"jsonMappingParameters,omitempty" tf:"json_mapping_parameters"`
 }
 
 type MonitoringConfigurationObservation struct {
@@ -313,7 +313,7 @@ type MonitoringConfigurationParameters struct {
 }
 
 type OutputObservation struct {
-	OutputId string `json:"outputId" tf:"output_id"`
+	OutputID string `json:"outputID" tf:"output_id"`
 }
 
 type OutputParameters struct {
@@ -345,7 +345,7 @@ type PropertyGroupObservation struct {
 }
 
 type PropertyGroupParameters struct {
-	PropertyGroupId string `json:"propertyGroupId" tf:"property_group_id"`
+	PropertyGroupID string `json:"propertyGroupID" tf:"property_group_id"`
 
 	PropertyMap map[string]string `json:"propertyMap" tf:"property_map"`
 }
@@ -358,7 +358,7 @@ type RecordColumnParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	SqlType string `json:"sqlType" tf:"sql_type"`
+	SQLType string `json:"sqlType" tf:"sql_type"`
 }
 
 type RecordFormatMappingParametersObservation struct {
@@ -367,7 +367,7 @@ type RecordFormatMappingParametersObservation struct {
 type RecordFormatMappingParametersParameters struct {
 	CsvMappingParameters []MappingParametersCsvMappingParametersParameters `json:"csvMappingParameters,omitempty" tf:"csv_mapping_parameters"`
 
-	JsonMappingParameters []MappingParametersJsonMappingParametersParameters `json:"jsonMappingParameters,omitempty" tf:"json_mapping_parameters"`
+	JSONMappingParameters []MappingParametersJSONMappingParametersParameters `json:"jsonMappingParameters,omitempty" tf:"json_mapping_parameters"`
 }
 
 type RecordFormatObservation struct {
@@ -380,7 +380,7 @@ type RecordFormatParameters struct {
 }
 
 type ReferenceDataSourceObservation struct {
-	ReferenceId string `json:"referenceId" tf:"reference_id"`
+	ReferenceID string `json:"referenceID" tf:"reference_id"`
 }
 
 type ReferenceDataSourceParameters struct {
@@ -410,7 +410,7 @@ type ReferenceSchemaRecordColumnParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	SqlType string `json:"sqlType" tf:"sql_type"`
+	SQLType string `json:"sqlType" tf:"sql_type"`
 }
 
 type ReferenceSchemaRecordFormatObservation struct {
@@ -435,7 +435,7 @@ type S3ContentLocationObservation struct {
 }
 
 type S3ContentLocationParameters struct {
-	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
+	BucketARN string `json:"bucketARN" tf:"bucket_arn"`
 
 	FileKey string `json:"fileKey" tf:"file_key"`
 
@@ -446,15 +446,15 @@ type S3ReferenceDataSourceObservation struct {
 }
 
 type S3ReferenceDataSourceParameters struct {
-	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
+	BucketARN string `json:"bucketARN" tf:"bucket_arn"`
 
 	FileKey string `json:"fileKey" tf:"file_key"`
 }
 
-type SqlApplicationConfigurationObservation struct {
+type SQLApplicationConfigurationObservation struct {
 }
 
-type SqlApplicationConfigurationParameters struct {
+type SQLApplicationConfigurationParameters struct {
 	Input []InputParameters `json:"input,omitempty" tf:"input"`
 
 	Output []OutputParameters `json:"output,omitempty" tf:"output"`
@@ -462,13 +462,13 @@ type SqlApplicationConfigurationParameters struct {
 	ReferenceDataSource []ReferenceDataSourceParameters `json:"referenceDataSource,omitempty" tf:"reference_data_source"`
 }
 
-type VpcConfigurationObservation struct {
-	VpcConfigurationId string `json:"vpcConfigurationId" tf:"vpc_configuration_id"`
+type VPCConfigurationObservation struct {
+	VPCConfigurationID string `json:"vpcConfigurationID" tf:"vpc_configuration_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
-type VpcConfigurationParameters struct {
+type VPCConfigurationParameters struct {
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`

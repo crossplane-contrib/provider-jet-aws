@@ -30,7 +30,7 @@ type ApiGatewayMethodSettingsObservation struct {
 type ApiGatewayMethodSettingsParameters struct {
 	MethodPath string `json:"methodPath" tf:"method_path"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 
 	Settings []SettingsParameters `json:"settings" tf:"settings"`
 
@@ -43,7 +43,7 @@ type SettingsObservation struct {
 type SettingsParameters struct {
 	CacheDataEncrypted *bool `json:"cacheDataEncrypted,omitempty" tf:"cache_data_encrypted"`
 
-	CacheTtlInSeconds *int64 `json:"cacheTtlInSeconds,omitempty" tf:"cache_ttl_in_seconds"`
+	CacheTTLInSeconds *int64 `json:"cacheTTLInSeconds,omitempty" tf:"cache_ttl_in_seconds"`
 
 	CachingEnabled *bool `json:"cachingEnabled,omitempty" tf:"caching_enabled"`
 

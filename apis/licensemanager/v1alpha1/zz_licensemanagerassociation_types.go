@@ -28,9 +28,9 @@ type LicensemanagerAssociationObservation struct {
 }
 
 type LicensemanagerAssociationParameters struct {
-	LicenseConfigurationArn string `json:"licenseConfigurationArn" tf:"license_configuration_arn"`
+	LicenseConfigurationARN string `json:"licenseConfigurationARN" tf:"license_configuration_arn"`
 
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 // LicensemanagerAssociationSpec defines the desired state of LicensemanagerAssociation

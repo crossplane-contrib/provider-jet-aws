@@ -25,13 +25,13 @@ import (
 )
 
 type GlueUserDefinedFunctionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreateTime string `json:"createTime" tf:"create_time"`
 }
 
 type GlueUserDefinedFunctionParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	ClassName string `json:"className" tf:"class_name"`
 
@@ -52,7 +52,7 @@ type ResourceUrisObservation struct {
 type ResourceUrisParameters struct {
 	ResourceType string `json:"resourceType" tf:"resource_type"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 // GlueUserDefinedFunctionSpec defines the desired state of GlueUserDefinedFunction

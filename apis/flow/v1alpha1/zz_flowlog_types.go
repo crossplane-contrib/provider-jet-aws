@@ -25,13 +25,13 @@ import (
 )
 
 type FlowLogObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type FlowLogParameters struct {
-	EniId *string `json:"eniId,omitempty" tf:"eni_id"`
+	EniID *string `json:"eniID,omitempty" tf:"eni_id"`
 
-	IamRoleArn *string `json:"iamRoleArn,omitempty" tf:"iam_role_arn"`
+	IamRoleARN *string `json:"iamRoleARN,omitempty" tf:"iam_role_arn"`
 
 	LogDestination *string `json:"logDestination,omitempty" tf:"log_destination"`
 
@@ -43,7 +43,7 @@ type FlowLogParameters struct {
 
 	MaxAggregationInterval *int64 `json:"maxAggregationInterval,omitempty" tf:"max_aggregation_interval"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -51,7 +51,7 @@ type FlowLogParameters struct {
 
 	TrafficType string `json:"trafficType" tf:"traffic_type"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VPCID *string `json:"vpcID,omitempty" tf:"vpc_id"`
 }
 
 // FlowLogSpec defines the desired state of FlowLog

@@ -25,9 +25,9 @@ import (
 )
 
 type CloudhsmV2HsmObservation struct {
-	HsmEniId string `json:"hsmEniId" tf:"hsm_eni_id"`
+	HsmEniID string `json:"hsmEniID" tf:"hsm_eni_id"`
 
-	HsmId string `json:"hsmId" tf:"hsm_id"`
+	HsmID string `json:"hsmID" tf:"hsm_id"`
 
 	HsmState string `json:"hsmState" tf:"hsm_state"`
 }
@@ -35,11 +35,11 @@ type CloudhsmV2HsmObservation struct {
 type CloudhsmV2HsmParameters struct {
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
+	ClusterID string `json:"clusterID" tf:"cluster_id"`
 
-	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
+	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 }
 
 // CloudhsmV2HsmSpec defines the desired state of CloudhsmV2Hsm

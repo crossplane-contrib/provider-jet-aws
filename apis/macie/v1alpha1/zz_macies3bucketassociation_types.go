@@ -41,7 +41,7 @@ type MacieS3BucketAssociationParameters struct {
 
 	ClassificationType []ClassificationTypeParameters `json:"classificationType,omitempty" tf:"classification_type"`
 
-	MemberAccountId *string `json:"memberAccountId,omitempty" tf:"member_account_id"`
+	MemberAccountID *string `json:"memberAccountID,omitempty" tf:"member_account_id"`
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 }

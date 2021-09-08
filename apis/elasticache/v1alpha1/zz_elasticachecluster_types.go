@@ -29,7 +29,7 @@ type CacheNodesObservation struct {
 
 	AvailabilityZone string `json:"availabilityZone" tf:"availability_zone"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Port int64 `json:"port" tf:"port"`
 }
@@ -38,7 +38,7 @@ type CacheNodesParameters struct {
 }
 
 type ElasticacheClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CacheNodes []CacheNodesObservation `json:"cacheNodes" tf:"cache_nodes"`
 
@@ -56,7 +56,7 @@ type ElasticacheClusterParameters struct {
 
 	AzMode *string `json:"azMode,omitempty" tf:"az_mode"`
 
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
+	ClusterID string `json:"clusterID" tf:"cluster_id"`
 
 	Engine *string `json:"engine,omitempty" tf:"engine"`
 
@@ -68,7 +68,7 @@ type ElasticacheClusterParameters struct {
 
 	NodeType *string `json:"nodeType,omitempty" tf:"node_type"`
 
-	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn"`
+	NotificationTopicARN *string `json:"notificationTopicARN,omitempty" tf:"notification_topic_arn"`
 
 	NumCacheNodes *int64 `json:"numCacheNodes,omitempty" tf:"num_cache_nodes"`
 
@@ -78,7 +78,7 @@ type ElasticacheClusterParameters struct {
 
 	PreferredAvailabilityZones []string `json:"preferredAvailabilityZones,omitempty" tf:"preferred_availability_zones"`
 
-	ReplicationGroupId *string `json:"replicationGroupId,omitempty" tf:"replication_group_id"`
+	ReplicationGroupID *string `json:"replicationGroupID,omitempty" tf:"replication_group_id"`
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 

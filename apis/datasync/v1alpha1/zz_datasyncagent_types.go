@@ -25,13 +25,13 @@ import (
 )
 
 type DatasyncAgentObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type DatasyncAgentParameters struct {
 	ActivationKey *string `json:"activationKey,omitempty" tf:"activation_key"`
 
-	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
+	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
@@ -45,7 +45,7 @@ type DatasyncAgentParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcEndpointId *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
+	VPCEndpointID *string `json:"vpcEndpointID,omitempty" tf:"vpc_endpoint_id"`
 }
 
 // DatasyncAgentSpec defines the desired state of DatasyncAgent

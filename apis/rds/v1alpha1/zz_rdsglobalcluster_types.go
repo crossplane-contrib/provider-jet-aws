@@ -25,7 +25,7 @@ import (
 )
 
 type GlobalClusterMembersObservation struct {
-	DbClusterArn string `json:"dbClusterArn" tf:"db_cluster_arn"`
+	DBClusterARN string `json:"dbClusterARN" tf:"db_cluster_arn"`
 
 	IsWriter bool `json:"isWriter" tf:"is_writer"`
 }
@@ -34,11 +34,11 @@ type GlobalClusterMembersParameters struct {
 }
 
 type RdsGlobalClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	GlobalClusterMembers []GlobalClusterMembersObservation `json:"globalClusterMembers" tf:"global_cluster_members"`
 
-	GlobalClusterResourceId string `json:"globalClusterResourceId" tf:"global_cluster_resource_id"`
+	GlobalClusterResourceID string `json:"globalClusterResourceID" tf:"global_cluster_resource_id"`
 }
 
 type RdsGlobalClusterParameters struct {
@@ -54,7 +54,7 @@ type RdsGlobalClusterParameters struct {
 
 	GlobalClusterIdentifier string `json:"globalClusterIdentifier" tf:"global_cluster_identifier"`
 
-	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier,omitempty" tf:"source_db_cluster_identifier"`
+	SourceDBClusterIdentifier *string `json:"sourceDBClusterIdentifier,omitempty" tf:"source_db_cluster_identifier"`
 
 	StorageEncrypted *bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted"`
 }

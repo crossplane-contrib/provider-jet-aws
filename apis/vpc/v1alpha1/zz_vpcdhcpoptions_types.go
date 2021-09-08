@@ -25,9 +25,9 @@ import (
 )
 
 type VpcDhcpOptionsObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type VpcDhcpOptionsParameters struct {

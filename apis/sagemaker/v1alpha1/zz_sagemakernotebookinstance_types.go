@@ -25,11 +25,11 @@ import (
 )
 
 type SagemakerNotebookInstanceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceID" tf:"network_interface_id"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type SagemakerNotebookInstanceParameters struct {
@@ -41,19 +41,19 @@ type SagemakerNotebookInstanceParameters struct {
 
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	LifecycleConfigName *string `json:"lifecycleConfigName,omitempty" tf:"lifecycle_config_name"`
 
 	Name string `json:"name" tf:"name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	RootAccess *string `json:"rootAccess,omitempty" tf:"root_access"`
 
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

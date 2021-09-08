@@ -41,7 +41,7 @@ type ComponentObservation struct {
 }
 
 type ComponentParameters struct {
-	ComponentArn string `json:"componentArn" tf:"component_arn"`
+	ComponentARN string `json:"componentARN" tf:"component_arn"`
 }
 
 type EbsObservation struct {
@@ -54,9 +54,9 @@ type EbsParameters struct {
 
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotID,omitempty" tf:"snapshot_id"`
 
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 
@@ -64,7 +64,7 @@ type EbsParameters struct {
 }
 
 type ImagebuilderImageRecipeObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DateCreated string `json:"dateCreated" tf:"date_created"`
 

@@ -25,9 +25,9 @@ import (
 )
 
 type RedshiftEventSubscriptionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	CustomerAwsId string `json:"customerAwsId" tf:"customer_aws_id"`
+	CustomerAwsID string `json:"customerAwsID" tf:"customer_aws_id"`
 
 	Status string `json:"status" tf:"status"`
 }
@@ -41,7 +41,7 @@ type RedshiftEventSubscriptionParameters struct {
 
 	Severity *string `json:"severity,omitempty" tf:"severity"`
 
-	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
+	SnsTopicARN string `json:"snsTopicARN" tf:"sns_topic_arn"`
 
 	SourceIds []string `json:"sourceIds,omitempty" tf:"source_ids"`
 

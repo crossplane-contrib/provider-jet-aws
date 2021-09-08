@@ -48,9 +48,9 @@ type EmrInstanceGroupParameters struct {
 
 	BidPrice *string `json:"bidPrice,omitempty" tf:"bid_price"`
 
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
+	ClusterID string `json:"clusterID" tf:"cluster_id"`
 
-	ConfigurationsJson *string `json:"configurationsJson,omitempty" tf:"configurations_json"`
+	ConfigurationsJSON *string `json:"configurationsJSON,omitempty" tf:"configurations_json"`
 
 	EbsConfig []EmrInstanceGroupEbsConfigParameters `json:"ebsConfig,omitempty" tf:"ebs_config"`
 

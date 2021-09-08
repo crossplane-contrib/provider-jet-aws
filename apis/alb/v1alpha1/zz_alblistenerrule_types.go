@@ -38,9 +38,9 @@ type ActionAuthenticateCognitoParameters struct {
 
 	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout"`
 
-	UserPoolArn string `json:"userPoolArn" tf:"user_pool_arn"`
+	UserPoolARN string `json:"userPoolARN" tf:"user_pool_arn"`
 
-	UserPoolClientId string `json:"userPoolClientId" tf:"user_pool_client_id"`
+	UserPoolClientID string `json:"userPoolClientID" tf:"user_pool_client_id"`
 
 	UserPoolDomain string `json:"userPoolDomain" tf:"user_pool_domain"`
 }
@@ -53,7 +53,7 @@ type ActionAuthenticateOidcParameters struct {
 
 	AuthorizationEndpoint string `json:"authorizationEndpoint" tf:"authorization_endpoint"`
 
-	ClientId string `json:"clientId" tf:"client_id"`
+	ClientID string `json:"clientID" tf:"client_id"`
 
 	ClientSecret string `json:"clientSecret" tf:"client_secret"`
 
@@ -108,7 +108,7 @@ type ActionParameters struct {
 
 	Redirect []ActionRedirectParameters `json:"redirect,omitempty" tf:"redirect"`
 
-	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn"`
+	TargetGroupARN *string `json:"targetGroupARN,omitempty" tf:"target_group_arn"`
 
 	Type string `json:"type" tf:"type"`
 }
@@ -131,7 +131,7 @@ type ActionRedirectParameters struct {
 }
 
 type AlbListenerRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type AlbListenerRuleParameters struct {
@@ -139,7 +139,7 @@ type AlbListenerRuleParameters struct {
 
 	Condition []ConditionParameters `json:"condition" tf:"condition"`
 
-	ListenerArn string `json:"listenerArn" tf:"listener_arn"`
+	ListenerARN string `json:"listenerARN" tf:"listener_arn"`
 
 	Priority *int64 `json:"priority,omitempty" tf:"priority"`
 
@@ -152,17 +152,17 @@ type ConditionObservation struct {
 }
 
 type ConditionParameters struct {
+	HTTPHeader []HTTPHeaderParameters `json:"httpHeader,omitempty" tf:"http_header"`
+
+	HTTPRequestMethod []HTTPRequestMethodParameters `json:"httpRequestMethod,omitempty" tf:"http_request_method"`
+
 	HostHeader []HostHeaderParameters `json:"hostHeader,omitempty" tf:"host_header"`
-
-	HttpHeader []HttpHeaderParameters `json:"httpHeader,omitempty" tf:"http_header"`
-
-	HttpRequestMethod []HttpRequestMethodParameters `json:"httpRequestMethod,omitempty" tf:"http_request_method"`
 
 	PathPattern []PathPatternParameters `json:"pathPattern,omitempty" tf:"path_pattern"`
 
 	QueryString []QueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SourceIp []SourceIpParameters `json:"sourceIp,omitempty" tf:"source_ip"`
+	SourceIP []SourceIPParameters `json:"sourceIP,omitempty" tf:"source_ip"`
 }
 
 type ForwardStickinessObservation struct {
@@ -178,31 +178,31 @@ type ForwardTargetGroupObservation struct {
 }
 
 type ForwardTargetGroupParameters struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Weight *int64 `json:"weight,omitempty" tf:"weight"`
+}
+
+type HTTPHeaderObservation struct {
+}
+
+type HTTPHeaderParameters struct {
+	HTTPHeaderName string `json:"httpHeaderName" tf:"http_header_name"`
+
+	Values []string `json:"values" tf:"values"`
+}
+
+type HTTPRequestMethodObservation struct {
+}
+
+type HTTPRequestMethodParameters struct {
+	Values []string `json:"values" tf:"values"`
 }
 
 type HostHeaderObservation struct {
 }
 
 type HostHeaderParameters struct {
-	Values []string `json:"values" tf:"values"`
-}
-
-type HttpHeaderObservation struct {
-}
-
-type HttpHeaderParameters struct {
-	HttpHeaderName string `json:"httpHeaderName" tf:"http_header_name"`
-
-	Values []string `json:"values" tf:"values"`
-}
-
-type HttpRequestMethodObservation struct {
-}
-
-type HttpRequestMethodParameters struct {
 	Values []string `json:"values" tf:"values"`
 }
 
@@ -222,10 +222,10 @@ type QueryStringParameters struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type SourceIpObservation struct {
+type SourceIPObservation struct {
 }
 
-type SourceIpParameters struct {
+type SourceIPParameters struct {
 	Values []string `json:"values" tf:"values"`
 }
 

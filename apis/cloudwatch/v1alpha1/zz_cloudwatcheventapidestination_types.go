@@ -25,15 +25,15 @@ import (
 )
 
 type CloudwatchEventApiDestinationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CloudwatchEventApiDestinationParameters struct {
-	ConnectionArn string `json:"connectionArn" tf:"connection_arn"`
+	ConnectionARN string `json:"connectionARN" tf:"connection_arn"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
 	InvocationEndpoint string `json:"invocationEndpoint" tf:"invocation_endpoint"`
 

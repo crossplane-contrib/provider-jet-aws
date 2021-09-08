@@ -28,11 +28,11 @@ type AuthenticationOptionsObservation struct {
 }
 
 type AuthenticationOptionsParameters struct {
-	ActiveDirectoryId *string `json:"activeDirectoryId,omitempty" tf:"active_directory_id"`
+	ActiveDirectoryID *string `json:"activeDirectoryID,omitempty" tf:"active_directory_id"`
 
-	RootCertificateChainArn *string `json:"rootCertificateChainArn,omitempty" tf:"root_certificate_chain_arn"`
+	RootCertificateChainARN *string `json:"rootCertificateChainARN,omitempty" tf:"root_certificate_chain_arn"`
 
-	SamlProviderArn *string `json:"samlProviderArn,omitempty" tf:"saml_provider_arn"`
+	SamlProviderARN *string `json:"samlProviderARN,omitempty" tf:"saml_provider_arn"`
 
 	Type string `json:"type" tf:"type"`
 }
@@ -49,9 +49,9 @@ type ConnectionLogOptionsParameters struct {
 }
 
 type Ec2ClientVpnEndpointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
 	Status string `json:"status" tf:"status"`
 }
@@ -63,11 +63,11 @@ type Ec2ClientVpnEndpointParameters struct {
 
 	ConnectionLogOptions []ConnectionLogOptionsParameters `json:"connectionLogOptions" tf:"connection_log_options"`
 
+	DNSServers []string `json:"dnsServers,omitempty" tf:"dns_servers"`
+
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DnsServers []string `json:"dnsServers,omitempty" tf:"dns_servers"`
-
-	ServerCertificateArn string `json:"serverCertificateArn" tf:"server_certificate_arn"`
+	ServerCertificateARN string `json:"serverCertificateARN" tf:"server_certificate_arn"`
 
 	SplitTunnel *bool `json:"splitTunnel,omitempty" tf:"split_tunnel"`
 

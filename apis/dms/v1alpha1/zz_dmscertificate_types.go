@@ -25,11 +25,11 @@ import (
 )
 
 type DmsCertificateObservation struct {
-	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
+	CertificateARN string `json:"certificateARN" tf:"certificate_arn"`
 }
 
 type DmsCertificateParameters struct {
-	CertificateId string `json:"certificateId" tf:"certificate_id"`
+	CertificateID string `json:"certificateID" tf:"certificate_id"`
 
 	CertificatePem *string `json:"certificatePem,omitempty" tf:"certificate_pem"`
 

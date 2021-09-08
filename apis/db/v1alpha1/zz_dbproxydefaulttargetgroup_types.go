@@ -40,7 +40,7 @@ type ConnectionPoolConfigParameters struct {
 }
 
 type DbProxyDefaultTargetGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Name string `json:"name" tf:"name"`
 }
@@ -48,7 +48,7 @@ type DbProxyDefaultTargetGroupObservation struct {
 type DbProxyDefaultTargetGroupParameters struct {
 	ConnectionPoolConfig []ConnectionPoolConfigParameters `json:"connectionPoolConfig,omitempty" tf:"connection_pool_config"`
 
-	DbProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
+	DBProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
 }
 
 // DbProxyDefaultTargetGroupSpec defines the desired state of DbProxyDefaultTargetGroup

@@ -72,7 +72,7 @@ type SignerSigningJobObservation struct {
 
 	CreatedAt string `json:"createdAt" tf:"created_at"`
 
-	JobId string `json:"jobId" tf:"job_id"`
+	JobID string `json:"jobID" tf:"job_id"`
 
 	JobInvoker string `json:"jobInvoker" tf:"job_invoker"`
 
@@ -80,7 +80,7 @@ type SignerSigningJobObservation struct {
 
 	PlatformDisplayName string `json:"platformDisplayName" tf:"platform_display_name"`
 
-	PlatformId string `json:"platformId" tf:"platform_id"`
+	PlatformID string `json:"platformID" tf:"platform_id"`
 
 	ProfileVersion string `json:"profileVersion" tf:"profile_version"`
 

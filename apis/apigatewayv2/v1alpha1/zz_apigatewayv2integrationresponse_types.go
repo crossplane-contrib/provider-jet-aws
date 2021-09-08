@@ -28,11 +28,11 @@ type Apigatewayv2IntegrationResponseObservation struct {
 }
 
 type Apigatewayv2IntegrationResponseParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
 	ContentHandlingStrategy *string `json:"contentHandlingStrategy,omitempty" tf:"content_handling_strategy"`
 
-	IntegrationId string `json:"integrationId" tf:"integration_id"`
+	IntegrationID string `json:"integrationID" tf:"integration_id"`
 
 	IntegrationResponseKey string `json:"integrationResponseKey" tf:"integration_response_key"`
 

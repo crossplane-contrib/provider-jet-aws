@@ -45,11 +45,11 @@ type ScheduleParameters struct {
 }
 
 type SyntheticsCanaryObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	EngineArn string `json:"engineArn" tf:"engine_arn"`
+	EngineARN string `json:"engineARN" tf:"engine_arn"`
 
-	SourceLocationArn string `json:"sourceLocationArn" tf:"source_location_arn"`
+	SourceLocationARN string `json:"sourceLocationARN" tf:"source_location_arn"`
 
 	Status string `json:"status" tf:"status"`
 
@@ -59,7 +59,7 @@ type SyntheticsCanaryObservation struct {
 type SyntheticsCanaryParameters struct {
 	ArtifactS3Location string `json:"artifactS3Location" tf:"artifact_s3_location"`
 
-	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
+	ExecutionRoleARN string `json:"executionRoleARN" tf:"execution_role_arn"`
 
 	FailureRetentionPeriod *int64 `json:"failureRetentionPeriod,omitempty" tf:"failure_retention_period"`
 
@@ -87,7 +87,7 @@ type SyntheticsCanaryParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
+	VPCConfig []VPCConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 
 	ZipFile *string `json:"zipFile,omitempty" tf:"zip_file"`
 }
@@ -105,11 +105,11 @@ type TimelineObservation struct {
 type TimelineParameters struct {
 }
 
-type VpcConfigObservation struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+type VPCConfigObservation struct {
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
-type VpcConfigParameters struct {
+type VPCConfigParameters struct {
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`

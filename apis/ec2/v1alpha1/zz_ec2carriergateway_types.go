@@ -25,9 +25,9 @@ import (
 )
 
 type Ec2CarrierGatewayObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type Ec2CarrierGatewayParameters struct {
@@ -35,7 +35,7 @@ type Ec2CarrierGatewayParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // Ec2CarrierGatewaySpec defines the desired state of Ec2CarrierGateway

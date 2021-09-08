@@ -34,13 +34,13 @@ type NetworkAclRuleParameters struct {
 
 	FromPort *int64 `json:"fromPort,omitempty" tf:"from_port"`
 
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+
 	IcmpCode *string `json:"icmpCode,omitempty" tf:"icmp_code"`
 
 	IcmpType *string `json:"icmpType,omitempty" tf:"icmp_type"`
 
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
-
-	NetworkAclId string `json:"networkAclId" tf:"network_acl_id"`
+	NetworkACLID string `json:"networkACLID" tf:"network_acl_id"`
 
 	Protocol string `json:"protocol" tf:"protocol"`
 

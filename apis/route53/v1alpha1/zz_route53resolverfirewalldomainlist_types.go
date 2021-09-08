@@ -25,7 +25,7 @@ import (
 )
 
 type Route53ResolverFirewallDomainListObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type Route53ResolverFirewallDomainListParameters struct {

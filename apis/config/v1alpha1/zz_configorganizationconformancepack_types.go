@@ -34,7 +34,7 @@ type ConfigOrganizationConformancePackInputParameterParameters struct {
 }
 
 type ConfigOrganizationConformancePackObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ConfigOrganizationConformancePackParameters struct {
@@ -50,7 +50,7 @@ type ConfigOrganizationConformancePackParameters struct {
 
 	TemplateBody *string `json:"templateBody,omitempty" tf:"template_body"`
 
-	TemplateS3Uri *string `json:"templateS3Uri,omitempty" tf:"template_s3_uri"`
+	TemplateS3URI *string `json:"templateS3URI,omitempty" tf:"template_s3_uri"`
 }
 
 // ConfigOrganizationConformancePackSpec defines the desired state of ConfigOrganizationConformancePack

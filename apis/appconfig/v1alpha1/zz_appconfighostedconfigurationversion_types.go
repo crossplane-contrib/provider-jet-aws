@@ -25,15 +25,15 @@ import (
 )
 
 type AppconfigHostedConfigurationVersionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	VersionNumber int64 `json:"versionNumber" tf:"version_number"`
 }
 
 type AppconfigHostedConfigurationVersionParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
-	ConfigurationProfileId string `json:"configurationProfileId" tf:"configuration_profile_id"`
+	ConfigurationProfileID string `json:"configurationProfileID" tf:"configuration_profile_id"`
 
 	Content string `json:"content" tf:"content"`
 

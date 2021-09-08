@@ -25,15 +25,15 @@ import (
 )
 
 type QuicksightUserObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type QuicksightUserParameters struct {
-	AwsAccountId *string `json:"awsAccountId,omitempty" tf:"aws_account_id"`
+	AwsAccountID *string `json:"awsAccountID,omitempty" tf:"aws_account_id"`
 
 	Email string `json:"email" tf:"email"`
 
-	IamArn *string `json:"iamArn,omitempty" tf:"iam_arn"`
+	IamARN *string `json:"iamARN,omitempty" tf:"iam_arn"`
 
 	IdentityType string `json:"identityType" tf:"identity_type"`
 

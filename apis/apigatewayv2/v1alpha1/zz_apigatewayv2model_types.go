@@ -28,7 +28,7 @@ type Apigatewayv2ModelObservation struct {
 }
 
 type Apigatewayv2ModelParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
 	ContentType string `json:"contentType" tf:"content_type"`
 

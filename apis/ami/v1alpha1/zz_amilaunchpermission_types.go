@@ -28,9 +28,9 @@ type AmiLaunchPermissionObservation struct {
 }
 
 type AmiLaunchPermissionParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountID" tf:"account_id"`
 
-	ImageId string `json:"imageId" tf:"image_id"`
+	ImageID string `json:"imageID" tf:"image_id"`
 }
 
 // AmiLaunchPermissionSpec defines the desired state of AmiLaunchPermission

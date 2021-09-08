@@ -30,7 +30,7 @@ type IamGroupPolicyAttachmentObservation struct {
 type IamGroupPolicyAttachmentParameters struct {
 	Group string `json:"group" tf:"group"`
 
-	PolicyArn string `json:"policyArn" tf:"policy_arn"`
+	PolicyARN string `json:"policyARN" tf:"policy_arn"`
 }
 
 // IamGroupPolicyAttachmentSpec defines the desired state of IamGroupPolicyAttachment

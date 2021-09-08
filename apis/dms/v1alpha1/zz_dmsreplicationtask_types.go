@@ -25,7 +25,7 @@ import (
 )
 
 type DmsReplicationTaskObservation struct {
-	ReplicationTaskArn string `json:"replicationTaskArn" tf:"replication_task_arn"`
+	ReplicationTaskARN string `json:"replicationTaskARN" tf:"replication_task_arn"`
 }
 
 type DmsReplicationTaskParameters struct {
@@ -33,13 +33,13 @@ type DmsReplicationTaskParameters struct {
 
 	MigrationType string `json:"migrationType" tf:"migration_type"`
 
-	ReplicationInstanceArn string `json:"replicationInstanceArn" tf:"replication_instance_arn"`
+	ReplicationInstanceARN string `json:"replicationInstanceARN" tf:"replication_instance_arn"`
 
-	ReplicationTaskId string `json:"replicationTaskId" tf:"replication_task_id"`
+	ReplicationTaskID string `json:"replicationTaskID" tf:"replication_task_id"`
 
 	ReplicationTaskSettings *string `json:"replicationTaskSettings,omitempty" tf:"replication_task_settings"`
 
-	SourceEndpointArn string `json:"sourceEndpointArn" tf:"source_endpoint_arn"`
+	SourceEndpointARN string `json:"sourceEndpointARN" tf:"source_endpoint_arn"`
 
 	TableMappings string `json:"tableMappings" tf:"table_mappings"`
 
@@ -47,7 +47,7 @@ type DmsReplicationTaskParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TargetEndpointArn string `json:"targetEndpointArn" tf:"target_endpoint_arn"`
+	TargetEndpointARN string `json:"targetEndpointARN" tf:"target_endpoint_arn"`
 }
 
 // DmsReplicationTaskSpec defines the desired state of DmsReplicationTask

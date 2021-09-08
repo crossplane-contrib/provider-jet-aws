@@ -28,9 +28,9 @@ type DxConnectionAssociationObservation struct {
 }
 
 type DxConnectionAssociationParameters struct {
-	ConnectionId string `json:"connectionId" tf:"connection_id"`
+	ConnectionID string `json:"connectionID" tf:"connection_id"`
 
-	LagId string `json:"lagId" tf:"lag_id"`
+	LagID string `json:"lagID" tf:"lag_id"`
 }
 
 // DxConnectionAssociationSpec defines the desired state of DxConnectionAssociation

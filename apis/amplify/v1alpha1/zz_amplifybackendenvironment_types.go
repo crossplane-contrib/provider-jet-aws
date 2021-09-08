@@ -25,11 +25,11 @@ import (
 )
 
 type AmplifyBackendEnvironmentObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type AmplifyBackendEnvironmentParameters struct {
-	AppId string `json:"appId" tf:"app_id"`
+	AppID string `json:"appID" tf:"app_id"`
 
 	DeploymentArtifacts *string `json:"deploymentArtifacts,omitempty" tf:"deployment_artifacts"`
 

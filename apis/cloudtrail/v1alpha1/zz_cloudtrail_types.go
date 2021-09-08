@@ -25,15 +25,15 @@ import (
 )
 
 type CloudtrailObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	HomeRegion string `json:"homeRegion" tf:"home_region"`
 }
 
 type CloudtrailParameters struct {
-	CloudWatchLogsGroupArn *string `json:"cloudWatchLogsGroupArn,omitempty" tf:"cloud_watch_logs_group_arn"`
+	CloudWatchLogsGroupARN *string `json:"cloudWatchLogsGroupARN,omitempty" tf:"cloud_watch_logs_group_arn"`
 
-	CloudWatchLogsRoleArn *string `json:"cloudWatchLogsRoleArn,omitempty" tf:"cloud_watch_logs_role_arn"`
+	CloudWatchLogsRoleARN *string `json:"cloudWatchLogsRoleARN,omitempty" tf:"cloud_watch_logs_role_arn"`
 
 	EnableLogFileValidation *bool `json:"enableLogFileValidation,omitempty" tf:"enable_log_file_validation"`
 
@@ -49,7 +49,7 @@ type CloudtrailParameters struct {
 
 	IsOrganizationTrail *bool `json:"isOrganizationTrail,omitempty" tf:"is_organization_trail"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Name string `json:"name" tf:"name"`
 

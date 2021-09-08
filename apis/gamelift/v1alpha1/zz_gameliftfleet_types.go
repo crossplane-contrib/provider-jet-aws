@@ -30,7 +30,7 @@ type Ec2InboundPermissionObservation struct {
 type Ec2InboundPermissionParameters struct {
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
-	IpRange string `json:"ipRange" tf:"ip_range"`
+	IPRange string `json:"ipRange" tf:"ip_range"`
 
 	Protocol string `json:"protocol" tf:"protocol"`
 
@@ -38,7 +38,7 @@ type Ec2InboundPermissionParameters struct {
 }
 
 type GameliftFleetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	LogPaths []string `json:"logPaths" tf:"log_paths"`
 
@@ -46,7 +46,7 @@ type GameliftFleetObservation struct {
 }
 
 type GameliftFleetParameters struct {
-	BuildId string `json:"buildId" tf:"build_id"`
+	BuildID string `json:"buildID" tf:"build_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
@@ -56,7 +56,7 @@ type GameliftFleetParameters struct {
 
 	FleetType *string `json:"fleetType,omitempty" tf:"fleet_type"`
 
-	InstanceRoleArn *string `json:"instanceRoleArn,omitempty" tf:"instance_role_arn"`
+	InstanceRoleARN *string `json:"instanceRoleARN,omitempty" tf:"instance_role_arn"`
 
 	MetricGroups []string `json:"metricGroups,omitempty" tf:"metric_groups"`
 

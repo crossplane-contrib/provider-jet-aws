@@ -25,7 +25,7 @@ import (
 )
 
 type DaxSubnetGroupObservation struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type DaxSubnetGroupParameters struct {

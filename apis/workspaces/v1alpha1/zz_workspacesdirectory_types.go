@@ -64,7 +64,7 @@ type WorkspaceCreationPropertiesObservation struct {
 }
 
 type WorkspaceCreationPropertiesParameters struct {
-	CustomSecurityGroupId *string `json:"customSecurityGroupId,omitempty" tf:"custom_security_group_id"`
+	CustomSecurityGroupID *string `json:"customSecurityGroupID,omitempty" tf:"custom_security_group_id"`
 
 	DefaultOu *string `json:"defaultOu,omitempty" tf:"default_ou"`
 
@@ -80,23 +80,23 @@ type WorkspacesDirectoryObservation struct {
 
 	CustomerUserName string `json:"customerUserName" tf:"customer_user_name"`
 
+	DNSIPAddresses []string `json:"dnsIPAddresses" tf:"dns_ip_addresses"`
+
 	DirectoryName string `json:"directoryName" tf:"directory_name"`
 
 	DirectoryType string `json:"directoryType" tf:"directory_type"`
 
-	DnsIpAddresses []string `json:"dnsIpAddresses" tf:"dns_ip_addresses"`
-
-	IamRoleId string `json:"iamRoleId" tf:"iam_role_id"`
+	IamRoleID string `json:"iamRoleID" tf:"iam_role_id"`
 
 	RegistrationCode string `json:"registrationCode" tf:"registration_code"`
 
-	WorkspaceSecurityGroupId string `json:"workspaceSecurityGroupId" tf:"workspace_security_group_id"`
+	WorkspaceSecurityGroupID string `json:"workspaceSecurityGroupID" tf:"workspace_security_group_id"`
 }
 
 type WorkspacesDirectoryParameters struct {
-	DirectoryId string `json:"directoryId" tf:"directory_id"`
+	DirectoryID string `json:"directoryID" tf:"directory_id"`
 
-	IpGroupIds []string `json:"ipGroupIds,omitempty" tf:"ip_group_ids"`
+	IPGroupIds []string `json:"ipGroupIds,omitempty" tf:"ip_group_ids"`
 
 	SelfServicePermissions []SelfServicePermissionsParameters `json:"selfServicePermissions,omitempty" tf:"self_service_permissions"`
 

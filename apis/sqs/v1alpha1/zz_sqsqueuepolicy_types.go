@@ -30,7 +30,7 @@ type SqsQueuePolicyObservation struct {
 type SqsQueuePolicyParameters struct {
 	Policy string `json:"policy" tf:"policy"`
 
-	QueueUrl string `json:"queueUrl" tf:"queue_url"`
+	QueueURL string `json:"queueURL" tf:"queue_url"`
 }
 
 // SqsQueuePolicySpec defines the desired state of SqsQueuePolicy

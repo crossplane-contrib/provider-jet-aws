@@ -25,11 +25,11 @@ import (
 )
 
 type OrganizationsOrganizationalUnitAccountsObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Email string `json:"email" tf:"email"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Name string `json:"name" tf:"name"`
 }
@@ -38,15 +38,15 @@ type OrganizationsOrganizationalUnitAccountsParameters struct {
 }
 
 type OrganizationsOrganizationalUnitObservation struct {
-	Accounts []OrganizationsOrganizationalUnitAccountsObservation `json:"accounts" tf:"accounts"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	Accounts []OrganizationsOrganizationalUnitAccountsObservation `json:"accounts" tf:"accounts"`
 }
 
 type OrganizationsOrganizationalUnitParameters struct {
 	Name string `json:"name" tf:"name"`
 
-	ParentId string `json:"parentId" tf:"parent_id"`
+	ParentID string `json:"parentID" tf:"parent_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

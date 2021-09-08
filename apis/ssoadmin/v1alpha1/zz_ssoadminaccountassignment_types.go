@@ -28,15 +28,15 @@ type SsoadminAccountAssignmentObservation struct {
 }
 
 type SsoadminAccountAssignmentParameters struct {
-	InstanceArn string `json:"instanceArn" tf:"instance_arn"`
+	InstanceARN string `json:"instanceARN" tf:"instance_arn"`
 
-	PermissionSetArn string `json:"permissionSetArn" tf:"permission_set_arn"`
+	PermissionSetARN string `json:"permissionSetARN" tf:"permission_set_arn"`
 
-	PrincipalId string `json:"principalId" tf:"principal_id"`
+	PrincipalID string `json:"principalID" tf:"principal_id"`
 
 	PrincipalType string `json:"principalType" tf:"principal_type"`
 
-	TargetId string `json:"targetId" tf:"target_id"`
+	TargetID string `json:"targetID" tf:"target_id"`
 
 	TargetType *string `json:"targetType,omitempty" tf:"target_type"`
 }

@@ -28,7 +28,7 @@ type CloudwatchLogSubscriptionFilterObservation struct {
 }
 
 type CloudwatchLogSubscriptionFilterParameters struct {
-	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
+	DestinationARN string `json:"destinationARN" tf:"destination_arn"`
 
 	Distribution *string `json:"distribution,omitempty" tf:"distribution"`
 
@@ -38,7 +38,7 @@ type CloudwatchLogSubscriptionFilterParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 }
 
 // CloudwatchLogSubscriptionFilterSpec defines the desired state of CloudwatchLogSubscriptionFilter

@@ -25,7 +25,7 @@ import (
 )
 
 type AmplifyAppObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DefaultDomain string `json:"defaultDomain" tf:"default_domain"`
 
@@ -57,7 +57,7 @@ type AmplifyAppParameters struct {
 
 	EnvironmentVariables map[string]string `json:"environmentVariables,omitempty" tf:"environment_variables"`
 
-	IamServiceRoleArn *string `json:"iamServiceRoleArn,omitempty" tf:"iam_service_role_arn"`
+	IamServiceRoleARN *string `json:"iamServiceRoleARN,omitempty" tf:"iam_service_role_arn"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -117,7 +117,7 @@ type ProductionBranchObservation struct {
 
 	Status string `json:"status" tf:"status"`
 
-	ThumbnailUrl string `json:"thumbnailUrl" tf:"thumbnail_url"`
+	ThumbnailURL string `json:"thumbnailURL" tf:"thumbnail_url"`
 }
 
 type ProductionBranchParameters struct {

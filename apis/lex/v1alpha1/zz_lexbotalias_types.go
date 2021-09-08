@@ -28,13 +28,13 @@ type ConversationLogsObservation struct {
 }
 
 type ConversationLogsParameters struct {
-	IamRoleArn string `json:"iamRoleArn" tf:"iam_role_arn"`
+	IamRoleARN string `json:"iamRoleARN" tf:"iam_role_arn"`
 
 	LogSettings []LogSettingsParameters `json:"logSettings,omitempty" tf:"log_settings"`
 }
 
 type LexBotAliasObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Checksum string `json:"checksum" tf:"checksum"`
 
@@ -62,11 +62,11 @@ type LogSettingsObservation struct {
 type LogSettingsParameters struct {
 	Destination string `json:"destination" tf:"destination"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	LogType string `json:"logType" tf:"log_type"`
 
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 // LexBotAliasSpec defines the desired state of LexBotAlias

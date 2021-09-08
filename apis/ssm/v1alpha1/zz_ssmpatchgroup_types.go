@@ -28,7 +28,7 @@ type SsmPatchGroupObservation struct {
 }
 
 type SsmPatchGroupParameters struct {
-	BaselineId string `json:"baselineId" tf:"baseline_id"`
+	BaselineID string `json:"baselineID" tf:"baseline_id"`
 
 	PatchGroup string `json:"patchGroup" tf:"patch_group"`
 }

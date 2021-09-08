@@ -28,7 +28,7 @@ type ApplicationSourceObservation struct {
 }
 
 type ApplicationSourceParameters struct {
-	CloudformationStackArn *string `json:"cloudformationStackArn,omitempty" tf:"cloudformation_stack_arn"`
+	CloudformationStackARN *string `json:"cloudformationStackARN,omitempty" tf:"cloudformation_stack_arn"`
 
 	TagFilter []TagFilterParameters `json:"tagFilter,omitempty" tf:"tag_filter"`
 }
@@ -113,7 +113,7 @@ type ScalingInstructionParameters struct {
 
 	PredictiveScalingMode *string `json:"predictiveScalingMode,omitempty" tf:"predictive_scaling_mode"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
 	ScalableDimension string `json:"scalableDimension" tf:"scalable_dimension"`
 

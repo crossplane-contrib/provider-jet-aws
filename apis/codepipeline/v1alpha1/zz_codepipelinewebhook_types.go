@@ -28,13 +28,13 @@ type AuthenticationConfigurationObservation struct {
 }
 
 type AuthenticationConfigurationParameters struct {
-	AllowedIpRange *string `json:"allowedIpRange,omitempty" tf:"allowed_ip_range"`
+	AllowedIPRange *string `json:"allowedIPRange,omitempty" tf:"allowed_ip_range"`
 
 	SecretToken *string `json:"secretToken,omitempty" tf:"secret_token"`
 }
 
 type CodepipelineWebhookObservation struct {
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type CodepipelineWebhookParameters struct {
@@ -59,7 +59,7 @@ type FilterObservation struct {
 }
 
 type FilterParameters struct {
-	JsonPath string `json:"jsonPath" tf:"json_path"`
+	JSONPath string `json:"jsonPath" tf:"json_path"`
 
 	MatchEquals string `json:"matchEquals" tf:"match_equals"`
 }

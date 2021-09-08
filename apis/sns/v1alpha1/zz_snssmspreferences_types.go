@@ -28,11 +28,11 @@ type SnsSmsPreferencesObservation struct {
 }
 
 type SnsSmsPreferencesParameters struct {
-	DefaultSenderId *string `json:"defaultSenderId,omitempty" tf:"default_sender_id"`
+	DefaultSenderID *string `json:"defaultSenderID,omitempty" tf:"default_sender_id"`
 
 	DefaultSmsType *string `json:"defaultSmsType,omitempty" tf:"default_sms_type"`
 
-	DeliveryStatusIamRoleArn *string `json:"deliveryStatusIamRoleArn,omitempty" tf:"delivery_status_iam_role_arn"`
+	DeliveryStatusIamRoleARN *string `json:"deliveryStatusIamRoleARN,omitempty" tf:"delivery_status_iam_role_arn"`
 
 	DeliveryStatusSuccessSamplingRate *string `json:"deliveryStatusSuccessSamplingRate,omitempty" tf:"delivery_status_success_sampling_rate"`
 

@@ -30,21 +30,21 @@ type ApiGatewayRestApiEndpointConfigurationObservation struct {
 type ApiGatewayRestApiEndpointConfigurationParameters struct {
 	Types []string `json:"types" tf:"types"`
 
-	VpcEndpointIds []string `json:"vpcEndpointIds,omitempty" tf:"vpc_endpoint_ids"`
+	VPCEndpointIds []string `json:"vpcEndpointIds,omitempty" tf:"vpc_endpoint_ids"`
 }
 
 type ApiGatewayRestApiObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedDate string `json:"createdDate" tf:"created_date"`
 
-	ExecutionArn string `json:"executionArn" tf:"execution_arn"`
+	ExecutionARN string `json:"executionARN" tf:"execution_arn"`
 
-	RootResourceId string `json:"rootResourceId" tf:"root_resource_id"`
+	RootResourceID string `json:"rootResourceID" tf:"root_resource_id"`
 }
 
 type ApiGatewayRestApiParameters struct {
-	ApiKeySource *string `json:"apiKeySource,omitempty" tf:"api_key_source"`
+	APIKeySource *string `json:"apiKeySource,omitempty" tf:"api_key_source"`
 
 	BinaryMediaTypes []string `json:"binaryMediaTypes,omitempty" tf:"binary_media_types"`
 
@@ -52,7 +52,7 @@ type ApiGatewayRestApiParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint,omitempty" tf:"disable_execute_api_endpoint"`
+	DisableExecuteAPIEndpoint *bool `json:"disableExecuteAPIEndpoint,omitempty" tf:"disable_execute_api_endpoint"`
 
 	EndpointConfiguration []ApiGatewayRestApiEndpointConfigurationParameters `json:"endpointConfiguration,omitempty" tf:"endpoint_configuration"`
 

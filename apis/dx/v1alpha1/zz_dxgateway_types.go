@@ -25,7 +25,7 @@ import (
 )
 
 type DxGatewayObservation struct {
-	OwnerAccountId string `json:"ownerAccountId" tf:"owner_account_id"`
+	OwnerAccountID string `json:"ownerAccountID" tf:"owner_account_id"`
 }
 
 type DxGatewayParameters struct {

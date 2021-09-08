@@ -34,7 +34,7 @@ type ConstraintsParameters struct {
 }
 
 type KmsGrantObservation struct {
-	GrantId string `json:"grantId" tf:"grant_id"`
+	GrantID string `json:"grantID" tf:"grant_id"`
 
 	GrantToken string `json:"grantToken" tf:"grant_token"`
 }
@@ -46,7 +46,7 @@ type KmsGrantParameters struct {
 
 	GranteePrincipal string `json:"granteePrincipal" tf:"grantee_principal"`
 
-	KeyId string `json:"keyId" tf:"key_id"`
+	KeyID string `json:"keyID" tf:"key_id"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 

@@ -25,7 +25,7 @@ import (
 )
 
 type WorklinkWebsiteCertificateAuthorityAssociationObservation struct {
-	WebsiteCaId string `json:"websiteCaId" tf:"website_ca_id"`
+	WebsiteCaID string `json:"websiteCaID" tf:"website_ca_id"`
 }
 
 type WorklinkWebsiteCertificateAuthorityAssociationParameters struct {
@@ -33,7 +33,7 @@ type WorklinkWebsiteCertificateAuthorityAssociationParameters struct {
 
 	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 
-	FleetArn string `json:"fleetArn" tf:"fleet_arn"`
+	FleetARN string `json:"fleetARN" tf:"fleet_arn"`
 }
 
 // WorklinkWebsiteCertificateAuthorityAssociationSpec defines the desired state of WorklinkWebsiteCertificateAuthorityAssociation

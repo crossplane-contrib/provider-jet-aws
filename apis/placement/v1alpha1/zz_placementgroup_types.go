@@ -25,9 +25,9 @@ import (
 )
 
 type PlacementGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	PlacementGroupId string `json:"placementGroupId" tf:"placement_group_id"`
+	PlacementGroupID string `json:"placementGroupID" tf:"placement_group_id"`
 }
 
 type PlacementGroupParameters struct {

@@ -28,9 +28,9 @@ type DirectoryServiceConditionalForwarderObservation struct {
 }
 
 type DirectoryServiceConditionalForwarderParameters struct {
-	DirectoryId string `json:"directoryId" tf:"directory_id"`
+	DNSIps []string `json:"dnsIps" tf:"dns_ips"`
 
-	DnsIps []string `json:"dnsIps" tf:"dns_ips"`
+	DirectoryID string `json:"directoryID" tf:"directory_id"`
 
 	RemoteDomainName string `json:"remoteDomainName" tf:"remote_domain_name"`
 }

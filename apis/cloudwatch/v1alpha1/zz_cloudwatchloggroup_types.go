@@ -25,11 +25,11 @@ import (
 )
 
 type CloudwatchLogGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CloudwatchLogGroupParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 

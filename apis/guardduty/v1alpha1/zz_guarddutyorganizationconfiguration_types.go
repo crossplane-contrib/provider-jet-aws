@@ -46,7 +46,7 @@ type GuarddutyOrganizationConfigurationParameters struct {
 
 	Datasources []GuarddutyOrganizationConfigurationDatasourcesParameters `json:"datasources,omitempty" tf:"datasources"`
 
-	DetectorId string `json:"detectorId" tf:"detector_id"`
+	DetectorID string `json:"detectorID" tf:"detector_id"`
 }
 
 // GuarddutyOrganizationConfigurationSpec defines the desired state of GuarddutyOrganizationConfiguration

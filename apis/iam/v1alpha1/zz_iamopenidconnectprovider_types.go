@@ -25,11 +25,11 @@ import (
 )
 
 type IamOpenidConnectProviderObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type IamOpenidConnectProviderParameters struct {
-	ClientIdList []string `json:"clientIdList" tf:"client_id_list"`
+	ClientIDList []string `json:"clientIDList" tf:"client_id_list"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -37,7 +37,7 @@ type IamOpenidConnectProviderParameters struct {
 
 	ThumbprintList []string `json:"thumbprintList" tf:"thumbprint_list"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 // IamOpenidConnectProviderSpec defines the desired state of IamOpenidConnectProvider

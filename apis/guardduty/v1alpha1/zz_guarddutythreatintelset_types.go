@@ -25,13 +25,13 @@ import (
 )
 
 type GuarddutyThreatintelsetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GuarddutyThreatintelsetParameters struct {
 	Activate bool `json:"activate" tf:"activate"`
 
-	DetectorId string `json:"detectorId" tf:"detector_id"`
+	DetectorID string `json:"detectorID" tf:"detector_id"`
 
 	Format string `json:"format" tf:"format"`
 

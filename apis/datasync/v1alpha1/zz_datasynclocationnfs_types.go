@@ -25,9 +25,9 @@ import (
 )
 
 type DatasyncLocationNfsObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type DatasyncLocationNfsParameters struct {

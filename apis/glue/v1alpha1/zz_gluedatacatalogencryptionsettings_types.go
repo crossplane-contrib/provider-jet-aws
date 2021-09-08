@@ -28,7 +28,7 @@ type ConnectionPasswordEncryptionObservation struct {
 }
 
 type ConnectionPasswordEncryptionParameters struct {
-	AwsKmsKeyId *string `json:"awsKmsKeyId,omitempty" tf:"aws_kms_key_id"`
+	AwsKmsKeyID *string `json:"awsKmsKeyID,omitempty" tf:"aws_kms_key_id"`
 
 	ReturnConnectionPasswordEncrypted bool `json:"returnConnectionPasswordEncrypted" tf:"return_connection_password_encrypted"`
 }
@@ -48,14 +48,14 @@ type EncryptionAtRestObservation struct {
 type EncryptionAtRestParameters struct {
 	CatalogEncryptionMode string `json:"catalogEncryptionMode" tf:"catalog_encryption_mode"`
 
-	SseAwsKmsKeyId *string `json:"sseAwsKmsKeyId,omitempty" tf:"sse_aws_kms_key_id"`
+	SseAwsKmsKeyID *string `json:"sseAwsKmsKeyID,omitempty" tf:"sse_aws_kms_key_id"`
 }
 
 type GlueDataCatalogEncryptionSettingsObservation struct {
 }
 
 type GlueDataCatalogEncryptionSettingsParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	DataCatalogEncryptionSettings []DataCatalogEncryptionSettingsParameters `json:"dataCatalogEncryptionSettings" tf:"data_catalog_encryption_settings"`
 }

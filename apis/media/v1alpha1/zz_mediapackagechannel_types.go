@@ -34,7 +34,7 @@ type HlsIngestParameters struct {
 type IngestEndpointsObservation struct {
 	Password string `json:"password" tf:"password"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 
 	Username string `json:"username" tf:"username"`
 }
@@ -43,13 +43,13 @@ type IngestEndpointsParameters struct {
 }
 
 type MediaPackageChannelObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	HlsIngest []HlsIngestObservation `json:"hlsIngest" tf:"hls_ingest"`
 }
 
 type MediaPackageChannelParameters struct {
-	ChannelId string `json:"channelId" tf:"channel_id"`
+	ChannelID string `json:"channelID" tf:"channel_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 

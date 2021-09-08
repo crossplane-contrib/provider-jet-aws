@@ -31,7 +31,7 @@ type KmsCiphertextObservation struct {
 type KmsCiphertextParameters struct {
 	Context map[string]string `json:"context,omitempty" tf:"context"`
 
-	KeyId string `json:"keyId" tf:"key_id"`
+	KeyID string `json:"keyID" tf:"key_id"`
 
 	Plaintext string `json:"plaintext" tf:"plaintext"`
 }

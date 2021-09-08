@@ -25,7 +25,7 @@ import (
 )
 
 type TimestreamwriteDatabaseObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	TableCount int64 `json:"tableCount" tf:"table_count"`
 }
@@ -33,7 +33,7 @@ type TimestreamwriteDatabaseObservation struct {
 type TimestreamwriteDatabaseParameters struct {
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

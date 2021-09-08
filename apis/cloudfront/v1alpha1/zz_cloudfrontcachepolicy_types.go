@@ -30,13 +30,13 @@ type CloudfrontCachePolicyObservation struct {
 type CloudfrontCachePolicyParameters struct {
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
-	DefaultTtl *int64 `json:"defaultTtl,omitempty" tf:"default_ttl"`
+	DefaultTTL *int64 `json:"defaultTTL,omitempty" tf:"default_ttl"`
 
 	Etag *string `json:"etag,omitempty" tf:"etag"`
 
-	MaxTtl *int64 `json:"maxTtl,omitempty" tf:"max_ttl"`
+	MaxTTL *int64 `json:"maxTTL,omitempty" tf:"max_ttl"`
 
-	MinTtl *int64 `json:"minTtl,omitempty" tf:"min_ttl"`
+	MinTTL *int64 `json:"minTTL,omitempty" tf:"min_ttl"`
 
 	Name string `json:"name" tf:"name"`
 

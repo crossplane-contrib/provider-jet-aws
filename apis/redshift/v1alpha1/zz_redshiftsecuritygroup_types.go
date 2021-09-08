@@ -32,7 +32,7 @@ type IngressParameters struct {
 
 	SecurityGroupName *string `json:"securityGroupName,omitempty" tf:"security_group_name"`
 
-	SecurityGroupOwnerId *string `json:"securityGroupOwnerId,omitempty" tf:"security_group_owner_id"`
+	SecurityGroupOwnerID *string `json:"securityGroupOwnerID,omitempty" tf:"security_group_owner_id"`
 }
 
 type RedshiftSecurityGroupObservation struct {

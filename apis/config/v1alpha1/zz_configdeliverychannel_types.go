@@ -36,7 +36,7 @@ type ConfigDeliveryChannelParameters struct {
 
 	SnapshotDeliveryProperties []SnapshotDeliveryPropertiesParameters `json:"snapshotDeliveryProperties,omitempty" tf:"snapshot_delivery_properties"`
 
-	SnsTopicArn *string `json:"snsTopicArn,omitempty" tf:"sns_topic_arn"`
+	SnsTopicARN *string `json:"snsTopicARN,omitempty" tf:"sns_topic_arn"`
 }
 
 type SnapshotDeliveryPropertiesObservation struct {

@@ -32,11 +32,11 @@ type VolumeAttachmentParameters struct {
 
 	ForceDetach *bool `json:"forceDetach,omitempty" tf:"force_detach"`
 
-	InstanceId string `json:"instanceId" tf:"instance_id"`
+	InstanceID string `json:"instanceID" tf:"instance_id"`
 
 	SkipDestroy *bool `json:"skipDestroy,omitempty" tf:"skip_destroy"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeID" tf:"volume_id"`
 }
 
 // VolumeAttachmentSpec defines the desired state of VolumeAttachment

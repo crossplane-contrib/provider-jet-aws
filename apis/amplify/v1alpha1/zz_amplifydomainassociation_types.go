@@ -25,13 +25,13 @@ import (
 )
 
 type AmplifyDomainAssociationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	CertificateVerificationDnsRecord string `json:"certificateVerificationDnsRecord" tf:"certificate_verification_dns_record"`
+	CertificateVerificationDNSRecord string `json:"certificateVerificationDNSRecord" tf:"certificate_verification_dns_record"`
 }
 
 type AmplifyDomainAssociationParameters struct {
-	AppId string `json:"appId" tf:"app_id"`
+	AppID string `json:"appID" tf:"app_id"`
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 
@@ -41,7 +41,7 @@ type AmplifyDomainAssociationParameters struct {
 }
 
 type SubDomainObservation struct {
-	DnsRecord string `json:"dnsRecord" tf:"dns_record"`
+	DNSRecord string `json:"dnsRecord" tf:"dns_record"`
 
 	Verified bool `json:"verified" tf:"verified"`
 }

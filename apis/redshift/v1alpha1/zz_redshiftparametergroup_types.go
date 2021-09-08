@@ -34,7 +34,7 @@ type ParameterParameters struct {
 }
 
 type RedshiftParameterGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type RedshiftParameterGroupParameters struct {

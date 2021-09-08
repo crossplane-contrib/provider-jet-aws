@@ -25,15 +25,15 @@ import (
 )
 
 type Ec2TransitGatewayVpcAttachmentObservation struct {
-	VpcOwnerId string `json:"vpcOwnerId" tf:"vpc_owner_id"`
+	VPCOwnerID string `json:"vpcOwnerID" tf:"vpc_owner_id"`
 }
 
 type Ec2TransitGatewayVpcAttachmentParameters struct {
 	ApplianceModeSupport *string `json:"applianceModeSupport,omitempty" tf:"appliance_mode_support"`
 
-	DnsSupport *string `json:"dnsSupport,omitempty" tf:"dns_support"`
+	DNSSupport *string `json:"dnsSupport,omitempty" tf:"dns_support"`
 
-	Ipv6Support *string `json:"ipv6Support,omitempty" tf:"ipv6_support"`
+	IPv6Support *string `json:"ipv6Support,omitempty" tf:"ipv6_support"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
@@ -45,9 +45,9 @@ type Ec2TransitGatewayVpcAttachmentParameters struct {
 
 	TransitGatewayDefaultRouteTablePropagation *bool `json:"transitGatewayDefaultRouteTablePropagation,omitempty" tf:"transit_gateway_default_route_table_propagation"`
 
-	TransitGatewayId string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	TransitGatewayID string `json:"transitGatewayID" tf:"transit_gateway_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // Ec2TransitGatewayVpcAttachmentSpec defines the desired state of Ec2TransitGatewayVpcAttachment

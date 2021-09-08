@@ -25,11 +25,11 @@ import (
 )
 
 type SnsTopicSubscriptionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ConfirmationWasAuthenticated bool `json:"confirmationWasAuthenticated" tf:"confirmation_was_authenticated"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
 	PendingConfirmation bool `json:"pendingConfirmation" tf:"pending_confirmation"`
 }
@@ -51,9 +51,9 @@ type SnsTopicSubscriptionParameters struct {
 
 	RedrivePolicy *string `json:"redrivePolicy,omitempty" tf:"redrive_policy"`
 
-	SubscriptionRoleArn *string `json:"subscriptionRoleArn,omitempty" tf:"subscription_role_arn"`
+	SubscriptionRoleARN *string `json:"subscriptionRoleARN,omitempty" tf:"subscription_role_arn"`
 
-	TopicArn string `json:"topicArn" tf:"topic_arn"`
+	TopicARN string `json:"topicARN" tf:"topic_arn"`
 }
 
 // SnsTopicSubscriptionSpec defines the desired state of SnsTopicSubscription

@@ -25,11 +25,11 @@ import (
 )
 
 type SecurityhubProductSubscriptionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SecurityhubProductSubscriptionParameters struct {
-	ProductArn string `json:"productArn" tf:"product_arn"`
+	ProductARN string `json:"productARN" tf:"product_arn"`
 }
 
 // SecurityhubProductSubscriptionSpec defines the desired state of SecurityhubProductSubscription

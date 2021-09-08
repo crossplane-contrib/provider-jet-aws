@@ -66,9 +66,9 @@ type S3BucketDestinationObservation struct {
 }
 
 type S3BucketDestinationParameters struct {
-	BucketAccountId *string `json:"bucketAccountId,omitempty" tf:"bucket_account_id"`
+	BucketARN string `json:"bucketARN" tf:"bucket_arn"`
 
-	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
+	BucketAccountID *string `json:"bucketAccountID,omitempty" tf:"bucket_account_id"`
 
 	Format *string `json:"format,omitempty" tf:"format"`
 

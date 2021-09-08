@@ -25,15 +25,15 @@ import (
 )
 
 type DefaultNetworkAclObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type DefaultNetworkAclParameters struct {
-	DefaultNetworkAclId string `json:"defaultNetworkAclId" tf:"default_network_acl_id"`
+	DefaultNetworkACLID string `json:"defaultNetworkACLID" tf:"default_network_acl_id"`
 
 	Egress []EgressParameters `json:"egress,omitempty" tf:"egress"`
 
@@ -56,11 +56,11 @@ type EgressParameters struct {
 
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+
 	IcmpCode *int64 `json:"icmpCode,omitempty" tf:"icmp_code"`
 
 	IcmpType *int64 `json:"icmpType,omitempty" tf:"icmp_type"`
-
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
 
 	Protocol string `json:"protocol" tf:"protocol"`
 
@@ -79,11 +79,11 @@ type IngressParameters struct {
 
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+
 	IcmpCode *int64 `json:"icmpCode,omitempty" tf:"icmp_code"`
 
 	IcmpType *int64 `json:"icmpType,omitempty" tf:"icmp_type"`
-
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
 
 	Protocol string `json:"protocol" tf:"protocol"`
 

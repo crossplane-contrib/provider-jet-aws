@@ -30,7 +30,7 @@ type CloudwatchEncryptionObservation struct {
 type CloudwatchEncryptionParameters struct {
 	CloudwatchEncryptionMode *string `json:"cloudwatchEncryptionMode,omitempty" tf:"cloudwatch_encryption_mode"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 }
 
 type EncryptionConfigurationObservation struct {
@@ -59,14 +59,14 @@ type JobBookmarksEncryptionObservation struct {
 type JobBookmarksEncryptionParameters struct {
 	JobBookmarksEncryptionMode *string `json:"jobBookmarksEncryptionMode,omitempty" tf:"job_bookmarks_encryption_mode"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 }
 
 type S3EncryptionObservation struct {
 }
 
 type S3EncryptionParameters struct {
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	S3EncryptionMode *string `json:"s3EncryptionMode,omitempty" tf:"s3_encryption_mode"`
 }

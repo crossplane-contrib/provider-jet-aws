@@ -30,9 +30,9 @@ type ServicecatalogPrincipalPortfolioAssociationObservation struct {
 type ServicecatalogPrincipalPortfolioAssociationParameters struct {
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
-	PortfolioId string `json:"portfolioId" tf:"portfolio_id"`
+	PortfolioID string `json:"portfolioID" tf:"portfolio_id"`
 
-	PrincipalArn string `json:"principalArn" tf:"principal_arn"`
+	PrincipalARN string `json:"principalARN" tf:"principal_arn"`
 
 	PrincipalType *string `json:"principalType,omitempty" tf:"principal_type"`
 }

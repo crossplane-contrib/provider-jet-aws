@@ -25,9 +25,9 @@ import (
 )
 
 type KmsAliasObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	TargetKeyArn string `json:"targetKeyArn" tf:"target_key_arn"`
+	TargetKeyARN string `json:"targetKeyARN" tf:"target_key_arn"`
 }
 
 type KmsAliasParameters struct {
@@ -35,7 +35,7 @@ type KmsAliasParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
-	TargetKeyId string `json:"targetKeyId" tf:"target_key_id"`
+	TargetKeyID string `json:"targetKeyID" tf:"target_key_id"`
 }
 
 // KmsAliasSpec defines the desired state of KmsAlias

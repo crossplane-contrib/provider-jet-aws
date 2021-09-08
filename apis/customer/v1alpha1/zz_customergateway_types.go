@@ -25,7 +25,7 @@ import (
 )
 
 type CustomerGatewayObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CustomerGatewayParameters struct {
@@ -33,7 +33,7 @@ type CustomerGatewayParameters struct {
 
 	DeviceName *string `json:"deviceName,omitempty" tf:"device_name"`
 
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

@@ -25,7 +25,7 @@ import (
 )
 
 type S3ControlBucketObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreationDate string `json:"creationDate" tf:"creation_date"`
 
@@ -35,7 +35,7 @@ type S3ControlBucketObservation struct {
 type S3ControlBucketParameters struct {
 	Bucket string `json:"bucket" tf:"bucket"`
 
-	OutpostId string `json:"outpostId" tf:"outpost_id"`
+	OutpostID string `json:"outpostID" tf:"outpost_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

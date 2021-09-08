@@ -32,7 +32,7 @@ type CertificateAuthorityParameters struct {
 }
 
 type EksClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CertificateAuthority []CertificateAuthorityObservation `json:"certificateAuthority" tf:"certificate_authority"`
 
@@ -56,15 +56,15 @@ type EksClusterParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Version *string `json:"version,omitempty" tf:"version"`
+	VPCConfig []VPCConfigParameters `json:"vpcConfig" tf:"vpc_config"`
 
-	VpcConfig []VpcConfigParameters `json:"vpcConfig" tf:"vpc_config"`
+	Version *string `json:"version,omitempty" tf:"version"`
 }
 
 type EncryptionConfigObservation struct {
@@ -87,7 +87,7 @@ type KubernetesNetworkConfigObservation struct {
 }
 
 type KubernetesNetworkConfigParameters struct {
-	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr,omitempty" tf:"service_ipv4_cidr"`
+	ServiceIPv4Cidr *string `json:"serviceIPv4Cidr,omitempty" tf:"service_ipv4_cidr"`
 }
 
 type OidcObservation struct {
@@ -101,16 +101,16 @@ type ProviderObservation struct {
 }
 
 type ProviderParameters struct {
-	KeyArn string `json:"keyArn" tf:"key_arn"`
+	KeyARN string `json:"keyARN" tf:"key_arn"`
 }
 
-type VpcConfigObservation struct {
-	ClusterSecurityGroupId string `json:"clusterSecurityGroupId" tf:"cluster_security_group_id"`
+type VPCConfigObservation struct {
+	ClusterSecurityGroupID string `json:"clusterSecurityGroupID" tf:"cluster_security_group_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
-type VpcConfigParameters struct {
+type VPCConfigParameters struct {
 	EndpointPrivateAccess *bool `json:"endpointPrivateAccess,omitempty" tf:"endpoint_private_access"`
 
 	EndpointPublicAccess *bool `json:"endpointPublicAccess,omitempty" tf:"endpoint_public_access"`

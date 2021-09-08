@@ -25,9 +25,9 @@ import (
 )
 
 type CodeartifactRepositoryObservation struct {
-	AdministratorAccount string `json:"administratorAccount" tf:"administrator_account"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	AdministratorAccount string `json:"administratorAccount" tf:"administrator_account"`
 }
 
 type CodeartifactRepositoryParameters struct {

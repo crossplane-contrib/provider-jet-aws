@@ -27,7 +27,7 @@ import (
 type ApprunnerCustomDomainAssociationObservation struct {
 	CertificateValidationRecords []CertificateValidationRecordsObservation `json:"certificateValidationRecords" tf:"certificate_validation_records"`
 
-	DnsTarget string `json:"dnsTarget" tf:"dns_target"`
+	DNSTarget string `json:"dnsTarget" tf:"dns_target"`
 
 	Status string `json:"status" tf:"status"`
 }
@@ -37,7 +37,7 @@ type ApprunnerCustomDomainAssociationParameters struct {
 
 	EnableWwwSubdomain *bool `json:"enableWwwSubdomain,omitempty" tf:"enable_www_subdomain"`
 
-	ServiceArn string `json:"serviceArn" tf:"service_arn"`
+	ServiceARN string `json:"serviceARN" tf:"service_arn"`
 }
 
 type CertificateValidationRecordsObservation struct {

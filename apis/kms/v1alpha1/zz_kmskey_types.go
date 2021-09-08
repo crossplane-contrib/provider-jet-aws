@@ -25,9 +25,9 @@ import (
 )
 
 type KmsKeyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	KeyId string `json:"keyId" tf:"key_id"`
+	KeyID string `json:"keyID" tf:"key_id"`
 }
 
 type KmsKeyParameters struct {

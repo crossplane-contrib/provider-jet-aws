@@ -28,7 +28,7 @@ type DirectoryServiceLogSubscriptionObservation struct {
 }
 
 type DirectoryServiceLogSubscriptionParameters struct {
-	DirectoryId string `json:"directoryId" tf:"directory_id"`
+	DirectoryID string `json:"directoryID" tf:"directory_id"`
 
 	LogGroupName string `json:"logGroupName" tf:"log_group_name"`
 }

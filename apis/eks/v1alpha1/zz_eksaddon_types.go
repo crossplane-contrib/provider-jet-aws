@@ -25,7 +25,7 @@ import (
 )
 
 type EksAddonObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedAt string `json:"createdAt" tf:"created_at"`
 
@@ -41,7 +41,7 @@ type EksAddonParameters struct {
 
 	ResolveConflicts *string `json:"resolveConflicts,omitempty" tf:"resolve_conflicts"`
 
-	ServiceAccountRoleArn *string `json:"serviceAccountRoleArn,omitempty" tf:"service_account_role_arn"`
+	ServiceAccountRoleARN *string `json:"serviceAccountRoleARN,omitempty" tf:"service_account_role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

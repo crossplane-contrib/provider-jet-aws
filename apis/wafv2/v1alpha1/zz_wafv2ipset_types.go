@@ -25,7 +25,7 @@ import (
 )
 
 type Wafv2IpSetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	LockToken string `json:"lockToken" tf:"lock_token"`
 }
@@ -35,7 +35,7 @@ type Wafv2IpSetParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	IpAddressVersion string `json:"ipAddressVersion" tf:"ip_address_version"`
+	IPAddressVersion string `json:"ipAddressVersion" tf:"ip_address_version"`
 
 	Name string `json:"name" tf:"name"`
 

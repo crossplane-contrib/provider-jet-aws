@@ -30,7 +30,7 @@ type VpnConnectionRouteObservation struct {
 type VpnConnectionRouteParameters struct {
 	DestinationCidrBlock string `json:"destinationCidrBlock" tf:"destination_cidr_block"`
 
-	VpnConnectionId string `json:"vpnConnectionId" tf:"vpn_connection_id"`
+	VpnConnectionID string `json:"vpnConnectionID" tf:"vpn_connection_id"`
 }
 
 // VpnConnectionRouteSpec defines the desired state of VpnConnectionRoute

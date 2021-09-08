@@ -25,7 +25,7 @@ import (
 )
 
 type InspectorAssessmentTemplateObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type InspectorAssessmentTemplateParameters struct {
@@ -39,7 +39,7 @@ type InspectorAssessmentTemplateParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TargetArn string `json:"targetArn" tf:"target_arn"`
+	TargetARN string `json:"targetARN" tf:"target_arn"`
 }
 
 // InspectorAssessmentTemplateSpec defines the desired state of InspectorAssessmentTemplate

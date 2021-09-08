@@ -30,11 +30,11 @@ type OpsworksUserProfileObservation struct {
 type OpsworksUserProfileParameters struct {
 	AllowSelfManagement *bool `json:"allowSelfManagement,omitempty" tf:"allow_self_management"`
 
-	SshPublicKey *string `json:"sshPublicKey,omitempty" tf:"ssh_public_key"`
+	SSHPublicKey *string `json:"sshPublicKey,omitempty" tf:"ssh_public_key"`
 
-	SshUsername string `json:"sshUsername" tf:"ssh_username"`
+	SSHUsername string `json:"sshUsername" tf:"ssh_username"`
 
-	UserArn string `json:"userArn" tf:"user_arn"`
+	UserARN string `json:"userARN" tf:"user_arn"`
 }
 
 // OpsworksUserProfileSpec defines the desired state of OpsworksUserProfile

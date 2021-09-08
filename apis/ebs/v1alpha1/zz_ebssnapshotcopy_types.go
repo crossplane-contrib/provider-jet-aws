@@ -25,15 +25,15 @@ import (
 )
 
 type EbsSnapshotCopyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DataEncryptionKeyId string `json:"dataEncryptionKeyId" tf:"data_encryption_key_id"`
+	DataEncryptionKeyID string `json:"dataEncryptionKeyID" tf:"data_encryption_key_id"`
 
 	OwnerAlias string `json:"ownerAlias" tf:"owner_alias"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeID" tf:"volume_id"`
 
 	VolumeSize int64 `json:"volumeSize" tf:"volume_size"`
 }
@@ -43,11 +43,11 @@ type EbsSnapshotCopyParameters struct {
 
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	SourceRegion string `json:"sourceRegion" tf:"source_region"`
 
-	SourceSnapshotId string `json:"sourceSnapshotId" tf:"source_snapshot_id"`
+	SourceSnapshotID string `json:"sourceSnapshotID" tf:"source_snapshot_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

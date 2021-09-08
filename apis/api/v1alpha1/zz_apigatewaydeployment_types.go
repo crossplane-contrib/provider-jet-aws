@@ -27,15 +27,15 @@ import (
 type ApiGatewayDeploymentObservation struct {
 	CreatedDate string `json:"createdDate" tf:"created_date"`
 
-	ExecutionArn string `json:"executionArn" tf:"execution_arn"`
+	ExecutionARN string `json:"executionARN" tf:"execution_arn"`
 
-	InvokeUrl string `json:"invokeUrl" tf:"invoke_url"`
+	InvokeURL string `json:"invokeURL" tf:"invoke_url"`
 }
 
 type ApiGatewayDeploymentParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 
 	StageDescription *string `json:"stageDescription,omitempty" tf:"stage_description"`
 

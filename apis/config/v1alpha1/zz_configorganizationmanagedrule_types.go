@@ -25,7 +25,7 @@ import (
 )
 
 type ConfigOrganizationManagedRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ConfigOrganizationManagedRuleParameters struct {
@@ -39,7 +39,7 @@ type ConfigOrganizationManagedRuleParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	ResourceIdScope *string `json:"resourceIdScope,omitempty" tf:"resource_id_scope"`
+	ResourceIDScope *string `json:"resourceIDScope,omitempty" tf:"resource_id_scope"`
 
 	ResourceTypesScope []string `json:"resourceTypesScope,omitempty" tf:"resource_types_scope"`
 

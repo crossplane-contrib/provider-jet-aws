@@ -28,9 +28,9 @@ type Apigatewayv2ApiMappingObservation struct {
 }
 
 type Apigatewayv2ApiMappingParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
-	ApiMappingKey *string `json:"apiMappingKey,omitempty" tf:"api_mapping_key"`
+	APIMappingKey *string `json:"apiMappingKey,omitempty" tf:"api_mapping_key"`
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 

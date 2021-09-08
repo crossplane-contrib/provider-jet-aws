@@ -28,9 +28,9 @@ type OrganizationsPolicyAttachmentObservation struct {
 }
 
 type OrganizationsPolicyAttachmentParameters struct {
-	PolicyId string `json:"policyId" tf:"policy_id"`
+	PolicyID string `json:"policyID" tf:"policy_id"`
 
-	TargetId string `json:"targetId" tf:"target_id"`
+	TargetID string `json:"targetID" tf:"target_id"`
 }
 
 // OrganizationsPolicyAttachmentSpec defines the desired state of OrganizationsPolicyAttachment

@@ -28,7 +28,7 @@ type S3AccountPublicAccessBlockObservation struct {
 }
 
 type S3AccountPublicAccessBlockParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
+	AccountID *string `json:"accountID,omitempty" tf:"account_id"`
 
 	BlockPublicAcls *bool `json:"blockPublicAcls,omitempty" tf:"block_public_acls"`
 

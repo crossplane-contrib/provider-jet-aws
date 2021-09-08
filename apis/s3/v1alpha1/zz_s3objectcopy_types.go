@@ -30,13 +30,13 @@ type S3ObjectCopyGrantObservation struct {
 type S3ObjectCopyGrantParameters struct {
 	Email *string `json:"email,omitempty" tf:"email"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	Permissions []string `json:"permissions" tf:"permissions"`
 
 	Type string `json:"type" tf:"type"`
 
-	Uri *string `json:"uri,omitempty" tf:"uri"`
+	URI *string `json:"uri,omitempty" tf:"uri"`
 }
 
 type S3ObjectCopyObservation struct {
@@ -48,13 +48,13 @@ type S3ObjectCopyObservation struct {
 
 	RequestCharged bool `json:"requestCharged" tf:"request_charged"`
 
-	SourceVersionId string `json:"sourceVersionId" tf:"source_version_id"`
+	SourceVersionID string `json:"sourceVersionID" tf:"source_version_id"`
 
-	VersionId string `json:"versionId" tf:"version_id"`
+	VersionID string `json:"versionID" tf:"version_id"`
 }
 
 type S3ObjectCopyParameters struct {
-	Acl *string `json:"acl,omitempty" tf:"acl"`
+	ACL *string `json:"acl,omitempty" tf:"acl"`
 
 	Bucket string `json:"bucket" tf:"bucket"`
 
@@ -98,7 +98,7 @@ type S3ObjectCopyParameters struct {
 
 	KmsEncryptionContext *string `json:"kmsEncryptionContext,omitempty" tf:"kms_encryption_context"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Metadata map[string]string `json:"metadata,omitempty" tf:"metadata"`
 

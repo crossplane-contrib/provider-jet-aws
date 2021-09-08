@@ -32,9 +32,9 @@ type NfsFileShareDefaultsParameters struct {
 
 	FileMode *string `json:"fileMode,omitempty" tf:"file_mode"`
 
-	GroupId *string `json:"groupId,omitempty" tf:"group_id"`
+	GroupID *string `json:"groupID,omitempty" tf:"group_id"`
 
-	OwnerId *string `json:"ownerId,omitempty" tf:"owner_id"`
+	OwnerID *string `json:"ownerID,omitempty" tf:"owner_id"`
 }
 
 type StoragegatewayNfsFileShareCacheAttributesObservation struct {
@@ -45,9 +45,9 @@ type StoragegatewayNfsFileShareCacheAttributesParameters struct {
 }
 
 type StoragegatewayNfsFileShareObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	FileshareId string `json:"fileshareId" tf:"fileshare_id"`
+	FileshareID string `json:"fileshareID" tf:"fileshare_id"`
 
 	Path string `json:"path" tf:"path"`
 }
@@ -61,27 +61,27 @@ type StoragegatewayNfsFileShareParameters struct {
 
 	FileShareName *string `json:"fileShareName,omitempty" tf:"file_share_name"`
 
-	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+	GatewayARN string `json:"gatewayARN" tf:"gateway_arn"`
 
 	GuessMimeTypeEnabled *bool `json:"guessMimeTypeEnabled,omitempty" tf:"guess_mime_type_enabled"`
 
 	KmsEncrypted *bool `json:"kmsEncrypted,omitempty" tf:"kms_encrypted"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
-	LocationArn string `json:"locationArn" tf:"location_arn"`
+	LocationARN string `json:"locationARN" tf:"location_arn"`
 
 	NfsFileShareDefaults []NfsFileShareDefaultsParameters `json:"nfsFileShareDefaults,omitempty" tf:"nfs_file_share_defaults"`
 
 	NotificationPolicy *string `json:"notificationPolicy,omitempty" tf:"notification_policy"`
 
-	ObjectAcl *string `json:"objectAcl,omitempty" tf:"object_acl"`
+	ObjectACL *string `json:"objectACL,omitempty" tf:"object_acl"`
 
 	ReadOnly *bool `json:"readOnly,omitempty" tf:"read_only"`
 
 	RequesterPays *bool `json:"requesterPays,omitempty" tf:"requester_pays"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Squash *string `json:"squash,omitempty" tf:"squash"`
 

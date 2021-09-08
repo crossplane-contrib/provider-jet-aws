@@ -27,23 +27,23 @@ import (
 type DxGatewayAssociationObservation struct {
 	AssociatedGatewayType string `json:"associatedGatewayType" tf:"associated_gateway_type"`
 
-	DxGatewayAssociationId string `json:"dxGatewayAssociationId" tf:"dx_gateway_association_id"`
+	DxGatewayAssociationID string `json:"dxGatewayAssociationID" tf:"dx_gateway_association_id"`
 
-	DxGatewayOwnerAccountId string `json:"dxGatewayOwnerAccountId" tf:"dx_gateway_owner_account_id"`
+	DxGatewayOwnerAccountID string `json:"dxGatewayOwnerAccountID" tf:"dx_gateway_owner_account_id"`
 }
 
 type DxGatewayAssociationParameters struct {
 	AllowedPrefixes []string `json:"allowedPrefixes,omitempty" tf:"allowed_prefixes"`
 
-	AssociatedGatewayId *string `json:"associatedGatewayId,omitempty" tf:"associated_gateway_id"`
+	AssociatedGatewayID *string `json:"associatedGatewayID,omitempty" tf:"associated_gateway_id"`
 
-	AssociatedGatewayOwnerAccountId *string `json:"associatedGatewayOwnerAccountId,omitempty" tf:"associated_gateway_owner_account_id"`
+	AssociatedGatewayOwnerAccountID *string `json:"associatedGatewayOwnerAccountID,omitempty" tf:"associated_gateway_owner_account_id"`
 
-	DxGatewayId string `json:"dxGatewayId" tf:"dx_gateway_id"`
+	DxGatewayID string `json:"dxGatewayID" tf:"dx_gateway_id"`
 
-	ProposalId *string `json:"proposalId,omitempty" tf:"proposal_id"`
+	ProposalID *string `json:"proposalID,omitempty" tf:"proposal_id"`
 
-	VpnGatewayId *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
+	VpnGatewayID *string `json:"vpnGatewayID,omitempty" tf:"vpn_gateway_id"`
 }
 
 // DxGatewayAssociationSpec defines the desired state of DxGatewayAssociation

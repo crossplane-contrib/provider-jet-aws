@@ -25,9 +25,9 @@ import (
 )
 
 type LightsailStaticIpObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 
 	SupportCode string `json:"supportCode" tf:"support_code"`
 }

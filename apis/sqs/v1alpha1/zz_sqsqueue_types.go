@@ -25,9 +25,9 @@ import (
 )
 
 type SqsQueueObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type SqsQueueParameters struct {
@@ -43,7 +43,7 @@ type SqsQueueParameters struct {
 
 	KmsDataKeyReusePeriodSeconds *int64 `json:"kmsDataKeyReusePeriodSeconds,omitempty" tf:"kms_data_key_reuse_period_seconds"`
 
-	KmsMasterKeyId *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id"`
+	KmsMasterKeyID *string `json:"kmsMasterKeyID,omitempty" tf:"kms_master_key_id"`
 
 	MaxMessageSize *int64 `json:"maxMessageSize,omitempty" tf:"max_message_size"`
 

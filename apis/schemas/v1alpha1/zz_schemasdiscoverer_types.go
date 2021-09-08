@@ -25,13 +25,13 @@ import (
 )
 
 type SchemasDiscovererObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SchemasDiscovererParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	SourceArn string `json:"sourceArn" tf:"source_arn"`
+	SourceARN string `json:"sourceARN" tf:"source_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

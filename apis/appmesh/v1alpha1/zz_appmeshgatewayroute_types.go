@@ -46,7 +46,7 @@ type ActionTargetVirtualServiceParameters struct {
 }
 
 type AppmeshGatewayRouteObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedDate string `json:"createdDate" tf:"created_date"`
 
@@ -80,6 +80,36 @@ type GrpcRouteParameters struct {
 	Match []MatchParameters `json:"match" tf:"match"`
 }
 
+type HTTPRouteActionObservation struct {
+}
+
+type HTTPRouteActionParameters struct {
+	Target []HTTPRouteActionTargetParameters `json:"target" tf:"target"`
+}
+
+type HTTPRouteActionTargetObservation struct {
+}
+
+type HTTPRouteActionTargetParameters struct {
+	VirtualService []ActionTargetVirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
+}
+
+type HTTPRouteMatchObservation struct {
+}
+
+type HTTPRouteMatchParameters struct {
+	Prefix string `json:"prefix" tf:"prefix"`
+}
+
+type HTTPRouteObservation struct {
+}
+
+type HTTPRouteParameters struct {
+	Action []HTTPRouteActionParameters `json:"action" tf:"action"`
+
+	Match []HTTPRouteMatchParameters `json:"match" tf:"match"`
+}
+
 type Http2RouteActionObservation struct {
 }
 
@@ -103,36 +133,6 @@ type Http2RouteParameters struct {
 	Match []Http2RouteMatchParameters `json:"match" tf:"match"`
 }
 
-type HttpRouteActionObservation struct {
-}
-
-type HttpRouteActionParameters struct {
-	Target []HttpRouteActionTargetParameters `json:"target" tf:"target"`
-}
-
-type HttpRouteActionTargetObservation struct {
-}
-
-type HttpRouteActionTargetParameters struct {
-	VirtualService []ActionTargetVirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
-}
-
-type HttpRouteMatchObservation struct {
-}
-
-type HttpRouteMatchParameters struct {
-	Prefix string `json:"prefix" tf:"prefix"`
-}
-
-type HttpRouteObservation struct {
-}
-
-type HttpRouteParameters struct {
-	Action []HttpRouteActionParameters `json:"action" tf:"action"`
-
-	Match []HttpRouteMatchParameters `json:"match" tf:"match"`
-}
-
 type MatchObservation struct {
 }
 
@@ -146,9 +146,9 @@ type SpecObservation struct {
 type SpecParameters struct {
 	GrpcRoute []GrpcRouteParameters `json:"grpcRoute,omitempty" tf:"grpc_route"`
 
-	Http2Route []Http2RouteParameters `json:"http2Route,omitempty" tf:"http2_route"`
+	HTTPRoute []HTTPRouteParameters `json:"httpRoute,omitempty" tf:"http_route"`
 
-	HttpRoute []HttpRouteParameters `json:"httpRoute,omitempty" tf:"http_route"`
+	Http2Route []Http2RouteParameters `json:"http2Route,omitempty" tf:"http2_route"`
 }
 
 type TargetObservation struct {

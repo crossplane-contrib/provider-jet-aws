@@ -25,15 +25,15 @@ import (
 )
 
 type NeptuneClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ClusterMembers []string `json:"clusterMembers" tf:"cluster_members"`
 
-	ClusterResourceId string `json:"clusterResourceId" tf:"cluster_resource_id"`
+	ClusterResourceID string `json:"clusterResourceID" tf:"cluster_resource_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneID" tf:"hosted_zone_id"`
 
 	ReaderEndpoint string `json:"readerEndpoint" tf:"reader_endpoint"`
 }
@@ -65,7 +65,7 @@ type NeptuneClusterParameters struct {
 
 	IamRoles []string `json:"iamRoles,omitempty" tf:"iam_roles"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	NeptuneClusterParameterGroupName *string `json:"neptuneClusterParameterGroupName,omitempty" tf:"neptune_cluster_parameter_group_name"`
 
@@ -89,7 +89,7 @@ type NeptuneClusterParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 }
 
 // NeptuneClusterSpec defines the desired state of NeptuneCluster

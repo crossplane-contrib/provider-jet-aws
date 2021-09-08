@@ -28,9 +28,9 @@ type LbListenerCertificateObservation struct {
 }
 
 type LbListenerCertificateParameters struct {
-	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
+	CertificateARN string `json:"certificateARN" tf:"certificate_arn"`
 
-	ListenerArn string `json:"listenerArn" tf:"listener_arn"`
+	ListenerARN string `json:"listenerARN" tf:"listener_arn"`
 }
 
 // LbListenerCertificateSpec defines the desired state of LbListenerCertificate

@@ -27,13 +27,13 @@ import (
 type Route53ZoneObservation struct {
 	NameServers []string `json:"nameServers" tf:"name_servers"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneID" tf:"zone_id"`
 }
 
 type Route53ZoneParameters struct {
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
-	DelegationSetId *string `json:"delegationSetId,omitempty" tf:"delegation_set_id"`
+	DelegationSetID *string `json:"delegationSetID,omitempty" tf:"delegation_set_id"`
 
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
@@ -43,16 +43,16 @@ type Route53ZoneParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Vpc []VpcParameters `json:"vpc,omitempty" tf:"vpc"`
+	VPC []VPCParameters `json:"vpc,omitempty" tf:"vpc"`
 }
 
-type VpcObservation struct {
+type VPCObservation struct {
 }
 
-type VpcParameters struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+type VPCParameters struct {
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 
-	VpcRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region"`
+	VPCRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region"`
 }
 
 // Route53ZoneSpec defines the desired state of Route53Zone

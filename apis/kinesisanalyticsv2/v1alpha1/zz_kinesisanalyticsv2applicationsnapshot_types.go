@@ -25,7 +25,7 @@ import (
 )
 
 type Kinesisanalyticsv2ApplicationSnapshotObservation struct {
-	ApplicationVersionId int64 `json:"applicationVersionId" tf:"application_version_id"`
+	ApplicationVersionID int64 `json:"applicationVersionID" tf:"application_version_id"`
 
 	SnapshotCreationTimestamp string `json:"snapshotCreationTimestamp" tf:"snapshot_creation_timestamp"`
 }

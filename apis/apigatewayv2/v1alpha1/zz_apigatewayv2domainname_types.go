@@ -25,9 +25,9 @@ import (
 )
 
 type Apigatewayv2DomainNameObservation struct {
-	ApiMappingSelectionExpression string `json:"apiMappingSelectionExpression" tf:"api_mapping_selection_expression"`
+	APIMappingSelectionExpression string `json:"apiMappingSelectionExpression" tf:"api_mapping_selection_expression"`
 
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type Apigatewayv2DomainNameParameters struct {
@@ -35,7 +35,7 @@ type Apigatewayv2DomainNameParameters struct {
 
 	DomainNameConfiguration []DomainNameConfigurationParameters `json:"domainNameConfiguration" tf:"domain_name_configuration"`
 
-	MutualTlsAuthentication []MutualTlsAuthenticationParameters `json:"mutualTlsAuthentication,omitempty" tf:"mutual_tls_authentication"`
+	MutualTLSAuthentication []MutualTLSAuthenticationParameters `json:"mutualTLSAuthentication,omitempty" tf:"mutual_tls_authentication"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -43,24 +43,24 @@ type Apigatewayv2DomainNameParameters struct {
 }
 
 type DomainNameConfigurationObservation struct {
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneID" tf:"hosted_zone_id"`
 
 	TargetDomainName string `json:"targetDomainName" tf:"target_domain_name"`
 }
 
 type DomainNameConfigurationParameters struct {
-	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
+	CertificateARN string `json:"certificateARN" tf:"certificate_arn"`
 
 	EndpointType string `json:"endpointType" tf:"endpoint_type"`
 
 	SecurityPolicy string `json:"securityPolicy" tf:"security_policy"`
 }
 
-type MutualTlsAuthenticationObservation struct {
+type MutualTLSAuthenticationObservation struct {
 }
 
-type MutualTlsAuthenticationParameters struct {
-	TruststoreUri string `json:"truststoreUri" tf:"truststore_uri"`
+type MutualTLSAuthenticationParameters struct {
+	TruststoreURI string `json:"truststoreURI" tf:"truststore_uri"`
 
 	TruststoreVersion *string `json:"truststoreVersion,omitempty" tf:"truststore_version"`
 }

@@ -41,7 +41,7 @@ type DefaultResourceSpecObservation struct {
 type DefaultResourceSpecParameters struct {
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
-	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
+	SagemakerImageARN *string `json:"sagemakerImageARN,omitempty" tf:"sagemaker_image_arn"`
 }
 
 type DefaultUserSettingsObservation struct {
@@ -74,7 +74,7 @@ type KernelGatewayAppSettingsDefaultResourceSpecObservation struct {
 type KernelGatewayAppSettingsDefaultResourceSpecParameters struct {
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
-	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
+	SagemakerImageARN *string `json:"sagemakerImageARN,omitempty" tf:"sagemaker_image_arn"`
 }
 
 type KernelGatewayAppSettingsObservation struct {
@@ -94,13 +94,13 @@ type RetentionPolicyParameters struct {
 }
 
 type SagemakerDomainObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	HomeEfsFileSystemId string `json:"homeEfsFileSystemId" tf:"home_efs_file_system_id"`
+	HomeEfsFileSystemID string `json:"homeEfsFileSystemID" tf:"home_efs_file_system_id"`
 
-	SingleSignOnManagedApplicationInstanceId string `json:"singleSignOnManagedApplicationInstanceId" tf:"single_sign_on_managed_application_instance_id"`
+	SingleSignOnManagedApplicationInstanceID string `json:"singleSignOnManagedApplicationInstanceID" tf:"single_sign_on_managed_application_instance_id"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type SagemakerDomainParameters struct {
@@ -112,7 +112,7 @@ type SagemakerDomainParameters struct {
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	RetentionPolicy []RetentionPolicyParameters `json:"retentionPolicy,omitempty" tf:"retention_policy"`
 
@@ -122,7 +122,7 @@ type SagemakerDomainParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type SharingSettingsObservation struct {
@@ -131,7 +131,7 @@ type SharingSettingsObservation struct {
 type SharingSettingsParameters struct {
 	NotebookOutputOption *string `json:"notebookOutputOption,omitempty" tf:"notebook_output_option"`
 
-	S3KmsKeyId *string `json:"s3KmsKeyId,omitempty" tf:"s3_kms_key_id"`
+	S3KmsKeyID *string `json:"s3KmsKeyID,omitempty" tf:"s3_kms_key_id"`
 
 	S3OutputPath *string `json:"s3OutputPath,omitempty" tf:"s3_output_path"`
 }
@@ -142,7 +142,7 @@ type TensorBoardAppSettingsDefaultResourceSpecObservation struct {
 type TensorBoardAppSettingsDefaultResourceSpecParameters struct {
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
-	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
+	SagemakerImageARN *string `json:"sagemakerImageARN,omitempty" tf:"sagemaker_image_arn"`
 }
 
 type TensorBoardAppSettingsObservation struct {

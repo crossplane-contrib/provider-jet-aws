@@ -25,9 +25,9 @@ import (
 )
 
 type AttachmentObservation struct {
-	EndpointId string `json:"endpointId" tf:"endpoint_id"`
+	EndpointID string `json:"endpointID" tf:"endpoint_id"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetID" tf:"subnet_id"`
 }
 
 type AttachmentParameters struct {
@@ -41,7 +41,7 @@ type FirewallStatusParameters struct {
 }
 
 type NetworkfirewallFirewallObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	FirewallStatus []FirewallStatusObservation `json:"firewallStatus" tf:"firewall_status"`
 
@@ -53,7 +53,7 @@ type NetworkfirewallFirewallParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	FirewallPolicyArn string `json:"firewallPolicyArn" tf:"firewall_policy_arn"`
+	FirewallPolicyARN string `json:"firewallPolicyARN" tf:"firewall_policy_arn"`
 
 	FirewallPolicyChangeProtection *bool `json:"firewallPolicyChangeProtection,omitempty" tf:"firewall_policy_change_protection"`
 
@@ -67,14 +67,14 @@ type NetworkfirewallFirewallParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type SubnetMappingObservation struct {
 }
 
 type SubnetMappingParameters struct {
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetID" tf:"subnet_id"`
 }
 
 type SyncStatesObservation struct {

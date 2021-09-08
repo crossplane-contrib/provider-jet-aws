@@ -29,7 +29,7 @@ type AppsyncApiKeyObservation struct {
 }
 
 type AppsyncApiKeyParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 

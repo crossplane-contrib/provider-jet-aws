@@ -25,7 +25,7 @@ import (
 )
 
 type DbSecurityGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type DbSecurityGroupParameters struct {
@@ -46,11 +46,11 @@ type IngressObservation struct {
 type IngressParameters struct {
 	Cidr *string `json:"cidr,omitempty" tf:"cidr"`
 
-	SecurityGroupId *string `json:"securityGroupId,omitempty" tf:"security_group_id"`
+	SecurityGroupID *string `json:"securityGroupID,omitempty" tf:"security_group_id"`
 
 	SecurityGroupName *string `json:"securityGroupName,omitempty" tf:"security_group_name"`
 
-	SecurityGroupOwnerId *string `json:"securityGroupOwnerId,omitempty" tf:"security_group_owner_id"`
+	SecurityGroupOwnerID *string `json:"securityGroupOwnerID,omitempty" tf:"security_group_owner_id"`
 }
 
 // DbSecurityGroupSpec defines the desired state of DbSecurityGroup

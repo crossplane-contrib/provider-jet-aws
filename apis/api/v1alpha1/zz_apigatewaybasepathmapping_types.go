@@ -28,7 +28,7 @@ type ApiGatewayBasePathMappingObservation struct {
 }
 
 type ApiGatewayBasePathMappingParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
 	BasePath *string `json:"basePath,omitempty" tf:"base_path"`
 

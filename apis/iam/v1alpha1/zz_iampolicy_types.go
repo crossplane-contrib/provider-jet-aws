@@ -25,9 +25,9 @@ import (
 )
 
 type IamPolicyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	PolicyId string `json:"policyId" tf:"policy_id"`
+	PolicyID string `json:"policyID" tf:"policy_id"`
 }
 
 type IamPolicyParameters struct {

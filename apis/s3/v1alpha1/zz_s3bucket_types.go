@@ -35,7 +35,7 @@ type ApplyServerSideEncryptionByDefaultObservation struct {
 }
 
 type ApplyServerSideEncryptionByDefaultParameters struct {
-	KmsMasterKeyId *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id"`
+	KmsMasterKeyID *string `json:"kmsMasterKeyID,omitempty" tf:"kms_master_key_id"`
 
 	SseAlgorithm string `json:"sseAlgorithm" tf:"sse_algorithm"`
 }
@@ -72,11 +72,11 @@ type DestinationObservation struct {
 type DestinationParameters struct {
 	AccessControlTranslation []AccessControlTranslationParameters `json:"accessControlTranslation,omitempty" tf:"access_control_translation"`
 
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
+	AccountID *string `json:"accountID,omitempty" tf:"account_id"`
 
 	Bucket string `json:"bucket" tf:"bucket"`
 
-	ReplicaKmsKeyId *string `json:"replicaKmsKeyId,omitempty" tf:"replica_kms_key_id"`
+	ReplicaKmsKeyID *string `json:"replicaKmsKeyID,omitempty" tf:"replica_kms_key_id"`
 
 	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class"`
 }
@@ -105,13 +105,13 @@ type GrantObservation struct {
 }
 
 type GrantParameters struct {
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	Permissions []string `json:"permissions" tf:"permissions"`
 
 	Type string `json:"type" tf:"type"`
 
-	Uri *string `json:"uri,omitempty" tf:"uri"`
+	URI *string `json:"uri,omitempty" tf:"uri"`
 }
 
 type LifecycleRuleObservation struct {
@@ -124,7 +124,7 @@ type LifecycleRuleParameters struct {
 
 	Expiration []ExpirationParameters `json:"expiration,omitempty" tf:"expiration"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	NoncurrentVersionExpiration []NoncurrentVersionExpirationParameters `json:"noncurrentVersionExpiration,omitempty" tf:"noncurrent_version_expiration"`
 
@@ -197,7 +197,7 @@ type RulesParameters struct {
 
 	Filter []FilterParameters `json:"filter,omitempty" tf:"filter"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
@@ -217,11 +217,11 @@ type S3BucketObservation struct {
 }
 
 type S3BucketParameters struct {
+	ACL *string `json:"acl,omitempty" tf:"acl"`
+
+	ARN *string `json:"arn,omitempty" tf:"arn"`
+
 	AccelerationStatus *string `json:"accelerationStatus,omitempty" tf:"acceleration_status"`
-
-	Acl *string `json:"acl,omitempty" tf:"acl"`
-
-	Arn *string `json:"arn,omitempty" tf:"arn"`
 
 	Bucket *string `json:"bucket,omitempty" tf:"bucket"`
 
@@ -233,7 +233,7 @@ type S3BucketParameters struct {
 
 	Grant []GrantParameters `json:"grant,omitempty" tf:"grant"`
 
-	HostedZoneId *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id"`
+	HostedZoneID *string `json:"hostedZoneID,omitempty" tf:"hosted_zone_id"`
 
 	LifecycleRule []LifecycleRuleParameters `json:"lifecycleRule,omitempty" tf:"lifecycle_rule"`
 

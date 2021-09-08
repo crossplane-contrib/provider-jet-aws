@@ -31,11 +31,11 @@ type PinpointSmsChannelObservation struct {
 }
 
 type PinpointSmsChannelParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	SenderId *string `json:"senderId,omitempty" tf:"sender_id"`
+	SenderID *string `json:"senderID,omitempty" tf:"sender_id"`
 
 	ShortCode *string `json:"shortCode,omitempty" tf:"short_code"`
 }

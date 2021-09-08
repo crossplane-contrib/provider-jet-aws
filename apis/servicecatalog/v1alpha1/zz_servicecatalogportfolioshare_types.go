@@ -31,9 +31,9 @@ type ServicecatalogPortfolioShareObservation struct {
 type ServicecatalogPortfolioShareParameters struct {
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
-	PortfolioId string `json:"portfolioId" tf:"portfolio_id"`
+	PortfolioID string `json:"portfolioID" tf:"portfolio_id"`
 
-	PrincipalId string `json:"principalId" tf:"principal_id"`
+	PrincipalID string `json:"principalID" tf:"principal_id"`
 
 	ShareTagOptions *bool `json:"shareTagOptions,omitempty" tf:"share_tag_options"`
 

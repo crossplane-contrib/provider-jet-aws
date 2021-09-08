@@ -25,7 +25,7 @@ import (
 )
 
 type CloudwatchMetricAlarmObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CloudwatchMetricAlarmParameters struct {
@@ -69,7 +69,7 @@ type CloudwatchMetricAlarmParameters struct {
 
 	Threshold *float64 `json:"threshold,omitempty" tf:"threshold"`
 
-	ThresholdMetricId *string `json:"thresholdMetricId,omitempty" tf:"threshold_metric_id"`
+	ThresholdMetricID *string `json:"thresholdMetricID,omitempty" tf:"threshold_metric_id"`
 
 	TreatMissingData *string `json:"treatMissingData,omitempty" tf:"treat_missing_data"`
 
@@ -99,7 +99,7 @@ type MetricQueryObservation struct {
 type MetricQueryParameters struct {
 	Expression *string `json:"expression,omitempty" tf:"expression"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Label *string `json:"label,omitempty" tf:"label"`
 

@@ -28,9 +28,9 @@ type ElasticacheUserObservation struct {
 }
 
 type ElasticacheUserParameters struct {
-	AccessString string `json:"accessString" tf:"access_string"`
+	ARN *string `json:"arn,omitempty" tf:"arn"`
 
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	AccessString string `json:"accessString" tf:"access_string"`
 
 	Engine string `json:"engine" tf:"engine"`
 
@@ -42,7 +42,7 @@ type ElasticacheUserParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	UserId string `json:"userId" tf:"user_id"`
+	UserID string `json:"userID" tf:"user_id"`
 
 	UserName string `json:"userName" tf:"user_name"`
 }

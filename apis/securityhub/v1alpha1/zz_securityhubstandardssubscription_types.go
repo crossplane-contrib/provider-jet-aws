@@ -28,7 +28,7 @@ type SecurityhubStandardsSubscriptionObservation struct {
 }
 
 type SecurityhubStandardsSubscriptionParameters struct {
-	StandardsArn string `json:"standardsArn" tf:"standards_arn"`
+	StandardsARN string `json:"standardsARN" tf:"standards_arn"`
 }
 
 // SecurityhubStandardsSubscriptionSpec defines the desired state of SecurityhubStandardsSubscription

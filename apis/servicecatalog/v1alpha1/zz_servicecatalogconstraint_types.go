@@ -37,9 +37,9 @@ type ServicecatalogConstraintParameters struct {
 
 	Parameters string `json:"parameters" tf:"parameters"`
 
-	PortfolioId string `json:"portfolioId" tf:"portfolio_id"`
+	PortfolioID string `json:"portfolioID" tf:"portfolio_id"`
 
-	ProductId string `json:"productId" tf:"product_id"`
+	ProductID string `json:"productID" tf:"product_id"`
 
 	Type string `json:"type" tf:"type"`
 }

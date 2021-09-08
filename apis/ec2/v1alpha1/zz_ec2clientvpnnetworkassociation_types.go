@@ -25,19 +25,19 @@ import (
 )
 
 type Ec2ClientVpnNetworkAssociationObservation struct {
-	AssociationId string `json:"associationId" tf:"association_id"`
+	AssociationID string `json:"associationID" tf:"association_id"`
 
 	Status string `json:"status" tf:"status"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type Ec2ClientVpnNetworkAssociationParameters struct {
-	ClientVpnEndpointId string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
+	ClientVpnEndpointID string `json:"clientVpnEndpointID" tf:"client_vpn_endpoint_id"`
 
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetID" tf:"subnet_id"`
 }
 
 // Ec2ClientVpnNetworkAssociationSpec defines the desired state of Ec2ClientVpnNetworkAssociation

@@ -24,22 +24,22 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type DnsConfigObservation struct {
+type DNSConfigObservation struct {
 }
 
-type DnsConfigParameters struct {
-	DnsRecords []DnsRecordsParameters `json:"dnsRecords" tf:"dns_records"`
+type DNSConfigParameters struct {
+	DNSRecords []DNSRecordsParameters `json:"dnsRecords" tf:"dns_records"`
 
-	NamespaceId string `json:"namespaceId" tf:"namespace_id"`
+	NamespaceID string `json:"namespaceID" tf:"namespace_id"`
 
 	RoutingPolicy *string `json:"routingPolicy,omitempty" tf:"routing_policy"`
 }
 
-type DnsRecordsObservation struct {
+type DNSRecordsObservation struct {
 }
 
-type DnsRecordsParameters struct {
-	Ttl int64 `json:"ttl" tf:"ttl"`
+type DNSRecordsParameters struct {
+	TTL int64 `json:"ttl" tf:"ttl"`
 
 	Type string `json:"type" tf:"type"`
 }
@@ -63,13 +63,13 @@ type HealthCheckCustomConfigParameters struct {
 }
 
 type ServiceDiscoveryServiceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ServiceDiscoveryServiceParameters struct {
-	Description *string `json:"description,omitempty" tf:"description"`
+	DNSConfig []DNSConfigParameters `json:"dnsConfig,omitempty" tf:"dns_config"`
 
-	DnsConfig []DnsConfigParameters `json:"dnsConfig,omitempty" tf:"dns_config"`
+	Description *string `json:"description,omitempty" tf:"description"`
 
 	HealthCheckConfig []HealthCheckConfigParameters `json:"healthCheckConfig,omitempty" tf:"health_check_config"`
 
@@ -77,7 +77,7 @@ type ServiceDiscoveryServiceParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	NamespaceId *string `json:"namespaceId,omitempty" tf:"namespace_id"`
+	NamespaceID *string `json:"namespaceID,omitempty" tf:"namespace_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

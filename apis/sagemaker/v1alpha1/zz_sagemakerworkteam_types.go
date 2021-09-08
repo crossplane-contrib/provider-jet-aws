@@ -28,7 +28,7 @@ type CognitoMemberDefinitionObservation struct {
 }
 
 type CognitoMemberDefinitionParameters struct {
-	ClientId string `json:"clientId" tf:"client_id"`
+	ClientID string `json:"clientID" tf:"client_id"`
 
 	UserGroup string `json:"userGroup" tf:"user_group"`
 
@@ -48,7 +48,7 @@ type NotificationConfigurationObservation struct {
 }
 
 type NotificationConfigurationParameters struct {
-	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn"`
+	NotificationTopicARN *string `json:"notificationTopicARN,omitempty" tf:"notification_topic_arn"`
 }
 
 type OidcMemberDefinitionObservation struct {
@@ -59,7 +59,7 @@ type OidcMemberDefinitionParameters struct {
 }
 
 type SagemakerWorkteamObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Subdomain string `json:"subdomain" tf:"subdomain"`
 }

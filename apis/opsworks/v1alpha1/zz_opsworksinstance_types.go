@@ -34,7 +34,7 @@ type EbsBlockDeviceParameters struct {
 
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotID,omitempty" tf:"snapshot_id"`
 
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 
@@ -51,13 +51,13 @@ type EphemeralBlockDeviceParameters struct {
 }
 
 type OpsworksInstanceObservation struct {
-	Ec2InstanceId string `json:"ec2InstanceId" tf:"ec2_instance_id"`
+	Ec2InstanceID string `json:"ec2InstanceID" tf:"ec2_instance_id"`
 }
 
 type OpsworksInstanceParameters struct {
 	AgentVersion *string `json:"agentVersion,omitempty" tf:"agent_version"`
 
-	AmiId *string `json:"amiId,omitempty" tf:"ami_id"`
+	AmiID *string `json:"amiID,omitempty" tf:"ami_id"`
 
 	Architecture *string `json:"architecture,omitempty" tf:"architecture"`
 
@@ -75,9 +75,9 @@ type OpsworksInstanceParameters struct {
 
 	EbsOptimized *bool `json:"ebsOptimized,omitempty" tf:"ebs_optimized"`
 
-	EcsClusterArn *string `json:"ecsClusterArn,omitempty" tf:"ecs_cluster_arn"`
+	EcsClusterARN *string `json:"ecsClusterARN,omitempty" tf:"ecs_cluster_arn"`
 
-	ElasticIp *string `json:"elasticIp,omitempty" tf:"elastic_ip"`
+	ElasticIP *string `json:"elasticIP,omitempty" tf:"elastic_ip"`
 
 	EphemeralBlockDevice []EphemeralBlockDeviceParameters `json:"ephemeralBlockDevice,omitempty" tf:"ephemeral_block_device"`
 
@@ -87,11 +87,11 @@ type OpsworksInstanceParameters struct {
 
 	InstallUpdatesOnBoot *bool `json:"installUpdatesOnBoot,omitempty" tf:"install_updates_on_boot"`
 
-	InstanceProfileArn *string `json:"instanceProfileArn,omitempty" tf:"instance_profile_arn"`
+	InstanceProfileARN *string `json:"instanceProfileARN,omitempty" tf:"instance_profile_arn"`
 
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
-	LastServiceErrorId *string `json:"lastServiceErrorId,omitempty" tf:"last_service_error_id"`
+	LastServiceErrorID *string `json:"lastServiceErrorID,omitempty" tf:"last_service_error_id"`
 
 	LayerIds []string `json:"layerIds" tf:"layer_ids"`
 
@@ -99,13 +99,13 @@ type OpsworksInstanceParameters struct {
 
 	Platform *string `json:"platform,omitempty" tf:"platform"`
 
-	PrivateDns *string `json:"privateDns,omitempty" tf:"private_dns"`
+	PrivateDNS *string `json:"privateDNS,omitempty" tf:"private_dns"`
 
-	PrivateIp *string `json:"privateIp,omitempty" tf:"private_ip"`
+	PrivateIP *string `json:"privateIP,omitempty" tf:"private_ip"`
 
-	PublicDns *string `json:"publicDns,omitempty" tf:"public_dns"`
+	PublicDNS *string `json:"publicDNS,omitempty" tf:"public_dns"`
 
-	PublicIp *string `json:"publicIp,omitempty" tf:"public_ip"`
+	PublicIP *string `json:"publicIP,omitempty" tf:"public_ip"`
 
 	RegisteredBy *string `json:"registeredBy,omitempty" tf:"registered_by"`
 
@@ -121,23 +121,23 @@ type OpsworksInstanceParameters struct {
 
 	RootDeviceType *string `json:"rootDeviceType,omitempty" tf:"root_device_type"`
 
-	RootDeviceVolumeId *string `json:"rootDeviceVolumeId,omitempty" tf:"root_device_volume_id"`
+	RootDeviceVolumeID *string `json:"rootDeviceVolumeID,omitempty" tf:"root_device_volume_id"`
+
+	SSHHostDsaKeyFingerprint *string `json:"sshHostDsaKeyFingerprint,omitempty" tf:"ssh_host_dsa_key_fingerprint"`
+
+	SSHHostRsaKeyFingerprint *string `json:"sshHostRsaKeyFingerprint,omitempty" tf:"ssh_host_rsa_key_fingerprint"`
+
+	SSHKeyName *string `json:"sshKeyName,omitempty" tf:"ssh_key_name"`
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
-	SshHostDsaKeyFingerprint *string `json:"sshHostDsaKeyFingerprint,omitempty" tf:"ssh_host_dsa_key_fingerprint"`
-
-	SshHostRsaKeyFingerprint *string `json:"sshHostRsaKeyFingerprint,omitempty" tf:"ssh_host_rsa_key_fingerprint"`
-
-	SshKeyName *string `json:"sshKeyName,omitempty" tf:"ssh_key_name"`
-
-	StackId string `json:"stackId" tf:"stack_id"`
+	StackID string `json:"stackID" tf:"stack_id"`
 
 	State *string `json:"state,omitempty" tf:"state"`
 
 	Status *string `json:"status,omitempty" tf:"status"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	Tenancy *string `json:"tenancy,omitempty" tf:"tenancy"`
 

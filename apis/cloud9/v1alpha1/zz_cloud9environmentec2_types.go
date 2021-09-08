@@ -25,7 +25,7 @@ import (
 )
 
 type Cloud9EnvironmentEc2Observation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Type string `json:"type" tf:"type"`
 }
@@ -39,9 +39,9 @@ type Cloud9EnvironmentEc2Parameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	OwnerArn *string `json:"ownerArn,omitempty" tf:"owner_arn"`
+	OwnerARN *string `json:"ownerARN,omitempty" tf:"owner_arn"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

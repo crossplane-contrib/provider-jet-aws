@@ -25,7 +25,7 @@ import (
 )
 
 type EbsVolumeObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type EbsVolumeParameters struct {
@@ -35,15 +35,15 @@ type EbsVolumeParameters struct {
 
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	MultiAttachEnabled *bool `json:"multiAttachEnabled,omitempty" tf:"multi_attach_enabled"`
 
-	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn"`
+	OutpostARN *string `json:"outpostARN,omitempty" tf:"outpost_arn"`
 
 	Size *int64 `json:"size,omitempty" tf:"size"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotID,omitempty" tf:"snapshot_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

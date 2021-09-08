@@ -45,7 +45,7 @@ type DynamodbTargetParameters struct {
 }
 
 type GlueCrawlerObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GlueCrawlerParameters struct {

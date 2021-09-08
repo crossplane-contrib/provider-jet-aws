@@ -34,13 +34,13 @@ type EndpointDetailsParameters struct {
 
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 
-	VpcEndpointId *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
+	VPCEndpointID *string `json:"vpcEndpointID,omitempty" tf:"vpc_endpoint_id"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VPCID *string `json:"vpcID,omitempty" tf:"vpc_id"`
 }
 
 type TransferServerObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
@@ -74,7 +74,7 @@ type TransferServerParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Url *string `json:"url,omitempty" tf:"url"`
+	URL *string `json:"url,omitempty" tf:"url"`
 }
 
 // TransferServerSpec defines the desired state of TransferServer

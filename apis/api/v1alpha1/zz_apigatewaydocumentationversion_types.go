@@ -30,7 +30,7 @@ type ApiGatewayDocumentationVersionObservation struct {
 type ApiGatewayDocumentationVersionParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 
 	Version string `json:"version" tf:"version"`
 }

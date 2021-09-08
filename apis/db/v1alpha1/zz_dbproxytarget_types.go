@@ -29,21 +29,21 @@ type DbProxyTargetObservation struct {
 
 	Port int64 `json:"port" tf:"port"`
 
-	RdsResourceId string `json:"rdsResourceId" tf:"rds_resource_id"`
+	RdsResourceID string `json:"rdsResourceID" tf:"rds_resource_id"`
 
-	TargetArn string `json:"targetArn" tf:"target_arn"`
+	TargetARN string `json:"targetARN" tf:"target_arn"`
 
-	TrackedClusterId string `json:"trackedClusterId" tf:"tracked_cluster_id"`
+	TrackedClusterID string `json:"trackedClusterID" tf:"tracked_cluster_id"`
 
 	Type string `json:"type" tf:"type"`
 }
 
 type DbProxyTargetParameters struct {
-	DbClusterIdentifier *string `json:"dbClusterIdentifier,omitempty" tf:"db_cluster_identifier"`
+	DBClusterIdentifier *string `json:"dbClusterIdentifier,omitempty" tf:"db_cluster_identifier"`
 
-	DbInstanceIdentifier *string `json:"dbInstanceIdentifier,omitempty" tf:"db_instance_identifier"`
+	DBInstanceIdentifier *string `json:"dbInstanceIdentifier,omitempty" tf:"db_instance_identifier"`
 
-	DbProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
+	DBProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
 
 	TargetGroupName string `json:"targetGroupName" tf:"target_group_name"`
 }

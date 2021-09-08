@@ -25,15 +25,15 @@ import (
 )
 
 type SecretsmanagerSecretVersionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	VersionId string `json:"versionId" tf:"version_id"`
+	VersionID string `json:"versionID" tf:"version_id"`
 }
 
 type SecretsmanagerSecretVersionParameters struct {
 	SecretBinary *string `json:"secretBinary,omitempty" tf:"secret_binary"`
 
-	SecretId string `json:"secretId" tf:"secret_id"`
+	SecretID string `json:"secretID" tf:"secret_id"`
 
 	SecretString *string `json:"secretString,omitempty" tf:"secret_string"`
 

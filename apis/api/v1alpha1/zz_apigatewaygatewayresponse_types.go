@@ -34,7 +34,7 @@ type ApiGatewayGatewayResponseParameters struct {
 
 	ResponseType string `json:"responseType" tf:"response_type"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 
 	StatusCode *string `json:"statusCode,omitempty" tf:"status_code"`
 }

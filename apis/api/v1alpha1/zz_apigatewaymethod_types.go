@@ -28,15 +28,15 @@ type ApiGatewayMethodObservation struct {
 }
 
 type ApiGatewayMethodParameters struct {
-	ApiKeyRequired *bool `json:"apiKeyRequired,omitempty" tf:"api_key_required"`
+	APIKeyRequired *bool `json:"apiKeyRequired,omitempty" tf:"api_key_required"`
 
 	Authorization string `json:"authorization" tf:"authorization"`
 
 	AuthorizationScopes []string `json:"authorizationScopes,omitempty" tf:"authorization_scopes"`
 
-	AuthorizerId *string `json:"authorizerId,omitempty" tf:"authorizer_id"`
+	AuthorizerID *string `json:"authorizerID,omitempty" tf:"authorizer_id"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
 	OperationName *string `json:"operationName,omitempty" tf:"operation_name"`
 
@@ -44,11 +44,11 @@ type ApiGatewayMethodParameters struct {
 
 	RequestParameters map[string]bool `json:"requestParameters,omitempty" tf:"request_parameters"`
 
-	RequestValidatorId *string `json:"requestValidatorId,omitempty" tf:"request_validator_id"`
+	RequestValidatorID *string `json:"requestValidatorID,omitempty" tf:"request_validator_id"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 }
 
 // ApiGatewayMethodSpec defines the desired state of ApiGatewayMethod

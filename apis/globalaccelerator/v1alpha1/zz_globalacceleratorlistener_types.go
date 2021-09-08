@@ -28,7 +28,7 @@ type GlobalacceleratorListenerObservation struct {
 }
 
 type GlobalacceleratorListenerParameters struct {
-	AcceleratorArn string `json:"acceleratorArn" tf:"accelerator_arn"`
+	AcceleratorARN string `json:"acceleratorARN" tf:"accelerator_arn"`
 
 	ClientAffinity *string `json:"clientAffinity,omitempty" tf:"client_affinity"`
 

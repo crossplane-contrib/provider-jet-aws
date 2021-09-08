@@ -28,9 +28,9 @@ type StoragegatewayCacheObservation struct {
 }
 
 type StoragegatewayCacheParameters struct {
-	DiskId string `json:"diskId" tf:"disk_id"`
+	DiskID string `json:"diskID" tf:"disk_id"`
 
-	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+	GatewayARN string `json:"gatewayARN" tf:"gateway_arn"`
 }
 
 // StoragegatewayCacheSpec defines the desired state of StoragegatewayCache

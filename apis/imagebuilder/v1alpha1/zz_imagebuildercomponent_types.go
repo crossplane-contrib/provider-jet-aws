@@ -25,7 +25,7 @@ import (
 )
 
 type ImagebuilderComponentObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DateCreated string `json:"dateCreated" tf:"date_created"`
 
@@ -43,7 +43,7 @@ type ImagebuilderComponentParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -55,7 +55,7 @@ type ImagebuilderComponentParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Uri *string `json:"uri,omitempty" tf:"uri"`
+	URI *string `json:"uri,omitempty" tf:"uri"`
 
 	Version string `json:"version" tf:"version"`
 }

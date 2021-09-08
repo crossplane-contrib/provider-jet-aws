@@ -25,7 +25,7 @@ import (
 )
 
 type CloudwatchQueryDefinitionObservation struct {
-	QueryDefinitionId string `json:"queryDefinitionId" tf:"query_definition_id"`
+	QueryDefinitionID string `json:"queryDefinitionID" tf:"query_definition_id"`
 }
 
 type CloudwatchQueryDefinitionParameters struct {

@@ -28,15 +28,15 @@ type ApiGatewayMethodResponseObservation struct {
 }
 
 type ApiGatewayMethodResponseParameters struct {
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
 	ResponseModels map[string]string `json:"responseModels,omitempty" tf:"response_models"`
 
 	ResponseParameters map[string]bool `json:"responseParameters,omitempty" tf:"response_parameters"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 
 	StatusCode string `json:"statusCode" tf:"status_code"`
 }

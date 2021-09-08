@@ -28,9 +28,9 @@ type FileSystemConfigObservation struct {
 }
 
 type FileSystemConfigParameters struct {
-	DefaultGid *int64 `json:"defaultGid,omitempty" tf:"default_gid"`
+	DefaultGID *int64 `json:"defaultGID,omitempty" tf:"default_gid"`
 
-	DefaultUid *int64 `json:"defaultUid,omitempty" tf:"default_uid"`
+	DefaultUID *int64 `json:"defaultUID,omitempty" tf:"default_uid"`
 
 	MountPath *string `json:"mountPath,omitempty" tf:"mount_path"`
 }
@@ -54,7 +54,7 @@ type KernelSpecParameters struct {
 }
 
 type SagemakerAppImageConfigObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SagemakerAppImageConfigParameters struct {

@@ -25,13 +25,13 @@ import (
 )
 
 type DocdbClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ClusterResourceId string `json:"clusterResourceId" tf:"cluster_resource_id"`
+	ClusterResourceID string `json:"clusterResourceID" tf:"cluster_resource_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneID" tf:"hosted_zone_id"`
 
 	ReaderEndpoint string `json:"readerEndpoint" tf:"reader_endpoint"`
 }
@@ -49,9 +49,9 @@ type DocdbClusterParameters struct {
 
 	ClusterMembers []string `json:"clusterMembers,omitempty" tf:"cluster_members"`
 
-	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name"`
+	DBClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name"`
 
-	DbSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
+	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
 
 	DeletionProtection *bool `json:"deletionProtection,omitempty" tf:"deletion_protection"`
 
@@ -63,7 +63,7 @@ type DocdbClusterParameters struct {
 
 	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	MasterPassword *string `json:"masterPassword,omitempty" tf:"master_password"`
 
@@ -85,7 +85,7 @@ type DocdbClusterParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 }
 
 // DocdbClusterSpec defines the desired state of DocdbCluster

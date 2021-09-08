@@ -30,7 +30,7 @@ type NetworkfirewallResourcePolicyObservation struct {
 type NetworkfirewallResourcePolicyParameters struct {
 	Policy string `json:"policy" tf:"policy"`
 
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 // NetworkfirewallResourcePolicySpec defines the desired state of NetworkfirewallResourcePolicy

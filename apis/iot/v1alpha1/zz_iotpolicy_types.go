@@ -25,9 +25,9 @@ import (
 )
 
 type IotPolicyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DefaultVersionId string `json:"defaultVersionId" tf:"default_version_id"`
+	DefaultVersionID string `json:"defaultVersionID" tf:"default_version_id"`
 }
 
 type IotPolicyParameters struct {

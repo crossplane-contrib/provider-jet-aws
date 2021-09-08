@@ -28,9 +28,9 @@ type Route53ResolverQueryLogConfigAssociationObservation struct {
 }
 
 type Route53ResolverQueryLogConfigAssociationParameters struct {
-	ResolverQueryLogConfigId string `json:"resolverQueryLogConfigId" tf:"resolver_query_log_config_id"`
+	ResolverQueryLogConfigID string `json:"resolverQueryLogConfigID" tf:"resolver_query_log_config_id"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 }
 
 // Route53ResolverQueryLogConfigAssociationSpec defines the desired state of Route53ResolverQueryLogConfigAssociation

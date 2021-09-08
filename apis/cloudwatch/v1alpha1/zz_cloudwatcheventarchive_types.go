@@ -25,7 +25,7 @@ import (
 )
 
 type CloudwatchEventArchiveObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CloudwatchEventArchiveParameters struct {
@@ -33,7 +33,7 @@ type CloudwatchEventArchiveParameters struct {
 
 	EventPattern *string `json:"eventPattern,omitempty" tf:"event_pattern"`
 
-	EventSourceArn string `json:"eventSourceArn" tf:"event_source_arn"`
+	EventSourceARN string `json:"eventSourceARN" tf:"event_source_arn"`
 
 	Name string `json:"name" tf:"name"`
 

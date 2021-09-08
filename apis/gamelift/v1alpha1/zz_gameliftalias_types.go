@@ -25,7 +25,7 @@ import (
 )
 
 type GameliftAliasObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GameliftAliasParameters struct {
@@ -44,7 +44,7 @@ type RoutingStrategyObservation struct {
 }
 
 type RoutingStrategyParameters struct {
-	FleetId *string `json:"fleetId,omitempty" tf:"fleet_id"`
+	FleetID *string `json:"fleetID,omitempty" tf:"fleet_id"`
 
 	Message *string `json:"message,omitempty" tf:"message"`
 

@@ -31,13 +31,13 @@ type Ec2ClientVpnRouteObservation struct {
 }
 
 type Ec2ClientVpnRouteParameters struct {
-	ClientVpnEndpointId string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
+	ClientVpnEndpointID string `json:"clientVpnEndpointID" tf:"client_vpn_endpoint_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
 	DestinationCidrBlock string `json:"destinationCidrBlock" tf:"destination_cidr_block"`
 
-	TargetVpcSubnetId string `json:"targetVpcSubnetId" tf:"target_vpc_subnet_id"`
+	TargetVPCSubnetID string `json:"targetVPCSubnetID" tf:"target_vpc_subnet_id"`
 }
 
 // Ec2ClientVpnRouteSpec defines the desired state of Ec2ClientVpnRoute

@@ -28,7 +28,7 @@ type EbsDefaultKmsKeyObservation struct {
 }
 
 type EbsDefaultKmsKeyParameters struct {
-	KeyArn string `json:"keyArn" tf:"key_arn"`
+	KeyARN string `json:"keyARN" tf:"key_arn"`
 }
 
 // EbsDefaultKmsKeySpec defines the desired state of EbsDefaultKmsKey

@@ -28,11 +28,11 @@ type Route53VpcAssociationAuthorizationObservation struct {
 }
 
 type Route53VpcAssociationAuthorizationParameters struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 
-	VpcRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region"`
+	VPCRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneID" tf:"zone_id"`
 }
 
 // Route53VpcAssociationAuthorizationSpec defines the desired state of Route53VpcAssociationAuthorization

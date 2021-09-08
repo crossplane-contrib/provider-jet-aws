@@ -118,14 +118,14 @@ type LoadBalancerParameters struct {
 
 	ElbName *string `json:"elbName,omitempty" tf:"elb_name"`
 
-	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn"`
+	TargetGroupARN *string `json:"targetGroupARN,omitempty" tf:"target_group_arn"`
 }
 
 type NetworkConfigurationObservation struct {
 }
 
 type NetworkConfigurationParameters struct {
-	AssignPublicIp *bool `json:"assignPublicIp,omitempty" tf:"assign_public_ip"`
+	AssignPublicIP *bool `json:"assignPublicIP,omitempty" tf:"assign_public_ip"`
 
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
@@ -160,7 +160,7 @@ type ServiceRegistriesParameters struct {
 
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
-	RegistryArn string `json:"registryArn" tf:"registry_arn"`
+	RegistryARN string `json:"registryARN" tf:"registry_arn"`
 }
 
 // EcsServiceSpec defines the desired state of EcsService

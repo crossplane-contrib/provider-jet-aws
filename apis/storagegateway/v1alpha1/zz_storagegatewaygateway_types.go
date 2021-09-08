@@ -25,7 +25,7 @@ import (
 )
 
 type GatewayNetworkInterfaceObservation struct {
-	Ipv4Address string `json:"ipv4Address" tf:"ipv4_address"`
+	IPv4Address string `json:"ipv4Address" tf:"ipv4_address"`
 }
 
 type GatewayNetworkInterfaceParameters struct {
@@ -50,13 +50,13 @@ type SmbActiveDirectorySettingsParameters struct {
 }
 
 type StoragegatewayGatewayObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Ec2InstanceId string `json:"ec2InstanceId" tf:"ec2_instance_id"`
+	Ec2InstanceID string `json:"ec2InstanceID" tf:"ec2_instance_id"`
 
 	EndpointType string `json:"endpointType" tf:"endpoint_type"`
 
-	GatewayId string `json:"gatewayId" tf:"gateway_id"`
+	GatewayID string `json:"gatewayID" tf:"gateway_id"`
 
 	GatewayNetworkInterface []GatewayNetworkInterfaceObservation `json:"gatewayNetworkInterface" tf:"gateway_network_interface"`
 
@@ -70,9 +70,9 @@ type StoragegatewayGatewayParameters struct {
 
 	AverageUploadRateLimitInBitsPerSec *int64 `json:"averageUploadRateLimitInBitsPerSec,omitempty" tf:"average_upload_rate_limit_in_bits_per_sec"`
 
-	CloudwatchLogGroupArn *string `json:"cloudwatchLogGroupArn,omitempty" tf:"cloudwatch_log_group_arn"`
+	CloudwatchLogGroupARN *string `json:"cloudwatchLogGroupARN,omitempty" tf:"cloudwatch_log_group_arn"`
 
-	GatewayIpAddress *string `json:"gatewayIpAddress,omitempty" tf:"gateway_ip_address"`
+	GatewayIPAddress *string `json:"gatewayIPAddress,omitempty" tf:"gateway_ip_address"`
 
 	GatewayName string `json:"gatewayName" tf:"gateway_name"`
 
@@ -80,7 +80,7 @@ type StoragegatewayGatewayParameters struct {
 
 	GatewayType *string `json:"gatewayType,omitempty" tf:"gateway_type"`
 
-	GatewayVpcEndpoint *string `json:"gatewayVpcEndpoint,omitempty" tf:"gateway_vpc_endpoint"`
+	GatewayVPCEndpoint *string `json:"gatewayVPCEndpoint,omitempty" tf:"gateway_vpc_endpoint"`
 
 	MediumChangerType *string `json:"mediumChangerType,omitempty" tf:"medium_changer_type"`
 

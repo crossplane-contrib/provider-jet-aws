@@ -25,7 +25,7 @@ import (
 )
 
 type AppautoscalingScheduledActionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type AppautoscalingScheduledActionParameters struct {
@@ -33,7 +33,7 @@ type AppautoscalingScheduledActionParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
 	ScalableDimension string `json:"scalableDimension" tf:"scalable_dimension"`
 

@@ -32,7 +32,7 @@ type IamPolicyAttachmentParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	PolicyArn string `json:"policyArn" tf:"policy_arn"`
+	PolicyARN string `json:"policyARN" tf:"policy_arn"`
 
 	Roles []string `json:"roles,omitempty" tf:"roles"`
 

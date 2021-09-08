@@ -32,7 +32,7 @@ type CampaignHookParameters struct {
 
 	Mode *string `json:"mode,omitempty" tf:"mode"`
 
-	WebUrl *string `json:"webUrl,omitempty" tf:"web_url"`
+	WebURL *string `json:"webURL,omitempty" tf:"web_url"`
 }
 
 type LimitsObservation struct {
@@ -49,9 +49,9 @@ type LimitsParameters struct {
 }
 
 type PinpointAppObservation struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 }
 
 type PinpointAppParameters struct {

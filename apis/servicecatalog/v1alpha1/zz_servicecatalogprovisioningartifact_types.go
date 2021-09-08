@@ -41,11 +41,11 @@ type ServicecatalogProvisioningArtifactParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	ProductId string `json:"productId" tf:"product_id"`
+	ProductID string `json:"productID" tf:"product_id"`
 
-	TemplatePhysicalId *string `json:"templatePhysicalId,omitempty" tf:"template_physical_id"`
+	TemplatePhysicalID *string `json:"templatePhysicalID,omitempty" tf:"template_physical_id"`
 
-	TemplateUrl *string `json:"templateUrl,omitempty" tf:"template_url"`
+	TemplateURL *string `json:"templateURL,omitempty" tf:"template_url"`
 
 	Type *string `json:"type,omitempty" tf:"type"`
 }

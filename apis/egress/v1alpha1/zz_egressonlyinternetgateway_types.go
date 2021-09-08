@@ -32,7 +32,7 @@ type EgressOnlyInternetGatewayParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // EgressOnlyInternetGatewaySpec defines the desired state of EgressOnlyInternetGateway

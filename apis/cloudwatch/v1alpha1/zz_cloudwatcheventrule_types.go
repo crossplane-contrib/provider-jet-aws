@@ -25,7 +25,7 @@ import (
 )
 
 type CloudwatchEventRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CloudwatchEventRuleParameters struct {
@@ -41,7 +41,7 @@ type CloudwatchEventRuleParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 
 	ScheduleExpression *string `json:"scheduleExpression,omitempty" tf:"schedule_expression"`
 

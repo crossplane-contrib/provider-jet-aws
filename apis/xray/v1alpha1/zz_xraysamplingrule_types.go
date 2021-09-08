@@ -25,7 +25,7 @@ import (
 )
 
 type XraySamplingRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type XraySamplingRuleParameters struct {
@@ -33,15 +33,15 @@ type XraySamplingRuleParameters struct {
 
 	FixedRate float64 `json:"fixedRate" tf:"fixed_rate"`
 
-	Host string `json:"host" tf:"host"`
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	Host string `json:"host" tf:"host"`
 
 	Priority int64 `json:"priority" tf:"priority"`
 
 	ReservoirSize int64 `json:"reservoirSize" tf:"reservoir_size"`
 
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 
 	RuleName *string `json:"ruleName,omitempty" tf:"rule_name"`
 
@@ -53,7 +53,7 @@ type XraySamplingRuleParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	UrlPath string `json:"urlPath" tf:"url_path"`
+	URLPath string `json:"urlPath" tf:"url_path"`
 
 	Version int64 `json:"version" tf:"version"`
 }

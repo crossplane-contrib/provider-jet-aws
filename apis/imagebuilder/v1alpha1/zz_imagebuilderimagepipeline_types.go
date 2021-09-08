@@ -34,7 +34,7 @@ type ImagebuilderImagePipelineImageTestsConfigurationParameters struct {
 }
 
 type ImagebuilderImagePipelineObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DateCreated string `json:"dateCreated" tf:"date_created"`
 
@@ -50,15 +50,15 @@ type ImagebuilderImagePipelineObservation struct {
 type ImagebuilderImagePipelineParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DistributionConfigurationArn *string `json:"distributionConfigurationArn,omitempty" tf:"distribution_configuration_arn"`
+	DistributionConfigurationARN *string `json:"distributionConfigurationARN,omitempty" tf:"distribution_configuration_arn"`
 
 	EnhancedImageMetadataEnabled *bool `json:"enhancedImageMetadataEnabled,omitempty" tf:"enhanced_image_metadata_enabled"`
 
-	ImageRecipeArn string `json:"imageRecipeArn" tf:"image_recipe_arn"`
+	ImageRecipeARN string `json:"imageRecipeARN" tf:"image_recipe_arn"`
 
 	ImageTestsConfiguration []ImagebuilderImagePipelineImageTestsConfigurationParameters `json:"imageTestsConfiguration,omitempty" tf:"image_tests_configuration"`
 
-	InfrastructureConfigurationArn string `json:"infrastructureConfigurationArn" tf:"infrastructure_configuration_arn"`
+	InfrastructureConfigurationARN string `json:"infrastructureConfigurationARN" tf:"infrastructure_configuration_arn"`
 
 	Name string `json:"name" tf:"name"`
 

@@ -25,7 +25,7 @@ import (
 )
 
 type CloudwatchDashboardObservation struct {
-	DashboardArn string `json:"dashboardArn" tf:"dashboard_arn"`
+	DashboardARN string `json:"dashboardARN" tf:"dashboard_arn"`
 }
 
 type CloudwatchDashboardParameters struct {

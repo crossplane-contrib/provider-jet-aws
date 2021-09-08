@@ -34,9 +34,9 @@ type LambdaFunctionParameters struct {
 
 	FilterSuffix *string `json:"filterSuffix,omitempty" tf:"filter_suffix"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
-	LambdaFunctionArn *string `json:"lambdaFunctionArn,omitempty" tf:"lambda_function_arn"`
+	LambdaFunctionARN *string `json:"lambdaFunctionARN,omitempty" tf:"lambda_function_arn"`
 }
 
 type QueueObservation struct {
@@ -49,9 +49,9 @@ type QueueParameters struct {
 
 	FilterSuffix *string `json:"filterSuffix,omitempty" tf:"filter_suffix"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
-	QueueArn string `json:"queueArn" tf:"queue_arn"`
+	QueueARN string `json:"queueARN" tf:"queue_arn"`
 }
 
 type S3BucketNotificationObservation struct {
@@ -77,9 +77,9 @@ type TopicParameters struct {
 
 	FilterSuffix *string `json:"filterSuffix,omitempty" tf:"filter_suffix"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
-	TopicArn string `json:"topicArn" tf:"topic_arn"`
+	TopicARN string `json:"topicARN" tf:"topic_arn"`
 }
 
 // S3BucketNotificationSpec defines the desired state of S3BucketNotification

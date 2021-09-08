@@ -25,31 +25,31 @@ import (
 )
 
 type EipObservation struct {
-	AllocationId string `json:"allocationId" tf:"allocation_id"`
+	AllocationID string `json:"allocationID" tf:"allocation_id"`
 
-	AssociationId string `json:"associationId" tf:"association_id"`
+	AssociationID string `json:"associationID" tf:"association_id"`
 
-	CarrierIp string `json:"carrierIp" tf:"carrier_ip"`
+	CarrierIP string `json:"carrierIP" tf:"carrier_ip"`
 
-	CustomerOwnedIp string `json:"customerOwnedIp" tf:"customer_owned_ip"`
+	CustomerOwnedIP string `json:"customerOwnedIP" tf:"customer_owned_ip"`
 
 	Domain string `json:"domain" tf:"domain"`
 
-	PrivateDns string `json:"privateDns" tf:"private_dns"`
+	PrivateDNS string `json:"privateDNS" tf:"private_dns"`
 
-	PrivateIp string `json:"privateIp" tf:"private_ip"`
+	PrivateIP string `json:"privateIP" tf:"private_ip"`
 
-	PublicDns string `json:"publicDns" tf:"public_dns"`
+	PublicDNS string `json:"publicDNS" tf:"public_dns"`
 
-	PublicIp string `json:"publicIp" tf:"public_ip"`
+	PublicIP string `json:"publicIP" tf:"public_ip"`
 }
 
 type EipParameters struct {
 	Address *string `json:"address,omitempty" tf:"address"`
 
-	AssociateWithPrivateIp *string `json:"associateWithPrivateIp,omitempty" tf:"associate_with_private_ip"`
+	AssociateWithPrivateIP *string `json:"associateWithPrivateIP,omitempty" tf:"associate_with_private_ip"`
 
-	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
+	CustomerOwnedIPv4Pool *string `json:"customerOwnedIPv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
 
 	Instance *string `json:"instance,omitempty" tf:"instance"`
 
@@ -57,13 +57,13 @@ type EipParameters struct {
 
 	NetworkInterface *string `json:"networkInterface,omitempty" tf:"network_interface"`
 
-	PublicIpv4Pool *string `json:"publicIpv4Pool,omitempty" tf:"public_ipv4_pool"`
+	PublicIPv4Pool *string `json:"publicIPv4Pool,omitempty" tf:"public_ipv4_pool"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Vpc *bool `json:"vpc,omitempty" tf:"vpc"`
+	VPC *bool `json:"vpc,omitempty" tf:"vpc"`
 }
 
 // EipSpec defines the desired state of Eip

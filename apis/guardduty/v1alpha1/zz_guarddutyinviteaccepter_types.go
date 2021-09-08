@@ -28,9 +28,9 @@ type GuarddutyInviteAccepterObservation struct {
 }
 
 type GuarddutyInviteAccepterParameters struct {
-	DetectorId string `json:"detectorId" tf:"detector_id"`
+	DetectorID string `json:"detectorID" tf:"detector_id"`
 
-	MasterAccountId string `json:"masterAccountId" tf:"master_account_id"`
+	MasterAccountID string `json:"masterAccountID" tf:"master_account_id"`
 }
 
 // GuarddutyInviteAccepterSpec defines the desired state of GuarddutyInviteAccepter

@@ -38,7 +38,7 @@ type EbsBlockDeviceParameters struct {
 
 	NoDevice *bool `json:"noDevice,omitempty" tf:"no_device"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotID,omitempty" tf:"snapshot_id"`
 
 	Throughput *int64 `json:"throughput,omitempty" tf:"throughput"`
 
@@ -57,11 +57,11 @@ type EphemeralBlockDeviceParameters struct {
 }
 
 type LaunchConfigurationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type LaunchConfigurationParameters struct {
-	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress,omitempty" tf:"associate_public_ip_address"`
+	AssociatePublicIPAddress *bool `json:"associatePublicIPAddress,omitempty" tf:"associate_public_ip_address"`
 
 	EbsBlockDevice []EbsBlockDeviceParameters `json:"ebsBlockDevice,omitempty" tf:"ebs_block_device"`
 
@@ -73,7 +73,7 @@ type LaunchConfigurationParameters struct {
 
 	IamInstanceProfile *string `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile"`
 
-	ImageId string `json:"imageId" tf:"image_id"`
+	ImageID string `json:"imageID" tf:"image_id"`
 
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
@@ -97,20 +97,20 @@ type LaunchConfigurationParameters struct {
 
 	UserDataBase64 *string `json:"userDataBase64,omitempty" tf:"user_data_base64"`
 
-	VpcClassicLinkId *string `json:"vpcClassicLinkId,omitempty" tf:"vpc_classic_link_id"`
+	VPCClassicLinkID *string `json:"vpcClassicLinkID,omitempty" tf:"vpc_classic_link_id"`
 
-	VpcClassicLinkSecurityGroups []string `json:"vpcClassicLinkSecurityGroups,omitempty" tf:"vpc_classic_link_security_groups"`
+	VPCClassicLinkSecurityGroups []string `json:"vpcClassicLinkSecurityGroups,omitempty" tf:"vpc_classic_link_security_groups"`
 }
 
 type MetadataOptionsObservation struct {
 }
 
 type MetadataOptionsParameters struct {
-	HttpEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint"`
+	HTTPEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint"`
 
-	HttpPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit"`
+	HTTPPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit"`
 
-	HttpTokens *string `json:"httpTokens,omitempty" tf:"http_tokens"`
+	HTTPTokens *string `json:"httpTokens,omitempty" tf:"http_tokens"`
 }
 
 type RootBlockDeviceObservation struct {

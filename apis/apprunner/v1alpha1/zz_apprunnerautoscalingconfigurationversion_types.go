@@ -25,7 +25,7 @@ import (
 )
 
 type ApprunnerAutoScalingConfigurationVersionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	AutoScalingConfigurationRevision int64 `json:"autoScalingConfigurationRevision" tf:"auto_scaling_configuration_revision"`
 

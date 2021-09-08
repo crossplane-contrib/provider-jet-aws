@@ -25,7 +25,7 @@ import (
 )
 
 type CodestarconnectionsHostObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Status string `json:"status" tf:"status"`
 }
@@ -37,20 +37,20 @@ type CodestarconnectionsHostParameters struct {
 
 	ProviderType string `json:"providerType" tf:"provider_type"`
 
-	VpcConfiguration []VpcConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
+	VPCConfiguration []VPCConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
 }
 
-type VpcConfigurationObservation struct {
+type VPCConfigurationObservation struct {
 }
 
-type VpcConfigurationParameters struct {
+type VPCConfigurationParameters struct {
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	TlsCertificate *string `json:"tlsCertificate,omitempty" tf:"tls_certificate"`
+	TLSCertificate *string `json:"tlsCertificate,omitempty" tf:"tls_certificate"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // CodestarconnectionsHostSpec defines the desired state of CodestarconnectionsHost

@@ -25,11 +25,11 @@ import (
 )
 
 type S3BucketObjectObservation struct {
-	VersionId string `json:"versionId" tf:"version_id"`
+	VersionID string `json:"versionID" tf:"version_id"`
 }
 
 type S3BucketObjectParameters struct {
-	Acl *string `json:"acl,omitempty" tf:"acl"`
+	ACL *string `json:"acl,omitempty" tf:"acl"`
 
 	Bucket string `json:"bucket" tf:"bucket"`
 
@@ -55,7 +55,7 @@ type S3BucketObjectParameters struct {
 
 	Key string `json:"key" tf:"key"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Metadata map[string]string `json:"metadata,omitempty" tf:"metadata"`
 

@@ -28,17 +28,17 @@ type AccessLogSettingsObservation struct {
 }
 
 type AccessLogSettingsParameters struct {
-	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
+	DestinationARN string `json:"destinationARN" tf:"destination_arn"`
 
 	Format string `json:"format" tf:"format"`
 }
 
 type ApiGatewayStageObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ExecutionArn string `json:"executionArn" tf:"execution_arn"`
+	ExecutionARN string `json:"executionARN" tf:"execution_arn"`
 
-	InvokeUrl string `json:"invokeUrl" tf:"invoke_url"`
+	InvokeURL string `json:"invokeURL" tf:"invoke_url"`
 }
 
 type ApiGatewayStageParameters struct {
@@ -48,15 +48,15 @@ type ApiGatewayStageParameters struct {
 
 	CacheClusterSize *string `json:"cacheClusterSize,omitempty" tf:"cache_cluster_size"`
 
-	ClientCertificateId *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id"`
+	ClientCertificateID *string `json:"clientCertificateID,omitempty" tf:"client_certificate_id"`
 
-	DeploymentId string `json:"deploymentId" tf:"deployment_id"`
+	DeploymentID string `json:"deploymentID" tf:"deployment_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
 	DocumentationVersion *string `json:"documentationVersion,omitempty" tf:"documentation_version"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 
 	StageName string `json:"stageName" tf:"stage_name"`
 

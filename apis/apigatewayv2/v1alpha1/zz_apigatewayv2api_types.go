@@ -25,25 +25,25 @@ import (
 )
 
 type Apigatewayv2ApiObservation struct {
-	ApiEndpoint string `json:"apiEndpoint" tf:"api_endpoint"`
+	APIEndpoint string `json:"apiEndpoint" tf:"api_endpoint"`
 
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ExecutionArn string `json:"executionArn" tf:"execution_arn"`
+	ExecutionARN string `json:"executionARN" tf:"execution_arn"`
 }
 
 type Apigatewayv2ApiParameters struct {
-	ApiKeySelectionExpression *string `json:"apiKeySelectionExpression,omitempty" tf:"api_key_selection_expression"`
+	APIKeySelectionExpression *string `json:"apiKeySelectionExpression,omitempty" tf:"api_key_selection_expression"`
 
 	Body *string `json:"body,omitempty" tf:"body"`
 
 	CorsConfiguration []CorsConfigurationParameters `json:"corsConfiguration,omitempty" tf:"cors_configuration"`
 
-	CredentialsArn *string `json:"credentialsArn,omitempty" tf:"credentials_arn"`
+	CredentialsARN *string `json:"credentialsARN,omitempty" tf:"credentials_arn"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint,omitempty" tf:"disable_execute_api_endpoint"`
+	DisableExecuteAPIEndpoint *bool `json:"disableExecuteAPIEndpoint,omitempty" tf:"disable_execute_api_endpoint"`
 
 	FailOnWarnings *bool `json:"failOnWarnings,omitempty" tf:"fail_on_warnings"`
 

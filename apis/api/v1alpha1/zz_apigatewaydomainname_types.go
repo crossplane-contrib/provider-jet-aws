@@ -25,21 +25,21 @@ import (
 )
 
 type ApiGatewayDomainNameObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CertificateUploadDate string `json:"certificateUploadDate" tf:"certificate_upload_date"`
 
 	CloudfrontDomainName string `json:"cloudfrontDomainName" tf:"cloudfront_domain_name"`
 
-	CloudfrontZoneId string `json:"cloudfrontZoneId" tf:"cloudfront_zone_id"`
+	CloudfrontZoneID string `json:"cloudfrontZoneID" tf:"cloudfront_zone_id"`
 
 	RegionalDomainName string `json:"regionalDomainName" tf:"regional_domain_name"`
 
-	RegionalZoneId string `json:"regionalZoneId" tf:"regional_zone_id"`
+	RegionalZoneID string `json:"regionalZoneID" tf:"regional_zone_id"`
 }
 
 type ApiGatewayDomainNameParameters struct {
-	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn"`
+	CertificateARN *string `json:"certificateARN,omitempty" tf:"certificate_arn"`
 
 	CertificateBody *string `json:"certificateBody,omitempty" tf:"certificate_body"`
 
@@ -53,9 +53,9 @@ type ApiGatewayDomainNameParameters struct {
 
 	EndpointConfiguration []EndpointConfigurationParameters `json:"endpointConfiguration,omitempty" tf:"endpoint_configuration"`
 
-	MutualTlsAuthentication []MutualTlsAuthenticationParameters `json:"mutualTlsAuthentication,omitempty" tf:"mutual_tls_authentication"`
+	MutualTLSAuthentication []MutualTLSAuthenticationParameters `json:"mutualTLSAuthentication,omitempty" tf:"mutual_tls_authentication"`
 
-	RegionalCertificateArn *string `json:"regionalCertificateArn,omitempty" tf:"regional_certificate_arn"`
+	RegionalCertificateARN *string `json:"regionalCertificateARN,omitempty" tf:"regional_certificate_arn"`
 
 	RegionalCertificateName *string `json:"regionalCertificateName,omitempty" tf:"regional_certificate_name"`
 
@@ -73,11 +73,11 @@ type EndpointConfigurationParameters struct {
 	Types []string `json:"types" tf:"types"`
 }
 
-type MutualTlsAuthenticationObservation struct {
+type MutualTLSAuthenticationObservation struct {
 }
 
-type MutualTlsAuthenticationParameters struct {
-	TruststoreUri string `json:"truststoreUri" tf:"truststore_uri"`
+type MutualTLSAuthenticationParameters struct {
+	TruststoreURI string `json:"truststoreURI" tf:"truststore_uri"`
 
 	TruststoreVersion *string `json:"truststoreVersion,omitempty" tf:"truststore_version"`
 }

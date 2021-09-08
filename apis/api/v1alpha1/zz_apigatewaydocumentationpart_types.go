@@ -32,7 +32,7 @@ type ApiGatewayDocumentationPartParameters struct {
 
 	Properties string `json:"properties" tf:"properties"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 }
 
 type LocationObservation struct {

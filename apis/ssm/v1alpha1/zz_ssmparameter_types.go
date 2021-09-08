@@ -29,15 +29,15 @@ type SsmParameterObservation struct {
 }
 
 type SsmParameterParameters struct {
-	AllowedPattern *string `json:"allowedPattern,omitempty" tf:"allowed_pattern"`
+	ARN *string `json:"arn,omitempty" tf:"arn"`
 
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	AllowedPattern *string `json:"allowedPattern,omitempty" tf:"allowed_pattern"`
 
 	DataType *string `json:"dataType,omitempty" tf:"data_type"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	KeyId *string `json:"keyId,omitempty" tf:"key_id"`
+	KeyID *string `json:"keyID,omitempty" tf:"key_id"`
 
 	Name string `json:"name" tf:"name"`
 

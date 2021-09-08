@@ -29,11 +29,11 @@ type SsoadminManagedPolicyAttachmentObservation struct {
 }
 
 type SsoadminManagedPolicyAttachmentParameters struct {
-	InstanceArn string `json:"instanceArn" tf:"instance_arn"`
+	InstanceARN string `json:"instanceARN" tf:"instance_arn"`
 
-	ManagedPolicyArn string `json:"managedPolicyArn" tf:"managed_policy_arn"`
+	ManagedPolicyARN string `json:"managedPolicyARN" tf:"managed_policy_arn"`
 
-	PermissionSetArn string `json:"permissionSetArn" tf:"permission_set_arn"`
+	PermissionSetARN string `json:"permissionSetARN" tf:"permission_set_arn"`
 }
 
 // SsoadminManagedPolicyAttachmentSpec defines the desired state of SsoadminManagedPolicyAttachment

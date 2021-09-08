@@ -25,17 +25,17 @@ import (
 )
 
 type EbsSnapshotObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DataEncryptionKeyId string `json:"dataEncryptionKeyId" tf:"data_encryption_key_id"`
+	DataEncryptionKeyID string `json:"dataEncryptionKeyID" tf:"data_encryption_key_id"`
 
 	Encrypted bool `json:"encrypted" tf:"encrypted"`
 
-	KmsKeyId string `json:"kmsKeyId" tf:"kms_key_id"`
+	KmsKeyID string `json:"kmsKeyID" tf:"kms_key_id"`
 
 	OwnerAlias string `json:"ownerAlias" tf:"owner_alias"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
 	VolumeSize int64 `json:"volumeSize" tf:"volume_size"`
 }
@@ -47,7 +47,7 @@ type EbsSnapshotParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeID" tf:"volume_id"`
 }
 
 // EbsSnapshotSpec defines the desired state of EbsSnapshot

@@ -34,7 +34,7 @@ type DefaultSecurityGroupEgressParameters struct {
 
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
-	Ipv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
+	IPv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
 
 	PrefixListIds []string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
@@ -57,7 +57,7 @@ type DefaultSecurityGroupIngressParameters struct {
 
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
-	Ipv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
+	IPv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
 
 	PrefixListIds []string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
@@ -71,13 +71,13 @@ type DefaultSecurityGroupIngressParameters struct {
 }
 
 type DefaultSecurityGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Description string `json:"description" tf:"description"`
 
 	Name string `json:"name" tf:"name"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type DefaultSecurityGroupParameters struct {
@@ -91,7 +91,7 @@ type DefaultSecurityGroupParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VPCID *string `json:"vpcID,omitempty" tf:"vpc_id"`
 }
 
 // DefaultSecurityGroupSpec defines the desired state of DefaultSecurityGroup

@@ -25,15 +25,15 @@ import (
 )
 
 type DmsReplicationSubnetGroupObservation struct {
-	ReplicationSubnetGroupArn string `json:"replicationSubnetGroupArn" tf:"replication_subnet_group_arn"`
+	ReplicationSubnetGroupARN string `json:"replicationSubnetGroupARN" tf:"replication_subnet_group_arn"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type DmsReplicationSubnetGroupParameters struct {
 	ReplicationSubnetGroupDescription string `json:"replicationSubnetGroupDescription" tf:"replication_subnet_group_description"`
 
-	ReplicationSubnetGroupId string `json:"replicationSubnetGroupId" tf:"replication_subnet_group_id"`
+	ReplicationSubnetGroupID string `json:"replicationSubnetGroupID" tf:"replication_subnet_group_id"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 

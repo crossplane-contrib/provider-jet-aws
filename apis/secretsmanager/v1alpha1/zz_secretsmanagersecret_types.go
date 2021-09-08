@@ -33,7 +33,7 @@ type ReplicaObservation struct {
 }
 
 type ReplicaParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Region string `json:"region" tf:"region"`
 }
@@ -46,7 +46,7 @@ type RotationRulesParameters struct {
 }
 
 type SecretsmanagerSecretObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	RotationEnabled bool `json:"rotationEnabled" tf:"rotation_enabled"`
 }
@@ -56,7 +56,7 @@ type SecretsmanagerSecretParameters struct {
 
 	ForceOverwriteReplicaSecret *bool `json:"forceOverwriteReplicaSecret,omitempty" tf:"force_overwrite_replica_secret"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
@@ -68,7 +68,7 @@ type SecretsmanagerSecretParameters struct {
 
 	Replica []ReplicaParameters `json:"replica,omitempty" tf:"replica"`
 
-	RotationLambdaArn *string `json:"rotationLambdaArn,omitempty" tf:"rotation_lambda_arn"`
+	RotationLambdaARN *string `json:"rotationLambdaARN,omitempty" tf:"rotation_lambda_arn"`
 
 	RotationRules []RotationRulesParameters `json:"rotationRules,omitempty" tf:"rotation_rules"`
 

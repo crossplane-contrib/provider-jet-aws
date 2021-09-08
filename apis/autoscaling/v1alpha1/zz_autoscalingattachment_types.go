@@ -28,7 +28,7 @@ type AutoscalingAttachmentObservation struct {
 }
 
 type AutoscalingAttachmentParameters struct {
-	AlbTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn"`
+	AlbTargetGroupARN *string `json:"albTargetGroupARN,omitempty" tf:"alb_target_group_arn"`
 
 	AutoscalingGroupName string `json:"autoscalingGroupName" tf:"autoscaling_group_name"`
 

@@ -28,7 +28,7 @@ type DynamodbKinesisStreamingDestinationObservation struct {
 }
 
 type DynamodbKinesisStreamingDestinationParameters struct {
-	StreamArn string `json:"streamArn" tf:"stream_arn"`
+	StreamARN string `json:"streamARN" tf:"stream_arn"`
 
 	TableName string `json:"tableName" tf:"table_name"`
 }

@@ -34,7 +34,7 @@ type ResourceQueryParameters struct {
 }
 
 type ResourcegroupsGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ResourcegroupsGroupParameters struct {

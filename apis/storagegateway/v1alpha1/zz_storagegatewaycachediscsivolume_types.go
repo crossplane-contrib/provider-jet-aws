@@ -25,7 +25,7 @@ import (
 )
 
 type StoragegatewayCachedIscsiVolumeObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ChapEnabled bool `json:"chapEnabled" tf:"chap_enabled"`
 
@@ -33,25 +33,25 @@ type StoragegatewayCachedIscsiVolumeObservation struct {
 
 	NetworkInterfacePort int64 `json:"networkInterfacePort" tf:"network_interface_port"`
 
-	TargetArn string `json:"targetArn" tf:"target_arn"`
+	TargetARN string `json:"targetARN" tf:"target_arn"`
 
-	VolumeArn string `json:"volumeArn" tf:"volume_arn"`
+	VolumeARN string `json:"volumeARN" tf:"volume_arn"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeID" tf:"volume_id"`
 }
 
 type StoragegatewayCachedIscsiVolumeParameters struct {
-	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+	GatewayARN string `json:"gatewayARN" tf:"gateway_arn"`
 
 	KmsEncrypted *bool `json:"kmsEncrypted,omitempty" tf:"kms_encrypted"`
 
 	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceID" tf:"network_interface_id"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotID,omitempty" tf:"snapshot_id"`
 
-	SourceVolumeArn *string `json:"sourceVolumeArn,omitempty" tf:"source_volume_arn"`
+	SourceVolumeARN *string `json:"sourceVolumeARN,omitempty" tf:"source_volume_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

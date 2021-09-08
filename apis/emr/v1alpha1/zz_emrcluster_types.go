@@ -45,7 +45,7 @@ type ConfigurationsParameters struct {
 }
 
 type CoreInstanceFleetObservation struct {
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	ProvisionedOnDemandCapacity int64 `json:"provisionedOnDemandCapacity" tf:"provisioned_on_demand_capacity"`
 
@@ -78,7 +78,7 @@ type CoreInstanceGroupEbsConfigParameters struct {
 }
 
 type CoreInstanceGroupObservation struct {
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 }
 
 type CoreInstanceGroupParameters struct {
@@ -126,17 +126,17 @@ type Ec2AttributesParameters struct {
 
 	ServiceAccessSecurityGroup *string `json:"serviceAccessSecurityGroup,omitempty" tf:"service_access_security_group"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 }
 
 type EmrClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ClusterState string `json:"clusterState" tf:"cluster_state"`
 
-	MasterPublicDns string `json:"masterPublicDns" tf:"master_public_dns"`
+	MasterPublicDNS string `json:"masterPublicDNS" tf:"master_public_dns"`
 }
 
 type EmrClusterParameters struct {
@@ -150,13 +150,13 @@ type EmrClusterParameters struct {
 
 	Configurations *string `json:"configurations,omitempty" tf:"configurations"`
 
-	ConfigurationsJson *string `json:"configurationsJson,omitempty" tf:"configurations_json"`
+	ConfigurationsJSON *string `json:"configurationsJSON,omitempty" tf:"configurations_json"`
 
 	CoreInstanceFleet []CoreInstanceFleetParameters `json:"coreInstanceFleet,omitempty" tf:"core_instance_fleet"`
 
 	CoreInstanceGroup []CoreInstanceGroupParameters `json:"coreInstanceGroup,omitempty" tf:"core_instance_group"`
 
-	CustomAmiId *string `json:"customAmiId,omitempty" tf:"custom_ami_id"`
+	CustomAmiID *string `json:"customAmiID,omitempty" tf:"custom_ami_id"`
 
 	EbsRootVolumeSize *int64 `json:"ebsRootVolumeSize,omitempty" tf:"ebs_root_volume_size"`
 
@@ -166,7 +166,7 @@ type EmrClusterParameters struct {
 
 	KerberosAttributes []KerberosAttributesParameters `json:"kerberosAttributes,omitempty" tf:"kerberos_attributes"`
 
-	LogUri *string `json:"logUri,omitempty" tf:"log_uri"`
+	LogURI *string `json:"logURI,omitempty" tf:"log_uri"`
 
 	MasterInstanceFleet []MasterInstanceFleetParameters `json:"masterInstanceFleet,omitempty" tf:"master_instance_fleet"`
 
@@ -318,7 +318,7 @@ type MasterInstanceFleetLaunchSpecificationsParameters struct {
 }
 
 type MasterInstanceFleetObservation struct {
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	ProvisionedOnDemandCapacity int64 `json:"provisionedOnDemandCapacity" tf:"provisioned_on_demand_capacity"`
 
@@ -351,7 +351,7 @@ type MasterInstanceGroupEbsConfigParameters struct {
 }
 
 type MasterInstanceGroupObservation struct {
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 }
 
 type MasterInstanceGroupParameters struct {

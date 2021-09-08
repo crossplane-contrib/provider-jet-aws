@@ -27,7 +27,7 @@ import (
 type DxBgpPeerObservation struct {
 	AwsDevice string `json:"awsDevice" tf:"aws_device"`
 
-	BgpPeerId string `json:"bgpPeerId" tf:"bgp_peer_id"`
+	BgpPeerID string `json:"bgpPeerID" tf:"bgp_peer_id"`
 
 	BgpStatus string `json:"bgpStatus" tf:"bgp_status"`
 }
@@ -43,7 +43,7 @@ type DxBgpPeerParameters struct {
 
 	CustomerAddress *string `json:"customerAddress,omitempty" tf:"customer_address"`
 
-	VirtualInterfaceId string `json:"virtualInterfaceId" tf:"virtual_interface_id"`
+	VirtualInterfaceID string `json:"virtualInterfaceID" tf:"virtual_interface_id"`
 }
 
 // DxBgpPeerSpec defines the desired state of DxBgpPeer

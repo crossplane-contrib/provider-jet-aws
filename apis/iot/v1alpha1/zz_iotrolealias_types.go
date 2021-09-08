@@ -25,7 +25,7 @@ import (
 )
 
 type IotRoleAliasObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type IotRoleAliasParameters struct {
@@ -33,7 +33,7 @@ type IotRoleAliasParameters struct {
 
 	CredentialDuration *int64 `json:"credentialDuration,omitempty" tf:"credential_duration"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 // IotRoleAliasSpec defines the desired state of IotRoleAlias

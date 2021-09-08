@@ -32,9 +32,9 @@ type StoragegatewaySmbFileShareCacheAttributesParameters struct {
 }
 
 type StoragegatewaySmbFileShareObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	FileshareId string `json:"fileshareId" tf:"fileshare_id"`
+	FileshareID string `json:"fileshareID" tf:"fileshare_id"`
 
 	Path string `json:"path" tf:"path"`
 }
@@ -44,7 +44,7 @@ type StoragegatewaySmbFileShareParameters struct {
 
 	AdminUserList []string `json:"adminUserList,omitempty" tf:"admin_user_list"`
 
-	AuditDestinationArn *string `json:"auditDestinationArn,omitempty" tf:"audit_destination_arn"`
+	AuditDestinationARN *string `json:"auditDestinationARN,omitempty" tf:"audit_destination_arn"`
 
 	Authentication *string `json:"authentication,omitempty" tf:"authentication"`
 
@@ -58,7 +58,7 @@ type StoragegatewaySmbFileShareParameters struct {
 
 	FileShareName *string `json:"fileShareName,omitempty" tf:"file_share_name"`
 
-	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+	GatewayARN string `json:"gatewayARN" tf:"gateway_arn"`
 
 	GuessMimeTypeEnabled *bool `json:"guessMimeTypeEnabled,omitempty" tf:"guess_mime_type_enabled"`
 
@@ -66,13 +66,13 @@ type StoragegatewaySmbFileShareParameters struct {
 
 	KmsEncrypted *bool `json:"kmsEncrypted,omitempty" tf:"kms_encrypted"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
-	LocationArn string `json:"locationArn" tf:"location_arn"`
+	LocationARN string `json:"locationARN" tf:"location_arn"`
 
 	NotificationPolicy *string `json:"notificationPolicy,omitempty" tf:"notification_policy"`
 
-	ObjectAcl *string `json:"objectAcl,omitempty" tf:"object_acl"`
+	ObjectACL *string `json:"objectACL,omitempty" tf:"object_acl"`
 
 	OplocksEnabled *bool `json:"oplocksEnabled,omitempty" tf:"oplocks_enabled"`
 
@@ -80,17 +80,17 @@ type StoragegatewaySmbFileShareParameters struct {
 
 	RequesterPays *bool `json:"requesterPays,omitempty" tf:"requester_pays"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
-	SmbAclEnabled *bool `json:"smbAclEnabled,omitempty" tf:"smb_acl_enabled"`
+	SmbACLEnabled *bool `json:"smbACLEnabled,omitempty" tf:"smb_acl_enabled"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	ValidUserList []string `json:"validUserList,omitempty" tf:"valid_user_list"`
+	VPCEndpointDNSName *string `json:"vpcEndpointDNSName,omitempty" tf:"vpc_endpoint_dns_name"`
 
-	VpcEndpointDnsName *string `json:"vpcEndpointDnsName,omitempty" tf:"vpc_endpoint_dns_name"`
+	ValidUserList []string `json:"validUserList,omitempty" tf:"valid_user_list"`
 }
 
 // StoragegatewaySmbFileShareSpec defines the desired state of StoragegatewaySmbFileShare

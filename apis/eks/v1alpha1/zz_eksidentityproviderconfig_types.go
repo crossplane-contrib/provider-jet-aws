@@ -25,7 +25,7 @@ import (
 )
 
 type EksIdentityProviderConfigObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Status string `json:"status" tf:"status"`
 }
@@ -34,7 +34,7 @@ type EksIdentityProviderConfigOidcObservation struct {
 }
 
 type EksIdentityProviderConfigOidcParameters struct {
-	ClientId string `json:"clientId" tf:"client_id"`
+	ClientID string `json:"clientID" tf:"client_id"`
 
 	GroupsClaim *string `json:"groupsClaim,omitempty" tf:"groups_claim"`
 
@@ -42,7 +42,7 @@ type EksIdentityProviderConfigOidcParameters struct {
 
 	IdentityProviderConfigName string `json:"identityProviderConfigName" tf:"identity_provider_config_name"`
 
-	IssuerUrl string `json:"issuerUrl" tf:"issuer_url"`
+	IssuerURL string `json:"issuerURL" tf:"issuer_url"`
 
 	RequiredClaims map[string]string `json:"requiredClaims,omitempty" tf:"required_claims"`
 

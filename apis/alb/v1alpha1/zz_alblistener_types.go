@@ -25,17 +25,17 @@ import (
 )
 
 type AlbListenerObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type AlbListenerParameters struct {
 	AlpnPolicy *string `json:"alpnPolicy,omitempty" tf:"alpn_policy"`
 
-	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn"`
+	CertificateARN *string `json:"certificateARN,omitempty" tf:"certificate_arn"`
 
 	DefaultAction []DefaultActionParameters `json:"defaultAction" tf:"default_action"`
 
-	LoadBalancerArn string `json:"loadBalancerArn" tf:"load_balancer_arn"`
+	LoadBalancerARN string `json:"loadBalancerARN" tf:"load_balancer_arn"`
 
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
@@ -62,9 +62,9 @@ type AuthenticateCognitoParameters struct {
 
 	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout"`
 
-	UserPoolArn string `json:"userPoolArn" tf:"user_pool_arn"`
+	UserPoolARN string `json:"userPoolARN" tf:"user_pool_arn"`
 
-	UserPoolClientId string `json:"userPoolClientId" tf:"user_pool_client_id"`
+	UserPoolClientID string `json:"userPoolClientID" tf:"user_pool_client_id"`
 
 	UserPoolDomain string `json:"userPoolDomain" tf:"user_pool_domain"`
 }
@@ -77,7 +77,7 @@ type AuthenticateOidcParameters struct {
 
 	AuthorizationEndpoint string `json:"authorizationEndpoint" tf:"authorization_endpoint"`
 
-	ClientId string `json:"clientId" tf:"client_id"`
+	ClientID string `json:"clientID" tf:"client_id"`
 
 	ClientSecret string `json:"clientSecret" tf:"client_secret"`
 
@@ -112,7 +112,7 @@ type DefaultActionParameters struct {
 
 	Redirect []RedirectParameters `json:"redirect,omitempty" tf:"redirect"`
 
-	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn"`
+	TargetGroupARN *string `json:"targetGroupARN,omitempty" tf:"target_group_arn"`
 
 	Type string `json:"type" tf:"type"`
 }
@@ -167,7 +167,7 @@ type TargetGroupObservation struct {
 }
 
 type TargetGroupParameters struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Weight *int64 `json:"weight,omitempty" tf:"weight"`
 }

@@ -54,7 +54,7 @@ type FirewallPolicyParameters struct {
 }
 
 type NetworkfirewallFirewallPolicyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	UpdateToken string `json:"updateToken" tf:"update_token"`
 }
@@ -82,7 +82,7 @@ type StatefulRuleGroupReferenceObservation struct {
 }
 
 type StatefulRuleGroupReferenceParameters struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 type StatelessCustomActionObservation struct {
@@ -100,7 +100,7 @@ type StatelessRuleGroupReferenceObservation struct {
 type StatelessRuleGroupReferenceParameters struct {
 	Priority int64 `json:"priority" tf:"priority"`
 
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 // NetworkfirewallFirewallPolicySpec defines the desired state of NetworkfirewallFirewallPolicy

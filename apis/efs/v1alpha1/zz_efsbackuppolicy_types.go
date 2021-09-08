@@ -37,7 +37,7 @@ type EfsBackupPolicyObservation struct {
 type EfsBackupPolicyParameters struct {
 	BackupPolicy []BackupPolicyParameters `json:"backupPolicy" tf:"backup_policy"`
 
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
+	FileSystemID string `json:"fileSystemID" tf:"file_system_id"`
 }
 
 // EfsBackupPolicySpec defines the desired state of EfsBackupPolicy

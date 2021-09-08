@@ -25,15 +25,15 @@ import (
 )
 
 type Route53ResolverQueryLogConfigObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
 	ShareStatus string `json:"shareStatus" tf:"share_status"`
 }
 
 type Route53ResolverQueryLogConfigParameters struct {
-	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
+	DestinationARN string `json:"destinationARN" tf:"destination_arn"`
 
 	Name string `json:"name" tf:"name"`
 

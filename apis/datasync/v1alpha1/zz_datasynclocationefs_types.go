@@ -25,15 +25,15 @@ import (
 )
 
 type DatasyncLocationEfsObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type DatasyncLocationEfsParameters struct {
 	Ec2Config []Ec2ConfigParameters `json:"ec2Config" tf:"ec2_config"`
 
-	EfsFileSystemArn string `json:"efsFileSystemArn" tf:"efs_file_system_arn"`
+	EfsFileSystemARN string `json:"efsFileSystemARN" tf:"efs_file_system_arn"`
 
 	Subdirectory *string `json:"subdirectory,omitempty" tf:"subdirectory"`
 
@@ -48,7 +48,7 @@ type Ec2ConfigObservation struct {
 type Ec2ConfigParameters struct {
 	SecurityGroupArns []string `json:"securityGroupArns" tf:"security_group_arns"`
 
-	SubnetArn string `json:"subnetArn" tf:"subnet_arn"`
+	SubnetARN string `json:"subnetARN" tf:"subnet_arn"`
 }
 
 // DatasyncLocationEfsSpec defines the desired state of DatasyncLocationEfs

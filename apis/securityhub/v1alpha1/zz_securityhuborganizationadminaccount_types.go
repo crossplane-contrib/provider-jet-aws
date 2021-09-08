@@ -28,7 +28,7 @@ type SecurityhubOrganizationAdminAccountObservation struct {
 }
 
 type SecurityhubOrganizationAdminAccountParameters struct {
-	AdminAccountId string `json:"adminAccountId" tf:"admin_account_id"`
+	AdminAccountID string `json:"adminAccountID" tf:"admin_account_id"`
 }
 
 // SecurityhubOrganizationAdminAccountSpec defines the desired state of SecurityhubOrganizationAdminAccount

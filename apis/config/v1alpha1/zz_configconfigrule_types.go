@@ -25,9 +25,9 @@ import (
 )
 
 type ConfigConfigRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	RuleId string `json:"ruleId" tf:"rule_id"`
+	RuleID string `json:"ruleID" tf:"rule_id"`
 }
 
 type ConfigConfigRuleParameters struct {
@@ -52,7 +52,7 @@ type ScopeObservation struct {
 }
 
 type ScopeParameters struct {
-	ComplianceResourceId *string `json:"complianceResourceId,omitempty" tf:"compliance_resource_id"`
+	ComplianceResourceID *string `json:"complianceResourceID,omitempty" tf:"compliance_resource_id"`
 
 	ComplianceResourceTypes []string `json:"complianceResourceTypes,omitempty" tf:"compliance_resource_types"`
 

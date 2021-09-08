@@ -25,7 +25,7 @@ import (
 )
 
 type EcrRegistryPolicyObservation struct {
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	RegistryID string `json:"registryID" tf:"registry_id"`
 }
 
 type EcrRegistryPolicyParameters struct {

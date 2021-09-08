@@ -29,7 +29,7 @@ type ServerlessapplicationrepositoryCloudformationStackObservation struct {
 }
 
 type ServerlessapplicationrepositoryCloudformationStackParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
 	Capabilities []string `json:"capabilities" tf:"capabilities"`
 

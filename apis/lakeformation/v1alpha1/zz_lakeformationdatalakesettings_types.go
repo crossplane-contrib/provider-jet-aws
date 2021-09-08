@@ -48,7 +48,7 @@ type LakeformationDataLakeSettingsObservation struct {
 type LakeformationDataLakeSettingsParameters struct {
 	Admins []string `json:"admins,omitempty" tf:"admins"`
 
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	CreateDatabaseDefaultPermissions []CreateDatabaseDefaultPermissionsParameters `json:"createDatabaseDefaultPermissions,omitempty" tf:"create_database_default_permissions"`
 

@@ -30,17 +30,17 @@ type Route53ResolverFirewallRuleObservation struct {
 type Route53ResolverFirewallRuleParameters struct {
 	Action string `json:"action" tf:"action"`
 
-	BlockOverrideDnsType *string `json:"blockOverrideDnsType,omitempty" tf:"block_override_dns_type"`
+	BlockOverrideDNSType *string `json:"blockOverrideDNSType,omitempty" tf:"block_override_dns_type"`
 
 	BlockOverrideDomain *string `json:"blockOverrideDomain,omitempty" tf:"block_override_domain"`
 
-	BlockOverrideTtl *int64 `json:"blockOverrideTtl,omitempty" tf:"block_override_ttl"`
+	BlockOverrideTTL *int64 `json:"blockOverrideTTL,omitempty" tf:"block_override_ttl"`
 
 	BlockResponse *string `json:"blockResponse,omitempty" tf:"block_response"`
 
-	FirewallDomainListId string `json:"firewallDomainListId" tf:"firewall_domain_list_id"`
+	FirewallDomainListID string `json:"firewallDomainListID" tf:"firewall_domain_list_id"`
 
-	FirewallRuleGroupId string `json:"firewallRuleGroupId" tf:"firewall_rule_group_id"`
+	FirewallRuleGroupID string `json:"firewallRuleGroupID" tf:"firewall_rule_group_id"`
 
 	Name string `json:"name" tf:"name"`
 

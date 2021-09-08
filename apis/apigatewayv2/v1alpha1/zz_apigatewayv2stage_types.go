@@ -28,31 +28,31 @@ type AccessLogSettingsObservation struct {
 }
 
 type AccessLogSettingsParameters struct {
-	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
+	DestinationARN string `json:"destinationARN" tf:"destination_arn"`
 
 	Format string `json:"format" tf:"format"`
 }
 
 type Apigatewayv2StageObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ExecutionArn string `json:"executionArn" tf:"execution_arn"`
+	ExecutionARN string `json:"executionARN" tf:"execution_arn"`
 
-	InvokeUrl string `json:"invokeUrl" tf:"invoke_url"`
+	InvokeURL string `json:"invokeURL" tf:"invoke_url"`
 }
 
 type Apigatewayv2StageParameters struct {
-	AccessLogSettings []AccessLogSettingsParameters `json:"accessLogSettings,omitempty" tf:"access_log_settings"`
+	APIID string `json:"apiID" tf:"api_id"`
 
-	ApiId string `json:"apiId" tf:"api_id"`
+	AccessLogSettings []AccessLogSettingsParameters `json:"accessLogSettings,omitempty" tf:"access_log_settings"`
 
 	AutoDeploy *bool `json:"autoDeploy,omitempty" tf:"auto_deploy"`
 
-	ClientCertificateId *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id"`
+	ClientCertificateID *string `json:"clientCertificateID,omitempty" tf:"client_certificate_id"`
 
 	DefaultRouteSettings []DefaultRouteSettingsParameters `json:"defaultRouteSettings,omitempty" tf:"default_route_settings"`
 
-	DeploymentId *string `json:"deploymentId,omitempty" tf:"deployment_id"`
+	DeploymentID *string `json:"deploymentID,omitempty" tf:"deployment_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 

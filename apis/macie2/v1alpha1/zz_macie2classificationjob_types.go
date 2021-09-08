@@ -61,7 +61,7 @@ type BucketDefinitionsObservation struct {
 }
 
 type BucketDefinitionsParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountID" tf:"account_id"`
 
 	Buckets []string `json:"buckets" tf:"buckets"`
 }
@@ -92,9 +92,9 @@ type IncludesParameters struct {
 type Macie2ClassificationJobObservation struct {
 	CreatedAt string `json:"createdAt" tf:"created_at"`
 
-	JobArn string `json:"jobArn" tf:"job_arn"`
+	JobARN string `json:"jobARN" tf:"job_arn"`
 
-	JobId string `json:"jobId" tf:"job_id"`
+	JobID string `json:"jobID" tf:"job_id"`
 
 	UserPausedDetails []UserPausedDetailsObservation `json:"userPausedDetails" tf:"user_paused_details"`
 }
@@ -199,7 +199,7 @@ type TagValuesParameters struct {
 type UserPausedDetailsObservation struct {
 	JobExpiresAt string `json:"jobExpiresAt" tf:"job_expires_at"`
 
-	JobImminentExpirationHealthEventArn string `json:"jobImminentExpirationHealthEventArn" tf:"job_imminent_expiration_health_event_arn"`
+	JobImminentExpirationHealthEventARN string `json:"jobImminentExpirationHealthEventARN" tf:"job_imminent_expiration_health_event_arn"`
 
 	JobPausedAt string `json:"jobPausedAt" tf:"job_paused_at"`
 }

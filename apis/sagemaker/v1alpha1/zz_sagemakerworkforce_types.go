@@ -28,7 +28,7 @@ type CognitoConfigObservation struct {
 }
 
 type CognitoConfigParameters struct {
-	ClientId string `json:"clientId" tf:"client_id"`
+	ClientID string `json:"clientID" tf:"client_id"`
 
 	UserPool string `json:"userPool" tf:"user_pool"`
 }
@@ -39,13 +39,13 @@ type OidcConfigObservation struct {
 type OidcConfigParameters struct {
 	AuthorizationEndpoint string `json:"authorizationEndpoint" tf:"authorization_endpoint"`
 
-	ClientId string `json:"clientId" tf:"client_id"`
+	ClientID string `json:"clientID" tf:"client_id"`
 
 	ClientSecret string `json:"clientSecret" tf:"client_secret"`
 
 	Issuer string `json:"issuer" tf:"issuer"`
 
-	JwksUri string `json:"jwksUri" tf:"jwks_uri"`
+	JwksURI string `json:"jwksURI" tf:"jwks_uri"`
 
 	LogoutEndpoint string `json:"logoutEndpoint" tf:"logout_endpoint"`
 
@@ -55,7 +55,7 @@ type OidcConfigParameters struct {
 }
 
 type SagemakerWorkforceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Subdomain string `json:"subdomain" tf:"subdomain"`
 }
@@ -65,15 +65,15 @@ type SagemakerWorkforceParameters struct {
 
 	OidcConfig []OidcConfigParameters `json:"oidcConfig,omitempty" tf:"oidc_config"`
 
-	SourceIpConfig []SourceIpConfigParameters `json:"sourceIpConfig,omitempty" tf:"source_ip_config"`
+	SourceIPConfig []SourceIPConfigParameters `json:"sourceIPConfig,omitempty" tf:"source_ip_config"`
 
 	WorkforceName string `json:"workforceName" tf:"workforce_name"`
 }
 
-type SourceIpConfigObservation struct {
+type SourceIPConfigObservation struct {
 }
 
-type SourceIpConfigParameters struct {
+type SourceIPConfigParameters struct {
 	Cidrs []string `json:"cidrs" tf:"cidrs"`
 }
 

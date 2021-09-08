@@ -28,7 +28,7 @@ type CloudfrontMonitoringSubscriptionObservation struct {
 }
 
 type CloudfrontMonitoringSubscriptionParameters struct {
-	DistributionId string `json:"distributionId" tf:"distribution_id"`
+	DistributionID string `json:"distributionID" tf:"distribution_id"`
 
 	MonitoringSubscription []MonitoringSubscriptionParameters `json:"monitoringSubscription" tf:"monitoring_subscription"`
 }

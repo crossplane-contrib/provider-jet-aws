@@ -27,31 +27,31 @@ import (
 type DocdbClusterSnapshotObservation struct {
 	AvailabilityZones []string `json:"availabilityZones" tf:"availability_zones"`
 
-	DbClusterSnapshotArn string `json:"dbClusterSnapshotArn" tf:"db_cluster_snapshot_arn"`
+	DBClusterSnapshotARN string `json:"dbClusterSnapshotARN" tf:"db_cluster_snapshot_arn"`
 
 	Engine string `json:"engine" tf:"engine"`
 
 	EngineVersion string `json:"engineVersion" tf:"engine_version"`
 
-	KmsKeyId string `json:"kmsKeyId" tf:"kms_key_id"`
+	KmsKeyID string `json:"kmsKeyID" tf:"kms_key_id"`
 
 	Port int64 `json:"port" tf:"port"`
 
 	SnapshotType string `json:"snapshotType" tf:"snapshot_type"`
 
-	SourceDbClusterSnapshotArn string `json:"sourceDbClusterSnapshotArn" tf:"source_db_cluster_snapshot_arn"`
+	SourceDBClusterSnapshotARN string `json:"sourceDBClusterSnapshotARN" tf:"source_db_cluster_snapshot_arn"`
 
 	Status string `json:"status" tf:"status"`
 
 	StorageEncrypted bool `json:"storageEncrypted" tf:"storage_encrypted"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type DocdbClusterSnapshotParameters struct {
-	DbClusterIdentifier string `json:"dbClusterIdentifier" tf:"db_cluster_identifier"`
+	DBClusterIdentifier string `json:"dbClusterIdentifier" tf:"db_cluster_identifier"`
 
-	DbClusterSnapshotIdentifier string `json:"dbClusterSnapshotIdentifier" tf:"db_cluster_snapshot_identifier"`
+	DBClusterSnapshotIdentifier string `json:"dbClusterSnapshotIdentifier" tf:"db_cluster_snapshot_identifier"`
 }
 
 // DocdbClusterSnapshotSpec defines the desired state of DocdbClusterSnapshot

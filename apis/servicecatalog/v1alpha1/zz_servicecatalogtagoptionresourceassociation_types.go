@@ -25,7 +25,7 @@ import (
 )
 
 type ServicecatalogTagOptionResourceAssociationObservation struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 
 	ResourceCreatedTime string `json:"resourceCreatedTime" tf:"resource_created_time"`
 
@@ -35,9 +35,9 @@ type ServicecatalogTagOptionResourceAssociationObservation struct {
 }
 
 type ServicecatalogTagOptionResourceAssociationParameters struct {
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
-	TagOptionId string `json:"tagOptionId" tf:"tag_option_id"`
+	TagOptionID string `json:"tagOptionID" tf:"tag_option_id"`
 }
 
 // ServicecatalogTagOptionResourceAssociationSpec defines the desired state of ServicecatalogTagOptionResourceAssociation

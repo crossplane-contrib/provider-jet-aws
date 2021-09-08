@@ -25,15 +25,15 @@ import (
 )
 
 type CloudwatchLogDestinationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CloudwatchLogDestinationParameters struct {
 	Name string `json:"name" tf:"name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
-	TargetArn string `json:"targetArn" tf:"target_arn"`
+	TargetARN string `json:"targetARN" tf:"target_arn"`
 }
 
 // CloudwatchLogDestinationSpec defines the desired state of CloudwatchLogDestination

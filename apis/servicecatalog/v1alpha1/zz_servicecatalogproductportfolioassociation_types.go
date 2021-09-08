@@ -30,11 +30,11 @@ type ServicecatalogProductPortfolioAssociationObservation struct {
 type ServicecatalogProductPortfolioAssociationParameters struct {
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
-	PortfolioId string `json:"portfolioId" tf:"portfolio_id"`
+	PortfolioID string `json:"portfolioID" tf:"portfolio_id"`
 
-	ProductId string `json:"productId" tf:"product_id"`
+	ProductID string `json:"productID" tf:"product_id"`
 
-	SourcePortfolioId *string `json:"sourcePortfolioId,omitempty" tf:"source_portfolio_id"`
+	SourcePortfolioID *string `json:"sourcePortfolioID,omitempty" tf:"source_portfolio_id"`
 }
 
 // ServicecatalogProductPortfolioAssociationSpec defines the desired state of ServicecatalogProductPortfolioAssociation

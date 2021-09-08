@@ -28,11 +28,11 @@ type DbInstanceRoleAssociationObservation struct {
 }
 
 type DbInstanceRoleAssociationParameters struct {
-	DbInstanceIdentifier string `json:"dbInstanceIdentifier" tf:"db_instance_identifier"`
+	DBInstanceIdentifier string `json:"dbInstanceIdentifier" tf:"db_instance_identifier"`
 
 	FeatureName string `json:"featureName" tf:"feature_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 // DbInstanceRoleAssociationSpec defines the desired state of DbInstanceRoleAssociation

@@ -39,13 +39,13 @@ type RegexMatchTupleObservation struct {
 type RegexMatchTupleParameters struct {
 	FieldToMatch []RegexMatchTupleFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
 
-	RegexPatternSetId string `json:"regexPatternSetId" tf:"regex_pattern_set_id"`
+	RegexPatternSetID string `json:"regexPatternSetID" tf:"regex_pattern_set_id"`
 
 	TextTransformation string `json:"textTransformation" tf:"text_transformation"`
 }
 
 type WafRegexMatchSetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type WafRegexMatchSetParameters struct {

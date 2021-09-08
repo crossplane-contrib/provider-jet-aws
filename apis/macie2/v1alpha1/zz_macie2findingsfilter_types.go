@@ -53,7 +53,7 @@ type FindingCriteriaParameters struct {
 }
 
 type Macie2FindingsFilterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type Macie2FindingsFilterParameters struct {

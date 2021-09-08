@@ -30,7 +30,7 @@ type CloudwatchAlarmObservation struct {
 type CloudwatchAlarmParameters struct {
 	AlarmName string `json:"alarmName" tf:"alarm_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	StateReason string `json:"stateReason" tf:"state_reason"`
 
@@ -51,7 +51,7 @@ type CloudwatchMetricParameters struct {
 
 	MetricValue string `json:"metricValue" tf:"metric_value"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type DynamodbObservation struct {
@@ -74,7 +74,7 @@ type DynamodbParameters struct {
 
 	RangeKeyValue *string `json:"rangeKeyValue,omitempty" tf:"range_key_value"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	TableName string `json:"tableName" tf:"table_name"`
 }
@@ -85,7 +85,7 @@ type Dynamodbv2Observation struct {
 type Dynamodbv2Parameters struct {
 	PutItem []PutItemParameters `json:"putItem,omitempty" tf:"put_item"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type Dynamodbv2PutItemObservation struct {
@@ -101,11 +101,11 @@ type ElasticsearchObservation struct {
 type ElasticsearchParameters struct {
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Index string `json:"index" tf:"index"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Type string `json:"type" tf:"type"`
 }
@@ -116,7 +116,7 @@ type ErrorActionCloudwatchAlarmObservation struct {
 type ErrorActionCloudwatchAlarmParameters struct {
 	AlarmName string `json:"alarmName" tf:"alarm_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	StateReason string `json:"stateReason" tf:"state_reason"`
 
@@ -137,7 +137,7 @@ type ErrorActionCloudwatchMetricParameters struct {
 
 	MetricValue string `json:"metricValue" tf:"metric_value"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type ErrorActionDynamodbObservation struct {
@@ -160,7 +160,7 @@ type ErrorActionDynamodbParameters struct {
 
 	RangeKeyValue *string `json:"rangeKeyValue,omitempty" tf:"range_key_value"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	TableName string `json:"tableName" tf:"table_name"`
 }
@@ -171,7 +171,7 @@ type ErrorActionDynamodbv2Observation struct {
 type ErrorActionDynamodbv2Parameters struct {
 	PutItem []Dynamodbv2PutItemParameters `json:"putItem,omitempty" tf:"put_item"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type ErrorActionElasticsearchObservation struct {
@@ -180,11 +180,11 @@ type ErrorActionElasticsearchObservation struct {
 type ErrorActionElasticsearchParameters struct {
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Index string `json:"index" tf:"index"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Type string `json:"type" tf:"type"`
 }
@@ -230,7 +230,7 @@ type FirehoseObservation struct {
 type FirehoseParameters struct {
 	DeliveryStreamName string `json:"deliveryStreamName" tf:"delivery_stream_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Separator *string `json:"separator,omitempty" tf:"separator"`
 }
@@ -241,7 +241,7 @@ type IotAnalyticsObservation struct {
 type IotAnalyticsParameters struct {
 	ChannelName string `json:"channelName" tf:"channel_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type IotEventsObservation struct {
@@ -250,9 +250,9 @@ type IotEventsObservation struct {
 type IotEventsParameters struct {
 	InputName string `json:"inputName" tf:"input_name"`
 
-	MessageId *string `json:"messageId,omitempty" tf:"message_id"`
+	MessageID *string `json:"messageID,omitempty" tf:"message_id"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type IotTopicRuleFirehoseObservation struct {
@@ -261,7 +261,7 @@ type IotTopicRuleFirehoseObservation struct {
 type IotTopicRuleFirehoseParameters struct {
 	DeliveryStreamName string `json:"deliveryStreamName" tf:"delivery_stream_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Separator *string `json:"separator,omitempty" tf:"separator"`
 }
@@ -272,7 +272,7 @@ type IotTopicRuleIotAnalyticsObservation struct {
 type IotTopicRuleIotAnalyticsParameters struct {
 	ChannelName string `json:"channelName" tf:"channel_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type IotTopicRuleIotEventsObservation struct {
@@ -281,9 +281,9 @@ type IotTopicRuleIotEventsObservation struct {
 type IotTopicRuleIotEventsParameters struct {
 	InputName string `json:"inputName" tf:"input_name"`
 
-	MessageId *string `json:"messageId,omitempty" tf:"message_id"`
+	MessageID *string `json:"messageID,omitempty" tf:"message_id"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type IotTopicRuleKinesisObservation struct {
@@ -292,7 +292,7 @@ type IotTopicRuleKinesisObservation struct {
 type IotTopicRuleKinesisParameters struct {
 	PartitionKey *string `json:"partitionKey,omitempty" tf:"partition_key"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	StreamName string `json:"streamName" tf:"stream_name"`
 }
@@ -301,11 +301,11 @@ type IotTopicRuleLambdaObservation struct {
 }
 
 type IotTopicRuleLambdaParameters struct {
-	FunctionArn string `json:"functionArn" tf:"function_arn"`
+	FunctionARN string `json:"functionARN" tf:"function_arn"`
 }
 
 type IotTopicRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type IotTopicRuleParameters struct {
@@ -341,11 +341,11 @@ type IotTopicRuleParameters struct {
 
 	S3 []IotTopicRuleS3Parameters `json:"s3,omitempty" tf:"s3"`
 
+	SQL string `json:"sql" tf:"sql"`
+
+	SQLVersion string `json:"sqlVersion" tf:"sql_version"`
+
 	Sns []IotTopicRuleSnsParameters `json:"sns,omitempty" tf:"sns"`
-
-	Sql string `json:"sql" tf:"sql"`
-
-	SqlVersion string `json:"sqlVersion" tf:"sql_version"`
 
 	Sqs []IotTopicRuleSqsParameters `json:"sqs,omitempty" tf:"sqs"`
 
@@ -362,7 +362,7 @@ type IotTopicRuleRepublishObservation struct {
 type IotTopicRuleRepublishParameters struct {
 	Qos *int64 `json:"qos,omitempty" tf:"qos"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Topic string `json:"topic" tf:"topic"`
 }
@@ -375,7 +375,7 @@ type IotTopicRuleS3Parameters struct {
 
 	Key string `json:"key" tf:"key"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type IotTopicRuleSnsObservation struct {
@@ -384,18 +384,18 @@ type IotTopicRuleSnsObservation struct {
 type IotTopicRuleSnsParameters struct {
 	MessageFormat *string `json:"messageFormat,omitempty" tf:"message_format"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
-	TargetArn string `json:"targetArn" tf:"target_arn"`
+	TargetARN string `json:"targetARN" tf:"target_arn"`
 }
 
 type IotTopicRuleSqsObservation struct {
 }
 
 type IotTopicRuleSqsParameters struct {
-	QueueUrl string `json:"queueUrl" tf:"queue_url"`
+	QueueURL string `json:"queueURL" tf:"queue_url"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	UseBase64 bool `json:"useBase64" tf:"use_base64"`
 }
@@ -406,7 +406,7 @@ type IotTopicRuleStepFunctionsObservation struct {
 type IotTopicRuleStepFunctionsParameters struct {
 	ExecutionNamePrefix *string `json:"executionNamePrefix,omitempty" tf:"execution_name_prefix"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	StateMachineName string `json:"stateMachineName" tf:"state_machine_name"`
 }
@@ -417,7 +417,7 @@ type KinesisObservation struct {
 type KinesisParameters struct {
 	PartitionKey *string `json:"partitionKey,omitempty" tf:"partition_key"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	StreamName string `json:"streamName" tf:"stream_name"`
 }
@@ -426,7 +426,7 @@ type LambdaObservation struct {
 }
 
 type LambdaParameters struct {
-	FunctionArn string `json:"functionArn" tf:"function_arn"`
+	FunctionARN string `json:"functionARN" tf:"function_arn"`
 }
 
 type PutItemObservation struct {
@@ -442,7 +442,7 @@ type RepublishObservation struct {
 type RepublishParameters struct {
 	Qos *int64 `json:"qos,omitempty" tf:"qos"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Topic string `json:"topic" tf:"topic"`
 }
@@ -455,7 +455,7 @@ type S3Parameters struct {
 
 	Key string `json:"key" tf:"key"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type SnsObservation struct {
@@ -464,18 +464,18 @@ type SnsObservation struct {
 type SnsParameters struct {
 	MessageFormat *string `json:"messageFormat,omitempty" tf:"message_format"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
-	TargetArn string `json:"targetArn" tf:"target_arn"`
+	TargetARN string `json:"targetARN" tf:"target_arn"`
 }
 
 type SqsObservation struct {
 }
 
 type SqsParameters struct {
-	QueueUrl string `json:"queueUrl" tf:"queue_url"`
+	QueueURL string `json:"queueURL" tf:"queue_url"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	UseBase64 bool `json:"useBase64" tf:"use_base64"`
 }
@@ -486,7 +486,7 @@ type StepFunctionsObservation struct {
 type StepFunctionsParameters struct {
 	ExecutionNamePrefix *string `json:"executionNamePrefix,omitempty" tf:"execution_name_prefix"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	StateMachineName string `json:"stateMachineName" tf:"state_machine_name"`
 }

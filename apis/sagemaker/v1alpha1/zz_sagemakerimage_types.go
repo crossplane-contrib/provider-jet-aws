@@ -25,7 +25,7 @@ import (
 )
 
 type SagemakerImageObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SagemakerImageParameters struct {
@@ -35,7 +35,7 @@ type SagemakerImageParameters struct {
 
 	ImageName string `json:"imageName" tf:"image_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

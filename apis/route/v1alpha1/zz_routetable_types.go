@@ -25,9 +25,9 @@ import (
 )
 
 type RouteTableObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type RouteTableParameters struct {
@@ -39,38 +39,38 @@ type RouteTableParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type RouteTableRouteObservation struct {
 }
 
 type RouteTableRouteParameters struct {
-	CarrierGatewayId *string `json:"carrierGatewayId,omitempty" tf:"carrier_gateway_id"`
+	CarrierGatewayID *string `json:"carrierGatewayID,omitempty" tf:"carrier_gateway_id"`
 
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block"`
 
-	DestinationPrefixListId *string `json:"destinationPrefixListId,omitempty" tf:"destination_prefix_list_id"`
+	DestinationPrefixListID *string `json:"destinationPrefixListID,omitempty" tf:"destination_prefix_list_id"`
 
-	EgressOnlyGatewayId *string `json:"egressOnlyGatewayId,omitempty" tf:"egress_only_gateway_id"`
+	EgressOnlyGatewayID *string `json:"egressOnlyGatewayID,omitempty" tf:"egress_only_gateway_id"`
 
-	GatewayId *string `json:"gatewayId,omitempty" tf:"gateway_id"`
+	GatewayID *string `json:"gatewayID,omitempty" tf:"gateway_id"`
 
-	InstanceId *string `json:"instanceId,omitempty" tf:"instance_id"`
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
 
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+	InstanceID *string `json:"instanceID,omitempty" tf:"instance_id"`
 
-	LocalGatewayId *string `json:"localGatewayId,omitempty" tf:"local_gateway_id"`
+	LocalGatewayID *string `json:"localGatewayID,omitempty" tf:"local_gateway_id"`
 
-	NatGatewayId *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id"`
+	NatGatewayID *string `json:"natGatewayID,omitempty" tf:"nat_gateway_id"`
 
-	NetworkInterfaceId *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id"`
+	NetworkInterfaceID *string `json:"networkInterfaceID,omitempty" tf:"network_interface_id"`
 
-	TransitGatewayId *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id"`
+	TransitGatewayID *string `json:"transitGatewayID,omitempty" tf:"transit_gateway_id"`
 
-	VpcEndpointId *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
+	VPCEndpointID *string `json:"vpcEndpointID,omitempty" tf:"vpc_endpoint_id"`
 
-	VpcPeeringConnectionId *string `json:"vpcPeeringConnectionId,omitempty" tf:"vpc_peering_connection_id"`
+	VPCPeeringConnectionID *string `json:"vpcPeeringConnectionID,omitempty" tf:"vpc_peering_connection_id"`
 }
 
 // RouteTableSpec defines the desired state of RouteTable

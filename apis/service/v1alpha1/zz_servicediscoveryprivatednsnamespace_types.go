@@ -25,7 +25,7 @@ import (
 )
 
 type ServiceDiscoveryPrivateDnsNamespaceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	HostedZone string `json:"hostedZone" tf:"hosted_zone"`
 }
@@ -39,7 +39,7 @@ type ServiceDiscoveryPrivateDnsNamespaceParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Vpc string `json:"vpc" tf:"vpc"`
+	VPC string `json:"vpc" tf:"vpc"`
 }
 
 // ServiceDiscoveryPrivateDnsNamespaceSpec defines the desired state of ServiceDiscoveryPrivateDnsNamespace

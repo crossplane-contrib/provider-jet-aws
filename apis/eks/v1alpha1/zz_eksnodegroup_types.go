@@ -32,7 +32,7 @@ type AutoscalingGroupsParameters struct {
 }
 
 type EksNodeGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Resources []ResourcesObservation `json:"resources" tf:"resources"`
 
@@ -60,7 +60,7 @@ type EksNodeGroupParameters struct {
 
 	NodeGroupNamePrefix *string `json:"nodeGroupNamePrefix,omitempty" tf:"node_group_name_prefix"`
 
-	NodeRoleArn string `json:"nodeRoleArn" tf:"node_role_arn"`
+	NodeRoleARN string `json:"nodeRoleARN" tf:"node_role_arn"`
 
 	ReleaseVersion *string `json:"releaseVersion,omitempty" tf:"release_version"`
 
@@ -83,7 +83,7 @@ type LaunchTemplateObservation struct {
 }
 
 type LaunchTemplateParameters struct {
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
@@ -94,7 +94,7 @@ type RemoteAccessObservation struct {
 }
 
 type RemoteAccessParameters struct {
-	Ec2SshKey *string `json:"ec2SshKey,omitempty" tf:"ec2_ssh_key"`
+	Ec2SSHKey *string `json:"ec2SSHKey,omitempty" tf:"ec2_ssh_key"`
 
 	SourceSecurityGroupIds []string `json:"sourceSecurityGroupIds,omitempty" tf:"source_security_group_ids"`
 }
@@ -102,7 +102,7 @@ type RemoteAccessParameters struct {
 type ResourcesObservation struct {
 	AutoscalingGroups []AutoscalingGroupsObservation `json:"autoscalingGroups" tf:"autoscaling_groups"`
 
-	RemoteAccessSecurityGroupId string `json:"remoteAccessSecurityGroupId" tf:"remote_access_security_group_id"`
+	RemoteAccessSecurityGroupID string `json:"remoteAccessSecurityGroupID" tf:"remote_access_security_group_id"`
 }
 
 type ResourcesParameters struct {

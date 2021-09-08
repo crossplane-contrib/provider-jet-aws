@@ -33,7 +33,7 @@ type GluePartitionObservation struct {
 }
 
 type GluePartitionParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 

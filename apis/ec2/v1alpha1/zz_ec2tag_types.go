@@ -30,7 +30,7 @@ type Ec2TagObservation struct {
 type Ec2TagParameters struct {
 	Key string `json:"key" tf:"key"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
 	Value string `json:"value" tf:"value"`
 }

@@ -30,7 +30,7 @@ type S3DestinationObservation struct {
 type S3DestinationParameters struct {
 	BucketName string `json:"bucketName" tf:"bucket_name"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 

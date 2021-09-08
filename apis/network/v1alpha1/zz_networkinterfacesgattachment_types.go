@@ -28,9 +28,9 @@ type NetworkInterfaceSgAttachmentObservation struct {
 }
 
 type NetworkInterfaceSgAttachmentParameters struct {
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceID" tf:"network_interface_id"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	SecurityGroupID string `json:"securityGroupID" tf:"security_group_id"`
 }
 
 // NetworkInterfaceSgAttachmentSpec defines the desired state of NetworkInterfaceSgAttachment

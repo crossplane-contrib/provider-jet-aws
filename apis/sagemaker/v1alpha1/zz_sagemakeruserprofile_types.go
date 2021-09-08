@@ -30,7 +30,7 @@ type JupyterServerAppSettingsDefaultResourceSpecObservation struct {
 type JupyterServerAppSettingsDefaultResourceSpecParameters struct {
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
-	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
+	SagemakerImageARN *string `json:"sagemakerImageARN,omitempty" tf:"sagemaker_image_arn"`
 }
 
 type KernelGatewayAppSettingsCustomImageObservation struct {
@@ -45,13 +45,13 @@ type KernelGatewayAppSettingsCustomImageParameters struct {
 }
 
 type SagemakerUserProfileObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	HomeEfsFileSystemUid string `json:"homeEfsFileSystemUid" tf:"home_efs_file_system_uid"`
+	HomeEfsFileSystemUID string `json:"homeEfsFileSystemUID" tf:"home_efs_file_system_uid"`
 }
 
 type SagemakerUserProfileParameters struct {
-	DomainId string `json:"domainId" tf:"domain_id"`
+	DomainID string `json:"domainID" tf:"domain_id"`
 
 	SingleSignOnUserIdentifier *string `json:"singleSignOnUserIdentifier,omitempty" tf:"single_sign_on_user_identifier"`
 
@@ -79,7 +79,7 @@ type UserSettingsKernelGatewayAppSettingsDefaultResourceSpecObservation struct {
 type UserSettingsKernelGatewayAppSettingsDefaultResourceSpecParameters struct {
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
-	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
+	SagemakerImageARN *string `json:"sagemakerImageARN,omitempty" tf:"sagemaker_image_arn"`
 }
 
 type UserSettingsKernelGatewayAppSettingsObservation struct {
@@ -114,7 +114,7 @@ type UserSettingsSharingSettingsObservation struct {
 type UserSettingsSharingSettingsParameters struct {
 	NotebookOutputOption *string `json:"notebookOutputOption,omitempty" tf:"notebook_output_option"`
 
-	S3KmsKeyId *string `json:"s3KmsKeyId,omitempty" tf:"s3_kms_key_id"`
+	S3KmsKeyID *string `json:"s3KmsKeyID,omitempty" tf:"s3_kms_key_id"`
 
 	S3OutputPath *string `json:"s3OutputPath,omitempty" tf:"s3_output_path"`
 }
@@ -125,7 +125,7 @@ type UserSettingsTensorBoardAppSettingsDefaultResourceSpecObservation struct {
 type UserSettingsTensorBoardAppSettingsDefaultResourceSpecParameters struct {
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
-	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
+	SagemakerImageARN *string `json:"sagemakerImageARN,omitempty" tf:"sagemaker_image_arn"`
 }
 
 type UserSettingsTensorBoardAppSettingsObservation struct {

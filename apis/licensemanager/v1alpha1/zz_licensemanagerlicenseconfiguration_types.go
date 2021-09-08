@@ -25,9 +25,9 @@ import (
 )
 
 type LicensemanagerLicenseConfigurationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerAccountId string `json:"ownerAccountId" tf:"owner_account_id"`
+	OwnerAccountID string `json:"ownerAccountID" tf:"owner_account_id"`
 }
 
 type LicensemanagerLicenseConfigurationParameters struct {

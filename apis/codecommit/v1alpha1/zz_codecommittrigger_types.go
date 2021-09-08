@@ -25,7 +25,7 @@ import (
 )
 
 type CodecommitTriggerObservation struct {
-	ConfigurationId string `json:"configurationId" tf:"configuration_id"`
+	ConfigurationID string `json:"configurationID" tf:"configuration_id"`
 }
 
 type CodecommitTriggerParameters struct {
@@ -42,7 +42,7 @@ type TriggerParameters struct {
 
 	CustomData *string `json:"customData,omitempty" tf:"custom_data"`
 
-	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
+	DestinationARN string `json:"destinationARN" tf:"destination_arn"`
 
 	Events []string `json:"events" tf:"events"`
 

@@ -38,11 +38,11 @@ type ColumnsParameters struct {
 }
 
 type GlueCatalogTableObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GlueCatalogTableParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
@@ -92,13 +92,13 @@ type PartitionKeysParameters struct {
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
-type SchemaIdObservation struct {
+type SchemaIDObservation struct {
 }
 
-type SchemaIdParameters struct {
+type SchemaIDParameters struct {
 	RegistryName *string `json:"registryName,omitempty" tf:"registry_name"`
 
-	SchemaArn *string `json:"schemaArn,omitempty" tf:"schema_arn"`
+	SchemaARN *string `json:"schemaARN,omitempty" tf:"schema_arn"`
 
 	SchemaName *string `json:"schemaName,omitempty" tf:"schema_name"`
 }
@@ -107,9 +107,9 @@ type SchemaReferenceObservation struct {
 }
 
 type SchemaReferenceParameters struct {
-	SchemaId []SchemaIdParameters `json:"schemaId,omitempty" tf:"schema_id"`
+	SchemaID []SchemaIDParameters `json:"schemaID,omitempty" tf:"schema_id"`
 
-	SchemaVersionId *string `json:"schemaVersionId,omitempty" tf:"schema_version_id"`
+	SchemaVersionID *string `json:"schemaVersionID,omitempty" tf:"schema_version_id"`
 
 	SchemaVersionNumber int64 `json:"schemaVersionNumber" tf:"schema_version_number"`
 }
@@ -180,7 +180,7 @@ type TargetTableObservation struct {
 }
 
 type TargetTableParameters struct {
-	CatalogId string `json:"catalogId" tf:"catalog_id"`
+	CatalogID string `json:"catalogID" tf:"catalog_id"`
 
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 

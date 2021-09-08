@@ -30,7 +30,7 @@ type ServicecatalogBudgetResourceAssociationObservation struct {
 type ServicecatalogBudgetResourceAssociationParameters struct {
 	BudgetName string `json:"budgetName" tf:"budget_name"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 }
 
 // ServicecatalogBudgetResourceAssociationSpec defines the desired state of ServicecatalogBudgetResourceAssociation

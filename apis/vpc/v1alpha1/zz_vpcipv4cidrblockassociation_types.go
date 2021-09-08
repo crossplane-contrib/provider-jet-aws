@@ -30,7 +30,7 @@ type VpcIpv4CidrBlockAssociationObservation struct {
 type VpcIpv4CidrBlockAssociationParameters struct {
 	CidrBlock string `json:"cidrBlock" tf:"cidr_block"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // VpcIpv4CidrBlockAssociationSpec defines the desired state of VpcIpv4CidrBlockAssociation

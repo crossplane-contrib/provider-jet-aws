@@ -34,9 +34,9 @@ type AttributeParameters struct {
 }
 
 type DynamodbTableObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	StreamArn string `json:"streamArn" tf:"stream_arn"`
+	StreamARN string `json:"streamARN" tf:"stream_arn"`
 
 	StreamLabel string `json:"streamLabel" tf:"stream_label"`
 }
@@ -68,11 +68,11 @@ type DynamodbTableParameters struct {
 
 	StreamViewType *string `json:"streamViewType,omitempty" tf:"stream_view_type"`
 
+	TTL []TTLParameters `json:"ttl,omitempty" tf:"ttl"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
-
-	Ttl []TtlParameters `json:"ttl,omitempty" tf:"ttl"`
 
 	WriteCapacity *int64 `json:"writeCapacity,omitempty" tf:"write_capacity"`
 }
@@ -81,7 +81,7 @@ type DynamodbTableReplicaObservation struct {
 }
 
 type DynamodbTableReplicaParameters struct {
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	RegionName string `json:"regionName" tf:"region_name"`
 }
@@ -131,18 +131,18 @@ type ServerSideEncryptionObservation struct {
 type ServerSideEncryptionParameters struct {
 	Enabled bool `json:"enabled" tf:"enabled"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 }
 
-type TtlObservation struct {
+type TTLObservation struct {
 }
 
-type TtlParameters struct {
+type TTLParameters struct {
 	AttributeName string `json:"attributeName" tf:"attribute_name"`
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 }
 
 // DynamodbTableSpec defines the desired state of DynamodbTable

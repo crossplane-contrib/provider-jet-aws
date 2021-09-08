@@ -25,7 +25,7 @@ import (
 )
 
 type BackupVaultNotificationsObservation struct {
-	BackupVaultArn string `json:"backupVaultArn" tf:"backup_vault_arn"`
+	BackupVaultARN string `json:"backupVaultARN" tf:"backup_vault_arn"`
 }
 
 type BackupVaultNotificationsParameters struct {
@@ -33,7 +33,7 @@ type BackupVaultNotificationsParameters struct {
 
 	BackupVaultName string `json:"backupVaultName" tf:"backup_vault_name"`
 
-	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
+	SnsTopicARN string `json:"snsTopicARN" tf:"sns_topic_arn"`
 }
 
 // BackupVaultNotificationsSpec defines the desired state of BackupVaultNotifications

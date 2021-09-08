@@ -25,29 +25,29 @@ import (
 )
 
 type WafXssMatchSetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type WafXssMatchSetParameters struct {
 	Name string `json:"name" tf:"name"`
 
-	XssMatchTuples []XssMatchTuplesParameters `json:"xssMatchTuples,omitempty" tf:"xss_match_tuples"`
+	XSSMatchTuples []XSSMatchTuplesParameters `json:"xssMatchTuples,omitempty" tf:"xss_match_tuples"`
 }
 
-type XssMatchTuplesFieldToMatchObservation struct {
+type XSSMatchTuplesFieldToMatchObservation struct {
 }
 
-type XssMatchTuplesFieldToMatchParameters struct {
+type XSSMatchTuplesFieldToMatchParameters struct {
 	Data *string `json:"data,omitempty" tf:"data"`
 
 	Type string `json:"type" tf:"type"`
 }
 
-type XssMatchTuplesObservation struct {
+type XSSMatchTuplesObservation struct {
 }
 
-type XssMatchTuplesParameters struct {
-	FieldToMatch []XssMatchTuplesFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
+type XSSMatchTuplesParameters struct {
+	FieldToMatch []XSSMatchTuplesFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
 
 	TextTransformation string `json:"textTransformation" tf:"text_transformation"`
 }

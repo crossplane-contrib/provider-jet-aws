@@ -36,9 +36,9 @@ type LoggingParameters struct {
 }
 
 type RedshiftClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 }
 
 type RedshiftClusterParameters struct {
@@ -66,19 +66,19 @@ type RedshiftClusterParameters struct {
 
 	DatabaseName *string `json:"databaseName,omitempty" tf:"database_name"`
 
-	ElasticIp *string `json:"elasticIp,omitempty" tf:"elastic_ip"`
+	ElasticIP *string `json:"elasticIP,omitempty" tf:"elastic_ip"`
 
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
 	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint"`
 
-	EnhancedVpcRouting *bool `json:"enhancedVpcRouting,omitempty" tf:"enhanced_vpc_routing"`
+	EnhancedVPCRouting *bool `json:"enhancedVPCRouting,omitempty" tf:"enhanced_vpc_routing"`
 
 	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier"`
 
 	IamRoles []string `json:"iamRoles,omitempty" tf:"iam_roles"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Logging []LoggingParameters `json:"logging,omitempty" tf:"logging"`
 
@@ -110,7 +110,7 @@ type RedshiftClusterParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 }
 
 type SnapshotCopyObservation struct {

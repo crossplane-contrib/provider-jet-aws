@@ -34,7 +34,7 @@ type ExcludeMapParameters struct {
 }
 
 type FmsPolicyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	PolicyUpdateToken string `json:"policyUpdateToken" tf:"policy_update_token"`
 }

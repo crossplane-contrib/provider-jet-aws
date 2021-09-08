@@ -25,9 +25,9 @@ import (
 )
 
 type AlbTargetGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ArnSuffix string `json:"arnSuffix" tf:"arn_suffix"`
+	ARNSuffix string `json:"arnSuffix" tf:"arn_suffix"`
 }
 
 type AlbTargetGroupParameters struct {
@@ -45,7 +45,7 @@ type AlbTargetGroupParameters struct {
 
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
-	PreserveClientIp *string `json:"preserveClientIp,omitempty" tf:"preserve_client_ip"`
+	PreserveClientIP *string `json:"preserveClientIP,omitempty" tf:"preserve_client_ip"`
 
 	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
 
@@ -63,7 +63,7 @@ type AlbTargetGroupParameters struct {
 
 	TargetType *string `json:"targetType,omitempty" tf:"target_type"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VPCID *string `json:"vpcID,omitempty" tf:"vpc_id"`
 }
 
 type AlbTargetGroupStickinessObservation struct {

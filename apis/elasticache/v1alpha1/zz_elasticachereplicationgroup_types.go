@@ -34,7 +34,7 @@ type ClusterModeParameters struct {
 }
 
 type ElasticacheReplicationGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ClusterEnabled bool `json:"clusterEnabled" tf:"cluster_enabled"`
 
@@ -70,9 +70,9 @@ type ElasticacheReplicationGroupParameters struct {
 
 	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier"`
 
-	GlobalReplicationGroupId *string `json:"globalReplicationGroupId,omitempty" tf:"global_replication_group_id"`
+	GlobalReplicationGroupID *string `json:"globalReplicationGroupID,omitempty" tf:"global_replication_group_id"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window"`
 
@@ -80,7 +80,7 @@ type ElasticacheReplicationGroupParameters struct {
 
 	NodeType *string `json:"nodeType,omitempty" tf:"node_type"`
 
-	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn"`
+	NotificationTopicARN *string `json:"notificationTopicARN,omitempty" tf:"notification_topic_arn"`
 
 	NumberCacheClusters *int64 `json:"numberCacheClusters,omitempty" tf:"number_cache_clusters"`
 
@@ -90,7 +90,7 @@ type ElasticacheReplicationGroupParameters struct {
 
 	ReplicationGroupDescription string `json:"replicationGroupDescription" tf:"replication_group_description"`
 
-	ReplicationGroupId string `json:"replicationGroupId" tf:"replication_group_id"`
+	ReplicationGroupID string `json:"replicationGroupID" tf:"replication_group_id"`
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 

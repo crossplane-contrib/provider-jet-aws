@@ -56,11 +56,11 @@ type BlueGreenDeploymentConfigParameters struct {
 }
 
 type CodedeployDeploymentGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ComputePlatform string `json:"computePlatform" tf:"compute_platform"`
 
-	DeploymentGroupId string `json:"deploymentGroupId" tf:"deployment_group_id"`
+	DeploymentGroupID string `json:"deploymentGroupID" tf:"deployment_group_id"`
 }
 
 type CodedeployDeploymentGroupParameters struct {
@@ -90,7 +90,7 @@ type CodedeployDeploymentGroupParameters struct {
 
 	OnPremisesInstanceTagFilter []OnPremisesInstanceTagFilterParameters `json:"onPremisesInstanceTagFilter,omitempty" tf:"on_premises_instance_tag_filter"`
 
-	ServiceRoleArn string `json:"serviceRoleArn" tf:"service_role_arn"`
+	ServiceRoleARN string `json:"serviceRoleARN" tf:"service_role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -247,7 +247,7 @@ type TriggerConfigurationParameters struct {
 
 	TriggerName string `json:"triggerName" tf:"trigger_name"`
 
-	TriggerTargetArn string `json:"triggerTargetArn" tf:"trigger_target_arn"`
+	TriggerTargetARN string `json:"triggerTargetARN" tf:"trigger_target_arn"`
 }
 
 // CodedeployDeploymentGroupSpec defines the desired state of CodedeployDeploymentGroup

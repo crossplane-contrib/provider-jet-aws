@@ -28,11 +28,11 @@ type RouteTableAssociationObservation struct {
 }
 
 type RouteTableAssociationParameters struct {
-	GatewayId *string `json:"gatewayId,omitempty" tf:"gateway_id"`
+	GatewayID *string `json:"gatewayID,omitempty" tf:"gateway_id"`
 
-	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
+	RouteTableID string `json:"routeTableID" tf:"route_table_id"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 }
 
 // RouteTableAssociationSpec defines the desired state of RouteTableAssociation

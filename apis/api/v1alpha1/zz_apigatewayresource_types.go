@@ -29,11 +29,11 @@ type ApiGatewayResourceObservation struct {
 }
 
 type ApiGatewayResourceParameters struct {
-	ParentId string `json:"parentId" tf:"parent_id"`
+	ParentID string `json:"parentID" tf:"parent_id"`
 
 	PathPart string `json:"pathPart" tf:"path_part"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 }
 
 // ApiGatewayResourceSpec defines the desired state of ApiGatewayResource

@@ -28,11 +28,11 @@ type VpcPeeringConnectionOptionsAccepterObservation struct {
 }
 
 type VpcPeeringConnectionOptionsAccepterParameters struct {
-	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc"`
+	AllowClassicLinkToRemoteVPC *bool `json:"allowClassicLinkToRemoteVPC,omitempty" tf:"allow_classic_link_to_remote_vpc"`
 
-	AllowRemoteVpcDnsResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
+	AllowRemoteVPCDNSResolution *bool `json:"allowRemoteVPCDNSResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
 
-	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
+	AllowVPCToRemoteClassicLink *bool `json:"allowVPCToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
 }
 
 type VpcPeeringConnectionOptionsObservation struct {
@@ -43,18 +43,18 @@ type VpcPeeringConnectionOptionsParameters struct {
 
 	Requester []VpcPeeringConnectionOptionsRequesterParameters `json:"requester,omitempty" tf:"requester"`
 
-	VpcPeeringConnectionId string `json:"vpcPeeringConnectionId" tf:"vpc_peering_connection_id"`
+	VPCPeeringConnectionID string `json:"vpcPeeringConnectionID" tf:"vpc_peering_connection_id"`
 }
 
 type VpcPeeringConnectionOptionsRequesterObservation struct {
 }
 
 type VpcPeeringConnectionOptionsRequesterParameters struct {
-	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc"`
+	AllowClassicLinkToRemoteVPC *bool `json:"allowClassicLinkToRemoteVPC,omitempty" tf:"allow_classic_link_to_remote_vpc"`
 
-	AllowRemoteVpcDnsResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
+	AllowRemoteVPCDNSResolution *bool `json:"allowRemoteVPCDNSResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
 
-	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
+	AllowVPCToRemoteClassicLink *bool `json:"allowVPCToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
 }
 
 // VpcPeeringConnectionOptionsSpec defines the desired state of VpcPeeringConnectionOptions

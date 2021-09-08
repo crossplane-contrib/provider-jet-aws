@@ -28,11 +28,11 @@ type Ec2ClientVpnAuthorizationRuleObservation struct {
 }
 
 type Ec2ClientVpnAuthorizationRuleParameters struct {
-	AccessGroupId *string `json:"accessGroupId,omitempty" tf:"access_group_id"`
+	AccessGroupID *string `json:"accessGroupID,omitempty" tf:"access_group_id"`
 
 	AuthorizeAllGroups *bool `json:"authorizeAllGroups,omitempty" tf:"authorize_all_groups"`
 
-	ClientVpnEndpointId string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
+	ClientVpnEndpointID string `json:"clientVpnEndpointID" tf:"client_vpn_endpoint_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 

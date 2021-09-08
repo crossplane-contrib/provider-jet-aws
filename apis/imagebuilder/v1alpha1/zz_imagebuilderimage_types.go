@@ -25,7 +25,7 @@ import (
 )
 
 type AmisObservation struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountID" tf:"account_id"`
 
 	Description string `json:"description" tf:"description"`
 
@@ -49,7 +49,7 @@ type ImageTestsConfigurationParameters struct {
 }
 
 type ImagebuilderImageObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DateCreated string `json:"dateCreated" tf:"date_created"`
 
@@ -65,15 +65,15 @@ type ImagebuilderImageObservation struct {
 }
 
 type ImagebuilderImageParameters struct {
-	DistributionConfigurationArn *string `json:"distributionConfigurationArn,omitempty" tf:"distribution_configuration_arn"`
+	DistributionConfigurationARN *string `json:"distributionConfigurationARN,omitempty" tf:"distribution_configuration_arn"`
 
 	EnhancedImageMetadataEnabled *bool `json:"enhancedImageMetadataEnabled,omitempty" tf:"enhanced_image_metadata_enabled"`
 
-	ImageRecipeArn string `json:"imageRecipeArn" tf:"image_recipe_arn"`
+	ImageRecipeARN string `json:"imageRecipeARN" tf:"image_recipe_arn"`
 
 	ImageTestsConfiguration []ImageTestsConfigurationParameters `json:"imageTestsConfiguration,omitempty" tf:"image_tests_configuration"`
 
-	InfrastructureConfigurationArn string `json:"infrastructureConfigurationArn" tf:"infrastructure_configuration_arn"`
+	InfrastructureConfigurationARN string `json:"infrastructureConfigurationARN" tf:"infrastructure_configuration_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

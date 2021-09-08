@@ -51,7 +51,7 @@ type FindingCriteriaParameters struct {
 }
 
 type GuarddutyFilterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GuarddutyFilterParameters struct {
@@ -59,7 +59,7 @@ type GuarddutyFilterParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DetectorId string `json:"detectorId" tf:"detector_id"`
+	DetectorID string `json:"detectorID" tf:"detector_id"`
 
 	FindingCriteria []FindingCriteriaParameters `json:"findingCriteria" tf:"finding_criteria"`
 

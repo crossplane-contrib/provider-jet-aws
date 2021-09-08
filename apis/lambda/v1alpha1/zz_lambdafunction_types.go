@@ -28,7 +28,7 @@ type DeadLetterConfigObservation struct {
 }
 
 type DeadLetterConfigParameters struct {
-	TargetArn string `json:"targetArn" tf:"target_arn"`
+	TargetARN string `json:"targetARN" tf:"target_arn"`
 }
 
 type EnvironmentObservation struct {
@@ -42,7 +42,7 @@ type FileSystemConfigObservation struct {
 }
 
 type FileSystemConfigParameters struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	LocalMountPath string `json:"localMountPath" tf:"local_mount_path"`
 }
@@ -59,17 +59,17 @@ type ImageConfigParameters struct {
 }
 
 type LambdaFunctionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	InvokeArn string `json:"invokeArn" tf:"invoke_arn"`
+	InvokeARN string `json:"invokeARN" tf:"invoke_arn"`
 
 	LastModified string `json:"lastModified" tf:"last_modified"`
 
-	QualifiedArn string `json:"qualifiedArn" tf:"qualified_arn"`
+	QualifiedARN string `json:"qualifiedARN" tf:"qualified_arn"`
 
-	SigningJobArn string `json:"signingJobArn" tf:"signing_job_arn"`
+	SigningJobARN string `json:"signingJobARN" tf:"signing_job_arn"`
 
-	SigningProfileVersionArn string `json:"signingProfileVersionArn" tf:"signing_profile_version_arn"`
+	SigningProfileVersionARN string `json:"signingProfileVersionARN" tf:"signing_profile_version_arn"`
 
 	SourceCodeSize int64 `json:"sourceCodeSize" tf:"source_code_size"`
 
@@ -77,7 +77,7 @@ type LambdaFunctionObservation struct {
 }
 
 type LambdaFunctionParameters struct {
-	CodeSigningConfigArn *string `json:"codeSigningConfigArn,omitempty" tf:"code_signing_config_arn"`
+	CodeSigningConfigARN *string `json:"codeSigningConfigARN,omitempty" tf:"code_signing_config_arn"`
 
 	DeadLetterConfig []DeadLetterConfigParameters `json:"deadLetterConfig,omitempty" tf:"dead_letter_config"`
 
@@ -95,9 +95,9 @@ type LambdaFunctionParameters struct {
 
 	ImageConfig []ImageConfigParameters `json:"imageConfig,omitempty" tf:"image_config"`
 
-	ImageUri *string `json:"imageUri,omitempty" tf:"image_uri"`
+	ImageURI *string `json:"imageURI,omitempty" tf:"image_uri"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	Layers []string `json:"layers,omitempty" tf:"layers"`
 
@@ -129,7 +129,7 @@ type LambdaFunctionParameters struct {
 
 	TracingConfig []TracingConfigParameters `json:"tracingConfig,omitempty" tf:"tracing_config"`
 
-	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
+	VPCConfig []VPCConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 }
 
 type TracingConfigObservation struct {
@@ -139,11 +139,11 @@ type TracingConfigParameters struct {
 	Mode string `json:"mode" tf:"mode"`
 }
 
-type VpcConfigObservation struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+type VPCConfigObservation struct {
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
-type VpcConfigParameters struct {
+type VPCConfigParameters struct {
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`

@@ -28,7 +28,7 @@ type ConfigurationObservation struct {
 }
 
 type ConfigurationParameters struct {
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	Revision *int64 `json:"revision,omitempty" tf:"revision"`
 }
@@ -37,17 +37,17 @@ type EncryptionOptionsObservation struct {
 }
 
 type EncryptionOptionsParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	UseAwsOwnedKey *bool `json:"useAwsOwnedKey,omitempty" tf:"use_aws_owned_key"`
 }
 
 type InstancesObservation struct {
-	ConsoleUrl string `json:"consoleUrl" tf:"console_url"`
+	ConsoleURL string `json:"consoleURL" tf:"console_url"`
 
 	Endpoints []string `json:"endpoints" tf:"endpoints"`
 
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 }
 
 type InstancesParameters struct {
@@ -101,7 +101,7 @@ type MaintenanceWindowStartTimeParameters struct {
 }
 
 type MqBrokerObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Instances []InstancesObservation `json:"instances" tf:"instances"`
 }

@@ -28,17 +28,17 @@ type EipAssociationObservation struct {
 }
 
 type EipAssociationParameters struct {
-	AllocationId *string `json:"allocationId,omitempty" tf:"allocation_id"`
+	AllocationID *string `json:"allocationID,omitempty" tf:"allocation_id"`
 
 	AllowReassociation *bool `json:"allowReassociation,omitempty" tf:"allow_reassociation"`
 
-	InstanceId *string `json:"instanceId,omitempty" tf:"instance_id"`
+	InstanceID *string `json:"instanceID,omitempty" tf:"instance_id"`
 
-	NetworkInterfaceId *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id"`
+	NetworkInterfaceID *string `json:"networkInterfaceID,omitempty" tf:"network_interface_id"`
 
-	PrivateIpAddress *string `json:"privateIpAddress,omitempty" tf:"private_ip_address"`
+	PrivateIPAddress *string `json:"privateIPAddress,omitempty" tf:"private_ip_address"`
 
-	PublicIp *string `json:"publicIp,omitempty" tf:"public_ip"`
+	PublicIP *string `json:"publicIP,omitempty" tf:"public_ip"`
 }
 
 // EipAssociationSpec defines the desired state of EipAssociation

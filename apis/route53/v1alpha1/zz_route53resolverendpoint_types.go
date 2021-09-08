@@ -24,26 +24,26 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type IpAddressObservation struct {
-	IpId string `json:"ipId" tf:"ip_id"`
+type IPAddressObservation struct {
+	IPID string `json:"ipID" tf:"ip_id"`
 }
 
-type IpAddressParameters struct {
-	Ip *string `json:"ip,omitempty" tf:"ip"`
+type IPAddressParameters struct {
+	IP *string `json:"ip,omitempty" tf:"ip"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetID" tf:"subnet_id"`
 }
 
 type Route53ResolverEndpointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	HostVpcId string `json:"hostVpcId" tf:"host_vpc_id"`
+	HostVPCID string `json:"hostVPCID" tf:"host_vpc_id"`
 }
 
 type Route53ResolverEndpointParameters struct {
 	Direction string `json:"direction" tf:"direction"`
 
-	IpAddress []IpAddressParameters `json:"ipAddress" tf:"ip_address"`
+	IPAddress []IPAddressParameters `json:"ipAddress" tf:"ip_address"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 

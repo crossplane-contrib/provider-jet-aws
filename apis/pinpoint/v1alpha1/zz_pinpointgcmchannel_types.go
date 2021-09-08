@@ -28,9 +28,9 @@ type PinpointGcmChannelObservation struct {
 }
 
 type PinpointGcmChannelParameters struct {
-	ApiKey string `json:"apiKey" tf:"api_key"`
+	APIKey string `json:"apiKey" tf:"api_key"`
 
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 }

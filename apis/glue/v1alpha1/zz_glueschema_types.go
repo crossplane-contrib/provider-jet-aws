@@ -25,7 +25,7 @@ import (
 )
 
 type GlueSchemaObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	LatestSchemaVersion int64 `json:"latestSchemaVersion" tf:"latest_schema_version"`
 
@@ -43,7 +43,7 @@ type GlueSchemaParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	RegistryArn *string `json:"registryArn,omitempty" tf:"registry_arn"`
+	RegistryARN *string `json:"registryARN,omitempty" tf:"registry_arn"`
 
 	SchemaDefinition string `json:"schemaDefinition" tf:"schema_definition"`
 

@@ -28,23 +28,23 @@ type CreationInfoObservation struct {
 }
 
 type CreationInfoParameters struct {
-	OwnerGid int64 `json:"ownerGid" tf:"owner_gid"`
+	OwnerGID int64 `json:"ownerGID" tf:"owner_gid"`
 
-	OwnerUid int64 `json:"ownerUid" tf:"owner_uid"`
+	OwnerUID int64 `json:"ownerUID" tf:"owner_uid"`
 
 	Permissions string `json:"permissions" tf:"permissions"`
 }
 
 type EfsAccessPointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	FileSystemArn string `json:"fileSystemArn" tf:"file_system_arn"`
+	FileSystemARN string `json:"fileSystemARN" tf:"file_system_arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type EfsAccessPointParameters struct {
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
+	FileSystemID string `json:"fileSystemID" tf:"file_system_id"`
 
 	PosixUser []PosixUserParameters `json:"posixUser,omitempty" tf:"posix_user"`
 
@@ -59,11 +59,11 @@ type PosixUserObservation struct {
 }
 
 type PosixUserParameters struct {
-	Gid int64 `json:"gid" tf:"gid"`
+	GID int64 `json:"gid" tf:"gid"`
 
 	SecondaryGids []int64 `json:"secondaryGids,omitempty" tf:"secondary_gids"`
 
-	Uid int64 `json:"uid" tf:"uid"`
+	UID int64 `json:"uid" tf:"uid"`
 }
 
 type RootDirectoryObservation struct {

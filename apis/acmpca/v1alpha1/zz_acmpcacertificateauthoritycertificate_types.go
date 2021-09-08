@@ -30,7 +30,7 @@ type AcmpcaCertificateAuthorityCertificateObservation struct {
 type AcmpcaCertificateAuthorityCertificateParameters struct {
 	Certificate string `json:"certificate" tf:"certificate"`
 
-	CertificateAuthorityArn string `json:"certificateAuthorityArn" tf:"certificate_authority_arn"`
+	CertificateAuthorityARN string `json:"certificateAuthorityARN" tf:"certificate_authority_arn"`
 
 	CertificateChain *string `json:"certificateChain,omitempty" tf:"certificate_chain"`
 }

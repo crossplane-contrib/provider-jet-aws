@@ -25,7 +25,7 @@ import (
 )
 
 type ImagebuilderInfrastructureConfigurationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DateCreated string `json:"dateCreated" tf:"date_created"`
 
@@ -49,9 +49,9 @@ type ImagebuilderInfrastructureConfigurationParameters struct {
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
-	SnsTopicArn *string `json:"snsTopicArn,omitempty" tf:"sns_topic_arn"`
+	SnsTopicARN *string `json:"snsTopicARN,omitempty" tf:"sns_topic_arn"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

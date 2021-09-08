@@ -33,11 +33,11 @@ type VpcEndpointConnectionNotificationObservation struct {
 type VpcEndpointConnectionNotificationParameters struct {
 	ConnectionEvents []string `json:"connectionEvents" tf:"connection_events"`
 
-	ConnectionNotificationArn string `json:"connectionNotificationArn" tf:"connection_notification_arn"`
+	ConnectionNotificationARN string `json:"connectionNotificationARN" tf:"connection_notification_arn"`
 
-	VpcEndpointId *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
+	VPCEndpointID *string `json:"vpcEndpointID,omitempty" tf:"vpc_endpoint_id"`
 
-	VpcEndpointServiceId *string `json:"vpcEndpointServiceId,omitempty" tf:"vpc_endpoint_service_id"`
+	VPCEndpointServiceID *string `json:"vpcEndpointServiceID,omitempty" tf:"vpc_endpoint_service_id"`
 }
 
 // VpcEndpointConnectionNotificationSpec defines the desired state of VpcEndpointConnectionNotification

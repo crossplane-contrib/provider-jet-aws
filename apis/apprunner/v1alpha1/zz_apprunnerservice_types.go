@@ -25,17 +25,17 @@ import (
 )
 
 type ApprunnerServiceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ServiceId string `json:"serviceId" tf:"service_id"`
+	ServiceID string `json:"serviceID" tf:"service_id"`
 
-	ServiceUrl string `json:"serviceUrl" tf:"service_url"`
+	ServiceURL string `json:"serviceURL" tf:"service_url"`
 
 	Status string `json:"status" tf:"status"`
 }
 
 type ApprunnerServiceParameters struct {
-	AutoScalingConfigurationArn *string `json:"autoScalingConfigurationArn,omitempty" tf:"auto_scaling_configuration_arn"`
+	AutoScalingConfigurationARN *string `json:"autoScalingConfigurationARN,omitempty" tf:"auto_scaling_configuration_arn"`
 
 	EncryptionConfiguration []EncryptionConfigurationParameters `json:"encryptionConfiguration,omitempty" tf:"encryption_configuration"`
 
@@ -56,9 +56,9 @@ type AuthenticationConfigurationObservation struct {
 }
 
 type AuthenticationConfigurationParameters struct {
-	AccessRoleArn *string `json:"accessRoleArn,omitempty" tf:"access_role_arn"`
+	AccessRoleARN *string `json:"accessRoleARN,omitempty" tf:"access_role_arn"`
 
-	ConnectionArn *string `json:"connectionArn,omitempty" tf:"connection_arn"`
+	ConnectionARN *string `json:"connectionARN,omitempty" tf:"connection_arn"`
 }
 
 type CodeConfigurationObservation struct {
@@ -91,7 +91,7 @@ type CodeRepositoryObservation struct {
 type CodeRepositoryParameters struct {
 	CodeConfiguration []CodeConfigurationParameters `json:"codeConfiguration,omitempty" tf:"code_configuration"`
 
-	RepositoryUrl string `json:"repositoryUrl" tf:"repository_url"`
+	RepositoryURL string `json:"repositoryURL" tf:"repository_url"`
 
 	SourceCodeVersion []SourceCodeVersionParameters `json:"sourceCodeVersion" tf:"source_code_version"`
 }
@@ -146,9 +146,9 @@ type InstanceConfigurationObservation struct {
 }
 
 type InstanceConfigurationParameters struct {
-	Cpu *string `json:"cpu,omitempty" tf:"cpu"`
+	CPU *string `json:"cpu,omitempty" tf:"cpu"`
 
-	InstanceRoleArn string `json:"instanceRoleArn" tf:"instance_role_arn"`
+	InstanceRoleARN string `json:"instanceRoleARN" tf:"instance_role_arn"`
 
 	Memory *string `json:"memory,omitempty" tf:"memory"`
 }

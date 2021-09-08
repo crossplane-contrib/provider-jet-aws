@@ -25,13 +25,13 @@ import (
 )
 
 type MainRouteTableAssociationObservation struct {
-	OriginalRouteTableId string `json:"originalRouteTableId" tf:"original_route_table_id"`
+	OriginalRouteTableID string `json:"originalRouteTableID" tf:"original_route_table_id"`
 }
 
 type MainRouteTableAssociationParameters struct {
-	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
+	RouteTableID string `json:"routeTableID" tf:"route_table_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // MainRouteTableAssociationSpec defines the desired state of MainRouteTableAssociation

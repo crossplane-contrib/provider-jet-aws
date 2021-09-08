@@ -28,22 +28,22 @@ type AccepterObservation struct {
 }
 
 type AccepterParameters struct {
-	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc"`
+	AllowClassicLinkToRemoteVPC *bool `json:"allowClassicLinkToRemoteVPC,omitempty" tf:"allow_classic_link_to_remote_vpc"`
 
-	AllowRemoteVpcDnsResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
+	AllowRemoteVPCDNSResolution *bool `json:"allowRemoteVPCDNSResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
 
-	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
+	AllowVPCToRemoteClassicLink *bool `json:"allowVPCToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
 }
 
 type RequesterObservation struct {
 }
 
 type RequesterParameters struct {
-	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc"`
+	AllowClassicLinkToRemoteVPC *bool `json:"allowClassicLinkToRemoteVPC,omitempty" tf:"allow_classic_link_to_remote_vpc"`
 
-	AllowRemoteVpcDnsResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
+	AllowRemoteVPCDNSResolution *bool `json:"allowRemoteVPCDNSResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
 
-	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
+	AllowVPCToRemoteClassicLink *bool `json:"allowVPCToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
 }
 
 type VpcPeeringConnectionObservation struct {
@@ -55,11 +55,11 @@ type VpcPeeringConnectionParameters struct {
 
 	AutoAccept *bool `json:"autoAccept,omitempty" tf:"auto_accept"`
 
-	PeerOwnerId *string `json:"peerOwnerId,omitempty" tf:"peer_owner_id"`
+	PeerOwnerID *string `json:"peerOwnerID,omitempty" tf:"peer_owner_id"`
 
 	PeerRegion *string `json:"peerRegion,omitempty" tf:"peer_region"`
 
-	PeerVpcId string `json:"peerVpcId" tf:"peer_vpc_id"`
+	PeerVPCID string `json:"peerVPCID" tf:"peer_vpc_id"`
 
 	Requester []RequesterParameters `json:"requester,omitempty" tf:"requester"`
 
@@ -67,7 +67,7 @@ type VpcPeeringConnectionParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // VpcPeeringConnectionSpec defines the desired state of VpcPeeringConnection

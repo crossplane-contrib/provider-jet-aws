@@ -25,7 +25,7 @@ import (
 )
 
 type CodeartifactRepositoryPermissionsPolicyObservation struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 }
 
 type CodeartifactRepositoryPermissionsPolicyParameters struct {

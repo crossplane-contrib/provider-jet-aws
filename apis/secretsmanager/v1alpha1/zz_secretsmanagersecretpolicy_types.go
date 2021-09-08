@@ -32,7 +32,7 @@ type SecretsmanagerSecretPolicyParameters struct {
 
 	Policy string `json:"policy" tf:"policy"`
 
-	SecretArn string `json:"secretArn" tf:"secret_arn"`
+	SecretARN string `json:"secretARN" tf:"secret_arn"`
 }
 
 // SecretsmanagerSecretPolicySpec defines the desired state of SecretsmanagerSecretPolicy

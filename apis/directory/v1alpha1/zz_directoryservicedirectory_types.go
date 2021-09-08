@@ -31,21 +31,21 @@ type ConnectSettingsObservation struct {
 }
 
 type ConnectSettingsParameters struct {
-	CustomerDnsIps []string `json:"customerDnsIps" tf:"customer_dns_ips"`
+	CustomerDNSIps []string `json:"customerDNSIps" tf:"customer_dns_ips"`
 
 	CustomerUsername string `json:"customerUsername" tf:"customer_username"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type DirectoryServiceDirectoryObservation struct {
-	AccessUrl string `json:"accessUrl" tf:"access_url"`
+	AccessURL string `json:"accessURL" tf:"access_url"`
 
-	DnsIpAddresses []string `json:"dnsIpAddresses" tf:"dns_ip_addresses"`
+	DNSIPAddresses []string `json:"dnsIPAddresses" tf:"dns_ip_addresses"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	SecurityGroupID string `json:"securityGroupID" tf:"security_group_id"`
 }
 
 type DirectoryServiceDirectoryParameters struct {
@@ -73,17 +73,17 @@ type DirectoryServiceDirectoryParameters struct {
 
 	Type *string `json:"type,omitempty" tf:"type"`
 
-	VpcSettings []VpcSettingsParameters `json:"vpcSettings,omitempty" tf:"vpc_settings"`
+	VPCSettings []VPCSettingsParameters `json:"vpcSettings,omitempty" tf:"vpc_settings"`
 }
 
-type VpcSettingsObservation struct {
+type VPCSettingsObservation struct {
 	AvailabilityZones []string `json:"availabilityZones" tf:"availability_zones"`
 }
 
-type VpcSettingsParameters struct {
+type VPCSettingsParameters struct {
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // DirectoryServiceDirectorySpec defines the desired state of DirectoryServiceDirectory

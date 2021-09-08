@@ -25,15 +25,15 @@ import (
 )
 
 type LambdaLayerVersionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedDate string `json:"createdDate" tf:"created_date"`
 
-	LayerArn string `json:"layerArn" tf:"layer_arn"`
+	LayerARN string `json:"layerARN" tf:"layer_arn"`
 
-	SigningJobArn string `json:"signingJobArn" tf:"signing_job_arn"`
+	SigningJobARN string `json:"signingJobARN" tf:"signing_job_arn"`
 
-	SigningProfileVersionArn string `json:"signingProfileVersionArn" tf:"signing_profile_version_arn"`
+	SigningProfileVersionARN string `json:"signingProfileVersionARN" tf:"signing_profile_version_arn"`
 
 	SourceCodeSize int64 `json:"sourceCodeSize" tf:"source_code_size"`
 

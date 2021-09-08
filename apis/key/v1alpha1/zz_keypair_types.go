@@ -25,11 +25,11 @@ import (
 )
 
 type KeyPairObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Fingerprint string `json:"fingerprint" tf:"fingerprint"`
 
-	KeyPairId string `json:"keyPairId" tf:"key_pair_id"`
+	KeyPairID string `json:"keyPairID" tf:"key_pair_id"`
 }
 
 type KeyPairParameters struct {

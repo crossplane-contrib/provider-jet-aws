@@ -61,7 +61,7 @@ type RuleParameters struct {
 
 	Filter []FilterParameters `json:"filter,omitempty" tf:"filter"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Status *string `json:"status,omitempty" tf:"status"`
 }

@@ -25,17 +25,17 @@ import (
 )
 
 type Ec2TrafficMirrorTargetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type Ec2TrafficMirrorTargetParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	NetworkInterfaceId *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id"`
+	NetworkInterfaceID *string `json:"networkInterfaceID,omitempty" tf:"network_interface_id"`
 
-	NetworkLoadBalancerArn *string `json:"networkLoadBalancerArn,omitempty" tf:"network_load_balancer_arn"`
+	NetworkLoadBalancerARN *string `json:"networkLoadBalancerARN,omitempty" tf:"network_load_balancer_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

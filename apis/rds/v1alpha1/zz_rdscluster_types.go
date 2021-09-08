@@ -25,15 +25,15 @@ import (
 )
 
 type RdsClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ClusterResourceId string `json:"clusterResourceId" tf:"cluster_resource_id"`
+	ClusterResourceID string `json:"clusterResourceID" tf:"cluster_resource_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
 	EngineVersionActual string `json:"engineVersionActual" tf:"engine_version_actual"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneID" tf:"hosted_zone_id"`
 
 	ReaderEndpoint string `json:"readerEndpoint" tf:"reader_endpoint"`
 }
@@ -57,15 +57,15 @@ type RdsClusterParameters struct {
 
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot,omitempty" tf:"copy_tags_to_snapshot"`
 
+	DBClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name"`
+
+	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
+
 	DatabaseName *string `json:"databaseName,omitempty" tf:"database_name"`
-
-	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name"`
-
-	DbSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
 
 	DeletionProtection *bool `json:"deletionProtection,omitempty" tf:"deletion_protection"`
 
-	EnableHttpEndpoint *bool `json:"enableHttpEndpoint,omitempty" tf:"enable_http_endpoint"`
+	EnableHTTPEndpoint *bool `json:"enableHTTPEndpoint,omitempty" tf:"enable_http_endpoint"`
 
 	EnabledCloudwatchLogsExports []string `json:"enabledCloudwatchLogsExports,omitempty" tf:"enabled_cloudwatch_logs_exports"`
 
@@ -83,7 +83,7 @@ type RdsClusterParameters struct {
 
 	IamRoles []string `json:"iamRoles,omitempty" tf:"iam_roles"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	MasterPassword *string `json:"masterPassword,omitempty" tf:"master_password"`
 
@@ -115,7 +115,7 @@ type RdsClusterParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 }
 
 type RestoreToPointInTimeObservation struct {

@@ -99,7 +99,7 @@ type EmrInstanceFleetObservation struct {
 }
 
 type EmrInstanceFleetParameters struct {
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
+	ClusterID string `json:"clusterID" tf:"cluster_id"`
 
 	InstanceTypeConfigs []EmrInstanceFleetInstanceTypeConfigsParameters `json:"instanceTypeConfigs,omitempty" tf:"instance_type_configs"`
 

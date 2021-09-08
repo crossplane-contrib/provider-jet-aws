@@ -25,7 +25,7 @@ import (
 )
 
 type CognitoIdentityPoolObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CognitoIdentityPoolParameters struct {
@@ -54,7 +54,7 @@ type CognitoIdentityProvidersObservation struct {
 }
 
 type CognitoIdentityProvidersParameters struct {
-	ClientId *string `json:"clientId,omitempty" tf:"client_id"`
+	ClientID *string `json:"clientID,omitempty" tf:"client_id"`
 
 	ProviderName *string `json:"providerName,omitempty" tf:"provider_name"`
 

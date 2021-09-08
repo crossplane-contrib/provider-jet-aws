@@ -28,7 +28,7 @@ type AutoScalingGroupProviderObservation struct {
 }
 
 type AutoScalingGroupProviderParameters struct {
-	AutoScalingGroupArn string `json:"autoScalingGroupArn" tf:"auto_scaling_group_arn"`
+	AutoScalingGroupARN string `json:"autoScalingGroupARN" tf:"auto_scaling_group_arn"`
 
 	ManagedScaling []ManagedScalingParameters `json:"managedScaling,omitempty" tf:"managed_scaling"`
 
@@ -36,7 +36,7 @@ type AutoScalingGroupProviderParameters struct {
 }
 
 type EcsCapacityProviderObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type EcsCapacityProviderParameters struct {

@@ -30,7 +30,7 @@ type CaptureContentTypeHeaderObservation struct {
 type CaptureContentTypeHeaderParameters struct {
 	CsvContentTypes []string `json:"csvContentTypes,omitempty" tf:"csv_content_types"`
 
-	JsonContentTypes []string `json:"jsonContentTypes,omitempty" tf:"json_content_types"`
+	JSONContentTypes []string `json:"jsonContentTypes,omitempty" tf:"json_content_types"`
 }
 
 type CaptureOptionsObservation struct {
@@ -48,13 +48,13 @@ type DataCaptureConfigParameters struct {
 
 	CaptureOptions []CaptureOptionsParameters `json:"captureOptions" tf:"capture_options"`
 
-	DestinationS3Uri string `json:"destinationS3Uri" tf:"destination_s3_uri"`
+	DestinationS3URI string `json:"destinationS3URI" tf:"destination_s3_uri"`
 
 	EnableCapture *bool `json:"enableCapture,omitempty" tf:"enable_capture"`
 
 	InitialSamplingPercentage int64 `json:"initialSamplingPercentage" tf:"initial_sampling_percentage"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 }
 
 type ProductionVariantsObservation struct {
@@ -75,13 +75,13 @@ type ProductionVariantsParameters struct {
 }
 
 type SagemakerEndpointConfigurationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SagemakerEndpointConfigurationParameters struct {
 	DataCaptureConfig []DataCaptureConfigParameters `json:"dataCaptureConfig,omitempty" tf:"data_capture_config"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 

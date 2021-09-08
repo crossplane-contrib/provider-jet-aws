@@ -25,15 +25,15 @@ import (
 )
 
 type NeptuneClusterInstanceObservation struct {
+	ARN string `json:"arn" tf:"arn"`
+
 	Address string `json:"address" tf:"address"`
 
-	Arn string `json:"arn" tf:"arn"`
-
-	DbiResourceId string `json:"dbiResourceId" tf:"dbi_resource_id"`
+	DbiResourceID string `json:"dbiResourceID" tf:"dbi_resource_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	KmsKeyArn string `json:"kmsKeyArn" tf:"kms_key_arn"`
+	KmsKeyARN string `json:"kmsKeyARN" tf:"kms_key_arn"`
 
 	StorageEncrypted bool `json:"storageEncrypted" tf:"storage_encrypted"`
 

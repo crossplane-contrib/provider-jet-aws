@@ -25,7 +25,7 @@ import (
 )
 
 type GameliftBuildObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GameliftBuildParameters struct {
@@ -50,7 +50,7 @@ type StorageLocationParameters struct {
 
 	Key string `json:"key" tf:"key"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 // GameliftBuildSpec defines the desired state of GameliftBuild

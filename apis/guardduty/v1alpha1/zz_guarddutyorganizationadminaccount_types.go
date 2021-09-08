@@ -28,7 +28,7 @@ type GuarddutyOrganizationAdminAccountObservation struct {
 }
 
 type GuarddutyOrganizationAdminAccountParameters struct {
-	AdminAccountId string `json:"adminAccountId" tf:"admin_account_id"`
+	AdminAccountID string `json:"adminAccountID" tf:"admin_account_id"`
 }
 
 // GuarddutyOrganizationAdminAccountSpec defines the desired state of GuarddutyOrganizationAdminAccount

@@ -25,17 +25,17 @@ import (
 )
 
 type Ec2LocalGatewayRouteTableVpcAssociationObservation struct {
-	LocalGatewayId string `json:"localGatewayId" tf:"local_gateway_id"`
+	LocalGatewayID string `json:"localGatewayID" tf:"local_gateway_id"`
 }
 
 type Ec2LocalGatewayRouteTableVpcAssociationParameters struct {
-	LocalGatewayRouteTableId string `json:"localGatewayRouteTableId" tf:"local_gateway_route_table_id"`
+	LocalGatewayRouteTableID string `json:"localGatewayRouteTableID" tf:"local_gateway_route_table_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // Ec2LocalGatewayRouteTableVpcAssociationSpec defines the desired state of Ec2LocalGatewayRouteTableVpcAssociation

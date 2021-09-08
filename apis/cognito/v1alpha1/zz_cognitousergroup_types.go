@@ -34,9 +34,9 @@ type CognitoUserGroupParameters struct {
 
 	Precedence *int64 `json:"precedence,omitempty" tf:"precedence"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	UserPoolID string `json:"userPoolID" tf:"user_pool_id"`
 }
 
 // CognitoUserGroupSpec defines the desired state of CognitoUserGroup

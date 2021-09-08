@@ -41,7 +41,7 @@ type CloudwatchEventTargetObservation struct {
 }
 
 type CloudwatchEventTargetParameters struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	BatchTarget []BatchTargetParameters `json:"batchTarget,omitempty" tf:"batch_target"`
 
@@ -51,7 +51,7 @@ type CloudwatchEventTargetParameters struct {
 
 	EventBusName *string `json:"eventBusName,omitempty" tf:"event_bus_name"`
 
-	HttpTarget []HttpTargetParameters `json:"httpTarget,omitempty" tf:"http_target"`
+	HTTPTarget []HTTPTargetParameters `json:"httpTarget,omitempty" tf:"http_target"`
 
 	Input *string `json:"input,omitempty" tf:"input"`
 
@@ -65,7 +65,7 @@ type CloudwatchEventTargetParameters struct {
 
 	RetryPolicy []RetryPolicyParameters `json:"retryPolicy,omitempty" tf:"retry_policy"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 
 	Rule string `json:"rule" tf:"rule"`
 
@@ -73,14 +73,14 @@ type CloudwatchEventTargetParameters struct {
 
 	SqsTarget []SqsTargetParameters `json:"sqsTarget,omitempty" tf:"sqs_target"`
 
-	TargetId *string `json:"targetId,omitempty" tf:"target_id"`
+	TargetID *string `json:"targetID,omitempty" tf:"target_id"`
 }
 
 type DeadLetterConfigObservation struct {
 }
 
 type DeadLetterConfigParameters struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	ARN *string `json:"arn,omitempty" tf:"arn"`
 }
 
 type EcsTargetObservation struct {
@@ -107,13 +107,13 @@ type EcsTargetParameters struct {
 
 	TaskCount *int64 `json:"taskCount,omitempty" tf:"task_count"`
 
-	TaskDefinitionArn string `json:"taskDefinitionArn" tf:"task_definition_arn"`
+	TaskDefinitionARN string `json:"taskDefinitionARN" tf:"task_definition_arn"`
 }
 
-type HttpTargetObservation struct {
+type HTTPTargetObservation struct {
 }
 
-type HttpTargetParameters struct {
+type HTTPTargetParameters struct {
 	HeaderParameters map[string]string `json:"headerParameters,omitempty" tf:"header_parameters"`
 
 	PathParameterValues []string `json:"pathParameterValues,omitempty" tf:"path_parameter_values"`
@@ -141,7 +141,7 @@ type NetworkConfigurationObservation struct {
 }
 
 type NetworkConfigurationParameters struct {
-	AssignPublicIp *bool `json:"assignPublicIp,omitempty" tf:"assign_public_ip"`
+	AssignPublicIP *bool `json:"assignPublicIP,omitempty" tf:"assign_public_ip"`
 
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
@@ -161,13 +161,13 @@ type RedshiftTargetObservation struct {
 }
 
 type RedshiftTargetParameters struct {
+	DBUser *string `json:"dbUser,omitempty" tf:"db_user"`
+
 	Database string `json:"database" tf:"database"`
 
-	DbUser *string `json:"dbUser,omitempty" tf:"db_user"`
+	SQL *string `json:"sql,omitempty" tf:"sql"`
 
-	SecretsManagerArn *string `json:"secretsManagerArn,omitempty" tf:"secrets_manager_arn"`
-
-	Sql *string `json:"sql,omitempty" tf:"sql"`
+	SecretsManagerARN *string `json:"secretsManagerARN,omitempty" tf:"secrets_manager_arn"`
 
 	StatementName *string `json:"statementName,omitempty" tf:"statement_name"`
 
@@ -196,7 +196,7 @@ type SqsTargetObservation struct {
 }
 
 type SqsTargetParameters struct {
-	MessageGroupId *string `json:"messageGroupId,omitempty" tf:"message_group_id"`
+	MessageGroupID *string `json:"messageGroupID,omitempty" tf:"message_group_id"`
 }
 
 // CloudwatchEventTargetSpec defines the desired state of CloudwatchEventTarget

@@ -28,9 +28,9 @@ type Route53QueryLogObservation struct {
 }
 
 type Route53QueryLogParameters struct {
-	CloudwatchLogGroupArn string `json:"cloudwatchLogGroupArn" tf:"cloudwatch_log_group_arn"`
+	CloudwatchLogGroupARN string `json:"cloudwatchLogGroupARN" tf:"cloudwatch_log_group_arn"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneID" tf:"zone_id"`
 }
 
 // Route53QueryLogSpec defines the desired state of Route53QueryLog

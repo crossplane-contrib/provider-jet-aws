@@ -25,7 +25,7 @@ import (
 )
 
 type LightsailKeyPairObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	EncryptedFingerprint string `json:"encryptedFingerprint" tf:"encrypted_fingerprint"`
 

@@ -25,9 +25,9 @@ import (
 )
 
 type DxTransitVirtualInterfaceObservation struct {
-	AmazonSideAsn string `json:"amazonSideAsn" tf:"amazon_side_asn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	AmazonSideAsn string `json:"amazonSideAsn" tf:"amazon_side_asn"`
 
 	AwsDevice string `json:"awsDevice" tf:"aws_device"`
 
@@ -43,11 +43,11 @@ type DxTransitVirtualInterfaceParameters struct {
 
 	BgpAuthKey *string `json:"bgpAuthKey,omitempty" tf:"bgp_auth_key"`
 
-	ConnectionId string `json:"connectionId" tf:"connection_id"`
+	ConnectionID string `json:"connectionID" tf:"connection_id"`
 
 	CustomerAddress *string `json:"customerAddress,omitempty" tf:"customer_address"`
 
-	DxGatewayId string `json:"dxGatewayId" tf:"dx_gateway_id"`
+	DxGatewayID string `json:"dxGatewayID" tf:"dx_gateway_id"`
 
 	Mtu *int64 `json:"mtu,omitempty" tf:"mtu"`
 

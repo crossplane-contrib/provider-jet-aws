@@ -36,7 +36,7 @@ type CloudwatchEventPermissionParameters struct {
 
 	Principal string `json:"principal" tf:"principal"`
 
-	StatementId string `json:"statementId" tf:"statement_id"`
+	StatementID string `json:"statementID" tf:"statement_id"`
 }
 
 type ConditionObservation struct {

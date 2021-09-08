@@ -25,21 +25,21 @@ import (
 )
 
 type AppconfigConfigurationProfileObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ConfigurationProfileId string `json:"configurationProfileId" tf:"configuration_profile_id"`
+	ConfigurationProfileID string `json:"configurationProfileID" tf:"configuration_profile_id"`
 }
 
 type AppconfigConfigurationProfileParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	LocationUri string `json:"locationUri" tf:"location_uri"`
+	LocationURI string `json:"locationURI" tf:"location_uri"`
 
 	Name string `json:"name" tf:"name"`
 
-	RetrievalRoleArn *string `json:"retrievalRoleArn,omitempty" tf:"retrieval_role_arn"`
+	RetrievalRoleARN *string `json:"retrievalRoleARN,omitempty" tf:"retrieval_role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

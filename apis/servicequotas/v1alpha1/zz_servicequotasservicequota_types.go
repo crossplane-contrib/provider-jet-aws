@@ -25,15 +25,15 @@ import (
 )
 
 type ServicequotasServiceQuotaObservation struct {
-	Adjustable bool `json:"adjustable" tf:"adjustable"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	Adjustable bool `json:"adjustable" tf:"adjustable"`
 
 	DefaultValue float64 `json:"defaultValue" tf:"default_value"`
 
 	QuotaName string `json:"quotaName" tf:"quota_name"`
 
-	RequestId string `json:"requestId" tf:"request_id"`
+	RequestID string `json:"requestID" tf:"request_id"`
 
 	RequestStatus string `json:"requestStatus" tf:"request_status"`
 

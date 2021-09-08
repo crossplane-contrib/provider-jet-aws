@@ -80,18 +80,18 @@ type HeaderParameters struct {
 	SourcePort string `json:"sourcePort" tf:"source_port"`
 }
 
-type IpSetObservation struct {
+type IPSetObservation struct {
 }
 
-type IpSetParameters struct {
+type IPSetParameters struct {
 	Definition []string `json:"definition" tf:"definition"`
 }
 
-type IpSetsObservation struct {
+type IPSetsObservation struct {
 }
 
-type IpSetsParameters struct {
-	IpSet []IpSetParameters `json:"ipSet" tf:"ip_set"`
+type IPSetsParameters struct {
+	IPSet []IPSetParameters `json:"ipSet" tf:"ip_set"`
 
 	Key string `json:"key" tf:"key"`
 }
@@ -110,11 +110,11 @@ type MatchAttributesParameters struct {
 
 	SourcePort []SourcePortParameters `json:"sourcePort,omitempty" tf:"source_port"`
 
-	TcpFlag []TcpFlagParameters `json:"tcpFlag,omitempty" tf:"tcp_flag"`
+	TCPFlag []TCPFlagParameters `json:"tcpFlag,omitempty" tf:"tcp_flag"`
 }
 
 type NetworkfirewallRuleGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	UpdateToken string `json:"updateToken" tf:"update_token"`
 }
@@ -191,7 +191,7 @@ type RuleVariablesObservation struct {
 }
 
 type RuleVariablesParameters struct {
-	IpSets []IpSetsParameters `json:"ipSets,omitempty" tf:"ip_sets"`
+	IPSets []IPSetsParameters `json:"ipSets,omitempty" tf:"ip_sets"`
 
 	PortSets []PortSetsParameters `json:"portSets,omitempty" tf:"port_sets"`
 }
@@ -265,10 +265,10 @@ type StatelessRulesAndCustomActionsParameters struct {
 	StatelessRule []StatelessRuleParameters `json:"statelessRule" tf:"stateless_rule"`
 }
 
-type TcpFlagObservation struct {
+type TCPFlagObservation struct {
 }
 
-type TcpFlagParameters struct {
+type TCPFlagParameters struct {
 	Flags []string `json:"flags" tf:"flags"`
 
 	Masks []string `json:"masks,omitempty" tf:"masks"`

@@ -25,13 +25,13 @@ import (
 )
 
 type LightsailStaticIpAttachmentObservation struct {
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 }
 
 type LightsailStaticIpAttachmentParameters struct {
 	InstanceName string `json:"instanceName" tf:"instance_name"`
 
-	StaticIpName string `json:"staticIpName" tf:"static_ip_name"`
+	StaticIPName string `json:"staticIPName" tf:"static_ip_name"`
 }
 
 // LightsailStaticIpAttachmentSpec defines the desired state of LightsailStaticIpAttachment

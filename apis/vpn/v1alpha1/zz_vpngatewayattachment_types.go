@@ -28,9 +28,9 @@ type VpnGatewayAttachmentObservation struct {
 }
 
 type VpnGatewayAttachmentParameters struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 
-	VpnGatewayId string `json:"vpnGatewayId" tf:"vpn_gateway_id"`
+	VpnGatewayID string `json:"vpnGatewayID" tf:"vpn_gateway_id"`
 }
 
 // VpnGatewayAttachmentSpec defines the desired state of VpnGatewayAttachment

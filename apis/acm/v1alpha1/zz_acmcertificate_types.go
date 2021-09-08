@@ -25,7 +25,7 @@ import (
 )
 
 type AcmCertificateObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DomainValidationOptions []DomainValidationOptionsObservation `json:"domainValidationOptions" tf:"domain_validation_options"`
 
@@ -35,7 +35,7 @@ type AcmCertificateObservation struct {
 }
 
 type AcmCertificateParameters struct {
-	CertificateAuthorityArn *string `json:"certificateAuthorityArn,omitempty" tf:"certificate_authority_arn"`
+	CertificateAuthorityARN *string `json:"certificateAuthorityARN,omitempty" tf:"certificate_authority_arn"`
 
 	CertificateBody *string `json:"certificateBody,omitempty" tf:"certificate_body"`
 

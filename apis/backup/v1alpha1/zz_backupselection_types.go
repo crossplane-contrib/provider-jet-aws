@@ -28,11 +28,11 @@ type BackupSelectionObservation struct {
 }
 
 type BackupSelectionParameters struct {
-	IamRoleArn string `json:"iamRoleArn" tf:"iam_role_arn"`
+	IamRoleARN string `json:"iamRoleARN" tf:"iam_role_arn"`
 
 	Name string `json:"name" tf:"name"`
 
-	PlanId string `json:"planId" tf:"plan_id"`
+	PlanID string `json:"planID" tf:"plan_id"`
 
 	Resources []string `json:"resources,omitempty" tf:"resources"`
 

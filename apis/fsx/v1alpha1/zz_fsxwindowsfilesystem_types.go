@@ -36,23 +36,23 @@ type AuditLogConfigurationParameters struct {
 }
 
 type FsxWindowsFileSystemObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
 	NetworkInterfaceIds []string `json:"networkInterfaceIds" tf:"network_interface_ids"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
-	PreferredFileServerIp string `json:"preferredFileServerIp" tf:"preferred_file_server_ip"`
+	PreferredFileServerIP string `json:"preferredFileServerIP" tf:"preferred_file_server_ip"`
 
 	RemoteAdministrationEndpoint string `json:"remoteAdministrationEndpoint" tf:"remote_administration_endpoint"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type FsxWindowsFileSystemParameters struct {
-	ActiveDirectoryId *string `json:"activeDirectoryId,omitempty" tf:"active_directory_id"`
+	ActiveDirectoryID *string `json:"activeDirectoryID,omitempty" tf:"active_directory_id"`
 
 	Aliases []string `json:"aliases,omitempty" tf:"aliases"`
 
@@ -66,9 +66,9 @@ type FsxWindowsFileSystemParameters struct {
 
 	DeploymentType *string `json:"deploymentType,omitempty" tf:"deployment_type"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
-	PreferredSubnetId *string `json:"preferredSubnetId,omitempty" tf:"preferred_subnet_id"`
+	PreferredSubnetID *string `json:"preferredSubnetID,omitempty" tf:"preferred_subnet_id"`
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
@@ -95,7 +95,7 @@ type SelfManagedActiveDirectoryObservation struct {
 }
 
 type SelfManagedActiveDirectoryParameters struct {
-	DnsIps []string `json:"dnsIps" tf:"dns_ips"`
+	DNSIps []string `json:"dnsIps" tf:"dns_ips"`
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 

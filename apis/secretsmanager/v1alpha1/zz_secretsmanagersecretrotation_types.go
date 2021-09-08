@@ -29,11 +29,11 @@ type SecretsmanagerSecretRotationObservation struct {
 }
 
 type SecretsmanagerSecretRotationParameters struct {
-	RotationLambdaArn string `json:"rotationLambdaArn" tf:"rotation_lambda_arn"`
+	RotationLambdaARN string `json:"rotationLambdaARN" tf:"rotation_lambda_arn"`
 
 	RotationRules []SecretsmanagerSecretRotationRotationRulesParameters `json:"rotationRules" tf:"rotation_rules"`
 
-	SecretId string `json:"secretId" tf:"secret_id"`
+	SecretID string `json:"secretID" tf:"secret_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 }

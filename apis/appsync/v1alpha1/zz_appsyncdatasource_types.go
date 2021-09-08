@@ -25,11 +25,11 @@ import (
 )
 
 type AppsyncDatasourceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type AppsyncDatasourceParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
@@ -37,13 +37,13 @@ type AppsyncDatasourceParameters struct {
 
 	ElasticsearchConfig []ElasticsearchConfigParameters `json:"elasticsearchConfig,omitempty" tf:"elasticsearch_config"`
 
-	HttpConfig []HttpConfigParameters `json:"httpConfig,omitempty" tf:"http_config"`
+	HTTPConfig []HTTPConfigParameters `json:"httpConfig,omitempty" tf:"http_config"`
 
 	LambdaConfig []LambdaConfigParameters `json:"lambdaConfig,omitempty" tf:"lambda_config"`
 
 	Name string `json:"name" tf:"name"`
 
-	ServiceRoleArn *string `json:"serviceRoleArn,omitempty" tf:"service_role_arn"`
+	ServiceRoleARN *string `json:"serviceRoleARN,omitempty" tf:"service_role_arn"`
 
 	Type string `json:"type" tf:"type"`
 }
@@ -68,10 +68,10 @@ type ElasticsearchConfigParameters struct {
 	Region *string `json:"region,omitempty" tf:"region"`
 }
 
-type HttpConfigObservation struct {
+type HTTPConfigObservation struct {
 }
 
-type HttpConfigParameters struct {
+type HTTPConfigParameters struct {
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 }
 
@@ -79,7 +79,7 @@ type LambdaConfigObservation struct {
 }
 
 type LambdaConfigParameters struct {
-	FunctionArn string `json:"functionArn" tf:"function_arn"`
+	FunctionARN string `json:"functionARN" tf:"function_arn"`
 }
 
 // AppsyncDatasourceSpec defines the desired state of AppsyncDatasource

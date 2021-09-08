@@ -25,7 +25,7 @@ import (
 )
 
 type Ec2TransitGatewayRouteTableObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DefaultAssociationRouteTable bool `json:"defaultAssociationRouteTable" tf:"default_association_route_table"`
 
@@ -37,7 +37,7 @@ type Ec2TransitGatewayRouteTableParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TransitGatewayId string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	TransitGatewayID string `json:"transitGatewayID" tf:"transit_gateway_id"`
 }
 
 // Ec2TransitGatewayRouteTableSpec defines the desired state of Ec2TransitGatewayRouteTable

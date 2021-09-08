@@ -27,17 +27,17 @@ import (
 type Ec2TransitGatewayVpcAttachmentAccepterObservation struct {
 	ApplianceModeSupport string `json:"applianceModeSupport" tf:"appliance_mode_support"`
 
-	DnsSupport string `json:"dnsSupport" tf:"dns_support"`
+	DNSSupport string `json:"dnsSupport" tf:"dns_support"`
 
-	Ipv6Support string `json:"ipv6Support" tf:"ipv6_support"`
+	IPv6Support string `json:"ipv6Support" tf:"ipv6_support"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	TransitGatewayId string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	TransitGatewayID string `json:"transitGatewayID" tf:"transit_gateway_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 
-	VpcOwnerId string `json:"vpcOwnerId" tf:"vpc_owner_id"`
+	VPCOwnerID string `json:"vpcOwnerID" tf:"vpc_owner_id"`
 }
 
 type Ec2TransitGatewayVpcAttachmentAccepterParameters struct {
@@ -45,7 +45,7 @@ type Ec2TransitGatewayVpcAttachmentAccepterParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TransitGatewayAttachmentId string `json:"transitGatewayAttachmentId" tf:"transit_gateway_attachment_id"`
+	TransitGatewayAttachmentID string `json:"transitGatewayAttachmentID" tf:"transit_gateway_attachment_id"`
 
 	TransitGatewayDefaultRouteTableAssociation *bool `json:"transitGatewayDefaultRouteTableAssociation,omitempty" tf:"transit_gateway_default_route_table_association"`
 

@@ -46,7 +46,7 @@ type AcmParameters struct {
 }
 
 type AppmeshVirtualGatewayObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedDate string `json:"createdDate" tf:"created_date"`
 
@@ -91,7 +91,7 @@ type CertificateAcmObservation struct {
 }
 
 type CertificateAcmParameters struct {
-	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
+	CertificateARN string `json:"certificateARN" tf:"certificate_arn"`
 }
 
 type CertificateFileObservation struct {
@@ -123,7 +123,7 @@ type ClientPolicyObservation struct {
 }
 
 type ClientPolicyParameters struct {
-	Tls []TlsParameters `json:"tls,omitempty" tf:"tls"`
+	TLS []TLSParameters `json:"tls,omitempty" tf:"tls"`
 }
 
 type ConnectionPoolObservation struct {
@@ -132,7 +132,7 @@ type ConnectionPoolObservation struct {
 type ConnectionPoolParameters struct {
 	Grpc []GrpcParameters `json:"grpc,omitempty" tf:"grpc"`
 
-	Http []HttpParameters `json:"http,omitempty" tf:"http"`
+	HTTP []HTTPParameters `json:"http,omitempty" tf:"http"`
 
 	Http2 []Http2Parameters `json:"http2,omitempty" tf:"http2"`
 }
@@ -151,6 +151,15 @@ type GrpcObservation struct {
 
 type GrpcParameters struct {
 	MaxRequests int64 `json:"maxRequests" tf:"max_requests"`
+}
+
+type HTTPObservation struct {
+}
+
+type HTTPParameters struct {
+	MaxConnections int64 `json:"maxConnections" tf:"max_connections"`
+
+	MaxPendingRequests *int64 `json:"maxPendingRequests,omitempty" tf:"max_pending_requests"`
 }
 
 type HealthCheckObservation struct {
@@ -179,15 +188,6 @@ type Http2Parameters struct {
 	MaxRequests int64 `json:"maxRequests" tf:"max_requests"`
 }
 
-type HttpObservation struct {
-}
-
-type HttpParameters struct {
-	MaxConnections int64 `json:"maxConnections" tf:"max_connections"`
-
-	MaxPendingRequests *int64 `json:"maxPendingRequests,omitempty" tf:"max_pending_requests"`
-}
-
 type ListenerObservation struct {
 }
 
@@ -198,18 +198,18 @@ type ListenerParameters struct {
 
 	PortMapping []PortMappingParameters `json:"portMapping" tf:"port_mapping"`
 
-	Tls []ListenerTlsParameters `json:"tls,omitempty" tf:"tls"`
+	TLS []ListenerTLSParameters `json:"tls,omitempty" tf:"tls"`
 }
 
-type ListenerTlsObservation struct {
+type ListenerTLSObservation struct {
 }
 
-type ListenerTlsParameters struct {
-	Certificate []TlsCertificateParameters `json:"certificate" tf:"certificate"`
+type ListenerTLSParameters struct {
+	Certificate []TLSCertificateParameters `json:"certificate" tf:"certificate"`
 
 	Mode string `json:"mode" tf:"mode"`
 
-	Validation []TlsValidationParameters `json:"validation,omitempty" tf:"validation"`
+	Validation []TLSValidationParameters `json:"validation,omitempty" tf:"validation"`
 }
 
 type LoggingObservation struct {
@@ -249,10 +249,10 @@ type SubjectAlternativeNamesParameters struct {
 	Match []SubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
 }
 
-type TlsCertificateObservation struct {
+type TLSCertificateObservation struct {
 }
 
-type TlsCertificateParameters struct {
+type TLSCertificateParameters struct {
 	Acm []CertificateAcmParameters `json:"acm,omitempty" tf:"acm"`
 
 	File []CertificateFileParameters `json:"file,omitempty" tf:"file"`
@@ -260,10 +260,10 @@ type TlsCertificateParameters struct {
 	Sds []CertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
 }
 
-type TlsObservation struct {
+type TLSObservation struct {
 }
 
-type TlsParameters struct {
+type TLSParameters struct {
 	Certificate []CertificateParameters `json:"certificate,omitempty" tf:"certificate"`
 
 	Enforce *bool `json:"enforce,omitempty" tf:"enforce"`
@@ -273,10 +273,10 @@ type TlsParameters struct {
 	Validation []ValidationParameters `json:"validation" tf:"validation"`
 }
 
-type TlsValidationObservation struct {
+type TLSValidationObservation struct {
 }
 
-type TlsValidationParameters struct {
+type TLSValidationParameters struct {
 	SubjectAlternativeNames []ValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
 
 	Trust []ValidationTrustParameters `json:"trust" tf:"trust"`

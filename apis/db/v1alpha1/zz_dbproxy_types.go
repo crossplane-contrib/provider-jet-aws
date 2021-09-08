@@ -34,11 +34,11 @@ type AuthParameters struct {
 
 	IamAuth *string `json:"iamAuth,omitempty" tf:"iam_auth"`
 
-	SecretArn *string `json:"secretArn,omitempty" tf:"secret_arn"`
+	SecretARN *string `json:"secretARN,omitempty" tf:"secret_arn"`
 }
 
 type DbProxyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 }
@@ -54,17 +54,17 @@ type DbProxyParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	RequireTls *bool `json:"requireTls,omitempty" tf:"require_tls"`
+	RequireTLS *bool `json:"requireTLS,omitempty" tf:"require_tls"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 
-	VpcSubnetIds []string `json:"vpcSubnetIds" tf:"vpc_subnet_ids"`
+	VPCSubnetIds []string `json:"vpcSubnetIds" tf:"vpc_subnet_ids"`
 }
 
 // DbProxySpec defines the desired state of DbProxy

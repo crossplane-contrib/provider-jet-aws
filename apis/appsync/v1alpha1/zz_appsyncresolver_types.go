@@ -25,11 +25,11 @@ import (
 )
 
 type AppsyncResolverObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type AppsyncResolverParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
 	CachingConfig []CachingConfigParameters `json:"cachingConfig,omitempty" tf:"caching_config"`
 
@@ -54,7 +54,7 @@ type CachingConfigObservation struct {
 type CachingConfigParameters struct {
 	CachingKeys []string `json:"cachingKeys,omitempty" tf:"caching_keys"`
 
-	Ttl *int64 `json:"ttl,omitempty" tf:"ttl"`
+	TTL *int64 `json:"ttl,omitempty" tf:"ttl"`
 }
 
 type PipelineConfigObservation struct {

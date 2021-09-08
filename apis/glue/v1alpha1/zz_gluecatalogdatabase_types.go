@@ -25,15 +25,15 @@ import (
 )
 
 type GlueCatalogDatabaseObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GlueCatalogDatabaseParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	LocationUri *string `json:"locationUri,omitempty" tf:"location_uri"`
+	LocationURI *string `json:"locationURI,omitempty" tf:"location_uri"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -46,7 +46,7 @@ type TargetDatabaseObservation struct {
 }
 
 type TargetDatabaseParameters struct {
-	CatalogId string `json:"catalogId" tf:"catalog_id"`
+	CatalogID string `json:"catalogID" tf:"catalog_id"`
 
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 }

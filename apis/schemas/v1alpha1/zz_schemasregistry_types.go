@@ -25,7 +25,7 @@ import (
 )
 
 type SchemasRegistryObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SchemasRegistryParameters struct {

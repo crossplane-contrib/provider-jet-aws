@@ -28,7 +28,7 @@ type CognitoIdentityPoolRolesAttachmentObservation struct {
 }
 
 type CognitoIdentityPoolRolesAttachmentParameters struct {
-	IdentityPoolId string `json:"identityPoolId" tf:"identity_pool_id"`
+	IdentityPoolID string `json:"identityPoolID" tf:"identity_pool_id"`
 
 	RoleMapping []RoleMappingParameters `json:"roleMapping,omitempty" tf:"role_mapping"`
 
@@ -43,7 +43,7 @@ type MappingRuleParameters struct {
 
 	MatchType string `json:"matchType" tf:"match_type"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Value string `json:"value" tf:"value"`
 }

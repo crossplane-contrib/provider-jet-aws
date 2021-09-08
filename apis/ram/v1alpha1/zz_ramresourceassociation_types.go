@@ -28,9 +28,9 @@ type RamResourceAssociationObservation struct {
 }
 
 type RamResourceAssociationParameters struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 
-	ResourceShareArn string `json:"resourceShareArn" tf:"resource_share_arn"`
+	ResourceShareARN string `json:"resourceShareARN" tf:"resource_share_arn"`
 }
 
 // RamResourceAssociationSpec defines the desired state of RamResourceAssociation

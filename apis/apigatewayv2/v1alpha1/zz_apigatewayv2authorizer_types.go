@@ -28,17 +28,17 @@ type Apigatewayv2AuthorizerObservation struct {
 }
 
 type Apigatewayv2AuthorizerParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
-	AuthorizerCredentialsArn *string `json:"authorizerCredentialsArn,omitempty" tf:"authorizer_credentials_arn"`
+	AuthorizerCredentialsARN *string `json:"authorizerCredentialsARN,omitempty" tf:"authorizer_credentials_arn"`
 
 	AuthorizerPayloadFormatVersion *string `json:"authorizerPayloadFormatVersion,omitempty" tf:"authorizer_payload_format_version"`
 
-	AuthorizerResultTtlInSeconds *int64 `json:"authorizerResultTtlInSeconds,omitempty" tf:"authorizer_result_ttl_in_seconds"`
+	AuthorizerResultTTLInSeconds *int64 `json:"authorizerResultTTLInSeconds,omitempty" tf:"authorizer_result_ttl_in_seconds"`
 
 	AuthorizerType string `json:"authorizerType" tf:"authorizer_type"`
 
-	AuthorizerUri *string `json:"authorizerUri,omitempty" tf:"authorizer_uri"`
+	AuthorizerURI *string `json:"authorizerURI,omitempty" tf:"authorizer_uri"`
 
 	EnableSimpleResponses *bool `json:"enableSimpleResponses,omitempty" tf:"enable_simple_responses"`
 

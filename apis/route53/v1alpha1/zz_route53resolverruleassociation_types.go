@@ -30,9 +30,9 @@ type Route53ResolverRuleAssociationObservation struct {
 type Route53ResolverRuleAssociationParameters struct {
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	ResolverRuleId string `json:"resolverRuleId" tf:"resolver_rule_id"`
+	ResolverRuleID string `json:"resolverRuleID" tf:"resolver_rule_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // Route53ResolverRuleAssociationSpec defines the desired state of Route53ResolverRuleAssociation

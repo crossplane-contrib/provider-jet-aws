@@ -32,9 +32,9 @@ type DatasourcesParameters struct {
 }
 
 type GuarddutyDetectorObservation struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	AccountID string `json:"accountID" tf:"account_id"`
 }
 
 type GuarddutyDetectorParameters struct {

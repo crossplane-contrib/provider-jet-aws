@@ -25,7 +25,7 @@ import (
 )
 
 type MskConfigurationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	LatestRevision int64 `json:"latestRevision" tf:"latest_revision"`
 }

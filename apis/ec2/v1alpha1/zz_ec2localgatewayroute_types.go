@@ -30,9 +30,9 @@ type Ec2LocalGatewayRouteObservation struct {
 type Ec2LocalGatewayRouteParameters struct {
 	DestinationCidrBlock string `json:"destinationCidrBlock" tf:"destination_cidr_block"`
 
-	LocalGatewayRouteTableId string `json:"localGatewayRouteTableId" tf:"local_gateway_route_table_id"`
+	LocalGatewayRouteTableID string `json:"localGatewayRouteTableID" tf:"local_gateway_route_table_id"`
 
-	LocalGatewayVirtualInterfaceGroupId string `json:"localGatewayVirtualInterfaceGroupId" tf:"local_gateway_virtual_interface_group_id"`
+	LocalGatewayVirtualInterfaceGroupID string `json:"localGatewayVirtualInterfaceGroupID" tf:"local_gateway_virtual_interface_group_id"`
 }
 
 // Ec2LocalGatewayRouteSpec defines the desired state of Ec2LocalGatewayRoute

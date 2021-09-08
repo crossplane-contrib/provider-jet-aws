@@ -25,13 +25,13 @@ import (
 )
 
 type AppsyncFunctionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	FunctionId string `json:"functionId" tf:"function_id"`
+	FunctionID string `json:"functionID" tf:"function_id"`
 }
 
 type AppsyncFunctionParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
 	DataSource string `json:"dataSource" tf:"data_source"`
 

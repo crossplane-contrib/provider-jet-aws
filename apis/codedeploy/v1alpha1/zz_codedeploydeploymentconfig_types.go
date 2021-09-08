@@ -25,7 +25,7 @@ import (
 )
 
 type CodedeployDeploymentConfigObservation struct {
-	DeploymentConfigId string `json:"deploymentConfigId" tf:"deployment_config_id"`
+	DeploymentConfigID string `json:"deploymentConfigID" tf:"deployment_config_id"`
 }
 
 type CodedeployDeploymentConfigParameters struct {

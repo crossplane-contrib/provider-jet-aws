@@ -25,7 +25,7 @@ import (
 )
 
 type AmiObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Hypervisor string `json:"hypervisor" tf:"hypervisor"`
 
@@ -35,7 +35,7 @@ type AmiObservation struct {
 
 	ManageEbsSnapshots bool `json:"manageEbsSnapshots" tf:"manage_ebs_snapshots"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
 	Platform string `json:"platform" tf:"platform"`
 
@@ -43,7 +43,7 @@ type AmiObservation struct {
 
 	Public bool `json:"public" tf:"public"`
 
-	RootSnapshotId string `json:"rootSnapshotId" tf:"root_snapshot_id"`
+	RootSnapshotID string `json:"rootSnapshotID" tf:"root_snapshot_id"`
 
 	UsageOperation string `json:"usageOperation" tf:"usage_operation"`
 }
@@ -61,11 +61,11 @@ type AmiParameters struct {
 
 	ImageLocation *string `json:"imageLocation,omitempty" tf:"image_location"`
 
-	KernelId *string `json:"kernelId,omitempty" tf:"kernel_id"`
+	KernelID *string `json:"kernelID,omitempty" tf:"kernel_id"`
 
 	Name string `json:"name" tf:"name"`
 
-	RamdiskId *string `json:"ramdiskId,omitempty" tf:"ramdisk_id"`
+	RamdiskID *string `json:"ramdiskID,omitempty" tf:"ramdisk_id"`
 
 	RootDeviceName *string `json:"rootDeviceName,omitempty" tf:"root_device_name"`
 
@@ -90,7 +90,7 @@ type EbsBlockDeviceParameters struct {
 
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotID,omitempty" tf:"snapshot_id"`
 
 	Throughput *int64 `json:"throughput,omitempty" tf:"throughput"`
 

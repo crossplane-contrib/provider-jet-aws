@@ -25,9 +25,9 @@ import (
 )
 
 type DbEventSubscriptionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	CustomerAwsId string `json:"customerAwsId" tf:"customer_aws_id"`
+	CustomerAwsID string `json:"customerAwsID" tf:"customer_aws_id"`
 }
 
 type DbEventSubscriptionParameters struct {

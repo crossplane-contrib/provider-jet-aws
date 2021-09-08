@@ -25,19 +25,19 @@ import (
 )
 
 type DbInstanceObservation struct {
-	Address string `json:"address" tf:"address"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	Address string `json:"address" tf:"address"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneID" tf:"hosted_zone_id"`
 
 	LatestRestorableTime string `json:"latestRestorableTime" tf:"latest_restorable_time"`
 
 	Replicas []string `json:"replicas" tf:"replicas"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
 	Status string `json:"status" tf:"status"`
 }
@@ -63,9 +63,9 @@ type DbInstanceParameters struct {
 
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot,omitempty" tf:"copy_tags_to_snapshot"`
 
-	CustomerOwnedIpEnabled *bool `json:"customerOwnedIpEnabled,omitempty" tf:"customer_owned_ip_enabled"`
+	CustomerOwnedIPEnabled *bool `json:"customerOwnedIPEnabled,omitempty" tf:"customer_owned_ip_enabled"`
 
-	DbSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
+	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
 
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups,omitempty" tf:"delete_automated_backups"`
 
@@ -93,7 +93,7 @@ type DbInstanceParameters struct {
 
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	LicenseModel *string `json:"licenseModel,omitempty" tf:"license_model"`
 
@@ -103,7 +103,7 @@ type DbInstanceParameters struct {
 
 	MonitoringInterval *int64 `json:"monitoringInterval,omitempty" tf:"monitoring_interval"`
 
-	MonitoringRoleArn *string `json:"monitoringRoleArn,omitempty" tf:"monitoring_role_arn"`
+	MonitoringRoleARN *string `json:"monitoringRoleARN,omitempty" tf:"monitoring_role_arn"`
 
 	MultiAz *bool `json:"multiAz,omitempty" tf:"multi_az"`
 
@@ -119,7 +119,7 @@ type DbInstanceParameters struct {
 
 	PerformanceInsightsEnabled *bool `json:"performanceInsightsEnabled,omitempty" tf:"performance_insights_enabled"`
 
-	PerformanceInsightsKmsKeyId *string `json:"performanceInsightsKmsKeyId,omitempty" tf:"performance_insights_kms_key_id"`
+	PerformanceInsightsKmsKeyID *string `json:"performanceInsightsKmsKeyID,omitempty" tf:"performance_insights_kms_key_id"`
 
 	PerformanceInsightsRetentionPeriod *int64 `json:"performanceInsightsRetentionPeriod,omitempty" tf:"performance_insights_retention_period"`
 
@@ -127,7 +127,7 @@ type DbInstanceParameters struct {
 
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible"`
 
-	ReplicateSourceDb *string `json:"replicateSourceDb,omitempty" tf:"replicate_source_db"`
+	ReplicateSourceDB *string `json:"replicateSourceDB,omitempty" tf:"replicate_source_db"`
 
 	RestoreToPointInTime []RestoreToPointInTimeParameters `json:"restoreToPointInTime,omitempty" tf:"restore_to_point_in_time"`
 
@@ -151,7 +151,7 @@ type DbInstanceParameters struct {
 
 	Username *string `json:"username,omitempty" tf:"username"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 }
 
 type RestoreToPointInTimeObservation struct {
@@ -160,9 +160,9 @@ type RestoreToPointInTimeObservation struct {
 type RestoreToPointInTimeParameters struct {
 	RestoreTime *string `json:"restoreTime,omitempty" tf:"restore_time"`
 
-	SourceDbInstanceIdentifier *string `json:"sourceDbInstanceIdentifier,omitempty" tf:"source_db_instance_identifier"`
+	SourceDBInstanceIdentifier *string `json:"sourceDBInstanceIdentifier,omitempty" tf:"source_db_instance_identifier"`
 
-	SourceDbiResourceId *string `json:"sourceDbiResourceId,omitempty" tf:"source_dbi_resource_id"`
+	SourceDbiResourceID *string `json:"sourceDbiResourceID,omitempty" tf:"source_dbi_resource_id"`
 
 	UseLatestRestorableTime *bool `json:"useLatestRestorableTime,omitempty" tf:"use_latest_restorable_time"`
 }

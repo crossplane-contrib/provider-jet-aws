@@ -38,7 +38,7 @@ type ContainerParameters struct {
 
 	Mode *string `json:"mode,omitempty" tf:"mode"`
 
-	ModelDataUrl *string `json:"modelDataUrl,omitempty" tf:"model_data_url"`
+	ModelDataURL *string `json:"modelDataURL,omitempty" tf:"model_data_url"`
 }
 
 type ImageConfigObservation struct {
@@ -76,11 +76,11 @@ type PrimaryContainerParameters struct {
 
 	Mode *string `json:"mode,omitempty" tf:"mode"`
 
-	ModelDataUrl *string `json:"modelDataUrl,omitempty" tf:"model_data_url"`
+	ModelDataURL *string `json:"modelDataURL,omitempty" tf:"model_data_url"`
 }
 
 type SagemakerModelObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SagemakerModelParameters struct {
@@ -88,7 +88,7 @@ type SagemakerModelParameters struct {
 
 	EnableNetworkIsolation *bool `json:"enableNetworkIsolation,omitempty" tf:"enable_network_isolation"`
 
-	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
+	ExecutionRoleARN string `json:"executionRoleARN" tf:"execution_role_arn"`
 
 	InferenceExecutionConfig []InferenceExecutionConfigParameters `json:"inferenceExecutionConfig,omitempty" tf:"inference_execution_config"`
 
@@ -100,13 +100,13 @@ type SagemakerModelParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
+	VPCConfig []VPCConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 }
 
-type VpcConfigObservation struct {
+type VPCConfigObservation struct {
 }
 
-type VpcConfigParameters struct {
+type VPCConfigParameters struct {
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
 	Subnets []string `json:"subnets" tf:"subnets"`

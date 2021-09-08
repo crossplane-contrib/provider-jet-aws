@@ -28,9 +28,9 @@ type PinpointApnsVoipSandboxChannelObservation struct {
 }
 
 type PinpointApnsVoipSandboxChannelParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
-	BundleId *string `json:"bundleId,omitempty" tf:"bundle_id"`
+	BundleID *string `json:"bundleID,omitempty" tf:"bundle_id"`
 
 	Certificate *string `json:"certificate,omitempty" tf:"certificate"`
 
@@ -40,11 +40,11 @@ type PinpointApnsVoipSandboxChannelParameters struct {
 
 	PrivateKey *string `json:"privateKey,omitempty" tf:"private_key"`
 
-	TeamId *string `json:"teamId,omitempty" tf:"team_id"`
+	TeamID *string `json:"teamID,omitempty" tf:"team_id"`
 
 	TokenKey *string `json:"tokenKey,omitempty" tf:"token_key"`
 
-	TokenKeyId *string `json:"tokenKeyId,omitempty" tf:"token_key_id"`
+	TokenKeyID *string `json:"tokenKeyID,omitempty" tf:"token_key_id"`
 }
 
 // PinpointApnsVoipSandboxChannelSpec defines the desired state of PinpointApnsVoipSandboxChannel

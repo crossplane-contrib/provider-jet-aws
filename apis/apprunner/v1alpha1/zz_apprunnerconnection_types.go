@@ -25,7 +25,7 @@ import (
 )
 
 type ApprunnerConnectionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Status string `json:"status" tf:"status"`
 }

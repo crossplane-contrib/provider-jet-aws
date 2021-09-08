@@ -28,15 +28,15 @@ type OpsworksPermissionObservation struct {
 }
 
 type OpsworksPermissionParameters struct {
-	AllowSsh *bool `json:"allowSsh,omitempty" tf:"allow_ssh"`
+	AllowSSH *bool `json:"allowSSH,omitempty" tf:"allow_ssh"`
 
 	AllowSudo *bool `json:"allowSudo,omitempty" tf:"allow_sudo"`
 
 	Level *string `json:"level,omitempty" tf:"level"`
 
-	StackId *string `json:"stackId,omitempty" tf:"stack_id"`
+	StackID *string `json:"stackID,omitempty" tf:"stack_id"`
 
-	UserArn string `json:"userArn" tf:"user_arn"`
+	UserARN string `json:"userARN" tf:"user_arn"`
 }
 
 // OpsworksPermissionSpec defines the desired state of OpsworksPermission

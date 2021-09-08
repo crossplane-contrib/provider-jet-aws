@@ -30,11 +30,11 @@ type ResourceSpecObservation struct {
 type ResourceSpecParameters struct {
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
-	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
+	SagemakerImageARN *string `json:"sagemakerImageARN,omitempty" tf:"sagemaker_image_arn"`
 }
 
 type SagemakerAppObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SagemakerAppParameters struct {
@@ -42,7 +42,7 @@ type SagemakerAppParameters struct {
 
 	AppType string `json:"appType" tf:"app_type"`
 
-	DomainId string `json:"domainId" tf:"domain_id"`
+	DomainID string `json:"domainID" tf:"domain_id"`
 
 	ResourceSpec []ResourceSpecParameters `json:"resourceSpec,omitempty" tf:"resource_spec"`
 

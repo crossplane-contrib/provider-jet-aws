@@ -25,11 +25,11 @@ import (
 )
 
 type SesTemplateObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SesTemplateParameters struct {
-	Html *string `json:"html,omitempty" tf:"html"`
+	HTML *string `json:"html,omitempty" tf:"html"`
 
 	Name string `json:"name" tf:"name"`
 

@@ -25,11 +25,11 @@ import (
 )
 
 type ConfigAggregateAuthorizationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ConfigAggregateAuthorizationParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountID" tf:"account_id"`
 
 	Region string `json:"region" tf:"region"`
 

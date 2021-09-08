@@ -25,13 +25,13 @@ import (
 )
 
 type Macie2MemberObservation struct {
-	AdministratorAccountId string `json:"administratorAccountId" tf:"administrator_account_id"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	AdministratorAccountID string `json:"administratorAccountID" tf:"administrator_account_id"`
 
 	InvitedAt string `json:"invitedAt" tf:"invited_at"`
 
-	MasterAccountId string `json:"masterAccountId" tf:"master_account_id"`
+	MasterAccountID string `json:"masterAccountID" tf:"master_account_id"`
 
 	RelationshipStatus string `json:"relationshipStatus" tf:"relationship_status"`
 
@@ -39,7 +39,7 @@ type Macie2MemberObservation struct {
 }
 
 type Macie2MemberParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountID" tf:"account_id"`
 
 	Email string `json:"email" tf:"email"`
 

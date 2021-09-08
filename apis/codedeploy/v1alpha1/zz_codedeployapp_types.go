@@ -25,9 +25,9 @@ import (
 )
 
 type CodedeployAppObservation struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
 	GithubAccountName string `json:"githubAccountName" tf:"github_account_name"`
 

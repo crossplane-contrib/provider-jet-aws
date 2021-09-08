@@ -34,15 +34,15 @@ type ProvisioningArtifactParametersParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	TemplatePhysicalId *string `json:"templatePhysicalId,omitempty" tf:"template_physical_id"`
+	TemplatePhysicalID *string `json:"templatePhysicalID,omitempty" tf:"template_physical_id"`
 
-	TemplateUrl *string `json:"templateUrl,omitempty" tf:"template_url"`
+	TemplateURL *string `json:"templateURL,omitempty" tf:"template_url"`
 
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
 type ServicecatalogProductObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedTime string `json:"createdTime" tf:"created_time"`
 
@@ -68,7 +68,7 @@ type ServicecatalogProductParameters struct {
 
 	SupportEmail *string `json:"supportEmail,omitempty" tf:"support_email"`
 
-	SupportUrl *string `json:"supportUrl,omitempty" tf:"support_url"`
+	SupportURL *string `json:"supportURL,omitempty" tf:"support_url"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

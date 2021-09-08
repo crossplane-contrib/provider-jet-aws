@@ -34,7 +34,7 @@ type OutputLocationParameters struct {
 }
 
 type SsmAssociationObservation struct {
-	AssociationId string `json:"associationId" tf:"association_id"`
+	AssociationID string `json:"associationID" tf:"association_id"`
 }
 
 type SsmAssociationParameters struct {
@@ -48,7 +48,7 @@ type SsmAssociationParameters struct {
 
 	DocumentVersion *string `json:"documentVersion,omitempty" tf:"document_version"`
 
-	InstanceId *string `json:"instanceId,omitempty" tf:"instance_id"`
+	InstanceID *string `json:"instanceID,omitempty" tf:"instance_id"`
 
 	MaxConcurrency *string `json:"maxConcurrency,omitempty" tf:"max_concurrency"`
 

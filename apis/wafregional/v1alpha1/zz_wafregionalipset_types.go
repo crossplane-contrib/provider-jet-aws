@@ -24,21 +24,21 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type IpSetDescriptorObservation struct {
+type IPSetDescriptorObservation struct {
 }
 
-type IpSetDescriptorParameters struct {
+type IPSetDescriptorParameters struct {
 	Type string `json:"type" tf:"type"`
 
 	Value string `json:"value" tf:"value"`
 }
 
 type WafregionalIpsetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type WafregionalIpsetParameters struct {
-	IpSetDescriptor []IpSetDescriptorParameters `json:"ipSetDescriptor,omitempty" tf:"ip_set_descriptor"`
+	IPSetDescriptor []IPSetDescriptorParameters `json:"ipSetDescriptor,omitempty" tf:"ip_set_descriptor"`
 
 	Name string `json:"name" tf:"name"`
 }

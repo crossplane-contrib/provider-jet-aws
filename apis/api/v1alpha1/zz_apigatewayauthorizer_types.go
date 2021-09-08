@@ -30,9 +30,9 @@ type ApiGatewayAuthorizerObservation struct {
 type ApiGatewayAuthorizerParameters struct {
 	AuthorizerCredentials *string `json:"authorizerCredentials,omitempty" tf:"authorizer_credentials"`
 
-	AuthorizerResultTtlInSeconds *int64 `json:"authorizerResultTtlInSeconds,omitempty" tf:"authorizer_result_ttl_in_seconds"`
+	AuthorizerResultTTLInSeconds *int64 `json:"authorizerResultTTLInSeconds,omitempty" tf:"authorizer_result_ttl_in_seconds"`
 
-	AuthorizerUri *string `json:"authorizerUri,omitempty" tf:"authorizer_uri"`
+	AuthorizerURI *string `json:"authorizerURI,omitempty" tf:"authorizer_uri"`
 
 	IdentitySource *string `json:"identitySource,omitempty" tf:"identity_source"`
 
@@ -42,7 +42,7 @@ type ApiGatewayAuthorizerParameters struct {
 
 	ProviderArns []string `json:"providerArns,omitempty" tf:"provider_arns"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 
 	Type *string `json:"type,omitempty" tf:"type"`
 }

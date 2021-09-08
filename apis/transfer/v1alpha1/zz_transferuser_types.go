@@ -37,15 +37,15 @@ type PosixProfileObservation struct {
 }
 
 type PosixProfileParameters struct {
-	Gid int64 `json:"gid" tf:"gid"`
+	GID int64 `json:"gid" tf:"gid"`
 
 	SecondaryGids []int64 `json:"secondaryGids,omitempty" tf:"secondary_gids"`
 
-	Uid int64 `json:"uid" tf:"uid"`
+	UID int64 `json:"uid" tf:"uid"`
 }
 
 type TransferUserObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type TransferUserParameters struct {
@@ -61,7 +61,7 @@ type TransferUserParameters struct {
 
 	Role string `json:"role" tf:"role"`
 
-	ServerId string `json:"serverId" tf:"server_id"`
+	ServerID string `json:"serverID" tf:"server_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

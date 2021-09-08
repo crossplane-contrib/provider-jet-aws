@@ -27,13 +27,13 @@ import (
 type CloudhsmV2ClusterObservation struct {
 	ClusterCertificates []ClusterCertificatesObservation `json:"clusterCertificates" tf:"cluster_certificates"`
 
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
+	ClusterID string `json:"clusterID" tf:"cluster_id"`
 
 	ClusterState string `json:"clusterState" tf:"cluster_state"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	SecurityGroupID string `json:"securityGroupID" tf:"security_group_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type CloudhsmV2ClusterParameters struct {

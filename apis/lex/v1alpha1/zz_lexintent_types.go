@@ -30,7 +30,7 @@ type CodeHookObservation struct {
 type CodeHookParameters struct {
 	MessageVersion string `json:"messageVersion" tf:"message_version"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type ConclusionStatementMessageObservation struct {
@@ -81,7 +81,7 @@ type DialogCodeHookObservation struct {
 type DialogCodeHookParameters struct {
 	MessageVersion string `json:"messageVersion" tf:"message_version"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type FollowUpPromptObservation struct {
@@ -103,7 +103,7 @@ type FulfillmentActivityParameters struct {
 }
 
 type LexIntentObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Checksum string `json:"checksum" tf:"checksum"`
 

@@ -24,20 +24,20 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type SqlInjectionMatchTuplesFieldToMatchObservation struct {
+type SQLInjectionMatchTuplesFieldToMatchObservation struct {
 }
 
-type SqlInjectionMatchTuplesFieldToMatchParameters struct {
+type SQLInjectionMatchTuplesFieldToMatchParameters struct {
 	Data *string `json:"data,omitempty" tf:"data"`
 
 	Type string `json:"type" tf:"type"`
 }
 
-type SqlInjectionMatchTuplesObservation struct {
+type SQLInjectionMatchTuplesObservation struct {
 }
 
-type SqlInjectionMatchTuplesParameters struct {
-	FieldToMatch []SqlInjectionMatchTuplesFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
+type SQLInjectionMatchTuplesParameters struct {
+	FieldToMatch []SQLInjectionMatchTuplesFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
 
 	TextTransformation string `json:"textTransformation" tf:"text_transformation"`
 }
@@ -48,7 +48,7 @@ type WafSqlInjectionMatchSetObservation struct {
 type WafSqlInjectionMatchSetParameters struct {
 	Name string `json:"name" tf:"name"`
 
-	SqlInjectionMatchTuples []SqlInjectionMatchTuplesParameters `json:"sqlInjectionMatchTuples,omitempty" tf:"sql_injection_match_tuples"`
+	SQLInjectionMatchTuples []SQLInjectionMatchTuplesParameters `json:"sqlInjectionMatchTuples,omitempty" tf:"sql_injection_match_tuples"`
 }
 
 // WafSqlInjectionMatchSetSpec defines the desired state of WafSqlInjectionMatchSet

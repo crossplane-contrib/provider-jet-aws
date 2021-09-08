@@ -25,7 +25,7 @@ import (
 )
 
 type VpnGatewayObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type VpnGatewayParameters struct {
@@ -37,7 +37,7 @@ type VpnGatewayParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VPCID *string `json:"vpcID,omitempty" tf:"vpc_id"`
 }
 
 // VpnGatewaySpec defines the desired state of VpnGateway

@@ -25,11 +25,11 @@ import (
 )
 
 type CloudformationStackSetInstanceObservation struct {
-	StackId string `json:"stackId" tf:"stack_id"`
+	StackID string `json:"stackID" tf:"stack_id"`
 }
 
 type CloudformationStackSetInstanceParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
+	AccountID *string `json:"accountID,omitempty" tf:"account_id"`
 
 	ParameterOverrides map[string]string `json:"parameterOverrides,omitempty" tf:"parameter_overrides"`
 

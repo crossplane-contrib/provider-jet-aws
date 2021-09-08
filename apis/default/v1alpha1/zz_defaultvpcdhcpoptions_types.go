@@ -25,7 +25,7 @@ import (
 )
 
 type DefaultVpcDhcpOptionsObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 
@@ -39,7 +39,7 @@ type DefaultVpcDhcpOptionsParameters struct {
 
 	NetbiosNodeType *string `json:"netbiosNodeType,omitempty" tf:"netbios_node_type"`
 
-	OwnerId *string `json:"ownerId,omitempty" tf:"owner_id"`
+	OwnerID *string `json:"ownerID,omitempty" tf:"owner_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

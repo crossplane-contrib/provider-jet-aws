@@ -25,19 +25,19 @@ import (
 )
 
 type SnsPlatformApplicationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SnsPlatformApplicationParameters struct {
-	EventDeliveryFailureTopicArn *string `json:"eventDeliveryFailureTopicArn,omitempty" tf:"event_delivery_failure_topic_arn"`
+	EventDeliveryFailureTopicARN *string `json:"eventDeliveryFailureTopicARN,omitempty" tf:"event_delivery_failure_topic_arn"`
 
-	EventEndpointCreatedTopicArn *string `json:"eventEndpointCreatedTopicArn,omitempty" tf:"event_endpoint_created_topic_arn"`
+	EventEndpointCreatedTopicARN *string `json:"eventEndpointCreatedTopicARN,omitempty" tf:"event_endpoint_created_topic_arn"`
 
-	EventEndpointDeletedTopicArn *string `json:"eventEndpointDeletedTopicArn,omitempty" tf:"event_endpoint_deleted_topic_arn"`
+	EventEndpointDeletedTopicARN *string `json:"eventEndpointDeletedTopicARN,omitempty" tf:"event_endpoint_deleted_topic_arn"`
 
-	EventEndpointUpdatedTopicArn *string `json:"eventEndpointUpdatedTopicArn,omitempty" tf:"event_endpoint_updated_topic_arn"`
+	EventEndpointUpdatedTopicARN *string `json:"eventEndpointUpdatedTopicARN,omitempty" tf:"event_endpoint_updated_topic_arn"`
 
-	FailureFeedbackRoleArn *string `json:"failureFeedbackRoleArn,omitempty" tf:"failure_feedback_role_arn"`
+	FailureFeedbackRoleARN *string `json:"failureFeedbackRoleARN,omitempty" tf:"failure_feedback_role_arn"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -47,7 +47,7 @@ type SnsPlatformApplicationParameters struct {
 
 	PlatformPrincipal *string `json:"platformPrincipal,omitempty" tf:"platform_principal"`
 
-	SuccessFeedbackRoleArn *string `json:"successFeedbackRoleArn,omitempty" tf:"success_feedback_role_arn"`
+	SuccessFeedbackRoleARN *string `json:"successFeedbackRoleARN,omitempty" tf:"success_feedback_role_arn"`
 
 	SuccessFeedbackSampleRate *string `json:"successFeedbackSampleRate,omitempty" tf:"success_feedback_sample_rate"`
 }

@@ -25,7 +25,7 @@ import (
 )
 
 type XrayGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type XrayGroupParameters struct {

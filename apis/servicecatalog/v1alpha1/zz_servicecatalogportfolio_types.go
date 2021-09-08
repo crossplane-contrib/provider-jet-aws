@@ -25,7 +25,7 @@ import (
 )
 
 type ServicecatalogPortfolioObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedTime string `json:"createdTime" tf:"created_time"`
 }

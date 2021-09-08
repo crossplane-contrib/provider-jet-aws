@@ -47,7 +47,7 @@ type SizeConstraintsParameters struct {
 }
 
 type WafSizeConstraintSetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type WafSizeConstraintSetParameters struct {

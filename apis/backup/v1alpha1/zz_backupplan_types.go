@@ -34,7 +34,7 @@ type AdvancedBackupSettingParameters struct {
 }
 
 type BackupPlanObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Version string `json:"version" tf:"version"`
 }
@@ -55,7 +55,7 @@ type CopyActionObservation struct {
 }
 
 type CopyActionParameters struct {
-	DestinationVaultArn string `json:"destinationVaultArn" tf:"destination_vault_arn"`
+	DestinationVaultARN string `json:"destinationVaultARN" tf:"destination_vault_arn"`
 
 	Lifecycle []LifecycleParameters `json:"lifecycle,omitempty" tf:"lifecycle"`
 }

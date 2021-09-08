@@ -41,7 +41,7 @@ type AdminCreateUserConfigParameters struct {
 }
 
 type CognitoUserPoolObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreationDate string `json:"creationDate" tf:"creation_date"`
 
@@ -108,7 +108,7 @@ type CustomEmailSenderObservation struct {
 }
 
 type CustomEmailSenderParameters struct {
-	LambdaArn string `json:"lambdaArn" tf:"lambda_arn"`
+	LambdaARN string `json:"lambdaARN" tf:"lambda_arn"`
 
 	LambdaVersion string `json:"lambdaVersion" tf:"lambda_version"`
 }
@@ -117,7 +117,7 @@ type CustomSmsSenderObservation struct {
 }
 
 type CustomSmsSenderParameters struct {
-	LambdaArn string `json:"lambdaArn" tf:"lambda_arn"`
+	LambdaARN string `json:"lambdaARN" tf:"lambda_arn"`
 
 	LambdaVersion string `json:"lambdaVersion" tf:"lambda_version"`
 }
@@ -143,7 +143,7 @@ type EmailConfigurationParameters struct {
 
 	ReplyToEmailAddress *string `json:"replyToEmailAddress,omitempty" tf:"reply_to_email_address"`
 
-	SourceArn *string `json:"sourceArn,omitempty" tf:"source_arn"`
+	SourceARN *string `json:"sourceARN,omitempty" tf:"source_arn"`
 }
 
 type InviteMessageTemplateObservation struct {
@@ -171,7 +171,7 @@ type LambdaConfigParameters struct {
 
 	DefineAuthChallenge *string `json:"defineAuthChallenge,omitempty" tf:"define_auth_challenge"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	PostAuthentication *string `json:"postAuthentication,omitempty" tf:"post_authentication"`
 
@@ -246,9 +246,9 @@ type SmsConfigurationObservation struct {
 }
 
 type SmsConfigurationParameters struct {
-	ExternalId string `json:"externalId" tf:"external_id"`
+	ExternalID string `json:"externalID" tf:"external_id"`
 
-	SnsCallerArn string `json:"snsCallerArn" tf:"sns_caller_arn"`
+	SnsCallerARN string `json:"snsCallerARN" tf:"sns_caller_arn"`
 }
 
 type SoftwareTokenMfaConfigurationObservation struct {

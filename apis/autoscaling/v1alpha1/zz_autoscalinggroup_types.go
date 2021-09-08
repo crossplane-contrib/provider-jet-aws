@@ -25,7 +25,7 @@ import (
 )
 
 type AutoscalingGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type AutoscalingGroupParameters struct {
@@ -77,7 +77,7 @@ type AutoscalingGroupParameters struct {
 
 	ProtectFromScaleIn *bool `json:"protectFromScaleIn,omitempty" tf:"protect_from_scale_in"`
 
-	ServiceLinkedRoleArn *string `json:"serviceLinkedRoleArn,omitempty" tf:"service_linked_role_arn"`
+	ServiceLinkedRoleARN *string `json:"serviceLinkedRoleARN,omitempty" tf:"service_linked_role_arn"`
 
 	SuspendedProcesses []string `json:"suspendedProcesses,omitempty" tf:"suspended_processes"`
 
@@ -89,7 +89,7 @@ type AutoscalingGroupParameters struct {
 
 	TerminationPolicies []string `json:"terminationPolicies,omitempty" tf:"termination_policies"`
 
-	VpcZoneIdentifier []string `json:"vpcZoneIdentifier,omitempty" tf:"vpc_zone_identifier"`
+	VPCZoneIdentifier []string `json:"vpcZoneIdentifier,omitempty" tf:"vpc_zone_identifier"`
 
 	WaitForCapacityTimeout *string `json:"waitForCapacityTimeout,omitempty" tf:"wait_for_capacity_timeout"`
 
@@ -112,9 +112,9 @@ type InitialLifecycleHookParameters struct {
 
 	NotificationMetadata *string `json:"notificationMetadata,omitempty" tf:"notification_metadata"`
 
-	NotificationTargetArn *string `json:"notificationTargetArn,omitempty" tf:"notification_target_arn"`
+	NotificationTargetARN *string `json:"notificationTargetARN,omitempty" tf:"notification_target_arn"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 }
 
 type InstanceRefreshObservation struct {
@@ -149,7 +149,7 @@ type LaunchTemplateObservation struct {
 }
 
 type LaunchTemplateParameters struct {
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
@@ -160,7 +160,7 @@ type LaunchTemplateSpecificationObservation struct {
 }
 
 type LaunchTemplateSpecificationParameters struct {
-	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+	LaunchTemplateID *string `json:"launchTemplateID,omitempty" tf:"launch_template_id"`
 
 	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
 
@@ -189,7 +189,7 @@ type OverrideLaunchTemplateSpecificationObservation struct {
 }
 
 type OverrideLaunchTemplateSpecificationParameters struct {
-	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+	LaunchTemplateID *string `json:"launchTemplateID,omitempty" tf:"launch_template_id"`
 
 	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
 

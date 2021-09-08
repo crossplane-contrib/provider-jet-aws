@@ -32,7 +32,7 @@ type AutoscalingNotificationParameters struct {
 
 	Notifications []string `json:"notifications" tf:"notifications"`
 
-	TopicArn string `json:"topicArn" tf:"topic_arn"`
+	TopicARN string `json:"topicARN" tf:"topic_arn"`
 }
 
 // AutoscalingNotificationSpec defines the desired state of AutoscalingNotification

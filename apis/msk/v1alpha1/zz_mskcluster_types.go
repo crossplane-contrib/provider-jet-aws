@@ -56,7 +56,7 @@ type ClientAuthenticationObservation struct {
 type ClientAuthenticationParameters struct {
 	Sasl []SaslParameters `json:"sasl,omitempty" tf:"sasl"`
 
-	Tls []TlsParameters `json:"tls,omitempty" tf:"tls"`
+	TLS []TLSParameters `json:"tls,omitempty" tf:"tls"`
 }
 
 type CloudwatchLogsObservation struct {
@@ -72,7 +72,7 @@ type ConfigurationInfoObservation struct {
 }
 
 type ConfigurationInfoParameters struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Revision int64 `json:"revision" tf:"revision"`
 }
@@ -90,7 +90,7 @@ type EncryptionInfoObservation struct {
 }
 
 type EncryptionInfoParameters struct {
-	EncryptionAtRestKmsKeyArn *string `json:"encryptionAtRestKmsKeyArn,omitempty" tf:"encryption_at_rest_kms_key_arn"`
+	EncryptionAtRestKmsKeyARN *string `json:"encryptionAtRestKmsKeyARN,omitempty" tf:"encryption_at_rest_kms_key_arn"`
 
 	EncryptionInTransit []EncryptionInTransitParameters `json:"encryptionInTransit,omitempty" tf:"encryption_in_transit"`
 }
@@ -119,7 +119,7 @@ type LoggingInfoParameters struct {
 }
 
 type MskClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	BootstrapBrokers string `json:"bootstrapBrokers" tf:"bootstrap_brokers"`
 
@@ -127,7 +127,7 @@ type MskClusterObservation struct {
 
 	BootstrapBrokersSaslScram string `json:"bootstrapBrokersSaslScram" tf:"bootstrap_brokers_sasl_scram"`
 
-	BootstrapBrokersTls string `json:"bootstrapBrokersTls" tf:"bootstrap_brokers_tls"`
+	BootstrapBrokersTLS string `json:"bootstrapBrokersTLS" tf:"bootstrap_brokers_tls"`
 
 	CurrentVersion string `json:"currentVersion" tf:"current_version"`
 
@@ -203,10 +203,10 @@ type SaslParameters struct {
 	Scram *bool `json:"scram,omitempty" tf:"scram"`
 }
 
-type TlsObservation struct {
+type TLSObservation struct {
 }
 
-type TlsParameters struct {
+type TLSParameters struct {
 	CertificateAuthorityArns []string `json:"certificateAuthorityArns,omitempty" tf:"certificate_authority_arns"`
 }
 

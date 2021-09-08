@@ -43,7 +43,7 @@ type EmrManagedScalingPolicyObservation struct {
 }
 
 type EmrManagedScalingPolicyParameters struct {
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
+	ClusterID string `json:"clusterID" tf:"cluster_id"`
 
 	ComputeLimits []ComputeLimitsParameters `json:"computeLimits" tf:"compute_limits"`
 }

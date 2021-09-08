@@ -43,7 +43,7 @@ type DefaultCapacityProviderStrategyParameters struct {
 }
 
 type EcsClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type EcsClusterParameters struct {
@@ -66,7 +66,7 @@ type ExecuteCommandConfigurationObservation struct {
 }
 
 type ExecuteCommandConfigurationParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	LogConfiguration []LogConfigurationParameters `json:"logConfiguration,omitempty" tf:"log_configuration"`
 

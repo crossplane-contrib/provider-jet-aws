@@ -45,11 +45,11 @@ type ContentConfigPermissionsParameters struct {
 }
 
 type ElastictranscoderPipelineObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ElastictranscoderPipelineParameters struct {
-	AwsKmsKeyArn *string `json:"awsKmsKeyArn,omitempty" tf:"aws_kms_key_arn"`
+	AwsKmsKeyARN *string `json:"awsKmsKeyARN,omitempty" tf:"aws_kms_key_arn"`
 
 	ContentConfig []ContentConfigParameters `json:"contentConfig,omitempty" tf:"content_config"`
 

@@ -25,15 +25,15 @@ import (
 )
 
 type RdsClusterInstanceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DbiResourceId string `json:"dbiResourceId" tf:"dbi_resource_id"`
+	DbiResourceID string `json:"dbiResourceID" tf:"dbi_resource_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
 	EngineVersionActual string `json:"engineVersionActual" tf:"engine_version_actual"`
 
-	KmsKeyId string `json:"kmsKeyId" tf:"kms_key_id"`
+	KmsKeyID string `json:"kmsKeyID" tf:"kms_key_id"`
 
 	Port int64 `json:"port" tf:"port"`
 
@@ -55,9 +55,9 @@ type RdsClusterInstanceParameters struct {
 
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot,omitempty" tf:"copy_tags_to_snapshot"`
 
-	DbParameterGroupName *string `json:"dbParameterGroupName,omitempty" tf:"db_parameter_group_name"`
+	DBParameterGroupName *string `json:"dbParameterGroupName,omitempty" tf:"db_parameter_group_name"`
 
-	DbSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
+	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
 
 	Engine *string `json:"engine,omitempty" tf:"engine"`
 
@@ -71,11 +71,11 @@ type RdsClusterInstanceParameters struct {
 
 	MonitoringInterval *int64 `json:"monitoringInterval,omitempty" tf:"monitoring_interval"`
 
-	MonitoringRoleArn *string `json:"monitoringRoleArn,omitempty" tf:"monitoring_role_arn"`
+	MonitoringRoleARN *string `json:"monitoringRoleARN,omitempty" tf:"monitoring_role_arn"`
 
 	PerformanceInsightsEnabled *bool `json:"performanceInsightsEnabled,omitempty" tf:"performance_insights_enabled"`
 
-	PerformanceInsightsKmsKeyId *string `json:"performanceInsightsKmsKeyId,omitempty" tf:"performance_insights_kms_key_id"`
+	PerformanceInsightsKmsKeyID *string `json:"performanceInsightsKmsKeyID,omitempty" tf:"performance_insights_kms_key_id"`
 
 	PreferredBackupWindow *string `json:"preferredBackupWindow,omitempty" tf:"preferred_backup_window"`
 

@@ -25,15 +25,15 @@ import (
 )
 
 type AppconfigEnvironmentObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	EnvironmentId string `json:"environmentId" tf:"environment_id"`
+	EnvironmentID string `json:"environmentID" tf:"environment_id"`
 
 	State string `json:"state" tf:"state"`
 }
 
 type AppconfigEnvironmentParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
@@ -50,9 +50,9 @@ type MonitorObservation struct {
 }
 
 type MonitorParameters struct {
-	AlarmArn string `json:"alarmArn" tf:"alarm_arn"`
+	AlarmARN string `json:"alarmARN" tf:"alarm_arn"`
 
-	AlarmRoleArn *string `json:"alarmRoleArn,omitempty" tf:"alarm_role_arn"`
+	AlarmRoleARN *string `json:"alarmRoleARN,omitempty" tf:"alarm_role_arn"`
 }
 
 // AppconfigEnvironmentSpec defines the desired state of AppconfigEnvironment

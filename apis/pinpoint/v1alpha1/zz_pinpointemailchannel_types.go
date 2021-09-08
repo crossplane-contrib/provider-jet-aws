@@ -29,7 +29,7 @@ type PinpointEmailChannelObservation struct {
 }
 
 type PinpointEmailChannelParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationID" tf:"application_id"`
 
 	ConfigurationSet *string `json:"configurationSet,omitempty" tf:"configuration_set"`
 
@@ -39,7 +39,7 @@ type PinpointEmailChannelParameters struct {
 
 	Identity string `json:"identity" tf:"identity"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 }
 
 // PinpointEmailChannelSpec defines the desired state of PinpointEmailChannel

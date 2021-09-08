@@ -44,11 +44,11 @@ type Route53HealthCheckParameters struct {
 
 	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn"`
 
+	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
+
 	InsufficientDataHealthStatus *string `json:"insufficientDataHealthStatus,omitempty" tf:"insufficient_data_health_status"`
 
 	InvertHealthcheck *bool `json:"invertHealthcheck,omitempty" tf:"invert_healthcheck"`
-
-	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
 
 	MeasureLatency *bool `json:"measureLatency,omitempty" tf:"measure_latency"`
 

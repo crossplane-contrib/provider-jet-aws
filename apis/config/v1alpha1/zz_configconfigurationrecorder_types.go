@@ -32,7 +32,7 @@ type ConfigConfigurationRecorderParameters struct {
 
 	RecordingGroup []RecordingGroupParameters `json:"recordingGroup,omitempty" tf:"recording_group"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type RecordingGroupObservation struct {

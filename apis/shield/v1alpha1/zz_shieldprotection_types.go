@@ -25,13 +25,13 @@ import (
 )
 
 type ShieldProtectionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ShieldProtectionParameters struct {
 	Name string `json:"name" tf:"name"`
 
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

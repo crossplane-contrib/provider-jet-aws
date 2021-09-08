@@ -28,9 +28,9 @@ type VpcEndpointSubnetAssociationObservation struct {
 }
 
 type VpcEndpointSubnetAssociationParameters struct {
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetID" tf:"subnet_id"`
 
-	VpcEndpointId string `json:"vpcEndpointId" tf:"vpc_endpoint_id"`
+	VPCEndpointID string `json:"vpcEndpointID" tf:"vpc_endpoint_id"`
 }
 
 // VpcEndpointSubnetAssociationSpec defines the desired state of VpcEndpointSubnetAssociation

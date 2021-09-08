@@ -25,11 +25,11 @@ import (
 )
 
 type Macie2InvitationAccepterObservation struct {
-	InvitationId string `json:"invitationId" tf:"invitation_id"`
+	InvitationID string `json:"invitationID" tf:"invitation_id"`
 }
 
 type Macie2InvitationAccepterParameters struct {
-	AdministratorAccountId string `json:"administratorAccountId" tf:"administrator_account_id"`
+	AdministratorAccountID string `json:"administratorAccountID" tf:"administrator_account_id"`
 }
 
 // Macie2InvitationAccepterSpec defines the desired state of Macie2InvitationAccepter

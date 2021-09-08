@@ -28,13 +28,13 @@ type GuarddutyPublishingDestinationObservation struct {
 }
 
 type GuarddutyPublishingDestinationParameters struct {
-	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
+	DestinationARN string `json:"destinationARN" tf:"destination_arn"`
 
 	DestinationType *string `json:"destinationType,omitempty" tf:"destination_type"`
 
-	DetectorId string `json:"detectorId" tf:"detector_id"`
+	DetectorID string `json:"detectorID" tf:"detector_id"`
 
-	KmsKeyArn string `json:"kmsKeyArn" tf:"kms_key_arn"`
+	KmsKeyARN string `json:"kmsKeyARN" tf:"kms_key_arn"`
 }
 
 // GuarddutyPublishingDestinationSpec defines the desired state of GuarddutyPublishingDestination

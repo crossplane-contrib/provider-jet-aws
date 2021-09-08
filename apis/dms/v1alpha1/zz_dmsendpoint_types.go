@@ -25,17 +25,17 @@ import (
 )
 
 type DmsEndpointObservation struct {
-	EndpointArn string `json:"endpointArn" tf:"endpoint_arn"`
+	EndpointARN string `json:"endpointARN" tf:"endpoint_arn"`
 }
 
 type DmsEndpointParameters struct {
-	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn"`
+	CertificateARN *string `json:"certificateARN,omitempty" tf:"certificate_arn"`
 
 	DatabaseName *string `json:"databaseName,omitempty" tf:"database_name"`
 
 	ElasticsearchSettings []ElasticsearchSettingsParameters `json:"elasticsearchSettings,omitempty" tf:"elasticsearch_settings"`
 
-	EndpointId string `json:"endpointId" tf:"endpoint_id"`
+	EndpointID string `json:"endpointID" tf:"endpoint_id"`
 
 	EndpointType string `json:"endpointType" tf:"endpoint_type"`
 
@@ -47,7 +47,7 @@ type DmsEndpointParameters struct {
 
 	KinesisSettings []KinesisSettingsParameters `json:"kinesisSettings,omitempty" tf:"kinesis_settings"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	MongodbSettings []MongodbSettingsParameters `json:"mongodbSettings,omitempty" tf:"mongodb_settings"`
 
@@ -74,13 +74,13 @@ type ElasticsearchSettingsObservation struct {
 }
 
 type ElasticsearchSettingsParameters struct {
-	EndpointUri string `json:"endpointUri" tf:"endpoint_uri"`
+	EndpointURI string `json:"endpointURI" tf:"endpoint_uri"`
 
 	ErrorRetryDuration *int64 `json:"errorRetryDuration,omitempty" tf:"error_retry_duration"`
 
 	FullLoadErrorPercentage *int64 `json:"fullLoadErrorPercentage,omitempty" tf:"full_load_error_percentage"`
 
-	ServiceAccessRoleArn string `json:"serviceAccessRoleArn" tf:"service_access_role_arn"`
+	ServiceAccessRoleARN string `json:"serviceAccessRoleARN" tf:"service_access_role_arn"`
 }
 
 type KafkaSettingsObservation struct {
@@ -98,9 +98,9 @@ type KinesisSettingsObservation struct {
 type KinesisSettingsParameters struct {
 	MessageFormat *string `json:"messageFormat,omitempty" tf:"message_format"`
 
-	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn,omitempty" tf:"service_access_role_arn"`
+	ServiceAccessRoleARN *string `json:"serviceAccessRoleARN,omitempty" tf:"service_access_role_arn"`
 
-	StreamArn *string `json:"streamArn,omitempty" tf:"stream_arn"`
+	StreamARN *string `json:"streamARN,omitempty" tf:"stream_arn"`
 }
 
 type MongodbSettingsObservation struct {
@@ -115,7 +115,7 @@ type MongodbSettingsParameters struct {
 
 	DocsToInvestigate *string `json:"docsToInvestigate,omitempty" tf:"docs_to_investigate"`
 
-	ExtractDocId *string `json:"extractDocId,omitempty" tf:"extract_doc_id"`
+	ExtractDocID *string `json:"extractDocID,omitempty" tf:"extract_doc_id"`
 
 	NestingLevel *string `json:"nestingLevel,omitempty" tf:"nesting_level"`
 }
@@ -138,7 +138,7 @@ type S3SettingsParameters struct {
 
 	ExternalTableDefinition *string `json:"externalTableDefinition,omitempty" tf:"external_table_definition"`
 
-	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn,omitempty" tf:"service_access_role_arn"`
+	ServiceAccessRoleARN *string `json:"serviceAccessRoleARN,omitempty" tf:"service_access_role_arn"`
 }
 
 // DmsEndpointSpec defines the desired state of DmsEndpoint

@@ -71,7 +71,7 @@ type LaunchTemplateSpecificationObservation struct {
 }
 
 type LaunchTemplateSpecificationParameters struct {
-	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+	LaunchTemplateID *string `json:"launchTemplateID,omitempty" tf:"launch_template_id"`
 
 	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
 
@@ -104,7 +104,7 @@ type OverrideParameters struct {
 
 	Priority *float64 `json:"priority,omitempty" tf:"priority"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	WeightedCapacity *float64 `json:"weightedCapacity,omitempty" tf:"weighted_capacity"`
 }

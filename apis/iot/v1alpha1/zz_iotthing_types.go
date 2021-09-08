@@ -25,9 +25,9 @@ import (
 )
 
 type IotThingObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DefaultClientId string `json:"defaultClientId" tf:"default_client_id"`
+	DefaultClientID string `json:"defaultClientID" tf:"default_client_id"`
 
 	Version int64 `json:"version" tf:"version"`
 }

@@ -25,17 +25,17 @@ import (
 )
 
 type Route53ResolverDnssecConfigObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
 	ValidationStatus string `json:"validationStatus" tf:"validation_status"`
 }
 
 type Route53ResolverDnssecConfigParameters struct {
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 }
 
 // Route53ResolverDnssecConfigSpec defines the desired state of Route53ResolverDnssecConfig

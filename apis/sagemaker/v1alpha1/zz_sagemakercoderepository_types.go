@@ -30,13 +30,13 @@ type GitConfigObservation struct {
 type GitConfigParameters struct {
 	Branch *string `json:"branch,omitempty" tf:"branch"`
 
-	RepositoryUrl string `json:"repositoryUrl" tf:"repository_url"`
+	RepositoryURL string `json:"repositoryURL" tf:"repository_url"`
 
-	SecretArn *string `json:"secretArn,omitempty" tf:"secret_arn"`
+	SecretARN *string `json:"secretARN,omitempty" tf:"secret_arn"`
 }
 
 type SagemakerCodeRepositoryObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SagemakerCodeRepositoryParameters struct {

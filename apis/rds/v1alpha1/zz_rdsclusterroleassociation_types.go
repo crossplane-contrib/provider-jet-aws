@@ -28,11 +28,11 @@ type RdsClusterRoleAssociationObservation struct {
 }
 
 type RdsClusterRoleAssociationParameters struct {
-	DbClusterIdentifier string `json:"dbClusterIdentifier" tf:"db_cluster_identifier"`
+	DBClusterIdentifier string `json:"dbClusterIdentifier" tf:"db_cluster_identifier"`
 
 	FeatureName string `json:"featureName" tf:"feature_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 // RdsClusterRoleAssociationSpec defines the desired state of RdsClusterRoleAssociation

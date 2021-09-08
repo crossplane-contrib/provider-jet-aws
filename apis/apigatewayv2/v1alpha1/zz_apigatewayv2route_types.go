@@ -28,15 +28,15 @@ type Apigatewayv2RouteObservation struct {
 }
 
 type Apigatewayv2RouteParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
-	ApiKeyRequired *bool `json:"apiKeyRequired,omitempty" tf:"api_key_required"`
+	APIKeyRequired *bool `json:"apiKeyRequired,omitempty" tf:"api_key_required"`
 
 	AuthorizationScopes []string `json:"authorizationScopes,omitempty" tf:"authorization_scopes"`
 
 	AuthorizationType *string `json:"authorizationType,omitempty" tf:"authorization_type"`
 
-	AuthorizerId *string `json:"authorizerId,omitempty" tf:"authorizer_id"`
+	AuthorizerID *string `json:"authorizerID,omitempty" tf:"authorizer_id"`
 
 	ModelSelectionExpression *string `json:"modelSelectionExpression,omitempty" tf:"model_selection_expression"`
 

@@ -25,7 +25,7 @@ import (
 )
 
 type KinesisStreamConsumerObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreationTimestamp string `json:"creationTimestamp" tf:"creation_timestamp"`
 }
@@ -33,7 +33,7 @@ type KinesisStreamConsumerObservation struct {
 type KinesisStreamConsumerParameters struct {
 	Name string `json:"name" tf:"name"`
 
-	StreamArn string `json:"streamArn" tf:"stream_arn"`
+	StreamARN string `json:"streamARN" tf:"stream_arn"`
 }
 
 // KinesisStreamConsumerSpec defines the desired state of KinesisStreamConsumer

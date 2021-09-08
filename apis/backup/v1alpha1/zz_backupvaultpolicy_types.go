@@ -25,7 +25,7 @@ import (
 )
 
 type BackupVaultPolicyObservation struct {
-	BackupVaultArn string `json:"backupVaultArn" tf:"backup_vault_arn"`
+	BackupVaultARN string `json:"backupVaultARN" tf:"backup_vault_arn"`
 }
 
 type BackupVaultPolicyParameters struct {

@@ -36,21 +36,21 @@ type AccessLogsParameters struct {
 }
 
 type AlbObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ArnSuffix string `json:"arnSuffix" tf:"arn_suffix"`
+	ARNSuffix string `json:"arnSuffix" tf:"arn_suffix"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneID" tf:"zone_id"`
 }
 
 type AlbParameters struct {
 	AccessLogs []AccessLogsParameters `json:"accessLogs,omitempty" tf:"access_logs"`
 
-	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
+	CustomerOwnedIPv4Pool *string `json:"customerOwnedIPv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
 
 	DropInvalidHeaderFields *bool `json:"dropInvalidHeaderFields,omitempty" tf:"drop_invalid_header_fields"`
 
@@ -60,11 +60,11 @@ type AlbParameters struct {
 
 	EnableHttp2 *bool `json:"enableHttp2,omitempty" tf:"enable_http2"`
 
+	IPAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type"`
+
 	IdleTimeout *int64 `json:"idleTimeout,omitempty" tf:"idle_timeout"`
 
 	Internal *bool `json:"internal,omitempty" tf:"internal"`
-
-	IpAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type"`
 
 	LoadBalancerType *string `json:"loadBalancerType,omitempty" tf:"load_balancer_type"`
 
@@ -84,17 +84,17 @@ type AlbParameters struct {
 }
 
 type SubnetMappingObservation struct {
-	OutpostId string `json:"outpostId" tf:"outpost_id"`
+	OutpostID string `json:"outpostID" tf:"outpost_id"`
 }
 
 type SubnetMappingParameters struct {
-	AllocationId *string `json:"allocationId,omitempty" tf:"allocation_id"`
+	AllocationID *string `json:"allocationID,omitempty" tf:"allocation_id"`
 
-	Ipv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address"`
+	IPv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address"`
 
-	PrivateIpv4Address *string `json:"privateIpv4Address,omitempty" tf:"private_ipv4_address"`
+	PrivateIPv4Address *string `json:"privateIPv4Address,omitempty" tf:"private_ipv4_address"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetID" tf:"subnet_id"`
 }
 
 // AlbSpec defines the desired state of Alb

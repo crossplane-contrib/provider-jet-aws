@@ -25,13 +25,13 @@ import (
 )
 
 type Route53ResolverFirewallConfigObservation struct {
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type Route53ResolverFirewallConfigParameters struct {
 	FirewallFailOpen *string `json:"firewallFailOpen,omitempty" tf:"firewall_fail_open"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 }
 
 // Route53ResolverFirewallConfigSpec defines the desired state of Route53ResolverFirewallConfig

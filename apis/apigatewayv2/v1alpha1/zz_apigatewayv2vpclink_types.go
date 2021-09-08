@@ -25,7 +25,7 @@ import (
 )
 
 type Apigatewayv2VpcLinkObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type Apigatewayv2VpcLinkParameters struct {

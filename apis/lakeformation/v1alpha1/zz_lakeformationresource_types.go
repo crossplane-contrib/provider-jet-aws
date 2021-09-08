@@ -29,9 +29,9 @@ type LakeformationResourceObservation struct {
 }
 
 type LakeformationResourceParameters struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 }
 
 // LakeformationResourceSpec defines the desired state of LakeformationResource

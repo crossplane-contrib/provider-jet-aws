@@ -25,7 +25,7 @@ import (
 )
 
 type WafRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type WafRuleParameters struct {
@@ -44,7 +44,7 @@ type WafRulePredicatesObservation struct {
 }
 
 type WafRulePredicatesParameters struct {
-	DataId string `json:"dataId" tf:"data_id"`
+	DataID string `json:"dataID" tf:"data_id"`
 
 	Negated bool `json:"negated" tf:"negated"`
 

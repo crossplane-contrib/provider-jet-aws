@@ -30,7 +30,7 @@ type ApiGatewayRestApiPolicyObservation struct {
 type ApiGatewayRestApiPolicyParameters struct {
 	Policy string `json:"policy" tf:"policy"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
 }
 
 // ApiGatewayRestApiPolicySpec defines the desired state of ApiGatewayRestApiPolicy

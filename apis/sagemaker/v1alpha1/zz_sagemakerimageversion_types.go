@@ -25,11 +25,11 @@ import (
 )
 
 type SagemakerImageVersionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ContainerImage string `json:"containerImage" tf:"container_image"`
 
-	ImageArn string `json:"imageArn" tf:"image_arn"`
+	ImageARN string `json:"imageARN" tf:"image_arn"`
 
 	Version int64 `json:"version" tf:"version"`
 }

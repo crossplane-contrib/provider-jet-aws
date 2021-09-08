@@ -25,19 +25,19 @@ import (
 )
 
 type DbProxyEndpointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
 	IsDefault bool `json:"isDefault" tf:"is_default"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type DbProxyEndpointParameters struct {
-	DbProxyEndpointName string `json:"dbProxyEndpointName" tf:"db_proxy_endpoint_name"`
+	DBProxyEndpointName string `json:"dbProxyEndpointName" tf:"db_proxy_endpoint_name"`
 
-	DbProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
+	DBProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -45,9 +45,9 @@ type DbProxyEndpointParameters struct {
 
 	TargetRole *string `json:"targetRole,omitempty" tf:"target_role"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 
-	VpcSubnetIds []string `json:"vpcSubnetIds" tf:"vpc_subnet_ids"`
+	VPCSubnetIds []string `json:"vpcSubnetIds" tf:"vpc_subnet_ids"`
 }
 
 // DbProxyEndpointSpec defines the desired state of DbProxyEndpoint

@@ -34,7 +34,7 @@ type SignatureValidityPeriodParameters struct {
 }
 
 type SignerSigningProfileObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	PlatformDisplayName string `json:"platformDisplayName" tf:"platform_display_name"`
 
@@ -44,7 +44,7 @@ type SignerSigningProfileObservation struct {
 
 	Version string `json:"version" tf:"version"`
 
-	VersionArn string `json:"versionArn" tf:"version_arn"`
+	VersionARN string `json:"versionARN" tf:"version_arn"`
 }
 
 type SignerSigningProfileParameters struct {
@@ -52,7 +52,7 @@ type SignerSigningProfileParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
-	PlatformId string `json:"platformId" tf:"platform_id"`
+	PlatformID string `json:"platformID" tf:"platform_id"`
 
 	SignatureValidityPeriod []SignatureValidityPeriodParameters `json:"signatureValidityPeriod,omitempty" tf:"signature_validity_period"`
 

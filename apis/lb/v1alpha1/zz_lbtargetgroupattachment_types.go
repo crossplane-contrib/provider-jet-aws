@@ -32,9 +32,9 @@ type LbTargetGroupAttachmentParameters struct {
 
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
-	TargetGroupArn string `json:"targetGroupArn" tf:"target_group_arn"`
+	TargetGroupARN string `json:"targetGroupARN" tf:"target_group_arn"`
 
-	TargetId string `json:"targetId" tf:"target_id"`
+	TargetID string `json:"targetID" tf:"target_id"`
 }
 
 // LbTargetGroupAttachmentSpec defines the desired state of LbTargetGroupAttachment

@@ -34,11 +34,11 @@ type EgressParameters struct {
 
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+
 	IcmpCode *int64 `json:"icmpCode,omitempty" tf:"icmp_code"`
 
 	IcmpType *int64 `json:"icmpType,omitempty" tf:"icmp_type"`
-
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
 
 	Protocol string `json:"protocol" tf:"protocol"`
 
@@ -57,11 +57,11 @@ type IngressParameters struct {
 
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+
 	IcmpCode *int64 `json:"icmpCode,omitempty" tf:"icmp_code"`
 
 	IcmpType *int64 `json:"icmpType,omitempty" tf:"icmp_type"`
-
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
 
 	Protocol string `json:"protocol" tf:"protocol"`
 
@@ -71,9 +71,9 @@ type IngressParameters struct {
 }
 
 type NetworkAclObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type NetworkAclParameters struct {
@@ -87,7 +87,7 @@ type NetworkAclParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // NetworkAclSpec defines the desired state of NetworkAcl

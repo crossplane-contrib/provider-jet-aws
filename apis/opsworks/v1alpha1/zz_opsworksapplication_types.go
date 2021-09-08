@@ -32,11 +32,11 @@ type AppSourceParameters struct {
 
 	Revision *string `json:"revision,omitempty" tf:"revision"`
 
-	SshKey *string `json:"sshKey,omitempty" tf:"ssh_key"`
+	SSHKey *string `json:"sshKey,omitempty" tf:"ssh_key"`
 
 	Type string `json:"type" tf:"type"`
 
-	Url *string `json:"url,omitempty" tf:"url"`
+	URL *string `json:"url,omitempty" tf:"url"`
 
 	Username *string `json:"username,omitempty" tf:"username"`
 }
@@ -62,7 +62,7 @@ type OpsworksApplicationParameters struct {
 
 	AwsFlowRubySettings *string `json:"awsFlowRubySettings,omitempty" tf:"aws_flow_ruby_settings"`
 
-	DataSourceArn *string `json:"dataSourceArn,omitempty" tf:"data_source_arn"`
+	DataSourceARN *string `json:"dataSourceARN,omitempty" tf:"data_source_arn"`
 
 	DataSourceDatabaseName *string `json:"dataSourceDatabaseName,omitempty" tf:"data_source_database_name"`
 
@@ -86,7 +86,7 @@ type OpsworksApplicationParameters struct {
 
 	SslConfiguration []SslConfigurationParameters `json:"sslConfiguration,omitempty" tf:"ssl_configuration"`
 
-	StackId string `json:"stackId" tf:"stack_id"`
+	StackID string `json:"stackID" tf:"stack_id"`
 
 	Type string `json:"type" tf:"type"`
 }

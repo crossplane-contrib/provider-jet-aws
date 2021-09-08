@@ -33,7 +33,7 @@ type CloudformationStackParameters struct {
 
 	DisableRollback *bool `json:"disableRollback,omitempty" tf:"disable_rollback"`
 
-	IamRoleArn *string `json:"iamRoleArn,omitempty" tf:"iam_role_arn"`
+	IamRoleARN *string `json:"iamRoleARN,omitempty" tf:"iam_role_arn"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -45,7 +45,7 @@ type CloudformationStackParameters struct {
 
 	PolicyBody *string `json:"policyBody,omitempty" tf:"policy_body"`
 
-	PolicyUrl *string `json:"policyUrl,omitempty" tf:"policy_url"`
+	PolicyURL *string `json:"policyURL,omitempty" tf:"policy_url"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -53,7 +53,7 @@ type CloudformationStackParameters struct {
 
 	TemplateBody *string `json:"templateBody,omitempty" tf:"template_body"`
 
-	TemplateUrl *string `json:"templateUrl,omitempty" tf:"template_url"`
+	TemplateURL *string `json:"templateURL,omitempty" tf:"template_url"`
 
 	TimeoutInMinutes *int64 `json:"timeoutInMinutes,omitempty" tf:"timeout_in_minutes"`
 }

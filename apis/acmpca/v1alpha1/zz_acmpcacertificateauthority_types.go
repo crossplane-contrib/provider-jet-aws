@@ -25,7 +25,7 @@ import (
 )
 
 type AcmpcaCertificateAuthorityObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Certificate string `json:"certificate" tf:"certificate"`
 
@@ -81,7 +81,7 @@ type CrlConfigurationParameters struct {
 
 	S3BucketName *string `json:"s3BucketName,omitempty" tf:"s3_bucket_name"`
 
-	S3ObjectAcl *string `json:"s3ObjectAcl,omitempty" tf:"s3_object_acl"`
+	S3ObjectACL *string `json:"s3ObjectACL,omitempty" tf:"s3_object_acl"`
 }
 
 type RevocationConfigurationObservation struct {

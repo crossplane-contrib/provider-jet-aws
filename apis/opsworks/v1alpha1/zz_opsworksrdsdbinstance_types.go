@@ -28,13 +28,13 @@ type OpsworksRdsDbInstanceObservation struct {
 }
 
 type OpsworksRdsDbInstanceParameters struct {
-	DbPassword string `json:"dbPassword" tf:"db_password"`
+	DBPassword string `json:"dbPassword" tf:"db_password"`
 
-	DbUser string `json:"dbUser" tf:"db_user"`
+	DBUser string `json:"dbUser" tf:"db_user"`
 
-	RdsDbInstanceArn string `json:"rdsDbInstanceArn" tf:"rds_db_instance_arn"`
+	RdsDBInstanceARN string `json:"rdsDBInstanceARN" tf:"rds_db_instance_arn"`
 
-	StackId string `json:"stackId" tf:"stack_id"`
+	StackID string `json:"stackID" tf:"stack_id"`
 }
 
 // OpsworksRdsDbInstanceSpec defines the desired state of OpsworksRdsDbInstance

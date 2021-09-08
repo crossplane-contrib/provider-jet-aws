@@ -25,7 +25,7 @@ import (
 )
 
 type DxGatewayAssociationProposalObservation struct {
-	AssociatedGatewayOwnerAccountId string `json:"associatedGatewayOwnerAccountId" tf:"associated_gateway_owner_account_id"`
+	AssociatedGatewayOwnerAccountID string `json:"associatedGatewayOwnerAccountID" tf:"associated_gateway_owner_account_id"`
 
 	AssociatedGatewayType string `json:"associatedGatewayType" tf:"associated_gateway_type"`
 }
@@ -33,11 +33,11 @@ type DxGatewayAssociationProposalObservation struct {
 type DxGatewayAssociationProposalParameters struct {
 	AllowedPrefixes []string `json:"allowedPrefixes,omitempty" tf:"allowed_prefixes"`
 
-	AssociatedGatewayId string `json:"associatedGatewayId" tf:"associated_gateway_id"`
+	AssociatedGatewayID string `json:"associatedGatewayID" tf:"associated_gateway_id"`
 
-	DxGatewayId string `json:"dxGatewayId" tf:"dx_gateway_id"`
+	DxGatewayID string `json:"dxGatewayID" tf:"dx_gateway_id"`
 
-	DxGatewayOwnerAccountId string `json:"dxGatewayOwnerAccountId" tf:"dx_gateway_owner_account_id"`
+	DxGatewayOwnerAccountID string `json:"dxGatewayOwnerAccountID" tf:"dx_gateway_owner_account_id"`
 }
 
 // DxGatewayAssociationProposalSpec defines the desired state of DxGatewayAssociationProposal

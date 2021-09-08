@@ -25,11 +25,11 @@ import (
 )
 
 type QuicksightGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type QuicksightGroupParameters struct {
-	AwsAccountId *string `json:"awsAccountId,omitempty" tf:"aws_account_id"`
+	AwsAccountID *string `json:"awsAccountID,omitempty" tf:"aws_account_id"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 

@@ -36,11 +36,11 @@ type AttributesParameters struct {
 }
 
 type GlobalacceleratorAcceleratorObservation struct {
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneID" tf:"hosted_zone_id"`
 
-	IpSets []IpSetsObservation `json:"ipSets" tf:"ip_sets"`
+	IPSets []IPSetsObservation `json:"ipSets" tf:"ip_sets"`
 }
 
 type GlobalacceleratorAcceleratorParameters struct {
@@ -48,7 +48,7 @@ type GlobalacceleratorAcceleratorParameters struct {
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	IpAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type"`
+	IPAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -57,13 +57,13 @@ type GlobalacceleratorAcceleratorParameters struct {
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
-type IpSetsObservation struct {
-	IpAddresses []string `json:"ipAddresses" tf:"ip_addresses"`
+type IPSetsObservation struct {
+	IPAddresses []string `json:"ipAddresses" tf:"ip_addresses"`
 
-	IpFamily string `json:"ipFamily" tf:"ip_family"`
+	IPFamily string `json:"ipFamily" tf:"ip_family"`
 }
 
-type IpSetsParameters struct {
+type IPSetsParameters struct {
 }
 
 // GlobalacceleratorAcceleratorSpec defines the desired state of GlobalacceleratorAccelerator

@@ -25,7 +25,7 @@ import (
 )
 
 type DagProcessingLogsObservation struct {
-	CloudWatchLogGroupArn string `json:"cloudWatchLogGroupArn" tf:"cloud_watch_log_group_arn"`
+	CloudWatchLogGroupARN string `json:"cloudWatchLogGroupARN" tf:"cloud_watch_log_group_arn"`
 }
 
 type DagProcessingLogsParameters struct {
@@ -70,17 +70,17 @@ type LoggingConfigurationParameters struct {
 }
 
 type MwaaEnvironmentObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedAt string `json:"createdAt" tf:"created_at"`
 
 	LastUpdated []LastUpdatedObservation `json:"lastUpdated" tf:"last_updated"`
 
-	ServiceRoleArn string `json:"serviceRoleArn" tf:"service_role_arn"`
+	ServiceRoleARN string `json:"serviceRoleARN" tf:"service_role_arn"`
 
 	Status string `json:"status" tf:"status"`
 
-	WebserverUrl string `json:"webserverUrl" tf:"webserver_url"`
+	WebserverURL string `json:"webserverURL" tf:"webserver_url"`
 }
 
 type MwaaEnvironmentParameters struct {
@@ -92,7 +92,7 @@ type MwaaEnvironmentParameters struct {
 
 	EnvironmentClass *string `json:"environmentClass,omitempty" tf:"environment_class"`
 
-	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
+	ExecutionRoleARN string `json:"executionRoleARN" tf:"execution_role_arn"`
 
 	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key"`
 
@@ -114,7 +114,7 @@ type MwaaEnvironmentParameters struct {
 
 	RequirementsS3Path *string `json:"requirementsS3Path,omitempty" tf:"requirements_s3_path"`
 
-	SourceBucketArn string `json:"sourceBucketArn" tf:"source_bucket_arn"`
+	SourceBucketARN string `json:"sourceBucketARN" tf:"source_bucket_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -135,7 +135,7 @@ type NetworkConfigurationParameters struct {
 }
 
 type SchedulerLogsObservation struct {
-	CloudWatchLogGroupArn string `json:"cloudWatchLogGroupArn" tf:"cloud_watch_log_group_arn"`
+	CloudWatchLogGroupARN string `json:"cloudWatchLogGroupARN" tf:"cloud_watch_log_group_arn"`
 }
 
 type SchedulerLogsParameters struct {
@@ -145,7 +145,7 @@ type SchedulerLogsParameters struct {
 }
 
 type TaskLogsObservation struct {
-	CloudWatchLogGroupArn string `json:"cloudWatchLogGroupArn" tf:"cloud_watch_log_group_arn"`
+	CloudWatchLogGroupARN string `json:"cloudWatchLogGroupARN" tf:"cloud_watch_log_group_arn"`
 }
 
 type TaskLogsParameters struct {
@@ -155,7 +155,7 @@ type TaskLogsParameters struct {
 }
 
 type WebserverLogsObservation struct {
-	CloudWatchLogGroupArn string `json:"cloudWatchLogGroupArn" tf:"cloud_watch_log_group_arn"`
+	CloudWatchLogGroupARN string `json:"cloudWatchLogGroupARN" tf:"cloud_watch_log_group_arn"`
 }
 
 type WebserverLogsParameters struct {
@@ -165,7 +165,7 @@ type WebserverLogsParameters struct {
 }
 
 type WorkerLogsObservation struct {
-	CloudWatchLogGroupArn string `json:"cloudWatchLogGroupArn" tf:"cloud_watch_log_group_arn"`
+	CloudWatchLogGroupARN string `json:"cloudWatchLogGroupARN" tf:"cloud_watch_log_group_arn"`
 }
 
 type WorkerLogsParameters struct {

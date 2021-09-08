@@ -25,7 +25,7 @@ import (
 )
 
 type AppmeshVirtualServiceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedDate string `json:"createdDate" tf:"created_date"`
 

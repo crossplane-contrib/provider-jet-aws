@@ -40,9 +40,9 @@ type AutoscalingLifecycleHookParameters struct {
 
 	NotificationMetadata *string `json:"notificationMetadata,omitempty" tf:"notification_metadata"`
 
-	NotificationTargetArn *string `json:"notificationTargetArn,omitempty" tf:"notification_target_arn"`
+	NotificationTargetARN *string `json:"notificationTargetARN,omitempty" tf:"notification_target_arn"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 }
 
 // AutoscalingLifecycleHookSpec defines the desired state of AutoscalingLifecycleHook

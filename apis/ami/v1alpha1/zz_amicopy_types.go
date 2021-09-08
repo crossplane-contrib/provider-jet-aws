@@ -33,7 +33,7 @@ type AmiCopyEbsBlockDeviceObservation struct {
 
 	Iops int64 `json:"iops" tf:"iops"`
 
-	SnapshotId string `json:"snapshotId" tf:"snapshot_id"`
+	SnapshotID string `json:"snapshotID" tf:"snapshot_id"`
 
 	Throughput int64 `json:"throughput" tf:"throughput"`
 
@@ -55,9 +55,9 @@ type AmiCopyEphemeralBlockDeviceParameters struct {
 }
 
 type AmiCopyObservation struct {
-	Architecture string `json:"architecture" tf:"architecture"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	Architecture string `json:"architecture" tf:"architecture"`
 
 	EnaSupport bool `json:"enaSupport" tf:"ena_support"`
 
@@ -69,11 +69,11 @@ type AmiCopyObservation struct {
 
 	ImageType string `json:"imageType" tf:"image_type"`
 
-	KernelId string `json:"kernelId" tf:"kernel_id"`
+	KernelID string `json:"kernelID" tf:"kernel_id"`
 
 	ManageEbsSnapshots bool `json:"manageEbsSnapshots" tf:"manage_ebs_snapshots"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
 	Platform string `json:"platform" tf:"platform"`
 
@@ -81,11 +81,11 @@ type AmiCopyObservation struct {
 
 	Public bool `json:"public" tf:"public"`
 
-	RamdiskId string `json:"ramdiskId" tf:"ramdisk_id"`
+	RamdiskID string `json:"ramdiskID" tf:"ramdisk_id"`
 
 	RootDeviceName string `json:"rootDeviceName" tf:"root_device_name"`
 
-	RootSnapshotId string `json:"rootSnapshotId" tf:"root_snapshot_id"`
+	RootSnapshotID string `json:"rootSnapshotID" tf:"root_snapshot_id"`
 
 	SriovNetSupport string `json:"sriovNetSupport" tf:"sriov_net_support"`
 
@@ -97,7 +97,7 @@ type AmiCopyObservation struct {
 type AmiCopyParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DestinationOutpostArn *string `json:"destinationOutpostArn,omitempty" tf:"destination_outpost_arn"`
+	DestinationOutpostARN *string `json:"destinationOutpostARN,omitempty" tf:"destination_outpost_arn"`
 
 	EbsBlockDevice []AmiCopyEbsBlockDeviceParameters `json:"ebsBlockDevice,omitempty" tf:"ebs_block_device"`
 
@@ -105,11 +105,11 @@ type AmiCopyParameters struct {
 
 	EphemeralBlockDevice []AmiCopyEphemeralBlockDeviceParameters `json:"ephemeralBlockDevice,omitempty" tf:"ephemeral_block_device"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Name string `json:"name" tf:"name"`
 
-	SourceAmiId string `json:"sourceAmiId" tf:"source_ami_id"`
+	SourceAmiID string `json:"sourceAmiID" tf:"source_ami_id"`
 
 	SourceAmiRegion string `json:"sourceAmiRegion" tf:"source_ami_region"`
 

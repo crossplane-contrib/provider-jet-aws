@@ -42,11 +42,11 @@ type CatalogDataParameters struct {
 }
 
 type EcrpublicRepositoryObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	RegistryID string `json:"registryID" tf:"registry_id"`
 
-	RepositoryUri string `json:"repositoryUri" tf:"repository_uri"`
+	RepositoryURI string `json:"repositoryURI" tf:"repository_uri"`
 }
 
 type EcrpublicRepositoryParameters struct {

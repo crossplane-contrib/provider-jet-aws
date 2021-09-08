@@ -25,7 +25,7 @@ import (
 )
 
 type DxHostedPublicVirtualInterfaceAccepterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type DxHostedPublicVirtualInterfaceAccepterParameters struct {
@@ -33,7 +33,7 @@ type DxHostedPublicVirtualInterfaceAccepterParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VirtualInterfaceId string `json:"virtualInterfaceId" tf:"virtual_interface_id"`
+	VirtualInterfaceID string `json:"virtualInterfaceID" tf:"virtual_interface_id"`
 }
 
 // DxHostedPublicVirtualInterfaceAccepterSpec defines the desired state of DxHostedPublicVirtualInterfaceAccepter

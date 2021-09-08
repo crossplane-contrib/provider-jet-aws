@@ -34,7 +34,7 @@ type SesIdentityNotificationTopicParameters struct {
 
 	NotificationType string `json:"notificationType" tf:"notification_type"`
 
-	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
+	TopicARN *string `json:"topicARN,omitempty" tf:"topic_arn"`
 }
 
 // SesIdentityNotificationTopicSpec defines the desired state of SesIdentityNotificationTopic

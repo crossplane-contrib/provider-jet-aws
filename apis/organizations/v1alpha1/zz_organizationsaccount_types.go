@@ -25,7 +25,7 @@ import (
 )
 
 type OrganizationsAccountObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	JoinedMethod string `json:"joinedMethod" tf:"joined_method"`
 
@@ -41,7 +41,7 @@ type OrganizationsAccountParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	ParentId *string `json:"parentId,omitempty" tf:"parent_id"`
+	ParentID *string `json:"parentID,omitempty" tf:"parent_id"`
 
 	RoleName *string `json:"roleName,omitempty" tf:"role_name"`
 

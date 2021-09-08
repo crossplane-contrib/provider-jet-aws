@@ -25,11 +25,11 @@ import (
 )
 
 type BudgetsBudgetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type BudgetsBudgetParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
+	AccountID *string `json:"accountID,omitempty" tf:"account_id"`
 
 	BudgetType string `json:"budgetType" tf:"budget_type"`
 

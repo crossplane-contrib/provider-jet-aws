@@ -66,7 +66,7 @@ type NotificationConfigObservation struct {
 }
 
 type NotificationConfigParameters struct {
-	NotificationArn *string `json:"notificationArn,omitempty" tf:"notification_arn"`
+	NotificationARN *string `json:"notificationARN,omitempty" tf:"notification_arn"`
 
 	NotificationEvents []string `json:"notificationEvents,omitempty" tf:"notification_events"`
 
@@ -104,7 +104,7 @@ type RunCommandParametersParameters struct {
 
 	Parameter []RunCommandParametersParameterParameters `json:"parameter,omitempty" tf:"parameter"`
 
-	ServiceRoleArn *string `json:"serviceRoleArn,omitempty" tf:"service_role_arn"`
+	ServiceRoleARN *string `json:"serviceRoleARN,omitempty" tf:"service_role_arn"`
 
 	TimeoutSeconds *int64 `json:"timeoutSeconds,omitempty" tf:"timeout_seconds"`
 }
@@ -123,17 +123,17 @@ type SsmMaintenanceWindowTaskParameters struct {
 
 	Priority *int64 `json:"priority,omitempty" tf:"priority"`
 
-	ServiceRoleArn *string `json:"serviceRoleArn,omitempty" tf:"service_role_arn"`
+	ServiceRoleARN *string `json:"serviceRoleARN,omitempty" tf:"service_role_arn"`
 
 	Targets []SsmMaintenanceWindowTaskTargetsParameters `json:"targets,omitempty" tf:"targets"`
 
-	TaskArn string `json:"taskArn" tf:"task_arn"`
+	TaskARN string `json:"taskARN" tf:"task_arn"`
 
 	TaskInvocationParameters []TaskInvocationParametersParameters `json:"taskInvocationParameters,omitempty" tf:"task_invocation_parameters"`
 
 	TaskType string `json:"taskType" tf:"task_type"`
 
-	WindowId string `json:"windowId" tf:"window_id"`
+	WindowID string `json:"windowID" tf:"window_id"`
 }
 
 type SsmMaintenanceWindowTaskTargetsObservation struct {

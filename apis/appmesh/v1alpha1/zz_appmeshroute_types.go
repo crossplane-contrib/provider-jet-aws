@@ -34,7 +34,7 @@ type ActionWeightedTargetParameters struct {
 }
 
 type AppmeshRouteObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CreatedDate string `json:"createdDate" tf:"created_date"`
 
@@ -65,13 +65,13 @@ type AppmeshRouteSpecObservation struct {
 type AppmeshRouteSpecParameters struct {
 	GrpcRoute []SpecGrpcRouteParameters `json:"grpcRoute,omitempty" tf:"grpc_route"`
 
-	Http2Route []SpecHttp2RouteParameters `json:"http2Route,omitempty" tf:"http2_route"`
+	HTTPRoute []SpecHTTPRouteParameters `json:"httpRoute,omitempty" tf:"http_route"`
 
-	HttpRoute []SpecHttpRouteParameters `json:"httpRoute,omitempty" tf:"http_route"`
+	Http2Route []SpecHttp2RouteParameters `json:"http2Route,omitempty" tf:"http2_route"`
 
 	Priority *int64 `json:"priority,omitempty" tf:"priority"`
 
-	TcpRoute []TcpRouteParameters `json:"tcpRoute,omitempty" tf:"tcp_route"`
+	TCPRoute []TCPRouteParameters `json:"tcpRoute,omitempty" tf:"tcp_route"`
 }
 
 type GrpcRouteActionObservation struct {
@@ -92,6 +92,64 @@ type GrpcRouteMatchParameters struct {
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
 	ServiceName *string `json:"serviceName,omitempty" tf:"service_name"`
+}
+
+type HTTPRouteActionWeightedTargetObservation struct {
+}
+
+type HTTPRouteActionWeightedTargetParameters struct {
+	VirtualNode string `json:"virtualNode" tf:"virtual_node"`
+
+	Weight int64 `json:"weight" tf:"weight"`
+}
+
+type HTTPRouteRetryPolicyObservation struct {
+}
+
+type HTTPRouteRetryPolicyParameters struct {
+	HTTPRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
+
+	MaxRetries int64 `json:"maxRetries" tf:"max_retries"`
+
+	PerRetryTimeout []HTTPRouteRetryPolicyPerRetryTimeoutParameters `json:"perRetryTimeout" tf:"per_retry_timeout"`
+
+	TCPRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
+}
+
+type HTTPRouteRetryPolicyPerRetryTimeoutObservation struct {
+}
+
+type HTTPRouteRetryPolicyPerRetryTimeoutParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
+type HTTPRouteTimeoutIdleObservation struct {
+}
+
+type HTTPRouteTimeoutIdleParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
+}
+
+type HTTPRouteTimeoutObservation struct {
+}
+
+type HTTPRouteTimeoutParameters struct {
+	Idle []HTTPRouteTimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
+
+	PerRequest []HTTPRouteTimeoutPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
+}
+
+type HTTPRouteTimeoutPerRequestObservation struct {
+}
+
+type HTTPRouteTimeoutPerRequestParameters struct {
+	Unit string `json:"unit" tf:"unit"`
+
+	Value int64 `json:"value" tf:"value"`
 }
 
 type HeaderMatchObservation struct {
@@ -133,13 +191,13 @@ type Http2RouteRetryPolicyObservation struct {
 }
 
 type Http2RouteRetryPolicyParameters struct {
-	HttpRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
+	HTTPRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
 
 	MaxRetries int64 `json:"maxRetries" tf:"max_retries"`
 
 	PerRetryTimeout []RetryPolicyPerRetryTimeoutParameters `json:"perRetryTimeout" tf:"per_retry_timeout"`
 
-	TcpRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
+	TCPRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
 }
 
 type Http2RouteTimeoutObservation struct {
@@ -149,64 +207,6 @@ type Http2RouteTimeoutParameters struct {
 	Idle []TimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
 
 	PerRequest []TimeoutPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
-}
-
-type HttpRouteActionWeightedTargetObservation struct {
-}
-
-type HttpRouteActionWeightedTargetParameters struct {
-	VirtualNode string `json:"virtualNode" tf:"virtual_node"`
-
-	Weight int64 `json:"weight" tf:"weight"`
-}
-
-type HttpRouteRetryPolicyObservation struct {
-}
-
-type HttpRouteRetryPolicyParameters struct {
-	HttpRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
-
-	MaxRetries int64 `json:"maxRetries" tf:"max_retries"`
-
-	PerRetryTimeout []HttpRouteRetryPolicyPerRetryTimeoutParameters `json:"perRetryTimeout" tf:"per_retry_timeout"`
-
-	TcpRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
-}
-
-type HttpRouteRetryPolicyPerRetryTimeoutObservation struct {
-}
-
-type HttpRouteRetryPolicyPerRetryTimeoutParameters struct {
-	Unit string `json:"unit" tf:"unit"`
-
-	Value int64 `json:"value" tf:"value"`
-}
-
-type HttpRouteTimeoutIdleObservation struct {
-}
-
-type HttpRouteTimeoutIdleParameters struct {
-	Unit string `json:"unit" tf:"unit"`
-
-	Value int64 `json:"value" tf:"value"`
-}
-
-type HttpRouteTimeoutObservation struct {
-}
-
-type HttpRouteTimeoutParameters struct {
-	Idle []HttpRouteTimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
-
-	PerRequest []HttpRouteTimeoutPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
-}
-
-type HttpRouteTimeoutPerRequestObservation struct {
-}
-
-type HttpRouteTimeoutPerRequestParameters struct {
-	Unit string `json:"unit" tf:"unit"`
-
-	Value int64 `json:"value" tf:"value"`
 }
 
 type IdleObservation struct {
@@ -312,13 +312,13 @@ type RetryPolicyObservation struct {
 type RetryPolicyParameters struct {
 	GrpcRetryEvents []string `json:"grpcRetryEvents,omitempty" tf:"grpc_retry_events"`
 
-	HttpRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
+	HTTPRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
 
 	MaxRetries int64 `json:"maxRetries" tf:"max_retries"`
 
 	PerRetryTimeout []PerRetryTimeoutParameters `json:"perRetryTimeout" tf:"per_retry_timeout"`
 
-	TcpRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
+	TCPRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
 }
 
 type RetryPolicyPerRetryTimeoutObservation struct {
@@ -341,6 +341,39 @@ type SpecGrpcRouteParameters struct {
 	RetryPolicy []RetryPolicyParameters `json:"retryPolicy,omitempty" tf:"retry_policy"`
 
 	Timeout []TimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
+}
+
+type SpecHTTPRouteActionObservation struct {
+}
+
+type SpecHTTPRouteActionParameters struct {
+	WeightedTarget []HTTPRouteActionWeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
+}
+
+type SpecHTTPRouteMatchObservation struct {
+}
+
+type SpecHTTPRouteMatchParameters struct {
+	Header []MatchHeaderParameters `json:"header,omitempty" tf:"header"`
+
+	Method *string `json:"method,omitempty" tf:"method"`
+
+	Prefix string `json:"prefix" tf:"prefix"`
+
+	Scheme *string `json:"scheme,omitempty" tf:"scheme"`
+}
+
+type SpecHTTPRouteObservation struct {
+}
+
+type SpecHTTPRouteParameters struct {
+	Action []SpecHTTPRouteActionParameters `json:"action" tf:"action"`
+
+	Match []SpecHTTPRouteMatchParameters `json:"match" tf:"match"`
+
+	RetryPolicy []HTTPRouteRetryPolicyParameters `json:"retryPolicy,omitempty" tf:"retry_policy"`
+
+	Timeout []HTTPRouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
 }
 
 type SpecHttp2RouteActionObservation struct {
@@ -376,78 +409,45 @@ type SpecHttp2RouteParameters struct {
 	Timeout []Http2RouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
 }
 
-type SpecHttpRouteActionObservation struct {
+type TCPRouteActionObservation struct {
 }
 
-type SpecHttpRouteActionParameters struct {
-	WeightedTarget []HttpRouteActionWeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
+type TCPRouteActionParameters struct {
+	WeightedTarget []TCPRouteActionWeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
 }
 
-type SpecHttpRouteMatchObservation struct {
+type TCPRouteActionWeightedTargetObservation struct {
 }
 
-type SpecHttpRouteMatchParameters struct {
-	Header []MatchHeaderParameters `json:"header,omitempty" tf:"header"`
-
-	Method *string `json:"method,omitempty" tf:"method"`
-
-	Prefix string `json:"prefix" tf:"prefix"`
-
-	Scheme *string `json:"scheme,omitempty" tf:"scheme"`
-}
-
-type SpecHttpRouteObservation struct {
-}
-
-type SpecHttpRouteParameters struct {
-	Action []SpecHttpRouteActionParameters `json:"action" tf:"action"`
-
-	Match []SpecHttpRouteMatchParameters `json:"match" tf:"match"`
-
-	RetryPolicy []HttpRouteRetryPolicyParameters `json:"retryPolicy,omitempty" tf:"retry_policy"`
-
-	Timeout []HttpRouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
-}
-
-type TcpRouteActionObservation struct {
-}
-
-type TcpRouteActionParameters struct {
-	WeightedTarget []TcpRouteActionWeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
-}
-
-type TcpRouteActionWeightedTargetObservation struct {
-}
-
-type TcpRouteActionWeightedTargetParameters struct {
+type TCPRouteActionWeightedTargetParameters struct {
 	VirtualNode string `json:"virtualNode" tf:"virtual_node"`
 
 	Weight int64 `json:"weight" tf:"weight"`
 }
 
-type TcpRouteObservation struct {
+type TCPRouteObservation struct {
 }
 
-type TcpRouteParameters struct {
-	Action []TcpRouteActionParameters `json:"action" tf:"action"`
+type TCPRouteParameters struct {
+	Action []TCPRouteActionParameters `json:"action" tf:"action"`
 
-	Timeout []TcpRouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
+	Timeout []TCPRouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
 }
 
-type TcpRouteTimeoutIdleObservation struct {
+type TCPRouteTimeoutIdleObservation struct {
 }
 
-type TcpRouteTimeoutIdleParameters struct {
+type TCPRouteTimeoutIdleParameters struct {
 	Unit string `json:"unit" tf:"unit"`
 
 	Value int64 `json:"value" tf:"value"`
 }
 
-type TcpRouteTimeoutObservation struct {
+type TCPRouteTimeoutObservation struct {
 }
 
-type TcpRouteTimeoutParameters struct {
-	Idle []TcpRouteTimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
+type TCPRouteTimeoutParameters struct {
+	Idle []TCPRouteTimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
 }
 
 type TimeoutIdleObservation struct {

@@ -25,7 +25,7 @@ import (
 )
 
 type ConfigOrganizationCustomRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ConfigOrganizationCustomRuleParameters struct {
@@ -35,13 +35,13 @@ type ConfigOrganizationCustomRuleParameters struct {
 
 	InputParameters *string `json:"inputParameters,omitempty" tf:"input_parameters"`
 
-	LambdaFunctionArn string `json:"lambdaFunctionArn" tf:"lambda_function_arn"`
+	LambdaFunctionARN string `json:"lambdaFunctionARN" tf:"lambda_function_arn"`
 
 	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency,omitempty" tf:"maximum_execution_frequency"`
 
 	Name string `json:"name" tf:"name"`
 
-	ResourceIdScope *string `json:"resourceIdScope,omitempty" tf:"resource_id_scope"`
+	ResourceIDScope *string `json:"resourceIDScope,omitempty" tf:"resource_id_scope"`
 
 	ResourceTypesScope []string `json:"resourceTypesScope,omitempty" tf:"resource_types_scope"`
 

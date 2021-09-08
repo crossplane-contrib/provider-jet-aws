@@ -25,7 +25,7 @@ import (
 )
 
 type AttachmentObservation struct {
-	AttachmentId string `json:"attachmentId" tf:"attachment_id"`
+	AttachmentID string `json:"attachmentID" tf:"attachment_id"`
 }
 
 type AttachmentParameters struct {
@@ -37,9 +37,9 @@ type AttachmentParameters struct {
 type NetworkInterfaceObservation struct {
 	MacAddress string `json:"macAddress" tf:"mac_address"`
 
-	OutpostArn string `json:"outpostArn" tf:"outpost_arn"`
+	OutpostARN string `json:"outpostARN" tf:"outpost_arn"`
 
-	PrivateDnsName string `json:"privateDnsName" tf:"private_dns_name"`
+	PrivateDNSName string `json:"privateDNSName" tf:"private_dns_name"`
 }
 
 type NetworkInterfaceParameters struct {
@@ -47,13 +47,13 @@ type NetworkInterfaceParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	IPv6AddressCount *int64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count"`
+
+	IPv6Addresses []string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses"`
+
 	InterfaceType *string `json:"interfaceType,omitempty" tf:"interface_type"`
 
-	Ipv6AddressCount *int64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count"`
-
-	Ipv6Addresses []string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses"`
-
-	PrivateIp *string `json:"privateIp,omitempty" tf:"private_ip"`
+	PrivateIP *string `json:"privateIP,omitempty" tf:"private_ip"`
 
 	PrivateIps []string `json:"privateIps,omitempty" tf:"private_ips"`
 
@@ -63,7 +63,7 @@ type NetworkInterfaceParameters struct {
 
 	SourceDestCheck *bool `json:"sourceDestCheck,omitempty" tf:"source_dest_check"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetID" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

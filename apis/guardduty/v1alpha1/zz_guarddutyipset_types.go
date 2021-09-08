@@ -25,13 +25,13 @@ import (
 )
 
 type GuarddutyIpsetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GuarddutyIpsetParameters struct {
 	Activate bool `json:"activate" tf:"activate"`
 
-	DetectorId string `json:"detectorId" tf:"detector_id"`
+	DetectorID string `json:"detectorID" tf:"detector_id"`
 
 	Format string `json:"format" tf:"format"`
 

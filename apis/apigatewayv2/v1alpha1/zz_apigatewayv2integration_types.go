@@ -29,15 +29,15 @@ type Apigatewayv2IntegrationObservation struct {
 }
 
 type Apigatewayv2IntegrationParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
+	APIID string `json:"apiID" tf:"api_id"`
 
-	ConnectionId *string `json:"connectionId,omitempty" tf:"connection_id"`
+	ConnectionID *string `json:"connectionID,omitempty" tf:"connection_id"`
 
 	ConnectionType *string `json:"connectionType,omitempty" tf:"connection_type"`
 
 	ContentHandlingStrategy *string `json:"contentHandlingStrategy,omitempty" tf:"content_handling_strategy"`
 
-	CredentialsArn *string `json:"credentialsArn,omitempty" tf:"credentials_arn"`
+	CredentialsARN *string `json:"credentialsARN,omitempty" tf:"credentials_arn"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
@@ -47,7 +47,7 @@ type Apigatewayv2IntegrationParameters struct {
 
 	IntegrationType string `json:"integrationType" tf:"integration_type"`
 
-	IntegrationUri *string `json:"integrationUri,omitempty" tf:"integration_uri"`
+	IntegrationURI *string `json:"integrationURI,omitempty" tf:"integration_uri"`
 
 	PassthroughBehavior *string `json:"passthroughBehavior,omitempty" tf:"passthrough_behavior"`
 
@@ -59,11 +59,11 @@ type Apigatewayv2IntegrationParameters struct {
 
 	ResponseParameters []ResponseParametersParameters `json:"responseParameters,omitempty" tf:"response_parameters"`
 
+	TLSConfig []TLSConfigParameters `json:"tlsConfig,omitempty" tf:"tls_config"`
+
 	TemplateSelectionExpression *string `json:"templateSelectionExpression,omitempty" tf:"template_selection_expression"`
 
 	TimeoutMilliseconds *int64 `json:"timeoutMilliseconds,omitempty" tf:"timeout_milliseconds"`
-
-	TlsConfig []TlsConfigParameters `json:"tlsConfig,omitempty" tf:"tls_config"`
 }
 
 type ResponseParametersObservation struct {
@@ -75,10 +75,10 @@ type ResponseParametersParameters struct {
 	StatusCode string `json:"statusCode" tf:"status_code"`
 }
 
-type TlsConfigObservation struct {
+type TLSConfigObservation struct {
 }
 
-type TlsConfigParameters struct {
+type TLSConfigParameters struct {
 	ServerNameToVerify *string `json:"serverNameToVerify,omitempty" tf:"server_name_to_verify"`
 }
 

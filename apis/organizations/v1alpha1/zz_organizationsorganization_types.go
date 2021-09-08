@@ -25,11 +25,11 @@ import (
 )
 
 type AccountsObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Email string `json:"email" tf:"email"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -40,11 +40,11 @@ type AccountsParameters struct {
 }
 
 type NonMasterAccountsObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Email string `json:"email" tf:"email"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -55,15 +55,15 @@ type NonMasterAccountsParameters struct {
 }
 
 type OrganizationsOrganizationObservation struct {
+	ARN string `json:"arn" tf:"arn"`
+
 	Accounts []AccountsObservation `json:"accounts" tf:"accounts"`
 
-	Arn string `json:"arn" tf:"arn"`
-
-	MasterAccountArn string `json:"masterAccountArn" tf:"master_account_arn"`
+	MasterAccountARN string `json:"masterAccountARN" tf:"master_account_arn"`
 
 	MasterAccountEmail string `json:"masterAccountEmail" tf:"master_account_email"`
 
-	MasterAccountId string `json:"masterAccountId" tf:"master_account_id"`
+	MasterAccountID string `json:"masterAccountID" tf:"master_account_id"`
 
 	NonMasterAccounts []NonMasterAccountsObservation `json:"nonMasterAccounts" tf:"non_master_accounts"`
 
@@ -88,9 +88,9 @@ type PolicyTypesParameters struct {
 }
 
 type RootsObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Name string `json:"name" tf:"name"`
 

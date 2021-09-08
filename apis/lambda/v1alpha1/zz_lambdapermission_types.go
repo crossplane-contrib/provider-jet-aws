@@ -38,13 +38,13 @@ type LambdaPermissionParameters struct {
 
 	Qualifier *string `json:"qualifier,omitempty" tf:"qualifier"`
 
+	SourceARN *string `json:"sourceARN,omitempty" tf:"source_arn"`
+
 	SourceAccount *string `json:"sourceAccount,omitempty" tf:"source_account"`
 
-	SourceArn *string `json:"sourceArn,omitempty" tf:"source_arn"`
+	StatementID *string `json:"statementID,omitempty" tf:"statement_id"`
 
-	StatementId *string `json:"statementId,omitempty" tf:"statement_id"`
-
-	StatementIdPrefix *string `json:"statementIdPrefix,omitempty" tf:"statement_id_prefix"`
+	StatementIDPrefix *string `json:"statementIDPrefix,omitempty" tf:"statement_id_prefix"`
 }
 
 // LambdaPermissionSpec defines the desired state of LambdaPermission

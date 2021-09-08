@@ -28,13 +28,13 @@ type KinesisStreamObservation struct {
 }
 
 type KinesisStreamParameters struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	ARN *string `json:"arn,omitempty" tf:"arn"`
 
 	EncryptionType *string `json:"encryptionType,omitempty" tf:"encryption_type"`
 
 	EnforceConsumerDeletion *bool `json:"enforceConsumerDeletion,omitempty" tf:"enforce_consumer_deletion"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Name string `json:"name" tf:"name"`
 

@@ -36,7 +36,7 @@ type AdditionalAuthenticationProviderParameters struct {
 }
 
 type AppsyncGraphqlApiObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Uris map[string]string `json:"uris" tf:"uris"`
 }
@@ -45,11 +45,11 @@ type AppsyncGraphqlApiOpenidConnectConfigObservation struct {
 }
 
 type AppsyncGraphqlApiOpenidConnectConfigParameters struct {
-	AuthTtl *int64 `json:"authTtl,omitempty" tf:"auth_ttl"`
+	AuthTTL *int64 `json:"authTTL,omitempty" tf:"auth_ttl"`
 
-	ClientId *string `json:"clientId,omitempty" tf:"client_id"`
+	ClientID *string `json:"clientID,omitempty" tf:"client_id"`
 
-	IatTtl *int64 `json:"iatTtl,omitempty" tf:"iat_ttl"`
+	IatTTL *int64 `json:"iatTTL,omitempty" tf:"iat_ttl"`
 
 	Issuer string `json:"issuer" tf:"issuer"`
 }
@@ -80,20 +80,20 @@ type AppsyncGraphqlApiUserPoolConfigObservation struct {
 }
 
 type AppsyncGraphqlApiUserPoolConfigParameters struct {
-	AppIdClientRegex *string `json:"appIdClientRegex,omitempty" tf:"app_id_client_regex"`
+	AppIDClientRegex *string `json:"appIDClientRegex,omitempty" tf:"app_id_client_regex"`
 
 	AwsRegion *string `json:"awsRegion,omitempty" tf:"aws_region"`
 
 	DefaultAction string `json:"defaultAction" tf:"default_action"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	UserPoolID string `json:"userPoolID" tf:"user_pool_id"`
 }
 
 type LogConfigObservation struct {
 }
 
 type LogConfigParameters struct {
-	CloudwatchLogsRoleArn string `json:"cloudwatchLogsRoleArn" tf:"cloudwatch_logs_role_arn"`
+	CloudwatchLogsRoleARN string `json:"cloudwatchLogsRoleARN" tf:"cloudwatch_logs_role_arn"`
 
 	ExcludeVerboseContent *bool `json:"excludeVerboseContent,omitempty" tf:"exclude_verbose_content"`
 
@@ -104,11 +104,11 @@ type OpenidConnectConfigObservation struct {
 }
 
 type OpenidConnectConfigParameters struct {
-	AuthTtl *int64 `json:"authTtl,omitempty" tf:"auth_ttl"`
+	AuthTTL *int64 `json:"authTTL,omitempty" tf:"auth_ttl"`
 
-	ClientId *string `json:"clientId,omitempty" tf:"client_id"`
+	ClientID *string `json:"clientID,omitempty" tf:"client_id"`
 
-	IatTtl *int64 `json:"iatTtl,omitempty" tf:"iat_ttl"`
+	IatTTL *int64 `json:"iatTTL,omitempty" tf:"iat_ttl"`
 
 	Issuer string `json:"issuer" tf:"issuer"`
 }
@@ -117,11 +117,11 @@ type UserPoolConfigObservation struct {
 }
 
 type UserPoolConfigParameters struct {
-	AppIdClientRegex *string `json:"appIdClientRegex,omitempty" tf:"app_id_client_regex"`
+	AppIDClientRegex *string `json:"appIDClientRegex,omitempty" tf:"app_id_client_regex"`
 
 	AwsRegion *string `json:"awsRegion,omitempty" tf:"aws_region"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	UserPoolID string `json:"userPoolID" tf:"user_pool_id"`
 }
 
 // AppsyncGraphqlApiSpec defines the desired state of AppsyncGraphqlApi

@@ -32,17 +32,17 @@ type CustomCookbooksSourceParameters struct {
 
 	Revision *string `json:"revision,omitempty" tf:"revision"`
 
-	SshKey *string `json:"sshKey,omitempty" tf:"ssh_key"`
+	SSHKey *string `json:"sshKey,omitempty" tf:"ssh_key"`
 
 	Type string `json:"type" tf:"type"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 
 	Username *string `json:"username,omitempty" tf:"username"`
 }
 
 type OpsworksStackObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	StackEndpoint string `json:"stackEndpoint" tf:"stack_endpoint"`
 }
@@ -60,19 +60,19 @@ type OpsworksStackParameters struct {
 
 	CustomCookbooksSource []CustomCookbooksSourceParameters `json:"customCookbooksSource,omitempty" tf:"custom_cookbooks_source"`
 
-	CustomJson *string `json:"customJson,omitempty" tf:"custom_json"`
+	CustomJSON *string `json:"customJSON,omitempty" tf:"custom_json"`
 
 	DefaultAvailabilityZone *string `json:"defaultAvailabilityZone,omitempty" tf:"default_availability_zone"`
 
-	DefaultInstanceProfileArn string `json:"defaultInstanceProfileArn" tf:"default_instance_profile_arn"`
+	DefaultInstanceProfileARN string `json:"defaultInstanceProfileARN" tf:"default_instance_profile_arn"`
 
 	DefaultOs *string `json:"defaultOs,omitempty" tf:"default_os"`
 
 	DefaultRootDeviceType *string `json:"defaultRootDeviceType,omitempty" tf:"default_root_device_type"`
 
-	DefaultSshKeyName *string `json:"defaultSshKeyName,omitempty" tf:"default_ssh_key_name"`
+	DefaultSSHKeyName *string `json:"defaultSSHKeyName,omitempty" tf:"default_ssh_key_name"`
 
-	DefaultSubnetId *string `json:"defaultSubnetId,omitempty" tf:"default_subnet_id"`
+	DefaultSubnetID *string `json:"defaultSubnetID,omitempty" tf:"default_subnet_id"`
 
 	HostnameTheme *string `json:"hostnameTheme,omitempty" tf:"hostname_theme"`
 
@@ -82,7 +82,7 @@ type OpsworksStackParameters struct {
 
 	Region string `json:"region" tf:"region"`
 
-	ServiceRoleArn string `json:"serviceRoleArn" tf:"service_role_arn"`
+	ServiceRoleARN string `json:"serviceRoleARN" tf:"service_role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -92,7 +92,7 @@ type OpsworksStackParameters struct {
 
 	UseOpsworksSecurityGroups *bool `json:"useOpsworksSecurityGroups,omitempty" tf:"use_opsworks_security_groups"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VPCID *string `json:"vpcID,omitempty" tf:"vpc_id"`
 }
 
 // OpsworksStackSpec defines the desired state of OpsworksStack

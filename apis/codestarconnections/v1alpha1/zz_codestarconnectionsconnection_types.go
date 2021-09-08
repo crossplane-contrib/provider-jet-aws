@@ -25,13 +25,13 @@ import (
 )
 
 type CodestarconnectionsConnectionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ConnectionStatus string `json:"connectionStatus" tf:"connection_status"`
 }
 
 type CodestarconnectionsConnectionParameters struct {
-	HostArn *string `json:"hostArn,omitempty" tf:"host_arn"`
+	HostARN *string `json:"hostARN,omitempty" tf:"host_arn"`
 
 	Name string `json:"name" tf:"name"`
 

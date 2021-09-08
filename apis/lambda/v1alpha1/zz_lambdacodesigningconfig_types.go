@@ -32,9 +32,9 @@ type AllowedPublishersParameters struct {
 }
 
 type LambdaCodeSigningConfigObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	ConfigId string `json:"configId" tf:"config_id"`
+	ConfigID string `json:"configID" tf:"config_id"`
 
 	LastModified string `json:"lastModified" tf:"last_modified"`
 }

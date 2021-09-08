@@ -41,11 +41,11 @@ type NetworkParameters struct {
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 type WorklinkFleetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CompanyCode string `json:"companyCode" tf:"company_code"`
 
@@ -55,7 +55,7 @@ type WorklinkFleetObservation struct {
 }
 
 type WorklinkFleetParameters struct {
-	AuditStreamArn *string `json:"auditStreamArn,omitempty" tf:"audit_stream_arn"`
+	AuditStreamARN *string `json:"auditStreamARN,omitempty" tf:"audit_stream_arn"`
 
 	DeviceCaCertificate *string `json:"deviceCaCertificate,omitempty" tf:"device_ca_certificate"`
 

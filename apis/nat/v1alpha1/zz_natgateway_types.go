@@ -25,19 +25,19 @@ import (
 )
 
 type NatGatewayObservation struct {
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceID" tf:"network_interface_id"`
 
-	PrivateIp string `json:"privateIp" tf:"private_ip"`
+	PrivateIP string `json:"privateIP" tf:"private_ip"`
 
-	PublicIp string `json:"publicIp" tf:"public_ip"`
+	PublicIP string `json:"publicIP" tf:"public_ip"`
 }
 
 type NatGatewayParameters struct {
-	AllocationId *string `json:"allocationId,omitempty" tf:"allocation_id"`
+	AllocationID *string `json:"allocationID,omitempty" tf:"allocation_id"`
 
 	ConnectivityType *string `json:"connectivityType,omitempty" tf:"connectivity_type"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetID" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

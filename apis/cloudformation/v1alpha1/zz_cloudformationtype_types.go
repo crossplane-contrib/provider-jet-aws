@@ -25,15 +25,15 @@ import (
 )
 
 type CloudformationTypeObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DefaultVersionId string `json:"defaultVersionId" tf:"default_version_id"`
+	DefaultVersionID string `json:"defaultVersionID" tf:"default_version_id"`
 
 	DeprecatedStatus string `json:"deprecatedStatus" tf:"deprecated_status"`
 
 	Description string `json:"description" tf:"description"`
 
-	DocumentationUrl string `json:"documentationUrl" tf:"documentation_url"`
+	DocumentationURL string `json:"documentationURL" tf:"documentation_url"`
 
 	IsDefaultVersion bool `json:"isDefaultVersion" tf:"is_default_version"`
 
@@ -41,17 +41,17 @@ type CloudformationTypeObservation struct {
 
 	Schema string `json:"schema" tf:"schema"`
 
-	SourceUrl string `json:"sourceUrl" tf:"source_url"`
+	SourceURL string `json:"sourceURL" tf:"source_url"`
 
-	TypeArn string `json:"typeArn" tf:"type_arn"`
+	TypeARN string `json:"typeARN" tf:"type_arn"`
 
-	VersionId string `json:"versionId" tf:"version_id"`
+	VersionID string `json:"versionID" tf:"version_id"`
 
 	Visibility string `json:"visibility" tf:"visibility"`
 }
 
 type CloudformationTypeParameters struct {
-	ExecutionRoleArn *string `json:"executionRoleArn,omitempty" tf:"execution_role_arn"`
+	ExecutionRoleARN *string `json:"executionRoleARN,omitempty" tf:"execution_role_arn"`
 
 	LoggingConfig []LoggingConfigParameters `json:"loggingConfig,omitempty" tf:"logging_config"`
 
@@ -68,7 +68,7 @@ type LoggingConfigObservation struct {
 type LoggingConfigParameters struct {
 	LogGroupName string `json:"logGroupName" tf:"log_group_name"`
 
-	LogRoleArn string `json:"logRoleArn" tf:"log_role_arn"`
+	LogRoleARN string `json:"logRoleARN" tf:"log_role_arn"`
 }
 
 // CloudformationTypeSpec defines the desired state of CloudformationType

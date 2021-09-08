@@ -25,15 +25,15 @@ import (
 )
 
 type DatasyncLocationS3Observation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type DatasyncLocationS3Parameters struct {
 	AgentArns []string `json:"agentArns,omitempty" tf:"agent_arns"`
 
-	S3BucketArn string `json:"s3BucketArn" tf:"s3_bucket_arn"`
+	S3BucketARN string `json:"s3BucketARN" tf:"s3_bucket_arn"`
 
 	S3Config []S3ConfigParameters `json:"s3Config" tf:"s3_config"`
 
@@ -50,7 +50,7 @@ type S3ConfigObservation struct {
 }
 
 type S3ConfigParameters struct {
-	BucketAccessRoleArn string `json:"bucketAccessRoleArn" tf:"bucket_access_role_arn"`
+	BucketAccessRoleARN string `json:"bucketAccessRoleARN" tf:"bucket_access_role_arn"`
 }
 
 // DatasyncLocationS3Spec defines the desired state of DatasyncLocationS3

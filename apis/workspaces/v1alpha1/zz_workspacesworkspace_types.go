@@ -42,15 +42,15 @@ type WorkspacePropertiesParameters struct {
 type WorkspacesWorkspaceObservation struct {
 	ComputerName string `json:"computerName" tf:"computer_name"`
 
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 
 	State string `json:"state" tf:"state"`
 }
 
 type WorkspacesWorkspaceParameters struct {
-	BundleId string `json:"bundleId" tf:"bundle_id"`
+	BundleID string `json:"bundleID" tf:"bundle_id"`
 
-	DirectoryId string `json:"directoryId" tf:"directory_id"`
+	DirectoryID string `json:"directoryID" tf:"directory_id"`
 
 	RootVolumeEncryptionEnabled *bool `json:"rootVolumeEncryptionEnabled,omitempty" tf:"root_volume_encryption_enabled"`
 

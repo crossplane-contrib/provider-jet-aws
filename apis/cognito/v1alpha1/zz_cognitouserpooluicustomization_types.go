@@ -25,23 +25,23 @@ import (
 )
 
 type CognitoUserPoolUiCustomizationObservation struct {
+	CSSVersion string `json:"cssVersion" tf:"css_version"`
+
 	CreationDate string `json:"creationDate" tf:"creation_date"`
 
-	CssVersion string `json:"cssVersion" tf:"css_version"`
-
-	ImageUrl string `json:"imageUrl" tf:"image_url"`
+	ImageURL string `json:"imageURL" tf:"image_url"`
 
 	LastModifiedDate string `json:"lastModifiedDate" tf:"last_modified_date"`
 }
 
 type CognitoUserPoolUiCustomizationParameters struct {
-	ClientId *string `json:"clientId,omitempty" tf:"client_id"`
+	CSS *string `json:"css,omitempty" tf:"css"`
 
-	Css *string `json:"css,omitempty" tf:"css"`
+	ClientID *string `json:"clientID,omitempty" tf:"client_id"`
 
 	ImageFile *string `json:"imageFile,omitempty" tf:"image_file"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	UserPoolID string `json:"userPoolID" tf:"user_pool_id"`
 }
 
 // CognitoUserPoolUiCustomizationSpec defines the desired state of CognitoUserPoolUiCustomization

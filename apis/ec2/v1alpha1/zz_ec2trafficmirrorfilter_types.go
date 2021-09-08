@@ -25,7 +25,7 @@ import (
 )
 
 type Ec2TrafficMirrorFilterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type Ec2TrafficMirrorFilterParameters struct {

@@ -25,11 +25,11 @@ import (
 )
 
 type GlueConnectionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type GlueConnectionParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	ConnectionProperties map[string]string `json:"connectionProperties,omitempty" tf:"connection_properties"`
 
@@ -50,9 +50,9 @@ type PhysicalConnectionRequirementsObservation struct {
 type PhysicalConnectionRequirementsParameters struct {
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
-	SecurityGroupIdList []string `json:"securityGroupIdList,omitempty" tf:"security_group_id_list"`
+	SecurityGroupIDList []string `json:"securityGroupIDList,omitempty" tf:"security_group_id_list"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 }
 
 // GlueConnectionSpec defines the desired state of GlueConnection

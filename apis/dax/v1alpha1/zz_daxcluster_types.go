@@ -25,7 +25,7 @@ import (
 )
 
 type DaxClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	ClusterAddress string `json:"clusterAddress" tf:"cluster_address"`
 
@@ -43,13 +43,13 @@ type DaxClusterParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	IamRoleArn string `json:"iamRoleArn" tf:"iam_role_arn"`
+	IamRoleARN string `json:"iamRoleARN" tf:"iam_role_arn"`
 
 	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window"`
 
 	NodeType string `json:"nodeType" tf:"node_type"`
 
-	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn"`
+	NotificationTopicARN *string `json:"notificationTopicARN,omitempty" tf:"notification_topic_arn"`
 
 	ParameterGroupName *string `json:"parameterGroupName,omitempty" tf:"parameter_group_name"`
 
@@ -71,7 +71,7 @@ type NodesObservation struct {
 
 	AvailabilityZone string `json:"availabilityZone" tf:"availability_zone"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Port int64 `json:"port" tf:"port"`
 }

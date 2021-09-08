@@ -25,7 +25,7 @@ import (
 )
 
 type CloudfrontRealtimeLogConfigObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CloudfrontRealtimeLogConfigParameters struct {
@@ -51,9 +51,9 @@ type KinesisStreamConfigObservation struct {
 }
 
 type KinesisStreamConfigParameters struct {
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
-	StreamArn string `json:"streamArn" tf:"stream_arn"`
+	StreamARN string `json:"streamARN" tf:"stream_arn"`
 }
 
 // CloudfrontRealtimeLogConfigSpec defines the desired state of CloudfrontRealtimeLogConfig

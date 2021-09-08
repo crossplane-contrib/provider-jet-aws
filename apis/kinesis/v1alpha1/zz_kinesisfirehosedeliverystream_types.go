@@ -61,9 +61,9 @@ type DeserializerObservation struct {
 }
 
 type DeserializerParameters struct {
-	HiveJsonSerDe []HiveJsonSerDeParameters `json:"hiveJsonSerDe,omitempty" tf:"hive_json_ser_de"`
+	HiveJSONSerDe []HiveJSONSerDeParameters `json:"hiveJSONSerDe,omitempty" tf:"hive_json_ser_de"`
 
-	OpenXJsonSerDe []OpenXJsonSerDeParameters `json:"openXJsonSerDe,omitempty" tf:"open_x_json_ser_de"`
+	OpenXJSONSerDe []OpenXJSONSerDeParameters `json:"openXJSONSerDe,omitempty" tf:"open_x_json_ser_de"`
 }
 
 type ElasticsearchConfigurationObservation struct {
@@ -78,7 +78,7 @@ type ElasticsearchConfigurationParameters struct {
 
 	ClusterEndpoint *string `json:"clusterEndpoint,omitempty" tf:"cluster_endpoint"`
 
-	DomainArn *string `json:"domainArn,omitempty" tf:"domain_arn"`
+	DomainARN *string `json:"domainARN,omitempty" tf:"domain_arn"`
 
 	IndexName string `json:"indexName" tf:"index_name"`
 
@@ -88,13 +88,13 @@ type ElasticsearchConfigurationParameters struct {
 
 	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 
 	TypeName *string `json:"typeName,omitempty" tf:"type_name"`
 
-	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
+	VPCConfig []VPCConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 }
 
 type ExtendedS3ConfigurationCloudwatchLoggingOptionsObservation struct {
@@ -112,7 +112,7 @@ type ExtendedS3ConfigurationObservation struct {
 }
 
 type ExtendedS3ConfigurationParameters struct {
-	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
+	BucketARN string `json:"bucketARN" tf:"bucket_arn"`
 
 	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval"`
 
@@ -126,13 +126,13 @@ type ExtendedS3ConfigurationParameters struct {
 
 	ErrorOutputPrefix *string `json:"errorOutputPrefix,omitempty" tf:"error_output_prefix"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
 	ProcessingConfiguration []ExtendedS3ConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	S3BackupConfiguration []S3BackupConfigurationParameters `json:"s3BackupConfiguration,omitempty" tf:"s3_backup_configuration"`
 
@@ -148,17 +148,10 @@ type ExtendedS3ConfigurationProcessingConfigurationParameters struct {
 	Processors []ProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
 }
 
-type HiveJsonSerDeObservation struct {
+type HTTPEndpointConfigurationCloudwatchLoggingOptionsObservation struct {
 }
 
-type HiveJsonSerDeParameters struct {
-	TimestampFormats []string `json:"timestampFormats,omitempty" tf:"timestamp_formats"`
-}
-
-type HttpEndpointConfigurationCloudwatchLoggingOptionsObservation struct {
-}
-
-type HttpEndpointConfigurationCloudwatchLoggingOptionsParameters struct {
+type HTTPEndpointConfigurationCloudwatchLoggingOptionsParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
@@ -166,49 +159,56 @@ type HttpEndpointConfigurationCloudwatchLoggingOptionsParameters struct {
 	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
-type HttpEndpointConfigurationObservation struct {
+type HTTPEndpointConfigurationObservation struct {
 }
 
-type HttpEndpointConfigurationParameters struct {
+type HTTPEndpointConfigurationParameters struct {
 	AccessKey *string `json:"accessKey,omitempty" tf:"access_key"`
 
 	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval"`
 
 	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size"`
 
-	CloudwatchLoggingOptions []HttpEndpointConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
+	CloudwatchLoggingOptions []HTTPEndpointConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	ProcessingConfiguration []HttpEndpointConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
+	ProcessingConfiguration []HTTPEndpointConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
 	RequestConfiguration []RequestConfigurationParameters `json:"requestConfiguration,omitempty" tf:"request_configuration"`
 
 	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
-type HttpEndpointConfigurationProcessingConfigurationObservation struct {
+type HTTPEndpointConfigurationProcessingConfigurationObservation struct {
 }
 
-type HttpEndpointConfigurationProcessingConfigurationParameters struct {
+type HTTPEndpointConfigurationProcessingConfigurationParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	Processors []HttpEndpointConfigurationProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
+	Processors []HTTPEndpointConfigurationProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
 }
 
-type HttpEndpointConfigurationProcessingConfigurationProcessorsObservation struct {
+type HTTPEndpointConfigurationProcessingConfigurationProcessorsObservation struct {
 }
 
-type HttpEndpointConfigurationProcessingConfigurationProcessorsParameters struct {
+type HTTPEndpointConfigurationProcessingConfigurationProcessorsParameters struct {
 	Parameters []ProcessingConfigurationProcessorsParametersParameters `json:"parameters,omitempty" tf:"parameters"`
 
 	Type string `json:"type" tf:"type"`
+}
+
+type HiveJSONSerDeObservation struct {
+}
+
+type HiveJSONSerDeParameters struct {
+	TimestampFormats []string `json:"timestampFormats,omitempty" tf:"timestamp_formats"`
 }
 
 type InputFormatConfigurationObservation struct {
@@ -222,17 +222,17 @@ type KinesisFirehoseDeliveryStreamObservation struct {
 }
 
 type KinesisFirehoseDeliveryStreamParameters struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	ARN *string `json:"arn,omitempty" tf:"arn"`
 
 	Destination string `json:"destination" tf:"destination"`
 
-	DestinationId *string `json:"destinationId,omitempty" tf:"destination_id"`
+	DestinationID *string `json:"destinationID,omitempty" tf:"destination_id"`
 
 	ElasticsearchConfiguration []ElasticsearchConfigurationParameters `json:"elasticsearchConfiguration,omitempty" tf:"elasticsearch_configuration"`
 
 	ExtendedS3Configuration []ExtendedS3ConfigurationParameters `json:"extendedS3Configuration,omitempty" tf:"extended_s3_configuration"`
 
-	HttpEndpointConfiguration []HttpEndpointConfigurationParameters `json:"httpEndpointConfiguration,omitempty" tf:"http_endpoint_configuration"`
+	HTTPEndpointConfiguration []HTTPEndpointConfigurationParameters `json:"httpEndpointConfiguration,omitempty" tf:"http_endpoint_configuration"`
 
 	KinesisSourceConfiguration []KinesisSourceConfigurationParameters `json:"kinesisSourceConfiguration,omitempty" tf:"kinesis_source_configuration"`
 
@@ -250,27 +250,27 @@ type KinesisFirehoseDeliveryStreamParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VersionId *string `json:"versionId,omitempty" tf:"version_id"`
+	VersionID *string `json:"versionID,omitempty" tf:"version_id"`
 }
 
 type KinesisSourceConfigurationObservation struct {
 }
 
 type KinesisSourceConfigurationParameters struct {
-	KinesisStreamArn string `json:"kinesisStreamArn" tf:"kinesis_stream_arn"`
+	KinesisStreamARN string `json:"kinesisStreamARN" tf:"kinesis_stream_arn"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
-type OpenXJsonSerDeObservation struct {
+type OpenXJSONSerDeObservation struct {
 }
 
-type OpenXJsonSerDeParameters struct {
+type OpenXJSONSerDeParameters struct {
 	CaseInsensitive *bool `json:"caseInsensitive,omitempty" tf:"case_insensitive"`
 
-	ColumnToJsonKeyMappings map[string]string `json:"columnToJsonKeyMappings,omitempty" tf:"column_to_json_key_mappings"`
+	ColumnToJSONKeyMappings map[string]string `json:"columnToJSONKeyMappings,omitempty" tf:"column_to_json_key_mappings"`
 
-	ConvertDotsInJsonKeysToUnderscores *bool `json:"convertDotsInJsonKeysToUnderscores,omitempty" tf:"convert_dots_in_json_keys_to_underscores"`
+	ConvertDotsInJSONKeysToUnderscores *bool `json:"convertDotsInJSONKeysToUnderscores,omitempty" tf:"convert_dots_in_json_keys_to_underscores"`
 }
 
 type OrcSerDeObservation struct {
@@ -407,7 +407,7 @@ type RedshiftConfigurationParameters struct {
 
 	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	S3BackupConfiguration []RedshiftConfigurationS3BackupConfigurationParameters `json:"s3BackupConfiguration,omitempty" tf:"s3_backup_configuration"`
 
@@ -458,7 +458,7 @@ type RedshiftConfigurationS3BackupConfigurationObservation struct {
 }
 
 type RedshiftConfigurationS3BackupConfigurationParameters struct {
-	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
+	BucketARN string `json:"bucketARN" tf:"bucket_arn"`
 
 	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval"`
 
@@ -468,11 +468,11 @@ type RedshiftConfigurationS3BackupConfigurationParameters struct {
 
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type RequestConfigurationObservation struct {
@@ -499,7 +499,7 @@ type S3BackupConfigurationObservation struct {
 }
 
 type S3BackupConfigurationParameters struct {
-	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
+	BucketARN string `json:"bucketARN" tf:"bucket_arn"`
 
 	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval"`
 
@@ -509,11 +509,11 @@ type S3BackupConfigurationParameters struct {
 
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type S3ConfigurationCloudwatchLoggingOptionsObservation struct {
@@ -531,7 +531,7 @@ type S3ConfigurationObservation struct {
 }
 
 type S3ConfigurationParameters struct {
-	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
+	BucketARN string `json:"bucketARN" tf:"bucket_arn"`
 
 	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval"`
 
@@ -541,28 +541,28 @@ type S3ConfigurationParameters struct {
 
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 }
 
 type SchemaConfigurationObservation struct {
 }
 
 type SchemaConfigurationParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
 	Region *string `json:"region,omitempty" tf:"region"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	TableName string `json:"tableName" tf:"table_name"`
 
-	VersionId *string `json:"versionId,omitempty" tf:"version_id"`
+	VersionID *string `json:"versionID,omitempty" tf:"version_id"`
 }
 
 type SerializerObservation struct {
@@ -580,7 +580,7 @@ type ServerSideEncryptionObservation struct {
 type ServerSideEncryptionParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	KeyArn *string `json:"keyArn,omitempty" tf:"key_arn"`
+	KeyARN *string `json:"keyARN,omitempty" tf:"key_arn"`
 
 	KeyType *string `json:"keyType,omitempty" tf:"key_type"`
 }
@@ -644,12 +644,12 @@ type SplunkConfigurationProcessingConfigurationProcessorsParametersParameters st
 	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
 }
 
-type VpcConfigObservation struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+type VPCConfigObservation struct {
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
-type VpcConfigParameters struct {
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+type VPCConfigParameters struct {
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 

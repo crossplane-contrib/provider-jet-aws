@@ -25,9 +25,9 @@ import (
 )
 
 type CognitoUserPoolDomainObservation struct {
-	AwsAccountId string `json:"awsAccountId" tf:"aws_account_id"`
+	AwsAccountID string `json:"awsAccountID" tf:"aws_account_id"`
 
-	CloudfrontDistributionArn string `json:"cloudfrontDistributionArn" tf:"cloudfront_distribution_arn"`
+	CloudfrontDistributionARN string `json:"cloudfrontDistributionARN" tf:"cloudfront_distribution_arn"`
 
 	S3Bucket string `json:"s3Bucket" tf:"s3_bucket"`
 
@@ -35,11 +35,11 @@ type CognitoUserPoolDomainObservation struct {
 }
 
 type CognitoUserPoolDomainParameters struct {
-	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn"`
+	CertificateARN *string `json:"certificateARN,omitempty" tf:"certificate_arn"`
 
 	Domain string `json:"domain" tf:"domain"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	UserPoolID string `json:"userPoolID" tf:"user_pool_id"`
 }
 
 // CognitoUserPoolDomainSpec defines the desired state of CognitoUserPoolDomain

@@ -32,7 +32,7 @@ type AliasParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneID" tf:"zone_id"`
 }
 
 type FailoverRoutingPolicyObservation struct {
@@ -73,7 +73,7 @@ type Route53RecordParameters struct {
 
 	GeolocationRoutingPolicy []GeolocationRoutingPolicyParameters `json:"geolocationRoutingPolicy,omitempty" tf:"geolocation_routing_policy"`
 
-	HealthCheckId *string `json:"healthCheckId,omitempty" tf:"health_check_id"`
+	HealthCheckID *string `json:"healthCheckID,omitempty" tf:"health_check_id"`
 
 	LatencyRoutingPolicy []LatencyRoutingPolicyParameters `json:"latencyRoutingPolicy,omitempty" tf:"latency_routing_policy"`
 
@@ -85,13 +85,13 @@ type Route53RecordParameters struct {
 
 	SetIdentifier *string `json:"setIdentifier,omitempty" tf:"set_identifier"`
 
-	Ttl *int64 `json:"ttl,omitempty" tf:"ttl"`
+	TTL *int64 `json:"ttl,omitempty" tf:"ttl"`
 
 	Type string `json:"type" tf:"type"`
 
 	WeightedRoutingPolicy []WeightedRoutingPolicyParameters `json:"weightedRoutingPolicy,omitempty" tf:"weighted_routing_policy"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneID" tf:"zone_id"`
 }
 
 type WeightedRoutingPolicyObservation struct {

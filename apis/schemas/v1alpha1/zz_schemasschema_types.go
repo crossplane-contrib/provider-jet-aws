@@ -25,7 +25,7 @@ import (
 )
 
 type SchemasSchemaObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	LastModified string `json:"lastModified" tf:"last_modified"`
 

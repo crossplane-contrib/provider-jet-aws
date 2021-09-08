@@ -28,7 +28,7 @@ type AuthorizationConfigObservation struct {
 }
 
 type AuthorizationConfigParameters struct {
-	AccessPointId *string `json:"accessPointId,omitempty" tf:"access_point_id"`
+	AccessPointID *string `json:"accessPointID,omitempty" tf:"access_point_id"`
 
 	Iam *string `json:"iam,omitempty" tf:"iam"`
 }
@@ -49,19 +49,19 @@ type DockerVolumeConfigurationParameters struct {
 }
 
 type EcsTaskDefinitionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Revision int64 `json:"revision" tf:"revision"`
 }
 
 type EcsTaskDefinitionParameters struct {
-	ContainerDefinitions string `json:"containerDefinitions" tf:"container_definitions"`
+	CPU *string `json:"cpu,omitempty" tf:"cpu"`
 
-	Cpu *string `json:"cpu,omitempty" tf:"cpu"`
+	ContainerDefinitions string `json:"containerDefinitions" tf:"container_definitions"`
 
 	EphemeralStorage []EphemeralStorageParameters `json:"ephemeralStorage,omitempty" tf:"ephemeral_storage"`
 
-	ExecutionRoleArn *string `json:"executionRoleArn,omitempty" tf:"execution_role_arn"`
+	ExecutionRoleARN *string `json:"executionRoleARN,omitempty" tf:"execution_role_arn"`
 
 	Family string `json:"family" tf:"family"`
 
@@ -85,7 +85,7 @@ type EcsTaskDefinitionParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TaskRoleArn *string `json:"taskRoleArn,omitempty" tf:"task_role_arn"`
+	TaskRoleARN *string `json:"taskRoleARN,omitempty" tf:"task_role_arn"`
 
 	Volume []VolumeParameters `json:"volume,omitempty" tf:"volume"`
 }
@@ -105,7 +105,7 @@ type EfsVolumeConfigurationObservation struct {
 type EfsVolumeConfigurationParameters struct {
 	AuthorizationConfig []AuthorizationConfigParameters `json:"authorizationConfig,omitempty" tf:"authorization_config"`
 
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
+	FileSystemID string `json:"fileSystemID" tf:"file_system_id"`
 
 	RootDirectory *string `json:"rootDirectory,omitempty" tf:"root_directory"`
 
@@ -136,7 +136,7 @@ type FsxWindowsFileServerVolumeConfigurationObservation struct {
 type FsxWindowsFileServerVolumeConfigurationParameters struct {
 	AuthorizationConfig []FsxWindowsFileServerVolumeConfigurationAuthorizationConfigParameters `json:"authorizationConfig" tf:"authorization_config"`
 
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
+	FileSystemID string `json:"fileSystemID" tf:"file_system_id"`
 
 	RootDirectory string `json:"rootDirectory" tf:"root_directory"`
 }

@@ -28,7 +28,7 @@ type PredicatesObservation struct {
 }
 
 type PredicatesParameters struct {
-	DataId string `json:"dataId" tf:"data_id"`
+	DataID string `json:"dataID" tf:"data_id"`
 
 	Negated bool `json:"negated" tf:"negated"`
 
@@ -36,7 +36,7 @@ type PredicatesParameters struct {
 }
 
 type WafRateBasedRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type WafRateBasedRuleParameters struct {

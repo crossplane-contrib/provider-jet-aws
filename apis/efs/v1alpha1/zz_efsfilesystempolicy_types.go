@@ -28,7 +28,7 @@ type EfsFileSystemPolicyObservation struct {
 }
 
 type EfsFileSystemPolicyParameters struct {
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
+	FileSystemID string `json:"fileSystemID" tf:"file_system_id"`
 
 	Policy string `json:"policy" tf:"policy"`
 }

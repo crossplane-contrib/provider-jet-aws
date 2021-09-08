@@ -39,13 +39,13 @@ type KinesisDestinationObservation struct {
 }
 
 type KinesisDestinationParameters struct {
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
-	StreamArn string `json:"streamArn" tf:"stream_arn"`
+	StreamARN string `json:"streamARN" tf:"stream_arn"`
 }
 
 type SesEventDestinationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SesEventDestinationParameters struct {
@@ -68,7 +68,7 @@ type SnsDestinationObservation struct {
 }
 
 type SnsDestinationParameters struct {
-	TopicArn string `json:"topicArn" tf:"topic_arn"`
+	TopicARN string `json:"topicARN" tf:"topic_arn"`
 }
 
 // SesEventDestinationSpec defines the desired state of SesEventDestination

@@ -38,7 +38,7 @@ type PublicAccessBlockConfigurationParameters struct {
 }
 
 type S3AccessPointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 
@@ -48,7 +48,7 @@ type S3AccessPointObservation struct {
 }
 
 type S3AccessPointParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
+	AccountID *string `json:"accountID,omitempty" tf:"account_id"`
 
 	Bucket string `json:"bucket" tf:"bucket"`
 
@@ -58,14 +58,14 @@ type S3AccessPointParameters struct {
 
 	PublicAccessBlockConfiguration []PublicAccessBlockConfigurationParameters `json:"publicAccessBlockConfiguration,omitempty" tf:"public_access_block_configuration"`
 
-	VpcConfiguration []VpcConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
+	VPCConfiguration []VPCConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
 }
 
-type VpcConfigurationObservation struct {
+type VPCConfigurationObservation struct {
 }
 
-type VpcConfigurationParameters struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+type VPCConfigurationParameters struct {
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // S3AccessPointSpec defines the desired state of S3AccessPoint

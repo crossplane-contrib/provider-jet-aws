@@ -28,17 +28,17 @@ type Ec2TransitGatewayPeeringAttachmentObservation struct {
 }
 
 type Ec2TransitGatewayPeeringAttachmentParameters struct {
-	PeerAccountId *string `json:"peerAccountId,omitempty" tf:"peer_account_id"`
+	PeerAccountID *string `json:"peerAccountID,omitempty" tf:"peer_account_id"`
 
 	PeerRegion string `json:"peerRegion" tf:"peer_region"`
 
-	PeerTransitGatewayId string `json:"peerTransitGatewayId" tf:"peer_transit_gateway_id"`
+	PeerTransitGatewayID string `json:"peerTransitGatewayID" tf:"peer_transit_gateway_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TransitGatewayId string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	TransitGatewayID string `json:"transitGatewayID" tf:"transit_gateway_id"`
 }
 
 // Ec2TransitGatewayPeeringAttachmentSpec defines the desired state of Ec2TransitGatewayPeeringAttachment

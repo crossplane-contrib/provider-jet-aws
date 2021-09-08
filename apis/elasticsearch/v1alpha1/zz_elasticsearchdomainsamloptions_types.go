@@ -37,7 +37,7 @@ type IdpObservation struct {
 }
 
 type IdpParameters struct {
-	EntityId string `json:"entityId" tf:"entity_id"`
+	EntityID string `json:"entityID" tf:"entity_id"`
 
 	MetadataContent string `json:"metadataContent" tf:"metadata_content"`
 }

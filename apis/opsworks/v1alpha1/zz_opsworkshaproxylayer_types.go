@@ -44,7 +44,7 @@ type OpsworksHaproxyLayerEbsVolumeParameters struct {
 }
 
 type OpsworksHaproxyLayerObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type OpsworksHaproxyLayerParameters struct {
@@ -58,9 +58,9 @@ type OpsworksHaproxyLayerParameters struct {
 
 	CustomDeployRecipes []string `json:"customDeployRecipes,omitempty" tf:"custom_deploy_recipes"`
 
-	CustomInstanceProfileArn *string `json:"customInstanceProfileArn,omitempty" tf:"custom_instance_profile_arn"`
+	CustomInstanceProfileARN *string `json:"customInstanceProfileARN,omitempty" tf:"custom_instance_profile_arn"`
 
-	CustomJson *string `json:"customJson,omitempty" tf:"custom_json"`
+	CustomJSON *string `json:"customJSON,omitempty" tf:"custom_json"`
 
 	CustomSecurityGroupIds []string `json:"customSecurityGroupIds,omitempty" tf:"custom_security_group_ids"`
 
@@ -78,7 +78,7 @@ type OpsworksHaproxyLayerParameters struct {
 
 	HealthcheckMethod *string `json:"healthcheckMethod,omitempty" tf:"healthcheck_method"`
 
-	HealthcheckUrl *string `json:"healthcheckUrl,omitempty" tf:"healthcheck_url"`
+	HealthcheckURL *string `json:"healthcheckURL,omitempty" tf:"healthcheck_url"`
 
 	InstallUpdatesOnBoot *bool `json:"installUpdatesOnBoot,omitempty" tf:"install_updates_on_boot"`
 
@@ -86,13 +86,13 @@ type OpsworksHaproxyLayerParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	StackId string `json:"stackId" tf:"stack_id"`
+	StackID string `json:"stackID" tf:"stack_id"`
 
 	StatsEnabled *bool `json:"statsEnabled,omitempty" tf:"stats_enabled"`
 
 	StatsPassword string `json:"statsPassword" tf:"stats_password"`
 
-	StatsUrl *string `json:"statsUrl,omitempty" tf:"stats_url"`
+	StatsURL *string `json:"statsURL,omitempty" tf:"stats_url"`
 
 	StatsUser *string `json:"statsUser,omitempty" tf:"stats_user"`
 

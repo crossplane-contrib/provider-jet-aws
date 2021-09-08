@@ -25,7 +25,7 @@ import (
 )
 
 type ConfigConformancePackObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type ConfigConformancePackParameters struct {
@@ -39,7 +39,7 @@ type ConfigConformancePackParameters struct {
 
 	TemplateBody *string `json:"templateBody,omitempty" tf:"template_body"`
 
-	TemplateS3Uri *string `json:"templateS3Uri,omitempty" tf:"template_s3_uri"`
+	TemplateS3URI *string `json:"templateS3URI,omitempty" tf:"template_s3_uri"`
 }
 
 type InputParameterObservation struct {

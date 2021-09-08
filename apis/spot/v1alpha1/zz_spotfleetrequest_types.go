@@ -43,9 +43,9 @@ type EbsBlockDeviceParameters struct {
 
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotID,omitempty" tf:"snapshot_id"`
 
 	Throughput *int64 `json:"throughput,omitempty" tf:"throughput"`
 
@@ -69,7 +69,7 @@ type LaunchSpecificationObservation struct {
 type LaunchSpecificationParameters struct {
 	Ami string `json:"ami" tf:"ami"`
 
-	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress,omitempty" tf:"associate_public_ip_address"`
+	AssociatePublicIPAddress *bool `json:"associatePublicIPAddress,omitempty" tf:"associate_public_ip_address"`
 
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
@@ -81,7 +81,7 @@ type LaunchSpecificationParameters struct {
 
 	IamInstanceProfile *string `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile"`
 
-	IamInstanceProfileArn *string `json:"iamInstanceProfileArn,omitempty" tf:"iam_instance_profile_arn"`
+	IamInstanceProfileARN *string `json:"iamInstanceProfileARN,omitempty" tf:"iam_instance_profile_arn"`
 
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
@@ -97,13 +97,13 @@ type LaunchSpecificationParameters struct {
 
 	SpotPrice *string `json:"spotPrice,omitempty" tf:"spot_price"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	UserData *string `json:"userData,omitempty" tf:"user_data"`
 
-	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VPCSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 
 	WeightedCapacity *string `json:"weightedCapacity,omitempty" tf:"weighted_capacity"`
 }
@@ -121,7 +121,7 @@ type LaunchTemplateSpecificationObservation struct {
 }
 
 type LaunchTemplateSpecificationParameters struct {
-	Id *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
@@ -140,7 +140,7 @@ type OverridesParameters struct {
 
 	SpotPrice *string `json:"spotPrice,omitempty" tf:"spot_price"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetID,omitempty" tf:"subnet_id"`
 
 	WeightedCapacity *float64 `json:"weightedCapacity,omitempty" tf:"weighted_capacity"`
 }
@@ -155,7 +155,7 @@ type RootBlockDeviceParameters struct {
 
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	Throughput *int64 `json:"throughput,omitempty" tf:"throughput"`
 

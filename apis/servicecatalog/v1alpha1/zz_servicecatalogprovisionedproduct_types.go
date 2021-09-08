@@ -36,19 +36,19 @@ type ProvisioningParametersParameters struct {
 }
 
 type ServicecatalogProvisionedProductObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CloudwatchDashboardNames []string `json:"cloudwatchDashboardNames" tf:"cloudwatch_dashboard_names"`
 
 	CreatedTime string `json:"createdTime" tf:"created_time"`
 
-	LastProvisioningRecordId string `json:"lastProvisioningRecordId" tf:"last_provisioning_record_id"`
+	LastProvisioningRecordID string `json:"lastProvisioningRecordID" tf:"last_provisioning_record_id"`
 
-	LastRecordId string `json:"lastRecordId" tf:"last_record_id"`
+	LastRecordID string `json:"lastRecordID" tf:"last_record_id"`
 
-	LastSuccessfulProvisioningRecordId string `json:"lastSuccessfulProvisioningRecordId" tf:"last_successful_provisioning_record_id"`
+	LastSuccessfulProvisioningRecordID string `json:"lastSuccessfulProvisioningRecordID" tf:"last_successful_provisioning_record_id"`
 
-	LaunchRoleArn string `json:"launchRoleArn" tf:"launch_role_arn"`
+	LaunchRoleARN string `json:"launchRoleARN" tf:"launch_role_arn"`
 
 	Status string `json:"status" tf:"status"`
 
@@ -66,15 +66,15 @@ type ServicecatalogProvisionedProductParameters struct {
 
 	NotificationArns []string `json:"notificationArns,omitempty" tf:"notification_arns"`
 
-	PathId *string `json:"pathId,omitempty" tf:"path_id"`
+	PathID *string `json:"pathID,omitempty" tf:"path_id"`
 
 	PathName *string `json:"pathName,omitempty" tf:"path_name"`
 
-	ProductId *string `json:"productId,omitempty" tf:"product_id"`
+	ProductID *string `json:"productID,omitempty" tf:"product_id"`
 
 	ProductName *string `json:"productName,omitempty" tf:"product_name"`
 
-	ProvisioningArtifactId *string `json:"provisioningArtifactId,omitempty" tf:"provisioning_artifact_id"`
+	ProvisioningArtifactID *string `json:"provisioningArtifactID,omitempty" tf:"provisioning_artifact_id"`
 
 	ProvisioningArtifactName *string `json:"provisioningArtifactName,omitempty" tf:"provisioning_artifact_name"`
 

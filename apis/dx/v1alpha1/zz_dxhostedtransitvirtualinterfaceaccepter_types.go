@@ -25,17 +25,17 @@ import (
 )
 
 type DxHostedTransitVirtualInterfaceAccepterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type DxHostedTransitVirtualInterfaceAccepterParameters struct {
-	DxGatewayId string `json:"dxGatewayId" tf:"dx_gateway_id"`
+	DxGatewayID string `json:"dxGatewayID" tf:"dx_gateway_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VirtualInterfaceId string `json:"virtualInterfaceId" tf:"virtual_interface_id"`
+	VirtualInterfaceID string `json:"virtualInterfaceID" tf:"virtual_interface_id"`
 }
 
 // DxHostedTransitVirtualInterfaceAccepterSpec defines the desired state of DxHostedTransitVirtualInterfaceAccepter

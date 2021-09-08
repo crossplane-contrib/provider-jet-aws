@@ -34,13 +34,13 @@ type AutoDeploymentParameters struct {
 }
 
 type CloudformationStackSetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	StackSetId string `json:"stackSetId" tf:"stack_set_id"`
+	StackSetID string `json:"stackSetID" tf:"stack_set_id"`
 }
 
 type CloudformationStackSetParameters struct {
-	AdministrationRoleArn *string `json:"administrationRoleArn,omitempty" tf:"administration_role_arn"`
+	AdministrationRoleARN *string `json:"administrationRoleARN,omitempty" tf:"administration_role_arn"`
 
 	AutoDeployment []AutoDeploymentParameters `json:"autoDeployment,omitempty" tf:"auto_deployment"`
 
@@ -62,7 +62,7 @@ type CloudformationStackSetParameters struct {
 
 	TemplateBody *string `json:"templateBody,omitempty" tf:"template_body"`
 
-	TemplateUrl *string `json:"templateUrl,omitempty" tf:"template_url"`
+	TemplateURL *string `json:"templateURL,omitempty" tf:"template_url"`
 }
 
 // CloudformationStackSetSpec defines the desired state of CloudformationStackSet

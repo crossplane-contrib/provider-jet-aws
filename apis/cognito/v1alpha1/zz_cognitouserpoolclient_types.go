@@ -28,13 +28,13 @@ type AnalyticsConfigurationObservation struct {
 }
 
 type AnalyticsConfigurationParameters struct {
-	ApplicationArn *string `json:"applicationArn,omitempty" tf:"application_arn"`
+	ApplicationARN *string `json:"applicationARN,omitempty" tf:"application_arn"`
 
-	ApplicationId *string `json:"applicationId,omitempty" tf:"application_id"`
+	ApplicationID *string `json:"applicationID,omitempty" tf:"application_id"`
 
-	ExternalId *string `json:"externalId,omitempty" tf:"external_id"`
+	ExternalID *string `json:"externalID,omitempty" tf:"external_id"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 
 	UserDataShared *bool `json:"userDataShared,omitempty" tf:"user_data_shared"`
 }
@@ -56,7 +56,7 @@ type CognitoUserPoolClientParameters struct {
 
 	CallbackUrls []string `json:"callbackUrls,omitempty" tf:"callback_urls"`
 
-	DefaultRedirectUri *string `json:"defaultRedirectUri,omitempty" tf:"default_redirect_uri"`
+	DefaultRedirectURI *string `json:"defaultRedirectURI,omitempty" tf:"default_redirect_uri"`
 
 	EnableTokenRevocation *bool `json:"enableTokenRevocation,omitempty" tf:"enable_token_revocation"`
 
@@ -64,7 +64,7 @@ type CognitoUserPoolClientParameters struct {
 
 	GenerateSecret *bool `json:"generateSecret,omitempty" tf:"generate_secret"`
 
-	IdTokenValidity *int64 `json:"idTokenValidity,omitempty" tf:"id_token_validity"`
+	IDTokenValidity *int64 `json:"idTokenValidity,omitempty" tf:"id_token_validity"`
 
 	LogoutUrls []string `json:"logoutUrls,omitempty" tf:"logout_urls"`
 
@@ -80,7 +80,7 @@ type CognitoUserPoolClientParameters struct {
 
 	TokenValidityUnits []TokenValidityUnitsParameters `json:"tokenValidityUnits,omitempty" tf:"token_validity_units"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	UserPoolID string `json:"userPoolID" tf:"user_pool_id"`
 
 	WriteAttributes []string `json:"writeAttributes,omitempty" tf:"write_attributes"`
 }
@@ -91,7 +91,7 @@ type TokenValidityUnitsObservation struct {
 type TokenValidityUnitsParameters struct {
 	AccessToken *string `json:"accessToken,omitempty" tf:"access_token"`
 
-	IdToken *string `json:"idToken,omitempty" tf:"id_token"`
+	IDToken *string `json:"idToken,omitempty" tf:"id_token"`
 
 	RefreshToken *string `json:"refreshToken,omitempty" tf:"refresh_token"`
 }

@@ -43,26 +43,26 @@ type BounceActionParameters struct {
 
 	Position int64 `json:"position" tf:"position"`
 
-	Sender string `json:"sender" tf:"sender"`
+	SMTPReplyCode string `json:"smtpReplyCode" tf:"smtp_reply_code"`
 
-	SmtpReplyCode string `json:"smtpReplyCode" tf:"smtp_reply_code"`
+	Sender string `json:"sender" tf:"sender"`
 
 	StatusCode *string `json:"statusCode,omitempty" tf:"status_code"`
 
-	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
+	TopicARN *string `json:"topicARN,omitempty" tf:"topic_arn"`
 }
 
 type LambdaActionObservation struct {
 }
 
 type LambdaActionParameters struct {
-	FunctionArn string `json:"functionArn" tf:"function_arn"`
+	FunctionARN string `json:"functionARN" tf:"function_arn"`
 
 	InvocationType *string `json:"invocationType,omitempty" tf:"invocation_type"`
 
 	Position int64 `json:"position" tf:"position"`
 
-	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
+	TopicARN *string `json:"topicARN,omitempty" tf:"topic_arn"`
 }
 
 type S3ActionObservation struct {
@@ -71,17 +71,17 @@ type S3ActionObservation struct {
 type S3ActionParameters struct {
 	BucketName string `json:"bucketName" tf:"bucket_name"`
 
-	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
+	KmsKeyARN *string `json:"kmsKeyARN,omitempty" tf:"kms_key_arn"`
 
 	ObjectKeyPrefix *string `json:"objectKeyPrefix,omitempty" tf:"object_key_prefix"`
 
 	Position int64 `json:"position" tf:"position"`
 
-	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
+	TopicARN *string `json:"topicARN,omitempty" tf:"topic_arn"`
 }
 
 type SesReceiptRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SesReceiptRuleParameters struct {
@@ -109,7 +109,7 @@ type SesReceiptRuleParameters struct {
 
 	StopAction []StopActionParameters `json:"stopAction,omitempty" tf:"stop_action"`
 
-	TlsPolicy *string `json:"tlsPolicy,omitempty" tf:"tls_policy"`
+	TLSPolicy *string `json:"tlsPolicy,omitempty" tf:"tls_policy"`
 
 	WorkmailAction []WorkmailActionParameters `json:"workmailAction,omitempty" tf:"workmail_action"`
 }
@@ -122,7 +122,7 @@ type SnsActionParameters struct {
 
 	Position int64 `json:"position" tf:"position"`
 
-	TopicArn string `json:"topicArn" tf:"topic_arn"`
+	TopicARN string `json:"topicARN" tf:"topic_arn"`
 }
 
 type StopActionObservation struct {
@@ -133,18 +133,18 @@ type StopActionParameters struct {
 
 	Scope string `json:"scope" tf:"scope"`
 
-	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
+	TopicARN *string `json:"topicARN,omitempty" tf:"topic_arn"`
 }
 
 type WorkmailActionObservation struct {
 }
 
 type WorkmailActionParameters struct {
-	OrganizationArn string `json:"organizationArn" tf:"organization_arn"`
+	OrganizationARN string `json:"organizationARN" tf:"organization_arn"`
 
 	Position int64 `json:"position" tf:"position"`
 
-	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
+	TopicARN *string `json:"topicARN,omitempty" tf:"topic_arn"`
 }
 
 // SesReceiptRuleSpec defines the desired state of SesReceiptRule

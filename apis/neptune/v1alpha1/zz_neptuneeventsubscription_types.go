@@ -25,9 +25,9 @@ import (
 )
 
 type NeptuneEventSubscriptionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	CustomerAwsId string `json:"customerAwsId" tf:"customer_aws_id"`
+	CustomerAwsID string `json:"customerAwsID" tf:"customer_aws_id"`
 }
 
 type NeptuneEventSubscriptionParameters struct {
@@ -39,7 +39,7 @@ type NeptuneEventSubscriptionParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
-	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
+	SnsTopicARN string `json:"snsTopicARN" tf:"sns_topic_arn"`
 
 	SourceIds []string `json:"sourceIds,omitempty" tf:"source_ids"`
 

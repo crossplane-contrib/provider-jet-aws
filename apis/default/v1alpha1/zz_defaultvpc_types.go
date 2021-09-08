@@ -25,39 +25,39 @@ import (
 )
 
 type DefaultVpcObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	AssignGeneratedIpv6CidrBlock bool `json:"assignGeneratedIpv6CidrBlock" tf:"assign_generated_ipv6_cidr_block"`
+	AssignGeneratedIPv6CidrBlock bool `json:"assignGeneratedIPv6CidrBlock" tf:"assign_generated_ipv6_cidr_block"`
 
 	CidrBlock string `json:"cidrBlock" tf:"cidr_block"`
 
-	DefaultNetworkAclId string `json:"defaultNetworkAclId" tf:"default_network_acl_id"`
+	DefaultNetworkACLID string `json:"defaultNetworkACLID" tf:"default_network_acl_id"`
 
-	DefaultRouteTableId string `json:"defaultRouteTableId" tf:"default_route_table_id"`
+	DefaultRouteTableID string `json:"defaultRouteTableID" tf:"default_route_table_id"`
 
-	DefaultSecurityGroupId string `json:"defaultSecurityGroupId" tf:"default_security_group_id"`
+	DefaultSecurityGroupID string `json:"defaultSecurityGroupID" tf:"default_security_group_id"`
 
-	DhcpOptionsId string `json:"dhcpOptionsId" tf:"dhcp_options_id"`
+	DhcpOptionsID string `json:"dhcpOptionsID" tf:"dhcp_options_id"`
+
+	IPv6AssociationID string `json:"ipv6AssociationID" tf:"ipv6_association_id"`
+
+	IPv6CidrBlock string `json:"ipv6CidrBlock" tf:"ipv6_cidr_block"`
 
 	InstanceTenancy string `json:"instanceTenancy" tf:"instance_tenancy"`
 
-	Ipv6AssociationId string `json:"ipv6AssociationId" tf:"ipv6_association_id"`
+	MainRouteTableID string `json:"mainRouteTableID" tf:"main_route_table_id"`
 
-	Ipv6CidrBlock string `json:"ipv6CidrBlock" tf:"ipv6_cidr_block"`
-
-	MainRouteTableId string `json:"mainRouteTableId" tf:"main_route_table_id"`
-
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type DefaultVpcParameters struct {
 	EnableClassiclink *bool `json:"enableClassiclink,omitempty" tf:"enable_classiclink"`
 
-	EnableClassiclinkDnsSupport *bool `json:"enableClassiclinkDnsSupport,omitempty" tf:"enable_classiclink_dns_support"`
+	EnableClassiclinkDNSSupport *bool `json:"enableClassiclinkDNSSupport,omitempty" tf:"enable_classiclink_dns_support"`
 
-	EnableDnsHostnames *bool `json:"enableDnsHostnames,omitempty" tf:"enable_dns_hostnames"`
+	EnableDNSHostnames *bool `json:"enableDNSHostnames,omitempty" tf:"enable_dns_hostnames"`
 
-	EnableDnsSupport *bool `json:"enableDnsSupport,omitempty" tf:"enable_dns_support"`
+	EnableDNSSupport *bool `json:"enableDNSSupport,omitempty" tf:"enable_dns_support"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

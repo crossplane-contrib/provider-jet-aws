@@ -32,7 +32,7 @@ type ApiGatewayIntegrationParameters struct {
 
 	CacheNamespace *string `json:"cacheNamespace,omitempty" tf:"cache_namespace"`
 
-	ConnectionId *string `json:"connectionId,omitempty" tf:"connection_id"`
+	ConnectionID *string `json:"connectionID,omitempty" tf:"connection_id"`
 
 	ConnectionType *string `json:"connectionType,omitempty" tf:"connection_type"`
 
@@ -40,9 +40,9 @@ type ApiGatewayIntegrationParameters struct {
 
 	Credentials *string `json:"credentials,omitempty" tf:"credentials"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
-	IntegrationHttpMethod *string `json:"integrationHttpMethod,omitempty" tf:"integration_http_method"`
+	IntegrationHTTPMethod *string `json:"integrationHTTPMethod,omitempty" tf:"integration_http_method"`
 
 	PassthroughBehavior *string `json:"passthroughBehavior,omitempty" tf:"passthrough_behavior"`
 
@@ -50,23 +50,23 @@ type ApiGatewayIntegrationParameters struct {
 
 	RequestTemplates map[string]string `json:"requestTemplates,omitempty" tf:"request_templates"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceID" tf:"resource_id"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	RestAPIID string `json:"restAPIID" tf:"rest_api_id"`
+
+	TLSConfig []TLSConfigParameters `json:"tlsConfig,omitempty" tf:"tls_config"`
 
 	TimeoutMilliseconds *int64 `json:"timeoutMilliseconds,omitempty" tf:"timeout_milliseconds"`
 
-	TlsConfig []TlsConfigParameters `json:"tlsConfig,omitempty" tf:"tls_config"`
-
 	Type string `json:"type" tf:"type"`
 
-	Uri *string `json:"uri,omitempty" tf:"uri"`
+	URI *string `json:"uri,omitempty" tf:"uri"`
 }
 
-type TlsConfigObservation struct {
+type TLSConfigObservation struct {
 }
 
-type TlsConfigParameters struct {
+type TLSConfigParameters struct {
 	InsecureSkipVerification *bool `json:"insecureSkipVerification,omitempty" tf:"insecure_skip_verification"`
 }
 

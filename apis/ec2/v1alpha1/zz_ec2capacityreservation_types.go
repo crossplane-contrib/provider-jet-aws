@@ -25,9 +25,9 @@ import (
 )
 
 type Ec2CapacityReservationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 }
 
 type Ec2CapacityReservationParameters struct {
@@ -49,7 +49,7 @@ type Ec2CapacityReservationParameters struct {
 
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
-	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn"`
+	OutpostARN *string `json:"outpostARN,omitempty" tf:"outpost_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

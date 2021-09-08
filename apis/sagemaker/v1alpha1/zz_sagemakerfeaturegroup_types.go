@@ -68,13 +68,13 @@ type S3StorageConfigObservation struct {
 }
 
 type S3StorageConfigParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
-	S3Uri string `json:"s3Uri" tf:"s3_uri"`
+	S3URI string `json:"s3URI" tf:"s3_uri"`
 }
 
 type SagemakerFeatureGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type SagemakerFeatureGroupParameters struct {
@@ -92,7 +92,7 @@ type SagemakerFeatureGroupParameters struct {
 
 	RecordIdentifierFeatureName string `json:"recordIdentifierFeatureName" tf:"record_identifier_feature_name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -103,7 +103,7 @@ type SecurityConfigObservation struct {
 }
 
 type SecurityConfigParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 }
 
 // SagemakerFeatureGroupSpec defines the desired state of SagemakerFeatureGroup

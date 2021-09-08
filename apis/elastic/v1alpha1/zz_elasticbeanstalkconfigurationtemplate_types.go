@@ -32,7 +32,7 @@ type ElasticBeanstalkConfigurationTemplateParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	EnvironmentId *string `json:"environmentId,omitempty" tf:"environment_id"`
+	EnvironmentID *string `json:"environmentID,omitempty" tf:"environment_id"`
 
 	Name string `json:"name" tf:"name"`
 

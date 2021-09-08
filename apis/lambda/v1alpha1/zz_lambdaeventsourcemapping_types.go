@@ -32,7 +32,7 @@ type DestinationConfigParameters struct {
 }
 
 type LambdaEventSourceMappingObservation struct {
-	FunctionArn string `json:"functionArn" tf:"function_arn"`
+	FunctionARN string `json:"functionARN" tf:"function_arn"`
 
 	LastModified string `json:"lastModified" tf:"last_modified"`
 
@@ -42,7 +42,7 @@ type LambdaEventSourceMappingObservation struct {
 
 	StateTransitionReason string `json:"stateTransitionReason" tf:"state_transition_reason"`
 
-	Uuid string `json:"uuid" tf:"uuid"`
+	UUID string `json:"uuid" tf:"uuid"`
 }
 
 type LambdaEventSourceMappingParameters struct {
@@ -54,7 +54,7 @@ type LambdaEventSourceMappingParameters struct {
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	EventSourceArn *string `json:"eventSourceArn,omitempty" tf:"event_source_arn"`
+	EventSourceARN *string `json:"eventSourceARN,omitempty" tf:"event_source_arn"`
 
 	FunctionName string `json:"functionName" tf:"function_name"`
 
@@ -87,7 +87,7 @@ type OnFailureObservation struct {
 }
 
 type OnFailureParameters struct {
-	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
+	DestinationARN string `json:"destinationARN" tf:"destination_arn"`
 }
 
 type SelfManagedEventSourceObservation struct {
@@ -103,7 +103,7 @@ type SourceAccessConfigurationObservation struct {
 type SourceAccessConfigurationParameters struct {
 	Type string `json:"type" tf:"type"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 // LambdaEventSourceMappingSpec defines the desired state of LambdaEventSourceMapping

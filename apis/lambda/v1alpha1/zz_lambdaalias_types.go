@@ -25,9 +25,9 @@ import (
 )
 
 type LambdaAliasObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	InvokeArn string `json:"invokeArn" tf:"invoke_arn"`
+	InvokeARN string `json:"invokeARN" tf:"invoke_arn"`
 }
 
 type LambdaAliasParameters struct {

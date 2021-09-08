@@ -25,11 +25,11 @@ import (
 )
 
 type EcrRepositoryObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	RegistryID string `json:"registryID" tf:"registry_id"`
 
-	RepositoryUrl string `json:"repositoryUrl" tf:"repository_url"`
+	RepositoryURL string `json:"repositoryURL" tf:"repository_url"`
 }
 
 type EcrRepositoryParameters struct {

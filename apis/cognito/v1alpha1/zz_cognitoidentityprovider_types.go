@@ -38,7 +38,7 @@ type CognitoIdentityProviderParameters struct {
 
 	ProviderType string `json:"providerType" tf:"provider_type"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	UserPoolID string `json:"userPoolID" tf:"user_pool_id"`
 }
 
 // CognitoIdentityProviderSpec defines the desired state of CognitoIdentityProvider

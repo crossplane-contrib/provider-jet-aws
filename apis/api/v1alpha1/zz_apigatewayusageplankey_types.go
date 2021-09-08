@@ -31,11 +31,11 @@ type ApiGatewayUsagePlanKeyObservation struct {
 }
 
 type ApiGatewayUsagePlanKeyParameters struct {
-	KeyId string `json:"keyId" tf:"key_id"`
+	KeyID string `json:"keyID" tf:"key_id"`
 
 	KeyType string `json:"keyType" tf:"key_type"`
 
-	UsagePlanId string `json:"usagePlanId" tf:"usage_plan_id"`
+	UsagePlanID string `json:"usagePlanID" tf:"usage_plan_id"`
 }
 
 // ApiGatewayUsagePlanKeySpec defines the desired state of ApiGatewayUsagePlanKey

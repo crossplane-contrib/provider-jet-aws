@@ -38,13 +38,13 @@ type AccessLogsParameters struct {
 }
 
 type ElbObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
-	SourceSecurityGroupId string `json:"sourceSecurityGroupId" tf:"source_security_group_id"`
+	SourceSecurityGroupID string `json:"sourceSecurityGroupID" tf:"source_security_group_id"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneID" tf:"zone_id"`
 }
 
 type ElbParameters struct {
@@ -110,7 +110,7 @@ type ListenerParameters struct {
 
 	LbProtocol string `json:"lbProtocol" tf:"lb_protocol"`
 
-	SslCertificateId *string `json:"sslCertificateId,omitempty" tf:"ssl_certificate_id"`
+	SslCertificateID *string `json:"sslCertificateID,omitempty" tf:"ssl_certificate_id"`
 }
 
 // ElbSpec defines the desired state of Elb

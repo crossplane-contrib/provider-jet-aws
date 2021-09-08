@@ -25,15 +25,15 @@ import (
 )
 
 type SnsTopicObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Owner string `json:"owner" tf:"owner"`
 }
 
 type SnsTopicParameters struct {
-	ApplicationFailureFeedbackRoleArn *string `json:"applicationFailureFeedbackRoleArn,omitempty" tf:"application_failure_feedback_role_arn"`
+	ApplicationFailureFeedbackRoleARN *string `json:"applicationFailureFeedbackRoleARN,omitempty" tf:"application_failure_feedback_role_arn"`
 
-	ApplicationSuccessFeedbackRoleArn *string `json:"applicationSuccessFeedbackRoleArn,omitempty" tf:"application_success_feedback_role_arn"`
+	ApplicationSuccessFeedbackRoleARN *string `json:"applicationSuccessFeedbackRoleARN,omitempty" tf:"application_success_feedback_role_arn"`
 
 	ApplicationSuccessFeedbackSampleRate *int64 `json:"applicationSuccessFeedbackSampleRate,omitempty" tf:"application_success_feedback_sample_rate"`
 
@@ -45,23 +45,23 @@ type SnsTopicParameters struct {
 
 	FifoTopic *bool `json:"fifoTopic,omitempty" tf:"fifo_topic"`
 
-	FirehoseFailureFeedbackRoleArn *string `json:"firehoseFailureFeedbackRoleArn,omitempty" tf:"firehose_failure_feedback_role_arn"`
+	FirehoseFailureFeedbackRoleARN *string `json:"firehoseFailureFeedbackRoleARN,omitempty" tf:"firehose_failure_feedback_role_arn"`
 
-	FirehoseSuccessFeedbackRoleArn *string `json:"firehoseSuccessFeedbackRoleArn,omitempty" tf:"firehose_success_feedback_role_arn"`
+	FirehoseSuccessFeedbackRoleARN *string `json:"firehoseSuccessFeedbackRoleARN,omitempty" tf:"firehose_success_feedback_role_arn"`
 
 	FirehoseSuccessFeedbackSampleRate *int64 `json:"firehoseSuccessFeedbackSampleRate,omitempty" tf:"firehose_success_feedback_sample_rate"`
 
-	HttpFailureFeedbackRoleArn *string `json:"httpFailureFeedbackRoleArn,omitempty" tf:"http_failure_feedback_role_arn"`
+	HTTPFailureFeedbackRoleARN *string `json:"httpFailureFeedbackRoleARN,omitempty" tf:"http_failure_feedback_role_arn"`
 
-	HttpSuccessFeedbackRoleArn *string `json:"httpSuccessFeedbackRoleArn,omitempty" tf:"http_success_feedback_role_arn"`
+	HTTPSuccessFeedbackRoleARN *string `json:"httpSuccessFeedbackRoleARN,omitempty" tf:"http_success_feedback_role_arn"`
 
-	HttpSuccessFeedbackSampleRate *int64 `json:"httpSuccessFeedbackSampleRate,omitempty" tf:"http_success_feedback_sample_rate"`
+	HTTPSuccessFeedbackSampleRate *int64 `json:"httpSuccessFeedbackSampleRate,omitempty" tf:"http_success_feedback_sample_rate"`
 
-	KmsMasterKeyId *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id"`
+	KmsMasterKeyID *string `json:"kmsMasterKeyID,omitempty" tf:"kms_master_key_id"`
 
-	LambdaFailureFeedbackRoleArn *string `json:"lambdaFailureFeedbackRoleArn,omitempty" tf:"lambda_failure_feedback_role_arn"`
+	LambdaFailureFeedbackRoleARN *string `json:"lambdaFailureFeedbackRoleARN,omitempty" tf:"lambda_failure_feedback_role_arn"`
 
-	LambdaSuccessFeedbackRoleArn *string `json:"lambdaSuccessFeedbackRoleArn,omitempty" tf:"lambda_success_feedback_role_arn"`
+	LambdaSuccessFeedbackRoleARN *string `json:"lambdaSuccessFeedbackRoleARN,omitempty" tf:"lambda_success_feedback_role_arn"`
 
 	LambdaSuccessFeedbackSampleRate *int64 `json:"lambdaSuccessFeedbackSampleRate,omitempty" tf:"lambda_success_feedback_sample_rate"`
 
@@ -71,9 +71,9 @@ type SnsTopicParameters struct {
 
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
-	SqsFailureFeedbackRoleArn *string `json:"sqsFailureFeedbackRoleArn,omitempty" tf:"sqs_failure_feedback_role_arn"`
+	SqsFailureFeedbackRoleARN *string `json:"sqsFailureFeedbackRoleARN,omitempty" tf:"sqs_failure_feedback_role_arn"`
 
-	SqsSuccessFeedbackRoleArn *string `json:"sqsSuccessFeedbackRoleArn,omitempty" tf:"sqs_success_feedback_role_arn"`
+	SqsSuccessFeedbackRoleARN *string `json:"sqsSuccessFeedbackRoleARN,omitempty" tf:"sqs_success_feedback_role_arn"`
 
 	SqsSuccessFeedbackSampleRate *int64 `json:"sqsSuccessFeedbackSampleRate,omitempty" tf:"sqs_success_feedback_sample_rate"`
 

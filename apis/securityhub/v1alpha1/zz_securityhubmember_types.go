@@ -25,13 +25,13 @@ import (
 )
 
 type SecurityhubMemberObservation struct {
-	MasterId string `json:"masterId" tf:"master_id"`
+	MasterID string `json:"masterID" tf:"master_id"`
 
 	MemberStatus string `json:"memberStatus" tf:"member_status"`
 }
 
 type SecurityhubMemberParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountID" tf:"account_id"`
 
 	Email string `json:"email" tf:"email"`
 

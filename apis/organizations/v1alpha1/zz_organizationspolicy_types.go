@@ -25,7 +25,7 @@ import (
 )
 
 type OrganizationsPolicyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type OrganizationsPolicyParameters struct {

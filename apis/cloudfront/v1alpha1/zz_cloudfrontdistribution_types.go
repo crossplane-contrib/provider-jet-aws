@@ -25,7 +25,7 @@ import (
 )
 
 type CloudfrontDistributionObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	CallerReference string `json:"callerReference" tf:"caller_reference"`
 
@@ -33,7 +33,7 @@ type CloudfrontDistributionObservation struct {
 
 	Etag string `json:"etag" tf:"etag"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneID" tf:"hosted_zone_id"`
 
 	InProgressValidationBatches int64 `json:"inProgressValidationBatches" tf:"in_progress_validation_batches"`
 
@@ -59,9 +59,9 @@ type CloudfrontDistributionParameters struct {
 
 	Enabled bool `json:"enabled" tf:"enabled"`
 
-	HttpVersion *string `json:"httpVersion,omitempty" tf:"http_version"`
+	HTTPVersion *string `json:"httpVersion,omitempty" tf:"http_version"`
 
-	IsIpv6Enabled *bool `json:"isIpv6Enabled,omitempty" tf:"is_ipv6_enabled"`
+	IsIPv6Enabled *bool `json:"isIPv6Enabled,omitempty" tf:"is_ipv6_enabled"`
 
 	LoggingConfig []LoggingConfigParameters `json:"loggingConfig,omitempty" tf:"logging_config"`
 
@@ -85,14 +85,14 @@ type CloudfrontDistributionParameters struct {
 
 	WaitForDeployment *bool `json:"waitForDeployment,omitempty" tf:"wait_for_deployment"`
 
-	WebAclId *string `json:"webAclId,omitempty" tf:"web_acl_id"`
+	WebACLID *string `json:"webACLID,omitempty" tf:"web_acl_id"`
 }
 
 type CustomErrorResponseObservation struct {
 }
 
 type CustomErrorResponseParameters struct {
-	ErrorCachingMinTtl *int64 `json:"errorCachingMinTtl,omitempty" tf:"error_caching_min_ttl"`
+	ErrorCachingMinTTL *int64 `json:"errorCachingMinTTL,omitempty" tf:"error_caching_min_ttl"`
 
 	ErrorCode int64 `json:"errorCode" tf:"error_code"`
 
@@ -114,9 +114,9 @@ type CustomOriginConfigObservation struct {
 }
 
 type CustomOriginConfigParameters struct {
-	HttpPort int64 `json:"httpPort" tf:"http_port"`
+	HTTPPort int64 `json:"httpPort" tf:"http_port"`
 
-	HttpsPort int64 `json:"httpsPort" tf:"https_port"`
+	HTTPSPort int64 `json:"httpsPort" tf:"https_port"`
 
 	OriginKeepaliveTimeout *int64 `json:"originKeepaliveTimeout,omitempty" tf:"origin_keepalive_timeout"`
 
@@ -133,15 +133,15 @@ type DefaultCacheBehaviorObservation struct {
 type DefaultCacheBehaviorParameters struct {
 	AllowedMethods []string `json:"allowedMethods" tf:"allowed_methods"`
 
-	CachePolicyId *string `json:"cachePolicyId,omitempty" tf:"cache_policy_id"`
+	CachePolicyID *string `json:"cachePolicyID,omitempty" tf:"cache_policy_id"`
 
 	CachedMethods []string `json:"cachedMethods" tf:"cached_methods"`
 
 	Compress *bool `json:"compress,omitempty" tf:"compress"`
 
-	DefaultTtl *int64 `json:"defaultTtl,omitempty" tf:"default_ttl"`
+	DefaultTTL *int64 `json:"defaultTTL,omitempty" tf:"default_ttl"`
 
-	FieldLevelEncryptionId *string `json:"fieldLevelEncryptionId,omitempty" tf:"field_level_encryption_id"`
+	FieldLevelEncryptionID *string `json:"fieldLevelEncryptionID,omitempty" tf:"field_level_encryption_id"`
 
 	ForwardedValues []ForwardedValuesParameters `json:"forwardedValues,omitempty" tf:"forwarded_values"`
 
@@ -149,17 +149,17 @@ type DefaultCacheBehaviorParameters struct {
 
 	LambdaFunctionAssociation []LambdaFunctionAssociationParameters `json:"lambdaFunctionAssociation,omitempty" tf:"lambda_function_association"`
 
-	MaxTtl *int64 `json:"maxTtl,omitempty" tf:"max_ttl"`
+	MaxTTL *int64 `json:"maxTTL,omitempty" tf:"max_ttl"`
 
-	MinTtl *int64 `json:"minTtl,omitempty" tf:"min_ttl"`
+	MinTTL *int64 `json:"minTTL,omitempty" tf:"min_ttl"`
 
-	OriginRequestPolicyId *string `json:"originRequestPolicyId,omitempty" tf:"origin_request_policy_id"`
+	OriginRequestPolicyID *string `json:"originRequestPolicyID,omitempty" tf:"origin_request_policy_id"`
 
-	RealtimeLogConfigArn *string `json:"realtimeLogConfigArn,omitempty" tf:"realtime_log_config_arn"`
+	RealtimeLogConfigARN *string `json:"realtimeLogConfigARN,omitempty" tf:"realtime_log_config_arn"`
 
 	SmoothStreaming *bool `json:"smoothStreaming,omitempty" tf:"smooth_streaming"`
 
-	TargetOriginId string `json:"targetOriginId" tf:"target_origin_id"`
+	TargetOriginID string `json:"targetOriginID" tf:"target_origin_id"`
 
 	TrustedKeyGroups []string `json:"trustedKeyGroups,omitempty" tf:"trusted_key_groups"`
 
@@ -203,7 +203,7 @@ type FunctionAssociationObservation struct {
 type FunctionAssociationParameters struct {
 	EventType string `json:"eventType" tf:"event_type"`
 
-	FunctionArn string `json:"functionArn" tf:"function_arn"`
+	FunctionARN string `json:"functionARN" tf:"function_arn"`
 }
 
 type GeoRestrictionObservation struct {
@@ -216,7 +216,7 @@ type GeoRestrictionParameters struct {
 }
 
 type ItemsObservation struct {
-	KeyGroupId string `json:"keyGroupId" tf:"key_group_id"`
+	KeyGroupID string `json:"keyGroupID" tf:"key_group_id"`
 
 	KeyPairIds []string `json:"keyPairIds" tf:"key_pair_ids"`
 }
@@ -232,7 +232,7 @@ type LambdaFunctionAssociationParameters struct {
 
 	IncludeBody *bool `json:"includeBody,omitempty" tf:"include_body"`
 
-	LambdaArn string `json:"lambdaArn" tf:"lambda_arn"`
+	LambdaARN string `json:"lambdaARN" tf:"lambda_arn"`
 }
 
 type LoggingConfigObservation struct {
@@ -250,7 +250,7 @@ type MemberObservation struct {
 }
 
 type MemberParameters struct {
-	OriginId string `json:"originId" tf:"origin_id"`
+	OriginID string `json:"originID" tf:"origin_id"`
 }
 
 type OrderedCacheBehaviorForwardedValuesCookiesObservation struct {
@@ -281,7 +281,7 @@ type OrderedCacheBehaviorFunctionAssociationObservation struct {
 type OrderedCacheBehaviorFunctionAssociationParameters struct {
 	EventType string `json:"eventType" tf:"event_type"`
 
-	FunctionArn string `json:"functionArn" tf:"function_arn"`
+	FunctionARN string `json:"functionARN" tf:"function_arn"`
 }
 
 type OrderedCacheBehaviorLambdaFunctionAssociationObservation struct {
@@ -292,7 +292,7 @@ type OrderedCacheBehaviorLambdaFunctionAssociationParameters struct {
 
 	IncludeBody *bool `json:"includeBody,omitempty" tf:"include_body"`
 
-	LambdaArn string `json:"lambdaArn" tf:"lambda_arn"`
+	LambdaARN string `json:"lambdaARN" tf:"lambda_arn"`
 }
 
 type OrderedCacheBehaviorObservation struct {
@@ -301,15 +301,15 @@ type OrderedCacheBehaviorObservation struct {
 type OrderedCacheBehaviorParameters struct {
 	AllowedMethods []string `json:"allowedMethods" tf:"allowed_methods"`
 
-	CachePolicyId *string `json:"cachePolicyId,omitempty" tf:"cache_policy_id"`
+	CachePolicyID *string `json:"cachePolicyID,omitempty" tf:"cache_policy_id"`
 
 	CachedMethods []string `json:"cachedMethods" tf:"cached_methods"`
 
 	Compress *bool `json:"compress,omitempty" tf:"compress"`
 
-	DefaultTtl *int64 `json:"defaultTtl,omitempty" tf:"default_ttl"`
+	DefaultTTL *int64 `json:"defaultTTL,omitempty" tf:"default_ttl"`
 
-	FieldLevelEncryptionId *string `json:"fieldLevelEncryptionId,omitempty" tf:"field_level_encryption_id"`
+	FieldLevelEncryptionID *string `json:"fieldLevelEncryptionID,omitempty" tf:"field_level_encryption_id"`
 
 	ForwardedValues []OrderedCacheBehaviorForwardedValuesParameters `json:"forwardedValues,omitempty" tf:"forwarded_values"`
 
@@ -317,19 +317,19 @@ type OrderedCacheBehaviorParameters struct {
 
 	LambdaFunctionAssociation []OrderedCacheBehaviorLambdaFunctionAssociationParameters `json:"lambdaFunctionAssociation,omitempty" tf:"lambda_function_association"`
 
-	MaxTtl *int64 `json:"maxTtl,omitempty" tf:"max_ttl"`
+	MaxTTL *int64 `json:"maxTTL,omitempty" tf:"max_ttl"`
 
-	MinTtl *int64 `json:"minTtl,omitempty" tf:"min_ttl"`
+	MinTTL *int64 `json:"minTTL,omitempty" tf:"min_ttl"`
 
-	OriginRequestPolicyId *string `json:"originRequestPolicyId,omitempty" tf:"origin_request_policy_id"`
+	OriginRequestPolicyID *string `json:"originRequestPolicyID,omitempty" tf:"origin_request_policy_id"`
 
 	PathPattern string `json:"pathPattern" tf:"path_pattern"`
 
-	RealtimeLogConfigArn *string `json:"realtimeLogConfigArn,omitempty" tf:"realtime_log_config_arn"`
+	RealtimeLogConfigARN *string `json:"realtimeLogConfigARN,omitempty" tf:"realtime_log_config_arn"`
 
 	SmoothStreaming *bool `json:"smoothStreaming,omitempty" tf:"smooth_streaming"`
 
-	TargetOriginId string `json:"targetOriginId" tf:"target_origin_id"`
+	TargetOriginID string `json:"targetOriginID" tf:"target_origin_id"`
 
 	TrustedKeyGroups []string `json:"trustedKeyGroups,omitempty" tf:"trusted_key_groups"`
 
@@ -346,7 +346,7 @@ type OriginGroupParameters struct {
 
 	Member []MemberParameters `json:"member" tf:"member"`
 
-	OriginId string `json:"originId" tf:"origin_id"`
+	OriginID string `json:"originID" tf:"origin_id"`
 }
 
 type OriginObservation struct {
@@ -363,7 +363,7 @@ type OriginParameters struct {
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 
-	OriginId string `json:"originId" tf:"origin_id"`
+	OriginID string `json:"originID" tf:"origin_id"`
 
 	OriginPath *string `json:"originPath,omitempty" tf:"origin_path"`
 
@@ -426,11 +426,11 @@ type ViewerCertificateObservation struct {
 }
 
 type ViewerCertificateParameters struct {
-	AcmCertificateArn *string `json:"acmCertificateArn,omitempty" tf:"acm_certificate_arn"`
+	AcmCertificateARN *string `json:"acmCertificateARN,omitempty" tf:"acm_certificate_arn"`
 
 	CloudfrontDefaultCertificate *bool `json:"cloudfrontDefaultCertificate,omitempty" tf:"cloudfront_default_certificate"`
 
-	IamCertificateId *string `json:"iamCertificateId,omitempty" tf:"iam_certificate_id"`
+	IamCertificateID *string `json:"iamCertificateID,omitempty" tf:"iam_certificate_id"`
 
 	MinimumProtocolVersion *string `json:"minimumProtocolVersion,omitempty" tf:"minimum_protocol_version"`
 

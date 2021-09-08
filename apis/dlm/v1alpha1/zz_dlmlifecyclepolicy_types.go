@@ -36,13 +36,13 @@ type CreateRuleParameters struct {
 }
 
 type DlmLifecyclePolicyObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type DlmLifecyclePolicyParameters struct {
 	Description string `json:"description" tf:"description"`
 
-	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
+	ExecutionRoleARN string `json:"executionRoleARN" tf:"execution_role_arn"`
 
 	PolicyDetails []PolicyDetailsParameters `json:"policyDetails" tf:"policy_details"`
 

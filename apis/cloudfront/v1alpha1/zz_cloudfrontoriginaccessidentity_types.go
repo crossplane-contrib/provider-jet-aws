@@ -31,9 +31,9 @@ type CloudfrontOriginAccessIdentityObservation struct {
 
 	Etag string `json:"etag" tf:"etag"`
 
-	IamArn string `json:"iamArn" tf:"iam_arn"`
+	IamARN string `json:"iamARN" tf:"iam_arn"`
 
-	S3CanonicalUserId string `json:"s3CanonicalUserId" tf:"s3_canonical_user_id"`
+	S3CanonicalUserID string `json:"s3CanonicalUserID" tf:"s3_canonical_user_id"`
 }
 
 type CloudfrontOriginAccessIdentityParameters struct {

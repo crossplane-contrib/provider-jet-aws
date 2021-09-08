@@ -25,9 +25,9 @@ import (
 )
 
 type ElasticacheGlobalReplicationGroupObservation struct {
-	ActualEngineVersion string `json:"actualEngineVersion" tf:"actual_engine_version"`
+	ARN string `json:"arn" tf:"arn"`
 
-	Arn string `json:"arn" tf:"arn"`
+	ActualEngineVersion string `json:"actualEngineVersion" tf:"actual_engine_version"`
 
 	AtRestEncryptionEnabled bool `json:"atRestEncryptionEnabled" tf:"at_rest_encryption_enabled"`
 
@@ -41,7 +41,7 @@ type ElasticacheGlobalReplicationGroupObservation struct {
 
 	EngineVersionActual string `json:"engineVersionActual" tf:"engine_version_actual"`
 
-	GlobalReplicationGroupId string `json:"globalReplicationGroupId" tf:"global_replication_group_id"`
+	GlobalReplicationGroupID string `json:"globalReplicationGroupID" tf:"global_replication_group_id"`
 
 	TransitEncryptionEnabled bool `json:"transitEncryptionEnabled" tf:"transit_encryption_enabled"`
 }
@@ -49,9 +49,9 @@ type ElasticacheGlobalReplicationGroupObservation struct {
 type ElasticacheGlobalReplicationGroupParameters struct {
 	GlobalReplicationGroupDescription *string `json:"globalReplicationGroupDescription,omitempty" tf:"global_replication_group_description"`
 
-	GlobalReplicationGroupIdSuffix string `json:"globalReplicationGroupIdSuffix" tf:"global_replication_group_id_suffix"`
+	GlobalReplicationGroupIDSuffix string `json:"globalReplicationGroupIDSuffix" tf:"global_replication_group_id_suffix"`
 
-	PrimaryReplicationGroupId string `json:"primaryReplicationGroupId" tf:"primary_replication_group_id"`
+	PrimaryReplicationGroupID string `json:"primaryReplicationGroupID" tf:"primary_replication_group_id"`
 }
 
 // ElasticacheGlobalReplicationGroupSpec defines the desired state of ElasticacheGlobalReplicationGroup

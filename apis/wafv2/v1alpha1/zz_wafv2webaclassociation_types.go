@@ -28,9 +28,9 @@ type Wafv2WebAclAssociationObservation struct {
 }
 
 type Wafv2WebAclAssociationParameters struct {
-	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
+	ResourceARN string `json:"resourceARN" tf:"resource_arn"`
 
-	WebAclArn string `json:"webAclArn" tf:"web_acl_arn"`
+	WebACLARN string `json:"webACLARN" tf:"web_acl_arn"`
 }
 
 // Wafv2WebAclAssociationSpec defines the desired state of Wafv2WebAclAssociation

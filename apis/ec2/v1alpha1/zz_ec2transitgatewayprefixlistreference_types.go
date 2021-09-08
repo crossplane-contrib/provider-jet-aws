@@ -25,17 +25,17 @@ import (
 )
 
 type Ec2TransitGatewayPrefixListReferenceObservation struct {
-	PrefixListOwnerId string `json:"prefixListOwnerId" tf:"prefix_list_owner_id"`
+	PrefixListOwnerID string `json:"prefixListOwnerID" tf:"prefix_list_owner_id"`
 }
 
 type Ec2TransitGatewayPrefixListReferenceParameters struct {
 	Blackhole *bool `json:"blackhole,omitempty" tf:"blackhole"`
 
-	PrefixListId string `json:"prefixListId" tf:"prefix_list_id"`
+	PrefixListID string `json:"prefixListID" tf:"prefix_list_id"`
 
-	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id"`
+	TransitGatewayAttachmentID *string `json:"transitGatewayAttachmentID,omitempty" tf:"transit_gateway_attachment_id"`
 
-	TransitGatewayRouteTableId string `json:"transitGatewayRouteTableId" tf:"transit_gateway_route_table_id"`
+	TransitGatewayRouteTableID string `json:"transitGatewayRouteTableID" tf:"transit_gateway_route_table_id"`
 }
 
 // Ec2TransitGatewayPrefixListReferenceSpec defines the desired state of Ec2TransitGatewayPrefixListReference

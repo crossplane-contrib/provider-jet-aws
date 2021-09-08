@@ -32,7 +32,7 @@ type AmiDistributionConfigurationParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyID,omitempty" tf:"kms_key_id"`
 
 	LaunchPermission []LaunchPermissionParameters `json:"launchPermission,omitempty" tf:"launch_permission"`
 
@@ -53,7 +53,7 @@ type DistributionParameters struct {
 }
 
 type ImagebuilderDistributionConfigurationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	DateCreated string `json:"dateCreated" tf:"date_created"`
 

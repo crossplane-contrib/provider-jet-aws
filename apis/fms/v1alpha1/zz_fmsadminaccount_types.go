@@ -28,7 +28,7 @@ type FmsAdminAccountObservation struct {
 }
 
 type FmsAdminAccountParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
+	AccountID *string `json:"accountID,omitempty" tf:"account_id"`
 }
 
 // FmsAdminAccountSpec defines the desired state of FmsAdminAccount

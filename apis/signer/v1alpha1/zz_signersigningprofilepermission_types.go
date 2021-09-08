@@ -36,9 +36,9 @@ type SignerSigningProfilePermissionParameters struct {
 
 	ProfileVersion *string `json:"profileVersion,omitempty" tf:"profile_version"`
 
-	StatementId *string `json:"statementId,omitempty" tf:"statement_id"`
+	StatementID *string `json:"statementID,omitempty" tf:"statement_id"`
 
-	StatementIdPrefix *string `json:"statementIdPrefix,omitempty" tf:"statement_id_prefix"`
+	StatementIDPrefix *string `json:"statementIDPrefix,omitempty" tf:"statement_id_prefix"`
 }
 
 // SignerSigningProfilePermissionSpec defines the desired state of SignerSigningProfilePermission

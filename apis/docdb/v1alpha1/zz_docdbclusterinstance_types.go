@@ -25,17 +25,17 @@ import (
 )
 
 type DocdbClusterInstanceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	DbSubnetGroupName string `json:"dbSubnetGroupName" tf:"db_subnet_group_name"`
+	DBSubnetGroupName string `json:"dbSubnetGroupName" tf:"db_subnet_group_name"`
 
-	DbiResourceId string `json:"dbiResourceId" tf:"dbi_resource_id"`
+	DbiResourceID string `json:"dbiResourceID" tf:"dbi_resource_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
 	EngineVersion string `json:"engineVersion" tf:"engine_version"`
 
-	KmsKeyId string `json:"kmsKeyId" tf:"kms_key_id"`
+	KmsKeyID string `json:"kmsKeyID" tf:"kms_key_id"`
 
 	Port int64 `json:"port" tf:"port"`
 

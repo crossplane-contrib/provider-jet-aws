@@ -28,9 +28,9 @@ type MskScramSecretAssociationObservation struct {
 }
 
 type MskScramSecretAssociationParameters struct {
-	ClusterArn string `json:"clusterArn" tf:"cluster_arn"`
+	ClusterARN string `json:"clusterARN" tf:"cluster_arn"`
 
-	SecretArnList []string `json:"secretArnList" tf:"secret_arn_list"`
+	SecretARNList []string `json:"secretARNList" tf:"secret_arn_list"`
 }
 
 // MskScramSecretAssociationSpec defines the desired state of MskScramSecretAssociation

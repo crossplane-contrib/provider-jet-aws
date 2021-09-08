@@ -25,13 +25,13 @@ import (
 )
 
 type InspectorAssessmentTargetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type InspectorAssessmentTargetParameters struct {
 	Name string `json:"name" tf:"name"`
 
-	ResourceGroupArn *string `json:"resourceGroupArn,omitempty" tf:"resource_group_arn"`
+	ResourceGroupARN *string `json:"resourceGroupARN,omitempty" tf:"resource_group_arn"`
 }
 
 // InspectorAssessmentTargetSpec defines the desired state of InspectorAssessmentTarget

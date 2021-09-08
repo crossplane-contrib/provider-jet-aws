@@ -46,7 +46,7 @@ type ActionParameters struct {
 
 	Region *string `json:"region,omitempty" tf:"region"`
 
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleARN *string `json:"roleARN,omitempty" tf:"role_arn"`
 
 	RunOrder *int64 `json:"runOrder,omitempty" tf:"run_order"`
 
@@ -67,7 +67,7 @@ type ArtifactStoreParameters struct {
 }
 
 type CodepipelineObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 }
 
 type CodepipelineParameters struct {
@@ -75,7 +75,7 @@ type CodepipelineParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Stage []StageParameters `json:"stage" tf:"stage"`
 
@@ -88,7 +88,7 @@ type EncryptionKeyObservation struct {
 }
 
 type EncryptionKeyParameters struct {
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Type string `json:"type" tf:"type"`
 }

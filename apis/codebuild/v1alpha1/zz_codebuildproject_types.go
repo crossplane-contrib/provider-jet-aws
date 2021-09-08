@@ -75,7 +75,7 @@ type BuildStatusConfigObservation struct {
 type BuildStatusConfigParameters struct {
 	Context *string `json:"context,omitempty" tf:"context"`
 
-	TargetUrl *string `json:"targetUrl,omitempty" tf:"target_url"`
+	TargetURL *string `json:"targetURL,omitempty" tf:"target_url"`
 }
 
 type CacheObservation struct {
@@ -101,9 +101,9 @@ type CloudwatchLogsParameters struct {
 }
 
 type CodebuildProjectObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	BadgeUrl string `json:"badgeUrl" tf:"badge_url"`
+	BadgeURL string `json:"badgeURL" tf:"badge_url"`
 }
 
 type CodebuildProjectParameters struct {
@@ -147,7 +147,7 @@ type CodebuildProjectParameters struct {
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
+	VPCConfig []VPCConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 }
 
 type EnvironmentObservation struct {
@@ -305,7 +305,7 @@ type SourceBuildStatusConfigObservation struct {
 type SourceBuildStatusConfigParameters struct {
 	Context *string `json:"context,omitempty" tf:"context"`
 
-	TargetUrl *string `json:"targetUrl,omitempty" tf:"target_url"`
+	TargetURL *string `json:"targetURL,omitempty" tf:"target_url"`
 }
 
 type SourceGitSubmodulesConfigObservation struct {
@@ -338,15 +338,15 @@ type SourceParameters struct {
 	Type string `json:"type" tf:"type"`
 }
 
-type VpcConfigObservation struct {
+type VPCConfigObservation struct {
 }
 
-type VpcConfigParameters struct {
+type VPCConfigParameters struct {
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
 	Subnets []string `json:"subnets" tf:"subnets"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VPCID string `json:"vpcID" tf:"vpc_id"`
 }
 
 // CodebuildProjectSpec defines the desired state of CodebuildProject

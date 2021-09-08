@@ -28,11 +28,11 @@ type DeliveryOptionsObservation struct {
 }
 
 type DeliveryOptionsParameters struct {
-	TlsPolicy *string `json:"tlsPolicy,omitempty" tf:"tls_policy"`
+	TLSPolicy *string `json:"tlsPolicy,omitempty" tf:"tls_policy"`
 }
 
 type SesConfigurationSetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	LastFreshStart string `json:"lastFreshStart" tf:"last_fresh_start"`
 }

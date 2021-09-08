@@ -65,7 +65,7 @@ type IntentParameters struct {
 }
 
 type LexBotObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	Checksum string `json:"checksum" tf:"checksum"`
 
@@ -95,7 +95,7 @@ type LexBotParameters struct {
 
 	EnableModelImprovements *bool `json:"enableModelImprovements,omitempty" tf:"enable_model_improvements"`
 
-	IdleSessionTtlInSeconds *int64 `json:"idleSessionTtlInSeconds,omitempty" tf:"idle_session_ttl_in_seconds"`
+	IdleSessionTTLInSeconds *int64 `json:"idleSessionTTLInSeconds,omitempty" tf:"idle_session_ttl_in_seconds"`
 
 	Intent []IntentParameters `json:"intent" tf:"intent"`
 
@@ -107,7 +107,7 @@ type LexBotParameters struct {
 
 	ProcessBehavior *string `json:"processBehavior,omitempty" tf:"process_behavior"`
 
-	VoiceId *string `json:"voiceId,omitempty" tf:"voice_id"`
+	VoiceID *string `json:"voiceID,omitempty" tf:"voice_id"`
 }
 
 type MessageObservation struct {

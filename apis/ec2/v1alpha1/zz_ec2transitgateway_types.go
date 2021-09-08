@@ -25,13 +25,13 @@ import (
 )
 
 type Ec2TransitGatewayObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
-	AssociationDefaultRouteTableId string `json:"associationDefaultRouteTableId" tf:"association_default_route_table_id"`
+	AssociationDefaultRouteTableID string `json:"associationDefaultRouteTableID" tf:"association_default_route_table_id"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerID" tf:"owner_id"`
 
-	PropagationDefaultRouteTableId string `json:"propagationDefaultRouteTableId" tf:"propagation_default_route_table_id"`
+	PropagationDefaultRouteTableID string `json:"propagationDefaultRouteTableID" tf:"propagation_default_route_table_id"`
 }
 
 type Ec2TransitGatewayParameters struct {
@@ -39,13 +39,13 @@ type Ec2TransitGatewayParameters struct {
 
 	AutoAcceptSharedAttachments *string `json:"autoAcceptSharedAttachments,omitempty" tf:"auto_accept_shared_attachments"`
 
+	DNSSupport *string `json:"dnsSupport,omitempty" tf:"dns_support"`
+
 	DefaultRouteTableAssociation *string `json:"defaultRouteTableAssociation,omitempty" tf:"default_route_table_association"`
 
 	DefaultRouteTablePropagation *string `json:"defaultRouteTablePropagation,omitempty" tf:"default_route_table_propagation"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
-
-	DnsSupport *string `json:"dnsSupport,omitempty" tf:"dns_support"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

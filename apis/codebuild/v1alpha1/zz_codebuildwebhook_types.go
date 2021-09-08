@@ -25,11 +25,11 @@ import (
 )
 
 type CodebuildWebhookObservation struct {
-	PayloadUrl string `json:"payloadUrl" tf:"payload_url"`
+	PayloadURL string `json:"payloadURL" tf:"payload_url"`
 
 	Secret string `json:"secret" tf:"secret"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type CodebuildWebhookParameters struct {

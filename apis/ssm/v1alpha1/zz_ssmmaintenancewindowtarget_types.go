@@ -38,7 +38,7 @@ type SsmMaintenanceWindowTargetParameters struct {
 
 	Targets []SsmMaintenanceWindowTargetTargetsParameters `json:"targets" tf:"targets"`
 
-	WindowId string `json:"windowId" tf:"window_id"`
+	WindowID string `json:"windowID" tf:"window_id"`
 }
 
 type SsmMaintenanceWindowTargetTargetsObservation struct {

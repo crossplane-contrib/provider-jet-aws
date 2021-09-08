@@ -38,7 +38,7 @@ type FindMatchesParametersParameters struct {
 }
 
 type GlueMlTransformObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	ARN string `json:"arn" tf:"arn"`
 
 	LabelCount int64 `json:"labelCount" tf:"label_count"`
 
@@ -62,7 +62,7 @@ type GlueMlTransformParameters struct {
 
 	Parameters []ParametersParameters `json:"parameters" tf:"parameters"`
 
-	RoleArn string `json:"roleArn" tf:"role_arn"`
+	RoleARN string `json:"roleARN" tf:"role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
@@ -77,7 +77,7 @@ type InputRecordTablesObservation struct {
 }
 
 type InputRecordTablesParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	CatalogID *string `json:"catalogID,omitempty" tf:"catalog_id"`
 
 	ConnectionName *string `json:"connectionName,omitempty" tf:"connection_name"`
 
