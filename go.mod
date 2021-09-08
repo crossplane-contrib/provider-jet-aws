@@ -3,8 +3,8 @@ module github.com/crossplane-contrib/provider-tf-aws
 go 1.16
 
 require (
-	github.com/crossplane-contrib/terrajet v0.0.0-20210825052229-d4afdfba2baf
-	github.com/crossplane/crossplane-runtime v0.14.1-0.20210805220729-047d9387efbb
+	github.com/crossplane-contrib/terrajet v0.0.0-20210904151206-0bc6e490c0cb
+	github.com/crossplane/crossplane-runtime v0.15.1-0.20210903201629-1d64e228e1ff
 	github.com/crossplane/crossplane-tools v0.0.0-20210320162312-1baca298c527
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.7.0
 	github.com/iancoleman/strcase v0.2.0
@@ -13,8 +13,8 @@ require (
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	k8s.io/apimachinery v0.22.0
 	k8s.io/client-go v0.22.0
-	sigs.k8s.io/controller-runtime v0.9.2
-	sigs.k8s.io/controller-tools v0.4.0
+	sigs.k8s.io/controller-runtime v0.9.6
+	sigs.k8s.io/controller-tools v0.6.2
 )
 
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/gdavison/terraform-plugin-sdk/v2 v2.0.2-0.20210714181518-b5a3dc95a675

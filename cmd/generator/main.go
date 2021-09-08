@@ -19,7 +19,9 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
+	"sort"
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -34,6 +36,7 @@ import (
 const (
 	modulePath  = "github.com/crossplane-contrib/provider-tf-aws"
 	groupSuffix = ".aws.tf.crossplane.io"
+	providerShortName = "tfaws"
 )
 
 var (
@@ -42,8 +45,18 @@ var (
 	// available at this path
 	providerConfigBuilderPath = filepath.Join(modulePath, "internal", "clients")
 )
+var skipList = map[string]struct{}{
+	"aws_config_configuration_recorder_status": {},
+	"aws_vpc_peering_connection_accepter":      {},
+	"aws_elasticache_user_group":               {},
+	"aws_waf_rule_group":                       {},
+	"aws_wafregional_rule_group":               {},
+	"aws_shield_protection_group":              {},
+	"aws_route53_resolver_firewall_rule_group": {},
+	"aws_kinesis_analytics_application":        {},
+}
 
-func main() {
+func main() { // nolint:gocyclo
 	wd, err := os.Getwd()
 	if err != nil {
 		panic(errors.Wrap(err, "cannot get working directory"))
@@ -56,11 +69,7 @@ func main() {
 			fmt.Printf("Skipping resource %s because it has no schema\n", name)
 			continue
 		}
-		// Both aws_config_configuration_recorder_status and aws_config_configuration_recorder
-		// exist as resource which makes kubebuilder confuse them as same resource
-		// and expect a storage version.
-		if name == "aws_config_configuration_recorder_status" {
-			fmt.Printf("Skipping resource %s because there is a resource whose name is prefix of this resource\n", name)
+		if _, ok := skipList[name]; ok {
 			continue
 		}
 		words := strings.Split(name, "_")
@@ -71,33 +80,62 @@ func main() {
 		groups[groupName][name] = resource
 	}
 	count := 0
+	versionPkgList := []string{
+		"github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1",
+	}
+	controllerPkgList := []string{
+		"github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws",
+	}
 	for group, resources := range groups {
 		version := "v1alpha1"
-		groupGen := pipeline.NewVersionGenerator(wd, strings.ToLower(group)+groupSuffix, version)
-		if err := groupGen.Generate(); err != nil {
-			panic(errors.Wrap(err, "cannot generate version files"))
+		versionGen := pipeline.NewVersionGenerator(wd, modulePath, strings.ToLower(group)+groupSuffix, version)
+
+		crdGen := pipeline.NewCRDGenerator(versionGen.Package(), versionGen.DirectoryPath(), strings.ToLower(group)+groupSuffix, providerShortName)
+		tfGen := pipeline.NewTerraformedGenerator(versionGen.Package(), versionGen.DirectoryPath())
+		ctrlGen := pipeline.NewControllerGenerator(wd, modulePath, strings.ToLower(group)+groupSuffix, providerConfigBuilderPath)
+
+		keys := make([]string, len(resources))
+		i := 0
+		for k := range resources {
+			keys[i] = k
+			i++
 		}
-		apiGroupDir := filepath.Join(wd, "apis", group)
-		ctrlGroupDir := filepath.Join(wd, "internal", "controller", group)
+		sort.Strings(keys)
 
-		crdGen := pipeline.NewCRDGenerator(apiGroupDir, modulePath, strings.ToLower(group)+groupSuffix)
-		tfGen := pipeline.NewTerraformedGenerator(apiGroupDir, modulePath, strings.ToLower(group)+groupSuffix)
-		ctrlGen := pipeline.NewControllerGenerator(ctrlGroupDir, modulePath, strings.ToLower(group)+groupSuffix, providerConfigBuilderPath)
-
-		for name, resource := range resources {
+		for _, name := range keys {
 			// We don't want Aws prefix in all kinds.
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
-			if err := crdGen.Generate(version, kind, resource); err != nil {
+			if err := crdGen.Generate(version, kind, resources[name]); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
 			if err := tfGen.Generate(version, kind, name, "id"); err != nil {
 				panic(errors.Wrap(err, "cannot generate terraformed"))
 			}
-			if err := ctrlGen.Generate(version, kind); err != nil {
+			ctrlPkgPath, err := ctrlGen.Generate(versionGen.Package().Path(), kind)
+			if err != nil {
 				panic(errors.Wrap(err, "cannot generate controller"))
 			}
+			controllerPkgList = append(controllerPkgList, ctrlPkgPath)
 			count++
 		}
+
+		if err := versionGen.Generate(); err != nil {
+			panic(errors.Wrap(err, "cannot generate version files"))
+		}
+		versionPkgList = append(versionPkgList, versionGen.Package().Path())
+	}
+
+	if err := pipeline.NewRegisterGenerator(wd, modulePath).Generate(versionPkgList); err != nil {
+		panic(errors.Wrap(err, "cannot generate register file"))
+	}
+	if err := pipeline.NewSetupGenerator(wd, modulePath).Generate(controllerPkgList); err != nil {
+		panic(errors.Wrap(err, "cannot generate setup file"))
+	}
+	if err := exec.Command("bash", "-c", "goimports -w $(find apis -iname 'zz_*')").Run(); err != nil {
+		panic(errors.Wrap(err, "cannot run goimports for apis folder"))
+	}
+	if err := exec.Command("bash", "-c", "goimports -w $(find internal -iname 'zz_*')").Run(); err != nil {
+		panic(errors.Wrap(err, "cannot run goimports for internal folder"))
 	}
 	fmt.Printf("\nGenerated %d resources!\n", count)
 }
