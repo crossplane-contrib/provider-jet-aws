@@ -30,12 +30,13 @@ import (
 	"github.com/terraform-providers/terraform-provider-aws/aws"
 
 	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
+	"github.com/crossplane-contrib/terrajet/pkg/types"
 )
 
 // Constants to use in generated artifacts.
 const (
-	modulePath  = "github.com/crossplane-contrib/provider-tf-aws"
-	groupSuffix = ".aws.tf.crossplane.io"
+	modulePath        = "github.com/crossplane-contrib/provider-tf-aws"
+	groupSuffix       = ".aws.tf.crossplane.io"
 	providerShortName = "tfaws"
 )
 
@@ -138,4 +139,10 @@ func main() { // nolint:gocyclo
 		panic(errors.Wrap(err, "cannot run goimports for internal folder"))
 	}
 	fmt.Printf("\nGenerated %d resources!\n", count)
+}
+
+func init() {
+	// Written manually
+	types.AddAcronym("arn", "ARN")
+	types.AddAcronym("vpc", "VPC")
 }
