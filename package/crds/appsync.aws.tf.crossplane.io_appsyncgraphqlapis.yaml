@@ -2,7 +2,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.4.0
+    controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
   name: appsyncgraphqlapis.appsync.aws.tf.crossplane.io
 spec:
@@ -11,7 +11,7 @@ spec:
     categories:
     - crossplane
     - managed
-    - aws
+    - tfaws
     kind: AppsyncGraphqlApi
     listKind: AppsyncGraphqlApiList
     plural: appsyncgraphqlapis
@@ -91,12 +91,9 @@ spec:
                                 type: string
                               awsRegion:
                                 type: string
-                              defaultAction:
-                                type: string
                               userPoolId:
                                 type: string
                             required:
-                            - defaultAction
                             - userPoolId
                             type: object
                           type: array

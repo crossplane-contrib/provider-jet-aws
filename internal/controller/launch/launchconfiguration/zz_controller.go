@@ -19,16 +19,33 @@ limitations under the License.
 package launchconfiguration
 
 import (
+	"k8s.io/client-go/util/workqueue"
 	ctrl "sigs.k8s.io/controller-runtime"
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
+	"github.com/crossplane/crossplane-runtime/pkg/event"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
+	"github.com/crossplane/crossplane-runtime/pkg/reconciler/managed"
+	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
+	"sigs.k8s.io/controller-runtime/pkg/controller"
 
-	launchconfiguration "github.com/crossplane-contrib/provider-tf-aws/apis/launch/v1alpha1/launchconfiguration"
+	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/launch/v1alpha1"
 	clients "github.com/crossplane-contrib/provider-tf-aws/internal/clients"
 )
 
 // Setup adds a controller that reconciles LaunchConfiguration managed resources.
-func Setup(mgr ctrl.Manager, l logging.Logger) error {
-	return terraform.SetupController(mgr, l, &launchconfiguration.LaunchConfiguration{}, launchconfiguration.LaunchConfigurationGroupVersionKind, clients.ProviderConfigBuilder)
+func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter) error {
+	name := managed.ControllerName(v1alpha1.LaunchConfigurationGroupVersionKind.String())
+	r := managed.NewReconciler(mgr,
+		xpresource.ManagedKind(v1alpha1.LaunchConfigurationGroupVersionKind),
+		managed.WithInitializers(),
+		managed.WithExternalConnecter(terraform.NewConnector(mgr.GetClient(), l, clients.ProviderConfigBuilder)),
+		managed.WithLogger(l.WithValues("controller", name)),
+		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))))
+
+	return ctrl.NewControllerManagedBy(mgr).
+		Named(name).
+		WithOptions(controller.Options{RateLimiter: rl}).
+		For(&v1alpha1.LaunchConfiguration{}).
+		Complete(r)
 }

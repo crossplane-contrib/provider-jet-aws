@@ -2,7 +2,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.4.0
+    controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
   name: ecstaskdefinitions.ecs.aws.tf.crossplane.io
 spec:
@@ -11,7 +11,7 @@ spec:
     categories:
     - crossplane
     - managed
-    - aws
+    - tfaws
     kind: EcsTaskDefinition
     listKind: EcsTaskDefinitionList
     plural: ecstaskdefinitions
@@ -193,10 +193,13 @@ spec:
                               authorizationConfig:
                                 items:
                                   properties:
-                                    accessPointId:
+                                    credentialsParameter:
                                       type: string
-                                    iam:
+                                    domain:
                                       type: string
+                                  required:
+                                  - credentialsParameter
+                                  - domain
                                   type: object
                                 type: array
                               fileSystemId:

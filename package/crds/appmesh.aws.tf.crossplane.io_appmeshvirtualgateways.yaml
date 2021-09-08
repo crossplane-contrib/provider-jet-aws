@@ -2,7 +2,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.4.0
+    controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
   name: appmeshvirtualgateways.appmesh.aws.tf.crossplane.io
 spec:
@@ -11,7 +11,7 @@ spec:
     categories:
     - crossplane
     - managed
-    - aws
+    - tfaws
     kind: AppmeshVirtualGateway
     listKind: AppmeshVirtualGatewayList
     plural: appmeshvirtualgateways
@@ -87,10 +87,13 @@ spec:
                                                 file:
                                                   items:
                                                     properties:
-                                                      path:
+                                                      certificateChain:
+                                                        type: string
+                                                      privateKey:
                                                         type: string
                                                     required:
-                                                    - path
+                                                    - certificateChain
+                                                    - privateKey
                                                     type: object
                                                   type: array
                                                 sds:
@@ -149,10 +152,10 @@ spec:
                                                       file:
                                                         items:
                                                           properties:
-                                                            path:
+                                                            certificateChain:
                                                               type: string
                                                           required:
-                                                          - path
+                                                          - certificateChain
                                                           type: object
                                                         type: array
                                                       sds:
@@ -268,13 +271,25 @@ spec:
                                     certificate:
                                       items:
                                         properties:
+                                          acm:
+                                            items:
+                                              properties:
+                                                certificateArn:
+                                                  type: string
+                                              required:
+                                              - certificateArn
+                                              type: object
+                                            type: array
                                           file:
                                             items:
                                               properties:
-                                                path:
+                                                certificateChain:
+                                                  type: string
+                                                privateKey:
                                                   type: string
                                               required:
-                                              - path
+                                              - certificateChain
+                                              - privateKey
                                               type: object
                                             type: array
                                           sds:
@@ -288,13 +303,8 @@ spec:
                                             type: array
                                         type: object
                                       type: array
-                                    enforce:
-                                      type: boolean
-                                    ports:
-                                      items:
-                                        format: int64
-                                        type: integer
-                                      type: array
+                                    mode:
+                                      type: string
                                     validation:
                                       items:
                                         properties:
@@ -319,24 +329,13 @@ spec:
                                           trust:
                                             items:
                                               properties:
-                                                acm:
-                                                  items:
-                                                    properties:
-                                                      certificateAuthorityArns:
-                                                        items:
-                                                          type: string
-                                                        type: array
-                                                    required:
-                                                    - certificateAuthorityArns
-                                                    type: object
-                                                  type: array
                                                 file:
                                                   items:
                                                     properties:
-                                                      path:
+                                                      certificateChain:
                                                         type: string
                                                     required:
-                                                    - path
+                                                    - certificateChain
                                                     type: object
                                                   type: array
                                                 sds:
@@ -355,7 +354,8 @@ spec:
                                         type: object
                                       type: array
                                   required:
-                                  - validation
+                                  - certificate
+                                  - mode
                                   type: object
                                 type: array
                             required:
