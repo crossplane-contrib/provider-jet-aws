@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
                   actionThreshold:
                     items:
@@ -93,7 +93,7 @@ spec:
                                 items:
                                   type: string
                                 type: array
-                              policyArn:
+                              policyARN:
                                 type: string
                               roles:
                                 items:
@@ -104,20 +104,20 @@ spec:
                                   type: string
                                 type: array
                             required:
-                            - policyArn
+                            - policyARN
                             type: object
                           type: array
                         scpActionDefinition:
                           items:
                             properties:
-                              policyId:
+                              policyID:
                                 type: string
                               targetIds:
                                 items:
                                   type: string
                                 type: array
                             required:
-                            - policyId
+                            - policyID
                             - targetIds
                             type: object
                           type: array
@@ -140,7 +140,7 @@ spec:
                           type: array
                       type: object
                     type: array
-                  executionRoleArn:
+                  executionRoleARN:
                     type: string
                   notificationType:
                     type: string
@@ -162,7 +162,7 @@ spec:
                 - approvalModel
                 - budgetName
                 - definition
-                - executionRoleArn
+                - executionRoleARN
                 - notificationType
                 - subscriber
                 type: object
@@ -215,14 +215,14 @@ spec:
             properties:
               atProvider:
                 properties:
-                  actionId:
+                  actionID:
                     type: string
                   arn:
                     type: string
                   status:
                     type: string
                 required:
-                - actionId
+                - actionID
                 - arn
                 - status
                 type: object

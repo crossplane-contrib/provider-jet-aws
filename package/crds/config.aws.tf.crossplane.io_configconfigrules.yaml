@@ -73,7 +73,7 @@ spec:
                   scope:
                     items:
                       properties:
-                        complianceResourceId:
+                        complianceResourceID:
                           type: string
                         complianceResourceTypes:
                           items:
@@ -171,11 +171,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ruleId:
+                  ruleID:
                     type: string
                 required:
                 - arn
-                - ruleId
+                - ruleID
                 type: object
               conditions:
                 description: Conditions of the resource.

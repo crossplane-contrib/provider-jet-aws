@@ -115,8 +115,8 @@ func (in *InternetGatewayParameters) DeepCopyInto(out *InternetGatewayParameters
 			(*out)[key] = val
 		}
 	}
-	if in.VpcId != nil {
-		in, out := &in.VpcId, &out.VpcId
+	if in.VPCID != nil {
+		in, out := &in.VPCID, &out.VPCID
 		*out = new(string)
 		**out = **in
 	}

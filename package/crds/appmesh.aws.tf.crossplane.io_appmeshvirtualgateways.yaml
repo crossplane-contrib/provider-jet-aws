@@ -274,10 +274,10 @@ spec:
                                           acm:
                                             items:
                                               properties:
-                                                certificateArn:
+                                                certificateARN:
                                                   type: string
                                               required:
-                                              - certificateArn
+                                              - certificateARN
                                               type: object
                                             type: array
                                           file:

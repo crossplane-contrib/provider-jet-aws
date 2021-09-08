@@ -66,14 +66,14 @@ spec:
                 properties:
                   name:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
-                  targetArn:
+                  targetARN:
                     type: string
                 required:
                 - name
-                - roleArn
-                - targetArn
+                - roleARN
+                - targetARN
                 type: object
               providerConfigRef:
                 default:

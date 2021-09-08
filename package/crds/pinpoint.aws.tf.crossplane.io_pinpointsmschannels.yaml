@@ -63,16 +63,16 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
                   enabled:
                     type: boolean
-                  senderId:
+                  senderID:
                     type: string
                   shortCode:
                     type: string
                 required:
-                - applicationId
+                - applicationID
                 type: object
               providerConfigRef:
                 default:

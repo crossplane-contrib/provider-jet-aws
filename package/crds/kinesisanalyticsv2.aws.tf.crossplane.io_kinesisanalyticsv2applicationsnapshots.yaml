@@ -122,13 +122,13 @@ spec:
             properties:
               atProvider:
                 properties:
-                  applicationVersionId:
+                  applicationVersionID:
                     format: int64
                     type: integer
                   snapshotCreationTimestamp:
                     type: string
                 required:
-                - applicationVersionId
+                - applicationVersionID
                 - snapshotCreationTimestamp
                 type: object
               conditions:

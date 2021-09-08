@@ -71,12 +71,12 @@ spec:
                       properties:
                         branch:
                           type: string
-                        repositoryUrl:
+                        repositoryURL:
                           type: string
-                        secretArn:
+                        secretARN:
                           type: string
                       required:
-                      - repositoryUrl
+                      - repositoryURL
                       type: object
                     type: array
                 required:

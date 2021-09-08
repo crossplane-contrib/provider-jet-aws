@@ -63,18 +63,18 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
-                  authorizerCredentialsArn:
+                  authorizerCredentialsARN:
                     type: string
                   authorizerPayloadFormatVersion:
                     type: string
-                  authorizerResultTtlInSeconds:
+                  authorizerResultTTLInSeconds:
                     format: int64
                     type: integer
                   authorizerType:
                     type: string
-                  authorizerUri:
+                  authorizerURI:
                     type: string
                   enableSimpleResponses:
                     type: boolean
@@ -96,7 +96,7 @@ spec:
                   name:
                     type: string
                 required:
-                - apiId
+                - apiID
                 - authorizerType
                 - name
                 type: object

@@ -63,17 +63,17 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
-                  configurationProfileId:
+                  configurationProfileID:
                     type: string
                   configurationVersion:
                     type: string
-                  deploymentStrategyId:
+                  deploymentStrategyID:
                     type: string
                   description:
                     type: string
-                  environmentId:
+                  environmentID:
                     type: string
                   tags:
                     additionalProperties:
@@ -84,11 +84,11 @@ spec:
                       type: string
                     type: object
                 required:
-                - applicationId
-                - configurationProfileId
+                - applicationID
+                - configurationProfileID
                 - configurationVersion
-                - deploymentStrategyId
-                - environmentId
+                - deploymentStrategyID
+                - environmentID
                 type: object
               providerConfigRef:
                 default:

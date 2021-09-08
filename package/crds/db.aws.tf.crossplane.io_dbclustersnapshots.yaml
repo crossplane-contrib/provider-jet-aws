@@ -134,13 +134,13 @@ spec:
                     items:
                       type: string
                     type: array
-                  dbClusterSnapshotArn:
+                  dbClusterSnapshotARN:
                     type: string
                   engine:
                     type: string
                   engineVersion:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   licenseModel:
                     type: string
@@ -149,28 +149,28 @@ spec:
                     type: integer
                   snapshotType:
                     type: string
-                  sourceDbClusterSnapshotArn:
+                  sourceDBClusterSnapshotARN:
                     type: string
                   status:
                     type: string
                   storageEncrypted:
                     type: boolean
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - allocatedStorage
                 - availabilityZones
-                - dbClusterSnapshotArn
+                - dbClusterSnapshotARN
                 - engine
                 - engineVersion
-                - kmsKeyId
+                - kmsKeyID
                 - licenseModel
                 - port
                 - snapshotType
-                - sourceDbClusterSnapshotArn
+                - sourceDBClusterSnapshotARN
                 - status
                 - storageEncrypted
-                - vpcId
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -64,24 +64,24 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  instanceArn:
+                  instanceARN:
                     type: string
-                  permissionSetArn:
+                  permissionSetARN:
                     type: string
-                  principalId:
+                  principalID:
                     type: string
                   principalType:
                     type: string
-                  targetId:
+                  targetID:
                     type: string
                   targetType:
                     type: string
                 required:
-                - instanceArn
-                - permissionSetArn
-                - principalId
+                - instanceARN
+                - permissionSetARN
+                - principalID
                 - principalType
-                - targetId
+                - targetID
                 type: object
               providerConfigRef:
                 default:

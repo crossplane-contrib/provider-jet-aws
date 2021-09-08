@@ -80,14 +80,14 @@ spec:
                     type: boolean
                   redrivePolicy:
                     type: string
-                  subscriptionRoleArn:
+                  subscriptionRoleARN:
                     type: string
-                  topicArn:
+                  topicARN:
                     type: string
                 required:
                 - endpoint
                 - protocol
-                - topicArn
+                - topicARN
                 type: object
               providerConfigRef:
                 default:
@@ -143,14 +143,14 @@ spec:
                     type: string
                   confirmationWasAuthenticated:
                     type: boolean
-                  ownerId:
+                  ownerID:
                     type: string
                   pendingConfirmation:
                     type: boolean
                 required:
                 - arn
                 - confirmationWasAuthenticated
-                - ownerId
+                - ownerID
                 - pendingConfirmation
                 type: object
               conditions:

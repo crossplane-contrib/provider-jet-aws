@@ -66,16 +66,16 @@ spec:
                     type: string
                   forceDetach:
                     type: boolean
-                  instanceId:
+                  instanceID:
                     type: string
                   skipDestroy:
                     type: boolean
-                  volumeId:
+                  volumeID:
                     type: string
                 required:
                 - deviceName
-                - instanceId
-                - volumeId
+                - instanceID
+                - volumeID
                 type: object
               providerConfigRef:
                 default:

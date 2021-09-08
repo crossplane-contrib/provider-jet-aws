@@ -69,31 +69,31 @@ spec:
                   route:
                     items:
                       properties:
-                        carrierGatewayId:
+                        carrierGatewayID:
                           type: string
                         cidrBlock:
                           type: string
-                        destinationPrefixListId:
+                        destinationPrefixListID:
                           type: string
-                        egressOnlyGatewayId:
+                        egressOnlyGatewayID:
                           type: string
-                        gatewayId:
+                        gatewayID:
                           type: string
-                        instanceId:
+                        instanceID:
                           type: string
                         ipv6CidrBlock:
                           type: string
-                        localGatewayId:
+                        localGatewayID:
                           type: string
-                        natGatewayId:
+                        natGatewayID:
                           type: string
-                        networkInterfaceId:
+                        networkInterfaceID:
                           type: string
-                        transitGatewayId:
+                        transitGatewayID:
                           type: string
-                        vpcEndpointId:
+                        vpcEndpointID:
                           type: string
-                        vpcPeeringConnectionId:
+                        vpcPeeringConnectionID:
                           type: string
                       type: object
                     type: array
@@ -105,10 +105,10 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - vpcId
+                - vpcID
                 type: object
               providerConfigRef:
                 default:
@@ -161,11 +161,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
-                - ownerId
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

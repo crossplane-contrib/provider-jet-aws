@@ -63,12 +63,12 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  fileSystemId:
+                  fileSystemID:
                     type: string
                   policy:
                     type: string
                 required:
-                - fileSystemId
+                - fileSystemID
                 - policy
                 type: object
               providerConfigRef:

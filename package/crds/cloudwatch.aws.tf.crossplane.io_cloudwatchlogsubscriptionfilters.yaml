@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  destinationArn:
+                  destinationARN:
                     type: string
                   distribution:
                     type: string
@@ -74,10 +74,10 @@ spec:
                     type: string
                   name:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                 required:
-                - destinationArn
+                - destinationARN
                 - filterPattern
                 - logGroupName
                 - name

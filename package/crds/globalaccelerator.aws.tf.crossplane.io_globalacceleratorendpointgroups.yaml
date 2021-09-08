@@ -67,9 +67,9 @@ spec:
                   endpointConfiguration:
                     items:
                       properties:
-                        clientIpPreservationEnabled:
+                        clientIPPreservationEnabled:
                           type: boolean
-                        endpointId:
+                        endpointID:
                           type: string
                         weight:
                           format: int64
@@ -88,7 +88,7 @@ spec:
                     type: integer
                   healthCheckProtocol:
                     type: string
-                  listenerArn:
+                  listenerARN:
                     type: string
                   portOverride:
                     items:
@@ -110,7 +110,7 @@ spec:
                   trafficDialPercentage:
                     type: number
                 required:
-                - listenerArn
+                - listenerARN
                 type: object
               providerConfigRef:
                 default:

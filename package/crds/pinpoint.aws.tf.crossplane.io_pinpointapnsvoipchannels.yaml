@@ -64,9 +64,9 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
-                  bundleId:
+                  bundleID:
                     type: string
                   certificate:
                     type: string
@@ -76,14 +76,14 @@ spec:
                     type: boolean
                   privateKey:
                     type: string
-                  teamId:
+                  teamID:
                     type: string
                   tokenKey:
                     type: string
-                  tokenKeyId:
+                  tokenKeyID:
                     type: string
                 required:
-                - applicationId
+                - applicationID
                 type: object
               providerConfigRef:
                 default:

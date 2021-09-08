@@ -472,13 +472,13 @@ func (in *DocdbClusterParameters) DeepCopyInto(out *DocdbClusterParameters) {
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	if in.DbClusterParameterGroupName != nil {
-		in, out := &in.DbClusterParameterGroupName, &out.DbClusterParameterGroupName
+	if in.DBClusterParameterGroupName != nil {
+		in, out := &in.DBClusterParameterGroupName, &out.DBClusterParameterGroupName
 		*out = new(string)
 		**out = **in
 	}
-	if in.DbSubnetGroupName != nil {
-		in, out := &in.DbSubnetGroupName, &out.DbSubnetGroupName
+	if in.DBSubnetGroupName != nil {
+		in, out := &in.DBSubnetGroupName, &out.DBSubnetGroupName
 		*out = new(string)
 		**out = **in
 	}
@@ -507,8 +507,8 @@ func (in *DocdbClusterParameters) DeepCopyInto(out *DocdbClusterParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -566,8 +566,8 @@ func (in *DocdbClusterParameters) DeepCopyInto(out *DocdbClusterParameters) {
 			(*out)[key] = val
 		}
 	}
-	if in.VpcSecurityGroupIds != nil {
-		in, out := &in.VpcSecurityGroupIds, &out.VpcSecurityGroupIds
+	if in.VPCSecurityGroupIds != nil {
+		in, out := &in.VPCSecurityGroupIds, &out.VPCSecurityGroupIds
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}

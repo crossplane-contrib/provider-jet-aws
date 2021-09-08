@@ -74,7 +74,7 @@ spec:
                     type: boolean
                   globalClusterIdentifier:
                     type: string
-                  sourceDbClusterIdentifier:
+                  sourceDBClusterIdentifier:
                     type: string
                   storageEncrypted:
                     type: boolean
@@ -135,21 +135,21 @@ spec:
                   globalClusterMembers:
                     items:
                       properties:
-                        dbClusterArn:
+                        dbClusterARN:
                           type: string
                         isWriter:
                           type: boolean
                       required:
-                      - dbClusterArn
+                      - dbClusterARN
                       - isWriter
                       type: object
                     type: array
-                  globalClusterResourceId:
+                  globalClusterResourceID:
                     type: string
                 required:
                 - arn
                 - globalClusterMembers
-                - globalClusterResourceId
+                - globalClusterResourceID
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -65,7 +65,7 @@ spec:
                 properties:
                   description:
                     type: string
-                  executionRoleArn:
+                  executionRoleARN:
                     type: string
                   policyDetails:
                     items:
@@ -139,7 +139,7 @@ spec:
                     type: object
                 required:
                 - description
-                - executionRoleArn
+                - executionRoleARN
                 - policyDetails
                 type: object
               providerConfigRef:

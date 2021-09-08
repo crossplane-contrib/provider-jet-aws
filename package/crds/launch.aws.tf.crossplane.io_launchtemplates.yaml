@@ -77,9 +77,9 @@ spec:
                               iops:
                                 format: int64
                                 type: integer
-                              kmsKeyId:
+                              kmsKeyID:
                                 type: string
-                              snapshotId:
+                              snapshotID:
                                 type: string
                               throughput:
                                 format: int64
@@ -105,7 +105,7 @@ spec:
                         capacityReservationTarget:
                           items:
                             properties:
-                              capacityReservationId:
+                              capacityReservationID:
                                 type: string
                             type: object
                           type: array
@@ -134,7 +134,7 @@ spec:
                     type: integer
                   description:
                     type: string
-                  disableApiTermination:
+                  disableAPITermination:
                     type: boolean
                   ebsOptimized:
                     type: string
@@ -181,7 +181,7 @@ spec:
                           type: string
                       type: object
                     type: array
-                  imageId:
+                  imageID:
                     type: string
                   instanceInitiatedShutdownBehavior:
                     type: string
@@ -210,17 +210,17 @@ spec:
                     type: array
                   instanceType:
                     type: string
-                  kernelId:
+                  kernelID:
                     type: string
                   keyName:
                     type: string
                   licenseSpecification:
                     items:
                       properties:
-                        licenseConfigurationArn:
+                        licenseConfigurationARN:
                           type: string
                       required:
-                      - licenseConfigurationArn
+                      - licenseConfigurationARN
                       type: object
                     type: array
                   metadataOptions:
@@ -249,9 +249,9 @@ spec:
                   networkInterfaces:
                     items:
                       properties:
-                        associateCarrierIpAddress:
+                        associateCarrierIPAddress:
                           type: string
-                        associatePublicIpAddress:
+                        associatePublicIPAddress:
                           type: string
                         deleteOnTermination:
                           type: string
@@ -276,15 +276,15 @@ spec:
                           items:
                             type: string
                           type: array
-                        networkInterfaceId:
+                        networkInterfaceID:
                           type: string
-                        privateIpAddress:
+                        privateIPAddress:
                           type: string
                         securityGroups:
                           items:
                             type: string
                           type: array
-                        subnetId:
+                        subnetID:
                           type: string
                       type: object
                     type: array
@@ -297,9 +297,9 @@ spec:
                           type: string
                         groupName:
                           type: string
-                        hostId:
+                        hostID:
                           type: string
-                        hostResourceGroupArn:
+                        hostResourceGroupARN:
                           type: string
                         partitionNumber:
                           format: int64
@@ -310,7 +310,7 @@ spec:
                           type: string
                       type: object
                     type: array
-                  ramDiskId:
+                  ramDiskID:
                     type: string
                   securityGroupNames:
                     items:

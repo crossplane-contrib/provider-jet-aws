@@ -69,7 +69,7 @@ spec:
                   inputRecordTables:
                     items:
                       properties:
-                        catalogId:
+                        catalogID:
                           type: string
                         connectionName:
                           type: string
@@ -115,7 +115,7 @@ spec:
                       - transformType
                       type: object
                     type: array
-                  roleArn:
+                  roleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -134,7 +134,7 @@ spec:
                 - inputRecordTables
                 - name
                 - parameters
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:

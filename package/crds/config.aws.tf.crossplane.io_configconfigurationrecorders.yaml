@@ -79,10 +79,10 @@ spec:
                           type: array
                       type: object
                     type: array
-                  roleArn:
+                  roleARN:
                     type: string
                 required:
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:

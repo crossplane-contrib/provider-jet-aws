@@ -123,10 +123,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - vpcId
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

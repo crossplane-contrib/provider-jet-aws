@@ -67,29 +67,29 @@ spec:
                   accepter:
                     items:
                       properties:
-                        allowClassicLinkToRemoteVpc:
+                        allowClassicLinkToRemoteVPC:
                           type: boolean
-                        allowRemoteVpcDnsResolution:
+                        allowRemoteVPCDNSResolution:
                           type: boolean
-                        allowVpcToRemoteClassicLink:
+                        allowVPCToRemoteClassicLink:
                           type: boolean
                       type: object
                     type: array
                   requester:
                     items:
                       properties:
-                        allowClassicLinkToRemoteVpc:
+                        allowClassicLinkToRemoteVPC:
                           type: boolean
-                        allowRemoteVpcDnsResolution:
+                        allowRemoteVPCDNSResolution:
                           type: boolean
-                        allowVpcToRemoteClassicLink:
+                        allowVPCToRemoteClassicLink:
                           type: boolean
                       type: object
                     type: array
-                  vpcPeeringConnectionId:
+                  vpcPeeringConnectionID:
                     type: string
                 required:
-                - vpcPeeringConnectionId
+                - vpcPeeringConnectionID
                 type: object
               providerConfigRef:
                 default:

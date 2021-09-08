@@ -65,7 +65,7 @@ spec:
                 properties:
                   arn:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                 required:
                 - arn

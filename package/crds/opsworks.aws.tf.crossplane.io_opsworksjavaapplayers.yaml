@@ -81,9 +81,9 @@ spec:
                     items:
                       type: string
                     type: array
-                  customInstanceProfileArn:
+                  customInstanceProfileARN:
                     type: string
-                  customJson:
+                  customJSON:
                     type: string
                   customSecurityGroupIds:
                     items:
@@ -144,7 +144,7 @@ spec:
                     type: string
                   name:
                     type: string
-                  stackId:
+                  stackID:
                     type: string
                   systemPackages:
                     items:
@@ -161,7 +161,7 @@ spec:
                   useEbsOptimizedInstances:
                     type: boolean
                 required:
-                - stackId
+                - stackID
                 type: object
               providerConfigRef:
                 default:

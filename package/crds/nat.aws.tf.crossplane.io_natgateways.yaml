@@ -62,11 +62,11 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  allocationId:
+                  allocationID:
                     type: string
                   connectivityType:
                     type: string
-                  subnetId:
+                  subnetID:
                     type: string
                   tags:
                     additionalProperties:
@@ -77,7 +77,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - subnetId
+                - subnetID
                 type: object
               providerConfigRef:
                 default:
@@ -128,16 +128,16 @@ spec:
             properties:
               atProvider:
                 properties:
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
-                  privateIp:
+                  privateIP:
                     type: string
-                  publicIp:
+                  publicIP:
                     type: string
                 required:
-                - networkInterfaceId
-                - privateIp
-                - publicIp
+                - networkInterfaceID
+                - privateIP
+                - publicIP
                 type: object
               conditions:
                 description: Conditions of the resource.

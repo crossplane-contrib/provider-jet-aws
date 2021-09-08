@@ -70,14 +70,14 @@ spec:
                           items:
                             type: string
                           type: array
-                        subnetArn:
+                        subnetARN:
                           type: string
                       required:
                       - securityGroupArns
-                      - subnetArn
+                      - subnetARN
                       type: object
                     type: array
-                  efsFileSystemArn:
+                  efsFileSystemARN:
                     type: string
                   subdirectory:
                     type: string
@@ -91,7 +91,7 @@ spec:
                     type: object
                 required:
                 - ec2Config
-                - efsFileSystemArn
+                - efsFileSystemARN
                 type: object
               providerConfigRef:
                 default:

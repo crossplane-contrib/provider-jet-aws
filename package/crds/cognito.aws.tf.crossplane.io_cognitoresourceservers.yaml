@@ -79,12 +79,12 @@ spec:
                       - scopeName
                       type: object
                     type: array
-                  userPoolId:
+                  userPoolID:
                     type: string
                 required:
                 - identifier
                 - name
-                - userPoolId
+                - userPoolID
                 type: object
               providerConfigRef:
                 default:

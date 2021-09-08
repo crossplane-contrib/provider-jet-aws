@@ -80,7 +80,7 @@ spec:
                       properties:
                         ami:
                           type: string
-                        associatePublicIpAddress:
+                        associatePublicIPAddress:
                           type: boolean
                         availabilityZone:
                           type: string
@@ -96,9 +96,9 @@ spec:
                               iops:
                                 format: int64
                                 type: integer
-                              kmsKeyId:
+                              kmsKeyID:
                                 type: string
-                              snapshotId:
+                              snapshotID:
                                 type: string
                               throughput:
                                 format: int64
@@ -128,7 +128,7 @@ spec:
                           type: array
                         iamInstanceProfile:
                           type: string
-                        iamInstanceProfileArn:
+                        iamInstanceProfileARN:
                           type: string
                         instanceType:
                           type: string
@@ -150,7 +150,7 @@ spec:
                               iops:
                                 format: int64
                                 type: integer
-                              kmsKeyId:
+                              kmsKeyID:
                                 type: string
                               throughput:
                                 format: int64
@@ -164,7 +164,7 @@ spec:
                           type: array
                         spotPrice:
                           type: string
-                        subnetId:
+                        subnetID:
                           type: string
                         tags:
                           additionalProperties:
@@ -208,7 +208,7 @@ spec:
                                 type: number
                               spotPrice:
                                 type: string
-                              subnetId:
+                              subnetID:
                                 type: string
                               weightedCapacity:
                                 type: number

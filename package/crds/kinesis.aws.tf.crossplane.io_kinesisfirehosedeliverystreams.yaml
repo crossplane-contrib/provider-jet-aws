@@ -68,7 +68,7 @@ spec:
                     type: string
                   destination:
                     type: string
-                  destinationId:
+                  destinationID:
                     type: string
                   elasticsearchConfiguration:
                     items:
@@ -92,7 +92,7 @@ spec:
                           type: array
                         clusterEndpoint:
                           type: string
-                        domainArn:
+                        domainARN:
                           type: string
                         indexName:
                           type: string
@@ -129,7 +129,7 @@ spec:
                         retryDuration:
                           format: int64
                           type: integer
-                        roleArn:
+                        roleARN:
                           type: string
                         s3BackupMode:
                           type: string
@@ -138,7 +138,7 @@ spec:
                         vpcConfig:
                           items:
                             properties:
-                              roleArn:
+                              roleARN:
                                 type: string
                               securityGroupIds:
                                 items:
@@ -149,20 +149,20 @@ spec:
                                   type: string
                                 type: array
                             required:
-                            - roleArn
+                            - roleARN
                             - securityGroupIds
                             - subnetIds
                             type: object
                           type: array
                       required:
                       - indexName
-                      - roleArn
+                      - roleARN
                       type: object
                     type: array
                   extendedS3Configuration:
                     items:
                       properties:
-                        bucketArn:
+                        bucketARN:
                           type: string
                         bufferInterval:
                           format: int64
@@ -194,7 +194,7 @@ spec:
                                     deserializer:
                                       items:
                                         properties:
-                                          hiveJsonSerDe:
+                                          hiveJSONSerDe:
                                             items:
                                               properties:
                                                 timestampFormats:
@@ -203,16 +203,16 @@ spec:
                                                   type: array
                                               type: object
                                             type: array
-                                          openXJsonSerDe:
+                                          openXJSONSerDe:
                                             items:
                                               properties:
                                                 caseInsensitive:
                                                   type: boolean
-                                                columnToJsonKeyMappings:
+                                                columnToJSONKeyMappings:
                                                   additionalProperties:
                                                     type: string
                                                   type: object
-                                                convertDotsInJsonKeysToUnderscores:
+                                                convertDotsInJSONKeysToUnderscores:
                                                   type: boolean
                                               type: object
                                             type: array
@@ -287,21 +287,21 @@ spec:
                               schemaConfiguration:
                                 items:
                                   properties:
-                                    catalogId:
+                                    catalogID:
                                       type: string
                                     databaseName:
                                       type: string
                                     region:
                                       type: string
-                                    roleArn:
+                                    roleARN:
                                       type: string
                                     tableName:
                                       type: string
-                                    versionId:
+                                    versionID:
                                       type: string
                                   required:
                                   - databaseName
-                                  - roleArn
+                                  - roleARN
                                   - tableName
                                   type: object
                                 type: array
@@ -313,7 +313,7 @@ spec:
                           type: array
                         errorOutputPrefix:
                           type: string
-                        kmsKeyArn:
+                        kmsKeyARN:
                           type: string
                         prefix:
                           type: string
@@ -345,12 +345,12 @@ spec:
                                 type: array
                             type: object
                           type: array
-                        roleArn:
+                        roleARN:
                           type: string
                         s3BackupConfiguration:
                           items:
                             properties:
-                              bucketArn:
+                              bucketARN:
                                 type: string
                               bufferInterval:
                                 format: int64
@@ -371,22 +371,22 @@ spec:
                                 type: array
                               compressionFormat:
                                 type: string
-                              kmsKeyArn:
+                              kmsKeyARN:
                                 type: string
                               prefix:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                             required:
-                            - bucketArn
-                            - roleArn
+                            - bucketARN
+                            - roleARN
                             type: object
                           type: array
                         s3BackupMode:
                           type: string
                       required:
-                      - bucketArn
-                      - roleArn
+                      - bucketARN
+                      - roleARN
                       type: object
                     type: array
                   httpEndpointConfiguration:
@@ -463,7 +463,7 @@ spec:
                         retryDuration:
                           format: int64
                           type: integer
-                        roleArn:
+                        roleARN:
                           type: string
                         s3BackupMode:
                           type: string
@@ -476,13 +476,13 @@ spec:
                   kinesisSourceConfiguration:
                     items:
                       properties:
-                        kinesisStreamArn:
+                        kinesisStreamARN:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                       required:
-                      - kinesisStreamArn
-                      - roleArn
+                      - kinesisStreamARN
+                      - roleARN
                       type: object
                     type: array
                   name:
@@ -542,12 +542,12 @@ spec:
                         retryDuration:
                           format: int64
                           type: integer
-                        roleArn:
+                        roleARN:
                           type: string
                         s3BackupConfiguration:
                           items:
                             properties:
-                              bucketArn:
+                              bucketARN:
                                 type: string
                               bufferInterval:
                                 format: int64
@@ -568,15 +568,15 @@ spec:
                                 type: array
                               compressionFormat:
                                 type: string
-                              kmsKeyArn:
+                              kmsKeyARN:
                                 type: string
                               prefix:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                             required:
-                            - bucketArn
-                            - roleArn
+                            - bucketARN
+                            - roleARN
                             type: object
                           type: array
                         s3BackupMode:
@@ -587,14 +587,14 @@ spec:
                       - clusterJdbcurl
                       - dataTableName
                       - password
-                      - roleArn
+                      - roleARN
                       - username
                       type: object
                     type: array
                   s3Configuration:
                     items:
                       properties:
-                        bucketArn:
+                        bucketARN:
                           type: string
                         bufferInterval:
                           format: int64
@@ -615,15 +615,15 @@ spec:
                           type: array
                         compressionFormat:
                           type: string
-                        kmsKeyArn:
+                        kmsKeyARN:
                           type: string
                         prefix:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                       required:
-                      - bucketArn
-                      - roleArn
+                      - bucketARN
+                      - roleARN
                       type: object
                     type: array
                   serverSideEncryption:
@@ -631,7 +631,7 @@ spec:
                       properties:
                         enabled:
                           type: boolean
-                        keyArn:
+                        keyARN:
                           type: string
                         keyType:
                           type: string
@@ -706,7 +706,7 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  versionId:
+                  versionID:
                     type: string
                 required:
                 - destination

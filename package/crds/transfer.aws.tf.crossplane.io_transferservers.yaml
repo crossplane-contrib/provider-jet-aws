@@ -81,9 +81,9 @@ spec:
                           items:
                             type: string
                           type: array
-                        vpcEndpointId:
+                        vpcEndpointID:
                           type: string
-                        vpcId:
+                        vpcID:
                           type: string
                       type: object
                     type: array

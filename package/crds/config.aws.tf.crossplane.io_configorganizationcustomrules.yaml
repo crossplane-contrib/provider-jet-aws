@@ -72,13 +72,13 @@ spec:
                     type: array
                   inputParameters:
                     type: string
-                  lambdaFunctionArn:
+                  lambdaFunctionARN:
                     type: string
                   maximumExecutionFrequency:
                     type: string
                   name:
                     type: string
-                  resourceIdScope:
+                  resourceIDScope:
                     type: string
                   resourceTypesScope:
                     items:
@@ -93,7 +93,7 @@ spec:
                       type: string
                     type: array
                 required:
-                - lambdaFunctionArn
+                - lambdaFunctionARN
                 - name
                 - triggerTypes
                 type: object

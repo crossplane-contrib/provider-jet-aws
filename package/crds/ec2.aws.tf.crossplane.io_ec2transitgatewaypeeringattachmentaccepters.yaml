@@ -72,10 +72,10 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  transitGatewayAttachmentId:
+                  transitGatewayAttachmentID:
                     type: string
                 required:
-                - transitGatewayAttachmentId
+                - transitGatewayAttachmentID
                 type: object
               providerConfigRef:
                 default:
@@ -127,19 +127,19 @@ spec:
             properties:
               atProvider:
                 properties:
-                  peerAccountId:
+                  peerAccountID:
                     type: string
                   peerRegion:
                     type: string
-                  peerTransitGatewayId:
+                  peerTransitGatewayID:
                     type: string
-                  transitGatewayId:
+                  transitGatewayID:
                     type: string
                 required:
-                - peerAccountId
+                - peerAccountID
                 - peerRegion
-                - peerTransitGatewayId
-                - transitGatewayId
+                - peerTransitGatewayID
+                - transitGatewayID
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   description:
                     type: string
@@ -72,7 +72,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - apiId
+                - apiID
                 type: object
               providerConfigRef:
                 default:

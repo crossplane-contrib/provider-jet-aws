@@ -66,7 +66,7 @@ spec:
                 properties:
                   description:
                     type: string
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
                   packetLength:
                     format: int64
@@ -82,18 +82,18 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  trafficMirrorFilterId:
+                  trafficMirrorFilterID:
                     type: string
-                  trafficMirrorTargetId:
+                  trafficMirrorTargetID:
                     type: string
-                  virtualNetworkId:
+                  virtualNetworkID:
                     format: int64
                     type: integer
                 required:
-                - networkInterfaceId
+                - networkInterfaceID
                 - sessionNumber
-                - trafficMirrorFilterId
-                - trafficMirrorTargetId
+                - trafficMirrorFilterID
+                - trafficMirrorTargetID
                 type: object
               providerConfigRef:
                 default:
@@ -147,11 +147,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
-                - ownerId
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -64,7 +64,7 @@ spec:
                 properties:
                   agentVersion:
                     type: string
-                  amiId:
+                  amiID:
                     type: string
                   architecture:
                     type: string
@@ -88,7 +88,7 @@ spec:
                         iops:
                           format: int64
                           type: integer
-                        snapshotId:
+                        snapshotID:
                           type: string
                         volumeSize:
                           format: int64
@@ -101,9 +101,9 @@ spec:
                     type: array
                   ebsOptimized:
                     type: boolean
-                  ecsClusterArn:
+                  ecsClusterARN:
                     type: string
-                  elasticIp:
+                  elasticIP:
                     type: string
                   ephemeralBlockDevice:
                     items:
@@ -123,11 +123,11 @@ spec:
                     type: string
                   installUpdatesOnBoot:
                     type: boolean
-                  instanceProfileArn:
+                  instanceProfileARN:
                     type: string
                   instanceType:
                     type: string
-                  lastServiceErrorId:
+                  lastServiceErrorID:
                     type: string
                   layerIds:
                     items:
@@ -137,13 +137,13 @@ spec:
                     type: string
                   platform:
                     type: string
-                  privateDns:
+                  privateDNS:
                     type: string
-                  privateIp:
+                  privateIP:
                     type: string
-                  publicDns:
+                  publicDNS:
                     type: string
-                  publicIp:
+                  publicIP:
                     type: string
                   registeredBy:
                     type: string
@@ -172,7 +172,7 @@ spec:
                     type: array
                   rootDeviceType:
                     type: string
-                  rootDeviceVolumeId:
+                  rootDeviceVolumeID:
                     type: string
                   securityGroupIds:
                     items:
@@ -184,13 +184,13 @@ spec:
                     type: string
                   sshKeyName:
                     type: string
-                  stackId:
+                  stackID:
                     type: string
                   state:
                     type: string
                   status:
                     type: string
-                  subnetId:
+                  subnetID:
                     type: string
                   tenancy:
                     type: string
@@ -198,7 +198,7 @@ spec:
                     type: string
                 required:
                 - layerIds
-                - stackId
+                - stackID
                 type: object
               providerConfigRef:
                 default:
@@ -249,10 +249,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  ec2InstanceId:
+                  ec2InstanceID:
                     type: string
                 required:
-                - ec2InstanceId
+                - ec2InstanceID
                 type: object
               conditions:
                 description: Conditions of the resource.

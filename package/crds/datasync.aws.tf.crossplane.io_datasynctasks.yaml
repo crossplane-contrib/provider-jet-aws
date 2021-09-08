@@ -62,9 +62,9 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  cloudwatchLogGroupArn:
+                  cloudwatchLogGroupARN:
                     type: string
-                  destinationLocationArn:
+                  destinationLocationARN:
                     type: string
                   excludes:
                     items:
@@ -118,7 +118,7 @@ spec:
                       - scheduleExpression
                       type: object
                     type: array
-                  sourceLocationArn:
+                  sourceLocationARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -129,8 +129,8 @@ spec:
                       type: string
                     type: object
                 required:
-                - destinationLocationArn
-                - sourceLocationArn
+                - destinationLocationARN
+                - sourceLocationARN
                 type: object
               providerConfigRef:
                 default:

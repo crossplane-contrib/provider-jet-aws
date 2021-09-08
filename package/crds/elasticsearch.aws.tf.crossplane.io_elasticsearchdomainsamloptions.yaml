@@ -74,12 +74,12 @@ spec:
                         idp:
                           items:
                             properties:
-                              entityId:
+                              entityID:
                                 type: string
                               metadataContent:
                                 type: string
                             required:
-                            - entityId
+                            - entityID
                             - metadataContent
                             type: object
                           type: array

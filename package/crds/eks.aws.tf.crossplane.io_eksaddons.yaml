@@ -70,7 +70,7 @@ spec:
                     type: string
                   resolveConflicts:
                     type: string
-                  serviceAccountRoleArn:
+                  serviceAccountRoleARN:
                     type: string
                   tags:
                     additionalProperties:

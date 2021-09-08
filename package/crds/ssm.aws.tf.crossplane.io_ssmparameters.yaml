@@ -70,7 +70,7 @@ spec:
                     type: string
                   description:
                     type: string
-                  keyId:
+                  keyID:
                     type: string
                   name:
                     type: string

@@ -74,13 +74,13 @@ spec:
                     type: string
                   instanceType:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   lifecycleConfigName:
                     type: string
                   name:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                   rootAccess:
                     type: string
@@ -88,7 +88,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  subnetId:
+                  subnetID:
                     type: string
                   tags:
                     additionalProperties:
@@ -104,7 +104,7 @@ spec:
                 required:
                 - instanceType
                 - name
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:
@@ -158,13 +158,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
                   url:
                     type: string
                 required:
                 - arn
-                - networkInterfaceId
+                - networkInterfaceID
                 - url
                 type: object
               conditions:

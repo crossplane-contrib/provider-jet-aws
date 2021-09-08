@@ -68,7 +68,7 @@ spec:
                     type: string
                   description:
                     type: string
-                  registryArn:
+                  registryARN:
                     type: string
                   schemaDefinition:
                     type: string

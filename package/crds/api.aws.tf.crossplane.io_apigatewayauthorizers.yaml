@@ -65,10 +65,10 @@ spec:
                 properties:
                   authorizerCredentials:
                     type: string
-                  authorizerResultTtlInSeconds:
+                  authorizerResultTTLInSeconds:
                     format: int64
                     type: integer
-                  authorizerUri:
+                  authorizerURI:
                     type: string
                   identitySource:
                     type: string
@@ -80,13 +80,13 @@ spec:
                     items:
                       type: string
                     type: array
-                  restApiId:
+                  restAPIID:
                     type: string
                   type:
                     type: string
                 required:
                 - name
-                - restApiId
+                - restAPIID
                 type: object
               providerConfigRef:
                 default:

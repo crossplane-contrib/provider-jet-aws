@@ -66,11 +66,11 @@ spec:
                 properties:
                   policy:
                     type: string
-                  resourceArn:
+                  resourceARN:
                     type: string
                 required:
                 - policy
-                - resourceArn
+                - resourceARN
                 type: object
               providerConfigRef:
                 default:

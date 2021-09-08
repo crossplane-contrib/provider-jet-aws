@@ -68,7 +68,7 @@ spec:
                     type: boolean
                   description:
                     type: string
-                  firewallPolicyArn:
+                  firewallPolicyARN:
                     type: string
                   firewallPolicyChangeProtection:
                     type: boolean
@@ -79,10 +79,10 @@ spec:
                   subnetMapping:
                     items:
                       properties:
-                        subnetId:
+                        subnetID:
                           type: string
                       required:
-                      - subnetId
+                      - subnetID
                       type: object
                     type: array
                   tags:
@@ -93,13 +93,13 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - firewallPolicyArn
+                - firewallPolicyARN
                 - name
                 - subnetMapping
-                - vpcId
+                - vpcID
                 type: object
               providerConfigRef:
                 default:
@@ -162,13 +162,13 @@ spec:
                               attachment:
                                 items:
                                   properties:
-                                    endpointId:
+                                    endpointID:
                                       type: string
-                                    subnetId:
+                                    subnetID:
                                       type: string
                                   required:
-                                  - endpointId
-                                  - subnetId
+                                  - endpointID
+                                  - subnetID
                                   type: object
                                 type: array
                               availabilityZone:

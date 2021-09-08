@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  fileSystemId:
+                  fileSystemID:
                     type: string
                   posixUser:
                     items:
@@ -89,17 +89,17 @@ spec:
                         creationInfo:
                           items:
                             properties:
-                              ownerGid:
+                              ownerGID:
                                 format: int64
                                 type: integer
-                              ownerUid:
+                              ownerUID:
                                 format: int64
                                 type: integer
                               permissions:
                                 type: string
                             required:
-                            - ownerGid
-                            - ownerUid
+                            - ownerGID
+                            - ownerUID
                             - permissions
                             type: object
                           type: array
@@ -116,7 +116,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - fileSystemId
+                - fileSystemID
                 type: object
               providerConfigRef:
                 default:
@@ -169,14 +169,14 @@ spec:
                 properties:
                   arn:
                     type: string
-                  fileSystemArn:
+                  fileSystemARN:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
-                - fileSystemArn
-                - ownerId
+                - fileSystemARN
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

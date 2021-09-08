@@ -92,11 +92,11 @@ spec:
                           type: integer
                       type: object
                     type: array
-                  credentialsArn:
+                  credentialsARN:
                     type: string
                   description:
                     type: string
-                  disableExecuteApiEndpoint:
+                  disableExecuteAPIEndpoint:
                     type: boolean
                   failOnWarnings:
                     type: boolean
@@ -177,12 +177,12 @@ spec:
                     type: string
                   arn:
                     type: string
-                  executionArn:
+                  executionARN:
                     type: string
                 required:
                 - apiEndpoint
                 - arn
-                - executionArn
+                - executionARN
                 type: object
               conditions:
                 description: Conditions of the resource.

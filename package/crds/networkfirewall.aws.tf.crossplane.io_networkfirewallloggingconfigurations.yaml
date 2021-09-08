@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  firewallArn:
+                  firewallARN:
                     type: string
                   loggingConfiguration:
                     items:
@@ -91,7 +91,7 @@ spec:
                       type: object
                     type: array
                 required:
-                - firewallArn
+                - firewallARN
                 - loggingConfiguration
                 type: object
               providerConfigRef:

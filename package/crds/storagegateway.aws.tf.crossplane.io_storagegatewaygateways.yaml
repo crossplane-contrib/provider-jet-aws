@@ -71,9 +71,9 @@ spec:
                   averageUploadRateLimitInBitsPerSec:
                     format: int64
                     type: integer
-                  cloudwatchLogGroupArn:
+                  cloudwatchLogGroupARN:
                     type: string
-                  gatewayIpAddress:
+                  gatewayIPAddress:
                     type: string
                   gatewayName:
                     type: string
@@ -81,7 +81,7 @@ spec:
                     type: string
                   gatewayType:
                     type: string
-                  gatewayVpcEndpoint:
+                  gatewayVPCEndpoint:
                     type: string
                   mediumChangerType:
                     type: string
@@ -181,11 +181,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ec2InstanceId:
+                  ec2InstanceID:
                     type: string
                   endpointType:
                     type: string
-                  gatewayId:
+                  gatewayID:
                     type: string
                   gatewayNetworkInterface:
                     items:
@@ -200,9 +200,9 @@ spec:
                     type: string
                 required:
                 - arn
-                - ec2InstanceId
+                - ec2InstanceID
                 - endpointType
-                - gatewayId
+                - gatewayID
                 - gatewayNetworkInterface
                 - hostEnvironment
                 type: object

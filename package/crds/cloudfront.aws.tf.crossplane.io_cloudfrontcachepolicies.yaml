@@ -65,15 +65,15 @@ spec:
                 properties:
                   comment:
                     type: string
-                  defaultTtl:
+                  defaultTTL:
                     format: int64
                     type: integer
                   etag:
                     type: string
-                  maxTtl:
+                  maxTTL:
                     format: int64
                     type: integer
-                  minTtl:
+                  minTTL:
                     format: int64
                     type: integer
                   name:

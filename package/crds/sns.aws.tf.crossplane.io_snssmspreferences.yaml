@@ -62,11 +62,11 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  defaultSenderId:
+                  defaultSenderID:
                     type: string
                   defaultSmsType:
                     type: string
-                  deliveryStatusIamRoleArn:
+                  deliveryStatusIamRoleARN:
                     type: string
                   deliveryStatusSuccessSamplingRate:
                     type: string

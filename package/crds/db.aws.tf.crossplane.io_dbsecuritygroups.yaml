@@ -69,11 +69,11 @@ spec:
                       properties:
                         cidr:
                           type: string
-                        securityGroupId:
+                        securityGroupID:
                           type: string
                         securityGroupName:
                           type: string
-                        securityGroupOwnerId:
+                        securityGroupOwnerID:
                           type: string
                       type: object
                     type: array

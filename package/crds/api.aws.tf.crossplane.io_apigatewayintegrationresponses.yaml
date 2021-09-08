@@ -68,7 +68,7 @@ spec:
                     type: string
                   httpMethod:
                     type: string
-                  resourceId:
+                  resourceID:
                     type: string
                   responseParameters:
                     additionalProperties:
@@ -78,7 +78,7 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  restApiId:
+                  restAPIID:
                     type: string
                   selectionPattern:
                     type: string
@@ -86,8 +86,8 @@ spec:
                     type: string
                 required:
                 - httpMethod
-                - resourceId
-                - restApiId
+                - resourceID
+                - restAPIID
                 - statusCode
                 type: object
               providerConfigRef:

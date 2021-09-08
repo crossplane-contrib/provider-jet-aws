@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  fileSystemId:
+                  fileSystemID:
                     type: string
                   ipAddress:
                     type: string
@@ -70,11 +70,11 @@ spec:
                     items:
                       type: string
                     type: array
-                  subnetId:
+                  subnetID:
                     type: string
                 required:
-                - fileSystemId
-                - subnetId
+                - fileSystemID
+                - subnetID
                 type: object
               providerConfigRef:
                 default:
@@ -125,28 +125,28 @@ spec:
             properties:
               atProvider:
                 properties:
-                  availabilityZoneId:
+                  availabilityZoneID:
                     type: string
                   availabilityZoneName:
                     type: string
                   dnsName:
                     type: string
-                  fileSystemArn:
+                  fileSystemARN:
                     type: string
-                  mountTargetDnsName:
+                  mountTargetDNSName:
                     type: string
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
-                - availabilityZoneId
+                - availabilityZoneID
                 - availabilityZoneName
                 - dnsName
-                - fileSystemArn
-                - mountTargetDnsName
-                - networkInterfaceId
-                - ownerId
+                - fileSystemARN
+                - mountTargetDNSName
+                - networkInterfaceID
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

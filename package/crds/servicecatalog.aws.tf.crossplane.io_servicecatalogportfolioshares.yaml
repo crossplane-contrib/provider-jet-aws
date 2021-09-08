@@ -66,9 +66,9 @@ spec:
                 properties:
                   acceptLanguage:
                     type: string
-                  portfolioId:
+                  portfolioID:
                     type: string
-                  principalId:
+                  principalID:
                     type: string
                   shareTagOptions:
                     type: boolean
@@ -77,8 +77,8 @@ spec:
                   waitForAcceptance:
                     type: boolean
                 required:
-                - portfolioId
-                - principalId
+                - portfolioID
+                - principalID
                 - type
                 type: object
               providerConfigRef:

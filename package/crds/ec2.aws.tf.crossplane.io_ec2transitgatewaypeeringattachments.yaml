@@ -64,11 +64,11 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  peerAccountId:
+                  peerAccountID:
                     type: string
                   peerRegion:
                     type: string
-                  peerTransitGatewayId:
+                  peerTransitGatewayID:
                     type: string
                   tags:
                     additionalProperties:
@@ -78,12 +78,12 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  transitGatewayId:
+                  transitGatewayID:
                     type: string
                 required:
                 - peerRegion
-                - peerTransitGatewayId
-                - transitGatewayId
+                - peerTransitGatewayID
+                - transitGatewayID
                 type: object
               providerConfigRef:
                 default:

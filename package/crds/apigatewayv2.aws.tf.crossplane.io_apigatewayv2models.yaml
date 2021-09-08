@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   contentType:
                     type: string
@@ -73,7 +73,7 @@ spec:
                   schema:
                     type: string
                 required:
-                - apiId
+                - apiID
                 - contentType
                 - name
                 - schema

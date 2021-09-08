@@ -137,17 +137,17 @@ spec:
                 properties:
                   arn:
                     type: string
-                  associationDefaultRouteTableId:
+                  associationDefaultRouteTableID:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
-                  propagationDefaultRouteTableId:
+                  propagationDefaultRouteTableID:
                     type: string
                 required:
                 - arn
-                - associationDefaultRouteTableId
-                - ownerId
-                - propagationDefaultRouteTableId
+                - associationDefaultRouteTableID
+                - ownerID
+                - propagationDefaultRouteTableID
                 type: object
               conditions:
                 description: Conditions of the resource.

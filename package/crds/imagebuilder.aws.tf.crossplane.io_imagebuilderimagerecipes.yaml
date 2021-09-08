@@ -79,9 +79,9 @@ spec:
                               iops:
                                 format: int64
                                 type: integer
-                              kmsKeyId:
+                              kmsKeyID:
                                 type: string
-                              snapshotId:
+                              snapshotID:
                                 type: string
                               volumeSize:
                                 format: int64
@@ -99,10 +99,10 @@ spec:
                   component:
                     items:
                       properties:
-                        componentArn:
+                        componentARN:
                           type: string
                       required:
-                      - componentArn
+                      - componentARN
                       type: object
                     type: array
                   description:

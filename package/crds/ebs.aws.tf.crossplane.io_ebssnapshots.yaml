@@ -72,10 +72,10 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  volumeId:
+                  volumeID:
                     type: string
                 required:
-                - volumeId
+                - volumeID
                 type: object
               providerConfigRef:
                 default:
@@ -128,26 +128,26 @@ spec:
                 properties:
                   arn:
                     type: string
-                  dataEncryptionKeyId:
+                  dataEncryptionKeyID:
                     type: string
                   encrypted:
                     type: boolean
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   ownerAlias:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                   volumeSize:
                     format: int64
                     type: integer
                 required:
                 - arn
-                - dataEncryptionKeyId
+                - dataEncryptionKeyID
                 - encrypted
-                - kmsKeyId
+                - kmsKeyID
                 - ownerAlias
-                - ownerId
+                - ownerID
                 - volumeSize
                 type: object
               conditions:

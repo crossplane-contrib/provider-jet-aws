@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  resourceArn:
+                  resourceARN:
                     type: string
-                  webAclId:
+                  webACLID:
                     type: string
                 required:
-                - resourceArn
-                - webAclId
+                - resourceARN
+                - webACLID
                 type: object
               providerConfigRef:
                 default:

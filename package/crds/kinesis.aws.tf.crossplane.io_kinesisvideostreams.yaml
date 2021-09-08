@@ -68,7 +68,7 @@ spec:
                     type: integer
                   deviceName:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   mediaType:
                     type: string

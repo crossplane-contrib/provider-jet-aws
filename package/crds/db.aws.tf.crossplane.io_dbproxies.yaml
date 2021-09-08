@@ -71,7 +71,7 @@ spec:
                           type: string
                         iamAuth:
                           type: string
-                        secretArn:
+                        secretARN:
                           type: string
                       type: object
                     type: array
@@ -84,9 +84,9 @@ spec:
                     type: integer
                   name:
                     type: string
-                  requireTls:
+                  requireTLS:
                     type: boolean
-                  roleArn:
+                  roleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -108,7 +108,7 @@ spec:
                 - auth
                 - engineFamily
                 - name
-                - roleArn
+                - roleARN
                 - vpcSubnetIds
                 type: object
               providerConfigRef:

@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  localGatewayRouteTableId:
+                  localGatewayRouteTableID:
                     type: string
                   tags:
                     additionalProperties:
@@ -74,11 +74,11 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - localGatewayRouteTableId
-                - vpcId
+                - localGatewayRouteTableID
+                - vpcID
                 type: object
               providerConfigRef:
                 default:
@@ -130,10 +130,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  localGatewayId:
+                  localGatewayID:
                     type: string
                 required:
-                - localGatewayId
+                - localGatewayID
                 type: object
               conditions:
                 description: Conditions of the resource.

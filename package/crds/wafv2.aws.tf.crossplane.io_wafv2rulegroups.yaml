@@ -248,7 +248,7 @@ spec:
                                                               items:
                                                                 type: string
                                                               type: array
-                                                            forwardedIpConfig:
+                                                            forwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -269,7 +269,7 @@ spec:
                                                           properties:
                                                             arn:
                                                               type: string
-                                                            ipSetForwardedIpConfig:
+                                                            ipSetForwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -632,7 +632,7 @@ spec:
                                                   items:
                                                     type: string
                                                   type: array
-                                                forwardedIpConfig:
+                                                forwardedIPConfig:
                                                   items:
                                                     properties:
                                                       fallbackBehavior:
@@ -653,7 +653,7 @@ spec:
                                               properties:
                                                 arn:
                                                   type: string
-                                                ipSetForwardedIpConfig:
+                                                ipSetForwardedIPConfig:
                                                   items:
                                                     properties:
                                                       fallbackBehavior:
@@ -754,7 +754,7 @@ spec:
                                                               items:
                                                                 type: string
                                                               type: array
-                                                            forwardedIpConfig:
+                                                            forwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -775,7 +775,7 @@ spec:
                                                           properties:
                                                             arn:
                                                               type: string
-                                                            ipSetForwardedIpConfig:
+                                                            ipSetForwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -1144,7 +1144,7 @@ spec:
                                                               items:
                                                                 type: string
                                                               type: array
-                                                            forwardedIpConfig:
+                                                            forwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -1165,7 +1165,7 @@ spec:
                                                           properties:
                                                             arn:
                                                               type: string
-                                                            ipSetForwardedIpConfig:
+                                                            ipSetForwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -1796,7 +1796,7 @@ spec:
                                       items:
                                         type: string
                                       type: array
-                                    forwardedIpConfig:
+                                    forwardedIPConfig:
                                       items:
                                         properties:
                                           fallbackBehavior:
@@ -1817,7 +1817,7 @@ spec:
                                   properties:
                                     arn:
                                       type: string
-                                    ipSetForwardedIpConfig:
+                                    ipSetForwardedIPConfig:
                                       items:
                                         properties:
                                           fallbackBehavior:
@@ -1924,7 +1924,7 @@ spec:
                                                               items:
                                                                 type: string
                                                               type: array
-                                                            forwardedIpConfig:
+                                                            forwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -1945,7 +1945,7 @@ spec:
                                                           properties:
                                                             arn:
                                                               type: string
-                                                            ipSetForwardedIpConfig:
+                                                            ipSetForwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -2308,7 +2308,7 @@ spec:
                                                   items:
                                                     type: string
                                                   type: array
-                                                forwardedIpConfig:
+                                                forwardedIPConfig:
                                                   items:
                                                     properties:
                                                       fallbackBehavior:
@@ -2329,7 +2329,7 @@ spec:
                                               properties:
                                                 arn:
                                                   type: string
-                                                ipSetForwardedIpConfig:
+                                                ipSetForwardedIPConfig:
                                                   items:
                                                     properties:
                                                       fallbackBehavior:
@@ -2430,7 +2430,7 @@ spec:
                                                               items:
                                                                 type: string
                                                               type: array
-                                                            forwardedIpConfig:
+                                                            forwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -2451,7 +2451,7 @@ spec:
                                                           properties:
                                                             arn:
                                                               type: string
-                                                            ipSetForwardedIpConfig:
+                                                            ipSetForwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -2820,7 +2820,7 @@ spec:
                                                               items:
                                                                 type: string
                                                               type: array
-                                                            forwardedIpConfig:
+                                                            forwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -2841,7 +2841,7 @@ spec:
                                                           properties:
                                                             arn:
                                                               type: string
-                                                            ipSetForwardedIpConfig:
+                                                            ipSetForwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -3484,7 +3484,7 @@ spec:
                                                               items:
                                                                 type: string
                                                               type: array
-                                                            forwardedIpConfig:
+                                                            forwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -3505,7 +3505,7 @@ spec:
                                                           properties:
                                                             arn:
                                                               type: string
-                                                            ipSetForwardedIpConfig:
+                                                            ipSetForwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -3868,7 +3868,7 @@ spec:
                                                   items:
                                                     type: string
                                                   type: array
-                                                forwardedIpConfig:
+                                                forwardedIPConfig:
                                                   items:
                                                     properties:
                                                       fallbackBehavior:
@@ -3889,7 +3889,7 @@ spec:
                                               properties:
                                                 arn:
                                                   type: string
-                                                ipSetForwardedIpConfig:
+                                                ipSetForwardedIPConfig:
                                                   items:
                                                     properties:
                                                       fallbackBehavior:
@@ -3990,7 +3990,7 @@ spec:
                                                               items:
                                                                 type: string
                                                               type: array
-                                                            forwardedIpConfig:
+                                                            forwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -4011,7 +4011,7 @@ spec:
                                                           properties:
                                                             arn:
                                                               type: string
-                                                            ipSetForwardedIpConfig:
+                                                            ipSetForwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -4380,7 +4380,7 @@ spec:
                                                               items:
                                                                 type: string
                                                               type: array
-                                                            forwardedIpConfig:
+                                                            forwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:
@@ -4401,7 +4401,7 @@ spec:
                                                           properties:
                                                             arn:
                                                               type: string
-                                                            ipSetForwardedIpConfig:
+                                                            ipSetForwardedIPConfig:
                                                               items:
                                                                 properties:
                                                                   fallbackBehavior:

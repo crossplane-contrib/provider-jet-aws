@@ -133,7 +133,7 @@ spec:
                     type: number
                   quotaName:
                     type: string
-                  requestId:
+                  requestID:
                     type: string
                   requestStatus:
                     type: string
@@ -144,7 +144,7 @@ spec:
                 - arn
                 - defaultValue
                 - quotaName
-                - requestId
+                - requestID
                 - requestStatus
                 - serviceName
                 type: object

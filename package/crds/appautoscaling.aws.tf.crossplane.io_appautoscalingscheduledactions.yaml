@@ -68,7 +68,7 @@ spec:
                     type: string
                   name:
                     type: string
-                  resourceId:
+                  resourceID:
                     type: string
                   scalableDimension:
                     type: string
@@ -91,7 +91,7 @@ spec:
                     type: string
                 required:
                 - name
-                - resourceId
+                - resourceID
                 - scalableDimension
                 - scalableTargetAction
                 - schedule

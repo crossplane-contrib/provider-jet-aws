@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
                   region:
                     type: string
@@ -77,7 +77,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - accountId
+                - accountID
                 - region
                 type: object
               providerConfigRef:

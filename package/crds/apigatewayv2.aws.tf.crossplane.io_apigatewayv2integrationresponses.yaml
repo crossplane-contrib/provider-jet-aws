@@ -64,11 +64,11 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   contentHandlingStrategy:
                     type: string
-                  integrationId:
+                  integrationID:
                     type: string
                   integrationResponseKey:
                     type: string
@@ -79,8 +79,8 @@ spec:
                   templateSelectionExpression:
                     type: string
                 required:
-                - apiId
-                - integrationId
+                - apiID
+                - integrationID
                 - integrationResponseKey
                 type: object
               providerConfigRef:

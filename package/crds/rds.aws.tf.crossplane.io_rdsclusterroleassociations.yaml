@@ -68,12 +68,12 @@ spec:
                     type: string
                   featureName:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                 required:
                 - dbClusterIdentifier
                 - featureName
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:

@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  acceleratorArn:
+                  acceleratorARN:
                     type: string
                   clientAffinity:
                     type: string
@@ -82,7 +82,7 @@ spec:
                   protocol:
                     type: string
                 required:
-                - acceleratorArn
+                - acceleratorARN
                 - portRange
                 - protocol
                 type: object

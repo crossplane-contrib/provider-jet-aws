@@ -64,9 +64,9 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
-                  configurationProfileId:
+                  configurationProfileID:
                     type: string
                   content:
                     type: string
@@ -75,8 +75,8 @@ spec:
                   description:
                     type: string
                 required:
-                - applicationId
-                - configurationProfileId
+                - applicationID
+                - configurationProfileID
                 - content
                 - contentType
                 type: object

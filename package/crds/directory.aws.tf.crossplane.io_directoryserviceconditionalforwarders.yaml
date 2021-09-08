@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  directoryId:
+                  directoryID:
                     type: string
                   dnsIps:
                     items:
@@ -73,7 +73,7 @@ spec:
                   remoteDomainName:
                     type: string
                 required:
-                - directoryId
+                - directoryID
                 - dnsIps
                 - remoteDomainName
                 type: object

@@ -64,12 +64,12 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  streamArn:
+                  streamARN:
                     type: string
                   tableName:
                     type: string
                 required:
-                - streamArn
+                - streamARN
                 - tableName
                 type: object
               providerConfigRef:

@@ -64,15 +64,15 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
-                  connectionId:
+                  connectionID:
                     type: string
                   connectionType:
                     type: string
                   contentHandlingStrategy:
                     type: string
-                  credentialsArn:
+                  credentialsARN:
                     type: string
                   description:
                     type: string
@@ -82,7 +82,7 @@ spec:
                     type: string
                   integrationType:
                     type: string
-                  integrationUri:
+                  integrationURI:
                     type: string
                   passthroughBehavior:
                     type: string
@@ -123,7 +123,7 @@ spec:
                       type: object
                     type: array
                 required:
-                - apiId
+                - apiID
                 - integrationType
                 type: object
               providerConfigRef:

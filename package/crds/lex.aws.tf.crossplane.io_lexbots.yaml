@@ -124,7 +124,7 @@ spec:
                     type: boolean
                   enableModelImprovements:
                     type: boolean
-                  idleSessionTtlInSeconds:
+                  idleSessionTTLInSeconds:
                     format: int64
                     type: integer
                   intent:
@@ -147,7 +147,7 @@ spec:
                     type: number
                   processBehavior:
                     type: string
-                  voiceId:
+                  voiceID:
                     type: string
                 required:
                 - abortStatement

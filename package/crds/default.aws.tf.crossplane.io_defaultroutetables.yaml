@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  defaultRouteTableId:
+                  defaultRouteTableID:
                     type: string
                   propagatingVgws:
                     items:
@@ -73,25 +73,25 @@ spec:
                       properties:
                         cidrBlock:
                           type: string
-                        destinationPrefixListId:
+                        destinationPrefixListID:
                           type: string
-                        egressOnlyGatewayId:
+                        egressOnlyGatewayID:
                           type: string
-                        gatewayId:
+                        gatewayID:
                           type: string
-                        instanceId:
+                        instanceID:
                           type: string
                         ipv6CidrBlock:
                           type: string
-                        natGatewayId:
+                        natGatewayID:
                           type: string
-                        networkInterfaceId:
+                        networkInterfaceID:
                           type: string
-                        transitGatewayId:
+                        transitGatewayID:
                           type: string
-                        vpcEndpointId:
+                        vpcEndpointID:
                           type: string
-                        vpcPeeringConnectionId:
+                        vpcPeeringConnectionID:
                           type: string
                       type: object
                     type: array
@@ -104,7 +104,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - defaultRouteTableId
+                - defaultRouteTableID
                 type: object
               providerConfigRef:
                 default:
@@ -157,14 +157,14 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - arn
-                - ownerId
-                - vpcId
+                - ownerID
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

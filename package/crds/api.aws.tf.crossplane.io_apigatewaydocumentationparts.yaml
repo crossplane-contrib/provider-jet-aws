@@ -83,12 +83,12 @@ spec:
                     type: array
                   properties:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                 required:
                 - location
                 - properties
-                - restApiId
+                - restAPIID
                 type: object
               providerConfigRef:
                 default:

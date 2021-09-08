@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  catalogId:
+                  catalogID:
                     type: string
                   databaseName:
                     type: string
@@ -148,18 +148,18 @@ spec:
                         schemaReference:
                           items:
                             properties:
-                              schemaId:
+                              schemaID:
                                 items:
                                   properties:
                                     registryName:
                                       type: string
-                                    schemaArn:
+                                    schemaARN:
                                       type: string
                                     schemaName:
                                       type: string
                                   type: object
                                 type: array
-                              schemaVersionId:
+                              schemaVersionID:
                                 type: string
                               schemaVersionNumber:
                                 format: int64
@@ -220,14 +220,14 @@ spec:
                   targetTable:
                     items:
                       properties:
-                        catalogId:
+                        catalogID:
                           type: string
                         databaseName:
                           type: string
                         name:
                           type: string
                       required:
-                      - catalogId
+                      - catalogID
                       - databaseName
                       - name
                       type: object

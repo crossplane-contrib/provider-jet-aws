@@ -121,8 +121,8 @@ func (in *DaxClusterParameters) DeepCopyInto(out *DaxClusterParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.NotificationTopicArn != nil {
-		in, out := &in.NotificationTopicArn, &out.NotificationTopicArn
+	if in.NotificationTopicARN != nil {
+		in, out := &in.NotificationTopicARN, &out.NotificationTopicARN
 		*out = new(string)
 		**out = **in
 	}

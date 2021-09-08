@@ -94,7 +94,7 @@ spec:
                           type: string
                         statusCode:
                           type: string
-                        topicArn:
+                        topicARN:
                           type: string
                       required:
                       - message
@@ -108,17 +108,17 @@ spec:
                   lambdaAction:
                     items:
                       properties:
-                        functionArn:
+                        functionARN:
                           type: string
                         invocationType:
                           type: string
                         position:
                           format: int64
                           type: integer
-                        topicArn:
+                        topicARN:
                           type: string
                       required:
-                      - functionArn
+                      - functionARN
                       - position
                       type: object
                     type: array
@@ -135,14 +135,14 @@ spec:
                       properties:
                         bucketName:
                           type: string
-                        kmsKeyArn:
+                        kmsKeyARN:
                           type: string
                         objectKeyPrefix:
                           type: string
                         position:
                           format: int64
                           type: integer
-                        topicArn:
+                        topicARN:
                           type: string
                       required:
                       - bucketName
@@ -159,11 +159,11 @@ spec:
                         position:
                           format: int64
                           type: integer
-                        topicArn:
+                        topicARN:
                           type: string
                       required:
                       - position
-                      - topicArn
+                      - topicARN
                       type: object
                     type: array
                   stopAction:
@@ -174,7 +174,7 @@ spec:
                           type: integer
                         scope:
                           type: string
-                        topicArn:
+                        topicARN:
                           type: string
                       required:
                       - position
@@ -186,15 +186,15 @@ spec:
                   workmailAction:
                     items:
                       properties:
-                        organizationArn:
+                        organizationARN:
                           type: string
                         position:
                           format: int64
                           type: integer
-                        topicArn:
+                        topicARN:
                           type: string
                       required:
-                      - organizationArn
+                      - organizationARN
                       - position
                       type: object
                     type: array

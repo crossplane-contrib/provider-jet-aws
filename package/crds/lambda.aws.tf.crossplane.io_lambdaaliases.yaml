@@ -135,11 +135,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  invokeArn:
+                  invokeARN:
                     type: string
                 required:
                 - arn
-                - invokeArn
+                - invokeARN
                 type: object
               conditions:
                 description: Conditions of the resource.

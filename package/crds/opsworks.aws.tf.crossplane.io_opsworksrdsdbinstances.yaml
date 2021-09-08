@@ -67,15 +67,15 @@ spec:
                     type: string
                   dbUser:
                     type: string
-                  rdsDbInstanceArn:
+                  rdsDBInstanceARN:
                     type: string
-                  stackId:
+                  stackID:
                     type: string
                 required:
                 - dbPassword
                 - dbUser
-                - rdsDbInstanceArn
-                - stackId
+                - rdsDBInstanceARN
+                - stackID
                 type: object
               providerConfigRef:
                 default:

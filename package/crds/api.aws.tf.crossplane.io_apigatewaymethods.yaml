@@ -70,7 +70,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  authorizerId:
+                  authorizerID:
                     type: string
                   httpMethod:
                     type: string
@@ -84,17 +84,17 @@ spec:
                     additionalProperties:
                       type: boolean
                     type: object
-                  requestValidatorId:
+                  requestValidatorID:
                     type: string
-                  resourceId:
+                  resourceID:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                 required:
                 - authorization
                 - httpMethod
-                - resourceId
-                - restApiId
+                - resourceID
+                - restAPIID
                 type: object
               providerConfigRef:
                 default:

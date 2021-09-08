@@ -72,9 +72,9 @@ spec:
                     type: string
                   profileVersion:
                     type: string
-                  statementId:
+                  statementID:
                     type: string
-                  statementIdPrefix:
+                  statementIDPrefix:
                     type: string
                 required:
                 - action

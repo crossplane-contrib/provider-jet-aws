@@ -66,12 +66,12 @@ spec:
                   cognitoConfig:
                     items:
                       properties:
-                        clientId:
+                        clientID:
                           type: string
                         userPool:
                           type: string
                       required:
-                      - clientId
+                      - clientID
                       - userPool
                       type: object
                     type: array
@@ -80,13 +80,13 @@ spec:
                       properties:
                         authorizationEndpoint:
                           type: string
-                        clientId:
+                        clientID:
                           type: string
                         clientSecret:
                           type: string
                         issuer:
                           type: string
-                        jwksUri:
+                        jwksURI:
                           type: string
                         logoutEndpoint:
                           type: string
@@ -96,16 +96,16 @@ spec:
                           type: string
                       required:
                       - authorizationEndpoint
-                      - clientId
+                      - clientID
                       - clientSecret
                       - issuer
-                      - jwksUri
+                      - jwksURI
                       - logoutEndpoint
                       - tokenEndpoint
                       - userInfoEndpoint
                       type: object
                     type: array
-                  sourceIpConfig:
+                  sourceIPConfig:
                     items:
                       properties:
                         cidrs:

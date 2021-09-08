@@ -70,12 +70,12 @@ spec:
                         openidConnectConfig:
                           items:
                             properties:
-                              authTtl:
+                              authTTL:
                                 format: int64
                                 type: integer
-                              clientId:
+                              clientID:
                                 type: string
-                              iatTtl:
+                              iatTTL:
                                 format: int64
                                 type: integer
                               issuer:
@@ -87,14 +87,14 @@ spec:
                         userPoolConfig:
                           items:
                             properties:
-                              appIdClientRegex:
+                              appIDClientRegex:
                                 type: string
                               awsRegion:
                                 type: string
-                              userPoolId:
+                              userPoolID:
                                 type: string
                             required:
-                            - userPoolId
+                            - userPoolID
                             type: object
                           type: array
                       required:
@@ -106,14 +106,14 @@ spec:
                   logConfig:
                     items:
                       properties:
-                        cloudwatchLogsRoleArn:
+                        cloudwatchLogsRoleARN:
                           type: string
                         excludeVerboseContent:
                           type: boolean
                         fieldLogLevel:
                           type: string
                       required:
-                      - cloudwatchLogsRoleArn
+                      - cloudwatchLogsRoleARN
                       - fieldLogLevel
                       type: object
                     type: array
@@ -122,12 +122,12 @@ spec:
                   openidConnectConfig:
                     items:
                       properties:
-                        authTtl:
+                        authTTL:
                           format: int64
                           type: integer
-                        clientId:
+                        clientID:
                           type: string
-                        iatTtl:
+                        iatTTL:
                           format: int64
                           type: integer
                         issuer:
@@ -149,17 +149,17 @@ spec:
                   userPoolConfig:
                     items:
                       properties:
-                        appIdClientRegex:
+                        appIDClientRegex:
                           type: string
                         awsRegion:
                           type: string
                         defaultAction:
                           type: string
-                        userPoolId:
+                        userPoolID:
                           type: string
                       required:
                       - defaultAction
-                      - userPoolId
+                      - userPoolID
                       type: object
                     type: array
                   xrayEnabled:

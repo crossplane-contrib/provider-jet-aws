@@ -67,7 +67,7 @@ spec:
                       properties:
                         alarmName:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                         stateReason:
                           type: string
@@ -75,7 +75,7 @@ spec:
                           type: string
                       required:
                       - alarmName
-                      - roleArn
+                      - roleARN
                       - stateReason
                       - stateValue
                       type: object
@@ -93,14 +93,14 @@ spec:
                           type: string
                         metricValue:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                       required:
                       - metricName
                       - metricNamespace
                       - metricUnit
                       - metricValue
-                      - roleArn
+                      - roleARN
                       type: object
                     type: array
                   description:
@@ -124,14 +124,14 @@ spec:
                           type: string
                         rangeKeyValue:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                         tableName:
                           type: string
                       required:
                       - hashKeyField
                       - hashKeyValue
-                      - roleArn
+                      - roleARN
                       - tableName
                       type: object
                     type: array
@@ -147,10 +147,10 @@ spec:
                             - tableName
                             type: object
                           type: array
-                        roleArn:
+                        roleARN:
                           type: string
                       required:
-                      - roleArn
+                      - roleARN
                       type: object
                     type: array
                   elasticsearch:
@@ -162,7 +162,7 @@ spec:
                           type: string
                         index:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                         type:
                           type: string
@@ -170,7 +170,7 @@ spec:
                       - endpoint
                       - id
                       - index
-                      - roleArn
+                      - roleARN
                       - type
                       type: object
                     type: array
@@ -184,7 +184,7 @@ spec:
                             properties:
                               alarmName:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                               stateReason:
                                 type: string
@@ -192,7 +192,7 @@ spec:
                                 type: string
                             required:
                             - alarmName
-                            - roleArn
+                            - roleARN
                             - stateReason
                             - stateValue
                             type: object
@@ -210,14 +210,14 @@ spec:
                                 type: string
                               metricValue:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                             required:
                             - metricName
                             - metricNamespace
                             - metricUnit
                             - metricValue
-                            - roleArn
+                            - roleARN
                             type: object
                           type: array
                         dynamodb:
@@ -239,14 +239,14 @@ spec:
                                 type: string
                               rangeKeyValue:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                               tableName:
                                 type: string
                             required:
                             - hashKeyField
                             - hashKeyValue
-                            - roleArn
+                            - roleARN
                             - tableName
                             type: object
                           type: array
@@ -262,10 +262,10 @@ spec:
                                   - tableName
                                   type: object
                                 type: array
-                              roleArn:
+                              roleARN:
                                 type: string
                             required:
-                            - roleArn
+                            - roleARN
                             type: object
                           type: array
                         elasticsearch:
@@ -277,7 +277,7 @@ spec:
                                 type: string
                               index:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                               type:
                                 type: string
@@ -285,7 +285,7 @@ spec:
                             - endpoint
                             - id
                             - index
-                            - roleArn
+                            - roleARN
                             - type
                             type: object
                           type: array
@@ -294,13 +294,13 @@ spec:
                             properties:
                               deliveryStreamName:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                               separator:
                                 type: string
                             required:
                             - deliveryStreamName
-                            - roleArn
+                            - roleARN
                             type: object
                           type: array
                         iotAnalytics:
@@ -308,11 +308,11 @@ spec:
                             properties:
                               channelName:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                             required:
                             - channelName
-                            - roleArn
+                            - roleARN
                             type: object
                           type: array
                         iotEvents:
@@ -320,13 +320,13 @@ spec:
                             properties:
                               inputName:
                                 type: string
-                              messageId:
+                              messageID:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                             required:
                             - inputName
-                            - roleArn
+                            - roleARN
                             type: object
                           type: array
                         kinesis:
@@ -334,22 +334,22 @@ spec:
                             properties:
                               partitionKey:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                               streamName:
                                 type: string
                             required:
-                            - roleArn
+                            - roleARN
                             - streamName
                             type: object
                           type: array
                         lambda:
                           items:
                             properties:
-                              functionArn:
+                              functionARN:
                                 type: string
                             required:
-                            - functionArn
+                            - functionARN
                             type: object
                           type: array
                         republish:
@@ -358,12 +358,12 @@ spec:
                               qos:
                                 format: int64
                                 type: integer
-                              roleArn:
+                              roleARN:
                                 type: string
                               topic:
                                 type: string
                             required:
-                            - roleArn
+                            - roleARN
                             - topic
                             type: object
                           type: array
@@ -374,12 +374,12 @@ spec:
                                 type: string
                               key:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                             required:
                             - bucketName
                             - key
-                            - roleArn
+                            - roleARN
                             type: object
                           type: array
                         sns:
@@ -387,27 +387,27 @@ spec:
                             properties:
                               messageFormat:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
-                              targetArn:
+                              targetARN:
                                 type: string
                             required:
-                            - roleArn
-                            - targetArn
+                            - roleARN
+                            - targetARN
                             type: object
                           type: array
                         sqs:
                           items:
                             properties:
-                              queueUrl:
+                              queueURL:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                               useBase64:
                                 type: boolean
                             required:
-                            - queueUrl
-                            - roleArn
+                            - queueURL
+                            - roleARN
                             - useBase64
                             type: object
                           type: array
@@ -416,12 +416,12 @@ spec:
                             properties:
                               executionNamePrefix:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                               stateMachineName:
                                 type: string
                             required:
-                            - roleArn
+                            - roleARN
                             - stateMachineName
                             type: object
                           type: array
@@ -432,13 +432,13 @@ spec:
                       properties:
                         deliveryStreamName:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                         separator:
                           type: string
                       required:
                       - deliveryStreamName
-                      - roleArn
+                      - roleARN
                       type: object
                     type: array
                   iotAnalytics:
@@ -446,11 +446,11 @@ spec:
                       properties:
                         channelName:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                       required:
                       - channelName
-                      - roleArn
+                      - roleARN
                       type: object
                     type: array
                   iotEvents:
@@ -458,13 +458,13 @@ spec:
                       properties:
                         inputName:
                           type: string
-                        messageId:
+                        messageID:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                       required:
                       - inputName
-                      - roleArn
+                      - roleARN
                       type: object
                     type: array
                   kinesis:
@@ -472,22 +472,22 @@ spec:
                       properties:
                         partitionKey:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                         streamName:
                           type: string
                       required:
-                      - roleArn
+                      - roleARN
                       - streamName
                       type: object
                     type: array
                   lambda:
                     items:
                       properties:
-                        functionArn:
+                        functionARN:
                           type: string
                       required:
-                      - functionArn
+                      - functionARN
                       type: object
                     type: array
                   name:
@@ -498,12 +498,12 @@ spec:
                         qos:
                           format: int64
                           type: integer
-                        roleArn:
+                        roleARN:
                           type: string
                         topic:
                           type: string
                       required:
-                      - roleArn
+                      - roleARN
                       - topic
                       type: object
                     type: array
@@ -514,12 +514,12 @@ spec:
                           type: string
                         key:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                       required:
                       - bucketName
                       - key
-                      - roleArn
+                      - roleARN
                       type: object
                     type: array
                   sns:
@@ -527,13 +527,13 @@ spec:
                       properties:
                         messageFormat:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
-                        targetArn:
+                        targetARN:
                           type: string
                       required:
-                      - roleArn
-                      - targetArn
+                      - roleARN
+                      - targetARN
                       type: object
                     type: array
                   sql:
@@ -543,15 +543,15 @@ spec:
                   sqs:
                     items:
                       properties:
-                        queueUrl:
+                        queueURL:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                         useBase64:
                           type: boolean
                       required:
-                      - queueUrl
-                      - roleArn
+                      - queueURL
+                      - roleARN
                       - useBase64
                       type: object
                     type: array
@@ -560,12 +560,12 @@ spec:
                       properties:
                         executionNamePrefix:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                         stateMachineName:
                           type: string
                       required:
-                      - roleArn
+                      - roleARN
                       - stateMachineName
                       type: object
                     type: array

@@ -125,7 +125,7 @@ spec:
                     type: string
                   containerImage:
                     type: string
-                  imageArn:
+                  imageARN:
                     type: string
                   version:
                     format: int64
@@ -133,7 +133,7 @@ spec:
                 required:
                 - arn
                 - containerImage
-                - imageArn
+                - imageARN
                 - version
                 type: object
               conditions:

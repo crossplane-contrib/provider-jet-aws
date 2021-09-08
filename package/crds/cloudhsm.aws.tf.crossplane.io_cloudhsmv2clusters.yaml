@@ -152,20 +152,20 @@ spec:
                       - manufacturerHardwareCertificate
                       type: object
                     type: array
-                  clusterId:
+                  clusterID:
                     type: string
                   clusterState:
                     type: string
-                  securityGroupId:
+                  securityGroupID:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - clusterCertificates
-                - clusterId
+                - clusterID
                 - clusterState
-                - securityGroupId
-                - vpcId
+                - securityGroupID
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

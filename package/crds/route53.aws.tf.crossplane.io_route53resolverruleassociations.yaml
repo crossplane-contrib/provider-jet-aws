@@ -66,13 +66,13 @@ spec:
                 properties:
                   name:
                     type: string
-                  resolverRuleId:
+                  resolverRuleID:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - resolverRuleId
-                - vpcId
+                - resolverRuleID
+                - vpcID
                 type: object
               providerConfigRef:
                 default:

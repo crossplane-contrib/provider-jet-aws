@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   cachingConfig:
                     items:
@@ -98,7 +98,7 @@ spec:
                   type:
                     type: string
                 required:
-                - apiId
+                - apiID
                 - field
                 - type
                 type: object

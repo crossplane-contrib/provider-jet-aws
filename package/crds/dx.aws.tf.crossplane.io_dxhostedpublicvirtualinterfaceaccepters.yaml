@@ -72,10 +72,10 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  virtualInterfaceId:
+                  virtualInterfaceID:
                     type: string
                 required:
-                - virtualInterfaceId
+                - virtualInterfaceID
                 type: object
               providerConfigRef:
                 default:

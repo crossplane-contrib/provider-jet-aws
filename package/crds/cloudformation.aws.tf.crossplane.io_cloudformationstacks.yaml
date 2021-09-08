@@ -69,7 +69,7 @@ spec:
                     type: array
                   disableRollback:
                     type: boolean
-                  iamRoleArn:
+                  iamRoleARN:
                     type: string
                   name:
                     type: string
@@ -85,7 +85,7 @@ spec:
                     type: object
                   policyBody:
                     type: string
-                  policyUrl:
+                  policyURL:
                     type: string
                   tags:
                     additionalProperties:
@@ -97,7 +97,7 @@ spec:
                     type: object
                   templateBody:
                     type: string
-                  templateUrl:
+                  templateURL:
                     type: string
                   timeoutInMinutes:
                     format: int64

@@ -102,7 +102,7 @@ spec:
                     type: array
                   trafficDirection:
                     type: string
-                  trafficMirrorFilterId:
+                  trafficMirrorFilterID:
                     type: string
                 required:
                 - destinationCidrBlock
@@ -110,7 +110,7 @@ spec:
                 - ruleNumber
                 - sourceCidrBlock
                 - trafficDirection
-                - trafficMirrorFilterId
+                - trafficMirrorFilterID
                 type: object
               providerConfigRef:
                 default:

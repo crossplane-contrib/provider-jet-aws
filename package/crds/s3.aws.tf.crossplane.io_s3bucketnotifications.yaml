@@ -78,7 +78,7 @@ spec:
                           type: string
                         id:
                           type: string
-                        lambdaFunctionArn:
+                        lambdaFunctionARN:
                           type: string
                       required:
                       - events
@@ -97,11 +97,11 @@ spec:
                           type: string
                         id:
                           type: string
-                        queueArn:
+                        queueARN:
                           type: string
                       required:
                       - events
-                      - queueArn
+                      - queueARN
                       type: object
                     type: array
                   topic:
@@ -117,11 +117,11 @@ spec:
                           type: string
                         id:
                           type: string
-                        topicArn:
+                        topicARN:
                           type: string
                       required:
                       - events
-                      - topicArn
+                      - topicARN
                       type: object
                     type: array
                 required:

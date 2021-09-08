@@ -79,7 +79,7 @@ spec:
                                   properties:
                                     instanceType:
                                       type: string
-                                    sagemakerImageArn:
+                                    sagemakerImageARN:
                                       type: string
                                   type: object
                                 type: array
@@ -108,7 +108,7 @@ spec:
                                   properties:
                                     instanceType:
                                       type: string
-                                    sagemakerImageArn:
+                                    sagemakerImageARN:
                                       type: string
                                   type: object
                                 type: array
@@ -123,7 +123,7 @@ spec:
                             properties:
                               notebookOutputOption:
                                 type: string
-                              s3KmsKeyId:
+                              s3KmsKeyID:
                                 type: string
                               s3OutputPath:
                                 type: string
@@ -137,7 +137,7 @@ spec:
                                   properties:
                                     instanceType:
                                       type: string
-                                    sagemakerImageArn:
+                                    sagemakerImageARN:
                                       type: string
                                   type: object
                                 type: array
@@ -149,7 +149,7 @@ spec:
                     type: array
                   domainName:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   retentionPolicy:
                     items:
@@ -170,14 +170,14 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - authMode
                 - defaultUserSettings
                 - domainName
                 - subnetIds
-                - vpcId
+                - vpcID
                 type: object
               providerConfigRef:
                 default:
@@ -230,16 +230,16 @@ spec:
                 properties:
                   arn:
                     type: string
-                  homeEfsFileSystemId:
+                  homeEfsFileSystemID:
                     type: string
-                  singleSignOnManagedApplicationInstanceId:
+                  singleSignOnManagedApplicationInstanceID:
                     type: string
                   url:
                     type: string
                 required:
                 - arn
-                - homeEfsFileSystemId
-                - singleSignOnManagedApplicationInstanceId
+                - homeEfsFileSystemID
+                - singleSignOnManagedApplicationInstanceID
                 - url
                 type: object
               conditions:

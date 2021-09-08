@@ -64,18 +64,18 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  destinationArn:
+                  destinationARN:
                     type: string
                   destinationType:
                     type: string
-                  detectorId:
+                  detectorID:
                     type: string
-                  kmsKeyArn:
+                  kmsKeyARN:
                     type: string
                 required:
-                - destinationArn
-                - detectorId
-                - kmsKeyArn
+                - destinationARN
+                - detectorID
+                - kmsKeyARN
                 type: object
               providerConfigRef:
                 default:

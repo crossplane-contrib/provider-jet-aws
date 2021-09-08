@@ -73,7 +73,7 @@ spec:
                     type: integer
                   bgpAuthKey:
                     type: string
-                  connectionId:
+                  connectionID:
                     type: string
                   customerAddress:
                     type: string
@@ -97,7 +97,7 @@ spec:
                 required:
                 - addressFamily
                 - bgpAsn
-                - connectionId
+                - connectionID
                 - name
                 - routeFilterPrefixes
                 - vlan

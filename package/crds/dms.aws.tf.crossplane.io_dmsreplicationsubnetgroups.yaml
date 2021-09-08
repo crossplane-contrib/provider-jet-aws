@@ -66,7 +66,7 @@ spec:
                 properties:
                   replicationSubnetGroupDescription:
                     type: string
-                  replicationSubnetGroupId:
+                  replicationSubnetGroupID:
                     type: string
                   subnetIds:
                     items:
@@ -82,7 +82,7 @@ spec:
                     type: object
                 required:
                 - replicationSubnetGroupDescription
-                - replicationSubnetGroupId
+                - replicationSubnetGroupID
                 - subnetIds
                 type: object
               providerConfigRef:
@@ -135,13 +135,13 @@ spec:
             properties:
               atProvider:
                 properties:
-                  replicationSubnetGroupArn:
+                  replicationSubnetGroupARN:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - replicationSubnetGroupArn
-                - vpcId
+                - replicationSubnetGroupARN
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

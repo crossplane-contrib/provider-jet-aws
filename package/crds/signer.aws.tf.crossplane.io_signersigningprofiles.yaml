@@ -67,7 +67,7 @@ spec:
                     type: string
                   namePrefix:
                     type: string
-                  platformId:
+                  platformID:
                     type: string
                   signatureValidityPeriod:
                     items:
@@ -91,7 +91,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - platformId
+                - platformID
                 type: object
               providerConfigRef:
                 default:
@@ -166,7 +166,7 @@ spec:
                     type: string
                   version:
                     type: string
-                  versionArn:
+                  versionARN:
                     type: string
                 required:
                 - arn
@@ -174,7 +174,7 @@ spec:
                 - revocationRecord
                 - status
                 - version
-                - versionArn
+                - versionARN
                 type: object
               conditions:
                 description: Conditions of the resource.

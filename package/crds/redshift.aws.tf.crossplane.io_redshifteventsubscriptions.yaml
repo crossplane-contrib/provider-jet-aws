@@ -74,7 +74,7 @@ spec:
                     type: string
                   severity:
                     type: string
-                  snsTopicArn:
+                  snsTopicARN:
                     type: string
                   sourceIds:
                     items:
@@ -92,7 +92,7 @@ spec:
                     type: object
                 required:
                 - name
-                - snsTopicArn
+                - snsTopicARN
                 type: object
               providerConfigRef:
                 default:
@@ -146,13 +146,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  customerAwsId:
+                  customerAwsID:
                     type: string
                   status:
                     type: string
                 required:
                 - arn
-                - customerAwsId
+                - customerAwsID
                 - status
                 type: object
               conditions:

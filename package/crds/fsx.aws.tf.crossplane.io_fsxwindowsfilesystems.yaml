@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  activeDirectoryId:
+                  activeDirectoryID:
                     type: string
                   aliases:
                     items:
@@ -89,9 +89,9 @@ spec:
                     type: string
                   deploymentType:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
-                  preferredSubnetId:
+                  preferredSubnetID:
                     type: string
                   securityGroupIds:
                     items:
@@ -208,22 +208,22 @@ spec:
                     items:
                       type: string
                     type: array
-                  ownerId:
+                  ownerID:
                     type: string
-                  preferredFileServerIp:
+                  preferredFileServerIP:
                     type: string
                   remoteAdministrationEndpoint:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - arn
                 - dnsName
                 - networkInterfaceIds
-                - ownerId
-                - preferredFileServerIp
+                - ownerID
+                - preferredFileServerIP
                 - remoteAdministrationEndpoint
-                - vpcId
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

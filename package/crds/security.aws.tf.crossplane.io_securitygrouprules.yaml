@@ -81,11 +81,11 @@ spec:
                     type: array
                   protocol:
                     type: string
-                  securityGroupId:
+                  securityGroupID:
                     type: string
                   self:
                     type: boolean
-                  sourceSecurityGroupId:
+                  sourceSecurityGroupID:
                     type: string
                   toPort:
                     format: int64
@@ -95,7 +95,7 @@ spec:
                 required:
                 - fromPort
                 - protocol
-                - securityGroupId
+                - securityGroupID
                 - toPort
                 - type
                 type: object

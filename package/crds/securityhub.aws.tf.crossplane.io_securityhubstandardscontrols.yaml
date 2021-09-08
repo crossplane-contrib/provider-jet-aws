@@ -68,11 +68,11 @@ spec:
                     type: string
                   disabledReason:
                     type: string
-                  standardsControlArn:
+                  standardsControlARN:
                     type: string
                 required:
                 - controlStatus
-                - standardsControlArn
+                - standardsControlARN
                 type: object
               providerConfigRef:
                 default:
@@ -124,7 +124,7 @@ spec:
             properties:
               atProvider:
                 properties:
-                  controlId:
+                  controlID:
                     type: string
                   controlStatusUpdatedAt:
                     type: string
@@ -134,18 +134,18 @@ spec:
                     items:
                       type: string
                     type: array
-                  remediationUrl:
+                  remediationURL:
                     type: string
                   severityRating:
                     type: string
                   title:
                     type: string
                 required:
-                - controlId
+                - controlID
                 - controlStatusUpdatedAt
                 - description
                 - relatedRequirements
-                - remediationUrl
+                - remediationURL
                 - severityRating
                 - title
                 type: object

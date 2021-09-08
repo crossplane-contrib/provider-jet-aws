@@ -62,17 +62,17 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  allocationId:
+                  allocationID:
                     type: string
                   allowReassociation:
                     type: boolean
-                  instanceId:
+                  instanceID:
                     type: string
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
-                  privateIpAddress:
+                  privateIPAddress:
                     type: string
-                  publicIp:
+                  publicIP:
                     type: string
                 type: object
               providerConfigRef:

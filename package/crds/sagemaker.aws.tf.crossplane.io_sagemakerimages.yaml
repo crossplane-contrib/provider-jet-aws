@@ -68,7 +68,7 @@ spec:
                     type: string
                   imageName:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -80,7 +80,7 @@ spec:
                     type: object
                 required:
                 - imageName
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:

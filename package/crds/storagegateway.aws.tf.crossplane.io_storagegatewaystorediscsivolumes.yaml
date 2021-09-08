@@ -64,19 +64,19 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  diskId:
+                  diskID:
                     type: string
-                  gatewayArn:
+                  gatewayARN:
                     type: string
                   kmsEncrypted:
                     type: boolean
                   kmsKey:
                     type: string
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
                   preserveExistingData:
                     type: boolean
-                  snapshotId:
+                  snapshotID:
                     type: string
                   tags:
                     additionalProperties:
@@ -89,9 +89,9 @@ spec:
                   targetName:
                     type: string
                 required:
-                - diskId
-                - gatewayArn
-                - networkInterfaceId
+                - diskID
+                - gatewayARN
+                - networkInterfaceID
                 - preserveExistingData
                 - targetName
                 type: object
@@ -155,11 +155,11 @@ spec:
                   networkInterfacePort:
                     format: int64
                     type: integer
-                  targetArn:
+                  targetARN:
                     type: string
                   volumeAttachmentStatus:
                     type: string
-                  volumeId:
+                  volumeID:
                     type: string
                   volumeSizeInBytes:
                     format: int64
@@ -173,9 +173,9 @@ spec:
                 - chapEnabled
                 - lunNumber
                 - networkInterfacePort
-                - targetArn
+                - targetARN
                 - volumeAttachmentStatus
-                - volumeId
+                - volumeID
                 - volumeSizeInBytes
                 - volumeStatus
                 - volumeType

@@ -82,13 +82,13 @@ spec:
                             - type
                             type: object
                           type: array
-                        namespaceId:
+                        namespaceID:
                           type: string
                         routingPolicy:
                           type: string
                       required:
                       - dnsRecords
-                      - namespaceId
+                      - namespaceID
                       type: object
                     type: array
                   healthCheckConfig:
@@ -113,7 +113,7 @@ spec:
                     type: array
                   name:
                     type: string
-                  namespaceId:
+                  namespaceID:
                     type: string
                   tags:
                     additionalProperties:

@@ -63,13 +63,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  certificateArn:
+                  certificateARN:
                     type: string
-                  listenerArn:
+                  listenerARN:
                     type: string
                 required:
-                - certificateArn
-                - listenerArn
+                - certificateARN
+                - listenerARN
                 type: object
               providerConfigRef:
                 default:

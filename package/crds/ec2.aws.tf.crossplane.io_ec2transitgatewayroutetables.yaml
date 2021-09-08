@@ -72,10 +72,10 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  transitGatewayId:
+                  transitGatewayID:
                     type: string
                 required:
-                - transitGatewayId
+                - transitGatewayID
                 type: object
               providerConfigRef:
                 default:

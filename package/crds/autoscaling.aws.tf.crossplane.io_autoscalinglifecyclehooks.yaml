@@ -77,9 +77,9 @@ spec:
                     type: string
                   notificationMetadata:
                     type: string
-                  notificationTargetArn:
+                  notificationTargetARN:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                 required:
                 - autoscalingGroupName

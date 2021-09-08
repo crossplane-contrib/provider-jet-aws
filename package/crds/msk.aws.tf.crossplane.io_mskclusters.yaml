@@ -128,7 +128,7 @@ spec:
                   encryptionInfo:
                     items:
                       properties:
-                        encryptionAtRestKmsKeyArn:
+                        encryptionAtRestKmsKeyARN:
                           type: string
                         encryptionInTransit:
                           items:
@@ -296,7 +296,7 @@ spec:
                     type: string
                   bootstrapBrokersSaslScram:
                     type: string
-                  bootstrapBrokersTls:
+                  bootstrapBrokersTLS:
                     type: string
                   currentVersion:
                     type: string
@@ -307,7 +307,7 @@ spec:
                 - bootstrapBrokers
                 - bootstrapBrokersSaslIam
                 - bootstrapBrokersSaslScram
-                - bootstrapBrokersTls
+                - bootstrapBrokersTLS
                 - currentVersion
                 - zookeeperConnectString
                 type: object

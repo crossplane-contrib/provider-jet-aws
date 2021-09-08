@@ -66,7 +66,7 @@ spec:
                 properties:
                   name:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                   validateRequestBody:
                     type: boolean
@@ -74,7 +74,7 @@ spec:
                     type: boolean
                 required:
                 - name
-                - restApiId
+                - restAPIID
                 type: object
               providerConfigRef:
                 default:

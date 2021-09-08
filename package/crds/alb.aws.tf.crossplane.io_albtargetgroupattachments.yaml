@@ -69,13 +69,13 @@ spec:
                   port:
                     format: int64
                     type: integer
-                  targetGroupArn:
+                  targetGroupARN:
                     type: string
-                  targetId:
+                  targetID:
                     type: string
                 required:
-                - targetGroupArn
-                - targetId
+                - targetGroupARN
+                - targetID
                 type: object
               providerConfigRef:
                 default:

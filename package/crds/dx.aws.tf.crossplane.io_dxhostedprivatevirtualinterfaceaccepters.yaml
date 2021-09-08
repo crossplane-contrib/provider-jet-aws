@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  dxGatewayId:
+                  dxGatewayID:
                     type: string
                   tags:
                     additionalProperties:
@@ -74,12 +74,12 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  virtualInterfaceId:
+                  virtualInterfaceID:
                     type: string
-                  vpnGatewayId:
+                  vpnGatewayID:
                     type: string
                 required:
-                - virtualInterfaceId
+                - virtualInterfaceID
                 type: object
               providerConfigRef:
                 default:

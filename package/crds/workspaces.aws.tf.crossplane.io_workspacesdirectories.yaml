@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  directoryId:
+                  directoryID:
                     type: string
                   ipGroupIds:
                     items:
@@ -120,7 +120,7 @@ spec:
                   workspaceCreationProperties:
                     items:
                       properties:
-                        customSecurityGroupId:
+                        customSecurityGroupID:
                           type: string
                         defaultOu:
                           type: string
@@ -133,7 +133,7 @@ spec:
                       type: object
                     type: array
                 required:
-                - directoryId
+                - directoryID
                 type: object
               providerConfigRef:
                 default:
@@ -192,25 +192,25 @@ spec:
                     type: string
                   directoryType:
                     type: string
-                  dnsIpAddresses:
+                  dnsIPAddresses:
                     items:
                       type: string
                     type: array
-                  iamRoleId:
+                  iamRoleID:
                     type: string
                   registrationCode:
                     type: string
-                  workspaceSecurityGroupId:
+                  workspaceSecurityGroupID:
                     type: string
                 required:
                 - alias
                 - customerUserName
                 - directoryName
                 - directoryType
-                - dnsIpAddresses
-                - iamRoleId
+                - dnsIPAddresses
+                - iamRoleID
                 - registrationCode
-                - workspaceSecurityGroupId
+                - workspaceSecurityGroupID
                 type: object
               conditions:
                 description: Conditions of the resource.

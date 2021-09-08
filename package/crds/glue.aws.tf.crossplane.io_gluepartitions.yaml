@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  catalogId:
+                  catalogID:
                     type: string
                   databaseName:
                     type: string

@@ -144,7 +144,7 @@ spec:
                 properties:
                   dnsName:
                     type: string
-                  hostedZoneId:
+                  hostedZoneID:
                     type: string
                   ipSets:
                     items:
@@ -162,7 +162,7 @@ spec:
                     type: array
                 required:
                 - dnsName
-                - hostedZoneId
+                - hostedZoneID
                 - ipSets
                 type: object
               conditions:

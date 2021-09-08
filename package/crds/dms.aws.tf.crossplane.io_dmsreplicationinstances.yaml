@@ -76,7 +76,7 @@ spec:
                     type: string
                   engineVersion:
                     type: string
-                  kmsKeyArn:
+                  kmsKeyARN:
                     type: string
                   multiAz:
                     type: boolean
@@ -86,9 +86,9 @@ spec:
                     type: boolean
                   replicationInstanceClass:
                     type: string
-                  replicationInstanceId:
+                  replicationInstanceID:
                     type: string
-                  replicationSubnetGroupId:
+                  replicationSubnetGroupID:
                     type: string
                   tags:
                     additionalProperties:
@@ -104,7 +104,7 @@ spec:
                     type: array
                 required:
                 - replicationInstanceClass
-                - replicationInstanceId
+                - replicationInstanceID
                 type: object
               providerConfigRef:
                 default:
@@ -156,7 +156,7 @@ spec:
             properties:
               atProvider:
                 properties:
-                  replicationInstanceArn:
+                  replicationInstanceARN:
                     type: string
                   replicationInstancePrivateIps:
                     items:
@@ -167,7 +167,7 @@ spec:
                       type: string
                     type: array
                 required:
-                - replicationInstanceArn
+                - replicationInstanceARN
                 - replicationInstancePrivateIps
                 - replicationInstancePublicIps
                 type: object

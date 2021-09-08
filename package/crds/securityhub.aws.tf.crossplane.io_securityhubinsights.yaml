@@ -66,7 +66,7 @@ spec:
                   filters:
                     items:
                       properties:
-                        awsAccountId:
+                        awsAccountID:
                           items:
                             properties:
                               comparison:
@@ -180,7 +180,7 @@ spec:
                                 type: string
                             type: object
                           type: array
-                        findingProviderFieldsRelatedFindingsId:
+                        findingProviderFieldsRelatedFindingsID:
                           items:
                             properties:
                               comparison:
@@ -192,7 +192,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        findingProviderFieldsRelatedFindingsProductArn:
+                        findingProviderFieldsRelatedFindingsProductARN:
                           items:
                             properties:
                               comparison:
@@ -262,7 +262,7 @@ spec:
                                 type: string
                             type: object
                           type: array
-                        generatorId:
+                        generatorID:
                           items:
                             properties:
                               comparison:
@@ -377,7 +377,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        networkDestinationIpv4:
+                        networkDestinationIPv4:
                           items:
                             properties:
                               cidr:
@@ -386,7 +386,7 @@ spec:
                             - cidr
                             type: object
                           type: array
-                        networkDestinationIpv6:
+                        networkDestinationIPv6:
                           items:
                             properties:
                               cidr:
@@ -442,7 +442,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        networkSourceIpv4:
+                        networkSourceIPv4:
                           items:
                             properties:
                               cidr:
@@ -451,7 +451,7 @@ spec:
                             - cidr
                             type: object
                           type: array
-                        networkSourceIpv6:
+                        networkSourceIPv6:
                           items:
                             properties:
                               cidr:
@@ -619,7 +619,7 @@ spec:
                                 type: string
                             type: object
                           type: array
-                        productArn:
+                        productARN:
                           items:
                             properties:
                               comparison:
@@ -682,7 +682,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        relatedFindingsId:
+                        relatedFindingsID:
                           items:
                             properties:
                               comparison:
@@ -694,7 +694,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        relatedFindingsProductArn:
+                        relatedFindingsProductARN:
                           items:
                             properties:
                               comparison:
@@ -706,31 +706,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        resourceAwsEc2InstanceIamInstanceProfileArn:
-                          items:
-                            properties:
-                              comparison:
-                                type: string
-                              value:
-                                type: string
-                            required:
-                            - comparison
-                            - value
-                            type: object
-                          type: array
-                        resourceAwsEc2InstanceImageId:
-                          items:
-                            properties:
-                              comparison:
-                                type: string
-                              value:
-                                type: string
-                            required:
-                            - comparison
-                            - value
-                            type: object
-                          type: array
-                        resourceAwsEc2InstanceIpv4Addresses:
+                        resourceAwsEc2InstanceIPv4Addresses:
                           items:
                             properties:
                               cidr:
@@ -739,13 +715,37 @@ spec:
                             - cidr
                             type: object
                           type: array
-                        resourceAwsEc2InstanceIpv6Addresses:
+                        resourceAwsEc2InstanceIPv6Addresses:
                           items:
                             properties:
                               cidr:
                                 type: string
                             required:
                             - cidr
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceIamInstanceProfileARN:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceImageID:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
                             type: object
                           type: array
                         resourceAwsEc2InstanceKeyName:
@@ -782,7 +782,7 @@ spec:
                                 type: string
                             type: object
                           type: array
-                        resourceAwsEc2InstanceSubnetId:
+                        resourceAwsEc2InstanceSubnetID:
                           items:
                             properties:
                               comparison:
@@ -806,7 +806,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        resourceAwsEc2InstanceVpcId:
+                        resourceAwsEc2InstanceVPCID:
                           items:
                             properties:
                               comparison:
@@ -864,7 +864,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        resourceAwsS3BucketOwnerId:
+                        resourceAwsS3BucketOwnerID:
                           items:
                             properties:
                               comparison:
@@ -888,7 +888,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        resourceContainerImageId:
+                        resourceContainerImageID:
                           items:
                             properties:
                               comparison:
@@ -961,7 +961,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        resourceId:
+                        resourceID:
                           items:
                             properties:
                               comparison:
@@ -1036,7 +1036,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        sourceUrl:
+                        sourceURL:
                           items:
                             properties:
                               comparison:
@@ -1094,7 +1094,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        threatIntelIndicatorSourceUrl:
+                        threatIntelIndicatorSourceURL:
                           items:
                             properties:
                               comparison:

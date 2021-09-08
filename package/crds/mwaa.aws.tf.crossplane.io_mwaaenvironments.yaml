@@ -72,7 +72,7 @@ spec:
                     type: string
                   environmentClass:
                     type: string
-                  executionRoleArn:
+                  executionRoleARN:
                     type: string
                   kmsKey:
                     type: string
@@ -158,7 +158,7 @@ spec:
                     type: string
                   requirementsS3Path:
                     type: string
-                  sourceBucketArn:
+                  sourceBucketARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -174,10 +174,10 @@ spec:
                     type: string
                 required:
                 - dagS3Path
-                - executionRoleArn
+                - executionRoleARN
                 - name
                 - networkConfiguration
-                - sourceBucketArn
+                - sourceBucketARN
                 type: object
               providerConfigRef:
                 default:
@@ -257,19 +257,19 @@ spec:
                       - status
                       type: object
                     type: array
-                  serviceRoleArn:
+                  serviceRoleARN:
                     type: string
                   status:
                     type: string
-                  webserverUrl:
+                  webserverURL:
                     type: string
                 required:
                 - arn
                 - createdAt
                 - lastUpdated
-                - serviceRoleArn
+                - serviceRoleARN
                 - status
-                - webserverUrl
+                - webserverURL
                 type: object
               conditions:
                 description: Conditions of the resource.

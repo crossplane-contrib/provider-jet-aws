@@ -76,16 +76,16 @@ spec:
                     type: string
                   name:
                     type: string
-                  productId:
+                  productID:
                     type: string
-                  templatePhysicalId:
+                  templatePhysicalID:
                     type: string
-                  templateUrl:
+                  templateURL:
                     type: string
                   type:
                     type: string
                 required:
-                - productId
+                - productID
                 type: object
               providerConfigRef:
                 default:

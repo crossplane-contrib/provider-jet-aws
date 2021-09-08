@@ -62,23 +62,23 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  assignIpv6AddressOnCreation:
+                  assignIPv6AddressOnCreation:
                     type: boolean
                   availabilityZone:
                     type: string
-                  availabilityZoneId:
+                  availabilityZoneID:
                     type: string
                   cidrBlock:
                     type: string
-                  customerOwnedIpv4Pool:
+                  customerOwnedIPv4Pool:
                     type: string
                   ipv6CidrBlock:
                     type: string
-                  mapCustomerOwnedIpOnLaunch:
+                  mapCustomerOwnedIPOnLaunch:
                     type: boolean
-                  mapPublicIpOnLaunch:
+                  mapPublicIPOnLaunch:
                     type: boolean
-                  outpostArn:
+                  outpostARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -88,11 +88,11 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - cidrBlock
-                - vpcId
+                - vpcID
                 type: object
               providerConfigRef:
                 default:
@@ -145,14 +145,14 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ipv6CidrBlockAssociationId:
+                  ipv6CidrBlockAssociationID:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
-                - ipv6CidrBlockAssociationId
-                - ownerId
+                - ipv6CidrBlockAssociationID
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

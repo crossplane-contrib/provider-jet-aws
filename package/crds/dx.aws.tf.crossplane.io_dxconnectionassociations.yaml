@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  connectionId:
+                  connectionID:
                     type: string
-                  lagId:
+                  lagID:
                     type: string
                 required:
-                - connectionId
-                - lagId
+                - connectionID
+                - lagID
                 type: object
               providerConfigRef:
                 default:

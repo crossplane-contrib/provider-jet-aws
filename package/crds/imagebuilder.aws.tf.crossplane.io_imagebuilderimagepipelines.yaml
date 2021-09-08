@@ -66,11 +66,11 @@ spec:
                 properties:
                   description:
                     type: string
-                  distributionConfigurationArn:
+                  distributionConfigurationARN:
                     type: string
                   enhancedImageMetadataEnabled:
                     type: boolean
-                  imageRecipeArn:
+                  imageRecipeARN:
                     type: string
                   imageTestsConfiguration:
                     items:
@@ -82,7 +82,7 @@ spec:
                           type: integer
                       type: object
                     type: array
-                  infrastructureConfigurationArn:
+                  infrastructureConfigurationARN:
                     type: string
                   name:
                     type: string
@@ -108,8 +108,8 @@ spec:
                       type: string
                     type: object
                 required:
-                - imageRecipeArn
-                - infrastructureConfigurationArn
+                - imageRecipeARN
+                - infrastructureConfigurationARN
                 - name
                 type: object
               providerConfigRef:

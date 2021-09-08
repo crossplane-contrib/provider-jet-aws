@@ -277,7 +277,7 @@ spec:
                             properties:
                               context:
                                 type: string
-                              targetUrl:
+                              targetURL:
                                 type: string
                             type: object
                           type: array
@@ -331,7 +331,7 @@ spec:
                             properties:
                               context:
                                 type: string
-                              targetUrl:
+                              targetURL:
                                 type: string
                             type: object
                           type: array
@@ -382,12 +382,12 @@ spec:
                           items:
                             type: string
                           type: array
-                        vpcId:
+                        vpcID:
                           type: string
                       required:
                       - securityGroupIds
                       - subnets
-                      - vpcId
+                      - vpcID
                       type: object
                     type: array
                 required:
@@ -448,11 +448,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  badgeUrl:
+                  badgeURL:
                     type: string
                 required:
                 - arn
-                - badgeUrl
+                - badgeURL
                 type: object
               conditions:
                 description: Conditions of the resource.

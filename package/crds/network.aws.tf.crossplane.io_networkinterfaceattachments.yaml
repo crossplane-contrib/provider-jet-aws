@@ -67,14 +67,14 @@ spec:
                   deviceIndex:
                     format: int64
                     type: integer
-                  instanceId:
+                  instanceID:
                     type: string
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
                 required:
                 - deviceIndex
-                - instanceId
-                - networkInterfaceId
+                - instanceID
+                - networkInterfaceID
                 type: object
               providerConfigRef:
                 default:
@@ -126,12 +126,12 @@ spec:
             properties:
               atProvider:
                 properties:
-                  attachmentId:
+                  attachmentID:
                     type: string
                   status:
                     type: string
                 required:
-                - attachmentId
+                - attachmentID
                 - status
                 type: object
               conditions:

@@ -72,7 +72,7 @@ spec:
                     type: string
                   description:
                     type: string
-                  disableExecuteApiEndpoint:
+                  disableExecuteAPIEndpoint:
                     type: boolean
                   endpointConfiguration:
                     items:
@@ -164,15 +164,15 @@ spec:
                     type: string
                   createdDate:
                     type: string
-                  executionArn:
+                  executionARN:
                     type: string
-                  rootResourceId:
+                  rootResourceID:
                     type: string
                 required:
                 - arn
                 - createdDate
-                - executionArn
-                - rootResourceId
+                - executionARN
+                - rootResourceID
                 type: object
               conditions:
                 description: Conditions of the resource.

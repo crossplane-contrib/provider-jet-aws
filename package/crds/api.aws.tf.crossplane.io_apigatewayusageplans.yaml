@@ -66,12 +66,12 @@ spec:
                   apiStages:
                     items:
                       properties:
-                        apiId:
+                        apiID:
                           type: string
                         stage:
                           type: string
                       required:
-                      - apiId
+                      - apiID
                       - stage
                       type: object
                     type: array

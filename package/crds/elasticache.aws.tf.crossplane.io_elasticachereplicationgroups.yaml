@@ -97,9 +97,9 @@ spec:
                     type: string
                   finalSnapshotIdentifier:
                     type: string
-                  globalReplicationGroupId:
+                  globalReplicationGroupID:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   maintenanceWindow:
                     type: string
@@ -107,7 +107,7 @@ spec:
                     type: boolean
                   nodeType:
                     type: string
-                  notificationTopicArn:
+                  notificationTopicARN:
                     type: string
                   numberCacheClusters:
                     format: int64
@@ -119,7 +119,7 @@ spec:
                     type: integer
                   replicationGroupDescription:
                     type: string
-                  replicationGroupId:
+                  replicationGroupID:
                     type: string
                   securityGroupIds:
                     items:
@@ -154,7 +154,7 @@ spec:
                     type: boolean
                 required:
                 - replicationGroupDescription
-                - replicationGroupId
+                - replicationGroupID
                 type: object
               providerConfigRef:
                 default:

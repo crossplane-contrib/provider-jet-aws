@@ -69,7 +69,7 @@ spec:
                     type: array
                   name:
                     type: string
-                  policyArn:
+                  policyARN:
                     type: string
                   roles:
                     items:
@@ -81,7 +81,7 @@ spec:
                     type: array
                 required:
                 - name
-                - policyArn
+                - policyARN
                 type: object
               providerConfigRef:
                 default:

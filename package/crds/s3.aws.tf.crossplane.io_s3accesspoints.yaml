@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
                   bucket:
                     type: string
@@ -86,10 +86,10 @@ spec:
                   vpcConfiguration:
                     items:
                       properties:
-                        vpcId:
+                        vpcID:
                           type: string
                       required:
-                      - vpcId
+                      - vpcID
                       type: object
                     type: array
                 required:

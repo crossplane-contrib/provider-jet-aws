@@ -147,7 +147,7 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 type: object
               providerConfigRef:
@@ -206,13 +206,13 @@ spec:
                     type: string
                   name:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
                 - description
                 - name
-                - ownerId
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

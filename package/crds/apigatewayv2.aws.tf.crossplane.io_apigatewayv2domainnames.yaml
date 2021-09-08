@@ -68,27 +68,27 @@ spec:
                   domainNameConfiguration:
                     items:
                       properties:
-                        certificateArn:
+                        certificateARN:
                           type: string
                         endpointType:
                           type: string
                         securityPolicy:
                           type: string
                       required:
-                      - certificateArn
+                      - certificateARN
                       - endpointType
                       - securityPolicy
                       type: object
                     type: array
-                  mutualTlsAuthentication:
+                  mutualTLSAuthentication:
                     items:
                       properties:
-                        truststoreUri:
+                        truststoreURI:
                           type: string
                         truststoreVersion:
                           type: string
                       required:
-                      - truststoreUri
+                      - truststoreURI
                       type: object
                     type: array
                   tags:

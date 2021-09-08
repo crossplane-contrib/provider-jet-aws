@@ -63,13 +63,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  resourceArn:
+                  resourceARN:
                     type: string
-                  resourceShareArn:
+                  resourceShareARN:
                     type: string
                 required:
-                - resourceArn
-                - resourceShareArn
+                - resourceARN
+                - resourceShareARN
                 type: object
               providerConfigRef:
                 default:

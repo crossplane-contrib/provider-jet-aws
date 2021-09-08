@@ -75,7 +75,7 @@ spec:
                       - bucket
                       type: object
                     type: array
-                  customerOwnedIpv4Pool:
+                  customerOwnedIPv4Pool:
                     type: string
                   dropInvalidHeaderFields:
                     type: boolean
@@ -105,16 +105,16 @@ spec:
                   subnetMapping:
                     items:
                       properties:
-                        allocationId:
+                        allocationID:
                           type: string
                         ipv6Address:
                           type: string
-                        privateIpv4Address:
+                        privateIPv4Address:
                           type: string
-                        subnetId:
+                        subnetID:
                           type: string
                       required:
-                      - subnetId
+                      - subnetID
                       type: object
                     type: array
                   subnets:
@@ -185,16 +185,16 @@ spec:
                     type: string
                   dnsName:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
-                  zoneId:
+                  zoneID:
                     type: string
                 required:
                 - arn
                 - arnSuffix
                 - dnsName
-                - vpcId
-                - zoneId
+                - vpcID
+                - zoneID
                 type: object
               conditions:
                 description: Conditions of the resource.

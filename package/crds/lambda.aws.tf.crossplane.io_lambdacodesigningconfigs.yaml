@@ -141,13 +141,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  configId:
+                  configID:
                     type: string
                   lastModified:
                     type: string
                 required:
                 - arn
-                - configId
+                - configID
                 - lastModified
                 type: object
               conditions:

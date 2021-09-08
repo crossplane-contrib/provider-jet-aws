@@ -70,7 +70,7 @@ spec:
                     type: boolean
                   notificationType:
                     type: string
-                  topicArn:
+                  topicARN:
                     type: string
                 required:
                 - identity

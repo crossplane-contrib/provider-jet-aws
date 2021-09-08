@@ -64,10 +64,10 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  memberAccountId:
+                  memberAccountID:
                     type: string
                 required:
-                - memberAccountId
+                - memberAccountID
                 type: object
               providerConfigRef:
                 default:

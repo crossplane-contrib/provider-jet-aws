@@ -80,13 +80,13 @@ spec:
                             - type
                             type: object
                           type: array
-                        regexPatternSetId:
+                        regexPatternSetID:
                           type: string
                         textTransformation:
                           type: string
                       required:
                       - fieldToMatch
-                      - regexPatternSetId
+                      - regexPatternSetID
                       - textTransformation
                       type: object
                     type: array

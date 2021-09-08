@@ -66,18 +66,18 @@ spec:
                 properties:
                   action:
                     type: string
-                  blockOverrideDnsType:
+                  blockOverrideDNSType:
                     type: string
                   blockOverrideDomain:
                     type: string
-                  blockOverrideTtl:
+                  blockOverrideTTL:
                     format: int64
                     type: integer
                   blockResponse:
                     type: string
-                  firewallDomainListId:
+                  firewallDomainListID:
                     type: string
-                  firewallRuleGroupId:
+                  firewallRuleGroupID:
                     type: string
                   name:
                     type: string
@@ -86,8 +86,8 @@ spec:
                     type: integer
                 required:
                 - action
-                - firewallDomainListId
-                - firewallRuleGroupId
+                - firewallDomainListID
+                - firewallRuleGroupID
                 - name
                 - priority
                 type: object

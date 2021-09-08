@@ -64,12 +64,12 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
                   servicePrincipal:
                     type: string
                 required:
-                - accountId
+                - accountID
                 - servicePrincipal
                 type: object
               providerConfigRef:

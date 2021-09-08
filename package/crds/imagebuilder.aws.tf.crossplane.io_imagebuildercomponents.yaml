@@ -69,7 +69,7 @@ spec:
                     type: string
                   description:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   name:
                     type: string

@@ -79,7 +79,7 @@ spec:
                         masterUserOptions:
                           items:
                             properties:
-                              masterUserArn:
+                              masterUserARN:
                                 type: string
                               masterUserName:
                                 type: string
@@ -130,16 +130,16 @@ spec:
                       properties:
                         enabled:
                           type: boolean
-                        identityPoolId:
+                        identityPoolID:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
-                        userPoolId:
+                        userPoolID:
                           type: string
                       required:
-                      - identityPoolId
-                      - roleArn
-                      - userPoolId
+                      - identityPoolID
+                      - roleARN
+                      - userPoolID
                       type: object
                     type: array
                   domainEndpointOptions:
@@ -147,11 +147,11 @@ spec:
                       properties:
                         customEndpoint:
                           type: string
-                        customEndpointCertificateArn:
+                        customEndpointCertificateARN:
                           type: string
                         customEndpointEnabled:
                           type: boolean
-                        enforceHttps:
+                        enforceHTTPS:
                           type: boolean
                         tlsSecurityPolicy:
                           type: string
@@ -183,7 +183,7 @@ spec:
                       properties:
                         enabled:
                           type: boolean
-                        kmsKeyId:
+                        kmsKeyID:
                           type: string
                       required:
                       - enabled
@@ -192,14 +192,14 @@ spec:
                   logPublishingOptions:
                     items:
                       properties:
-                        cloudwatchLogGroupArn:
+                        cloudwatchLogGroupARN:
                           type: string
                         enabled:
                           type: boolean
                         logType:
                           type: string
                       required:
-                      - cloudwatchLogGroupArn
+                      - cloudwatchLogGroupARN
                       - logType
                       type: object
                     type: array
@@ -297,7 +297,7 @@ spec:
                 properties:
                   arn:
                     type: string
-                  domainId:
+                  domainID:
                     type: string
                   endpoint:
                     type: string
@@ -305,7 +305,7 @@ spec:
                     type: string
                 required:
                 - arn
-                - domainId
+                - domainID
                 - endpoint
                 - kibanaEndpoint
                 type: object

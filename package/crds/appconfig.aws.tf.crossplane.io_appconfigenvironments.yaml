@@ -63,19 +63,19 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
                   description:
                     type: string
                   monitor:
                     items:
                       properties:
-                        alarmArn:
+                        alarmARN:
                           type: string
-                        alarmRoleArn:
+                        alarmRoleARN:
                           type: string
                       required:
-                      - alarmArn
+                      - alarmARN
                       type: object
                     type: array
                   name:
@@ -89,7 +89,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - applicationId
+                - applicationID
                 - name
                 type: object
               providerConfigRef:
@@ -144,13 +144,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  environmentId:
+                  environmentID:
                     type: string
                   state:
                     type: string
                 required:
                 - arn
-                - environmentId
+                - environmentID
                 - state
                 type: object
               conditions:

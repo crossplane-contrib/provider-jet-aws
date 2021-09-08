@@ -71,10 +71,10 @@ spec:
                       properties:
                         ip:
                           type: string
-                        subnetId:
+                        subnetID:
                           type: string
                       required:
-                      - subnetId
+                      - subnetID
                       type: object
                     type: array
                   name:
@@ -148,11 +148,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  hostVpcId:
+                  hostVPCID:
                     type: string
                 required:
                 - arn
-                - hostVpcId
+                - hostVPCID
                 type: object
               conditions:
                 description: Conditions of the resource.

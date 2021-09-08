@@ -74,15 +74,15 @@ spec:
                     items:
                       type: string
                     type: array
-                  pathId:
+                  pathID:
                     type: string
                   pathName:
                     type: string
-                  productId:
+                  productID:
                     type: string
                   productName:
                     type: string
-                  provisioningArtifactId:
+                  provisioningArtifactID:
                     type: string
                   provisioningArtifactName:
                     type: string
@@ -195,13 +195,13 @@ spec:
                     type: array
                   createdTime:
                     type: string
-                  lastProvisioningRecordId:
+                  lastProvisioningRecordID:
                     type: string
-                  lastRecordId:
+                  lastRecordID:
                     type: string
-                  lastSuccessfulProvisioningRecordId:
+                  lastSuccessfulProvisioningRecordID:
                     type: string
-                  launchRoleArn:
+                  launchRoleARN:
                     type: string
                   status:
                     type: string
@@ -213,10 +213,10 @@ spec:
                 - arn
                 - cloudwatchDashboardNames
                 - createdTime
-                - lastProvisioningRecordId
-                - lastRecordId
-                - lastSuccessfulProvisioningRecordId
-                - launchRoleArn
+                - lastProvisioningRecordID
+                - lastRecordID
+                - lastSuccessfulProvisioningRecordID
+                - launchRoleARN
                 - status
                 - statusMessage
                 - type

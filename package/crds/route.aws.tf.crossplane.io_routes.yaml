@@ -62,36 +62,36 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  carrierGatewayId:
+                  carrierGatewayID:
                     type: string
                   destinationCidrBlock:
                     type: string
-                  destinationIpv6CidrBlock:
+                  destinationIPv6CidrBlock:
                     type: string
-                  destinationPrefixListId:
+                  destinationPrefixListID:
                     type: string
-                  egressOnlyGatewayId:
+                  egressOnlyGatewayID:
                     type: string
-                  gatewayId:
+                  gatewayID:
                     type: string
-                  instanceId:
+                  instanceID:
                     type: string
-                  localGatewayId:
+                  localGatewayID:
                     type: string
-                  natGatewayId:
+                  natGatewayID:
                     type: string
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
-                  routeTableId:
+                  routeTableID:
                     type: string
-                  transitGatewayId:
+                  transitGatewayID:
                     type: string
-                  vpcEndpointId:
+                  vpcEndpointID:
                     type: string
-                  vpcPeeringConnectionId:
+                  vpcPeeringConnectionID:
                     type: string
                 required:
-                - routeTableId
+                - routeTableID
                 type: object
               providerConfigRef:
                 default:
@@ -142,14 +142,14 @@ spec:
             properties:
               atProvider:
                 properties:
-                  instanceOwnerId:
+                  instanceOwnerID:
                     type: string
                   origin:
                     type: string
                   state:
                     type: string
                 required:
-                - instanceOwnerId
+                - instanceOwnerID
                 - origin
                 - state
                 type: object

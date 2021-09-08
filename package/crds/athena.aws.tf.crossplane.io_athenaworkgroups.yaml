@@ -82,7 +82,7 @@ spec:
                                   properties:
                                     encryptionOption:
                                       type: string
-                                    kmsKeyArn:
+                                    kmsKeyARN:
                                       type: string
                                   type: object
                                 type: array

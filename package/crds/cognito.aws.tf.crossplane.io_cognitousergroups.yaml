@@ -69,13 +69,13 @@ spec:
                   precedence:
                     format: int64
                     type: integer
-                  roleArn:
+                  roleARN:
                     type: string
-                  userPoolId:
+                  userPoolID:
                     type: string
                 required:
                 - name
-                - userPoolId
+                - userPoolID
                 type: object
               providerConfigRef:
                 default:

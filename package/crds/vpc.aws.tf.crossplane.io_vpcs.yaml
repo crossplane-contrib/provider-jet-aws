@@ -62,17 +62,17 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  assignGeneratedIpv6CidrBlock:
+                  assignGeneratedIPv6CidrBlock:
                     type: boolean
                   cidrBlock:
                     type: string
                   enableClassiclink:
                     type: boolean
-                  enableClassiclinkDnsSupport:
+                  enableClassiclinkDNSSupport:
                     type: boolean
-                  enableDnsHostnames:
+                  enableDNSHostnames:
                     type: boolean
-                  enableDnsSupport:
+                  enableDNSSupport:
                     type: boolean
                   instanceTenancy:
                     type: string
@@ -138,32 +138,32 @@ spec:
                 properties:
                   arn:
                     type: string
-                  defaultNetworkAclId:
+                  defaultNetworkACLID:
                     type: string
-                  defaultRouteTableId:
+                  defaultRouteTableID:
                     type: string
-                  defaultSecurityGroupId:
+                  defaultSecurityGroupID:
                     type: string
-                  dhcpOptionsId:
+                  dhcpOptionsID:
                     type: string
-                  ipv6AssociationId:
+                  ipv6AssociationID:
                     type: string
                   ipv6CidrBlock:
                     type: string
-                  mainRouteTableId:
+                  mainRouteTableID:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
-                - defaultNetworkAclId
-                - defaultRouteTableId
-                - defaultSecurityGroupId
-                - dhcpOptionsId
-                - ipv6AssociationId
+                - defaultNetworkACLID
+                - defaultRouteTableID
+                - defaultSecurityGroupID
+                - dhcpOptionsID
+                - ipv6AssociationID
                 - ipv6CidrBlock
-                - mainRouteTableId
-                - ownerId
+                - mainRouteTableID
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -126,10 +126,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  queryDefinitionId:
+                  queryDefinitionID:
                     type: string
                 required:
-                - queryDefinitionId
+                - queryDefinitionID
                 type: object
               conditions:
                 description: Conditions of the resource.

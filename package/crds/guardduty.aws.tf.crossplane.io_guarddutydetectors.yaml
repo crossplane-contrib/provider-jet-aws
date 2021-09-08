@@ -138,12 +138,12 @@ spec:
             properties:
               atProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
                   arn:
                     type: string
                 required:
-                - accountId
+                - accountID
                 - arn
                 type: object
               conditions:

@@ -63,11 +63,11 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  catalogId:
+                  catalogID:
                     type: string
                   description:
                     type: string
-                  locationUri:
+                  locationURI:
                     type: string
                   name:
                     type: string
@@ -78,12 +78,12 @@ spec:
                   targetDatabase:
                     items:
                       properties:
-                        catalogId:
+                        catalogID:
                           type: string
                         databaseName:
                           type: string
                       required:
-                      - catalogId
+                      - catalogID
                       - databaseName
                       type: object
                     type: array

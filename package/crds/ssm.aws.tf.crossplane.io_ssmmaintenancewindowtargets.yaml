@@ -86,12 +86,12 @@ spec:
                       - values
                       type: object
                     type: array
-                  windowId:
+                  windowID:
                     type: string
                 required:
                 - resourceType
                 - targets
-                - windowId
+                - windowID
                 type: object
               providerConfigRef:
                 default:

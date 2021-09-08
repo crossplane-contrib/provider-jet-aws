@@ -136,7 +136,7 @@ spec:
                           type: integer
                         lbProtocol:
                           type: string
-                        sslCertificateId:
+                        sslCertificateID:
                           type: string
                       required:
                       - instancePort
@@ -223,15 +223,15 @@ spec:
                     type: string
                   dnsName:
                     type: string
-                  sourceSecurityGroupId:
+                  sourceSecurityGroupID:
                     type: string
-                  zoneId:
+                  zoneID:
                     type: string
                 required:
                 - arn
                 - dnsName
-                - sourceSecurityGroupId
-                - zoneId
+                - sourceSecurityGroupID
+                - zoneID
                 type: object
               conditions:
                 description: Conditions of the resource.

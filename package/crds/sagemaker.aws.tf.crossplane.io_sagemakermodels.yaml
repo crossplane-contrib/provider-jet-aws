@@ -84,7 +84,7 @@ spec:
                           type: array
                         mode:
                           type: string
-                        modelDataUrl:
+                        modelDataURL:
                           type: string
                       required:
                       - image
@@ -92,7 +92,7 @@ spec:
                     type: array
                   enableNetworkIsolation:
                     type: boolean
-                  executionRoleArn:
+                  executionRoleARN:
                     type: string
                   inferenceExecutionConfig:
                     items:
@@ -127,7 +127,7 @@ spec:
                           type: array
                         mode:
                           type: string
-                        modelDataUrl:
+                        modelDataURL:
                           type: string
                       required:
                       - image
@@ -158,7 +158,7 @@ spec:
                       type: object
                     type: array
                 required:
-                - executionRoleArn
+                - executionRoleARN
                 type: object
               providerConfigRef:
                 default:

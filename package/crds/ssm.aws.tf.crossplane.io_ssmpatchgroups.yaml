@@ -62,12 +62,12 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  baselineId:
+                  baselineID:
                     type: string
                   patchGroup:
                     type: string
                 required:
-                - baselineId
+                - baselineID
                 - patchGroup
                 type: object
               providerConfigRef:

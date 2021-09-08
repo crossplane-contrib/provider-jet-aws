@@ -271,8 +271,8 @@ func (in *MacieS3BucketAssociationParameters) DeepCopyInto(out *MacieS3BucketAss
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
-	if in.MemberAccountId != nil {
-		in, out := &in.MemberAccountId, &out.MemberAccountId
+	if in.MemberAccountID != nil {
+		in, out := &in.MemberAccountID, &out.MemberAccountID
 		*out = new(string)
 		**out = **in
 	}

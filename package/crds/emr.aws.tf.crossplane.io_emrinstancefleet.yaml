@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  clusterId:
+                  clusterID:
                     type: string
                   instanceTypeConfigs:
                     items:
@@ -152,7 +152,7 @@ spec:
                     format: int64
                     type: integer
                 required:
-                - clusterId
+                - clusterID
                 type: object
               providerConfigRef:
                 default:

@@ -66,7 +66,7 @@ spec:
                     type: string
                   fargateProfileName:
                     type: string
-                  podExecutionRoleArn:
+                  podExecutionRoleARN:
                     type: string
                   selector:
                     items:
@@ -96,7 +96,7 @@ spec:
                 required:
                 - clusterName
                 - fargateProfileName
-                - podExecutionRoleArn
+                - podExecutionRoleARN
                 - selector
                 type: object
               providerConfigRef:

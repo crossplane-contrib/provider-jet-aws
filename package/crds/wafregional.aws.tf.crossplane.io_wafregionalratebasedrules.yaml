@@ -71,14 +71,14 @@ spec:
                   predicate:
                     items:
                       properties:
-                        dataId:
+                        dataID:
                           type: string
                         negated:
                           type: boolean
                         type:
                           type: string
                       required:
-                      - dataId
+                      - dataID
                       - negated
                       - type
                       type: object

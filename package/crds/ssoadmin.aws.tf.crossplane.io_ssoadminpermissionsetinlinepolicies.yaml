@@ -66,14 +66,14 @@ spec:
                 properties:
                   inlinePolicy:
                     type: string
-                  instanceArn:
+                  instanceARN:
                     type: string
-                  permissionSetArn:
+                  permissionSetARN:
                     type: string
                 required:
                 - inlinePolicy
-                - instanceArn
-                - permissionSetArn
+                - instanceARN
+                - permissionSetARN
                 type: object
               providerConfigRef:
                 default:

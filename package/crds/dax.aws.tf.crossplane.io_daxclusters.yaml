@@ -70,13 +70,13 @@ spec:
                     type: string
                   description:
                     type: string
-                  iamRoleArn:
+                  iamRoleARN:
                     type: string
                   maintenanceWindow:
                     type: string
                   nodeType:
                     type: string
-                  notificationTopicArn:
+                  notificationTopicARN:
                     type: string
                   parameterGroupName:
                     type: string
@@ -106,7 +106,7 @@ spec:
                     type: object
                 required:
                 - clusterName
-                - iamRoleArn
+                - iamRoleARN
                 - nodeType
                 - replicationFactor
                 type: object

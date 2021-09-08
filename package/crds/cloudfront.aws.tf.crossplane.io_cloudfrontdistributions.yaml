@@ -72,7 +72,7 @@ spec:
                   customErrorResponse:
                     items:
                       properties:
-                        errorCachingMinTtl:
+                        errorCachingMinTTL:
                           format: int64
                           type: integer
                         errorCode:
@@ -94,7 +94,7 @@ spec:
                           items:
                             type: string
                           type: array
-                        cachePolicyId:
+                        cachePolicyID:
                           type: string
                         cachedMethods:
                           items:
@@ -102,10 +102,10 @@ spec:
                           type: array
                         compress:
                           type: boolean
-                        defaultTtl:
+                        defaultTTL:
                           format: int64
                           type: integer
-                        fieldLevelEncryptionId:
+                        fieldLevelEncryptionID:
                           type: string
                         forwardedValues:
                           items:
@@ -143,11 +143,11 @@ spec:
                             properties:
                               eventType:
                                 type: string
-                              functionArn:
+                              functionARN:
                                 type: string
                             required:
                             - eventType
-                            - functionArn
+                            - functionARN
                             type: object
                           type: array
                         lambdaFunctionAssociation:
@@ -157,26 +157,26 @@ spec:
                                 type: string
                               includeBody:
                                 type: boolean
-                              lambdaArn:
+                              lambdaARN:
                                 type: string
                             required:
                             - eventType
-                            - lambdaArn
+                            - lambdaARN
                             type: object
                           type: array
-                        maxTtl:
+                        maxTTL:
                           format: int64
                           type: integer
-                        minTtl:
+                        minTTL:
                           format: int64
                           type: integer
-                        originRequestPolicyId:
+                        originRequestPolicyID:
                           type: string
-                        realtimeLogConfigArn:
+                        realtimeLogConfigARN:
                           type: string
                         smoothStreaming:
                           type: boolean
-                        targetOriginId:
+                        targetOriginID:
                           type: string
                         trustedKeyGroups:
                           items:
@@ -191,7 +191,7 @@ spec:
                       required:
                       - allowedMethods
                       - cachedMethods
-                      - targetOriginId
+                      - targetOriginID
                       - viewerProtocolPolicy
                       type: object
                     type: array
@@ -201,7 +201,7 @@ spec:
                     type: boolean
                   httpVersion:
                     type: string
-                  isIpv6Enabled:
+                  isIPv6Enabled:
                     type: boolean
                   loggingConfig:
                     items:
@@ -223,7 +223,7 @@ spec:
                           items:
                             type: string
                           type: array
-                        cachePolicyId:
+                        cachePolicyID:
                           type: string
                         cachedMethods:
                           items:
@@ -231,10 +231,10 @@ spec:
                           type: array
                         compress:
                           type: boolean
-                        defaultTtl:
+                        defaultTTL:
                           format: int64
                           type: integer
-                        fieldLevelEncryptionId:
+                        fieldLevelEncryptionID:
                           type: string
                         forwardedValues:
                           items:
@@ -272,11 +272,11 @@ spec:
                             properties:
                               eventType:
                                 type: string
-                              functionArn:
+                              functionARN:
                                 type: string
                             required:
                             - eventType
-                            - functionArn
+                            - functionARN
                             type: object
                           type: array
                         lambdaFunctionAssociation:
@@ -286,28 +286,28 @@ spec:
                                 type: string
                               includeBody:
                                 type: boolean
-                              lambdaArn:
+                              lambdaARN:
                                 type: string
                             required:
                             - eventType
-                            - lambdaArn
+                            - lambdaARN
                             type: object
                           type: array
-                        maxTtl:
+                        maxTTL:
                           format: int64
                           type: integer
-                        minTtl:
+                        minTTL:
                           format: int64
                           type: integer
-                        originRequestPolicyId:
+                        originRequestPolicyID:
                           type: string
                         pathPattern:
                           type: string
-                        realtimeLogConfigArn:
+                        realtimeLogConfigARN:
                           type: string
                         smoothStreaming:
                           type: boolean
-                        targetOriginId:
+                        targetOriginID:
                           type: string
                         trustedKeyGroups:
                           items:
@@ -323,7 +323,7 @@ spec:
                       - allowedMethods
                       - cachedMethods
                       - pathPattern
-                      - targetOriginId
+                      - targetOriginID
                       - viewerProtocolPolicy
                       type: object
                     type: array
@@ -378,7 +378,7 @@ spec:
                           type: array
                         domainName:
                           type: string
-                        originId:
+                        originID:
                           type: string
                         originPath:
                           type: string
@@ -405,7 +405,7 @@ spec:
                           type: array
                       required:
                       - domainName
-                      - originId
+                      - originID
                       type: object
                     type: array
                   originGroup:
@@ -426,18 +426,18 @@ spec:
                         member:
                           items:
                             properties:
-                              originId:
+                              originID:
                                 type: string
                             required:
-                            - originId
+                            - originID
                             type: object
                           type: array
-                        originId:
+                        originID:
                           type: string
                       required:
                       - failoverCriteria
                       - member
-                      - originId
+                      - originID
                       type: object
                     type: array
                   priceClass:
@@ -475,11 +475,11 @@ spec:
                   viewerCertificate:
                     items:
                       properties:
-                        acmCertificateArn:
+                        acmCertificateARN:
                           type: string
                         cloudfrontDefaultCertificate:
                           type: boolean
-                        iamCertificateId:
+                        iamCertificateID:
                           type: string
                         minimumProtocolVersion:
                           type: string
@@ -489,7 +489,7 @@ spec:
                     type: array
                   waitForDeployment:
                     type: boolean
-                  webAclId:
+                  webACLID:
                     type: string
                 required:
                 - defaultCacheBehavior
@@ -556,7 +556,7 @@ spec:
                     type: string
                   etag:
                     type: string
-                  hostedZoneId:
+                  hostedZoneID:
                     type: string
                   inProgressValidationBatches:
                     format: int64
@@ -573,14 +573,14 @@ spec:
                         items:
                           items:
                             properties:
-                              keyGroupId:
+                              keyGroupID:
                                 type: string
                               keyPairIds:
                                 items:
                                   type: string
                                 type: array
                             required:
-                            - keyGroupId
+                            - keyGroupID
                             - keyPairIds
                             type: object
                           type: array
@@ -618,7 +618,7 @@ spec:
                 - callerReference
                 - domainName
                 - etag
-                - hostedZoneId
+                - hostedZoneID
                 - inProgressValidationBatches
                 - lastModifiedTime
                 - status

@@ -72,9 +72,9 @@ spec:
                     type: string
                   name:
                     type: string
-                  ownerArn:
+                  ownerARN:
                     type: string
-                  subnetId:
+                  subnetID:
                     type: string
                   tags:
                     additionalProperties:

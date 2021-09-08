@@ -98,14 +98,14 @@ spec:
                     type: string
                   nodeGroupNamePrefix:
                     type: string
-                  nodeRoleArn:
+                  nodeRoleARN:
                     type: string
                   releaseVersion:
                     type: string
                   remoteAccess:
                     items:
                       properties:
-                        ec2SshKey:
+                        ec2SSHKey:
                           type: string
                         sourceSecurityGroupIds:
                           items:
@@ -161,7 +161,7 @@ spec:
                     type: string
                 required:
                 - clusterName
-                - nodeRoleArn
+                - nodeRoleARN
                 - scalingConfig
                 - subnetIds
                 type: object
@@ -228,11 +228,11 @@ spec:
                             - name
                             type: object
                           type: array
-                        remoteAccessSecurityGroupId:
+                        remoteAccessSecurityGroupID:
                           type: string
                       required:
                       - autoscalingGroups
-                      - remoteAccessSecurityGroupId
+                      - remoteAccessSecurityGroupID
                       type: object
                     type: array
                   status:

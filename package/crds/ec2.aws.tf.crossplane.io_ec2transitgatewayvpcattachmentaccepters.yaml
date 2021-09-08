@@ -72,14 +72,14 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  transitGatewayAttachmentId:
+                  transitGatewayAttachmentID:
                     type: string
                   transitGatewayDefaultRouteTableAssociation:
                     type: boolean
                   transitGatewayDefaultRouteTablePropagation:
                     type: boolean
                 required:
-                - transitGatewayAttachmentId
+                - transitGatewayAttachmentID
                 type: object
               providerConfigRef:
                 default:
@@ -141,20 +141,20 @@ spec:
                     items:
                       type: string
                     type: array
-                  transitGatewayId:
+                  transitGatewayID:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
-                  vpcOwnerId:
+                  vpcOwnerID:
                     type: string
                 required:
                 - applianceModeSupport
                 - dnsSupport
                 - ipv6Support
                 - subnetIds
-                - transitGatewayId
-                - vpcId
-                - vpcOwnerId
+                - transitGatewayID
+                - vpcID
+                - vpcOwnerID
                 type: object
               conditions:
                 description: Conditions of the resource.

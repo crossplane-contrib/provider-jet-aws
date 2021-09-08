@@ -580,13 +580,13 @@ func (in *SignerSigningProfilePermissionParameters) DeepCopyInto(out *SignerSign
 		*out = new(string)
 		**out = **in
 	}
-	if in.StatementId != nil {
-		in, out := &in.StatementId, &out.StatementId
+	if in.StatementID != nil {
+		in, out := &in.StatementID, &out.StatementID
 		*out = new(string)
 		**out = **in
 	}
-	if in.StatementIdPrefix != nil {
-		in, out := &in.StatementIdPrefix, &out.StatementIdPrefix
+	if in.StatementIDPrefix != nil {
+		in, out := &in.StatementIDPrefix, &out.StatementIDPrefix
 		*out = new(string)
 		**out = **in
 	}

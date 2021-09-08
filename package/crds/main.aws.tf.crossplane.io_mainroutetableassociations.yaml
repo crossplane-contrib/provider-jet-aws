@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  routeTableId:
+                  routeTableID:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - routeTableId
-                - vpcId
+                - routeTableID
+                - vpcID
                 type: object
               providerConfigRef:
                 default:
@@ -122,10 +122,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  originalRouteTableId:
+                  originalRouteTableID:
                     type: string
                 required:
-                - originalRouteTableId
+                - originalRouteTableID
                 type: object
               conditions:
                 description: Conditions of the resource.

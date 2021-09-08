@@ -75,7 +75,7 @@ spec:
                           type: string
                       type: object
                     type: array
-                  memberAccountId:
+                  memberAccountID:
                     type: string
                   prefix:
                     type: string

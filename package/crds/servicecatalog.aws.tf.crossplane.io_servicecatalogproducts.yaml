@@ -82,9 +82,9 @@ spec:
                           type: boolean
                         name:
                           type: string
-                        templatePhysicalId:
+                        templatePhysicalID:
                           type: string
-                        templateUrl:
+                        templateURL:
                           type: string
                         type:
                           type: string
@@ -94,7 +94,7 @@ spec:
                     type: string
                   supportEmail:
                     type: string
-                  supportUrl:
+                  supportURL:
                     type: string
                   tags:
                     additionalProperties:

@@ -101,9 +101,9 @@ spec:
                           type: string
                         notificationMetadata:
                           type: string
-                        notificationTargetArn:
+                        notificationTargetARN:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                       required:
                       - lifecycleTransition
@@ -193,7 +193,7 @@ spec:
                               launchTemplateSpecification:
                                 items:
                                   properties:
-                                    launchTemplateId:
+                                    launchTemplateID:
                                       type: string
                                     launchTemplateName:
                                       type: string
@@ -209,7 +209,7 @@ spec:
                                     launchTemplateSpecification:
                                       items:
                                         properties:
-                                          launchTemplateId:
+                                          launchTemplateID:
                                             type: string
                                           launchTemplateName:
                                             type: string
@@ -237,7 +237,7 @@ spec:
                     type: string
                   protectFromScaleIn:
                     type: boolean
-                  serviceLinkedRoleArn:
+                  serviceLinkedRoleARN:
                     type: string
                   suspendedProcesses:
                     items:

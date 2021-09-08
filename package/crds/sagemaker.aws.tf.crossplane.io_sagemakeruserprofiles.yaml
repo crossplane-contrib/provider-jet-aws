@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  domainId:
+                  domainID:
                     type: string
                   singleSignOnUserIdentifier:
                     type: string
@@ -92,7 +92,7 @@ spec:
                                   properties:
                                     instanceType:
                                       type: string
-                                    sagemakerImageArn:
+                                    sagemakerImageARN:
                                       type: string
                                   type: object
                                 type: array
@@ -123,7 +123,7 @@ spec:
                                   properties:
                                     instanceType:
                                       type: string
-                                    sagemakerImageArn:
+                                    sagemakerImageARN:
                                       type: string
                                   type: object
                                 type: array
@@ -140,7 +140,7 @@ spec:
                             properties:
                               notebookOutputOption:
                                 type: string
-                              s3KmsKeyId:
+                              s3KmsKeyID:
                                 type: string
                               s3OutputPath:
                                 type: string
@@ -154,7 +154,7 @@ spec:
                                   properties:
                                     instanceType:
                                       type: string
-                                    sagemakerImageArn:
+                                    sagemakerImageARN:
                                       type: string
                                   type: object
                                 type: array
@@ -167,7 +167,7 @@ spec:
                       type: object
                     type: array
                 required:
-                - domainId
+                - domainID
                 - userProfileName
                 type: object
               providerConfigRef:
@@ -222,11 +222,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  homeEfsFileSystemUid:
+                  homeEfsFileSystemUID:
                     type: string
                 required:
                 - arn
-                - homeEfsFileSystemUid
+                - homeEfsFileSystemUID
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -62,9 +62,9 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  cloudWatchLogsGroupArn:
+                  cloudWatchLogsGroupARN:
                     type: string
-                  cloudWatchLogsRoleArn:
+                  cloudWatchLogsRoleARN:
                     type: string
                   enableLogFileValidation:
                     type: boolean
@@ -108,7 +108,7 @@ spec:
                     type: boolean
                   isOrganizationTrail:
                     type: boolean
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   name:
                     type: string

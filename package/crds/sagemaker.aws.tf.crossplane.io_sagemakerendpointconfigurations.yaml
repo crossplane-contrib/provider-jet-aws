@@ -89,22 +89,22 @@ spec:
                             - captureMode
                             type: object
                           type: array
-                        destinationS3Uri:
+                        destinationS3URI:
                           type: string
                         enableCapture:
                           type: boolean
                         initialSamplingPercentage:
                           format: int64
                           type: integer
-                        kmsKeyId:
+                        kmsKeyID:
                           type: string
                       required:
                       - captureOptions
-                      - destinationS3Uri
+                      - destinationS3URI
                       - initialSamplingPercentage
                       type: object
                     type: array
-                  kmsKeyArn:
+                  kmsKeyARN:
                     type: string
                   name:
                     type: string

@@ -69,7 +69,7 @@ spec:
                     type: array
                   cacheNamespace:
                     type: string
-                  connectionId:
+                  connectionID:
                     type: string
                   connectionType:
                     type: string
@@ -79,7 +79,7 @@ spec:
                     type: string
                   httpMethod:
                     type: string
-                  integrationHttpMethod:
+                  integrationHTTPMethod:
                     type: string
                   passthroughBehavior:
                     type: string
@@ -91,9 +91,9 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  resourceId:
+                  resourceID:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                   timeoutMilliseconds:
                     format: int64
@@ -111,8 +111,8 @@ spec:
                     type: string
                 required:
                 - httpMethod
-                - resourceId
-                - restApiId
+                - resourceID
+                - restAPIID
                 - type
                 type: object
               providerConfigRef:

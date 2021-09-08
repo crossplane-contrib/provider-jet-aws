@@ -86,7 +86,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  roleArn:
+                  roleARN:
                     type: string
                   securityConfiguration:
                     type: string
@@ -94,7 +94,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  subnetId:
+                  subnetID:
                     type: string
                   tags:
                     additionalProperties:
@@ -108,7 +108,7 @@ spec:
                     type: string
                 required:
                 - name
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:
@@ -171,7 +171,7 @@ spec:
                     type: string
                   status:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                   yarnEndpointAddress:
                     type: string
@@ -185,7 +185,7 @@ spec:
                 - privateAddress
                 - publicAddress
                 - status
-                - vpcId
+                - vpcID
                 - yarnEndpointAddress
                 - zeppelinRemoteSparkInterpreterPort
                 type: object

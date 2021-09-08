@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  autoScalingConfigurationArn:
+                  autoScalingConfigurationARN:
                     type: string
                   encryptionConfiguration:
                     items:
@@ -99,12 +99,12 @@ spec:
                       properties:
                         cpu:
                           type: string
-                        instanceRoleArn:
+                        instanceRoleARN:
                           type: string
                         memory:
                           type: string
                       required:
-                      - instanceRoleArn
+                      - instanceRoleARN
                       type: object
                     type: array
                   serviceName:
@@ -115,9 +115,9 @@ spec:
                         authenticationConfiguration:
                           items:
                             properties:
-                              accessRoleArn:
+                              accessRoleARN:
                                 type: string
-                              connectionArn:
+                              connectionARN:
                                 type: string
                             type: object
                           type: array
@@ -154,7 +154,7 @@ spec:
                                   - configurationSource
                                   type: object
                                 type: array
-                              repositoryUrl:
+                              repositoryURL:
                                 type: string
                               sourceCodeVersion:
                                 items:
@@ -169,7 +169,7 @@ spec:
                                   type: object
                                 type: array
                             required:
-                            - repositoryUrl
+                            - repositoryURL
                             - sourceCodeVersion
                             type: object
                           type: array
@@ -263,16 +263,16 @@ spec:
                 properties:
                   arn:
                     type: string
-                  serviceId:
+                  serviceID:
                     type: string
-                  serviceUrl:
+                  serviceURL:
                     type: string
                   status:
                     type: string
                 required:
                 - arn
-                - serviceId
-                - serviceUrl
+                - serviceID
+                - serviceURL
                 - status
                 type: object
               conditions:

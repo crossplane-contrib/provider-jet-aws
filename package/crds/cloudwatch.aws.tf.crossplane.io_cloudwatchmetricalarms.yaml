@@ -155,7 +155,7 @@ spec:
                     type: object
                   threshold:
                     type: number
-                  thresholdMetricId:
+                  thresholdMetricID:
                     type: string
                   treatMissingData:
                     type: string

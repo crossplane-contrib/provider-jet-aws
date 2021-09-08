@@ -95,7 +95,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  kmsKeyArn:
+                  kmsKeyARN:
                     type: string
                   neptuneClusterParameterGroupName:
                     type: string
@@ -184,20 +184,20 @@ spec:
                     items:
                       type: string
                     type: array
-                  clusterResourceId:
+                  clusterResourceID:
                     type: string
                   endpoint:
                     type: string
-                  hostedZoneId:
+                  hostedZoneID:
                     type: string
                   readerEndpoint:
                     type: string
                 required:
                 - arn
                 - clusterMembers
-                - clusterResourceId
+                - clusterResourceID
                 - endpoint
-                - hostedZoneId
+                - hostedZoneID
                 - readerEndpoint
                 type: object
               conditions:

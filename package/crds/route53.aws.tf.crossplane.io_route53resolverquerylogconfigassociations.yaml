@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  resolverQueryLogConfigId:
+                  resolverQueryLogConfigID:
                     type: string
-                  resourceId:
+                  resourceID:
                     type: string
                 required:
-                - resolverQueryLogConfigId
-                - resourceId
+                - resolverQueryLogConfigID
+                - resourceID
                 type: object
               providerConfigRef:
                 default:

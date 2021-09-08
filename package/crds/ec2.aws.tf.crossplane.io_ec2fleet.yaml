@@ -70,7 +70,7 @@ spec:
                         launchTemplateSpecification:
                           items:
                             properties:
-                              launchTemplateId:
+                              launchTemplateID:
                                 type: string
                               launchTemplateName:
                                 type: string
@@ -91,7 +91,7 @@ spec:
                                 type: string
                               priority:
                                 type: number
-                              subnetId:
+                              subnetID:
                                 type: string
                               weightedCapacity:
                                 type: number

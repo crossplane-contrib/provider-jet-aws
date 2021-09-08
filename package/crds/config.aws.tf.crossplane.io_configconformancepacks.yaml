@@ -83,7 +83,7 @@ spec:
                     type: string
                   templateBody:
                     type: string
-                  templateS3Uri:
+                  templateS3URI:
                     type: string
                 required:
                 - name

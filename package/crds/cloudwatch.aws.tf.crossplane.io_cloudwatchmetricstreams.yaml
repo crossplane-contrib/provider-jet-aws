@@ -72,7 +72,7 @@ spec:
                       - namespace
                       type: object
                     type: array
-                  firehoseArn:
+                  firehoseARN:
                     type: string
                   includeFilter:
                     items:
@@ -89,7 +89,7 @@ spec:
                     type: string
                   outputFormat:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -100,9 +100,9 @@ spec:
                       type: string
                     type: object
                 required:
-                - firehoseArn
+                - firehoseARN
                 - outputFormat
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:

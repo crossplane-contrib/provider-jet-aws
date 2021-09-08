@@ -67,7 +67,7 @@ spec:
                     type: string
                   name:
                     type: string
-                  resolverEndpointId:
+                  resolverEndpointID:
                     type: string
                   ruleType:
                     type: string
@@ -79,7 +79,7 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  targetIp:
+                  targetIP:
                     items:
                       properties:
                         ip:
@@ -146,13 +146,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                   shareStatus:
                     type: string
                 required:
                 - arn
-                - ownerId
+                - ownerID
                 - shareStatus
                 type: object
               conditions:

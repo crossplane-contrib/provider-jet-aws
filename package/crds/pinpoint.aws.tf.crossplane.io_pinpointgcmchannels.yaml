@@ -65,13 +65,13 @@ spec:
                 properties:
                   apiKey:
                     type: string
-                  applicationId:
+                  applicationID:
                     type: string
                   enabled:
                     type: boolean
                 required:
                 - apiKey
-                - applicationId
+                - applicationID
                 type: object
               providerConfigRef:
                 default:

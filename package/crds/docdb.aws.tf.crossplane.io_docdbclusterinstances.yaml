@@ -152,13 +152,13 @@ spec:
                     type: string
                   dbSubnetGroupName:
                     type: string
-                  dbiResourceId:
+                  dbiResourceID:
                     type: string
                   endpoint:
                     type: string
                   engineVersion:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   port:
                     format: int64
@@ -174,10 +174,10 @@ spec:
                 required:
                 - arn
                 - dbSubnetGroupName
-                - dbiResourceId
+                - dbiResourceID
                 - endpoint
                 - engineVersion
-                - kmsKeyId
+                - kmsKeyID
                 - port
                 - preferredBackupWindow
                 - publiclyAccessible

@@ -139,14 +139,14 @@ spec:
             properties:
               atProvider:
                 properties:
-                  payloadUrl:
+                  payloadURL:
                     type: string
                   secret:
                     type: string
                   url:
                     type: string
                 required:
-                - payloadUrl
+                - payloadURL
                 - secret
                 - url
                 type: object

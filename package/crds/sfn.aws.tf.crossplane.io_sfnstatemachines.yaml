@@ -77,7 +77,7 @@ spec:
                     type: array
                   name:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -99,7 +99,7 @@ spec:
                 required:
                 - definition
                 - name
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:

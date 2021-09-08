@@ -68,7 +68,7 @@ spec:
                     type: string
                   encrypted:
                     type: boolean
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   lifecyclePolicy:
                     items:
@@ -145,14 +145,14 @@ spec:
                 properties:
                   arn:
                     type: string
-                  availabilityZoneId:
+                  availabilityZoneID:
                     type: string
                   dnsName:
                     type: string
                   numberOfMountTargets:
                     format: int64
                     type: integer
-                  ownerId:
+                  ownerID:
                     type: string
                   sizeInBytes:
                     items:
@@ -174,10 +174,10 @@ spec:
                     type: array
                 required:
                 - arn
-                - availabilityZoneId
+                - availabilityZoneID
                 - dnsName
                 - numberOfMountTargets
-                - ownerId
+                - ownerID
                 - sizeInBytes
                 type: object
               conditions:

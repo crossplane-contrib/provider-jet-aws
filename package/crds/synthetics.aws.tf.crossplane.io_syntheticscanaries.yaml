@@ -64,7 +64,7 @@ spec:
                 properties:
                   artifactS3Location:
                     type: string
-                  executionRoleArn:
+                  executionRoleARN:
                     type: string
                   failureRetentionPeriod:
                     format: int64
@@ -136,7 +136,7 @@ spec:
                     type: string
                 required:
                 - artifactS3Location
-                - executionRoleArn
+                - executionRoleARN
                 - handler
                 - name
                 - runtimeVersion
@@ -193,9 +193,9 @@ spec:
                 properties:
                   arn:
                     type: string
-                  engineArn:
+                  engineARN:
                     type: string
-                  sourceLocationArn:
+                  sourceLocationARN:
                     type: string
                   status:
                     type: string
@@ -219,8 +219,8 @@ spec:
                     type: array
                 required:
                 - arn
-                - engineArn
-                - sourceLocationArn
+                - engineARN
+                - sourceLocationARN
                 - status
                 - timeline
                 type: object

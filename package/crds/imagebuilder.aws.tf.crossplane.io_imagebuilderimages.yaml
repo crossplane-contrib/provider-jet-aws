@@ -62,11 +62,11 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  distributionConfigurationArn:
+                  distributionConfigurationARN:
                     type: string
                   enhancedImageMetadataEnabled:
                     type: boolean
-                  imageRecipeArn:
+                  imageRecipeARN:
                     type: string
                   imageTestsConfiguration:
                     items:
@@ -78,7 +78,7 @@ spec:
                           type: integer
                       type: object
                     type: array
-                  infrastructureConfigurationArn:
+                  infrastructureConfigurationARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -89,8 +89,8 @@ spec:
                       type: string
                     type: object
                 required:
-                - imageRecipeArn
-                - infrastructureConfigurationArn
+                - imageRecipeARN
+                - infrastructureConfigurationARN
                 type: object
               providerConfigRef:
                 default:
@@ -155,7 +155,7 @@ spec:
                         amis:
                           items:
                             properties:
-                              accountId:
+                              accountID:
                                 type: string
                               description:
                                 type: string
@@ -166,7 +166,7 @@ spec:
                               region:
                                 type: string
                             required:
-                            - accountId
+                            - accountID
                             - description
                             - image
                             - name

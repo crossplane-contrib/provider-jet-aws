@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
                 type: object
               providerConfigRef:

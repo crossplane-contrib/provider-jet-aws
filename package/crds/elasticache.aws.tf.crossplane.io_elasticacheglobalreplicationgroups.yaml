@@ -66,13 +66,13 @@ spec:
                 properties:
                   globalReplicationGroupDescription:
                     type: string
-                  globalReplicationGroupIdSuffix:
+                  globalReplicationGroupIDSuffix:
                     type: string
-                  primaryReplicationGroupId:
+                  primaryReplicationGroupID:
                     type: string
                 required:
-                - globalReplicationGroupIdSuffix
-                - primaryReplicationGroupId
+                - globalReplicationGroupIDSuffix
+                - primaryReplicationGroupID
                 type: object
               providerConfigRef:
                 default:
@@ -140,7 +140,7 @@ spec:
                     type: string
                   engineVersionActual:
                     type: string
-                  globalReplicationGroupId:
+                  globalReplicationGroupID:
                     type: string
                   transitEncryptionEnabled:
                     type: boolean
@@ -153,7 +153,7 @@ spec:
                 - clusterEnabled
                 - engine
                 - engineVersionActual
-                - globalReplicationGroupId
+                - globalReplicationGroupID
                 - transitEncryptionEnabled
                 type: object
               conditions:

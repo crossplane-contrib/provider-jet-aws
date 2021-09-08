@@ -70,7 +70,7 @@ spec:
                       properties:
                         bucketName:
                           type: string
-                        kmsKeyArn:
+                        kmsKeyARN:
                           type: string
                         prefix:
                           type: string

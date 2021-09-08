@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  dhcpOptionsId:
+                  dhcpOptionsID:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - dhcpOptionsId
-                - vpcId
+                - dhcpOptionsID
+                - vpcID
                 type: object
               providerConfigRef:
                 default:

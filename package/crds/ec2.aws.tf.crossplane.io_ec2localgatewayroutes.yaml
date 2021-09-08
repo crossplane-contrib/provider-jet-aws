@@ -65,14 +65,14 @@ spec:
                 properties:
                   destinationCidrBlock:
                     type: string
-                  localGatewayRouteTableId:
+                  localGatewayRouteTableID:
                     type: string
-                  localGatewayVirtualInterfaceGroupId:
+                  localGatewayVirtualInterfaceGroupID:
                     type: string
                 required:
                 - destinationCidrBlock
-                - localGatewayRouteTableId
-                - localGatewayVirtualInterfaceGroupId
+                - localGatewayRouteTableID
+                - localGatewayVirtualInterfaceGroupID
                 type: object
               providerConfigRef:
                 default:

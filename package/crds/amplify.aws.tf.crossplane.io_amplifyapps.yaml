@@ -129,7 +129,7 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  iamServiceRoleArn:
+                  iamServiceRoleARN:
                     type: string
                   name:
                     type: string
@@ -212,13 +212,13 @@ spec:
                           type: string
                         status:
                           type: string
-                        thumbnailUrl:
+                        thumbnailURL:
                           type: string
                       required:
                       - branchName
                       - lastDeployTime
                       - status
-                      - thumbnailUrl
+                      - thumbnailURL
                       type: object
                     type: array
                 required:

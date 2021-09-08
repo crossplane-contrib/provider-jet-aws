@@ -132,12 +132,12 @@ spec:
                     type: string
                   fingerprint:
                     type: string
-                  keyPairId:
+                  keyPairID:
                     type: string
                 required:
                 - arn
                 - fingerprint
-                - keyPairId
+                - keyPairID
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -128,7 +128,7 @@ spec:
                           type: string
                         replyToEmailAddress:
                           type: string
-                        sourceArn:
+                        sourceARN:
                           type: string
                       type: object
                     type: array
@@ -144,12 +144,12 @@ spec:
                         customEmailSender:
                           items:
                             properties:
-                              lambdaArn:
+                              lambdaARN:
                                 type: string
                               lambdaVersion:
                                 type: string
                             required:
-                            - lambdaArn
+                            - lambdaARN
                             - lambdaVersion
                             type: object
                           type: array
@@ -158,18 +158,18 @@ spec:
                         customSmsSender:
                           items:
                             properties:
-                              lambdaArn:
+                              lambdaARN:
                                 type: string
                               lambdaVersion:
                                 type: string
                             required:
-                            - lambdaArn
+                            - lambdaARN
                             - lambdaVersion
                             type: object
                           type: array
                         defineAuthChallenge:
                           type: string
-                        kmsKeyId:
+                        kmsKeyID:
                           type: string
                         postAuthentication:
                           type: string
@@ -251,13 +251,13 @@ spec:
                   smsConfiguration:
                     items:
                       properties:
-                        externalId:
+                        externalID:
                           type: string
-                        snsCallerArn:
+                        snsCallerARN:
                           type: string
                       required:
-                      - externalId
-                      - snsCallerArn
+                      - externalID
+                      - snsCallerARN
                       type: object
                     type: array
                   smsVerificationMessage:

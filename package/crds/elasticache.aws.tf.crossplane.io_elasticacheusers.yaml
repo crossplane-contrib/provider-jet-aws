@@ -82,14 +82,14 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  userId:
+                  userID:
                     type: string
                   userName:
                     type: string
                 required:
                 - accessString
                 - engine
-                - userId
+                - userID
                 - userName
                 type: object
               providerConfigRef:

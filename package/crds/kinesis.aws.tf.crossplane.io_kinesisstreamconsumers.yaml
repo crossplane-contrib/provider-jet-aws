@@ -65,11 +65,11 @@ spec:
                 properties:
                   name:
                     type: string
-                  streamArn:
+                  streamARN:
                     type: string
                 required:
                 - name
-                - streamArn
+                - streamARN
                 type: object
               providerConfigRef:
                 default:

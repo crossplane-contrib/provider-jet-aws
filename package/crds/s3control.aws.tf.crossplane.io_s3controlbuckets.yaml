@@ -64,7 +64,7 @@ spec:
                 properties:
                   bucket:
                     type: string
-                  outpostId:
+                  outpostID:
                     type: string
                   tags:
                     additionalProperties:
@@ -76,7 +76,7 @@ spec:
                     type: object
                 required:
                 - bucket
-                - outpostId
+                - outpostID
                 type: object
               providerConfigRef:
                 default:

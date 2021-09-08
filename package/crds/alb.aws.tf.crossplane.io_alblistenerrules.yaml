@@ -81,15 +81,15 @@ spec:
                               sessionTimeout:
                                 format: int64
                                 type: integer
-                              userPoolArn:
+                              userPoolARN:
                                 type: string
-                              userPoolClientId:
+                              userPoolClientID:
                                 type: string
                               userPoolDomain:
                                 type: string
                             required:
-                            - userPoolArn
-                            - userPoolClientId
+                            - userPoolARN
+                            - userPoolClientID
                             - userPoolDomain
                             type: object
                           type: array
@@ -102,7 +102,7 @@ spec:
                                 type: object
                               authorizationEndpoint:
                                 type: string
-                              clientId:
+                              clientID:
                                 type: string
                               clientSecret:
                                 type: string
@@ -123,7 +123,7 @@ spec:
                                 type: string
                             required:
                             - authorizationEndpoint
-                            - clientId
+                            - clientID
                             - clientSecret
                             - issuer
                             - tokenEndpoint
@@ -196,7 +196,7 @@ spec:
                             - statusCode
                             type: object
                           type: array
-                        targetGroupArn:
+                        targetGroupARN:
                           type: string
                         type:
                           type: string
@@ -265,7 +265,7 @@ spec:
                             - value
                             type: object
                           type: array
-                        sourceIp:
+                        sourceIP:
                           items:
                             properties:
                               values:
@@ -278,7 +278,7 @@ spec:
                           type: array
                       type: object
                     type: array
-                  listenerArn:
+                  listenerARN:
                     type: string
                   priority:
                     format: int64
@@ -294,7 +294,7 @@ spec:
                 required:
                 - action
                 - condition
-                - listenerArn
+                - listenerARN
                 type: object
               providerConfigRef:
                 default:

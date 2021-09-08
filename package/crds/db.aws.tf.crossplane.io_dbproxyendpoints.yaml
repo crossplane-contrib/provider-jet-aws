@@ -144,13 +144,13 @@ spec:
                     type: string
                   isDefault:
                     type: boolean
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - arn
                 - endpoint
                 - isDefault
-                - vpcId
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

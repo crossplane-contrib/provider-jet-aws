@@ -119,10 +119,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  backupVaultArn:
+                  backupVaultARN:
                     type: string
                 required:
-                - backupVaultArn
+                - backupVaultARN
                 type: object
               conditions:
                 description: Conditions of the resource.

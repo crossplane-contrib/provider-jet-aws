@@ -85,7 +85,7 @@ spec:
                   importedFileChunkSize:
                     format: int64
                     type: integer
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   perUnitStorageThroughput:
                     format: int64
@@ -176,17 +176,17 @@ spec:
                     items:
                       type: string
                     type: array
-                  ownerId:
+                  ownerID:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - arn
                 - dnsName
                 - mountName
                 - networkInterfaceIds
-                - ownerId
-                - vpcId
+                - ownerID
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

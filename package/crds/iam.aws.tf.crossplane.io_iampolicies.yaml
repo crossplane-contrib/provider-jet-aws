@@ -134,11 +134,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  policyId:
+                  policyID:
                     type: string
                 required:
                 - arn
-                - policyId
+                - policyID
                 type: object
               conditions:
                 description: Conditions of the resource.

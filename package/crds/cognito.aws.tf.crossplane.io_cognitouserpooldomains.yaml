@@ -63,15 +63,15 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  certificateArn:
+                  certificateARN:
                     type: string
                   domain:
                     type: string
-                  userPoolId:
+                  userPoolID:
                     type: string
                 required:
                 - domain
-                - userPoolId
+                - userPoolID
                 type: object
               providerConfigRef:
                 default:
@@ -123,17 +123,17 @@ spec:
             properties:
               atProvider:
                 properties:
-                  awsAccountId:
+                  awsAccountID:
                     type: string
-                  cloudfrontDistributionArn:
+                  cloudfrontDistributionARN:
                     type: string
                   s3Bucket:
                     type: string
                   version:
                     type: string
                 required:
-                - awsAccountId
-                - cloudfrontDistributionArn
+                - awsAccountID
+                - cloudfrontDistributionARN
                 - s3Bucket
                 - version
                 type: object

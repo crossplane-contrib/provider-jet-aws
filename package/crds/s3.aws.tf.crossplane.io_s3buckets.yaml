@@ -119,7 +119,7 @@ spec:
                       - type
                       type: object
                     type: array
-                  hostedZoneId:
+                  hostedZoneID:
                     type: string
                   lifecycleRule:
                     items:
@@ -253,11 +253,11 @@ spec:
                                         - owner
                                         type: object
                                       type: array
-                                    accountId:
+                                    accountID:
                                       type: string
                                     bucket:
                                       type: string
-                                    replicaKmsKeyId:
+                                    replicaKmsKeyID:
                                       type: string
                                     storageClass:
                                       type: string
@@ -320,7 +320,7 @@ spec:
                               applyServerSideEncryptionByDefault:
                                 items:
                                   properties:
-                                    kmsMasterKeyId:
+                                    kmsMasterKeyID:
                                       type: string
                                     sseAlgorithm:
                                       type: string

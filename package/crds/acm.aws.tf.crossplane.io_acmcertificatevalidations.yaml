@@ -64,14 +64,14 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  certificateArn:
+                  certificateARN:
                     type: string
                   validationRecordFqdns:
                     items:
                       type: string
                     type: array
                 required:
-                - certificateArn
+                - certificateARN
                 type: object
               providerConfigRef:
                 default:

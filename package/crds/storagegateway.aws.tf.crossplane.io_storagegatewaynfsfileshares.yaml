@@ -80,15 +80,15 @@ spec:
                     type: string
                   fileShareName:
                     type: string
-                  gatewayArn:
+                  gatewayARN:
                     type: string
                   guessMimeTypeEnabled:
                     type: boolean
                   kmsEncrypted:
                     type: boolean
-                  kmsKeyArn:
+                  kmsKeyARN:
                     type: string
-                  locationArn:
+                  locationARN:
                     type: string
                   nfsFileShareDefaults:
                     items:
@@ -97,21 +97,21 @@ spec:
                           type: string
                         fileMode:
                           type: string
-                        groupId:
+                        groupID:
                           type: string
-                        ownerId:
+                        ownerID:
                           type: string
                       type: object
                     type: array
                   notificationPolicy:
                     type: string
-                  objectAcl:
+                  objectACL:
                     type: string
                   readOnly:
                     type: boolean
                   requesterPays:
                     type: boolean
-                  roleArn:
+                  roleARN:
                     type: string
                   squash:
                     type: string
@@ -125,9 +125,9 @@ spec:
                     type: object
                 required:
                 - clientList
-                - gatewayArn
-                - locationArn
-                - roleArn
+                - gatewayARN
+                - locationARN
+                - roleARN
                 type: object
               providerConfigRef:
                 default:
@@ -181,13 +181,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  fileshareId:
+                  fileshareID:
                     type: string
                   path:
                     type: string
                 required:
                 - arn
-                - fileshareId
+                - fileshareID
                 - path
                 type: object
               conditions:

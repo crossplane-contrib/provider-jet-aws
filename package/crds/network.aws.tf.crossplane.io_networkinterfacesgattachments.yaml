@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
-                  securityGroupId:
+                  securityGroupID:
                     type: string
                 required:
-                - networkInterfaceId
-                - securityGroupId
+                - networkInterfaceID
+                - securityGroupID
                 type: object
               providerConfigRef:
                 default:

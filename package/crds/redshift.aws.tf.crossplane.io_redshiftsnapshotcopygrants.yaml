@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   snapshotCopyGrantName:
                     type: string

@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
                   configurationSet:
                     type: string
@@ -73,10 +73,10 @@ spec:
                     type: string
                   identity:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                 required:
-                - applicationId
+                - applicationID
                 - fromAddress
                 - identity
                 type: object

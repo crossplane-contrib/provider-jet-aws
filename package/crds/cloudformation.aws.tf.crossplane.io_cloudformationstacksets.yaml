@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  administrationRoleArn:
+                  administrationRoleARN:
                     type: string
                   autoDeployment:
                     items:
@@ -100,7 +100,7 @@ spec:
                     type: object
                   templateBody:
                     type: string
-                  templateUrl:
+                  templateURL:
                     type: string
                 required:
                 - name
@@ -157,11 +157,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  stackSetId:
+                  stackSetID:
                     type: string
                 required:
                 - arn
-                - stackSetId
+                - stackSetID
                 type: object
               conditions:
                 description: Conditions of the resource.

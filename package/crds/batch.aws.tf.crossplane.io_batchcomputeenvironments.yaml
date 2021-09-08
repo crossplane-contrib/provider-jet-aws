@@ -81,7 +81,7 @@ spec:
                           type: integer
                         ec2KeyPair:
                           type: string
-                        imageId:
+                        imageID:
                           type: string
                         instanceRole:
                           type: string
@@ -92,7 +92,7 @@ spec:
                         launchTemplate:
                           items:
                             properties:
-                              launchTemplateId:
+                              launchTemplateID:
                                 type: string
                               launchTemplateName:
                                 type: string
@@ -198,7 +198,7 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ecsClusterArn:
+                  ecsClusterARN:
                     type: string
                   status:
                     type: string
@@ -206,7 +206,7 @@ spec:
                     type: string
                 required:
                 - arn
-                - ecsClusterArn
+                - ecsClusterARN
                 - status
                 - statusReason
                 type: object

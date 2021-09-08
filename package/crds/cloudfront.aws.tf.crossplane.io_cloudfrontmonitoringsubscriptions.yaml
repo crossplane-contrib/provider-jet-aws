@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  distributionId:
+                  distributionID:
                     type: string
                   monitoringSubscription:
                     items:
@@ -83,7 +83,7 @@ spec:
                       type: object
                     type: array
                 required:
-                - distributionId
+                - distributionID
                 - monitoringSubscription
                 type: object
               providerConfigRef:

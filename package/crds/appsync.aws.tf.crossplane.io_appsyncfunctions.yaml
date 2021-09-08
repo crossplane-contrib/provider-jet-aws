@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   dataSource:
                     type: string
@@ -77,7 +77,7 @@ spec:
                   responseMappingTemplate:
                     type: string
                 required:
-                - apiId
+                - apiID
                 - dataSource
                 - name
                 - requestMappingTemplate
@@ -134,11 +134,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  functionId:
+                  functionID:
                     type: string
                 required:
                 - arn
-                - functionId
+                - functionID
                 type: object
               conditions:
                 description: Conditions of the resource.

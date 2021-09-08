@@ -78,7 +78,7 @@ spec:
                                 type: object
                               description:
                                 type: string
-                              kmsKeyId:
+                              kmsKeyID:
                                 type: string
                               launchPermission:
                                 items:

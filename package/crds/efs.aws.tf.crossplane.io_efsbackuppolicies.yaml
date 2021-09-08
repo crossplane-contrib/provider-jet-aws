@@ -71,11 +71,11 @@ spec:
                       - status
                       type: object
                     type: array
-                  fileSystemId:
+                  fileSystemID:
                     type: string
                 required:
                 - backupPolicy
-                - fileSystemId
+                - fileSystemID
                 type: object
               providerConfigRef:
                 default:

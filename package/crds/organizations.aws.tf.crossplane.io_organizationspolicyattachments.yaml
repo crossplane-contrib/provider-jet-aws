@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  policyId:
+                  policyID:
                     type: string
-                  targetId:
+                  targetID:
                     type: string
                 required:
-                - policyId
-                - targetId
+                - policyID
+                - targetID
                 type: object
               providerConfigRef:
                 default:

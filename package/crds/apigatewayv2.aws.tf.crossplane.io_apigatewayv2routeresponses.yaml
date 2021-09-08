@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   modelSelectionExpression:
                     type: string
@@ -72,13 +72,13 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  routeId:
+                  routeID:
                     type: string
                   routeResponseKey:
                     type: string
                 required:
-                - apiId
-                - routeId
+                - apiID
+                - routeID
                 - routeResponseKey
                 type: object
               providerConfigRef:

@@ -482,8 +482,8 @@ func (in *ElasticBeanstalkConfigurationTemplateParameters) DeepCopyInto(out *Ela
 		*out = new(string)
 		**out = **in
 	}
-	if in.EnvironmentId != nil {
-		in, out := &in.EnvironmentId, &out.EnvironmentId
+	if in.EnvironmentID != nil {
+		in, out := &in.EnvironmentID, &out.EnvironmentID
 		*out = new(string)
 		**out = **in
 	}
@@ -667,8 +667,8 @@ func (in *ElasticBeanstalkEnvironmentParameters) DeepCopyInto(out *ElasticBeanst
 		*out = new(string)
 		**out = **in
 	}
-	if in.PlatformArn != nil {
-		in, out := &in.PlatformArn, &out.PlatformArn
+	if in.PlatformARN != nil {
+		in, out := &in.PlatformARN, &out.PlatformARN
 		*out = new(string)
 		**out = **in
 	}

@@ -82,7 +82,7 @@ spec:
                     type: string
                   instanceType:
                     type: string
-                  outpostArn:
+                  outpostARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -152,11 +152,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
-                - ownerId
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

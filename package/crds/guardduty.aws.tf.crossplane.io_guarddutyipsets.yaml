@@ -64,7 +64,7 @@ spec:
                 properties:
                   activate:
                     type: boolean
-                  detectorId:
+                  detectorID:
                     type: string
                   format:
                     type: string
@@ -82,7 +82,7 @@ spec:
                     type: object
                 required:
                 - activate
-                - detectorId
+                - detectorID
                 - format
                 - location
                 - name

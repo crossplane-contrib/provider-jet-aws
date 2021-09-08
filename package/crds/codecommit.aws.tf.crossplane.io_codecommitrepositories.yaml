@@ -132,17 +132,17 @@ spec:
                 properties:
                   arn:
                     type: string
-                  cloneUrlHttp:
+                  cloneURLHTTP:
                     type: string
-                  cloneUrlSsh:
+                  cloneURLSSH:
                     type: string
-                  repositoryId:
+                  repositoryID:
                     type: string
                 required:
                 - arn
-                - cloneUrlHttp
-                - cloneUrlSsh
-                - repositoryId
+                - cloneURLHTTP
+                - cloneURLSSH
+                - repositoryID
                 type: object
               conditions:
                 description: Conditions of the resource.

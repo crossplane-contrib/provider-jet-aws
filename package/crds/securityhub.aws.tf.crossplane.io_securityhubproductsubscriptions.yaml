@@ -64,10 +64,10 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  productArn:
+                  productARN:
                     type: string
                 required:
-                - productArn
+                - productARN
                 type: object
               providerConfigRef:
                 default:

@@ -87,7 +87,7 @@ spec:
                         copyAction:
                           items:
                             properties:
-                              destinationVaultArn:
+                              destinationVaultARN:
                                 type: string
                               lifecycle:
                                 items:
@@ -101,7 +101,7 @@ spec:
                                   type: object
                                 type: array
                             required:
-                            - destinationVaultArn
+                            - destinationVaultARN
                             type: object
                           type: array
                         enableContinuousBackup:

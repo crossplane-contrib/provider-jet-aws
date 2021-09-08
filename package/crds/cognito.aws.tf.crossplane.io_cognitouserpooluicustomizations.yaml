@@ -64,16 +64,16 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  clientId:
+                  clientID:
                     type: string
                   css:
                     type: string
                   imageFile:
                     type: string
-                  userPoolId:
+                  userPoolID:
                     type: string
                 required:
-                - userPoolId
+                - userPoolID
                 type: object
               providerConfigRef:
                 default:
@@ -129,14 +129,14 @@ spec:
                     type: string
                   cssVersion:
                     type: string
-                  imageUrl:
+                  imageURL:
                     type: string
                   lastModifiedDate:
                     type: string
                 required:
                 - creationDate
                 - cssVersion
-                - imageUrl
+                - imageURL
                 - lastModifiedDate
                 type: object
               conditions:

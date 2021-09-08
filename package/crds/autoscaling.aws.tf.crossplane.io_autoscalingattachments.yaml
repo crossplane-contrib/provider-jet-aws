@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  albTargetGroupArn:
+                  albTargetGroupARN:
                     type: string
                   autoscalingGroupName:
                     type: string

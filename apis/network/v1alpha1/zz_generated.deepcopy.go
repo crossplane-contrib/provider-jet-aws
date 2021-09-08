@@ -77,6 +77,11 @@ func (in *EgressParameters) DeepCopyInto(out *EgressParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.IPv6CidrBlock != nil {
+		in, out := &in.IPv6CidrBlock, &out.IPv6CidrBlock
+		*out = new(string)
+		**out = **in
+	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
 		*out = new(int64)
@@ -85,11 +90,6 @@ func (in *EgressParameters) DeepCopyInto(out *EgressParameters) {
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
 		*out = new(int64)
-		**out = **in
-	}
-	if in.Ipv6CidrBlock != nil {
-		in, out := &in.Ipv6CidrBlock, &out.Ipv6CidrBlock
-		*out = new(string)
 		**out = **in
 	}
 }
@@ -127,6 +127,11 @@ func (in *IngressParameters) DeepCopyInto(out *IngressParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.IPv6CidrBlock != nil {
+		in, out := &in.IPv6CidrBlock, &out.IPv6CidrBlock
+		*out = new(string)
+		**out = **in
+	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
 		*out = new(int64)
@@ -135,11 +140,6 @@ func (in *IngressParameters) DeepCopyInto(out *IngressParameters) {
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
 		*out = new(int64)
-		**out = **in
-	}
-	if in.Ipv6CidrBlock != nil {
-		in, out := &in.Ipv6CidrBlock, &out.Ipv6CidrBlock
-		*out = new(string)
 		**out = **in
 	}
 }
@@ -368,6 +368,11 @@ func (in *NetworkAclRuleParameters) DeepCopyInto(out *NetworkAclRuleParameters) 
 		*out = new(int64)
 		**out = **in
 	}
+	if in.IPv6CidrBlock != nil {
+		in, out := &in.IPv6CidrBlock, &out.IPv6CidrBlock
+		*out = new(string)
+		**out = **in
+	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
 		*out = new(string)
@@ -375,11 +380,6 @@ func (in *NetworkAclRuleParameters) DeepCopyInto(out *NetworkAclRuleParameters) 
 	}
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(string)
-		**out = **in
-	}
-	if in.Ipv6CidrBlock != nil {
-		in, out := &in.Ipv6CidrBlock, &out.Ipv6CidrBlock
 		*out = new(string)
 		**out = **in
 	}
@@ -678,23 +678,23 @@ func (in *NetworkInterfaceParameters) DeepCopyInto(out *NetworkInterfaceParamete
 		*out = new(string)
 		**out = **in
 	}
+	if in.IPv6AddressCount != nil {
+		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
+		*out = new(int64)
+		**out = **in
+	}
+	if in.IPv6Addresses != nil {
+		in, out := &in.IPv6Addresses, &out.IPv6Addresses
+		*out = make([]string, len(*in))
+		copy(*out, *in)
+	}
 	if in.InterfaceType != nil {
 		in, out := &in.InterfaceType, &out.InterfaceType
 		*out = new(string)
 		**out = **in
 	}
-	if in.Ipv6AddressCount != nil {
-		in, out := &in.Ipv6AddressCount, &out.Ipv6AddressCount
-		*out = new(int64)
-		**out = **in
-	}
-	if in.Ipv6Addresses != nil {
-		in, out := &in.Ipv6Addresses, &out.Ipv6Addresses
-		*out = make([]string, len(*in))
-		copy(*out, *in)
-	}
-	if in.PrivateIp != nil {
-		in, out := &in.PrivateIp, &out.PrivateIp
+	if in.PrivateIP != nil {
+		in, out := &in.PrivateIP, &out.PrivateIP
 		*out = new(string)
 		**out = **in
 	}

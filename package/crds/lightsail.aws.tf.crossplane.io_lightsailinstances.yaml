@@ -64,9 +64,9 @@ spec:
                 properties:
                   availabilityZone:
                     type: string
-                  blueprintId:
+                  blueprintID:
                     type: string
-                  bundleId:
+                  bundleID:
                     type: string
                   keyPairName:
                     type: string
@@ -84,8 +84,8 @@ spec:
                     type: string
                 required:
                 - availabilityZone
-                - blueprintId
-                - bundleId
+                - blueprintID
+                - bundleID
                 - name
                 type: object
               providerConfigRef:
@@ -150,11 +150,11 @@ spec:
                     items:
                       type: string
                     type: array
-                  isStaticIp:
+                  isStaticIP:
                     type: boolean
-                  privateIpAddress:
+                  privateIPAddress:
                     type: string
-                  publicIpAddress:
+                  publicIPAddress:
                     type: string
                   ramSize:
                     type: number
@@ -166,9 +166,9 @@ spec:
                 - createdAt
                 - ipv6Address
                 - ipv6Addresses
-                - isStaticIp
-                - privateIpAddress
-                - publicIpAddress
+                - isStaticIP
+                - privateIPAddress
+                - publicIPAddress
                 - ramSize
                 - username
                 type: object

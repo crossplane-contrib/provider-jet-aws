@@ -77,7 +77,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  privateDnsName:
+                  privateDNSName:
                     type: string
                   tags:
                     additionalProperties:
@@ -145,13 +145,13 @@ spec:
                     items:
                       type: string
                     type: array
-                  baseEndpointDnsNames:
+                  baseEndpointDNSNames:
                     items:
                       type: string
                     type: array
-                  managesVpcEndpoints:
+                  managesVPCEndpoints:
                     type: boolean
-                  privateDnsNameConfiguration:
+                  privateDNSNameConfiguration:
                     items:
                       properties:
                         name:
@@ -178,9 +178,9 @@ spec:
                 required:
                 - arn
                 - availabilityZones
-                - baseEndpointDnsNames
-                - managesVpcEndpoints
-                - privateDnsNameConfiguration
+                - baseEndpointDNSNames
+                - managesVPCEndpoints
+                - privateDNSNameConfiguration
                 - serviceName
                 - serviceType
                 - state

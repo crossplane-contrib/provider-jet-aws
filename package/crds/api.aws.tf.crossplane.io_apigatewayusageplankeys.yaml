@@ -63,16 +63,16 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  keyId:
+                  keyID:
                     type: string
                   keyType:
                     type: string
-                  usagePlanId:
+                  usagePlanID:
                     type: string
                 required:
-                - keyId
+                - keyID
                 - keyType
-                - usagePlanId
+                - usagePlanID
                 type: object
               providerConfigRef:
                 default:

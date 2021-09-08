@@ -160,10 +160,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  deploymentConfigId:
+                  deploymentConfigID:
                     type: string
                 required:
-                - deploymentConfigId
+                - deploymentConfigID
                 type: object
               conditions:
                 description: Conditions of the resource.

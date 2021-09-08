@@ -66,14 +66,14 @@ spec:
                 properties:
                   methodPath:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                   settings:
                     items:
                       properties:
                         cacheDataEncrypted:
                           type: boolean
-                        cacheTtlInSeconds:
+                        cacheTTLInSeconds:
                           format: int64
                           type: integer
                         cachingEnabled:
@@ -99,7 +99,7 @@ spec:
                     type: string
                 required:
                 - methodPath
-                - restApiId
+                - restAPIID
                 - settings
                 - stageName
                 type: object

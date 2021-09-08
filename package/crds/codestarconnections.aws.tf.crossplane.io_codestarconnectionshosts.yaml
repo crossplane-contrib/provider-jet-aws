@@ -83,12 +83,12 @@ spec:
                           type: array
                         tlsCertificate:
                           type: string
-                        vpcId:
+                        vpcID:
                           type: string
                       required:
                       - securityGroupIds
                       - subnetIds
-                      - vpcId
+                      - vpcID
                       type: object
                     type: array
                 required:

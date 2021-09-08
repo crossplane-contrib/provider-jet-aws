@@ -66,10 +66,10 @@ spec:
                 properties:
                   firewallFailOpen:
                     type: string
-                  resourceId:
+                  resourceID:
                     type: string
                 required:
-                - resourceId
+                - resourceID
                 type: object
               providerConfigRef:
                 default:
@@ -121,10 +121,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
-                - ownerId
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

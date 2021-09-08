@@ -143,11 +143,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerAccountId:
+                  ownerAccountID:
                     type: string
                 required:
                 - arn
-                - ownerAccountId
+                - ownerAccountID
                 type: object
               conditions:
                 description: Conditions of the resource.

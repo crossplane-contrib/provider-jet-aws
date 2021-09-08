@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  routeTableId:
+                  routeTableID:
                     type: string
-                  vpcEndpointId:
+                  vpcEndpointID:
                     type: string
                 required:
-                - routeTableId
-                - vpcEndpointId
+                - routeTableID
+                - vpcEndpointID
                 type: object
               providerConfigRef:
                 default:

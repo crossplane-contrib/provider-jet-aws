@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  routeTableId:
+                  routeTableID:
                     type: string
-                  vpnGatewayId:
+                  vpnGatewayID:
                     type: string
                 required:
-                - routeTableId
-                - vpnGatewayId
+                - routeTableID
+                - vpnGatewayID
                 type: object
               providerConfigRef:
                 default:

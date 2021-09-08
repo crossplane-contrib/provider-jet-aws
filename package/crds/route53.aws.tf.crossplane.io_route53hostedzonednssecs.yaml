@@ -64,12 +64,12 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  hostedZoneId:
+                  hostedZoneID:
                     type: string
                   signingStatus:
                     type: string
                 required:
-                - hostedZoneId
+                - hostedZoneID
                 type: object
               providerConfigRef:
                 default:

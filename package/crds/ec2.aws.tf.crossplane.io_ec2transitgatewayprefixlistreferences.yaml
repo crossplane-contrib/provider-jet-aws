@@ -66,15 +66,15 @@ spec:
                 properties:
                   blackhole:
                     type: boolean
-                  prefixListId:
+                  prefixListID:
                     type: string
-                  transitGatewayAttachmentId:
+                  transitGatewayAttachmentID:
                     type: string
-                  transitGatewayRouteTableId:
+                  transitGatewayRouteTableID:
                     type: string
                 required:
-                - prefixListId
-                - transitGatewayRouteTableId
+                - prefixListID
+                - transitGatewayRouteTableID
                 type: object
               providerConfigRef:
                 default:
@@ -126,10 +126,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  prefixListOwnerId:
+                  prefixListOwnerID:
                     type: string
                 required:
-                - prefixListOwnerId
+                - prefixListOwnerID
                 type: object
               conditions:
                 description: Conditions of the resource.

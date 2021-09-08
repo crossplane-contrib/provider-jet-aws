@@ -64,15 +64,15 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
                   description:
                     type: string
-                  locationUri:
+                  locationURI:
                     type: string
                   name:
                     type: string
-                  retrievalRoleArn:
+                  retrievalRoleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -94,8 +94,8 @@ spec:
                       type: object
                     type: array
                 required:
-                - applicationId
-                - locationUri
+                - applicationID
+                - locationURI
                 - name
                 type: object
               providerConfigRef:
@@ -150,11 +150,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  configurationProfileId:
+                  configurationProfileID:
                     type: string
                 required:
                 - arn
-                - configurationProfileId
+                - configurationProfileID
                 type: object
               conditions:
                 description: Conditions of the resource.

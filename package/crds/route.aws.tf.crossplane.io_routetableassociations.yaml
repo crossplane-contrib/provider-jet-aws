@@ -63,14 +63,14 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  gatewayId:
+                  gatewayID:
                     type: string
-                  routeTableId:
+                  routeTableID:
                     type: string
-                  subnetId:
+                  subnetID:
                     type: string
                 required:
-                - routeTableId
+                - routeTableID
                 type: object
               providerConfigRef:
                 default:

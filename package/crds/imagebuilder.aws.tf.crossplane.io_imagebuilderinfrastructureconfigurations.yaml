@@ -102,9 +102,9 @@ spec:
                     items:
                       type: string
                     type: array
-                  snsTopicArn:
+                  snsTopicARN:
                     type: string
-                  subnetId:
+                  subnetID:
                     type: string
                   tags:
                     additionalProperties:

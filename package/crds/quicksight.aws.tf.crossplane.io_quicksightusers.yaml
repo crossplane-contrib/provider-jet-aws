@@ -62,11 +62,11 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  awsAccountId:
+                  awsAccountID:
                     type: string
                   email:
                     type: string
-                  iamArn:
+                  iamARN:
                     type: string
                   identityType:
                     type: string

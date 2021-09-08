@@ -62,14 +62,14 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
                   email:
                     type: string
                   invite:
                     type: boolean
                 required:
-                - accountId
+                - accountID
                 - email
                 type: object
               providerConfigRef:
@@ -121,12 +121,12 @@ spec:
             properties:
               atProvider:
                 properties:
-                  masterId:
+                  masterID:
                     type: string
                   memberStatus:
                     type: string
                 required:
-                - masterId
+                - masterID
                 - memberStatus
                 type: object
               conditions:

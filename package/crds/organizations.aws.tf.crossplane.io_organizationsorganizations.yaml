@@ -148,11 +148,11 @@ spec:
                     type: array
                   arn:
                     type: string
-                  masterAccountArn:
+                  masterAccountARN:
                     type: string
                   masterAccountEmail:
                     type: string
-                  masterAccountId:
+                  masterAccountID:
                     type: string
                   nonMasterAccounts:
                     items:
@@ -206,9 +206,9 @@ spec:
                 required:
                 - accounts
                 - arn
-                - masterAccountArn
+                - masterAccountARN
                 - masterAccountEmail
-                - masterAccountId
+                - masterAccountID
                 - nonMasterAccounts
                 - roots
                 type: object

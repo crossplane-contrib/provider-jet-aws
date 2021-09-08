@@ -66,11 +66,11 @@ spec:
                   authenticationOptions:
                     items:
                       properties:
-                        activeDirectoryId:
+                        activeDirectoryID:
                           type: string
-                        rootCertificateChainArn:
+                        rootCertificateChainARN:
                           type: string
-                        samlProviderArn:
+                        samlProviderARN:
                           type: string
                         type:
                           type: string
@@ -99,7 +99,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  serverCertificateArn:
+                  serverCertificateARN:
                     type: string
                   splitTunnel:
                     type: boolean
@@ -117,7 +117,7 @@ spec:
                 - authenticationOptions
                 - clientCidrBlock
                 - connectionLogOptions
-                - serverCertificateArn
+                - serverCertificateARN
                 type: object
               providerConfigRef:
                 default:

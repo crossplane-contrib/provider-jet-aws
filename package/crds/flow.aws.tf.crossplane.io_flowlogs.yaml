@@ -62,9 +62,9 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  eniId:
+                  eniID:
                     type: string
-                  iamRoleArn:
+                  iamRoleARN:
                     type: string
                   logDestination:
                     type: string
@@ -77,7 +77,7 @@ spec:
                   maxAggregationInterval:
                     format: int64
                     type: integer
-                  subnetId:
+                  subnetID:
                     type: string
                   tags:
                     additionalProperties:
@@ -89,7 +89,7 @@ spec:
                     type: object
                   trafficType:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - trafficType

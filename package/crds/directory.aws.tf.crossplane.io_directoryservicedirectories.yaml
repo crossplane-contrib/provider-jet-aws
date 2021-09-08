@@ -69,7 +69,7 @@ spec:
                   connectSettings:
                     items:
                       properties:
-                        customerDnsIps:
+                        customerDNSIps:
                           items:
                             type: string
                           type: array
@@ -79,13 +79,13 @@ spec:
                           items:
                             type: string
                           type: array
-                        vpcId:
+                        vpcID:
                           type: string
                       required:
-                      - customerDnsIps
+                      - customerDNSIps
                       - customerUsername
                       - subnetIds
-                      - vpcId
+                      - vpcID
                       type: object
                     type: array
                   description:
@@ -119,11 +119,11 @@ spec:
                           items:
                             type: string
                           type: array
-                        vpcId:
+                        vpcID:
                           type: string
                       required:
                       - subnetIds
-                      - vpcId
+                      - vpcID
                       type: object
                     type: array
                 required:
@@ -180,18 +180,18 @@ spec:
             properties:
               atProvider:
                 properties:
-                  accessUrl:
+                  accessURL:
                     type: string
-                  dnsIpAddresses:
+                  dnsIPAddresses:
                     items:
                       type: string
                     type: array
-                  securityGroupId:
+                  securityGroupID:
                     type: string
                 required:
-                - accessUrl
-                - dnsIpAddresses
-                - securityGroupId
+                - accessURL
+                - dnsIPAddresses
+                - securityGroupID
                 type: object
               conditions:
                 description: Conditions of the resource.

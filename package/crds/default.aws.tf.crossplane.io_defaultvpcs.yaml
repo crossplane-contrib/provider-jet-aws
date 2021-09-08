@@ -64,11 +64,11 @@ spec:
                 properties:
                   enableClassiclink:
                     type: boolean
-                  enableClassiclinkDnsSupport:
+                  enableClassiclinkDNSSupport:
                     type: boolean
-                  enableDnsHostnames:
+                  enableDNSHostnames:
                     type: boolean
-                  enableDnsSupport:
+                  enableDNSSupport:
                     type: boolean
                   tags:
                     additionalProperties:
@@ -130,41 +130,41 @@ spec:
                 properties:
                   arn:
                     type: string
-                  assignGeneratedIpv6CidrBlock:
+                  assignGeneratedIPv6CidrBlock:
                     type: boolean
                   cidrBlock:
                     type: string
-                  defaultNetworkAclId:
+                  defaultNetworkACLID:
                     type: string
-                  defaultRouteTableId:
+                  defaultRouteTableID:
                     type: string
-                  defaultSecurityGroupId:
+                  defaultSecurityGroupID:
                     type: string
-                  dhcpOptionsId:
+                  dhcpOptionsID:
                     type: string
                   instanceTenancy:
                     type: string
-                  ipv6AssociationId:
+                  ipv6AssociationID:
                     type: string
                   ipv6CidrBlock:
                     type: string
-                  mainRouteTableId:
+                  mainRouteTableID:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
-                - assignGeneratedIpv6CidrBlock
+                - assignGeneratedIPv6CidrBlock
                 - cidrBlock
-                - defaultNetworkAclId
-                - defaultRouteTableId
-                - defaultSecurityGroupId
-                - dhcpOptionsId
+                - defaultNetworkACLID
+                - defaultRouteTableID
+                - defaultSecurityGroupID
+                - dhcpOptionsID
                 - instanceTenancy
-                - ipv6AssociationId
+                - ipv6AssociationID
                 - ipv6CidrBlock
-                - mainRouteTableId
-                - ownerId
+                - mainRouteTableID
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

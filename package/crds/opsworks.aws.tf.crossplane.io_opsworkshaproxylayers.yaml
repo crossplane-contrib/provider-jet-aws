@@ -77,9 +77,9 @@ spec:
                     items:
                       type: string
                     type: array
-                  customInstanceProfileArn:
+                  customInstanceProfileARN:
                     type: string
-                  customJson:
+                  customJSON:
                     type: string
                   customSecurityGroupIds:
                     items:
@@ -129,7 +129,7 @@ spec:
                     type: string
                   healthcheckMethod:
                     type: string
-                  healthcheckUrl:
+                  healthcheckURL:
                     type: string
                   installUpdatesOnBoot:
                     type: boolean
@@ -138,13 +138,13 @@ spec:
                     type: integer
                   name:
                     type: string
-                  stackId:
+                  stackID:
                     type: string
                   statsEnabled:
                     type: boolean
                   statsPassword:
                     type: string
-                  statsUrl:
+                  statsURL:
                     type: string
                   statsUser:
                     type: string
@@ -163,7 +163,7 @@ spec:
                   useEbsOptimizedInstances:
                     type: boolean
                 required:
-                - stackId
+                - stackID
                 - statsPassword
                 type: object
               providerConfigRef:

@@ -70,12 +70,12 @@ spec:
                     type: array
                   backupVaultName:
                     type: string
-                  snsTopicArn:
+                  snsTopicARN:
                     type: string
                 required:
                 - backupVaultEvents
                 - backupVaultName
-                - snsTopicArn
+                - snsTopicARN
                 type: object
               providerConfigRef:
                 default:
@@ -127,10 +127,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  backupVaultArn:
+                  backupVaultARN:
                     type: string
                 required:
-                - backupVaultArn
+                - backupVaultARN
                 type: object
               conditions:
                 description: Conditions of the resource.

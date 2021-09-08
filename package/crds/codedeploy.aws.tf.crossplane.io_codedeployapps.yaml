@@ -126,7 +126,7 @@ spec:
             properties:
               atProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
                   arn:
                     type: string
@@ -135,7 +135,7 @@ spec:
                   linkedToGithub:
                     type: boolean
                 required:
-                - applicationId
+                - applicationID
                 - arn
                 - githubAccountName
                 - linkedToGithub

@@ -146,14 +146,14 @@ spec:
                 properties:
                   arn:
                     type: string
-                  registryId:
+                  registryID:
                     type: string
-                  repositoryUrl:
+                  repositoryURL:
                     type: string
                 required:
                 - arn
-                - registryId
-                - repositoryUrl
+                - registryID
+                - repositoryURL
                 type: object
               conditions:
                 description: Conditions of the resource.

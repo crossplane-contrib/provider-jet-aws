@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  kmsKeyArn:
+                  kmsKeyARN:
                     type: string
                   name:
                     type: string

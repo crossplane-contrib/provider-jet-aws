@@ -72,10 +72,10 @@ spec:
                         provider:
                           items:
                             properties:
-                              keyArn:
+                              keyARN:
                                 type: string
                             required:
-                            - keyArn
+                            - keyARN
                             type: object
                           type: array
                         resources:
@@ -90,13 +90,13 @@ spec:
                   kubernetesNetworkConfig:
                     items:
                       properties:
-                        serviceIpv4Cidr:
+                        serviceIPv4Cidr:
                           type: string
                       type: object
                     type: array
                   name:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -133,7 +133,7 @@ spec:
                     type: array
                 required:
                 - name
-                - roleArn
+                - roleARN
                 - vpcConfig
                 type: object
               providerConfigRef:

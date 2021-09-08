@@ -64,12 +64,12 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  policyArn:
+                  policyARN:
                     type: string
                   role:
                     type: string
                 required:
-                - policyArn
+                - policyARN
                 - role
                 type: object
               providerConfigRef:

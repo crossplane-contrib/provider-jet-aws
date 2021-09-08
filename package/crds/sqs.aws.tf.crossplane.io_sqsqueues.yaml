@@ -76,7 +76,7 @@ spec:
                   kmsDataKeyReusePeriodSeconds:
                     format: int64
                     type: integer
-                  kmsMasterKeyId:
+                  kmsMasterKeyID:
                     type: string
                   maxMessageSize:
                     format: int64

@@ -85,7 +85,7 @@ spec:
                   encryptionOptions:
                     items:
                       properties:
-                        kmsKeyId:
+                        kmsKeyID:
                           type: string
                         useAwsOwnedKey:
                           type: boolean
@@ -249,7 +249,7 @@ spec:
                   instances:
                     items:
                       properties:
-                        consoleUrl:
+                        consoleURL:
                           type: string
                         endpoints:
                           items:
@@ -258,7 +258,7 @@ spec:
                         ipAddress:
                           type: string
                       required:
-                      - consoleUrl
+                      - consoleURL
                       - endpoints
                       - ipAddress
                       type: object

@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  defaultNetworkAclId:
+                  defaultNetworkACLID:
                     type: string
                   egress:
                     items:
@@ -145,7 +145,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - defaultNetworkAclId
+                - defaultNetworkACLID
                 type: object
               providerConfigRef:
                 default:
@@ -198,14 +198,14 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - arn
-                - ownerId
-                - vpcId
+                - ownerID
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

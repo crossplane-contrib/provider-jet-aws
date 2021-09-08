@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  destinationArn:
+                  destinationARN:
                     type: string
                   name:
                     type: string
@@ -77,7 +77,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - destinationArn
+                - destinationARN
                 - name
                 type: object
               providerConfigRef:
@@ -132,13 +132,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                   shareStatus:
                     type: string
                 required:
                 - arn
-                - ownerId
+                - ownerID
                 - shareStatus
                 type: object
               conditions:

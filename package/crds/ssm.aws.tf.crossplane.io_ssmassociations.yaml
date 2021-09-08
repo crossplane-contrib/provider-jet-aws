@@ -72,7 +72,7 @@ spec:
                     type: string
                   documentVersion:
                     type: string
-                  instanceId:
+                  instanceID:
                     type: string
                   maxConcurrency:
                     type: string
@@ -163,10 +163,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  associationId:
+                  associationID:
                     type: string
                 required:
-                - associationId
+                - associationID
                 type: object
               conditions:
                 description: Conditions of the resource.

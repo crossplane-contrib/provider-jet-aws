@@ -64,7 +64,7 @@ spec:
                 properties:
                   comment:
                     type: string
-                  delegationSetId:
+                  delegationSetID:
                     type: string
                   forceDestroy:
                     type: boolean
@@ -81,12 +81,12 @@ spec:
                   vpc:
                     items:
                       properties:
-                        vpcId:
+                        vpcID:
                           type: string
                         vpcRegion:
                           type: string
                       required:
-                      - vpcId
+                      - vpcID
                       type: object
                     type: array
                 required:
@@ -145,11 +145,11 @@ spec:
                     items:
                       type: string
                     type: array
-                  zoneId:
+                  zoneID:
                     type: string
                 required:
                 - nameServers
-                - zoneId
+                - zoneID
                 type: object
               conditions:
                 description: Conditions of the resource.

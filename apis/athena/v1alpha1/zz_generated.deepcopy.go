@@ -566,8 +566,8 @@ func (in *ResultConfigurationEncryptionConfigurationParameters) DeepCopyInto(out
 		*out = new(string)
 		**out = **in
 	}
-	if in.KmsKeyArn != nil {
-		in, out := &in.KmsKeyArn, &out.KmsKeyArn
+	if in.KmsKeyARN != nil {
+		in, out := &in.KmsKeyARN, &out.KmsKeyARN
 		*out = new(string)
 		**out = **in
 	}

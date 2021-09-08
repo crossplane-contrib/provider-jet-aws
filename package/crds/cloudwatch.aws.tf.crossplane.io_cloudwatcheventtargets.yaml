@@ -104,7 +104,7 @@ spec:
                         networkConfiguration:
                           items:
                             properties:
-                              assignPublicIp:
+                              assignPublicIP:
                                 type: boolean
                               securityGroups:
                                 items:
@@ -140,10 +140,10 @@ spec:
                         taskCount:
                           format: int64
                           type: integer
-                        taskDefinitionArn:
+                        taskDefinitionARN:
                           type: string
                       required:
-                      - taskDefinitionArn
+                      - taskDefinitionARN
                       type: object
                     type: array
                   eventBusName:
@@ -196,7 +196,7 @@ spec:
                           type: string
                         dbUser:
                           type: string
-                        secretsManagerArn:
+                        secretsManagerARN:
                           type: string
                         sql:
                           type: string
@@ -219,7 +219,7 @@ spec:
                           type: integer
                       type: object
                     type: array
-                  roleArn:
+                  roleARN:
                     type: string
                   rule:
                     type: string
@@ -240,11 +240,11 @@ spec:
                   sqsTarget:
                     items:
                       properties:
-                        messageGroupId:
+                        messageGroupID:
                           type: string
                       type: object
                     type: array
-                  targetId:
+                  targetID:
                     type: string
                 required:
                 - arn

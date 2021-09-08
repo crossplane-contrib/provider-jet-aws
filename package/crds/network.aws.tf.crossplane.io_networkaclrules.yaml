@@ -75,7 +75,7 @@ spec:
                     type: string
                   ipv6CidrBlock:
                     type: string
-                  networkAclId:
+                  networkACLID:
                     type: string
                   protocol:
                     type: string
@@ -88,7 +88,7 @@ spec:
                     format: int64
                     type: integer
                 required:
-                - networkAclId
+                - networkACLID
                 - protocol
                 - ruleAction
                 - ruleNumber

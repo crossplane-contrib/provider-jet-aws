@@ -64,16 +64,16 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  instanceArn:
+                  instanceARN:
                     type: string
-                  managedPolicyArn:
+                  managedPolicyARN:
                     type: string
-                  permissionSetArn:
+                  permissionSetARN:
                     type: string
                 required:
-                - instanceArn
-                - managedPolicyArn
-                - permissionSetArn
+                - instanceARN
+                - managedPolicyARN
+                - permissionSetARN
                 type: object
               providerConfigRef:
                 default:

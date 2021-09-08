@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
                   email:
                     type: string
@@ -83,7 +83,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - accountId
+                - accountID
                 - email
                 type: object
               providerConfigRef:
@@ -135,23 +135,23 @@ spec:
             properties:
               atProvider:
                 properties:
-                  administratorAccountId:
+                  administratorAccountID:
                     type: string
                   arn:
                     type: string
                   invitedAt:
                     type: string
-                  masterAccountId:
+                  masterAccountID:
                     type: string
                   relationshipStatus:
                     type: string
                   updatedAt:
                     type: string
                 required:
-                - administratorAccountId
+                - administratorAccountID
                 - arn
                 - invitedAt
-                - masterAccountId
+                - masterAccountID
                 - relationshipStatus
                 - updatedAt
                 type: object

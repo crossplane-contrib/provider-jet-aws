@@ -64,17 +64,17 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  clientVpnEndpointId:
+                  clientVpnEndpointID:
                     type: string
                   securityGroups:
                     items:
                       type: string
                     type: array
-                  subnetId:
+                  subnetID:
                     type: string
                 required:
-                - clientVpnEndpointId
-                - subnetId
+                - clientVpnEndpointID
+                - subnetID
                 type: object
               providerConfigRef:
                 default:
@@ -126,16 +126,16 @@ spec:
             properties:
               atProvider:
                 properties:
-                  associationId:
+                  associationID:
                     type: string
                   status:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - associationId
+                - associationID
                 - status
-                - vpcId
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

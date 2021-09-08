@@ -73,7 +73,7 @@ spec:
                           type: array
                         customData:
                           type: string
-                        destinationArn:
+                        destinationARN:
                           type: string
                         events:
                           items:
@@ -82,7 +82,7 @@ spec:
                         name:
                           type: string
                       required:
-                      - destinationArn
+                      - destinationARN
                       - events
                       - name
                       type: object
@@ -140,10 +140,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  configurationId:
+                  configurationID:
                     type: string
                 required:
-                - configurationId
+                - configurationID
                 type: object
               conditions:
                 description: Conditions of the resource.

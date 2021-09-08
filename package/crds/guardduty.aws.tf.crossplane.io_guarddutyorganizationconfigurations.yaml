@@ -80,11 +80,11 @@ spec:
                           type: array
                       type: object
                     type: array
-                  detectorId:
+                  detectorID:
                     type: string
                 required:
                 - autoEnable
-                - detectorId
+                - detectorID
                 type: object
               providerConfigRef:
                 default:

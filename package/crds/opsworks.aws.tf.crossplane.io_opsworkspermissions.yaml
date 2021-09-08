@@ -63,18 +63,18 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  allowSsh:
+                  allowSSH:
                     type: boolean
                   allowSudo:
                     type: boolean
                   level:
                     type: string
-                  stackId:
+                  stackID:
                     type: string
-                  userArn:
+                  userARN:
                     type: string
                 required:
-                - userArn
+                - userARN
                 type: object
               providerConfigRef:
                 default:

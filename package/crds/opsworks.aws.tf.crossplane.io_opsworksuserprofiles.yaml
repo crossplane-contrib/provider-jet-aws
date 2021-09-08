@@ -69,11 +69,11 @@ spec:
                     type: string
                   sshUsername:
                     type: string
-                  userArn:
+                  userARN:
                     type: string
                 required:
                 - sshUsername
-                - userArn
+                - userARN
                 type: object
               providerConfigRef:
                 default:

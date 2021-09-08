@@ -84,7 +84,7 @@ spec:
                     type: string
                   copyTagsToSnapshot:
                     type: boolean
-                  customerOwnedIpEnabled:
+                  customerOwnedIPEnabled:
                     type: boolean
                   dbSubnetGroupName:
                     type: string
@@ -117,7 +117,7 @@ spec:
                   iops:
                     format: int64
                     type: integer
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   licenseModel:
                     type: string
@@ -129,7 +129,7 @@ spec:
                   monitoringInterval:
                     format: int64
                     type: integer
-                  monitoringRoleArn:
+                  monitoringRoleARN:
                     type: string
                   multiAz:
                     type: boolean
@@ -145,7 +145,7 @@ spec:
                     type: string
                   performanceInsightsEnabled:
                     type: boolean
-                  performanceInsightsKmsKeyId:
+                  performanceInsightsKmsKeyID:
                     type: string
                   performanceInsightsRetentionPeriod:
                     format: int64
@@ -155,16 +155,16 @@ spec:
                     type: integer
                   publiclyAccessible:
                     type: boolean
-                  replicateSourceDb:
+                  replicateSourceDB:
                     type: string
                   restoreToPointInTime:
                     items:
                       properties:
                         restoreTime:
                           type: string
-                        sourceDbInstanceIdentifier:
+                        sourceDBInstanceIdentifier:
                           type: string
-                        sourceDbiResourceId:
+                        sourceDbiResourceID:
                           type: string
                         useLatestRestorableTime:
                           type: boolean
@@ -276,7 +276,7 @@ spec:
                     type: string
                   endpoint:
                     type: string
-                  hostedZoneId:
+                  hostedZoneID:
                     type: string
                   latestRestorableTime:
                     type: string
@@ -284,7 +284,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  resourceId:
+                  resourceID:
                     type: string
                   status:
                     type: string
@@ -292,10 +292,10 @@ spec:
                 - address
                 - arn
                 - endpoint
-                - hostedZoneId
+                - hostedZoneID
                 - latestRestorableTime
                 - replicas
-                - resourceId
+                - resourceID
                 - status
                 type: object
               conditions:

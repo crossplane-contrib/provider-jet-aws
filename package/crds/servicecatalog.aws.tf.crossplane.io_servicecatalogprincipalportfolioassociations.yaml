@@ -66,15 +66,15 @@ spec:
                 properties:
                   acceptLanguage:
                     type: string
-                  portfolioId:
+                  portfolioID:
                     type: string
-                  principalArn:
+                  principalARN:
                     type: string
                   principalType:
                     type: string
                 required:
-                - portfolioId
-                - principalArn
+                - portfolioID
+                - principalARN
                 type: object
               providerConfigRef:
                 default:

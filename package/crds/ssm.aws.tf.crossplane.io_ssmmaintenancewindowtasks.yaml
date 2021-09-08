@@ -75,7 +75,7 @@ spec:
                   priority:
                     format: int64
                     type: integer
-                  serviceRoleArn:
+                  serviceRoleARN:
                     type: string
                   targets:
                     items:
@@ -91,7 +91,7 @@ spec:
                       - values
                       type: object
                     type: array
-                  taskArn:
+                  taskARN:
                     type: string
                   taskInvocationParameters:
                     items:
@@ -151,7 +151,7 @@ spec:
                               notificationConfig:
                                 items:
                                   properties:
-                                    notificationArn:
+                                    notificationARN:
                                       type: string
                                     notificationEvents:
                                       items:
@@ -179,7 +179,7 @@ spec:
                                   - values
                                   type: object
                                 type: array
-                              serviceRoleArn:
+                              serviceRoleARN:
                                 type: string
                               timeoutSeconds:
                                 format: int64
@@ -199,14 +199,14 @@ spec:
                     type: array
                   taskType:
                     type: string
-                  windowId:
+                  windowID:
                     type: string
                 required:
                 - maxConcurrency
                 - maxErrors
-                - taskArn
+                - taskARN
                 - taskType
-                - windowId
+                - windowID
                 type: object
               providerConfigRef:
                 default:

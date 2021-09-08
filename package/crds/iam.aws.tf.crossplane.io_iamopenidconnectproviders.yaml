@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  clientIdList:
+                  clientIDList:
                     items:
                       type: string
                     type: array
@@ -83,7 +83,7 @@ spec:
                   url:
                     type: string
                 required:
-                - clientIdList
+                - clientIDList
                 - thumbprintList
                 - url
                 type: object

@@ -63,15 +63,15 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  eventDeliveryFailureTopicArn:
+                  eventDeliveryFailureTopicARN:
                     type: string
-                  eventEndpointCreatedTopicArn:
+                  eventEndpointCreatedTopicARN:
                     type: string
-                  eventEndpointDeletedTopicArn:
+                  eventEndpointDeletedTopicARN:
                     type: string
-                  eventEndpointUpdatedTopicArn:
+                  eventEndpointUpdatedTopicARN:
                     type: string
-                  failureFeedbackRoleArn:
+                  failureFeedbackRoleARN:
                     type: string
                   name:
                     type: string
@@ -81,7 +81,7 @@ spec:
                     type: string
                   platformPrincipal:
                     type: string
-                  successFeedbackRoleArn:
+                  successFeedbackRoleARN:
                     type: string
                   successFeedbackSampleRate:
                     type: string

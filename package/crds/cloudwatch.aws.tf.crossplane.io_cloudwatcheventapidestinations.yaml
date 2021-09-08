@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  connectionArn:
+                  connectionARN:
                     type: string
                   description:
                     type: string
@@ -78,7 +78,7 @@ spec:
                   name:
                     type: string
                 required:
-                - connectionArn
+                - connectionARN
                 - httpMethod
                 - invocationEndpoint
                 - name

@@ -69,7 +69,7 @@ spec:
                     type: array
                   netbiosNodeType:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                   tags:
                     additionalProperties:

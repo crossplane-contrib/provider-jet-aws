@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  catalogId:
+                  catalogID:
                     type: string
                   connectionProperties:
                     additionalProperties:
@@ -83,11 +83,11 @@ spec:
                       properties:
                         availabilityZone:
                           type: string
-                        securityGroupIdList:
+                        securityGroupIDList:
                           items:
                             type: string
                           type: array
-                        subnetId:
+                        subnetID:
                           type: string
                       type: object
                     type: array

@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  channelId:
+                  channelID:
                     type: string
                   description:
                     type: string
@@ -76,7 +76,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - channelId
+                - channelID
                 type: object
               providerConfigRef:
                 default:

@@ -66,7 +66,7 @@ spec:
                   autoScalingGroupProvider:
                     items:
                       properties:
-                        autoScalingGroupArn:
+                        autoScalingGroupARN:
                           type: string
                         managedScaling:
                           items:
@@ -90,7 +90,7 @@ spec:
                         managedTerminationProtection:
                           type: string
                       required:
-                      - autoScalingGroupArn
+                      - autoScalingGroupARN
                       type: object
                     type: array
                   name:

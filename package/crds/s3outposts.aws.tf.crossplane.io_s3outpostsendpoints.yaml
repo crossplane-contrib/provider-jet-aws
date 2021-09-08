@@ -63,16 +63,16 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  outpostId:
+                  outpostID:
                     type: string
-                  securityGroupId:
+                  securityGroupID:
                     type: string
-                  subnetId:
+                  subnetID:
                     type: string
                 required:
-                - outpostId
-                - securityGroupId
-                - subnetId
+                - outpostID
+                - securityGroupID
+                - subnetID
                 type: object
               providerConfigRef:
                 default:
@@ -132,10 +132,10 @@ spec:
                   networkInterfaces:
                     items:
                       properties:
-                        networkInterfaceId:
+                        networkInterfaceID:
                           type: string
                       required:
-                      - networkInterfaceId
+                      - networkInterfaceID
                       type: object
                     type: array
                 required:

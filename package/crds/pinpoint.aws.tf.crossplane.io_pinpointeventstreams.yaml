@@ -63,16 +63,16 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
-                  destinationStreamArn:
+                  destinationStreamARN:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                 required:
-                - applicationId
-                - destinationStreamArn
-                - roleArn
+                - applicationID
+                - destinationStreamARN
+                - roleARN
                 type: object
               providerConfigRef:
                 default:

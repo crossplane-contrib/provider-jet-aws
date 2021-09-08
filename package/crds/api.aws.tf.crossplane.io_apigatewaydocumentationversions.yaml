@@ -66,12 +66,12 @@ spec:
                 properties:
                   description:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                   version:
                     type: string
                 required:
-                - restApiId
+                - restAPIID
                 - version
                 type: object
               providerConfigRef:

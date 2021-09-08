@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  identityPoolId:
+                  identityPoolID:
                     type: string
                   roleMapping:
                     items:
@@ -80,14 +80,14 @@ spec:
                                 type: string
                               matchType:
                                 type: string
-                              roleArn:
+                              roleARN:
                                 type: string
                               value:
                                 type: string
                             required:
                             - claim
                             - matchType
-                            - roleArn
+                            - roleARN
                             - value
                             type: object
                           type: array
@@ -103,7 +103,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - identityPoolId
+                - identityPoolID
                 - roles
                 type: object
               providerConfigRef:

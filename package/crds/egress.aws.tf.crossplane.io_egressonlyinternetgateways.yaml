@@ -72,10 +72,10 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - vpcId
+                - vpcID
                 type: object
               providerConfigRef:
                 default:

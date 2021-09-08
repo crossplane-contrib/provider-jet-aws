@@ -77,9 +77,9 @@ spec:
                     items:
                       type: string
                     type: array
-                  customInstanceProfileArn:
+                  customInstanceProfileARN:
                     type: string
-                  customJson:
+                  customJSON:
                     type: string
                   customSecurityGroupIds:
                     items:
@@ -136,7 +136,7 @@ spec:
                     type: string
                   password:
                     type: string
-                  stackId:
+                  stackID:
                     type: string
                   systemPackages:
                     items:
@@ -158,7 +158,7 @@ spec:
                     type: string
                 required:
                 - password
-                - stackId
+                - stackID
                 type: object
               providerConfigRef:
                 default:

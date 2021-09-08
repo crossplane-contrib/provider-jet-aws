@@ -69,27 +69,27 @@ spec:
                   conversationLogs:
                     items:
                       properties:
-                        iamRoleArn:
+                        iamRoleARN:
                           type: string
                         logSettings:
                           items:
                             properties:
                               destination:
                                 type: string
-                              kmsKeyArn:
+                              kmsKeyARN:
                                 type: string
                               logType:
                                 type: string
-                              resourceArn:
+                              resourceARN:
                                 type: string
                             required:
                             - destination
                             - logType
-                            - resourceArn
+                            - resourceARN
                             type: object
                           type: array
                       required:
-                      - iamRoleArn
+                      - iamRoleARN
                       type: object
                     type: array
                   description:

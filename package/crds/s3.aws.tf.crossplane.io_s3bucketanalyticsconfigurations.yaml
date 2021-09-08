@@ -91,16 +91,16 @@ spec:
                                     s3BucketDestination:
                                       items:
                                         properties:
-                                          bucketAccountId:
+                                          bucketARN:
                                             type: string
-                                          bucketArn:
+                                          bucketAccountID:
                                             type: string
                                           format:
                                             type: string
                                           prefix:
                                             type: string
                                         required:
-                                        - bucketArn
+                                        - bucketARN
                                         type: object
                                       type: array
                                   required:

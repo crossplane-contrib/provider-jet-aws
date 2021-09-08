@@ -70,13 +70,13 @@ spec:
                         kinesisStreamConfig:
                           items:
                             properties:
-                              roleArn:
+                              roleARN:
                                 type: string
-                              streamArn:
+                              streamARN:
                                 type: string
                             required:
-                            - roleArn
-                            - streamArn
+                            - roleARN
+                            - streamARN
                             type: object
                           type: array
                         streamType:

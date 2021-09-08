@@ -73,7 +73,7 @@ spec:
                     type: integer
                   bgpAuthKey:
                     type: string
-                  connectionId:
+                  connectionID:
                     type: string
                   customerAddress:
                     type: string
@@ -82,7 +82,7 @@ spec:
                     type: integer
                   name:
                     type: string
-                  ownerAccountId:
+                  ownerAccountID:
                     type: string
                   vlan:
                     format: int64
@@ -90,9 +90,9 @@ spec:
                 required:
                 - addressFamily
                 - bgpAsn
-                - connectionId
+                - connectionID
                 - name
-                - ownerAccountId
+                - ownerAccountID
                 - vlan
                 type: object
               providerConfigRef:

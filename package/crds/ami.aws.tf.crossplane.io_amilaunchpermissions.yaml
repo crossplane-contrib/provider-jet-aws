@@ -63,13 +63,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
-                  imageId:
+                  imageID:
                     type: string
                 required:
-                - accountId
-                - imageId
+                - accountID
+                - imageID
                 type: object
               providerConfigRef:
                 default:

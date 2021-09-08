@@ -97,12 +97,12 @@ spec:
                         s3StorageConfig:
                           items:
                             properties:
-                              kmsKeyId:
+                              kmsKeyID:
                                 type: string
-                              s3Uri:
+                              s3URI:
                                 type: string
                             required:
-                            - s3Uri
+                            - s3URI
                             type: object
                           type: array
                       required:
@@ -117,7 +117,7 @@ spec:
                         securityConfig:
                           items:
                             properties:
-                              kmsKeyId:
+                              kmsKeyID:
                                 type: string
                             type: object
                           type: array
@@ -125,7 +125,7 @@ spec:
                     type: array
                   recordIdentifierFeatureName:
                     type: string
-                  roleArn:
+                  roleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -140,7 +140,7 @@ spec:
                 - featureDefinition
                 - featureGroupName
                 - recordIdentifierFeatureName
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:

@@ -62,17 +62,17 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  customerGatewayId:
+                  customerGatewayID:
                     type: string
                   enableAcceleration:
                     type: boolean
-                  localIpv4NetworkCidr:
+                  localIPv4NetworkCidr:
                     type: string
-                  localIpv6NetworkCidr:
+                  localIPv6NetworkCidr:
                     type: string
-                  remoteIpv4NetworkCidr:
+                  remoteIPv4NetworkCidr:
                     type: string
-                  remoteIpv6NetworkCidr:
+                  remoteIPv6NetworkCidr:
                     type: string
                   staticRoutesOnly:
                     type: boolean
@@ -84,7 +84,7 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  transitGatewayId:
+                  transitGatewayID:
                     type: string
                   tunnel1DpdTimeoutAction:
                     type: string
@@ -97,7 +97,7 @@ spec:
                     type: array
                   tunnel1InsideCidr:
                     type: string
-                  tunnel1InsideIpv6Cidr:
+                  tunnel1InsideIPv6Cidr:
                     type: string
                   tunnel1Phase1DhGroupNumbers:
                     items:
@@ -155,7 +155,7 @@ spec:
                     type: array
                   tunnel2InsideCidr:
                     type: string
-                  tunnel2InsideIpv6Cidr:
+                  tunnel2InsideIPv6Cidr:
                     type: string
                   tunnel2Phase1DhGroupNumbers:
                     items:
@@ -202,14 +202,14 @@ spec:
                     type: integer
                   tunnel2StartupAction:
                     type: string
-                  tunnelInsideIpVersion:
+                  tunnelInsideIPVersion:
                     type: string
                   type:
                     type: string
-                  vpnGatewayId:
+                  vpnGatewayID:
                     type: string
                 required:
-                - customerGatewayId
+                - customerGatewayID
                 - type
                 type: object
               providerConfigRef:
@@ -280,7 +280,7 @@ spec:
                       - state
                       type: object
                     type: array
-                  transitGatewayAttachmentId:
+                  transitGatewayAttachmentID:
                     type: string
                   tunnel1Address:
                     type: string
@@ -312,7 +312,7 @@ spec:
                           type: integer
                         lastStatusChange:
                           type: string
-                        outsideIpAddress:
+                        outsideIPAddress:
                           type: string
                         status:
                           type: string
@@ -321,7 +321,7 @@ spec:
                       required:
                       - acceptedRouteCount
                       - lastStatusChange
-                      - outsideIpAddress
+                      - outsideIPAddress
                       - status
                       - statusMessage
                       type: object
@@ -330,7 +330,7 @@ spec:
                 - arn
                 - customerGatewayConfiguration
                 - routes
-                - transitGatewayAttachmentId
+                - transitGatewayAttachmentID
                 - tunnel1Address
                 - tunnel1BgpAsn
                 - tunnel1BgpHoldtime

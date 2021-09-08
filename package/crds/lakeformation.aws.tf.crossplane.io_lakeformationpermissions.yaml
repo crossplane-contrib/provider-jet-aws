@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  catalogId:
+                  catalogID:
                     type: string
                   catalogResource:
                     type: boolean
@@ -73,7 +73,7 @@ spec:
                       properties:
                         arn:
                           type: string
-                        catalogId:
+                        catalogID:
                           type: string
                       required:
                       - arn
@@ -82,7 +82,7 @@ spec:
                   database:
                     items:
                       properties:
-                        catalogId:
+                        catalogID:
                           type: string
                         name:
                           type: string
@@ -103,7 +103,7 @@ spec:
                   table:
                     items:
                       properties:
-                        catalogId:
+                        catalogID:
                           type: string
                         databaseName:
                           type: string
@@ -118,7 +118,7 @@ spec:
                   tableWithColumns:
                     items:
                       properties:
-                        catalogId:
+                        catalogID:
                           type: string
                         columnNames:
                           items:

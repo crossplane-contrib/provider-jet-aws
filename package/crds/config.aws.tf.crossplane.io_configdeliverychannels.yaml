@@ -76,7 +76,7 @@ spec:
                           type: string
                       type: object
                     type: array
-                  snsTopicArn:
+                  snsTopicARN:
                     type: string
                 required:
                 - s3BucketName

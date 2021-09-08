@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  appId:
+                  appID:
                     type: string
                   domainName:
                     type: string
@@ -83,7 +83,7 @@ spec:
                   waitForVerification:
                     type: boolean
                 required:
-                - appId
+                - appID
                 - domainName
                 - subDomain
                 type: object
@@ -139,11 +139,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  certificateVerificationDnsRecord:
+                  certificateVerificationDNSRecord:
                     type: string
                 required:
                 - arn
-                - certificateVerificationDnsRecord
+                - certificateVerificationDNSRecord
                 type: object
               conditions:
                 description: Conditions of the resource.

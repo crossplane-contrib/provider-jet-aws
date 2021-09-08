@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  catalogId:
+                  catalogID:
                     type: string
                   dataCatalogEncryptionSettings:
                     items:
@@ -72,7 +72,7 @@ spec:
                         connectionPasswordEncryption:
                           items:
                             properties:
-                              awsKmsKeyId:
+                              awsKmsKeyID:
                                 type: string
                               returnConnectionPasswordEncrypted:
                                 type: boolean
@@ -85,7 +85,7 @@ spec:
                             properties:
                               catalogEncryptionMode:
                                 type: string
-                              sseAwsKmsKeyId:
+                              sseAwsKmsKeyID:
                                 type: string
                             required:
                             - catalogEncryptionMode

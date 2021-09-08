@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  hostArn:
+                  hostARN:
                     type: string
                   name:
                     type: string

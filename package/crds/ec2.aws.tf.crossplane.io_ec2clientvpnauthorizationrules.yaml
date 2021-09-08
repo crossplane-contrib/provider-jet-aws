@@ -64,18 +64,18 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accessGroupId:
+                  accessGroupID:
                     type: string
                   authorizeAllGroups:
                     type: boolean
-                  clientVpnEndpointId:
+                  clientVpnEndpointID:
                     type: string
                   description:
                     type: string
                   targetNetworkCidr:
                     type: string
                 required:
-                - clientVpnEndpointId
+                - clientVpnEndpointID
                 - targetNetworkCidr
                 type: object
               providerConfigRef:

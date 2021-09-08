@@ -70,9 +70,9 @@ spec:
                         bucket:
                           items:
                             properties:
-                              accountId:
+                              accountID:
                                 type: string
-                              bucketArn:
+                              bucketARN:
                                 type: string
                               encryption:
                                 items:
@@ -80,10 +80,10 @@ spec:
                                     sseKms:
                                       items:
                                         properties:
-                                          keyId:
+                                          keyID:
                                             type: string
                                         required:
-                                        - keyId
+                                        - keyID
                                         type: object
                                       type: array
                                     sseS3:
@@ -97,7 +97,7 @@ spec:
                               prefix:
                                 type: string
                             required:
-                            - bucketArn
+                            - bucketARN
                             - format
                             type: object
                           type: array

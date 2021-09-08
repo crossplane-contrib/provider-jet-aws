@@ -247,7 +247,7 @@ spec:
                           type: string
                       type: object
                     type: array
-                  serviceRoleArn:
+                  serviceRoleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -266,18 +266,18 @@ spec:
                           type: array
                         triggerName:
                           type: string
-                        triggerTargetArn:
+                        triggerTargetARN:
                           type: string
                       required:
                       - triggerEvents
                       - triggerName
-                      - triggerTargetArn
+                      - triggerTargetARN
                       type: object
                     type: array
                 required:
                 - appName
                 - deploymentGroupName
-                - serviceRoleArn
+                - serviceRoleARN
                 type: object
               providerConfigRef:
                 default:
@@ -333,12 +333,12 @@ spec:
                     type: string
                   computePlatform:
                     type: string
-                  deploymentGroupId:
+                  deploymentGroupID:
                     type: string
                 required:
                 - arn
                 - computePlatform
-                - deploymentGroupId
+                - deploymentGroupID
                 type: object
               conditions:
                 description: Conditions of the resource.

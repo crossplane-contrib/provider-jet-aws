@@ -66,11 +66,11 @@ spec:
                 properties:
                   cidrBlock:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - cidrBlock
-                - vpcId
+                - vpcID
                 type: object
               providerConfigRef:
                 default:

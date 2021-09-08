@@ -65,7 +65,7 @@ spec:
                 properties:
                   description:
                     type: string
-                  instanceArn:
+                  instanceARN:
                     type: string
                   name:
                     type: string
@@ -82,7 +82,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - instanceArn
+                - instanceARN
                 - name
                 type: object
               providerConfigRef:

@@ -74,7 +74,7 @@ spec:
                     type: string
                   namePrefix:
                     type: string
-                  snsTopicArn:
+                  snsTopicARN:
                     type: string
                   sourceIds:
                     items:
@@ -91,7 +91,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - snsTopicArn
+                - snsTopicARN
                 type: object
               providerConfigRef:
                 default:
@@ -145,11 +145,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  customerAwsId:
+                  customerAwsID:
                     type: string
                 required:
                 - arn
-                - customerAwsId
+                - customerAwsID
                 type: object
               conditions:
                 description: Conditions of the resource.

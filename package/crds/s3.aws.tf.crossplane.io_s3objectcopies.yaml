@@ -124,7 +124,7 @@ spec:
                     type: string
                   kmsEncryptionContext:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   metadata:
                     additionalProperties:
@@ -226,17 +226,17 @@ spec:
                     type: string
                   requestCharged:
                     type: boolean
-                  sourceVersionId:
+                  sourceVersionID:
                     type: string
-                  versionId:
+                  versionID:
                     type: string
                 required:
                 - etag
                 - expiration
                 - lastModified
                 - requestCharged
-                - sourceVersionId
-                - versionId
+                - sourceVersionID
+                - versionID
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -130,7 +130,7 @@ spec:
                           type: integer
                         elbName:
                           type: string
-                        targetGroupArn:
+                        targetGroupARN:
                           type: string
                       required:
                       - containerName
@@ -142,7 +142,7 @@ spec:
                   networkConfiguration:
                     items:
                       properties:
-                        assignPublicIp:
+                        assignPublicIP:
                           type: boolean
                         securityGroups:
                           items:
@@ -195,10 +195,10 @@ spec:
                         port:
                           format: int64
                           type: integer
-                        registryArn:
+                        registryARN:
                           type: string
                       required:
-                      - registryArn
+                      - registryARN
                       type: object
                     type: array
                   tags:

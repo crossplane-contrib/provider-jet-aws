@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   basePath:
                     type: string
@@ -73,7 +73,7 @@ spec:
                   stageName:
                     type: string
                 required:
-                - apiId
+                - apiID
                 - domainName
                 type: object
               providerConfigRef:

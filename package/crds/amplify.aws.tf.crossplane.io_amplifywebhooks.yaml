@@ -62,14 +62,14 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  appId:
+                  appID:
                     type: string
                   branchName:
                     type: string
                   description:
                     type: string
                 required:
-                - appId
+                - appID
                 - branchName
                 type: object
               providerConfigRef:

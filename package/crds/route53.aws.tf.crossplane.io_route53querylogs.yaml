@@ -62,13 +62,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  cloudwatchLogGroupArn:
+                  cloudwatchLogGroupARN:
                     type: string
-                  zoneId:
+                  zoneID:
                     type: string
                 required:
-                - cloudwatchLogGroupArn
-                - zoneId
+                - cloudwatchLogGroupARN
+                - zoneID
                 type: object
               providerConfigRef:
                 default:

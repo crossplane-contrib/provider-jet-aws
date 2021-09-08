@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  subnetId:
+                  subnetID:
                     type: string
-                  vpcEndpointId:
+                  vpcEndpointID:
                     type: string
                 required:
-                - subnetId
-                - vpcEndpointId
+                - subnetID
+                - vpcEndpointID
                 type: object
               providerConfigRef:
                 default:

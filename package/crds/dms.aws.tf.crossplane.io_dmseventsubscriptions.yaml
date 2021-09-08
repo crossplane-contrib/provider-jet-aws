@@ -71,7 +71,7 @@ spec:
                     type: array
                   name:
                     type: string
-                  snsTopicArn:
+                  snsTopicARN:
                     type: string
                   sourceIds:
                     items:
@@ -90,7 +90,7 @@ spec:
                 required:
                 - eventCategories
                 - name
-                - snsTopicArn
+                - snsTopicARN
                 type: object
               providerConfigRef:
                 default:

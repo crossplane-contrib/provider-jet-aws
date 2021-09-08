@@ -63,13 +63,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  vpcId:
+                  vpcID:
                     type: string
-                  vpnGatewayId:
+                  vpnGatewayID:
                     type: string
                 required:
-                - vpcId
-                - vpnGatewayId
+                - vpcID
+                - vpnGatewayID
                 type: object
               providerConfigRef:
                 default:

@@ -133,12 +133,12 @@ spec:
                     type: string
                   createDate:
                     type: string
-                  uniqueId:
+                  uniqueID:
                     type: string
                 required:
                 - arn
                 - createDate
-                - uniqueId
+                - uniqueID
                 type: object
               conditions:
                 description: Conditions of the resource.

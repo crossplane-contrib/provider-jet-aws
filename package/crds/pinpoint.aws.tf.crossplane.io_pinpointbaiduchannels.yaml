@@ -65,7 +65,7 @@ spec:
                 properties:
                   apiKey:
                     type: string
-                  applicationId:
+                  applicationID:
                     type: string
                   enabled:
                     type: boolean
@@ -73,7 +73,7 @@ spec:
                     type: string
                 required:
                 - apiKey
-                - applicationId
+                - applicationID
                 - secretKey
                 type: object
               providerConfigRef:

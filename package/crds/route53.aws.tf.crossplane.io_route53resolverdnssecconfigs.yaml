@@ -64,10 +64,10 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  resourceId:
+                  resourceID:
                     type: string
                 required:
-                - resourceId
+                - resourceID
                 type: object
               providerConfigRef:
                 default:
@@ -123,14 +123,14 @@ spec:
                     type: string
                   id:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                   validationStatus:
                     type: string
                 required:
                 - arn
                 - id
-                - ownerId
+                - ownerID
                 - validationStatus
                 type: object
               conditions:

@@ -132,7 +132,7 @@ spec:
                     type: integer
                   availabilityZone:
                     type: string
-                  dbSnapshotArn:
+                  dbSnapshotARN:
                     type: string
                   encrypted:
                     type: boolean
@@ -143,7 +143,7 @@ spec:
                   iops:
                     format: int64
                     type: integer
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   licenseModel:
                     type: string
@@ -154,7 +154,7 @@ spec:
                     type: integer
                   snapshotType:
                     type: string
-                  sourceDbSnapshotIdentifier:
+                  sourceDBSnapshotIdentifier:
                     type: string
                   sourceRegion:
                     type: string
@@ -162,26 +162,26 @@ spec:
                     type: string
                   storageType:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - allocatedStorage
                 - availabilityZone
-                - dbSnapshotArn
+                - dbSnapshotARN
                 - encrypted
                 - engine
                 - engineVersion
                 - iops
-                - kmsKeyId
+                - kmsKeyID
                 - licenseModel
                 - optionGroupName
                 - port
                 - snapshotType
-                - sourceDbSnapshotIdentifier
+                - sourceDBSnapshotIdentifier
                 - sourceRegion
                 - status
                 - storageType
-                - vpcId
+                - vpcID
                 type: object
               conditions:
                 description: Conditions of the resource.

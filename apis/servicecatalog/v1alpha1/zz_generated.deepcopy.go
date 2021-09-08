@@ -102,13 +102,13 @@ func (in *ProvisioningArtifactParametersParameters) DeepCopyInto(out *Provisioni
 		*out = new(string)
 		**out = **in
 	}
-	if in.TemplatePhysicalId != nil {
-		in, out := &in.TemplatePhysicalId, &out.TemplatePhysicalId
+	if in.TemplatePhysicalID != nil {
+		in, out := &in.TemplatePhysicalID, &out.TemplatePhysicalID
 		*out = new(string)
 		**out = **in
 	}
-	if in.TemplateUrl != nil {
-		in, out := &in.TemplateUrl, &out.TemplateUrl
+	if in.TemplateURL != nil {
+		in, out := &in.TemplateURL, &out.TemplateURL
 		*out = new(string)
 		**out = **in
 	}
@@ -1070,8 +1070,8 @@ func (in *ServicecatalogProductParameters) DeepCopyInto(out *ServicecatalogProdu
 		*out = new(string)
 		**out = **in
 	}
-	if in.SupportUrl != nil {
-		in, out := &in.SupportUrl, &out.SupportUrl
+	if in.SupportURL != nil {
+		in, out := &in.SupportURL, &out.SupportURL
 		*out = new(string)
 		**out = **in
 	}
@@ -1183,8 +1183,8 @@ func (in *ServicecatalogProductPortfolioAssociationParameters) DeepCopyInto(out 
 		*out = new(string)
 		**out = **in
 	}
-	if in.SourcePortfolioId != nil {
-		in, out := &in.SourcePortfolioId, &out.SourcePortfolioId
+	if in.SourcePortfolioID != nil {
+		in, out := &in.SourcePortfolioID, &out.SourcePortfolioID
 		*out = new(string)
 		**out = **in
 	}
@@ -1365,8 +1365,8 @@ func (in *ServicecatalogProvisionedProductParameters) DeepCopyInto(out *Servicec
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	if in.PathId != nil {
-		in, out := &in.PathId, &out.PathId
+	if in.PathID != nil {
+		in, out := &in.PathID, &out.PathID
 		*out = new(string)
 		**out = **in
 	}
@@ -1375,8 +1375,8 @@ func (in *ServicecatalogProvisionedProductParameters) DeepCopyInto(out *Servicec
 		*out = new(string)
 		**out = **in
 	}
-	if in.ProductId != nil {
-		in, out := &in.ProductId, &out.ProductId
+	if in.ProductID != nil {
+		in, out := &in.ProductID, &out.ProductID
 		*out = new(string)
 		**out = **in
 	}
@@ -1385,8 +1385,8 @@ func (in *ServicecatalogProvisionedProductParameters) DeepCopyInto(out *Servicec
 		*out = new(string)
 		**out = **in
 	}
-	if in.ProvisioningArtifactId != nil {
-		in, out := &in.ProvisioningArtifactId, &out.ProvisioningArtifactId
+	if in.ProvisioningArtifactID != nil {
+		in, out := &in.ProvisioningArtifactID, &out.ProvisioningArtifactID
 		*out = new(string)
 		**out = **in
 	}
@@ -1581,13 +1581,13 @@ func (in *ServicecatalogProvisioningArtifactParameters) DeepCopyInto(out *Servic
 		*out = new(string)
 		**out = **in
 	}
-	if in.TemplatePhysicalId != nil {
-		in, out := &in.TemplatePhysicalId, &out.TemplatePhysicalId
+	if in.TemplatePhysicalID != nil {
+		in, out := &in.TemplatePhysicalID, &out.TemplatePhysicalID
 		*out = new(string)
 		**out = **in
 	}
-	if in.TemplateUrl != nil {
-		in, out := &in.TemplateUrl, &out.TemplateUrl
+	if in.TemplateURL != nil {
+		in, out := &in.TemplateURL, &out.TemplateURL
 		*out = new(string)
 		**out = **in
 	}

@@ -117,7 +117,7 @@ spec:
                   numberOfWorkers:
                     format: int64
                     type: integer
-                  roleArn:
+                  roleARN:
                     type: string
                   securityConfiguration:
                     type: string
@@ -137,7 +137,7 @@ spec:
                 required:
                 - command
                 - name
-                - roleArn
+                - roleARN
                 type: object
               providerConfigRef:
                 default:

@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   apiMappingKey:
                     type: string
@@ -72,7 +72,7 @@ spec:
                   stage:
                     type: string
                 required:
-                - apiId
+                - apiID
                 - domainName
                 - stage
                 type: object

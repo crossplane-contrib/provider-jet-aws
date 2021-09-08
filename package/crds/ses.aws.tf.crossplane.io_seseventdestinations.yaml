@@ -85,13 +85,13 @@ spec:
                   kinesisDestination:
                     items:
                       properties:
-                        roleArn:
+                        roleARN:
                           type: string
-                        streamArn:
+                        streamARN:
                           type: string
                       required:
-                      - roleArn
-                      - streamArn
+                      - roleARN
+                      - streamARN
                       type: object
                     type: array
                   matchingTypes:
@@ -103,10 +103,10 @@ spec:
                   snsDestination:
                     items:
                       properties:
-                        topicArn:
+                        topicARN:
                           type: string
                       required:
-                      - topicArn
+                      - topicARN
                       type: object
                     type: array
                 required:

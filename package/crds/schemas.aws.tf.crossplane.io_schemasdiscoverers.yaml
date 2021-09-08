@@ -64,7 +64,7 @@ spec:
                 properties:
                   description:
                     type: string
-                  sourceArn:
+                  sourceARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -75,7 +75,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - sourceArn
+                - sourceARN
                 type: object
               providerConfigRef:
                 default:

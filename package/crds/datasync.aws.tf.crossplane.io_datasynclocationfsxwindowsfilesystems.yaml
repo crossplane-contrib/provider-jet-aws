@@ -66,7 +66,7 @@ spec:
                 properties:
                   domain:
                     type: string
-                  fsxFilesystemArn:
+                  fsxFilesystemARN:
                     type: string
                   password:
                     type: string
@@ -87,7 +87,7 @@ spec:
                   user:
                     type: string
                 required:
-                - fsxFilesystemArn
+                - fsxFilesystemARN
                 - password
                 - securityGroupArns
                 - user

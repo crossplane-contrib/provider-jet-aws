@@ -80,13 +80,13 @@ spec:
                     type: string
                   providerType:
                     type: string
-                  userPoolId:
+                  userPoolID:
                     type: string
                 required:
                 - providerDetails
                 - providerName
                 - providerType
-                - userPoolId
+                - userPoolID
                 type: object
               providerConfigRef:
                 default:

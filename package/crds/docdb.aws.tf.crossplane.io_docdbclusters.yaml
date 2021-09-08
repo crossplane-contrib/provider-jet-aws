@@ -95,7 +95,7 @@ spec:
                     type: string
                   finalSnapshotIdentifier:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   masterPassword:
                     type: string
@@ -178,19 +178,19 @@ spec:
                 properties:
                   arn:
                     type: string
-                  clusterResourceId:
+                  clusterResourceID:
                     type: string
                   endpoint:
                     type: string
-                  hostedZoneId:
+                  hostedZoneID:
                     type: string
                   readerEndpoint:
                     type: string
                 required:
                 - arn
-                - clusterResourceId
+                - clusterResourceID
                 - endpoint
-                - hostedZoneId
+                - hostedZoneID
                 - readerEndpoint
                 type: object
               conditions:

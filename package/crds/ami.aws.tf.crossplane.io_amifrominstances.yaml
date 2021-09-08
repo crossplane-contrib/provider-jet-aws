@@ -76,7 +76,7 @@ spec:
                     type: string
                   snapshotWithoutReboot:
                     type: boolean
-                  sourceInstanceId:
+                  sourceInstanceID:
                     type: string
                   tags:
                     additionalProperties:
@@ -88,7 +88,7 @@ spec:
                     type: object
                 required:
                 - name
-                - sourceInstanceId
+                - sourceInstanceID
                 type: object
               providerConfigRef:
                 default:
@@ -153,11 +153,11 @@ spec:
                     type: string
                   imageType:
                     type: string
-                  kernelId:
+                  kernelID:
                     type: string
                   manageEbsSnapshots:
                     type: boolean
-                  ownerId:
+                  ownerID:
                     type: string
                   platform:
                     type: string
@@ -165,11 +165,11 @@ spec:
                     type: string
                   public:
                     type: boolean
-                  ramdiskId:
+                  ramdiskID:
                     type: string
                   rootDeviceName:
                     type: string
-                  rootSnapshotId:
+                  rootSnapshotID:
                     type: string
                   sriovNetSupport:
                     type: string
@@ -185,15 +185,15 @@ spec:
                 - imageLocation
                 - imageOwnerAlias
                 - imageType
-                - kernelId
+                - kernelID
                 - manageEbsSnapshots
-                - ownerId
+                - ownerID
                 - platform
                 - platformDetails
                 - public
-                - ramdiskId
+                - ramdiskID
                 - rootDeviceName
-                - rootSnapshotId
+                - rootSnapshotID
                 - sriovNetSupport
                 - usageOperation
                 - virtualizationType

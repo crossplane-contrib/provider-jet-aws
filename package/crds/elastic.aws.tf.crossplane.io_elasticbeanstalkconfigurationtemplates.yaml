@@ -68,7 +68,7 @@ spec:
                     type: string
                   description:
                     type: string
-                  environmentId:
+                  environmentID:
                     type: string
                   name:
                     type: string

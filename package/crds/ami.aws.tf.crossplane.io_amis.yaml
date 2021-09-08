@@ -78,7 +78,7 @@ spec:
                         iops:
                           format: int64
                           type: integer
-                        snapshotId:
+                        snapshotID:
                           type: string
                         throughput:
                           format: int64
@@ -108,11 +108,11 @@ spec:
                     type: array
                   imageLocation:
                     type: string
-                  kernelId:
+                  kernelID:
                     type: string
                   name:
                     type: string
-                  ramdiskId:
+                  ramdiskID:
                     type: string
                   rootDeviceName:
                     type: string
@@ -190,7 +190,7 @@ spec:
                     type: string
                   manageEbsSnapshots:
                     type: boolean
-                  ownerId:
+                  ownerID:
                     type: string
                   platform:
                     type: string
@@ -198,7 +198,7 @@ spec:
                     type: string
                   public:
                     type: boolean
-                  rootSnapshotId:
+                  rootSnapshotID:
                     type: string
                   usageOperation:
                     type: string
@@ -208,11 +208,11 @@ spec:
                 - imageOwnerAlias
                 - imageType
                 - manageEbsSnapshots
-                - ownerId
+                - ownerID
                 - platform
                 - platformDetails
                 - public
-                - rootSnapshotId
+                - rootSnapshotID
                 - usageOperation
                 type: object
               conditions:

@@ -88,7 +88,7 @@ spec:
                     type: array
                   configurations:
                     type: string
-                  configurationsJson:
+                  configurationsJSON:
                     type: string
                   coreInstanceFleet:
                     items:
@@ -219,7 +219,7 @@ spec:
                       - instanceType
                       type: object
                     type: array
-                  customAmiId:
+                  customAmiID:
                     type: string
                   ebsRootVolumeSize:
                     format: int64
@@ -241,7 +241,7 @@ spec:
                           type: string
                         serviceAccessSecurityGroup:
                           type: string
-                        subnetId:
+                        subnetID:
                           type: string
                         subnetIds:
                           items:
@@ -271,7 +271,7 @@ spec:
                       - realm
                       type: object
                     type: array
-                  logUri:
+                  logURI:
                     type: string
                   masterInstanceFleet:
                     items:
@@ -515,12 +515,12 @@ spec:
                     type: string
                   clusterState:
                     type: string
-                  masterPublicDns:
+                  masterPublicDNS:
                     type: string
                 required:
                 - arn
                 - clusterState
-                - masterPublicDns
+                - masterPublicDNS
                 type: object
               conditions:
                 description: Conditions of the resource.

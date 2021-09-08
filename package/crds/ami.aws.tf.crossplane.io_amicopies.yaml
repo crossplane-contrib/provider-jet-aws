@@ -64,7 +64,7 @@ spec:
                 properties:
                   description:
                     type: string
-                  destinationOutpostArn:
+                  destinationOutpostARN:
                     type: string
                   ebsBlockDevice:
                     items:
@@ -76,11 +76,11 @@ spec:
                     items:
                       type: object
                     type: array
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   name:
                     type: string
-                  sourceAmiId:
+                  sourceAmiID:
                     type: string
                   sourceAmiRegion:
                     type: string
@@ -94,7 +94,7 @@ spec:
                     type: object
                 required:
                 - name
-                - sourceAmiId
+                - sourceAmiID
                 - sourceAmiRegion
                 type: object
               providerConfigRef:
@@ -160,11 +160,11 @@ spec:
                     type: string
                   imageType:
                     type: string
-                  kernelId:
+                  kernelID:
                     type: string
                   manageEbsSnapshots:
                     type: boolean
-                  ownerId:
+                  ownerID:
                     type: string
                   platform:
                     type: string
@@ -172,11 +172,11 @@ spec:
                     type: string
                   public:
                     type: boolean
-                  ramdiskId:
+                  ramdiskID:
                     type: string
                   rootDeviceName:
                     type: string
-                  rootSnapshotId:
+                  rootSnapshotID:
                     type: string
                   sriovNetSupport:
                     type: string
@@ -192,15 +192,15 @@ spec:
                 - imageLocation
                 - imageOwnerAlias
                 - imageType
-                - kernelId
+                - kernelID
                 - manageEbsSnapshots
-                - ownerId
+                - ownerID
                 - platform
                 - platformDetails
                 - public
-                - ramdiskId
+                - ramdiskID
                 - rootDeviceName
-                - rootSnapshotId
+                - rootSnapshotID
                 - sriovNetSupport
                 - usageOperation
                 - virtualizationType

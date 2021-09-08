@@ -86,14 +86,14 @@ spec:
                     type: boolean
                   transitGatewayDefaultRouteTablePropagation:
                     type: boolean
-                  transitGatewayId:
+                  transitGatewayID:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
                 - subnetIds
-                - transitGatewayId
-                - vpcId
+                - transitGatewayID
+                - vpcID
                 type: object
               providerConfigRef:
                 default:
@@ -145,10 +145,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  vpcOwnerId:
+                  vpcOwnerID:
                     type: string
                 required:
-                - vpcOwnerId
+                - vpcOwnerID
                 type: object
               conditions:
                 description: Conditions of the resource.

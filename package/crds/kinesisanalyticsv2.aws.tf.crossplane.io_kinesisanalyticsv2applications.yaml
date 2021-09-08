@@ -76,14 +76,14 @@ spec:
                                     s3ContentLocation:
                                       items:
                                         properties:
-                                          bucketArn:
+                                          bucketARN:
                                             type: string
                                           fileKey:
                                             type: string
                                           objectVersion:
                                             type: string
                                         required:
-                                        - bucketArn
+                                        - bucketARN
                                         - fileKey
                                         type: object
                                       type: array
@@ -112,14 +112,14 @@ spec:
                               propertyGroup:
                                 items:
                                   properties:
-                                    propertyGroupId:
+                                    propertyGroupID:
                                       type: string
                                     propertyMap:
                                       additionalProperties:
                                         type: string
                                       type: object
                                   required:
-                                  - propertyGroupId
+                                  - propertyGroupID
                                   - propertyMap
                                   type: object
                                 type: array
@@ -220,10 +220,10 @@ spec:
                                           inputLambdaProcessor:
                                             items:
                                               properties:
-                                                resourceArn:
+                                                resourceARN:
                                                   type: string
                                               required:
-                                              - resourceArn
+                                              - resourceARN
                                               type: object
                                             type: array
                                         required:
@@ -300,19 +300,19 @@ spec:
                                     kinesisFirehoseInput:
                                       items:
                                         properties:
-                                          resourceArn:
+                                          resourceARN:
                                             type: string
                                         required:
-                                        - resourceArn
+                                        - resourceARN
                                         type: object
                                       type: array
                                     kinesisStreamsInput:
                                       items:
                                         properties:
-                                          resourceArn:
+                                          resourceARN:
                                             type: string
                                         required:
-                                        - resourceArn
+                                        - resourceARN
                                         type: object
                                       type: array
                                     namePrefix:
@@ -337,28 +337,28 @@ spec:
                                     kinesisFirehoseOutput:
                                       items:
                                         properties:
-                                          resourceArn:
+                                          resourceARN:
                                             type: string
                                         required:
-                                        - resourceArn
+                                        - resourceARN
                                         type: object
                                       type: array
                                     kinesisStreamsOutput:
                                       items:
                                         properties:
-                                          resourceArn:
+                                          resourceARN:
                                             type: string
                                         required:
-                                        - resourceArn
+                                        - resourceARN
                                         type: object
                                       type: array
                                     lambdaOutput:
                                       items:
                                         properties:
-                                          resourceArn:
+                                          resourceARN:
                                             type: string
                                         required:
-                                        - resourceArn
+                                        - resourceARN
                                         type: object
                                       type: array
                                     name:
@@ -434,12 +434,12 @@ spec:
                                     s3ReferenceDataSource:
                                       items:
                                         properties:
-                                          bucketArn:
+                                          bucketARN:
                                             type: string
                                           fileKey:
                                             type: string
                                         required:
-                                        - bucketArn
+                                        - bucketARN
                                         - fileKey
                                         type: object
                                       type: array
@@ -476,10 +476,10 @@ spec:
                   cloudwatchLoggingOptions:
                     items:
                       properties:
-                        logStreamArn:
+                        logStreamARN:
                           type: string
                       required:
-                      - logStreamArn
+                      - logStreamARN
                       type: object
                     type: array
                   description:
@@ -565,7 +565,7 @@ spec:
                     type: string
                   status:
                     type: string
-                  versionId:
+                  versionID:
                     format: int64
                     type: integer
                 required:
@@ -573,7 +573,7 @@ spec:
                 - createTimestamp
                 - lastUpdateTimestamp
                 - status
-                - versionId
+                - versionID
                 type: object
               conditions:
                 description: Conditions of the resource.

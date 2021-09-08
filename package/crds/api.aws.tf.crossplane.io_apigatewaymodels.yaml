@@ -68,14 +68,14 @@ spec:
                     type: string
                   name:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                   schema:
                     type: string
                 required:
                 - contentType
                 - name
-                - restApiId
+                - restAPIID
                 type: object
               providerConfigRef:
                 default:

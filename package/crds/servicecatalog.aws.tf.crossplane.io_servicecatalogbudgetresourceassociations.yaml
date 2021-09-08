@@ -66,11 +66,11 @@ spec:
                 properties:
                   budgetName:
                     type: string
-                  resourceId:
+                  resourceID:
                     type: string
                 required:
                 - budgetName
-                - resourceId
+                - resourceID
                 type: object
               providerConfigRef:
                 default:

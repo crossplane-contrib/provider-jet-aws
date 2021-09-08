@@ -86,14 +86,14 @@ spec:
                         bucketDefinitions:
                           items:
                             properties:
-                              accountId:
+                              accountID:
                                 type: string
                               buckets:
                                 items:
                                   type: string
                                 type: array
                             required:
-                            - accountId
+                            - accountID
                             - buckets
                             type: object
                           type: array
@@ -269,29 +269,29 @@ spec:
                 properties:
                   createdAt:
                     type: string
-                  jobArn:
+                  jobARN:
                     type: string
-                  jobId:
+                  jobID:
                     type: string
                   userPausedDetails:
                     items:
                       properties:
                         jobExpiresAt:
                           type: string
-                        jobImminentExpirationHealthEventArn:
+                        jobImminentExpirationHealthEventARN:
                           type: string
                         jobPausedAt:
                           type: string
                       required:
                       - jobExpiresAt
-                      - jobImminentExpirationHealthEventArn
+                      - jobImminentExpirationHealthEventARN
                       - jobPausedAt
                       type: object
                     type: array
                 required:
                 - createdAt
-                - jobArn
-                - jobId
+                - jobARN
+                - jobID
                 - userPausedDetails
                 type: object
               conditions:

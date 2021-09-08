@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   apiKeyRequired:
                     type: boolean
@@ -72,7 +72,7 @@ spec:
                     type: array
                   authorizationType:
                     type: string
-                  authorizerId:
+                  authorizerID:
                     type: string
                   modelSelectionExpression:
                     type: string
@@ -101,7 +101,7 @@ spec:
                   target:
                     type: string
                 required:
-                - apiId
+                - apiID
                 - routeKey
                 type: object
               providerConfigRef:

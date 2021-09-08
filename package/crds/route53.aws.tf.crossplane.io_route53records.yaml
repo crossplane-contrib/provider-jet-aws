@@ -69,12 +69,12 @@ spec:
                           type: boolean
                         name:
                           type: string
-                        zoneId:
+                        zoneID:
                           type: string
                       required:
                       - evaluateTargetHealth
                       - name
-                      - zoneId
+                      - zoneID
                       type: object
                     type: array
                   allowOverwrite:
@@ -99,7 +99,7 @@ spec:
                           type: string
                       type: object
                     type: array
-                  healthCheckId:
+                  healthCheckID:
                     type: string
                   latencyRoutingPolicy:
                     items:
@@ -135,12 +135,12 @@ spec:
                       - weight
                       type: object
                     type: array
-                  zoneId:
+                  zoneID:
                     type: string
                 required:
                 - name
                 - type
-                - zoneId
+                - zoneID
                 type: object
               providerConfigRef:
                 default:

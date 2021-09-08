@@ -66,13 +66,13 @@ spec:
                 properties:
                   certificate:
                     type: string
-                  certificateAuthorityArn:
+                  certificateAuthorityARN:
                     type: string
                   certificateChain:
                     type: string
                 required:
                 - certificate
-                - certificateAuthorityArn
+                - certificateAuthorityARN
                 type: object
               providerConfigRef:
                 default:

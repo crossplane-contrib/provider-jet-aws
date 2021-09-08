@@ -70,7 +70,7 @@ spec:
                   cognitoIdentityProviders:
                     items:
                       properties:
-                        clientId:
+                        clientID:
                           type: string
                         providerName:
                           type: string

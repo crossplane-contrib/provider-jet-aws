@@ -86,7 +86,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  privateIp:
+                  privateIP:
                     type: string
                   privateIps:
                     items:
@@ -101,7 +101,7 @@ spec:
                     type: array
                   sourceDestCheck:
                     type: boolean
-                  subnetId:
+                  subnetID:
                     type: string
                   tags:
                     additionalProperties:
@@ -112,7 +112,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - subnetId
+                - subnetID
                 type: object
               providerConfigRef:
                 default:
@@ -165,14 +165,14 @@ spec:
                 properties:
                   macAddress:
                     type: string
-                  outpostArn:
+                  outpostARN:
                     type: string
-                  privateDnsName:
+                  privateDNSName:
                     type: string
                 required:
                 - macAddress
-                - outpostArn
-                - privateDnsName
+                - outpostARN
+                - privateDNSName
                 type: object
               conditions:
                 description: Conditions of the resource.

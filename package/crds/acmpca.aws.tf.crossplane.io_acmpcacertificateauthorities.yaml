@@ -128,7 +128,7 @@ spec:
                                 type: integer
                               s3BucketName:
                                 type: string
-                              s3ObjectAcl:
+                              s3ObjectACL:
                                 type: string
                             required:
                             - expirationInDays

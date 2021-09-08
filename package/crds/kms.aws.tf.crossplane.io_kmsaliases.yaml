@@ -66,10 +66,10 @@ spec:
                     type: string
                   namePrefix:
                     type: string
-                  targetKeyId:
+                  targetKeyID:
                     type: string
                 required:
-                - targetKeyId
+                - targetKeyID
                 type: object
               providerConfigRef:
                 default:
@@ -122,11 +122,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  targetKeyArn:
+                  targetKeyARN:
                     type: string
                 required:
                 - arn
-                - targetKeyArn
+                - targetKeyARN
                 type: object
               conditions:
                 description: Conditions of the resource.

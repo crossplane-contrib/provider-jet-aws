@@ -67,13 +67,13 @@ spec:
                     type: string
                   migrationType:
                     type: string
-                  replicationInstanceArn:
+                  replicationInstanceARN:
                     type: string
-                  replicationTaskId:
+                  replicationTaskID:
                     type: string
                   replicationTaskSettings:
                     type: string
-                  sourceEndpointArn:
+                  sourceEndpointARN:
                     type: string
                   tableMappings:
                     type: string
@@ -85,15 +85,15 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  targetEndpointArn:
+                  targetEndpointARN:
                     type: string
                 required:
                 - migrationType
-                - replicationInstanceArn
-                - replicationTaskId
-                - sourceEndpointArn
+                - replicationInstanceARN
+                - replicationTaskID
+                - sourceEndpointARN
                 - tableMappings
-                - targetEndpointArn
+                - targetEndpointARN
                 type: object
               providerConfigRef:
                 default:
@@ -144,10 +144,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  replicationTaskArn:
+                  replicationTaskARN:
                     type: string
                 required:
-                - replicationTaskArn
+                - replicationTaskARN
                 type: object
               conditions:
                 description: Conditions of the resource.

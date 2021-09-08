@@ -126,13 +126,13 @@ spec:
                         priority:
                           format: int64
                           type: integer
-                        ruleId:
+                        ruleID:
                           type: string
                         type:
                           type: string
                       required:
                       - priority
-                      - ruleId
+                      - ruleID
                       type: object
                     type: array
                   tags:

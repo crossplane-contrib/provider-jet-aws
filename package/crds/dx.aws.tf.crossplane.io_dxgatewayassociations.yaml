@@ -67,18 +67,18 @@ spec:
                     items:
                       type: string
                     type: array
-                  associatedGatewayId:
+                  associatedGatewayID:
                     type: string
-                  associatedGatewayOwnerAccountId:
+                  associatedGatewayOwnerAccountID:
                     type: string
-                  dxGatewayId:
+                  dxGatewayID:
                     type: string
-                  proposalId:
+                  proposalID:
                     type: string
-                  vpnGatewayId:
+                  vpnGatewayID:
                     type: string
                 required:
-                - dxGatewayId
+                - dxGatewayID
                 type: object
               providerConfigRef:
                 default:
@@ -132,14 +132,14 @@ spec:
                 properties:
                   associatedGatewayType:
                     type: string
-                  dxGatewayAssociationId:
+                  dxGatewayAssociationID:
                     type: string
-                  dxGatewayOwnerAccountId:
+                  dxGatewayOwnerAccountID:
                     type: string
                 required:
                 - associatedGatewayType
-                - dxGatewayAssociationId
-                - dxGatewayOwnerAccountId
+                - dxGatewayAssociationID
+                - dxGatewayOwnerAccountID
                 type: object
               conditions:
                 description: Conditions of the resource.

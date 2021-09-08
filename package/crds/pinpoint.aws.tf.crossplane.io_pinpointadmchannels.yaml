@@ -63,17 +63,17 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
-                  clientId:
+                  clientID:
                     type: string
                   clientSecret:
                     type: string
                   enabled:
                     type: boolean
                 required:
-                - applicationId
-                - clientId
+                - applicationID
+                - clientID
                 - clientSecret
                 type: object
               providerConfigRef:

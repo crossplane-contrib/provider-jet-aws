@@ -72,10 +72,10 @@ spec:
                         fileSystemConfig:
                           items:
                             properties:
-                              defaultGid:
+                              defaultGID:
                                 format: int64
                                 type: integer
-                              defaultUid:
+                              defaultUID:
                                 format: int64
                                 type: integer
                               mountPath:

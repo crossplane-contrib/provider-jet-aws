@@ -73,12 +73,12 @@ spec:
                           type: string
                         key:
                           type: string
-                        roleArn:
+                        roleARN:
                           type: string
                       required:
                       - bucket
                       - key
-                      - roleArn
+                      - roleARN
                       type: object
                     type: array
                   tags:

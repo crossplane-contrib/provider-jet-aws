@@ -72,7 +72,7 @@ spec:
                     type: string
                   name:
                     type: string
-                  platformArn:
+                  platformARN:
                     type: string
                   pollInterval:
                     type: string
@@ -177,7 +177,7 @@ spec:
                     type: array
                   cname:
                     type: string
-                  endpointUrl:
+                  endpointURL:
                     type: string
                   instances:
                     items:
@@ -204,7 +204,7 @@ spec:
                 - arn
                 - autoscalingGroups
                 - cname
-                - endpointUrl
+                - endpointURL
                 - instances
                 - launchConfigurations
                 - loadBalancers

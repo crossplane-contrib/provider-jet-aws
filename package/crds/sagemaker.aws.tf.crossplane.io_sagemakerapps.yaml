@@ -66,14 +66,14 @@ spec:
                     type: string
                   appType:
                     type: string
-                  domainId:
+                  domainID:
                     type: string
                   resourceSpec:
                     items:
                       properties:
                         instanceType:
                           type: string
-                        sagemakerImageArn:
+                        sagemakerImageARN:
                           type: string
                       type: object
                     type: array
@@ -90,7 +90,7 @@ spec:
                 required:
                 - appName
                 - appType
-                - domainId
+                - domainID
                 - userProfileName
                 type: object
               providerConfigRef:

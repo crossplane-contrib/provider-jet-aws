@@ -64,14 +64,14 @@ spec:
                 properties:
                   availabilityZone:
                     type: string
-                  clusterId:
+                  clusterID:
                     type: string
                   ipAddress:
                     type: string
-                  subnetId:
+                  subnetID:
                     type: string
                 required:
-                - clusterId
+                - clusterID
                 type: object
               providerConfigRef:
                 default:
@@ -122,15 +122,15 @@ spec:
             properties:
               atProvider:
                 properties:
-                  hsmEniId:
+                  hsmEniID:
                     type: string
-                  hsmId:
+                  hsmID:
                     type: string
                   hsmState:
                     type: string
                 required:
-                - hsmEniId
-                - hsmId
+                - hsmEniID
+                - hsmID
                 - hsmState
                 type: object
               conditions:

@@ -64,7 +64,7 @@ spec:
                 properties:
                   name:
                     type: string
-                  resourceArn:
+                  resourceARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -76,7 +76,7 @@ spec:
                     type: object
                 required:
                 - name
-                - resourceArn
+                - resourceARN
                 type: object
               providerConfigRef:
                 default:

@@ -65,9 +65,9 @@ spec:
                 properties:
                   description:
                     type: string
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
-                  networkLoadBalancerArn:
+                  networkLoadBalancerARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -130,11 +130,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
-                - ownerId
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

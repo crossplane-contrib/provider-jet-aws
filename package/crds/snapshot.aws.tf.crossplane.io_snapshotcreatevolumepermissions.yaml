@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
-                  snapshotId:
+                  snapshotID:
                     type: string
                 required:
-                - accountId
-                - snapshotId
+                - accountID
+                - snapshotID
                 type: object
               providerConfigRef:
                 default:

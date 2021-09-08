@@ -126,11 +126,11 @@ spec:
                 properties:
                   fingerprint:
                     type: string
-                  sshPublicKeyId:
+                  sshPublicKeyID:
                     type: string
                 required:
                 - fingerprint
-                - sshPublicKeyId
+                - sshPublicKeyID
                 type: object
               conditions:
                 description: Conditions of the resource.

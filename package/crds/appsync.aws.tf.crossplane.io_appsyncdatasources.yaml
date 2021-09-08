@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   description:
                     type: string
@@ -102,20 +102,20 @@ spec:
                   lambdaConfig:
                     items:
                       properties:
-                        functionArn:
+                        functionARN:
                           type: string
                       required:
-                      - functionArn
+                      - functionARN
                       type: object
                     type: array
                   name:
                     type: string
-                  serviceRoleArn:
+                  serviceRoleARN:
                     type: string
                   type:
                     type: string
                 required:
-                - apiId
+                - apiID
                 - name
                 - type
                 type: object

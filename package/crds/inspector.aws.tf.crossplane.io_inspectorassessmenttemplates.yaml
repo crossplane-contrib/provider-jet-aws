@@ -81,13 +81,13 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  targetArn:
+                  targetARN:
                     type: string
                 required:
                 - duration
                 - name
                 - rulesPackageArns
-                - targetArn
+                - targetARN
                 type: object
               providerConfigRef:
                 default:

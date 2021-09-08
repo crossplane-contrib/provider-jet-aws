@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  buildId:
+                  buildID:
                     type: string
                   description:
                     type: string
@@ -90,7 +90,7 @@ spec:
                     type: string
                   fleetType:
                     type: string
-                  instanceRoleArn:
+                  instanceRoleARN:
                     type: string
                   metricGroups:
                     items:
@@ -146,7 +146,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - buildId
+                - buildID
                 - ec2InstanceType
                 - name
                 type: object

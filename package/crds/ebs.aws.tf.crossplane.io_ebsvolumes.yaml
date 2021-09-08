@@ -69,16 +69,16 @@ spec:
                   iops:
                     format: int64
                     type: integer
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   multiAttachEnabled:
                     type: boolean
-                  outpostArn:
+                  outpostARN:
                     type: string
                   size:
                     format: int64
                     type: integer
-                  snapshotId:
+                  snapshotID:
                     type: string
                   tags:
                     additionalProperties:

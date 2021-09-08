@@ -103,7 +103,7 @@ spec:
                   port:
                     format: int64
                     type: integer
-                  preserveClientIp:
+                  preserveClientIP:
                     type: string
                   protocol:
                     type: string
@@ -140,7 +140,7 @@ spec:
                     type: object
                   targetType:
                     type: string
-                  vpcId:
+                  vpcID:
                     type: string
                 type: object
               providerConfigRef:

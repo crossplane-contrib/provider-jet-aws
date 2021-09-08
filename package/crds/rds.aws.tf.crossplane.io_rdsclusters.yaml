@@ -94,7 +94,7 @@ spec:
                     type: string
                   deletionProtection:
                     type: boolean
-                  enableHttpEndpoint:
+                  enableHTTPEndpoint:
                     type: boolean
                   enabledCloudwatchLogsExports:
                     items:
@@ -116,7 +116,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   masterPassword:
                     type: string
@@ -256,22 +256,22 @@ spec:
                 properties:
                   arn:
                     type: string
-                  clusterResourceId:
+                  clusterResourceID:
                     type: string
                   endpoint:
                     type: string
                   engineVersionActual:
                     type: string
-                  hostedZoneId:
+                  hostedZoneID:
                     type: string
                   readerEndpoint:
                     type: string
                 required:
                 - arn
-                - clusterResourceId
+                - clusterResourceID
                 - endpoint
                 - engineVersionActual
-                - hostedZoneId
+                - hostedZoneID
                 - readerEndpoint
                 type: object
               conditions:

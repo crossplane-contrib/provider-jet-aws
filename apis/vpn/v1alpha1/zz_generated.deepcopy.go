@@ -176,23 +176,23 @@ func (in *VpnConnectionParameters) DeepCopyInto(out *VpnConnectionParameters) {
 		*out = new(bool)
 		**out = **in
 	}
-	if in.LocalIpv4NetworkCidr != nil {
-		in, out := &in.LocalIpv4NetworkCidr, &out.LocalIpv4NetworkCidr
+	if in.LocalIPv4NetworkCidr != nil {
+		in, out := &in.LocalIPv4NetworkCidr, &out.LocalIPv4NetworkCidr
 		*out = new(string)
 		**out = **in
 	}
-	if in.LocalIpv6NetworkCidr != nil {
-		in, out := &in.LocalIpv6NetworkCidr, &out.LocalIpv6NetworkCidr
+	if in.LocalIPv6NetworkCidr != nil {
+		in, out := &in.LocalIPv6NetworkCidr, &out.LocalIPv6NetworkCidr
 		*out = new(string)
 		**out = **in
 	}
-	if in.RemoteIpv4NetworkCidr != nil {
-		in, out := &in.RemoteIpv4NetworkCidr, &out.RemoteIpv4NetworkCidr
+	if in.RemoteIPv4NetworkCidr != nil {
+		in, out := &in.RemoteIPv4NetworkCidr, &out.RemoteIPv4NetworkCidr
 		*out = new(string)
 		**out = **in
 	}
-	if in.RemoteIpv6NetworkCidr != nil {
-		in, out := &in.RemoteIpv6NetworkCidr, &out.RemoteIpv6NetworkCidr
+	if in.RemoteIPv6NetworkCidr != nil {
+		in, out := &in.RemoteIPv6NetworkCidr, &out.RemoteIPv6NetworkCidr
 		*out = new(string)
 		**out = **in
 	}
@@ -215,8 +215,8 @@ func (in *VpnConnectionParameters) DeepCopyInto(out *VpnConnectionParameters) {
 			(*out)[key] = val
 		}
 	}
-	if in.TransitGatewayId != nil {
-		in, out := &in.TransitGatewayId, &out.TransitGatewayId
+	if in.TransitGatewayID != nil {
+		in, out := &in.TransitGatewayID, &out.TransitGatewayID
 		*out = new(string)
 		**out = **in
 	}
@@ -240,8 +240,8 @@ func (in *VpnConnectionParameters) DeepCopyInto(out *VpnConnectionParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Tunnel1InsideIpv6Cidr != nil {
-		in, out := &in.Tunnel1InsideIpv6Cidr, &out.Tunnel1InsideIpv6Cidr
+	if in.Tunnel1InsideIPv6Cidr != nil {
+		in, out := &in.Tunnel1InsideIPv6Cidr, &out.Tunnel1InsideIPv6Cidr
 		*out = new(string)
 		**out = **in
 	}
@@ -330,8 +330,8 @@ func (in *VpnConnectionParameters) DeepCopyInto(out *VpnConnectionParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Tunnel2InsideIpv6Cidr != nil {
-		in, out := &in.Tunnel2InsideIpv6Cidr, &out.Tunnel2InsideIpv6Cidr
+	if in.Tunnel2InsideIPv6Cidr != nil {
+		in, out := &in.Tunnel2InsideIPv6Cidr, &out.Tunnel2InsideIPv6Cidr
 		*out = new(string)
 		**out = **in
 	}
@@ -400,13 +400,13 @@ func (in *VpnConnectionParameters) DeepCopyInto(out *VpnConnectionParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.TunnelInsideIpVersion != nil {
-		in, out := &in.TunnelInsideIpVersion, &out.TunnelInsideIpVersion
+	if in.TunnelInsideIPVersion != nil {
+		in, out := &in.TunnelInsideIPVersion, &out.TunnelInsideIPVersion
 		*out = new(string)
 		**out = **in
 	}
-	if in.VpnGatewayId != nil {
-		in, out := &in.VpnGatewayId, &out.VpnGatewayId
+	if in.VpnGatewayID != nil {
+		in, out := &in.VpnGatewayID, &out.VpnGatewayID
 		*out = new(string)
 		**out = **in
 	}
@@ -803,8 +803,8 @@ func (in *VpnGatewayParameters) DeepCopyInto(out *VpnGatewayParameters) {
 			(*out)[key] = val
 		}
 	}
-	if in.VpcId != nil {
-		in, out := &in.VpcId, &out.VpcId
+	if in.VPCID != nil {
+		in, out := &in.VPCID, &out.VPCID
 		*out = new(string)
 		**out = **in
 	}

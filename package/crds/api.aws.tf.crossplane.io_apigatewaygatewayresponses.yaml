@@ -74,13 +74,13 @@ spec:
                     type: object
                   responseType:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                   statusCode:
                     type: string
                 required:
                 - responseType
-                - restApiId
+                - restAPIID
                 type: object
               providerConfigRef:
                 default:

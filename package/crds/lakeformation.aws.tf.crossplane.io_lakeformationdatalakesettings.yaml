@@ -68,7 +68,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  catalogId:
+                  catalogID:
                     type: string
                   createDatabaseDefaultPermissions:
                     items:

@@ -66,30 +66,30 @@ spec:
                   accepter:
                     items:
                       properties:
-                        allowClassicLinkToRemoteVpc:
+                        allowClassicLinkToRemoteVPC:
                           type: boolean
-                        allowRemoteVpcDnsResolution:
+                        allowRemoteVPCDNSResolution:
                           type: boolean
-                        allowVpcToRemoteClassicLink:
+                        allowVPCToRemoteClassicLink:
                           type: boolean
                       type: object
                     type: array
                   autoAccept:
                     type: boolean
-                  peerOwnerId:
+                  peerOwnerID:
                     type: string
                   peerRegion:
                     type: string
-                  peerVpcId:
+                  peerVPCID:
                     type: string
                   requester:
                     items:
                       properties:
-                        allowClassicLinkToRemoteVpc:
+                        allowClassicLinkToRemoteVPC:
                           type: boolean
-                        allowRemoteVpcDnsResolution:
+                        allowRemoteVPCDNSResolution:
                           type: boolean
-                        allowVpcToRemoteClassicLink:
+                        allowVPCToRemoteClassicLink:
                           type: boolean
                       type: object
                     type: array
@@ -101,11 +101,11 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - peerVpcId
-                - vpcId
+                - peerVPCID
+                - vpcID
                 type: object
               providerConfigRef:
                 default:

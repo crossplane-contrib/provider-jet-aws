@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  appId:
+                  appID:
                     type: string
                   deploymentArtifacts:
                     type: string
@@ -73,7 +73,7 @@ spec:
                   stackName:
                     type: string
                 required:
-                - appId
+                - appID
                 - environmentName
                 type: object
               providerConfigRef:

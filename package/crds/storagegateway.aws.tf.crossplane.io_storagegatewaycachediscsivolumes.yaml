@@ -64,17 +64,17 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  gatewayArn:
+                  gatewayARN:
                     type: string
                   kmsEncrypted:
                     type: boolean
                   kmsKey:
                     type: string
-                  networkInterfaceId:
+                  networkInterfaceID:
                     type: string
-                  snapshotId:
+                  snapshotID:
                     type: string
-                  sourceVolumeArn:
+                  sourceVolumeARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -90,8 +90,8 @@ spec:
                     format: int64
                     type: integer
                 required:
-                - gatewayArn
-                - networkInterfaceId
+                - gatewayARN
+                - networkInterfaceID
                 - targetName
                 - volumeSizeInBytes
                 type: object
@@ -155,20 +155,20 @@ spec:
                   networkInterfacePort:
                     format: int64
                     type: integer
-                  targetArn:
+                  targetARN:
                     type: string
-                  volumeArn:
+                  volumeARN:
                     type: string
-                  volumeId:
+                  volumeID:
                     type: string
                 required:
                 - arn
                 - chapEnabled
                 - lunNumber
                 - networkInterfacePort
-                - targetArn
-                - volumeArn
-                - volumeId
+                - targetARN
+                - volumeARN
+                - volumeID
                 type: object
               conditions:
                 description: Conditions of the resource.

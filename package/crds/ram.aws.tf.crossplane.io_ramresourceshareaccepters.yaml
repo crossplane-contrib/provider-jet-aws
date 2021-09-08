@@ -64,10 +64,10 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  shareArn:
+                  shareARN:
                     type: string
                 required:
-                - shareArn
+                - shareARN
                 type: object
               providerConfigRef:
                 default:
@@ -119,28 +119,28 @@ spec:
             properties:
               atProvider:
                 properties:
-                  invitationArn:
+                  invitationARN:
                     type: string
-                  receiverAccountId:
+                  receiverAccountID:
                     type: string
                   resources:
                     items:
                       type: string
                     type: array
-                  senderAccountId:
+                  senderAccountID:
                     type: string
-                  shareId:
+                  shareID:
                     type: string
                   shareName:
                     type: string
                   status:
                     type: string
                 required:
-                - invitationArn
-                - receiverAccountId
+                - invitationARN
+                - receiverAccountID
                 - resources
-                - senderAccountId
-                - shareId
+                - senderAccountID
+                - shareID
                 - shareName
                 - status
                 type: object

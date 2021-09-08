@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  licenseConfigurationArn:
+                  licenseConfigurationARN:
                     type: string
-                  resourceArn:
+                  resourceARN:
                     type: string
                 required:
-                - licenseConfigurationArn
-                - resourceArn
+                - licenseConfigurationARN
+                - resourceARN
                 type: object
               providerConfigRef:
                 default:

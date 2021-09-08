@@ -67,15 +67,15 @@ spec:
                     items:
                       type: string
                     type: array
-                  s3BucketArn:
+                  s3BucketARN:
                     type: string
                   s3Config:
                     items:
                       properties:
-                        bucketAccessRoleArn:
+                        bucketAccessRoleARN:
                           type: string
                       required:
-                      - bucketAccessRoleArn
+                      - bucketAccessRoleARN
                       type: object
                     type: array
                   s3StorageClass:
@@ -91,7 +91,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - s3BucketArn
+                - s3BucketARN
                 - s3Config
                 - subdirectory
                 type: object

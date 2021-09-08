@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  keyId:
+                  keyID:
                     type: string
                   type:
                     type: string

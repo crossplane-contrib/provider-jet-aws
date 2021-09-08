@@ -65,7 +65,7 @@ spec:
                 properties:
                   description:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                   stageDescription:
                     type: string
@@ -80,7 +80,7 @@ spec:
                       type: string
                     type: object
                 required:
-                - restApiId
+                - restAPIID
                 type: object
               providerConfigRef:
                 default:
@@ -134,14 +134,14 @@ spec:
                 properties:
                   createdDate:
                     type: string
-                  executionArn:
+                  executionARN:
                     type: string
-                  invokeUrl:
+                  invokeURL:
                     type: string
                 required:
                 - createdDate
-                - executionArn
-                - invokeUrl
+                - executionARN
+                - invokeURL
                 type: object
               conditions:
                 description: Conditions of the resource.

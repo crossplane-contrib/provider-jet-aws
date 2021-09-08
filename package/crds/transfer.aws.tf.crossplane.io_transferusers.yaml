@@ -101,7 +101,7 @@ spec:
                     type: array
                   role:
                     type: string
-                  serverId:
+                  serverID:
                     type: string
                   tags:
                     additionalProperties:
@@ -115,7 +115,7 @@ spec:
                     type: string
                 required:
                 - role
-                - serverId
+                - serverID
                 - userName
                 type: object
               providerConfigRef:

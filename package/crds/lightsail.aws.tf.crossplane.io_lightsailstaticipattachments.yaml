@@ -66,11 +66,11 @@ spec:
                 properties:
                   instanceName:
                     type: string
-                  staticIpName:
+                  staticIPName:
                     type: string
                 required:
                 - instanceName
-                - staticIpName
+                - staticIPName
                 type: object
               providerConfigRef:
                 default:

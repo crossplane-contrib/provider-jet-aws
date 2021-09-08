@@ -121,11 +121,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  defaultVersionId:
+                  defaultVersionID:
                     type: string
                 required:
                 - arn
-                - defaultVersionId
+                - defaultVersionID
                 type: object
               conditions:
                 description: Conditions of the resource.

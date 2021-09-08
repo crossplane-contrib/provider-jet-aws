@@ -67,7 +67,7 @@ spec:
                     type: string
                   eventPattern:
                     type: string
-                  eventSourceArn:
+                  eventSourceARN:
                     type: string
                   name:
                     type: string
@@ -75,7 +75,7 @@ spec:
                     format: int64
                     type: integer
                 required:
-                - eventSourceArn
+                - eventSourceARN
                 - name
                 type: object
               providerConfigRef:

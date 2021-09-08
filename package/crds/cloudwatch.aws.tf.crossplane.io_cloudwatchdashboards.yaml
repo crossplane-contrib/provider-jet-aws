@@ -120,10 +120,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  dashboardArn:
+                  dashboardARN:
                     type: string
                 required:
-                - dashboardArn
+                - dashboardARN
                 type: object
               conditions:
                 description: Conditions of the resource.

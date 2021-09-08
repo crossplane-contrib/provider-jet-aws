@@ -68,11 +68,11 @@ spec:
                     type: string
                   displayName:
                     type: string
-                  fleetArn:
+                  fleetARN:
                     type: string
                 required:
                 - certificate
-                - fleetArn
+                - fleetARN
                 type: object
               providerConfigRef:
                 default:
@@ -124,10 +124,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  websiteCaId:
+                  websiteCaID:
                     type: string
                 required:
-                - websiteCaId
+                - websiteCaID
                 type: object
               conditions:
                 description: Conditions of the resource.

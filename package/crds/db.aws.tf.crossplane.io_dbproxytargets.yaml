@@ -128,20 +128,20 @@ spec:
                   port:
                     format: int64
                     type: integer
-                  rdsResourceId:
+                  rdsResourceID:
                     type: string
-                  targetArn:
+                  targetARN:
                     type: string
-                  trackedClusterId:
+                  trackedClusterID:
                     type: string
                   type:
                     type: string
                 required:
                 - endpoint
                 - port
-                - rdsResourceId
-                - targetArn
-                - trackedClusterId
+                - rdsResourceID
+                - targetARN
+                - trackedClusterID
                 - type
                 type: object
               conditions:

@@ -92,19 +92,19 @@ spec:
                       - url
                       type: object
                     type: array
-                  customJson:
+                  customJSON:
                     type: string
                   defaultAvailabilityZone:
                     type: string
-                  defaultInstanceProfileArn:
+                  defaultInstanceProfileARN:
                     type: string
                   defaultOs:
                     type: string
                   defaultRootDeviceType:
                     type: string
-                  defaultSshKeyName:
+                  defaultSSHKeyName:
                     type: string
-                  defaultSubnetId:
+                  defaultSubnetID:
                     type: string
                   hostnameTheme:
                     type: string
@@ -114,7 +114,7 @@ spec:
                     type: string
                   region:
                     type: string
-                  serviceRoleArn:
+                  serviceRoleARN:
                     type: string
                   tags:
                     additionalProperties:
@@ -128,13 +128,13 @@ spec:
                     type: boolean
                   useOpsworksSecurityGroups:
                     type: boolean
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - defaultInstanceProfileArn
+                - defaultInstanceProfileARN
                 - name
                 - region
-                - serviceRoleArn
+                - serviceRoleARN
                 type: object
               providerConfigRef:
                 default:

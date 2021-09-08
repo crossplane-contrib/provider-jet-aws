@@ -72,7 +72,7 @@ spec:
                             properties:
                               cloudwatchEncryptionMode:
                                 type: string
-                              kmsKeyArn:
+                              kmsKeyARN:
                                 type: string
                             type: object
                           type: array
@@ -81,14 +81,14 @@ spec:
                             properties:
                               jobBookmarksEncryptionMode:
                                 type: string
-                              kmsKeyArn:
+                              kmsKeyARN:
                                 type: string
                             type: object
                           type: array
                         s3Encryption:
                           items:
                             properties:
-                              kmsKeyArn:
+                              kmsKeyARN:
                                 type: string
                               s3EncryptionMode:
                                 type: string

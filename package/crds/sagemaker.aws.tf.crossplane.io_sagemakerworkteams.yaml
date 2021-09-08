@@ -70,14 +70,14 @@ spec:
                         cognitoMemberDefinition:
                           items:
                             properties:
-                              clientId:
+                              clientID:
                                 type: string
                               userGroup:
                                 type: string
                               userPool:
                                 type: string
                             required:
-                            - clientId
+                            - clientID
                             - userGroup
                             - userPool
                             type: object
@@ -98,7 +98,7 @@ spec:
                   notificationConfiguration:
                     items:
                       properties:
-                        notificationTopicArn:
+                        notificationTopicARN:
                           type: string
                       type: object
                     type: array

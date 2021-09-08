@@ -68,15 +68,15 @@ spec:
                     items:
                       type: string
                     type: array
-                  connectionNotificationArn:
+                  connectionNotificationARN:
                     type: string
-                  vpcEndpointId:
+                  vpcEndpointID:
                     type: string
-                  vpcEndpointServiceId:
+                  vpcEndpointServiceID:
                     type: string
                 required:
                 - connectionEvents
-                - connectionNotificationArn
+                - connectionNotificationARN
                 type: object
               providerConfigRef:
                 default:

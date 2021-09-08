@@ -62,18 +62,18 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  clientVpnEndpointId:
+                  clientVpnEndpointID:
                     type: string
                   description:
                     type: string
                   destinationCidrBlock:
                     type: string
-                  targetVpcSubnetId:
+                  targetVPCSubnetID:
                     type: string
                 required:
-                - clientVpnEndpointId
+                - clientVpnEndpointID
                 - destinationCidrBlock
-                - targetVpcSubnetId
+                - targetVPCSubnetID
                 type: object
               providerConfigRef:
                 default:

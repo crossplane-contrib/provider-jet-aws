@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  transitGatewayAttachmentId:
+                  transitGatewayAttachmentID:
                     type: string
-                  transitGatewayRouteTableId:
+                  transitGatewayRouteTableID:
                     type: string
                 required:
-                - transitGatewayAttachmentId
-                - transitGatewayRouteTableId
+                - transitGatewayAttachmentID
+                - transitGatewayRouteTableID
                 type: object
               providerConfigRef:
                 default:
@@ -122,12 +122,12 @@ spec:
             properties:
               atProvider:
                 properties:
-                  resourceId:
+                  resourceID:
                     type: string
                   resourceType:
                     type: string
                 required:
-                - resourceId
+                - resourceID
                 - resourceType
                 type: object
               conditions:

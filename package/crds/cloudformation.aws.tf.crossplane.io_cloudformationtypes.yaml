@@ -63,18 +63,18 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  executionRoleArn:
+                  executionRoleARN:
                     type: string
                   loggingConfig:
                     items:
                       properties:
                         logGroupName:
                           type: string
-                        logRoleArn:
+                        logRoleARN:
                           type: string
                       required:
                       - logGroupName
-                      - logRoleArn
+                      - logRoleARN
                       type: object
                     type: array
                   schemaHandlerPackage:
@@ -138,13 +138,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  defaultVersionId:
+                  defaultVersionID:
                     type: string
                   deprecatedStatus:
                     type: string
                   description:
                     type: string
-                  documentationUrl:
+                  documentationURL:
                     type: string
                   isDefaultVersion:
                     type: boolean
@@ -152,26 +152,26 @@ spec:
                     type: string
                   schema:
                     type: string
-                  sourceUrl:
+                  sourceURL:
                     type: string
-                  typeArn:
+                  typeARN:
                     type: string
-                  versionId:
+                  versionID:
                     type: string
                   visibility:
                     type: string
                 required:
                 - arn
-                - defaultVersionId
+                - defaultVersionID
                 - deprecatedStatus
                 - description
-                - documentationUrl
+                - documentationURL
                 - isDefaultVersion
                 - provisioningType
                 - schema
-                - sourceUrl
-                - typeArn
-                - versionId
+                - sourceURL
+                - typeARN
+                - versionID
                 - visibility
                 type: object
               conditions:

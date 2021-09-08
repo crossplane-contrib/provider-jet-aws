@@ -89,13 +89,13 @@ spec:
                     type: string
                   databaseName:
                     type: string
-                  elasticIp:
+                  elasticIP:
                     type: string
                   encrypted:
                     type: boolean
                   endpoint:
                     type: string
-                  enhancedVpcRouting:
+                  enhancedVPCRouting:
                     type: boolean
                   finalSnapshotIdentifier:
                     type: string
@@ -103,7 +103,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   logging:
                     items:

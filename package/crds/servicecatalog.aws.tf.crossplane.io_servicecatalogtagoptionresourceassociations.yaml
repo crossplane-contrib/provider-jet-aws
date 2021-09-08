@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  resourceId:
+                  resourceID:
                     type: string
-                  tagOptionId:
+                  tagOptionID:
                     type: string
                 required:
-                - resourceId
-                - tagOptionId
+                - resourceID
+                - tagOptionID
                 type: object
               providerConfigRef:
                 default:
@@ -122,7 +122,7 @@ spec:
             properties:
               atProvider:
                 properties:
-                  resourceArn:
+                  resourceARN:
                     type: string
                   resourceCreatedTime:
                     type: string
@@ -131,7 +131,7 @@ spec:
                   resourceName:
                     type: string
                 required:
-                - resourceArn
+                - resourceARN
                 - resourceCreatedTime
                 - resourceDescription
                 - resourceName

@@ -91,7 +91,7 @@ spec:
                             - username
                             type: object
                           type: array
-                        invocationHttpParameters:
+                        invocationHTTPParameters:
                           items:
                             properties:
                               body:
@@ -137,18 +137,18 @@ spec:
                               clientParameters:
                                 items:
                                   properties:
-                                    clientId:
+                                    clientID:
                                       type: string
                                     clientSecret:
                                       type: string
                                   required:
-                                  - clientId
+                                  - clientID
                                   - clientSecret
                                   type: object
                                 type: array
                               httpMethod:
                                 type: string
-                              oauthHttpParameters:
+                              oauthHTTPParameters:
                                 items:
                                   properties:
                                     body:
@@ -189,7 +189,7 @@ spec:
                             required:
                             - authorizationEndpoint
                             - httpMethod
-                            - oauthHttpParameters
+                            - oauthHTTPParameters
                             type: object
                           type: array
                       type: object
@@ -257,11 +257,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  secretArn:
+                  secretARN:
                     type: string
                 required:
                 - arn
-                - secretArn
+                - secretARN
                 type: object
               conditions:
                 description: Conditions of the resource.

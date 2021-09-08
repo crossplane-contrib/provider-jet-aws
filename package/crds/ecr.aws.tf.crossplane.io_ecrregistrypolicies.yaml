@@ -116,10 +116,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  registryId:
+                  registryID:
                     type: string
                 required:
-                - registryId
+                - registryID
                 type: object
               conditions:
                 description: Conditions of the resource.

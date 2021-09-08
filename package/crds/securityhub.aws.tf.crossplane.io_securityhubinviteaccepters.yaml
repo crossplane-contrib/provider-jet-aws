@@ -64,10 +64,10 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  masterId:
+                  masterID:
                     type: string
                 required:
-                - masterId
+                - masterID
                 type: object
               providerConfigRef:
                 default:
@@ -119,10 +119,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  invitationId:
+                  invitationID:
                     type: string
                 required:
-                - invitationId
+                - invitationID
                 type: object
               conditions:
                 description: Conditions of the resource.

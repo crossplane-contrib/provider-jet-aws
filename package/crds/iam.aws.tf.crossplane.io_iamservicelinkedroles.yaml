@@ -130,14 +130,14 @@ spec:
                     type: string
                   path:
                     type: string
-                  uniqueId:
+                  uniqueID:
                     type: string
                 required:
                 - arn
                 - createDate
                 - name
                 - path
-                - uniqueId
+                - uniqueID
                 type: object
               conditions:
                 description: Conditions of the resource.

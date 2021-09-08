@@ -63,17 +63,17 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  hostedZoneId:
+                  hostedZoneID:
                     type: string
-                  keyManagementServiceArn:
+                  keyManagementServiceARN:
                     type: string
                   name:
                     type: string
                   status:
                     type: string
                 required:
-                - hostedZoneId
-                - keyManagementServiceArn
+                - hostedZoneID
+                - keyManagementServiceARN
                 - name
                 type: object
               providerConfigRef:

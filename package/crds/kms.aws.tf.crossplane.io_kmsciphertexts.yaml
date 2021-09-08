@@ -66,12 +66,12 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  keyId:
+                  keyID:
                     type: string
                   plaintext:
                     type: string
                 required:
-                - keyId
+                - keyID
                 - plaintext
                 type: object
               providerConfigRef:

@@ -684,8 +684,8 @@ func (in *NeptuneClusterParameters) DeepCopyInto(out *NeptuneClusterParameters) 
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	if in.KmsKeyArn != nil {
-		in, out := &in.KmsKeyArn, &out.KmsKeyArn
+	if in.KmsKeyARN != nil {
+		in, out := &in.KmsKeyARN, &out.KmsKeyARN
 		*out = new(string)
 		**out = **in
 	}
@@ -748,8 +748,8 @@ func (in *NeptuneClusterParameters) DeepCopyInto(out *NeptuneClusterParameters) 
 			(*out)[key] = val
 		}
 	}
-	if in.VpcSecurityGroupIds != nil {
-		in, out := &in.VpcSecurityGroupIds, &out.VpcSecurityGroupIds
+	if in.VPCSecurityGroupIds != nil {
+		in, out := &in.VPCSecurityGroupIds, &out.VPCSecurityGroupIds
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}

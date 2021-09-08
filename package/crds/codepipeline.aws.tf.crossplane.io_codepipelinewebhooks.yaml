@@ -68,7 +68,7 @@ spec:
                   authenticationConfiguration:
                     items:
                       properties:
-                        allowedIpRange:
+                        allowedIPRange:
                           type: string
                         secretToken:
                           type: string

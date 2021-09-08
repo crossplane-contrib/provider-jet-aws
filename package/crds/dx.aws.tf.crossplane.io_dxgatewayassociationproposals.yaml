@@ -68,16 +68,16 @@ spec:
                     items:
                       type: string
                     type: array
-                  associatedGatewayId:
+                  associatedGatewayID:
                     type: string
-                  dxGatewayId:
+                  dxGatewayID:
                     type: string
-                  dxGatewayOwnerAccountId:
+                  dxGatewayOwnerAccountID:
                     type: string
                 required:
-                - associatedGatewayId
-                - dxGatewayId
-                - dxGatewayOwnerAccountId
+                - associatedGatewayID
+                - dxGatewayID
+                - dxGatewayOwnerAccountID
                 type: object
               providerConfigRef:
                 default:
@@ -129,12 +129,12 @@ spec:
             properties:
               atProvider:
                 properties:
-                  associatedGatewayOwnerAccountId:
+                  associatedGatewayOwnerAccountID:
                     type: string
                   associatedGatewayType:
                     type: string
                 required:
-                - associatedGatewayOwnerAccountId
+                - associatedGatewayOwnerAccountID
                 - associatedGatewayType
                 type: object
               conditions:

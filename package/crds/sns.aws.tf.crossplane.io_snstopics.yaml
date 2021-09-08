@@ -62,9 +62,9 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applicationFailureFeedbackRoleArn:
+                  applicationFailureFeedbackRoleARN:
                     type: string
-                  applicationSuccessFeedbackRoleArn:
+                  applicationSuccessFeedbackRoleARN:
                     type: string
                   applicationSuccessFeedbackSampleRate:
                     format: int64
@@ -77,25 +77,25 @@ spec:
                     type: string
                   fifoTopic:
                     type: boolean
-                  firehoseFailureFeedbackRoleArn:
+                  firehoseFailureFeedbackRoleARN:
                     type: string
-                  firehoseSuccessFeedbackRoleArn:
+                  firehoseSuccessFeedbackRoleARN:
                     type: string
                   firehoseSuccessFeedbackSampleRate:
                     format: int64
                     type: integer
-                  httpFailureFeedbackRoleArn:
+                  httpFailureFeedbackRoleARN:
                     type: string
-                  httpSuccessFeedbackRoleArn:
+                  httpSuccessFeedbackRoleARN:
                     type: string
                   httpSuccessFeedbackSampleRate:
                     format: int64
                     type: integer
-                  kmsMasterKeyId:
+                  kmsMasterKeyID:
                     type: string
-                  lambdaFailureFeedbackRoleArn:
+                  lambdaFailureFeedbackRoleARN:
                     type: string
-                  lambdaSuccessFeedbackRoleArn:
+                  lambdaSuccessFeedbackRoleARN:
                     type: string
                   lambdaSuccessFeedbackSampleRate:
                     format: int64
@@ -106,9 +106,9 @@ spec:
                     type: string
                   policy:
                     type: string
-                  sqsFailureFeedbackRoleArn:
+                  sqsFailureFeedbackRoleARN:
                     type: string
-                  sqsSuccessFeedbackRoleArn:
+                  sqsSuccessFeedbackRoleARN:
                     type: string
                   sqsSuccessFeedbackSampleRate:
                     format: int64

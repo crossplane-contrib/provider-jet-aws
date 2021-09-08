@@ -72,10 +72,10 @@ spec:
                         statefulRuleGroupReference:
                           items:
                             properties:
-                              resourceArn:
+                              resourceARN:
                                 type: string
                             required:
-                            - resourceArn
+                            - resourceARN
                             type: object
                           type: array
                         statelessCustomAction:
@@ -125,11 +125,11 @@ spec:
                               priority:
                                 format: int64
                                 type: integer
-                              resourceArn:
+                              resourceARN:
                                 type: string
                             required:
                             - priority
-                            - resourceArn
+                            - resourceARN
                             type: object
                           type: array
                       required:

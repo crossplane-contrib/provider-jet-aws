@@ -68,7 +68,7 @@ spec:
                     type: string
                   enforceConsumerDeletion:
                     type: boolean
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   name:
                     type: string

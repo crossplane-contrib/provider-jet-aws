@@ -76,7 +76,7 @@ spec:
                     type: string
                   name:
                     type: string
-                  resourceIdScope:
+                  resourceIDScope:
                     type: string
                   resourceTypesScope:
                     items:

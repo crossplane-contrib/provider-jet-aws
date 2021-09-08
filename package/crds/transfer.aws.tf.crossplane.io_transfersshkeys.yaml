@@ -64,13 +64,13 @@ spec:
                 properties:
                   body:
                     type: string
-                  serverId:
+                  serverID:
                     type: string
                   userName:
                     type: string
                 required:
                 - body
-                - serverId
+                - serverID
                 - userName
                 type: object
               providerConfigRef:

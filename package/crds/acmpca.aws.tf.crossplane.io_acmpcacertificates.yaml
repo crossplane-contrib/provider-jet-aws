@@ -62,13 +62,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  certificateAuthorityArn:
+                  certificateAuthorityARN:
                     type: string
                   certificateSigningRequest:
                     type: string
                   signingAlgorithm:
                     type: string
-                  templateArn:
+                  templateARN:
                     type: string
                   validity:
                     items:
@@ -83,7 +83,7 @@ spec:
                       type: object
                     type: array
                 required:
-                - certificateAuthorityArn
+                - certificateAuthorityARN
                 - certificateSigningRequest
                 - signingAlgorithm
                 - validity

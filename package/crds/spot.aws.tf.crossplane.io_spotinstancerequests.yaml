@@ -65,7 +65,7 @@ spec:
                 properties:
                   ami:
                     type: string
-                  associatePublicIpAddress:
+                  associatePublicIPAddress:
                     type: boolean
                   availabilityZone:
                     type: string
@@ -80,7 +80,7 @@ spec:
                         capacityReservationTarget:
                           items:
                             properties:
-                              capacityReservationId:
+                              capacityReservationID:
                                 type: string
                             type: object
                           type: array
@@ -99,7 +99,7 @@ spec:
                           type: string
                       type: object
                     type: array
-                  disableApiTermination:
+                  disableAPITermination:
                     type: boolean
                   ebsBlockDevice:
                     items:
@@ -113,9 +113,9 @@ spec:
                         iops:
                           format: int64
                           type: integer
-                        kmsKeyId:
+                        kmsKeyID:
                           type: string
-                        snapshotId:
+                        snapshotID:
                           type: string
                         tags:
                           additionalProperties:
@@ -159,7 +159,7 @@ spec:
                     type: boolean
                   hibernation:
                     type: boolean
-                  hostId:
+                  hostID:
                     type: string
                   iamInstanceProfile:
                     type: string
@@ -215,16 +215,16 @@ spec:
                         deviceIndex:
                           format: int64
                           type: integer
-                        networkInterfaceId:
+                        networkInterfaceID:
                           type: string
                       required:
                       - deviceIndex
-                      - networkInterfaceId
+                      - networkInterfaceID
                       type: object
                     type: array
                   placementGroup:
                     type: string
-                  privateIp:
+                  privateIP:
                     type: string
                   rootBlockDevice:
                     items:
@@ -236,7 +236,7 @@ spec:
                         iops:
                           format: int64
                           type: integer
-                        kmsKeyId:
+                        kmsKeyID:
                           type: string
                         tags:
                           additionalProperties:
@@ -266,7 +266,7 @@ spec:
                     type: string
                   spotType:
                     type: string
-                  subnetId:
+                  subnetID:
                     type: string
                   tags:
                     additionalProperties:
@@ -350,35 +350,35 @@ spec:
                     type: string
                   instanceState:
                     type: string
-                  outpostArn:
+                  outpostARN:
                     type: string
                   passwordData:
                     type: string
-                  primaryNetworkInterfaceId:
+                  primaryNetworkInterfaceID:
                     type: string
-                  privateDns:
+                  privateDNS:
                     type: string
-                  publicDns:
+                  publicDNS:
                     type: string
-                  publicIp:
+                  publicIP:
                     type: string
                   spotBidStatus:
                     type: string
-                  spotInstanceId:
+                  spotInstanceID:
                     type: string
                   spotRequestState:
                     type: string
                 required:
                 - arn
                 - instanceState
-                - outpostArn
+                - outpostARN
                 - passwordData
-                - primaryNetworkInterfaceId
-                - privateDns
-                - publicDns
-                - publicIp
+                - primaryNetworkInterfaceID
+                - privateDNS
+                - publicDNS
+                - publicIP
                 - spotBidStatus
-                - spotInstanceId
+                - spotInstanceID
                 - spotRequestState
                 type: object
               conditions:

@@ -78,7 +78,7 @@ spec:
                   reservoirSize:
                     format: int64
                     type: integer
-                  resourceArn:
+                  resourceARN:
                     type: string
                   ruleName:
                     type: string
@@ -105,7 +105,7 @@ spec:
                 - httpMethod
                 - priority
                 - reservoirSize
-                - resourceArn
+                - resourceARN
                 - serviceName
                 - serviceType
                 - urlPath

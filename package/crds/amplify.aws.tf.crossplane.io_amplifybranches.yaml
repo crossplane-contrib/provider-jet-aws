@@ -62,9 +62,9 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  appId:
+                  appID:
                     type: string
-                  backendEnvironmentArn:
+                  backendEnvironmentARN:
                     type: string
                   basicAuthCredentials:
                     type: string
@@ -105,7 +105,7 @@ spec:
                   ttl:
                     type: string
                 required:
-                - appId
+                - appID
                 - branchName
                 type: object
               providerConfigRef:

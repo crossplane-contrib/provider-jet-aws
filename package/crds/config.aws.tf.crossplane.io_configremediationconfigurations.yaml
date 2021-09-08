@@ -81,7 +81,7 @@ spec:
                     type: array
                   resourceType:
                     type: string
-                  targetId:
+                  targetID:
                     type: string
                   targetType:
                     type: string
@@ -89,7 +89,7 @@ spec:
                     type: string
                 required:
                 - configRuleName
-                - targetId
+                - targetID
                 - targetType
                 type: object
               providerConfigRef:

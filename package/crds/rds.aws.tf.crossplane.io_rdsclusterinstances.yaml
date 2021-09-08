@@ -92,11 +92,11 @@ spec:
                   monitoringInterval:
                     format: int64
                     type: integer
-                  monitoringRoleArn:
+                  monitoringRoleARN:
                     type: string
                   performanceInsightsEnabled:
                     type: boolean
-                  performanceInsightsKmsKeyId:
+                  performanceInsightsKmsKeyID:
                     type: string
                   preferredBackupWindow:
                     type: string
@@ -170,13 +170,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  dbiResourceId:
+                  dbiResourceID:
                     type: string
                   endpoint:
                     type: string
                   engineVersionActual:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   port:
                     format: int64
@@ -187,10 +187,10 @@ spec:
                     type: boolean
                 required:
                 - arn
-                - dbiResourceId
+                - dbiResourceID
                 - endpoint
                 - engineVersionActual
-                - kmsKeyId
+                - kmsKeyID
                 - port
                 - storageEncrypted
                 - writer

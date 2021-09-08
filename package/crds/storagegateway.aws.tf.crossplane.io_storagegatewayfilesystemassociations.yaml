@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  auditDestinationArn:
+                  auditDestinationARN:
                     type: string
                   cacheAttributes:
                     items:
@@ -74,9 +74,9 @@ spec:
                           type: integer
                       type: object
                     type: array
-                  gatewayArn:
+                  gatewayARN:
                     type: string
-                  locationArn:
+                  locationARN:
                     type: string
                   password:
                     type: string
@@ -91,8 +91,8 @@ spec:
                   username:
                     type: string
                 required:
-                - gatewayArn
-                - locationArn
+                - gatewayARN
+                - locationARN
                 - password
                 - username
                 type: object

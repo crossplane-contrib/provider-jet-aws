@@ -86,7 +86,7 @@ spec:
                     type: string
                   awsFlowRubySettings:
                     type: string
-                  dataSourceArn:
+                  dataSourceARN:
                     type: string
                   dataSourceDatabaseName:
                     type: string
@@ -136,13 +136,13 @@ spec:
                       - privateKey
                       type: object
                     type: array
-                  stackId:
+                  stackID:
                     type: string
                   type:
                     type: string
                 required:
                 - name
-                - stackId
+                - stackID
                 - type
                 type: object
               providerConfigRef:

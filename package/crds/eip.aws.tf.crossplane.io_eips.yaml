@@ -64,9 +64,9 @@ spec:
                 properties:
                   address:
                     type: string
-                  associateWithPrivateIp:
+                  associateWithPrivateIP:
                     type: string
-                  customerOwnedIpv4Pool:
+                  customerOwnedIPv4Pool:
                     type: string
                   instance:
                     type: string
@@ -74,7 +74,7 @@ spec:
                     type: string
                   networkInterface:
                     type: string
-                  publicIpv4Pool:
+                  publicIPv4Pool:
                     type: string
                   tags:
                     additionalProperties:
@@ -136,34 +136,34 @@ spec:
             properties:
               atProvider:
                 properties:
-                  allocationId:
+                  allocationID:
                     type: string
-                  associationId:
+                  associationID:
                     type: string
-                  carrierIp:
+                  carrierIP:
                     type: string
-                  customerOwnedIp:
+                  customerOwnedIP:
                     type: string
                   domain:
                     type: string
-                  privateDns:
+                  privateDNS:
                     type: string
-                  privateIp:
+                  privateIP:
                     type: string
-                  publicDns:
+                  publicDNS:
                     type: string
-                  publicIp:
+                  publicIP:
                     type: string
                 required:
-                - allocationId
-                - associationId
-                - carrierIp
-                - customerOwnedIp
+                - allocationID
+                - associationID
+                - carrierIP
+                - customerOwnedIP
                 - domain
-                - privateDns
-                - privateIp
-                - publicDns
-                - publicIp
+                - privateDNS
+                - privateIP
+                - publicDNS
+                - publicIP
                 type: object
               conditions:
                 description: Conditions of the resource.

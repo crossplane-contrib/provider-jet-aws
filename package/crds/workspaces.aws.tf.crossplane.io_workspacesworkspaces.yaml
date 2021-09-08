@@ -63,9 +63,9 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  bundleId:
+                  bundleID:
                     type: string
-                  directoryId:
+                  directoryID:
                     type: string
                   rootVolumeEncryptionEnabled:
                     type: boolean
@@ -102,8 +102,8 @@ spec:
                       type: object
                     type: array
                 required:
-                - bundleId
-                - directoryId
+                - bundleID
+                - directoryID
                 - userName
                 type: object
               providerConfigRef:

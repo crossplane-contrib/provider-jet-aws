@@ -69,7 +69,7 @@ spec:
                     type: string
                   name:
                     type: string
-                  parentId:
+                  parentID:
                     type: string
                   roleName:
                     type: string

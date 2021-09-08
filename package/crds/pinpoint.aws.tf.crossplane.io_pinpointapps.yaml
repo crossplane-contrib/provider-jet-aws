@@ -69,7 +69,7 @@ spec:
                           type: string
                         mode:
                           type: string
-                        webUrl:
+                        webURL:
                           type: string
                       type: object
                     type: array
@@ -161,12 +161,12 @@ spec:
             properties:
               atProvider:
                 properties:
-                  applicationId:
+                  applicationID:
                     type: string
                   arn:
                     type: string
                 required:
-                - applicationId
+                - applicationID
                 - arn
                 type: object
               conditions:

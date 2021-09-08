@@ -64,11 +64,11 @@ spec:
                 properties:
                   policy:
                     type: string
-                  queueUrl:
+                  queueURL:
                     type: string
                 required:
                 - policy
-                - queueUrl
+                - queueURL
                 type: object
               providerConfigRef:
                 default:

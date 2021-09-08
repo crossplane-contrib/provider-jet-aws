@@ -66,7 +66,7 @@ spec:
                 properties:
                   httpMethod:
                     type: string
-                  resourceId:
+                  resourceID:
                     type: string
                   responseModels:
                     additionalProperties:
@@ -76,14 +76,14 @@ spec:
                     additionalProperties:
                       type: boolean
                     type: object
-                  restApiId:
+                  restAPIID:
                     type: string
                   statusCode:
                     type: string
                 required:
                 - httpMethod
-                - resourceId
-                - restApiId
+                - resourceID
+                - restAPIID
                 - statusCode
                 type: object
               providerConfigRef:

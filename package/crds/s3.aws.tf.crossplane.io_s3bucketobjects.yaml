@@ -88,7 +88,7 @@ spec:
                     type: boolean
                   key:
                     type: string
-                  kmsKeyId:
+                  kmsKeyID:
                     type: string
                   metadata:
                     additionalProperties:
@@ -171,10 +171,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  versionId:
+                  versionID:
                     type: string
                 required:
-                - versionId
+                - versionID
                 type: object
               conditions:
                 description: Conditions of the resource.

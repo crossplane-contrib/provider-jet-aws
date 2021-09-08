@@ -75,17 +75,17 @@ spec:
                         onFailure:
                           items:
                             properties:
-                              destinationArn:
+                              destinationARN:
                                 type: string
                             required:
-                            - destinationArn
+                            - destinationARN
                             type: object
                           type: array
                       type: object
                     type: array
                   enabled:
                     type: boolean
-                  eventSourceArn:
+                  eventSourceARN:
                     type: string
                   functionName:
                     type: string
@@ -196,7 +196,7 @@ spec:
             properties:
               atProvider:
                 properties:
-                  functionArn:
+                  functionARN:
                     type: string
                   lastModified:
                     type: string
@@ -209,7 +209,7 @@ spec:
                   uuid:
                     type: string
                 required:
-                - functionArn
+                - functionARN
                 - lastModified
                 - lastProcessingResult
                 - state

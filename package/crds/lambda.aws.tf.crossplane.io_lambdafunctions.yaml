@@ -62,15 +62,15 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  codeSigningConfigArn:
+                  codeSigningConfigARN:
                     type: string
                   deadLetterConfig:
                     items:
                       properties:
-                        targetArn:
+                        targetARN:
                           type: string
                       required:
-                      - targetArn
+                      - targetARN
                       type: object
                     type: array
                   description:
@@ -117,9 +117,9 @@ spec:
                           type: string
                       type: object
                     type: array
-                  imageUri:
+                  imageURI:
                     type: string
-                  kmsKeyArn:
+                  kmsKeyARN:
                     type: string
                   layers:
                     items:
@@ -238,15 +238,15 @@ spec:
                 properties:
                   arn:
                     type: string
-                  invokeArn:
+                  invokeARN:
                     type: string
                   lastModified:
                     type: string
-                  qualifiedArn:
+                  qualifiedARN:
                     type: string
-                  signingJobArn:
+                  signingJobARN:
                     type: string
-                  signingProfileVersionArn:
+                  signingProfileVersionARN:
                     type: string
                   sourceCodeSize:
                     format: int64
@@ -255,11 +255,11 @@ spec:
                     type: string
                 required:
                 - arn
-                - invokeArn
+                - invokeARN
                 - lastModified
-                - qualifiedArn
-                - signingJobArn
-                - signingProfileVersionArn
+                - qualifiedARN
+                - signingJobARN
+                - signingProfileVersionARN
                 - sourceCodeSize
                 - version
                 type: object

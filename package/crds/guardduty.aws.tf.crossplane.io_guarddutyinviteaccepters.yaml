@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  detectorId:
+                  detectorID:
                     type: string
-                  masterAccountId:
+                  masterAccountID:
                     type: string
                 required:
-                - detectorId
-                - masterAccountId
+                - detectorID
+                - masterAccountID
                 type: object
               providerConfigRef:
                 default:

@@ -139,11 +139,11 @@ spec:
                     type: string
                   createdDate:
                     type: string
-                  layerArn:
+                  layerARN:
                     type: string
-                  signingJobArn:
+                  signingJobARN:
                     type: string
-                  signingProfileVersionArn:
+                  signingProfileVersionARN:
                     type: string
                   sourceCodeSize:
                     format: int64
@@ -153,9 +153,9 @@ spec:
                 required:
                 - arn
                 - createdDate
-                - layerArn
-                - signingJobArn
-                - signingProfileVersionArn
+                - layerARN
+                - signingJobARN
+                - signingProfileVersionARN
                 - sourceCodeSize
                 - version
                 type: object

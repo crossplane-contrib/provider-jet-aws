@@ -62,11 +62,11 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  iamRoleArn:
+                  iamRoleARN:
                     type: string
                   name:
                     type: string
-                  planId:
+                  planID:
                     type: string
                   resources:
                     items:
@@ -88,9 +88,9 @@ spec:
                       type: object
                     type: array
                 required:
-                - iamRoleArn
+                - iamRoleARN
                 - name
-                - planId
+                - planID
                 type: object
               providerConfigRef:
                 default:

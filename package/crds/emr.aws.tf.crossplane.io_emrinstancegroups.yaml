@@ -66,9 +66,9 @@ spec:
                     type: string
                   bidPrice:
                     type: string
-                  clusterId:
+                  clusterID:
                     type: string
-                  configurationsJson:
+                  configurationsJSON:
                     type: string
                   ebsConfig:
                     items:
@@ -99,7 +99,7 @@ spec:
                   name:
                     type: string
                 required:
-                - clusterId
+                - clusterID
                 - instanceType
                 type: object
               providerConfigRef:

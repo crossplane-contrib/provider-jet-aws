@@ -70,7 +70,7 @@ spec:
                     items:
                       type: string
                     type: array
-                  auditDestinationArn:
+                  auditDestinationARN:
                     type: string
                   authentication:
                     type: string
@@ -90,7 +90,7 @@ spec:
                     type: string
                   fileShareName:
                     type: string
-                  gatewayArn:
+                  gatewayARN:
                     type: string
                   guessMimeTypeEnabled:
                     type: boolean
@@ -100,13 +100,13 @@ spec:
                     type: array
                   kmsEncrypted:
                     type: boolean
-                  kmsKeyArn:
+                  kmsKeyARN:
                     type: string
-                  locationArn:
+                  locationARN:
                     type: string
                   notificationPolicy:
                     type: string
-                  objectAcl:
+                  objectACL:
                     type: string
                   oplocksEnabled:
                     type: boolean
@@ -114,9 +114,9 @@ spec:
                     type: boolean
                   requesterPays:
                     type: boolean
-                  roleArn:
+                  roleARN:
                     type: string
-                  smbAclEnabled:
+                  smbACLEnabled:
                     type: boolean
                   tags:
                     additionalProperties:
@@ -130,12 +130,12 @@ spec:
                     items:
                       type: string
                     type: array
-                  vpcEndpointDnsName:
+                  vpcEndpointDNSName:
                     type: string
                 required:
-                - gatewayArn
-                - locationArn
-                - roleArn
+                - gatewayARN
+                - locationARN
+                - roleARN
                 type: object
               providerConfigRef:
                 default:
@@ -189,13 +189,13 @@ spec:
                 properties:
                   arn:
                     type: string
-                  fileshareId:
+                  fileshareID:
                     type: string
                   path:
                     type: string
                 required:
                 - arn
-                - fileshareId
+                - fileshareID
                 - path
                 type: object
               conditions:

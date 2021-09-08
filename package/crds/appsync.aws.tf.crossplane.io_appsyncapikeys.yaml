@@ -62,14 +62,14 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  apiId:
+                  apiID:
                     type: string
                   description:
                     type: string
                   expires:
                     type: string
                 required:
-                - apiId
+                - apiID
                 type: object
               providerConfigRef:
                 default:

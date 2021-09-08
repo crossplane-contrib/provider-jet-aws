@@ -64,7 +64,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  firewallRuleGroupId:
+                  firewallRuleGroupID:
                     type: string
                   mutationProtection:
                     type: string
@@ -81,13 +81,13 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 required:
-                - firewallRuleGroupId
+                - firewallRuleGroupID
                 - name
                 - priority
-                - vpcId
+                - vpcID
                 type: object
               providerConfigRef:
                 default:

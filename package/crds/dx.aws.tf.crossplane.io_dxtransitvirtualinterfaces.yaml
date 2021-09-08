@@ -73,11 +73,11 @@ spec:
                     type: integer
                   bgpAuthKey:
                     type: string
-                  connectionId:
+                  connectionID:
                     type: string
                   customerAddress:
                     type: string
-                  dxGatewayId:
+                  dxGatewayID:
                     type: string
                   mtu:
                     format: int64
@@ -98,8 +98,8 @@ spec:
                 required:
                 - addressFamily
                 - bgpAsn
-                - connectionId
-                - dxGatewayId
+                - connectionID
+                - dxGatewayID
                 - name
                 - vlan
                 type: object

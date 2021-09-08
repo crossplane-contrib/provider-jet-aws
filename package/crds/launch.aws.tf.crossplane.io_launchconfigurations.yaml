@@ -63,7 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  associatePublicIpAddress:
+                  associatePublicIPAddress:
                     type: boolean
                   ebsBlockDevice:
                     items:
@@ -79,7 +79,7 @@ spec:
                           type: integer
                         noDevice:
                           type: boolean
-                        snapshotId:
+                        snapshotID:
                           type: string
                         throughput:
                           format: int64
@@ -111,7 +111,7 @@ spec:
                     type: array
                   iamInstanceProfile:
                     type: string
-                  imageId:
+                  imageID:
                     type: string
                   instanceType:
                     type: string
@@ -165,14 +165,14 @@ spec:
                     type: string
                   userDataBase64:
                     type: string
-                  vpcClassicLinkId:
+                  vpcClassicLinkID:
                     type: string
                   vpcClassicLinkSecurityGroups:
                     items:
                       type: string
                     type: array
                 required:
-                - imageId
+                - imageID
                 - instanceType
                 type: object
               providerConfigRef:

@@ -163,11 +163,11 @@ spec:
                     type: string
                   arn:
                     type: string
-                  dbiResourceId:
+                  dbiResourceID:
                     type: string
                   endpoint:
                     type: string
-                  kmsKeyArn:
+                  kmsKeyARN:
                     type: string
                   storageEncrypted:
                     type: boolean
@@ -176,9 +176,9 @@ spec:
                 required:
                 - address
                 - arn
-                - dbiResourceId
+                - dbiResourceID
                 - endpoint
-                - kmsKeyArn
+                - kmsKeyARN
                 - storageEncrypted
                 - writer
                 type: object

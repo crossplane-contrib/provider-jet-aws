@@ -66,11 +66,11 @@ spec:
                 properties:
                   group:
                     type: string
-                  policyArn:
+                  policyARN:
                     type: string
                 required:
                 - group
-                - policyArn
+                - policyARN
                 type: object
               providerConfigRef:
                 default:

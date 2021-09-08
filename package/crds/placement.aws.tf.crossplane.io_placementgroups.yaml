@@ -129,11 +129,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  placementGroupId:
+                  placementGroupID:
                     type: string
                 required:
                 - arn
-                - placementGroupId
+                - placementGroupID
                 type: object
               conditions:
                 description: Conditions of the resource.

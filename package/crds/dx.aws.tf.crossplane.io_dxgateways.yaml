@@ -119,10 +119,10 @@ spec:
             properties:
               atProvider:
                 properties:
-                  ownerAccountId:
+                  ownerAccountID:
                     type: string
                 required:
-                - ownerAccountId
+                - ownerAccountID
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  principalArn:
+                  principalARN:
                     type: string
-                  vpcEndpointServiceId:
+                  vpcEndpointServiceID:
                     type: string
                 required:
-                - principalArn
-                - vpcEndpointServiceId
+                - principalARN
+                - vpcEndpointServiceID
                 type: object
               providerConfigRef:
                 default:

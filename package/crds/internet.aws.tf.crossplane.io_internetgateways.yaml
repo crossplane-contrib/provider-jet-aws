@@ -70,7 +70,7 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
+                  vpcID:
                     type: string
                 type: object
               providerConfigRef:
@@ -124,11 +124,11 @@ spec:
                 properties:
                   arn:
                     type: string
-                  ownerId:
+                  ownerID:
                     type: string
                 required:
                 - arn
-                - ownerId
+                - ownerID
                 type: object
               conditions:
                 description: Conditions of the resource.

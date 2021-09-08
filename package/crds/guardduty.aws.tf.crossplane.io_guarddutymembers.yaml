@@ -62,9 +62,9 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accountId:
+                  accountID:
                     type: string
-                  detectorId:
+                  detectorID:
                     type: string
                   disableEmailNotification:
                     type: boolean
@@ -75,8 +75,8 @@ spec:
                   invite:
                     type: boolean
                 required:
-                - accountId
-                - detectorId
+                - accountID
+                - detectorID
                 - email
                 type: object
               providerConfigRef:

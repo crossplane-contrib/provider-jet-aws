@@ -86,7 +86,7 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcEndpointId:
+                  vpcEndpointID:
                     type: string
                 type: object
               providerConfigRef:

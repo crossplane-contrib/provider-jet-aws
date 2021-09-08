@@ -62,7 +62,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  auditStreamArn:
+                  auditStreamARN:
                     type: string
                   deviceCaCertificate:
                     type: string
@@ -93,12 +93,12 @@ spec:
                           items:
                             type: string
                           type: array
-                        vpcId:
+                        vpcID:
                           type: string
                       required:
                       - securityGroupIds
                       - subnetIds
-                      - vpcId
+                      - vpcID
                       type: object
                     type: array
                   optimizeForEndUserLocation:

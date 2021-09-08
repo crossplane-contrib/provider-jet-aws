@@ -72,12 +72,12 @@ spec:
                     items:
                       type: string
                     type: array
-                  topicArn:
+                  topicARN:
                     type: string
                 required:
                 - groupNames
                 - notifications
-                - topicArn
+                - topicARN
                 type: object
               providerConfigRef:
                 default:

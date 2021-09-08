@@ -70,16 +70,16 @@ spec:
                     type: string
                   parameters:
                     type: string
-                  portfolioId:
+                  portfolioID:
                     type: string
-                  productId:
+                  productID:
                     type: string
                   type:
                     type: string
                 required:
                 - parameters
-                - portfolioId
-                - productId
+                - portfolioID
+                - productID
                 - type
                 type: object
               providerConfigRef:

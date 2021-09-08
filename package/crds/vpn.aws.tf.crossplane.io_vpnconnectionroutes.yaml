@@ -65,11 +65,11 @@ spec:
                 properties:
                   destinationCidrBlock:
                     type: string
-                  vpnConnectionId:
+                  vpnConnectionID:
                     type: string
                 required:
                 - destinationCidrBlock
-                - vpnConnectionId
+                - vpnConnectionID
                 type: object
               providerConfigRef:
                 default:

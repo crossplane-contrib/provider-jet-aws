@@ -64,13 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  diskId:
+                  diskID:
                     type: string
-                  gatewayArn:
+                  gatewayARN:
                     type: string
                 required:
-                - diskId
-                - gatewayArn
+                - diskID
+                - gatewayARN
                 type: object
               providerConfigRef:
                 default:

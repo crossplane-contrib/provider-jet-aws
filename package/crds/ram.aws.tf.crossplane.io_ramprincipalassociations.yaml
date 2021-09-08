@@ -66,11 +66,11 @@ spec:
                 properties:
                   principal:
                     type: string
-                  resourceShareArn:
+                  resourceShareARN:
                     type: string
                 required:
                 - principal
-                - resourceShareArn
+                - resourceShareARN
                 type: object
               providerConfigRef:
                 default:

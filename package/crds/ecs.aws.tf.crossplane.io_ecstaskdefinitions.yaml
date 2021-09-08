@@ -76,7 +76,7 @@ spec:
                       - sizeInGib
                       type: object
                     type: array
-                  executionRoleArn:
+                  executionRoleARN:
                     type: string
                   family:
                     type: string
@@ -138,7 +138,7 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  taskRoleArn:
+                  taskRoleARN:
                     type: string
                   volume:
                     items:
@@ -168,13 +168,13 @@ spec:
                               authorizationConfig:
                                 items:
                                   properties:
-                                    accessPointId:
+                                    accessPointID:
                                       type: string
                                     iam:
                                       type: string
                                   type: object
                                 type: array
-                              fileSystemId:
+                              fileSystemID:
                                 type: string
                               rootDirectory:
                                 type: string
@@ -184,7 +184,7 @@ spec:
                                 format: int64
                                 type: integer
                             required:
-                            - fileSystemId
+                            - fileSystemID
                             type: object
                           type: array
                         fsxWindowsFileServerVolumeConfiguration:
@@ -202,13 +202,13 @@ spec:
                                   - domain
                                   type: object
                                 type: array
-                              fileSystemId:
+                              fileSystemID:
                                 type: string
                               rootDirectory:
                                 type: string
                             required:
                             - authorizationConfig
-                            - fileSystemId
+                            - fileSystemID
                             - rootDirectory
                             type: object
                           type: array

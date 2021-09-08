@@ -63,16 +63,16 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  parentId:
+                  parentID:
                     type: string
                   pathPart:
                     type: string
-                  restApiId:
+                  restAPIID:
                     type: string
                 required:
-                - parentId
+                - parentID
                 - pathPart
-                - restApiId
+                - restAPIID
                 type: object
               providerConfigRef:
                 default:
