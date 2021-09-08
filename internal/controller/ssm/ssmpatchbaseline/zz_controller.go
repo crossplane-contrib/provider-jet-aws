@@ -19,16 +19,33 @@ limitations under the License.
 package ssmpatchbaseline
 
 import (
+	"k8s.io/client-go/util/workqueue"
 	ctrl "sigs.k8s.io/controller-runtime"
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
+	"github.com/crossplane/crossplane-runtime/pkg/event"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
+	"github.com/crossplane/crossplane-runtime/pkg/reconciler/managed"
+	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
+	"sigs.k8s.io/controller-runtime/pkg/controller"
 
-	ssmpatchbaseline "github.com/crossplane-contrib/provider-tf-aws/apis/ssm/v1alpha1/ssmpatchbaseline"
+	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/ssm/v1alpha1"
 	clients "github.com/crossplane-contrib/provider-tf-aws/internal/clients"
 )
 
 // Setup adds a controller that reconciles SsmPatchBaseline managed resources.
-func Setup(mgr ctrl.Manager, l logging.Logger) error {
-	return terraform.SetupController(mgr, l, &ssmpatchbaseline.SsmPatchBaseline{}, ssmpatchbaseline.SsmPatchBaselineGroupVersionKind, clients.ProviderConfigBuilder)
+func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter) error {
+	name := managed.ControllerName(v1alpha1.SsmPatchBaselineGroupVersionKind.String())
+	r := managed.NewReconciler(mgr,
+		xpresource.ManagedKind(v1alpha1.SsmPatchBaselineGroupVersionKind),
+		managed.WithInitializers(),
+		managed.WithExternalConnecter(terraform.NewConnector(mgr.GetClient(), l, clients.ProviderConfigBuilder)),
+		managed.WithLogger(l.WithValues("controller", name)),
+		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))))
+
+	return ctrl.NewControllerManagedBy(mgr).
+		Named(name).
+		WithOptions(controller.Options{RateLimiter: rl}).
+		For(&v1alpha1.SsmPatchBaseline{}).
+		Complete(r)
 }

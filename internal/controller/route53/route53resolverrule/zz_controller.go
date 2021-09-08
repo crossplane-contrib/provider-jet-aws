@@ -19,16 +19,33 @@ limitations under the License.
 package route53resolverrule
 
 import (
+	"k8s.io/client-go/util/workqueue"
 	ctrl "sigs.k8s.io/controller-runtime"
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
+	"github.com/crossplane/crossplane-runtime/pkg/event"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
+	"github.com/crossplane/crossplane-runtime/pkg/reconciler/managed"
+	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
+	"sigs.k8s.io/controller-runtime/pkg/controller"
 
-	route53resolverrule "github.com/crossplane-contrib/provider-tf-aws/apis/route53/v1alpha1/route53resolverrule"
+	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/route53/v1alpha1"
 	clients "github.com/crossplane-contrib/provider-tf-aws/internal/clients"
 )
 
 // Setup adds a controller that reconciles Route53ResolverRule managed resources.
-func Setup(mgr ctrl.Manager, l logging.Logger) error {
-	return terraform.SetupController(mgr, l, &route53resolverrule.Route53ResolverRule{}, route53resolverrule.Route53ResolverRuleGroupVersionKind, clients.ProviderConfigBuilder)
+func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter) error {
+	name := managed.ControllerName(v1alpha1.Route53ResolverRuleGroupVersionKind.String())
+	r := managed.NewReconciler(mgr,
+		xpresource.ManagedKind(v1alpha1.Route53ResolverRuleGroupVersionKind),
+		managed.WithInitializers(),
+		managed.WithExternalConnecter(terraform.NewConnector(mgr.GetClient(), l, clients.ProviderConfigBuilder)),
+		managed.WithLogger(l.WithValues("controller", name)),
+		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))))
+
+	return ctrl.NewControllerManagedBy(mgr).
+		Named(name).
+		WithOptions(controller.Options{RateLimiter: rl}).
+		For(&v1alpha1.Route53ResolverRule{}).
+		Complete(r)
 }

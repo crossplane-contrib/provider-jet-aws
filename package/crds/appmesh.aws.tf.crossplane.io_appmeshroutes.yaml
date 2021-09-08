@@ -2,7 +2,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.4.0
+    controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
   name: appmeshroutes.appmesh.aws.tf.crossplane.io
 spec:
@@ -11,7 +11,7 @@ spec:
     categories:
     - crossplane
     - managed
-    - aws
+    - tfaws
     kind: AppmeshRoute
     listKind: AppmeshRouteList
     plural: appmeshroutes
@@ -103,7 +103,31 @@ spec:
                                           invert:
                                             type: boolean
                                           match:
-                                            items: {}
+                                            items:
+                                              properties:
+                                                exact:
+                                                  type: string
+                                                prefix:
+                                                  type: string
+                                                range:
+                                                  items:
+                                                    properties:
+                                                      end:
+                                                        format: int64
+                                                        type: integer
+                                                      start:
+                                                        format: int64
+                                                        type: integer
+                                                    required:
+                                                    - end
+                                                    - start
+                                                    type: object
+                                                  type: array
+                                                regex:
+                                                  type: string
+                                                suffix:
+                                                  type: string
+                                              type: object
                                             type: array
                                           name:
                                             type: string
@@ -216,13 +240,37 @@ spec:
                               match:
                                 items:
                                   properties:
-                                    metadata:
+                                    header:
                                       items:
                                         properties:
                                           invert:
                                             type: boolean
                                           match:
-                                            items: {}
+                                            items:
+                                              properties:
+                                                exact:
+                                                  type: string
+                                                prefix:
+                                                  type: string
+                                                range:
+                                                  items:
+                                                    properties:
+                                                      end:
+                                                        format: int64
+                                                        type: integer
+                                                      start:
+                                                        format: int64
+                                                        type: integer
+                                                    required:
+                                                    - end
+                                                    - start
+                                                    type: object
+                                                  type: array
+                                                regex:
+                                                  type: string
+                                                suffix:
+                                                  type: string
+                                              type: object
                                             type: array
                                           name:
                                             type: string
@@ -230,21 +278,19 @@ spec:
                                         - name
                                         type: object
                                       type: array
-                                    methodName:
+                                    method:
                                       type: string
                                     prefix:
                                       type: string
-                                    serviceName:
+                                    scheme:
                                       type: string
+                                  required:
+                                  - prefix
                                   type: object
                                 type: array
                               retryPolicy:
                                 items:
                                   properties:
-                                    grpcRetryEvents:
-                                      items:
-                                        type: string
-                                      type: array
                                     httpRetryEvents:
                                       items:
                                         type: string
@@ -336,13 +382,37 @@ spec:
                               match:
                                 items:
                                   properties:
-                                    metadata:
+                                    header:
                                       items:
                                         properties:
                                           invert:
                                             type: boolean
                                           match:
-                                            items: {}
+                                            items:
+                                              properties:
+                                                exact:
+                                                  type: string
+                                                prefix:
+                                                  type: string
+                                                range:
+                                                  items:
+                                                    properties:
+                                                      end:
+                                                        format: int64
+                                                        type: integer
+                                                      start:
+                                                        format: int64
+                                                        type: integer
+                                                    required:
+                                                    - end
+                                                    - start
+                                                    type: object
+                                                  type: array
+                                                regex:
+                                                  type: string
+                                                suffix:
+                                                  type: string
+                                              type: object
                                             type: array
                                           name:
                                             type: string
@@ -350,21 +420,19 @@ spec:
                                         - name
                                         type: object
                                       type: array
-                                    methodName:
+                                    method:
                                       type: string
                                     prefix:
                                       type: string
-                                    serviceName:
+                                    scheme:
                                       type: string
+                                  required:
+                                  - prefix
                                   type: object
                                 type: array
                               retryPolicy:
                                 items:
                                   properties:
-                                    grpcRetryEvents:
-                                      items:
-                                        type: string
-                                      type: array
                                     httpRetryEvents:
                                       items:
                                         type: string
@@ -460,19 +528,6 @@ spec:
                                 items:
                                   properties:
                                     idle:
-                                      items:
-                                        properties:
-                                          unit:
-                                            type: string
-                                          value:
-                                            format: int64
-                                            type: integer
-                                        required:
-                                        - unit
-                                        - value
-                                        type: object
-                                      type: array
-                                    perRequest:
                                       items:
                                         properties:
                                           unit:
