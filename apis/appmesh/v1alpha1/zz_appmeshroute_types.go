@@ -28,8 +28,11 @@ type ActionWeightedTargetObservation struct {
 }
 
 type ActionWeightedTargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualNode string `json:"virtualNode" tf:"virtual_node"`
 
+	// +kubebuilder:validation:Required
 	Weight int64 `json:"weight" tf:"weight"`
 }
 
@@ -44,20 +47,31 @@ type AppmeshRouteObservation struct {
 }
 
 type AppmeshRouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	MeshName string `json:"meshName" tf:"mesh_name"`
 
+	// +kubebuilder:validation:Optional
 	MeshOwner *string `json:"meshOwner,omitempty" tf:"mesh_owner"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Spec []AppmeshRouteSpecParameters `json:"spec" tf:"spec"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	VirtualRouterName string `json:"virtualRouterName" tf:"virtual_router_name"`
 }
 
@@ -65,21 +79,29 @@ type AppmeshRouteSpecObservation struct {
 }
 
 type AppmeshRouteSpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	GrpcRoute []SpecGrpcRouteParameters `json:"grpcRoute,omitempty" tf:"grpc_route"`
 
+	// +kubebuilder:validation:Optional
+	HTTPRoute []SpecHTTPRouteParameters `json:"httpRoute,omitempty" tf:"http_route"`
+
+	// +kubebuilder:validation:Optional
 	Http2Route []SpecHttp2RouteParameters `json:"http2Route,omitempty" tf:"http2_route"`
 
-	HttpRoute []SpecHttpRouteParameters `json:"httpRoute,omitempty" tf:"http_route"`
-
+	// +kubebuilder:validation:Optional
 	Priority *int64 `json:"priority,omitempty" tf:"priority"`
 
-	TcpRoute []TcpRouteParameters `json:"tcpRoute,omitempty" tf:"tcp_route"`
+	// +kubebuilder:validation:Optional
+	TCPRoute []TCPRouteParameters `json:"tcpRoute,omitempty" tf:"tcp_route"`
 }
 
 type GrpcRouteActionObservation struct {
 }
 
 type GrpcRouteActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	WeightedTarget []WeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
 }
 
@@ -87,27 +109,116 @@ type GrpcRouteMatchObservation struct {
 }
 
 type GrpcRouteMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Metadata []MetadataParameters `json:"metadata,omitempty" tf:"metadata"`
 
+	// +kubebuilder:validation:Optional
 	MethodName *string `json:"methodName,omitempty" tf:"method_name"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Optional
 	ServiceName *string `json:"serviceName,omitempty" tf:"service_name"`
+}
+
+type HTTPRouteActionWeightedTargetObservation struct {
+}
+
+type HTTPRouteActionWeightedTargetParameters struct {
+
+	// +kubebuilder:validation:Required
+	VirtualNode string `json:"virtualNode" tf:"virtual_node"`
+
+	// +kubebuilder:validation:Required
+	Weight int64 `json:"weight" tf:"weight"`
+}
+
+type HTTPRouteRetryPolicyObservation struct {
+}
+
+type HTTPRouteRetryPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
+	HTTPRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
+
+	// +kubebuilder:validation:Required
+	MaxRetries int64 `json:"maxRetries" tf:"max_retries"`
+
+	// +kubebuilder:validation:Required
+	PerRetryTimeout []HTTPRouteRetryPolicyPerRetryTimeoutParameters `json:"perRetryTimeout" tf:"per_retry_timeout"`
+
+	// +kubebuilder:validation:Optional
+	TCPRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
+}
+
+type HTTPRouteRetryPolicyPerRetryTimeoutObservation struct {
+}
+
+type HTTPRouteRetryPolicyPerRetryTimeoutParameters struct {
+
+	// +kubebuilder:validation:Required
+	Unit string `json:"unit" tf:"unit"`
+
+	// +kubebuilder:validation:Required
+	Value int64 `json:"value" tf:"value"`
+}
+
+type HTTPRouteTimeoutIdleObservation struct {
+}
+
+type HTTPRouteTimeoutIdleParameters struct {
+
+	// +kubebuilder:validation:Required
+	Unit string `json:"unit" tf:"unit"`
+
+	// +kubebuilder:validation:Required
+	Value int64 `json:"value" tf:"value"`
+}
+
+type HTTPRouteTimeoutObservation struct {
+}
+
+type HTTPRouteTimeoutParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Idle []HTTPRouteTimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
+
+	// +kubebuilder:validation:Optional
+	PerRequest []HTTPRouteTimeoutPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
+}
+
+type HTTPRouteTimeoutPerRequestObservation struct {
+}
+
+type HTTPRouteTimeoutPerRequestParameters struct {
+
+	// +kubebuilder:validation:Required
+	Unit string `json:"unit" tf:"unit"`
+
+	// +kubebuilder:validation:Required
+	Value int64 `json:"value" tf:"value"`
 }
 
 type HeaderMatchObservation struct {
 }
 
 type HeaderMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Exact *string `json:"exact,omitempty" tf:"exact"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Optional
 	Range []MatchRangeParameters `json:"range,omitempty" tf:"range"`
 
+	// +kubebuilder:validation:Optional
 	Regex *string `json:"regex,omitempty" tf:"regex"`
 
+	// +kubebuilder:validation:Optional
 	Suffix *string `json:"suffix,omitempty" tf:"suffix"`
 }
 
@@ -115,8 +226,11 @@ type HeaderMatchRangeObservation struct {
 }
 
 type HeaderMatchRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	End int64 `json:"end" tf:"end"`
 
+	// +kubebuilder:validation:Required
 	Start int64 `json:"start" tf:"start"`
 }
 
@@ -124,10 +238,14 @@ type HeaderObservation struct {
 }
 
 type HeaderParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Invert *bool `json:"invert,omitempty" tf:"invert"`
 
+	// +kubebuilder:validation:Optional
 	Match []HeaderMatchParameters `json:"match,omitempty" tf:"match"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -135,88 +253,41 @@ type Http2RouteRetryPolicyObservation struct {
 }
 
 type Http2RouteRetryPolicyParameters struct {
-	HttpRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
 
+	// +kubebuilder:validation:Optional
+	HTTPRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
+
+	// +kubebuilder:validation:Required
 	MaxRetries int64 `json:"maxRetries" tf:"max_retries"`
 
+	// +kubebuilder:validation:Required
 	PerRetryTimeout []RetryPolicyPerRetryTimeoutParameters `json:"perRetryTimeout" tf:"per_retry_timeout"`
 
-	TcpRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
+	// +kubebuilder:validation:Optional
+	TCPRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
 }
 
 type Http2RouteTimeoutObservation struct {
 }
 
 type Http2RouteTimeoutParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Idle []TimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
 
+	// +kubebuilder:validation:Optional
 	PerRequest []TimeoutPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
-}
-
-type HttpRouteActionWeightedTargetObservation struct {
-}
-
-type HttpRouteActionWeightedTargetParameters struct {
-	VirtualNode string `json:"virtualNode" tf:"virtual_node"`
-
-	Weight int64 `json:"weight" tf:"weight"`
-}
-
-type HttpRouteRetryPolicyObservation struct {
-}
-
-type HttpRouteRetryPolicyParameters struct {
-	HttpRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
-
-	MaxRetries int64 `json:"maxRetries" tf:"max_retries"`
-
-	PerRetryTimeout []HttpRouteRetryPolicyPerRetryTimeoutParameters `json:"perRetryTimeout" tf:"per_retry_timeout"`
-
-	TcpRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
-}
-
-type HttpRouteRetryPolicyPerRetryTimeoutObservation struct {
-}
-
-type HttpRouteRetryPolicyPerRetryTimeoutParameters struct {
-	Unit string `json:"unit" tf:"unit"`
-
-	Value int64 `json:"value" tf:"value"`
-}
-
-type HttpRouteTimeoutIdleObservation struct {
-}
-
-type HttpRouteTimeoutIdleParameters struct {
-	Unit string `json:"unit" tf:"unit"`
-
-	Value int64 `json:"value" tf:"value"`
-}
-
-type HttpRouteTimeoutObservation struct {
-}
-
-type HttpRouteTimeoutParameters struct {
-	Idle []HttpRouteTimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
-
-	PerRequest []HttpRouteTimeoutPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
-}
-
-type HttpRouteTimeoutPerRequestObservation struct {
-}
-
-type HttpRouteTimeoutPerRequestParameters struct {
-	Unit string `json:"unit" tf:"unit"`
-
-	Value int64 `json:"value" tf:"value"`
 }
 
 type IdleObservation struct {
 }
 
 type IdleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -224,14 +295,20 @@ type MatchHeaderMatchObservation struct {
 }
 
 type MatchHeaderMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Exact *string `json:"exact,omitempty" tf:"exact"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Optional
 	Range []HeaderMatchRangeParameters `json:"range,omitempty" tf:"range"`
 
+	// +kubebuilder:validation:Optional
 	Regex *string `json:"regex,omitempty" tf:"regex"`
 
+	// +kubebuilder:validation:Optional
 	Suffix *string `json:"suffix,omitempty" tf:"suffix"`
 }
 
@@ -239,10 +316,14 @@ type MatchHeaderObservation struct {
 }
 
 type MatchHeaderParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Invert *bool `json:"invert,omitempty" tf:"invert"`
 
+	// +kubebuilder:validation:Optional
 	Match []MatchHeaderMatchParameters `json:"match,omitempty" tf:"match"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -250,8 +331,11 @@ type MatchRangeObservation struct {
 }
 
 type MatchRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	End int64 `json:"end" tf:"end"`
 
+	// +kubebuilder:validation:Required
 	Start int64 `json:"start" tf:"start"`
 }
 
@@ -259,14 +343,20 @@ type MetadataMatchObservation struct {
 }
 
 type MetadataMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Exact *string `json:"exact,omitempty" tf:"exact"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Optional
 	Range []RangeParameters `json:"range,omitempty" tf:"range"`
 
+	// +kubebuilder:validation:Optional
 	Regex *string `json:"regex,omitempty" tf:"regex"`
 
+	// +kubebuilder:validation:Optional
 	Suffix *string `json:"suffix,omitempty" tf:"suffix"`
 }
 
@@ -274,10 +364,14 @@ type MetadataObservation struct {
 }
 
 type MetadataParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Invert *bool `json:"invert,omitempty" tf:"invert"`
 
+	// +kubebuilder:validation:Optional
 	Match []MetadataMatchParameters `json:"match,omitempty" tf:"match"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -285,8 +379,11 @@ type PerRequestObservation struct {
 }
 
 type PerRequestParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -294,8 +391,11 @@ type PerRetryTimeoutObservation struct {
 }
 
 type PerRetryTimeoutParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -303,8 +403,11 @@ type RangeObservation struct {
 }
 
 type RangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	End int64 `json:"end" tf:"end"`
 
+	// +kubebuilder:validation:Required
 	Start int64 `json:"start" tf:"start"`
 }
 
@@ -312,23 +415,32 @@ type RetryPolicyObservation struct {
 }
 
 type RetryPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	GrpcRetryEvents []string `json:"grpcRetryEvents,omitempty" tf:"grpc_retry_events"`
 
-	HttpRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
+	// +kubebuilder:validation:Optional
+	HTTPRetryEvents []string `json:"httpRetryEvents,omitempty" tf:"http_retry_events"`
 
+	// +kubebuilder:validation:Required
 	MaxRetries int64 `json:"maxRetries" tf:"max_retries"`
 
+	// +kubebuilder:validation:Required
 	PerRetryTimeout []PerRetryTimeoutParameters `json:"perRetryTimeout" tf:"per_retry_timeout"`
 
-	TcpRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
+	// +kubebuilder:validation:Optional
+	TCPRetryEvents []string `json:"tcpRetryEvents,omitempty" tf:"tcp_retry_events"`
 }
 
 type RetryPolicyPerRetryTimeoutObservation struct {
 }
 
 type RetryPolicyPerRetryTimeoutParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -336,19 +448,71 @@ type SpecGrpcRouteObservation struct {
 }
 
 type SpecGrpcRouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action []GrpcRouteActionParameters `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Optional
 	Match []GrpcRouteMatchParameters `json:"match,omitempty" tf:"match"`
 
+	// +kubebuilder:validation:Optional
 	RetryPolicy []RetryPolicyParameters `json:"retryPolicy,omitempty" tf:"retry_policy"`
 
+	// +kubebuilder:validation:Optional
 	Timeout []TimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
+}
+
+type SpecHTTPRouteActionObservation struct {
+}
+
+type SpecHTTPRouteActionParameters struct {
+
+	// +kubebuilder:validation:Required
+	WeightedTarget []HTTPRouteActionWeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
+}
+
+type SpecHTTPRouteMatchObservation struct {
+}
+
+type SpecHTTPRouteMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Header []MatchHeaderParameters `json:"header,omitempty" tf:"header"`
+
+	// +kubebuilder:validation:Optional
+	Method *string `json:"method,omitempty" tf:"method"`
+
+	// +kubebuilder:validation:Required
+	Prefix string `json:"prefix" tf:"prefix"`
+
+	// +kubebuilder:validation:Optional
+	Scheme *string `json:"scheme,omitempty" tf:"scheme"`
+}
+
+type SpecHTTPRouteObservation struct {
+}
+
+type SpecHTTPRouteParameters struct {
+
+	// +kubebuilder:validation:Required
+	Action []SpecHTTPRouteActionParameters `json:"action" tf:"action"`
+
+	// +kubebuilder:validation:Required
+	Match []SpecHTTPRouteMatchParameters `json:"match" tf:"match"`
+
+	// +kubebuilder:validation:Optional
+	RetryPolicy []HTTPRouteRetryPolicyParameters `json:"retryPolicy,omitempty" tf:"retry_policy"`
+
+	// +kubebuilder:validation:Optional
+	Timeout []HTTPRouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
 }
 
 type SpecHttp2RouteActionObservation struct {
 }
 
 type SpecHttp2RouteActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	WeightedTarget []ActionWeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
 }
 
@@ -356,12 +520,17 @@ type SpecHttp2RouteMatchObservation struct {
 }
 
 type SpecHttp2RouteMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Header []HeaderParameters `json:"header,omitempty" tf:"header"`
 
+	// +kubebuilder:validation:Optional
 	Method *string `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Required
 	Prefix string `json:"prefix" tf:"prefix"`
 
+	// +kubebuilder:validation:Optional
 	Scheme *string `json:"scheme,omitempty" tf:"scheme"`
 }
 
@@ -369,95 +538,83 @@ type SpecHttp2RouteObservation struct {
 }
 
 type SpecHttp2RouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action []SpecHttp2RouteActionParameters `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Required
 	Match []SpecHttp2RouteMatchParameters `json:"match" tf:"match"`
 
+	// +kubebuilder:validation:Optional
 	RetryPolicy []Http2RouteRetryPolicyParameters `json:"retryPolicy,omitempty" tf:"retry_policy"`
 
+	// +kubebuilder:validation:Optional
 	Timeout []Http2RouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
 }
 
-type SpecHttpRouteActionObservation struct {
+type TCPRouteActionObservation struct {
 }
 
-type SpecHttpRouteActionParameters struct {
-	WeightedTarget []HttpRouteActionWeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
+type TCPRouteActionParameters struct {
+
+	// +kubebuilder:validation:Required
+	WeightedTarget []TCPRouteActionWeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
 }
 
-type SpecHttpRouteMatchObservation struct {
+type TCPRouteActionWeightedTargetObservation struct {
 }
 
-type SpecHttpRouteMatchParameters struct {
-	Header []MatchHeaderParameters `json:"header,omitempty" tf:"header"`
+type TCPRouteActionWeightedTargetParameters struct {
 
-	Method *string `json:"method,omitempty" tf:"method"`
-
-	Prefix string `json:"prefix" tf:"prefix"`
-
-	Scheme *string `json:"scheme,omitempty" tf:"scheme"`
-}
-
-type SpecHttpRouteObservation struct {
-}
-
-type SpecHttpRouteParameters struct {
-	Action []SpecHttpRouteActionParameters `json:"action" tf:"action"`
-
-	Match []SpecHttpRouteMatchParameters `json:"match" tf:"match"`
-
-	RetryPolicy []HttpRouteRetryPolicyParameters `json:"retryPolicy,omitempty" tf:"retry_policy"`
-
-	Timeout []HttpRouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
-}
-
-type TcpRouteActionObservation struct {
-}
-
-type TcpRouteActionParameters struct {
-	WeightedTarget []TcpRouteActionWeightedTargetParameters `json:"weightedTarget" tf:"weighted_target"`
-}
-
-type TcpRouteActionWeightedTargetObservation struct {
-}
-
-type TcpRouteActionWeightedTargetParameters struct {
+	// +kubebuilder:validation:Required
 	VirtualNode string `json:"virtualNode" tf:"virtual_node"`
 
+	// +kubebuilder:validation:Required
 	Weight int64 `json:"weight" tf:"weight"`
 }
 
-type TcpRouteObservation struct {
+type TCPRouteObservation struct {
 }
 
-type TcpRouteParameters struct {
-	Action []TcpRouteActionParameters `json:"action" tf:"action"`
+type TCPRouteParameters struct {
 
-	Timeout []TcpRouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
+	// +kubebuilder:validation:Required
+	Action []TCPRouteActionParameters `json:"action" tf:"action"`
+
+	// +kubebuilder:validation:Optional
+	Timeout []TCPRouteTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
 }
 
-type TcpRouteTimeoutIdleObservation struct {
+type TCPRouteTimeoutIdleObservation struct {
 }
 
-type TcpRouteTimeoutIdleParameters struct {
+type TCPRouteTimeoutIdleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
-type TcpRouteTimeoutObservation struct {
+type TCPRouteTimeoutObservation struct {
 }
 
-type TcpRouteTimeoutParameters struct {
-	Idle []TcpRouteTimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
+type TCPRouteTimeoutParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Idle []TCPRouteTimeoutIdleParameters `json:"idle,omitempty" tf:"idle"`
 }
 
 type TimeoutIdleObservation struct {
 }
 
 type TimeoutIdleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -465,8 +622,11 @@ type TimeoutObservation struct {
 }
 
 type TimeoutParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Idle []IdleParameters `json:"idle,omitempty" tf:"idle"`
 
+	// +kubebuilder:validation:Optional
 	PerRequest []PerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
 }
 
@@ -474,8 +634,11 @@ type TimeoutPerRequestObservation struct {
 }
 
 type TimeoutPerRequestParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -483,8 +646,11 @@ type WeightedTargetObservation struct {
 }
 
 type WeightedTargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualNode string `json:"virtualNode" tf:"virtual_node"`
 
+	// +kubebuilder:validation:Required
 	Weight int64 `json:"weight" tf:"weight"`
 }
 

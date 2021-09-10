@@ -29,20 +29,31 @@ type ServerlessapplicationrepositoryCloudformationStackObservation struct {
 }
 
 type ServerlessapplicationrepositoryCloudformationStackParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
+
+	// +kubebuilder:validation:Required
 	Capabilities []string `json:"capabilities" tf:"capabilities"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SemanticVersion *string `json:"semanticVersion,omitempty" tf:"semantic_version"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

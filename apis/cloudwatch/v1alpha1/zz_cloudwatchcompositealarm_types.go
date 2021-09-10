@@ -29,24 +29,37 @@ type CloudwatchCompositeAlarmObservation struct {
 }
 
 type CloudwatchCompositeAlarmParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ActionsEnabled *bool `json:"actionsEnabled,omitempty" tf:"actions_enabled"`
 
+	// +kubebuilder:validation:Optional
 	AlarmActions []string `json:"alarmActions,omitempty" tf:"alarm_actions"`
 
+	// +kubebuilder:validation:Optional
 	AlarmDescription *string `json:"alarmDescription,omitempty" tf:"alarm_description"`
 
+	// +kubebuilder:validation:Required
 	AlarmName string `json:"alarmName" tf:"alarm_name"`
 
+	// +kubebuilder:validation:Required
 	AlarmRule string `json:"alarmRule" tf:"alarm_rule"`
 
+	// +kubebuilder:validation:Optional
 	InsufficientDataActions []string `json:"insufficientDataActions,omitempty" tf:"insufficient_data_actions"`
 
+	// +kubebuilder:validation:Optional
 	OkActions []string `json:"okActions,omitempty" tf:"ok_actions"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

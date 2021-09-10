@@ -27,66 +27,95 @@ import (
 type DocdbClusterObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	ClusterResourceId string `json:"clusterResourceId" tf:"cluster_resource_id"`
+	ClusterResourceID string `json:"clusterResourceId" tf:"cluster_resource_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneId" tf:"hosted_zone_id"`
 
 	ReaderEndpoint string `json:"readerEndpoint" tf:"reader_endpoint"`
 }
 
 type DocdbClusterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately"`
 
+	// +kubebuilder:validation:Optional
 	AvailabilityZones []string `json:"availabilityZones,omitempty" tf:"availability_zones"`
 
+	// +kubebuilder:validation:Optional
 	BackupRetentionPeriod *int64 `json:"backupRetentionPeriod,omitempty" tf:"backup_retention_period"`
 
+	// +kubebuilder:validation:Optional
 	ClusterIdentifier *string `json:"clusterIdentifier,omitempty" tf:"cluster_identifier"`
 
+	// +kubebuilder:validation:Optional
 	ClusterIdentifierPrefix *string `json:"clusterIdentifierPrefix,omitempty" tf:"cluster_identifier_prefix"`
 
+	// +kubebuilder:validation:Optional
 	ClusterMembers []string `json:"clusterMembers,omitempty" tf:"cluster_members"`
 
-	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name"`
+	// +kubebuilder:validation:Optional
+	DBClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name"`
 
-	DbSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
+	// +kubebuilder:validation:Optional
+	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
 
+	// +kubebuilder:validation:Optional
 	DeletionProtection *bool `json:"deletionProtection,omitempty" tf:"deletion_protection"`
 
+	// +kubebuilder:validation:Optional
 	EnabledCloudwatchLogsExports []string `json:"enabledCloudwatchLogsExports,omitempty" tf:"enabled_cloudwatch_logs_exports"`
 
+	// +kubebuilder:validation:Optional
 	Engine *string `json:"engine,omitempty" tf:"engine"`
 
+	// +kubebuilder:validation:Optional
 	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version"`
 
+	// +kubebuilder:validation:Optional
 	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	MasterPassword *string `json:"masterPassword,omitempty" tf:"master_password"`
 
+	// +kubebuilder:validation:Optional
 	MasterUsername *string `json:"masterUsername,omitempty" tf:"master_username"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Optional
 	PreferredBackupWindow *string `json:"preferredBackupWindow,omitempty" tf:"preferred_backup_window"`
 
+	// +kubebuilder:validation:Optional
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow,omitempty" tf:"preferred_maintenance_window"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotIdentifier *string `json:"snapshotIdentifier,omitempty" tf:"snapshot_identifier"`
 
+	// +kubebuilder:validation:Optional
 	StorageEncrypted *bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 }
 

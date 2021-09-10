@@ -27,17 +27,22 @@ import (
 type Route53ResolverDnssecConfigObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
 	ValidationStatus string `json:"validationStatus" tf:"validation_status"`
 }
 
 type Route53ResolverDnssecConfigParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 }
 
 // Route53ResolverDnssecConfigSpec defines the desired state of Route53ResolverDnssecConfig

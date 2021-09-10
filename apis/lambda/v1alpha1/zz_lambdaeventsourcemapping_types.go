@@ -28,6 +28,8 @@ type DestinationConfigObservation struct {
 }
 
 type DestinationConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	OnFailure []OnFailureParameters `json:"onFailure,omitempty" tf:"on_failure"`
 }
 
@@ -42,46 +44,68 @@ type LambdaEventSourceMappingObservation struct {
 
 	StateTransitionReason string `json:"stateTransitionReason" tf:"state_transition_reason"`
 
-	Uuid string `json:"uuid" tf:"uuid"`
+	UUID string `json:"uuid" tf:"uuid"`
 }
 
 type LambdaEventSourceMappingParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BatchSize *int64 `json:"batchSize,omitempty" tf:"batch_size"`
 
+	// +kubebuilder:validation:Optional
 	BisectBatchOnFunctionError *bool `json:"bisectBatchOnFunctionError,omitempty" tf:"bisect_batch_on_function_error"`
 
+	// +kubebuilder:validation:Optional
 	DestinationConfig []DestinationConfigParameters `json:"destinationConfig,omitempty" tf:"destination_config"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	EventSourceArn *string `json:"eventSourceArn,omitempty" tf:"event_source_arn"`
 
+	// +kubebuilder:validation:Required
 	FunctionName string `json:"functionName" tf:"function_name"`
 
+	// +kubebuilder:validation:Optional
 	FunctionResponseTypes []string `json:"functionResponseTypes,omitempty" tf:"function_response_types"`
 
+	// +kubebuilder:validation:Optional
 	MaximumBatchingWindowInSeconds *int64 `json:"maximumBatchingWindowInSeconds,omitempty" tf:"maximum_batching_window_in_seconds"`
 
+	// +kubebuilder:validation:Optional
 	MaximumRecordAgeInSeconds *int64 `json:"maximumRecordAgeInSeconds,omitempty" tf:"maximum_record_age_in_seconds"`
 
+	// +kubebuilder:validation:Optional
 	MaximumRetryAttempts *int64 `json:"maximumRetryAttempts,omitempty" tf:"maximum_retry_attempts"`
 
+	// +kubebuilder:validation:Optional
 	ParallelizationFactor *int64 `json:"parallelizationFactor,omitempty" tf:"parallelization_factor"`
 
+	// +kubebuilder:validation:Optional
 	Queues []string `json:"queues,omitempty" tf:"queues"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SelfManagedEventSource []SelfManagedEventSourceParameters `json:"selfManagedEventSource,omitempty" tf:"self_managed_event_source"`
 
+	// +kubebuilder:validation:Optional
 	SourceAccessConfiguration []SourceAccessConfigurationParameters `json:"sourceAccessConfiguration,omitempty" tf:"source_access_configuration"`
 
+	// +kubebuilder:validation:Optional
 	StartingPosition *string `json:"startingPosition,omitempty" tf:"starting_position"`
 
+	// +kubebuilder:validation:Optional
 	StartingPositionTimestamp *string `json:"startingPositionTimestamp,omitempty" tf:"starting_position_timestamp"`
 
+	// +kubebuilder:validation:Optional
 	Topics []string `json:"topics,omitempty" tf:"topics"`
 
+	// +kubebuilder:validation:Optional
 	TumblingWindowInSeconds *int64 `json:"tumblingWindowInSeconds,omitempty" tf:"tumbling_window_in_seconds"`
 }
 
@@ -89,6 +113,8 @@ type OnFailureObservation struct {
 }
 
 type OnFailureParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
 }
 
@@ -96,6 +122,8 @@ type SelfManagedEventSourceObservation struct {
 }
 
 type SelfManagedEventSourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	Endpoints map[string]string `json:"endpoints" tf:"endpoints"`
 }
 
@@ -103,9 +131,12 @@ type SourceAccessConfigurationObservation struct {
 }
 
 type SourceAccessConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
-	Uri string `json:"uri" tf:"uri"`
+	// +kubebuilder:validation:Required
+	URI string `json:"uri" tf:"uri"`
 }
 
 // LambdaEventSourceMappingSpec defines the desired state of LambdaEventSourceMapping

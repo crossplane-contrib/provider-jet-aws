@@ -28,8 +28,13 @@ type EbsDefaultKmsKeyObservation struct {
 }
 
 type EbsDefaultKmsKeyParameters struct {
+
+	// +kubebuilder:validation:Required
 	KeyArn string `json:"keyArn" tf:"key_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

@@ -28,11 +28,17 @@ type VpnGatewayRoutePropagationObservation struct {
 }
 
 type VpnGatewayRoutePropagationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
+	// +kubebuilder:validation:Required
+	RouteTableID string `json:"routeTableId" tf:"route_table_id"`
 
-	VpnGatewayId string `json:"vpnGatewayId" tf:"vpn_gateway_id"`
+	// +kubebuilder:validation:Required
+	VpnGatewayID string `json:"vpnGatewayId" tf:"vpn_gateway_id"`
 }
 
 // VpnGatewayRoutePropagationSpec defines the desired state of VpnGatewayRoutePropagation

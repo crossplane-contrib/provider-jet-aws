@@ -28,8 +28,11 @@ type EnumerationValueObservation struct {
 }
 
 type EnumerationValueParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Synonyms []string `json:"synonyms,omitempty" tf:"synonyms"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -44,16 +47,25 @@ type LexSlotTypeObservation struct {
 }
 
 type LexSlotTypeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CreateVersion *bool `json:"createVersion,omitempty" tf:"create_version"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	EnumerationValue []EnumerationValueParameters `json:"enumerationValue" tf:"enumeration_value"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ValueSelectionStrategy *string `json:"valueSelectionStrategy,omitempty" tf:"value_selection_strategy"`
 }
 

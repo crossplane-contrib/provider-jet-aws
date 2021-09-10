@@ -28,16 +28,23 @@ type AppSourceObservation struct {
 }
 
 type AppSourceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Password *string `json:"password,omitempty" tf:"password"`
 
+	// +kubebuilder:validation:Optional
 	Revision *string `json:"revision,omitempty" tf:"revision"`
 
-	SshKey *string `json:"sshKey,omitempty" tf:"ssh_key"`
+	// +kubebuilder:validation:Optional
+	SSHKey *string `json:"sshKey,omitempty" tf:"ssh_key"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
-	Url *string `json:"url,omitempty" tf:"url"`
+	// +kubebuilder:validation:Optional
+	URL *string `json:"url,omitempty" tf:"url"`
 
+	// +kubebuilder:validation:Optional
 	Username *string `json:"username,omitempty" tf:"username"`
 }
 
@@ -45,10 +52,14 @@ type EnvironmentObservation struct {
 }
 
 type EnvironmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Secure *bool `json:"secure,omitempty" tf:"secure"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -56,40 +67,61 @@ type OpsworksApplicationObservation struct {
 }
 
 type OpsworksApplicationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AppSource []AppSourceParameters `json:"appSource,omitempty" tf:"app_source"`
 
+	// +kubebuilder:validation:Optional
 	AutoBundleOnDeploy *string `json:"autoBundleOnDeploy,omitempty" tf:"auto_bundle_on_deploy"`
 
+	// +kubebuilder:validation:Optional
 	AwsFlowRubySettings *string `json:"awsFlowRubySettings,omitempty" tf:"aws_flow_ruby_settings"`
 
+	// +kubebuilder:validation:Optional
 	DataSourceArn *string `json:"dataSourceArn,omitempty" tf:"data_source_arn"`
 
+	// +kubebuilder:validation:Optional
 	DataSourceDatabaseName *string `json:"dataSourceDatabaseName,omitempty" tf:"data_source_database_name"`
 
+	// +kubebuilder:validation:Optional
 	DataSourceType *string `json:"dataSourceType,omitempty" tf:"data_source_type"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DocumentRoot *string `json:"documentRoot,omitempty" tf:"document_root"`
 
+	// +kubebuilder:validation:Optional
 	Domains []string `json:"domains,omitempty" tf:"domains"`
 
+	// +kubebuilder:validation:Optional
 	EnableSsl *bool `json:"enableSsl,omitempty" tf:"enable_ssl"`
 
+	// +kubebuilder:validation:Optional
 	Environment []EnvironmentParameters `json:"environment,omitempty" tf:"environment"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	RailsEnv *string `json:"railsEnv,omitempty" tf:"rails_env"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ShortName *string `json:"shortName,omitempty" tf:"short_name"`
 
+	// +kubebuilder:validation:Optional
 	SslConfiguration []SslConfigurationParameters `json:"sslConfiguration,omitempty" tf:"ssl_configuration"`
 
-	StackId string `json:"stackId" tf:"stack_id"`
+	// +kubebuilder:validation:Required
+	StackID string `json:"stackId" tf:"stack_id"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -97,10 +129,14 @@ type SslConfigurationObservation struct {
 }
 
 type SslConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Certificate string `json:"certificate" tf:"certificate"`
 
+	// +kubebuilder:validation:Optional
 	Chain *string `json:"chain,omitempty" tf:"chain"`
 
+	// +kubebuilder:validation:Required
 	PrivateKey string `json:"privateKey" tf:"private_key"`
 }
 

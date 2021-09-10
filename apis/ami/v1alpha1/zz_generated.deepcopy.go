@@ -213,8 +213,8 @@ func (in *AmiCopyParameters) DeepCopyInto(out *AmiCopyParameters) {
 		*out = make([]AmiCopyEphemeralBlockDeviceParameters, len(*in))
 		copy(*out, *in)
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -700,13 +700,13 @@ func (in *AmiParameters) DeepCopyInto(out *AmiParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.KernelId != nil {
-		in, out := &in.KernelId, &out.KernelId
+	if in.KernelID != nil {
+		in, out := &in.KernelID, &out.KernelID
 		*out = new(string)
 		**out = **in
 	}
-	if in.RamdiskId != nil {
-		in, out := &in.RamdiskId, &out.RamdiskId
+	if in.RamdiskID != nil {
+		in, out := &in.RamdiskID, &out.RamdiskID
 		*out = new(string)
 		**out = **in
 	}
@@ -818,8 +818,8 @@ func (in *EbsBlockDeviceParameters) DeepCopyInto(out *EbsBlockDeviceParameters) 
 		*out = new(int64)
 		**out = **in
 	}
-	if in.SnapshotId != nil {
-		in, out := &in.SnapshotId, &out.SnapshotId
+	if in.SnapshotID != nil {
+		in, out := &in.SnapshotID, &out.SnapshotID
 		*out = new(string)
 		**out = **in
 	}

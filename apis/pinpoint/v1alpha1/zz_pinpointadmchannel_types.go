@@ -28,14 +28,22 @@ type PinpointAdmChannelObservation struct {
 }
 
 type PinpointAdmChannelParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
-	ClientId string `json:"clientId" tf:"client_id"`
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Required
+	ClientID string `json:"clientId" tf:"client_id"`
+
+	// +kubebuilder:validation:Required
 	ClientSecret string `json:"clientSecret" tf:"client_secret"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

@@ -28,18 +28,28 @@ type Apigatewayv2IntegrationResponseObservation struct {
 }
 
 type Apigatewayv2IntegrationResponseParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Optional
 	ContentHandlingStrategy *string `json:"contentHandlingStrategy,omitempty" tf:"content_handling_strategy"`
 
-	IntegrationId string `json:"integrationId" tf:"integration_id"`
+	// +kubebuilder:validation:Required
+	IntegrationID string `json:"integrationId" tf:"integration_id"`
 
+	// +kubebuilder:validation:Required
 	IntegrationResponseKey string `json:"integrationResponseKey" tf:"integration_response_key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ResponseTemplates map[string]string `json:"responseTemplates,omitempty" tf:"response_templates"`
 
+	// +kubebuilder:validation:Optional
 	TemplateSelectionExpression *string `json:"templateSelectionExpression,omitempty" tf:"template_selection_expression"`
 }
 

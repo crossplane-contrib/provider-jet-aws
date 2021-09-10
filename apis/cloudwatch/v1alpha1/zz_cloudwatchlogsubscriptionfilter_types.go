@@ -28,18 +28,28 @@ type CloudwatchLogSubscriptionFilterObservation struct {
 }
 
 type CloudwatchLogSubscriptionFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
 
+	// +kubebuilder:validation:Optional
 	Distribution *string `json:"distribution,omitempty" tf:"distribution"`
 
+	// +kubebuilder:validation:Required
 	FilterPattern string `json:"filterPattern" tf:"filter_pattern"`
 
+	// +kubebuilder:validation:Required
 	LogGroupName string `json:"logGroupName" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 }
 

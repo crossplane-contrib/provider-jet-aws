@@ -25,31 +25,45 @@ import (
 )
 
 type Ec2TransitGatewayVpcAttachmentObservation struct {
-	VpcOwnerId string `json:"vpcOwnerId" tf:"vpc_owner_id"`
+	VpcOwnerID string `json:"vpcOwnerId" tf:"vpc_owner_id"`
 }
 
 type Ec2TransitGatewayVpcAttachmentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplianceModeSupport *string `json:"applianceModeSupport,omitempty" tf:"appliance_mode_support"`
 
-	DnsSupport *string `json:"dnsSupport,omitempty" tf:"dns_support"`
+	// +kubebuilder:validation:Optional
+	DNSSupport *string `json:"dnsSupport,omitempty" tf:"dns_support"`
 
-	Ipv6Support *string `json:"ipv6Support,omitempty" tf:"ipv6_support"`
+	// +kubebuilder:validation:Optional
+	IPv6Support *string `json:"ipv6Support,omitempty" tf:"ipv6_support"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TransitGatewayDefaultRouteTableAssociation *bool `json:"transitGatewayDefaultRouteTableAssociation,omitempty" tf:"transit_gateway_default_route_table_association"`
 
+	// +kubebuilder:validation:Optional
 	TransitGatewayDefaultRouteTablePropagation *bool `json:"transitGatewayDefaultRouteTablePropagation,omitempty" tf:"transit_gateway_default_route_table_propagation"`
 
-	TransitGatewayId string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	// +kubebuilder:validation:Required
+	TransitGatewayID string `json:"transitGatewayId" tf:"transit_gateway_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // Ec2TransitGatewayVpcAttachmentSpec defines the desired state of Ec2TransitGatewayVpcAttachment

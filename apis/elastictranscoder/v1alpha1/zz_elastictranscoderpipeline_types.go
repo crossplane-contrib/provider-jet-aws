@@ -28,8 +28,11 @@ type ContentConfigObservation struct {
 }
 
 type ContentConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Bucket *string `json:"bucket,omitempty" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class"`
 }
 
@@ -37,10 +40,14 @@ type ContentConfigPermissionsObservation struct {
 }
 
 type ContentConfigPermissionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Access []string `json:"access,omitempty" tf:"access"`
 
+	// +kubebuilder:validation:Optional
 	Grantee *string `json:"grantee,omitempty" tf:"grantee"`
 
+	// +kubebuilder:validation:Optional
 	GranteeType *string `json:"granteeType,omitempty" tf:"grantee_type"`
 }
 
@@ -49,26 +56,40 @@ type ElastictranscoderPipelineObservation struct {
 }
 
 type ElastictranscoderPipelineParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AwsKmsKeyArn *string `json:"awsKmsKeyArn,omitempty" tf:"aws_kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	ContentConfig []ContentConfigParameters `json:"contentConfig,omitempty" tf:"content_config"`
 
+	// +kubebuilder:validation:Optional
 	ContentConfigPermissions []ContentConfigPermissionsParameters `json:"contentConfigPermissions,omitempty" tf:"content_config_permissions"`
 
+	// +kubebuilder:validation:Required
 	InputBucket string `json:"inputBucket" tf:"input_bucket"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Notifications []NotificationsParameters `json:"notifications,omitempty" tf:"notifications"`
 
+	// +kubebuilder:validation:Optional
 	OutputBucket *string `json:"outputBucket,omitempty" tf:"output_bucket"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Role string `json:"role" tf:"role"`
 
+	// +kubebuilder:validation:Optional
 	ThumbnailConfig []ThumbnailConfigParameters `json:"thumbnailConfig,omitempty" tf:"thumbnail_config"`
 
+	// +kubebuilder:validation:Optional
 	ThumbnailConfigPermissions []ThumbnailConfigPermissionsParameters `json:"thumbnailConfigPermissions,omitempty" tf:"thumbnail_config_permissions"`
 }
 
@@ -76,12 +97,17 @@ type NotificationsObservation struct {
 }
 
 type NotificationsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Completed *string `json:"completed,omitempty" tf:"completed"`
 
+	// +kubebuilder:validation:Optional
 	Error *string `json:"error,omitempty" tf:"error"`
 
+	// +kubebuilder:validation:Optional
 	Progressing *string `json:"progressing,omitempty" tf:"progressing"`
 
+	// +kubebuilder:validation:Optional
 	Warning *string `json:"warning,omitempty" tf:"warning"`
 }
 
@@ -89,8 +115,11 @@ type ThumbnailConfigObservation struct {
 }
 
 type ThumbnailConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Bucket *string `json:"bucket,omitempty" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class"`
 }
 
@@ -98,10 +127,14 @@ type ThumbnailConfigPermissionsObservation struct {
 }
 
 type ThumbnailConfigPermissionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Access []string `json:"access,omitempty" tf:"access"`
 
+	// +kubebuilder:validation:Optional
 	Grantee *string `json:"grantee,omitempty" tf:"grantee"`
 
+	// +kubebuilder:validation:Optional
 	GranteeType *string `json:"granteeType,omitempty" tf:"grantee_type"`
 }
 

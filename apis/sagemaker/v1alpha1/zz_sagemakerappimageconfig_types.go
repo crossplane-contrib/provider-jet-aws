@@ -28,10 +28,14 @@ type FileSystemConfigObservation struct {
 }
 
 type FileSystemConfigParameters struct {
-	DefaultGid *int64 `json:"defaultGid,omitempty" tf:"default_gid"`
 
-	DefaultUid *int64 `json:"defaultUid,omitempty" tf:"default_uid"`
+	// +kubebuilder:validation:Optional
+	DefaultGID *int64 `json:"defaultGid,omitempty" tf:"default_gid"`
 
+	// +kubebuilder:validation:Optional
+	DefaultUID *int64 `json:"defaultUid,omitempty" tf:"default_uid"`
+
+	// +kubebuilder:validation:Optional
 	MountPath *string `json:"mountPath,omitempty" tf:"mount_path"`
 }
 
@@ -39,8 +43,11 @@ type KernelGatewayImageConfigObservation struct {
 }
 
 type KernelGatewayImageConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FileSystemConfig []FileSystemConfigParameters `json:"fileSystemConfig,omitempty" tf:"file_system_config"`
 
+	// +kubebuilder:validation:Required
 	KernelSpec []KernelSpecParameters `json:"kernelSpec" tf:"kernel_spec"`
 }
 
@@ -48,8 +55,11 @@ type KernelSpecObservation struct {
 }
 
 type KernelSpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -58,10 +68,16 @@ type SagemakerAppImageConfigObservation struct {
 }
 
 type SagemakerAppImageConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	AppImageConfigName string `json:"appImageConfigName" tf:"app_image_config_name"`
 
+	// +kubebuilder:validation:Optional
 	KernelGatewayImageConfig []KernelGatewayImageConfigParameters `json:"kernelGatewayImageConfig,omitempty" tf:"kernel_gateway_image_config"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

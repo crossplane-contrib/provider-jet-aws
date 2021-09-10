@@ -29,14 +29,22 @@ type RedshiftSnapshotCopyGrantObservation struct {
 }
 
 type RedshiftSnapshotCopyGrantParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SnapshotCopyGrantName string `json:"snapshotCopyGrantName" tf:"snapshot_copy_grant_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

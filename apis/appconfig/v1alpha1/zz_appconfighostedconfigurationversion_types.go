@@ -31,16 +31,25 @@ type AppconfigHostedConfigurationVersionObservation struct {
 }
 
 type AppconfigHostedConfigurationVersionParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
-	ConfigurationProfileId string `json:"configurationProfileId" tf:"configuration_profile_id"`
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Required
+	ConfigurationProfileID string `json:"configurationProfileId" tf:"configuration_profile_id"`
+
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

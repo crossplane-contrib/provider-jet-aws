@@ -29,22 +29,32 @@ type ApiGatewayDeploymentObservation struct {
 
 	ExecutionArn string `json:"executionArn" tf:"execution_arn"`
 
-	InvokeUrl string `json:"invokeUrl" tf:"invoke_url"`
+	InvokeURL string `json:"invokeUrl" tf:"invoke_url"`
 }
 
 type ApiGatewayDeploymentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Optional
 	StageDescription *string `json:"stageDescription,omitempty" tf:"stage_description"`
 
+	// +kubebuilder:validation:Optional
 	StageName *string `json:"stageName,omitempty" tf:"stage_name"`
 
+	// +kubebuilder:validation:Optional
 	Triggers map[string]string `json:"triggers,omitempty" tf:"triggers"`
 
+	// +kubebuilder:validation:Optional
 	Variables map[string]string `json:"variables,omitempty" tf:"variables"`
 }
 

@@ -28,12 +28,19 @@ type ApiGatewayDocumentationVersionObservation struct {
 }
 
 type ApiGatewayDocumentationVersionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Required
 	Version string `json:"version" tf:"version"`
 }
 

@@ -28,47 +28,67 @@ type CampaignHookObservation struct {
 }
 
 type CampaignHookParameters struct {
+
+	// +kubebuilder:validation:Optional
 	LambdaFunctionName *string `json:"lambdaFunctionName,omitempty" tf:"lambda_function_name"`
 
+	// +kubebuilder:validation:Optional
 	Mode *string `json:"mode,omitempty" tf:"mode"`
 
-	WebUrl *string `json:"webUrl,omitempty" tf:"web_url"`
+	// +kubebuilder:validation:Optional
+	WebURL *string `json:"webUrl,omitempty" tf:"web_url"`
 }
 
 type LimitsObservation struct {
 }
 
 type LimitsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Daily *int64 `json:"daily,omitempty" tf:"daily"`
 
+	// +kubebuilder:validation:Optional
 	MaximumDuration *int64 `json:"maximumDuration,omitempty" tf:"maximum_duration"`
 
+	// +kubebuilder:validation:Optional
 	MessagesPerSecond *int64 `json:"messagesPerSecond,omitempty" tf:"messages_per_second"`
 
+	// +kubebuilder:validation:Optional
 	Total *int64 `json:"total,omitempty" tf:"total"`
 }
 
 type PinpointAppObservation struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	ApplicationID string `json:"applicationId" tf:"application_id"`
 
 	Arn string `json:"arn" tf:"arn"`
 }
 
 type PinpointAppParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CampaignHook []CampaignHookParameters `json:"campaignHook,omitempty" tf:"campaign_hook"`
 
+	// +kubebuilder:validation:Optional
 	Limits []LimitsParameters `json:"limits,omitempty" tf:"limits"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	QuietTime []QuietTimeParameters `json:"quietTime,omitempty" tf:"quiet_time"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -76,8 +96,11 @@ type QuietTimeObservation struct {
 }
 
 type QuietTimeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 

@@ -27,17 +27,24 @@ import (
 type InternetGatewayObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 }
 
 type InternetGatewayParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	// +kubebuilder:validation:Optional
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
 }
 
 // InternetGatewaySpec defines the desired state of InternetGateway

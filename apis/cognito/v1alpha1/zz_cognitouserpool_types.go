@@ -28,6 +28,8 @@ type AccountRecoverySettingObservation struct {
 }
 
 type AccountRecoverySettingParameters struct {
+
+	// +kubebuilder:validation:Required
 	RecoveryMechanism []RecoveryMechanismParameters `json:"recoveryMechanism" tf:"recovery_mechanism"`
 }
 
@@ -35,8 +37,11 @@ type AdminCreateUserConfigObservation struct {
 }
 
 type AdminCreateUserConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowAdminCreateUserOnly *bool `json:"allowAdminCreateUserOnly,omitempty" tf:"allow_admin_create_user_only"`
 
+	// +kubebuilder:validation:Optional
 	InviteMessageTemplate []InviteMessageTemplateParameters `json:"inviteMessageTemplate,omitempty" tf:"invite_message_template"`
 }
 
@@ -57,52 +62,79 @@ type CognitoUserPoolObservation struct {
 }
 
 type CognitoUserPoolParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccountRecoverySetting []AccountRecoverySettingParameters `json:"accountRecoverySetting,omitempty" tf:"account_recovery_setting"`
 
+	// +kubebuilder:validation:Optional
 	AdminCreateUserConfig []AdminCreateUserConfigParameters `json:"adminCreateUserConfig,omitempty" tf:"admin_create_user_config"`
 
+	// +kubebuilder:validation:Optional
 	AliasAttributes []string `json:"aliasAttributes,omitempty" tf:"alias_attributes"`
 
+	// +kubebuilder:validation:Optional
 	AutoVerifiedAttributes []string `json:"autoVerifiedAttributes,omitempty" tf:"auto_verified_attributes"`
 
+	// +kubebuilder:validation:Optional
 	DeviceConfiguration []DeviceConfigurationParameters `json:"deviceConfiguration,omitempty" tf:"device_configuration"`
 
+	// +kubebuilder:validation:Optional
 	EmailConfiguration []EmailConfigurationParameters `json:"emailConfiguration,omitempty" tf:"email_configuration"`
 
+	// +kubebuilder:validation:Optional
 	EmailVerificationMessage *string `json:"emailVerificationMessage,omitempty" tf:"email_verification_message"`
 
+	// +kubebuilder:validation:Optional
 	EmailVerificationSubject *string `json:"emailVerificationSubject,omitempty" tf:"email_verification_subject"`
 
+	// +kubebuilder:validation:Optional
 	LambdaConfig []LambdaConfigParameters `json:"lambdaConfig,omitempty" tf:"lambda_config"`
 
+	// +kubebuilder:validation:Optional
 	MfaConfiguration *string `json:"mfaConfiguration,omitempty" tf:"mfa_configuration"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PasswordPolicy []PasswordPolicyParameters `json:"passwordPolicy,omitempty" tf:"password_policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Schema []SchemaParameters `json:"schema,omitempty" tf:"schema"`
 
+	// +kubebuilder:validation:Optional
 	SmsAuthenticationMessage *string `json:"smsAuthenticationMessage,omitempty" tf:"sms_authentication_message"`
 
+	// +kubebuilder:validation:Optional
 	SmsConfiguration []SmsConfigurationParameters `json:"smsConfiguration,omitempty" tf:"sms_configuration"`
 
+	// +kubebuilder:validation:Optional
 	SmsVerificationMessage *string `json:"smsVerificationMessage,omitempty" tf:"sms_verification_message"`
 
+	// +kubebuilder:validation:Optional
 	SoftwareTokenMfaConfiguration []SoftwareTokenMfaConfigurationParameters `json:"softwareTokenMfaConfiguration,omitempty" tf:"software_token_mfa_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	UserPoolAddOns []UserPoolAddOnsParameters `json:"userPoolAddOns,omitempty" tf:"user_pool_add_ons"`
 
+	// +kubebuilder:validation:Optional
 	UsernameAttributes []string `json:"usernameAttributes,omitempty" tf:"username_attributes"`
 
+	// +kubebuilder:validation:Optional
 	UsernameConfiguration []UsernameConfigurationParameters `json:"usernameConfiguration,omitempty" tf:"username_configuration"`
 
+	// +kubebuilder:validation:Optional
 	VerificationMessageTemplate []VerificationMessageTemplateParameters `json:"verificationMessageTemplate,omitempty" tf:"verification_message_template"`
 }
 
@@ -110,8 +142,11 @@ type CustomEmailSenderObservation struct {
 }
 
 type CustomEmailSenderParameters struct {
+
+	// +kubebuilder:validation:Required
 	LambdaArn string `json:"lambdaArn" tf:"lambda_arn"`
 
+	// +kubebuilder:validation:Required
 	LambdaVersion string `json:"lambdaVersion" tf:"lambda_version"`
 }
 
@@ -119,8 +154,11 @@ type CustomSmsSenderObservation struct {
 }
 
 type CustomSmsSenderParameters struct {
+
+	// +kubebuilder:validation:Required
 	LambdaArn string `json:"lambdaArn" tf:"lambda_arn"`
 
+	// +kubebuilder:validation:Required
 	LambdaVersion string `json:"lambdaVersion" tf:"lambda_version"`
 }
 
@@ -128,8 +166,11 @@ type DeviceConfigurationObservation struct {
 }
 
 type DeviceConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ChallengeRequiredOnNewDevice *bool `json:"challengeRequiredOnNewDevice,omitempty" tf:"challenge_required_on_new_device"`
 
+	// +kubebuilder:validation:Optional
 	DeviceOnlyRememberedOnUserPrompt *bool `json:"deviceOnlyRememberedOnUserPrompt,omitempty" tf:"device_only_remembered_on_user_prompt"`
 }
 
@@ -137,14 +178,20 @@ type EmailConfigurationObservation struct {
 }
 
 type EmailConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ConfigurationSet *string `json:"configurationSet,omitempty" tf:"configuration_set"`
 
+	// +kubebuilder:validation:Optional
 	EmailSendingAccount *string `json:"emailSendingAccount,omitempty" tf:"email_sending_account"`
 
+	// +kubebuilder:validation:Optional
 	FromEmailAddress *string `json:"fromEmailAddress,omitempty" tf:"from_email_address"`
 
+	// +kubebuilder:validation:Optional
 	ReplyToEmailAddress *string `json:"replyToEmailAddress,omitempty" tf:"reply_to_email_address"`
 
+	// +kubebuilder:validation:Optional
 	SourceArn *string `json:"sourceArn,omitempty" tf:"source_arn"`
 }
 
@@ -152,10 +199,14 @@ type InviteMessageTemplateObservation struct {
 }
 
 type InviteMessageTemplateParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EmailMessage *string `json:"emailMessage,omitempty" tf:"email_message"`
 
+	// +kubebuilder:validation:Optional
 	EmailSubject *string `json:"emailSubject,omitempty" tf:"email_subject"`
 
+	// +kubebuilder:validation:Optional
 	SmsMessage *string `json:"smsMessage,omitempty" tf:"sms_message"`
 }
 
@@ -163,30 +214,44 @@ type LambdaConfigObservation struct {
 }
 
 type LambdaConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CreateAuthChallenge *string `json:"createAuthChallenge,omitempty" tf:"create_auth_challenge"`
 
+	// +kubebuilder:validation:Optional
 	CustomEmailSender []CustomEmailSenderParameters `json:"customEmailSender,omitempty" tf:"custom_email_sender"`
 
+	// +kubebuilder:validation:Optional
 	CustomMessage *string `json:"customMessage,omitempty" tf:"custom_message"`
 
+	// +kubebuilder:validation:Optional
 	CustomSmsSender []CustomSmsSenderParameters `json:"customSmsSender,omitempty" tf:"custom_sms_sender"`
 
+	// +kubebuilder:validation:Optional
 	DefineAuthChallenge *string `json:"defineAuthChallenge,omitempty" tf:"define_auth_challenge"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	PostAuthentication *string `json:"postAuthentication,omitempty" tf:"post_authentication"`
 
+	// +kubebuilder:validation:Optional
 	PostConfirmation *string `json:"postConfirmation,omitempty" tf:"post_confirmation"`
 
+	// +kubebuilder:validation:Optional
 	PreAuthentication *string `json:"preAuthentication,omitempty" tf:"pre_authentication"`
 
+	// +kubebuilder:validation:Optional
 	PreSignUp *string `json:"preSignUp,omitempty" tf:"pre_sign_up"`
 
+	// +kubebuilder:validation:Optional
 	PreTokenGeneration *string `json:"preTokenGeneration,omitempty" tf:"pre_token_generation"`
 
+	// +kubebuilder:validation:Optional
 	UserMigration *string `json:"userMigration,omitempty" tf:"user_migration"`
 
+	// +kubebuilder:validation:Optional
 	VerifyAuthChallengeResponse *string `json:"verifyAuthChallengeResponse,omitempty" tf:"verify_auth_challenge_response"`
 }
 
@@ -194,8 +259,11 @@ type NumberAttributeConstraintsObservation struct {
 }
 
 type NumberAttributeConstraintsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MaxValue *string `json:"maxValue,omitempty" tf:"max_value"`
 
+	// +kubebuilder:validation:Optional
 	MinValue *string `json:"minValue,omitempty" tf:"min_value"`
 }
 
@@ -203,16 +271,23 @@ type PasswordPolicyObservation struct {
 }
 
 type PasswordPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MinimumLength *int64 `json:"minimumLength,omitempty" tf:"minimum_length"`
 
+	// +kubebuilder:validation:Optional
 	RequireLowercase *bool `json:"requireLowercase,omitempty" tf:"require_lowercase"`
 
+	// +kubebuilder:validation:Optional
 	RequireNumbers *bool `json:"requireNumbers,omitempty" tf:"require_numbers"`
 
+	// +kubebuilder:validation:Optional
 	RequireSymbols *bool `json:"requireSymbols,omitempty" tf:"require_symbols"`
 
+	// +kubebuilder:validation:Optional
 	RequireUppercase *bool `json:"requireUppercase,omitempty" tf:"require_uppercase"`
 
+	// +kubebuilder:validation:Optional
 	TemporaryPasswordValidityDays *int64 `json:"temporaryPasswordValidityDays,omitempty" tf:"temporary_password_validity_days"`
 }
 
@@ -220,8 +295,11 @@ type RecoveryMechanismObservation struct {
 }
 
 type RecoveryMechanismParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 }
 
@@ -229,18 +307,26 @@ type SchemaObservation struct {
 }
 
 type SchemaParameters struct {
+
+	// +kubebuilder:validation:Required
 	AttributeDataType string `json:"attributeDataType" tf:"attribute_data_type"`
 
+	// +kubebuilder:validation:Optional
 	DeveloperOnlyAttribute *bool `json:"developerOnlyAttribute,omitempty" tf:"developer_only_attribute"`
 
+	// +kubebuilder:validation:Optional
 	Mutable *bool `json:"mutable,omitempty" tf:"mutable"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NumberAttributeConstraints []NumberAttributeConstraintsParameters `json:"numberAttributeConstraints,omitempty" tf:"number_attribute_constraints"`
 
+	// +kubebuilder:validation:Optional
 	Required *bool `json:"required,omitempty" tf:"required"`
 
+	// +kubebuilder:validation:Optional
 	StringAttributeConstraints []StringAttributeConstraintsParameters `json:"stringAttributeConstraints,omitempty" tf:"string_attribute_constraints"`
 }
 
@@ -248,8 +334,11 @@ type SmsConfigurationObservation struct {
 }
 
 type SmsConfigurationParameters struct {
-	ExternalId string `json:"externalId" tf:"external_id"`
 
+	// +kubebuilder:validation:Required
+	ExternalID string `json:"externalId" tf:"external_id"`
+
+	// +kubebuilder:validation:Required
 	SnsCallerArn string `json:"snsCallerArn" tf:"sns_caller_arn"`
 }
 
@@ -257,6 +346,8 @@ type SoftwareTokenMfaConfigurationObservation struct {
 }
 
 type SoftwareTokenMfaConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 }
 
@@ -264,8 +355,11 @@ type StringAttributeConstraintsObservation struct {
 }
 
 type StringAttributeConstraintsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MaxLength *string `json:"maxLength,omitempty" tf:"max_length"`
 
+	// +kubebuilder:validation:Optional
 	MinLength *string `json:"minLength,omitempty" tf:"min_length"`
 }
 
@@ -273,6 +367,8 @@ type UserPoolAddOnsObservation struct {
 }
 
 type UserPoolAddOnsParameters struct {
+
+	// +kubebuilder:validation:Required
 	AdvancedSecurityMode string `json:"advancedSecurityMode" tf:"advanced_security_mode"`
 }
 
@@ -280,6 +376,8 @@ type UsernameConfigurationObservation struct {
 }
 
 type UsernameConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	CaseSensitive bool `json:"caseSensitive" tf:"case_sensitive"`
 }
 
@@ -287,16 +385,23 @@ type VerificationMessageTemplateObservation struct {
 }
 
 type VerificationMessageTemplateParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DefaultEmailOption *string `json:"defaultEmailOption,omitempty" tf:"default_email_option"`
 
+	// +kubebuilder:validation:Optional
 	EmailMessage *string `json:"emailMessage,omitempty" tf:"email_message"`
 
+	// +kubebuilder:validation:Optional
 	EmailMessageByLink *string `json:"emailMessageByLink,omitempty" tf:"email_message_by_link"`
 
+	// +kubebuilder:validation:Optional
 	EmailSubject *string `json:"emailSubject,omitempty" tf:"email_subject"`
 
+	// +kubebuilder:validation:Optional
 	EmailSubjectByLink *string `json:"emailSubjectByLink,omitempty" tf:"email_subject_by_link"`
 
+	// +kubebuilder:validation:Optional
 	SmsMessage *string `json:"smsMessage,omitempty" tf:"sms_message"`
 }
 

@@ -31,22 +31,34 @@ type Cloud9EnvironmentEc2Observation struct {
 }
 
 type Cloud9EnvironmentEc2Parameters struct {
+
+	// +kubebuilder:validation:Optional
 	AutomaticStopTimeMinutes *int64 `json:"automaticStopTimeMinutes,omitempty" tf:"automatic_stop_time_minutes"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	OwnerArn *string `json:"ownerArn,omitempty" tf:"owner_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

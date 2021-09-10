@@ -29,12 +29,19 @@ type KmsCiphertextObservation struct {
 }
 
 type KmsCiphertextParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Context map[string]string `json:"context,omitempty" tf:"context"`
 
-	KeyId string `json:"keyId" tf:"key_id"`
+	// +kubebuilder:validation:Required
+	KeyID string `json:"keyId" tf:"key_id"`
 
+	// +kubebuilder:validation:Required
 	Plaintext string `json:"plaintext" tf:"plaintext"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

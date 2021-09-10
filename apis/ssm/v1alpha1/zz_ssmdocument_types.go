@@ -28,10 +28,14 @@ type AttachmentsSourceObservation struct {
 }
 
 type AttachmentsSourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 
@@ -39,12 +43,17 @@ type ParameterObservation struct {
 }
 
 type ParameterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DefaultValue *string `json:"defaultValue,omitempty" tf:"default_value"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -77,26 +86,40 @@ type SsmDocumentObservation struct {
 }
 
 type SsmDocumentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AttachmentsSource []AttachmentsSourceParameters `json:"attachmentsSource,omitempty" tf:"attachments_source"`
 
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Optional
 	DocumentFormat *string `json:"documentFormat,omitempty" tf:"document_format"`
 
+	// +kubebuilder:validation:Required
 	DocumentType string `json:"documentType" tf:"document_type"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Permissions map[string]string `json:"permissions,omitempty" tf:"permissions"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TargetType *string `json:"targetType,omitempty" tf:"target_type"`
 
+	// +kubebuilder:validation:Optional
 	VersionName *string `json:"versionName,omitempty" tf:"version_name"`
 }
 

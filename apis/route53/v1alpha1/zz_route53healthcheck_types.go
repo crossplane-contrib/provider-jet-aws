@@ -28,48 +28,73 @@ type Route53HealthCheckObservation struct {
 }
 
 type Route53HealthCheckParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ChildHealthThreshold *int64 `json:"childHealthThreshold,omitempty" tf:"child_health_threshold"`
 
+	// +kubebuilder:validation:Optional
 	ChildHealthchecks []string `json:"childHealthchecks,omitempty" tf:"child_healthchecks"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchAlarmName *string `json:"cloudwatchAlarmName,omitempty" tf:"cloudwatch_alarm_name"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchAlarmRegion *string `json:"cloudwatchAlarmRegion,omitempty" tf:"cloudwatch_alarm_region"`
 
+	// +kubebuilder:validation:Optional
 	Disabled *bool `json:"disabled,omitempty" tf:"disabled"`
 
+	// +kubebuilder:validation:Optional
 	EnableSni *bool `json:"enableSni,omitempty" tf:"enable_sni"`
 
+	// +kubebuilder:validation:Optional
 	FailureThreshold *int64 `json:"failureThreshold,omitempty" tf:"failure_threshold"`
 
+	// +kubebuilder:validation:Optional
 	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn"`
 
+	// +kubebuilder:validation:Optional
+	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
+
+	// +kubebuilder:validation:Optional
 	InsufficientDataHealthStatus *string `json:"insufficientDataHealthStatus,omitempty" tf:"insufficient_data_health_status"`
 
+	// +kubebuilder:validation:Optional
 	InvertHealthcheck *bool `json:"invertHealthcheck,omitempty" tf:"invert_healthcheck"`
 
-	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
-
+	// +kubebuilder:validation:Optional
 	MeasureLatency *bool `json:"measureLatency,omitempty" tf:"measure_latency"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Optional
 	ReferenceName *string `json:"referenceName,omitempty" tf:"reference_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Regions []string `json:"regions,omitempty" tf:"regions"`
 
+	// +kubebuilder:validation:Optional
 	RequestInterval *int64 `json:"requestInterval,omitempty" tf:"request_interval"`
 
+	// +kubebuilder:validation:Optional
 	ResourcePath *string `json:"resourcePath,omitempty" tf:"resource_path"`
 
+	// +kubebuilder:validation:Optional
 	SearchString *string `json:"searchString,omitempty" tf:"search_string"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

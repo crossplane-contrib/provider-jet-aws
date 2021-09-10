@@ -28,8 +28,13 @@ type MacieMemberAccountAssociationObservation struct {
 }
 
 type MacieMemberAccountAssociationParameters struct {
-	MemberAccountId string `json:"memberAccountId" tf:"member_account_id"`
 
+	// +kubebuilder:validation:Required
+	MemberAccountID string `json:"memberAccountId" tf:"member_account_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

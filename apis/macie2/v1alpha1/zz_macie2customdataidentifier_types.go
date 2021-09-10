@@ -31,24 +31,37 @@ type Macie2CustomDataIdentifierObservation struct {
 }
 
 type Macie2CustomDataIdentifierParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	IgnoreWords []string `json:"ignoreWords,omitempty" tf:"ignore_words"`
 
+	// +kubebuilder:validation:Optional
 	Keywords []string `json:"keywords,omitempty" tf:"keywords"`
 
+	// +kubebuilder:validation:Optional
 	MaximumMatchDistance *int64 `json:"maximumMatchDistance,omitempty" tf:"maximum_match_distance"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Regex *string `json:"regex,omitempty" tf:"regex"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

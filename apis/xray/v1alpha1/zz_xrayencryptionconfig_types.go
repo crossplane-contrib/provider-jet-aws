@@ -28,10 +28,16 @@ type XrayEncryptionConfigObservation struct {
 }
 
 type XrayEncryptionConfigParameters struct {
-	KeyId *string `json:"keyId,omitempty" tf:"key_id"`
 
+	// +kubebuilder:validation:Optional
+	KeyID *string `json:"keyId,omitempty" tf:"key_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

@@ -29,23 +29,34 @@ type CognitoResourceServerObservation struct {
 }
 
 type CognitoResourceServerParameters struct {
+
+	// +kubebuilder:validation:Required
 	Identifier string `json:"identifier" tf:"identifier"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Scope []ScopeParameters `json:"scope,omitempty" tf:"scope"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	// +kubebuilder:validation:Required
+	UserPoolID string `json:"userPoolId" tf:"user_pool_id"`
 }
 
 type ScopeObservation struct {
 }
 
 type ScopeParameters struct {
+
+	// +kubebuilder:validation:Required
 	ScopeDescription string `json:"scopeDescription" tf:"scope_description"`
 
+	// +kubebuilder:validation:Required
 	ScopeName string `json:"scopeName" tf:"scope_name"`
 }
 

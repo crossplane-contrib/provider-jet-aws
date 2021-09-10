@@ -29,10 +29,16 @@ type DynamodbGlobalTableObservation struct {
 }
 
 type DynamodbGlobalTableParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Replica []ReplicaParameters `json:"replica" tf:"replica"`
 }
 
@@ -40,6 +46,8 @@ type ReplicaObservation struct {
 }
 
 type ReplicaParameters struct {
+
+	// +kubebuilder:validation:Required
 	RegionName string `json:"regionName" tf:"region_name"`
 }
 

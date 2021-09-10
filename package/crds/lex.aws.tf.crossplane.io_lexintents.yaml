@@ -216,6 +216,8 @@ spec:
                   parentIntentSignature:
                     type: string
                   region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
                     type: string
                   rejectionStatement:
                     items:

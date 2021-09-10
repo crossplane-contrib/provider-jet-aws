@@ -28,8 +28,11 @@ type AndObservation struct {
 }
 
 type AndParameters struct {
+
+	// +kubebuilder:validation:Optional
 	SimpleScopeTerm []SimpleScopeTermParameters `json:"simpleScopeTerm,omitempty" tf:"simple_scope_term"`
 
+	// +kubebuilder:validation:Optional
 	TagScopeTerm []TagScopeTermParameters `json:"tagScopeTerm,omitempty" tf:"tag_scope_term"`
 }
 
@@ -37,10 +40,14 @@ type AndSimpleScopeTermObservation struct {
 }
 
 type AndSimpleScopeTermParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comparator *string `json:"comparator,omitempty" tf:"comparator"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Values []string `json:"values,omitempty" tf:"values"`
 }
 
@@ -48,12 +55,17 @@ type AndTagScopeTermObservation struct {
 }
 
 type AndTagScopeTermParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comparator *string `json:"comparator,omitempty" tf:"comparator"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	TagValues []TagScopeTermTagValuesParameters `json:"tagValues,omitempty" tf:"tag_values"`
 
+	// +kubebuilder:validation:Optional
 	Target *string `json:"target,omitempty" tf:"target"`
 }
 
@@ -61,8 +73,11 @@ type BucketDefinitionsObservation struct {
 }
 
 type BucketDefinitionsParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
 
+	// +kubebuilder:validation:Required
+	AccountID string `json:"accountId" tf:"account_id"`
+
+	// +kubebuilder:validation:Required
 	Buckets []string `json:"buckets" tf:"buckets"`
 }
 
@@ -70,6 +85,8 @@ type ExcludesObservation struct {
 }
 
 type ExcludesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	And []AndParameters `json:"and,omitempty" tf:"and"`
 }
 
@@ -77,8 +94,11 @@ type IncludesAndObservation struct {
 }
 
 type IncludesAndParameters struct {
+
+	// +kubebuilder:validation:Optional
 	SimpleScopeTerm []AndSimpleScopeTermParameters `json:"simpleScopeTerm,omitempty" tf:"simple_scope_term"`
 
+	// +kubebuilder:validation:Optional
 	TagScopeTerm []AndTagScopeTermParameters `json:"tagScopeTerm,omitempty" tf:"tag_scope_term"`
 }
 
@@ -86,6 +106,8 @@ type IncludesObservation struct {
 }
 
 type IncludesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	And []IncludesAndParameters `json:"and,omitempty" tf:"and"`
 }
 
@@ -94,36 +116,52 @@ type Macie2ClassificationJobObservation struct {
 
 	JobArn string `json:"jobArn" tf:"job_arn"`
 
-	JobId string `json:"jobId" tf:"job_id"`
+	JobID string `json:"jobId" tf:"job_id"`
 
 	UserPausedDetails []UserPausedDetailsObservation `json:"userPausedDetails" tf:"user_paused_details"`
 }
 
 type Macie2ClassificationJobParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomDataIdentifierIds []string `json:"customDataIdentifierIds,omitempty" tf:"custom_data_identifier_ids"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	InitialRun *bool `json:"initialRun,omitempty" tf:"initial_run"`
 
+	// +kubebuilder:validation:Optional
 	JobStatus *string `json:"jobStatus,omitempty" tf:"job_status"`
 
+	// +kubebuilder:validation:Required
 	JobType string `json:"jobType" tf:"job_type"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	S3JobDefinition []S3JobDefinitionParameters `json:"s3JobDefinition" tf:"s3_job_definition"`
 
+	// +kubebuilder:validation:Optional
 	SamplingPercentage *int64 `json:"samplingPercentage,omitempty" tf:"sampling_percentage"`
 
+	// +kubebuilder:validation:Optional
 	ScheduleFrequency []ScheduleFrequencyParameters `json:"scheduleFrequency,omitempty" tf:"schedule_frequency"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -131,8 +169,11 @@ type S3JobDefinitionObservation struct {
 }
 
 type S3JobDefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BucketDefinitions []BucketDefinitionsParameters `json:"bucketDefinitions,omitempty" tf:"bucket_definitions"`
 
+	// +kubebuilder:validation:Optional
 	Scoping []ScopingParameters `json:"scoping,omitempty" tf:"scoping"`
 }
 
@@ -140,10 +181,14 @@ type ScheduleFrequencyObservation struct {
 }
 
 type ScheduleFrequencyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DailySchedule *bool `json:"dailySchedule,omitempty" tf:"daily_schedule"`
 
+	// +kubebuilder:validation:Optional
 	MonthlySchedule *int64 `json:"monthlySchedule,omitempty" tf:"monthly_schedule"`
 
+	// +kubebuilder:validation:Optional
 	WeeklySchedule *string `json:"weeklySchedule,omitempty" tf:"weekly_schedule"`
 }
 
@@ -151,8 +196,11 @@ type ScopingObservation struct {
 }
 
 type ScopingParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Excludes []ExcludesParameters `json:"excludes,omitempty" tf:"excludes"`
 
+	// +kubebuilder:validation:Optional
 	Includes []IncludesParameters `json:"includes,omitempty" tf:"includes"`
 }
 
@@ -160,10 +208,14 @@ type SimpleScopeTermObservation struct {
 }
 
 type SimpleScopeTermParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comparator *string `json:"comparator,omitempty" tf:"comparator"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Values []string `json:"values,omitempty" tf:"values"`
 }
 
@@ -171,12 +223,17 @@ type TagScopeTermObservation struct {
 }
 
 type TagScopeTermParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comparator *string `json:"comparator,omitempty" tf:"comparator"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	TagValues []TagValuesParameters `json:"tagValues,omitempty" tf:"tag_values"`
 
+	// +kubebuilder:validation:Optional
 	Target *string `json:"target,omitempty" tf:"target"`
 }
 
@@ -184,8 +241,11 @@ type TagScopeTermTagValuesObservation struct {
 }
 
 type TagScopeTermTagValuesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
@@ -193,8 +253,11 @@ type TagValuesObservation struct {
 }
 
 type TagValuesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 

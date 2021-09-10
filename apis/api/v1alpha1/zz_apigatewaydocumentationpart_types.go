@@ -28,27 +28,40 @@ type ApiGatewayDocumentationPartObservation struct {
 }
 
 type ApiGatewayDocumentationPartParameters struct {
+
+	// +kubebuilder:validation:Required
 	Location []LocationParameters `json:"location" tf:"location"`
 
+	// +kubebuilder:validation:Required
 	Properties string `json:"properties" tf:"properties"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 }
 
 type LocationObservation struct {
 }
 
 type LocationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Method *string `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	StatusCode *string `json:"statusCode,omitempty" tf:"status_code"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

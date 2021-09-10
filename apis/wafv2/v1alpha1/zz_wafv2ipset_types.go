@@ -31,20 +31,31 @@ type Wafv2IpSetObservation struct {
 }
 
 type Wafv2IpSetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Addresses []string `json:"addresses,omitempty" tf:"addresses"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	IpAddressVersion string `json:"ipAddressVersion" tf:"ip_address_version"`
+	// +kubebuilder:validation:Required
+	IPAddressVersion string `json:"ipAddressVersion" tf:"ip_address_version"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Scope string `json:"scope" tf:"scope"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

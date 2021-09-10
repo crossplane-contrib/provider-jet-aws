@@ -29,22 +29,34 @@ type DbOptionGroupObservation struct {
 }
 
 type DbOptionGroupParameters struct {
+
+	// +kubebuilder:validation:Required
 	EngineName string `json:"engineName" tf:"engine_name"`
 
+	// +kubebuilder:validation:Required
 	MajorEngineVersion string `json:"majorEngineVersion" tf:"major_engine_version"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Option []OptionParameters `json:"option,omitempty" tf:"option"`
 
+	// +kubebuilder:validation:Optional
 	OptionGroupDescription *string `json:"optionGroupDescription,omitempty" tf:"option_group_description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -52,16 +64,23 @@ type OptionObservation struct {
 }
 
 type OptionParameters struct {
-	DbSecurityGroupMemberships []string `json:"dbSecurityGroupMemberships,omitempty" tf:"db_security_group_memberships"`
 
+	// +kubebuilder:validation:Optional
+	DBSecurityGroupMemberships []string `json:"dbSecurityGroupMemberships,omitempty" tf:"db_security_group_memberships"`
+
+	// +kubebuilder:validation:Required
 	OptionName string `json:"optionName" tf:"option_name"`
 
+	// +kubebuilder:validation:Optional
 	OptionSettings []OptionSettingsParameters `json:"optionSettings,omitempty" tf:"option_settings"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version"`
 
+	// +kubebuilder:validation:Optional
 	VpcSecurityGroupMemberships []string `json:"vpcSecurityGroupMemberships,omitempty" tf:"vpc_security_group_memberships"`
 }
 
@@ -69,8 +88,11 @@ type OptionSettingsObservation struct {
 }
 
 type OptionSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

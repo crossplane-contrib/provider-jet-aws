@@ -29,16 +29,25 @@ type GameliftAliasObservation struct {
 }
 
 type GameliftAliasParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoutingStrategy []RoutingStrategyParameters `json:"routingStrategy" tf:"routing_strategy"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -46,10 +55,14 @@ type RoutingStrategyObservation struct {
 }
 
 type RoutingStrategyParameters struct {
-	FleetId *string `json:"fleetId,omitempty" tf:"fleet_id"`
 
+	// +kubebuilder:validation:Optional
+	FleetID *string `json:"fleetId,omitempty" tf:"fleet_id"`
+
+	// +kubebuilder:validation:Optional
 	Message *string `json:"message,omitempty" tf:"message"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

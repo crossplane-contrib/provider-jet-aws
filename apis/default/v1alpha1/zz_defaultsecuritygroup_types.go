@@ -28,22 +28,32 @@ type DefaultSecurityGroupEgressObservation struct {
 }
 
 type DefaultSecurityGroupEgressParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CidrBlocks []string `json:"cidrBlocks,omitempty" tf:"cidr_blocks"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
-	Ipv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
+	// +kubebuilder:validation:Optional
+	IPv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
 
+	// +kubebuilder:validation:Optional
 	PrefixListIds []string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
+	// +kubebuilder:validation:Optional
 	Self *bool `json:"self,omitempty" tf:"self"`
 
+	// +kubebuilder:validation:Required
 	ToPort int64 `json:"toPort" tf:"to_port"`
 }
 
@@ -51,22 +61,32 @@ type DefaultSecurityGroupIngressObservation struct {
 }
 
 type DefaultSecurityGroupIngressParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CidrBlocks []string `json:"cidrBlocks,omitempty" tf:"cidr_blocks"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
-	Ipv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
+	// +kubebuilder:validation:Optional
+	IPv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
 
+	// +kubebuilder:validation:Optional
 	PrefixListIds []string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
+	// +kubebuilder:validation:Optional
 	Self *bool `json:"self,omitempty" tf:"self"`
 
+	// +kubebuilder:validation:Required
 	ToPort int64 `json:"toPort" tf:"to_port"`
 }
 
@@ -77,23 +97,33 @@ type DefaultSecurityGroupObservation struct {
 
 	Name string `json:"name" tf:"name"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 }
 
 type DefaultSecurityGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Egress []DefaultSecurityGroupEgressParameters `json:"egress,omitempty" tf:"egress"`
 
+	// +kubebuilder:validation:Optional
 	Ingress []DefaultSecurityGroupIngressParameters `json:"ingress,omitempty" tf:"ingress"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RevokeRulesOnDelete *bool `json:"revokeRulesOnDelete,omitempty" tf:"revoke_rules_on_delete"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	// +kubebuilder:validation:Optional
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
 }
 
 // DefaultSecurityGroupSpec defines the desired state of DefaultSecurityGroup

@@ -40,7 +40,7 @@ type VgwTelemetryObservation struct {
 
 	LastStatusChange string `json:"lastStatusChange" tf:"last_status_change"`
 
-	OutsideIpAddress string `json:"outsideIpAddress" tf:"outside_ip_address"`
+	OutsideIPAddress string `json:"outsideIpAddress" tf:"outside_ip_address"`
 
 	Status string `json:"status" tf:"status"`
 
@@ -57,7 +57,7 @@ type VpnConnectionObservation struct {
 
 	Routes []RoutesObservation `json:"routes" tf:"routes"`
 
-	TransitGatewayAttachmentId string `json:"transitGatewayAttachmentId" tf:"transit_gateway_attachment_id"`
+	TransitGatewayAttachmentID string `json:"transitGatewayAttachmentId" tf:"transit_gateway_attachment_id"`
 
 	Tunnel1Address string `json:"tunnel1Address" tf:"tunnel1_address"`
 
@@ -83,105 +83,158 @@ type VpnConnectionObservation struct {
 }
 
 type VpnConnectionParameters struct {
-	CustomerGatewayId string `json:"customerGatewayId" tf:"customer_gateway_id"`
 
+	// +kubebuilder:validation:Required
+	CustomerGatewayID string `json:"customerGatewayId" tf:"customer_gateway_id"`
+
+	// +kubebuilder:validation:Optional
 	EnableAcceleration *bool `json:"enableAcceleration,omitempty" tf:"enable_acceleration"`
 
-	LocalIpv4NetworkCidr *string `json:"localIpv4NetworkCidr,omitempty" tf:"local_ipv4_network_cidr"`
+	// +kubebuilder:validation:Optional
+	LocalIPv4NetworkCidr *string `json:"localIpv4NetworkCidr,omitempty" tf:"local_ipv4_network_cidr"`
 
-	LocalIpv6NetworkCidr *string `json:"localIpv6NetworkCidr,omitempty" tf:"local_ipv6_network_cidr"`
+	// +kubebuilder:validation:Optional
+	LocalIPv6NetworkCidr *string `json:"localIpv6NetworkCidr,omitempty" tf:"local_ipv6_network_cidr"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RemoteIpv4NetworkCidr *string `json:"remoteIpv4NetworkCidr,omitempty" tf:"remote_ipv4_network_cidr"`
+	// +kubebuilder:validation:Optional
+	RemoteIPv4NetworkCidr *string `json:"remoteIpv4NetworkCidr,omitempty" tf:"remote_ipv4_network_cidr"`
 
-	RemoteIpv6NetworkCidr *string `json:"remoteIpv6NetworkCidr,omitempty" tf:"remote_ipv6_network_cidr"`
+	// +kubebuilder:validation:Optional
+	RemoteIPv6NetworkCidr *string `json:"remoteIpv6NetworkCidr,omitempty" tf:"remote_ipv6_network_cidr"`
 
+	// +kubebuilder:validation:Optional
 	StaticRoutesOnly *bool `json:"staticRoutesOnly,omitempty" tf:"static_routes_only"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TransitGatewayId *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id"`
+	// +kubebuilder:validation:Optional
+	TransitGatewayID *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1DpdTimeoutAction *string `json:"tunnel1DpdTimeoutAction,omitempty" tf:"tunnel1_dpd_timeout_action"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1DpdTimeoutSeconds *int64 `json:"tunnel1DpdTimeoutSeconds,omitempty" tf:"tunnel1_dpd_timeout_seconds"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1IkeVersions []string `json:"tunnel1IkeVersions,omitempty" tf:"tunnel1_ike_versions"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1InsideCidr *string `json:"tunnel1InsideCidr,omitempty" tf:"tunnel1_inside_cidr"`
 
-	Tunnel1InsideIpv6Cidr *string `json:"tunnel1InsideIpv6Cidr,omitempty" tf:"tunnel1_inside_ipv6_cidr"`
+	// +kubebuilder:validation:Optional
+	Tunnel1InsideIPv6Cidr *string `json:"tunnel1InsideIpv6Cidr,omitempty" tf:"tunnel1_inside_ipv6_cidr"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1Phase1DhGroupNumbers []int64 `json:"tunnel1Phase1DhGroupNumbers,omitempty" tf:"tunnel1_phase1_dh_group_numbers"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1Phase1EncryptionAlgorithms []string `json:"tunnel1Phase1EncryptionAlgorithms,omitempty" tf:"tunnel1_phase1_encryption_algorithms"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1Phase1IntegrityAlgorithms []string `json:"tunnel1Phase1IntegrityAlgorithms,omitempty" tf:"tunnel1_phase1_integrity_algorithms"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1Phase1LifetimeSeconds *int64 `json:"tunnel1Phase1LifetimeSeconds,omitempty" tf:"tunnel1_phase1_lifetime_seconds"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1Phase2DhGroupNumbers []int64 `json:"tunnel1Phase2DhGroupNumbers,omitempty" tf:"tunnel1_phase2_dh_group_numbers"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1Phase2EncryptionAlgorithms []string `json:"tunnel1Phase2EncryptionAlgorithms,omitempty" tf:"tunnel1_phase2_encryption_algorithms"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1Phase2IntegrityAlgorithms []string `json:"tunnel1Phase2IntegrityAlgorithms,omitempty" tf:"tunnel1_phase2_integrity_algorithms"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1Phase2LifetimeSeconds *int64 `json:"tunnel1Phase2LifetimeSeconds,omitempty" tf:"tunnel1_phase2_lifetime_seconds"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1PresharedKey *string `json:"tunnel1PresharedKey,omitempty" tf:"tunnel1_preshared_key"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1RekeyFuzzPercentage *int64 `json:"tunnel1RekeyFuzzPercentage,omitempty" tf:"tunnel1_rekey_fuzz_percentage"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1RekeyMarginTimeSeconds *int64 `json:"tunnel1RekeyMarginTimeSeconds,omitempty" tf:"tunnel1_rekey_margin_time_seconds"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1ReplayWindowSize *int64 `json:"tunnel1ReplayWindowSize,omitempty" tf:"tunnel1_replay_window_size"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel1StartupAction *string `json:"tunnel1StartupAction,omitempty" tf:"tunnel1_startup_action"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2DpdTimeoutAction *string `json:"tunnel2DpdTimeoutAction,omitempty" tf:"tunnel2_dpd_timeout_action"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2DpdTimeoutSeconds *int64 `json:"tunnel2DpdTimeoutSeconds,omitempty" tf:"tunnel2_dpd_timeout_seconds"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2IkeVersions []string `json:"tunnel2IkeVersions,omitempty" tf:"tunnel2_ike_versions"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2InsideCidr *string `json:"tunnel2InsideCidr,omitempty" tf:"tunnel2_inside_cidr"`
 
-	Tunnel2InsideIpv6Cidr *string `json:"tunnel2InsideIpv6Cidr,omitempty" tf:"tunnel2_inside_ipv6_cidr"`
+	// +kubebuilder:validation:Optional
+	Tunnel2InsideIPv6Cidr *string `json:"tunnel2InsideIpv6Cidr,omitempty" tf:"tunnel2_inside_ipv6_cidr"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2Phase1DhGroupNumbers []int64 `json:"tunnel2Phase1DhGroupNumbers,omitempty" tf:"tunnel2_phase1_dh_group_numbers"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2Phase1EncryptionAlgorithms []string `json:"tunnel2Phase1EncryptionAlgorithms,omitempty" tf:"tunnel2_phase1_encryption_algorithms"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2Phase1IntegrityAlgorithms []string `json:"tunnel2Phase1IntegrityAlgorithms,omitempty" tf:"tunnel2_phase1_integrity_algorithms"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2Phase1LifetimeSeconds *int64 `json:"tunnel2Phase1LifetimeSeconds,omitempty" tf:"tunnel2_phase1_lifetime_seconds"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2Phase2DhGroupNumbers []int64 `json:"tunnel2Phase2DhGroupNumbers,omitempty" tf:"tunnel2_phase2_dh_group_numbers"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2Phase2EncryptionAlgorithms []string `json:"tunnel2Phase2EncryptionAlgorithms,omitempty" tf:"tunnel2_phase2_encryption_algorithms"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2Phase2IntegrityAlgorithms []string `json:"tunnel2Phase2IntegrityAlgorithms,omitempty" tf:"tunnel2_phase2_integrity_algorithms"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2Phase2LifetimeSeconds *int64 `json:"tunnel2Phase2LifetimeSeconds,omitempty" tf:"tunnel2_phase2_lifetime_seconds"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2PresharedKey *string `json:"tunnel2PresharedKey,omitempty" tf:"tunnel2_preshared_key"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2RekeyFuzzPercentage *int64 `json:"tunnel2RekeyFuzzPercentage,omitempty" tf:"tunnel2_rekey_fuzz_percentage"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2RekeyMarginTimeSeconds *int64 `json:"tunnel2RekeyMarginTimeSeconds,omitempty" tf:"tunnel2_rekey_margin_time_seconds"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2ReplayWindowSize *int64 `json:"tunnel2ReplayWindowSize,omitempty" tf:"tunnel2_replay_window_size"`
 
+	// +kubebuilder:validation:Optional
 	Tunnel2StartupAction *string `json:"tunnel2StartupAction,omitempty" tf:"tunnel2_startup_action"`
 
-	TunnelInsideIpVersion *string `json:"tunnelInsideIpVersion,omitempty" tf:"tunnel_inside_ip_version"`
+	// +kubebuilder:validation:Optional
+	TunnelInsideIPVersion *string `json:"tunnelInsideIpVersion,omitempty" tf:"tunnel_inside_ip_version"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
-	VpnGatewayId *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
+	// +kubebuilder:validation:Optional
+	VpnGatewayID *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
 }
 
 // VpnConnectionSpec defines the desired state of VpnConnection

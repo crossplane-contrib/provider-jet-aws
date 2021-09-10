@@ -28,12 +28,19 @@ type DirectoryServiceConditionalForwarderObservation struct {
 }
 
 type DirectoryServiceConditionalForwarderParameters struct {
-	DirectoryId string `json:"directoryId" tf:"directory_id"`
 
-	DnsIps []string `json:"dnsIps" tf:"dns_ips"`
+	// +kubebuilder:validation:Required
+	DNSIps []string `json:"dnsIps" tf:"dns_ips"`
 
+	// +kubebuilder:validation:Required
+	DirectoryID string `json:"directoryId" tf:"directory_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RemoteDomainName string `json:"remoteDomainName" tf:"remote_domain_name"`
 }
 

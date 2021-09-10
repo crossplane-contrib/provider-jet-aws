@@ -28,8 +28,11 @@ type AuthorizationConfigObservation struct {
 }
 
 type AuthorizationConfigParameters struct {
-	AccessPointId *string `json:"accessPointId,omitempty" tf:"access_point_id"`
 
+	// +kubebuilder:validation:Optional
+	AccessPointID *string `json:"accessPointId,omitempty" tf:"access_point_id"`
+
+	// +kubebuilder:validation:Optional
 	Iam *string `json:"iam,omitempty" tf:"iam"`
 }
 
@@ -37,14 +40,20 @@ type DockerVolumeConfigurationObservation struct {
 }
 
 type DockerVolumeConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Autoprovision *bool `json:"autoprovision,omitempty" tf:"autoprovision"`
 
+	// +kubebuilder:validation:Optional
 	Driver *string `json:"driver,omitempty" tf:"driver"`
 
+	// +kubebuilder:validation:Optional
 	DriverOpts map[string]string `json:"driverOpts,omitempty" tf:"driver_opts"`
 
+	// +kubebuilder:validation:Optional
 	Labels map[string]string `json:"labels,omitempty" tf:"labels"`
 
+	// +kubebuilder:validation:Optional
 	Scope *string `json:"scope,omitempty" tf:"scope"`
 }
 
@@ -55,40 +64,61 @@ type EcsTaskDefinitionObservation struct {
 }
 
 type EcsTaskDefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
+	CPU *string `json:"cpu,omitempty" tf:"cpu"`
+
+	// +kubebuilder:validation:Required
 	ContainerDefinitions string `json:"containerDefinitions" tf:"container_definitions"`
 
-	Cpu *string `json:"cpu,omitempty" tf:"cpu"`
-
+	// +kubebuilder:validation:Optional
 	EphemeralStorage []EphemeralStorageParameters `json:"ephemeralStorage,omitempty" tf:"ephemeral_storage"`
 
+	// +kubebuilder:validation:Optional
 	ExecutionRoleArn *string `json:"executionRoleArn,omitempty" tf:"execution_role_arn"`
 
+	// +kubebuilder:validation:Required
 	Family string `json:"family" tf:"family"`
 
+	// +kubebuilder:validation:Optional
 	InferenceAccelerator []InferenceAcceleratorParameters `json:"inferenceAccelerator,omitempty" tf:"inference_accelerator"`
 
+	// +kubebuilder:validation:Optional
 	IpcMode *string `json:"ipcMode,omitempty" tf:"ipc_mode"`
 
+	// +kubebuilder:validation:Optional
 	Memory *string `json:"memory,omitempty" tf:"memory"`
 
+	// +kubebuilder:validation:Optional
 	NetworkMode *string `json:"networkMode,omitempty" tf:"network_mode"`
 
+	// +kubebuilder:validation:Optional
 	PidMode *string `json:"pidMode,omitempty" tf:"pid_mode"`
 
+	// +kubebuilder:validation:Optional
 	PlacementConstraints []EcsTaskDefinitionPlacementConstraintsParameters `json:"placementConstraints,omitempty" tf:"placement_constraints"`
 
+	// +kubebuilder:validation:Optional
 	ProxyConfiguration []ProxyConfigurationParameters `json:"proxyConfiguration,omitempty" tf:"proxy_configuration"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RequiresCompatibilities []string `json:"requiresCompatibilities,omitempty" tf:"requires_compatibilities"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TaskRoleArn *string `json:"taskRoleArn,omitempty" tf:"task_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Volume []VolumeParameters `json:"volume,omitempty" tf:"volume"`
 }
 
@@ -96,8 +126,11 @@ type EcsTaskDefinitionPlacementConstraintsObservation struct {
 }
 
 type EcsTaskDefinitionPlacementConstraintsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Expression *string `json:"expression,omitempty" tf:"expression"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -105,14 +138,20 @@ type EfsVolumeConfigurationObservation struct {
 }
 
 type EfsVolumeConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuthorizationConfig []AuthorizationConfigParameters `json:"authorizationConfig,omitempty" tf:"authorization_config"`
 
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
+	// +kubebuilder:validation:Required
+	FileSystemID string `json:"fileSystemId" tf:"file_system_id"`
 
+	// +kubebuilder:validation:Optional
 	RootDirectory *string `json:"rootDirectory,omitempty" tf:"root_directory"`
 
+	// +kubebuilder:validation:Optional
 	TransitEncryption *string `json:"transitEncryption,omitempty" tf:"transit_encryption"`
 
+	// +kubebuilder:validation:Optional
 	TransitEncryptionPort *int64 `json:"transitEncryptionPort,omitempty" tf:"transit_encryption_port"`
 }
 
@@ -120,6 +159,8 @@ type EphemeralStorageObservation struct {
 }
 
 type EphemeralStorageParameters struct {
+
+	// +kubebuilder:validation:Required
 	SizeInGib int64 `json:"sizeInGib" tf:"size_in_gib"`
 }
 
@@ -127,8 +168,11 @@ type FsxWindowsFileServerVolumeConfigurationAuthorizationConfigObservation struc
 }
 
 type FsxWindowsFileServerVolumeConfigurationAuthorizationConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	CredentialsParameter string `json:"credentialsParameter" tf:"credentials_parameter"`
 
+	// +kubebuilder:validation:Required
 	Domain string `json:"domain" tf:"domain"`
 }
 
@@ -136,10 +180,14 @@ type FsxWindowsFileServerVolumeConfigurationObservation struct {
 }
 
 type FsxWindowsFileServerVolumeConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	AuthorizationConfig []FsxWindowsFileServerVolumeConfigurationAuthorizationConfigParameters `json:"authorizationConfig" tf:"authorization_config"`
 
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
+	// +kubebuilder:validation:Required
+	FileSystemID string `json:"fileSystemId" tf:"file_system_id"`
 
+	// +kubebuilder:validation:Required
 	RootDirectory string `json:"rootDirectory" tf:"root_directory"`
 }
 
@@ -147,8 +195,11 @@ type InferenceAcceleratorObservation struct {
 }
 
 type InferenceAcceleratorParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeviceName string `json:"deviceName" tf:"device_name"`
 
+	// +kubebuilder:validation:Required
 	DeviceType string `json:"deviceType" tf:"device_type"`
 }
 
@@ -156,10 +207,14 @@ type ProxyConfigurationObservation struct {
 }
 
 type ProxyConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ContainerName string `json:"containerName" tf:"container_name"`
 
+	// +kubebuilder:validation:Optional
 	Properties map[string]string `json:"properties,omitempty" tf:"properties"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -167,14 +222,20 @@ type VolumeObservation struct {
 }
 
 type VolumeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DockerVolumeConfiguration []DockerVolumeConfigurationParameters `json:"dockerVolumeConfiguration,omitempty" tf:"docker_volume_configuration"`
 
+	// +kubebuilder:validation:Optional
 	EfsVolumeConfiguration []EfsVolumeConfigurationParameters `json:"efsVolumeConfiguration,omitempty" tf:"efs_volume_configuration"`
 
+	// +kubebuilder:validation:Optional
 	FsxWindowsFileServerVolumeConfiguration []FsxWindowsFileServerVolumeConfigurationParameters `json:"fsxWindowsFileServerVolumeConfiguration,omitempty" tf:"fsx_windows_file_server_volume_configuration"`
 
+	// +kubebuilder:validation:Optional
 	HostPath *string `json:"hostPath,omitempty" tf:"host_path"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 

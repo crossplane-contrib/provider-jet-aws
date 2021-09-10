@@ -28,16 +28,25 @@ type IamPolicyAttachmentObservation struct {
 }
 
 type IamPolicyAttachmentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Groups []string `json:"groups,omitempty" tf:"groups"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	PolicyArn string `json:"policyArn" tf:"policy_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Roles []string `json:"roles,omitempty" tf:"roles"`
 
+	// +kubebuilder:validation:Optional
 	Users []string `json:"users,omitempty" tf:"users"`
 }
 

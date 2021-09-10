@@ -35,18 +35,28 @@ type AppmeshVirtualServiceObservation struct {
 }
 
 type AppmeshVirtualServiceParameters struct {
+
+	// +kubebuilder:validation:Required
 	MeshName string `json:"meshName" tf:"mesh_name"`
 
+	// +kubebuilder:validation:Optional
 	MeshOwner *string `json:"meshOwner,omitempty" tf:"mesh_owner"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Spec []AppmeshVirtualServiceSpecParameters `json:"spec" tf:"spec"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -54,6 +64,8 @@ type AppmeshVirtualServiceSpecObservation struct {
 }
 
 type AppmeshVirtualServiceSpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Provider []ProviderParameters `json:"provider,omitempty" tf:"provider"`
 }
 
@@ -61,8 +73,11 @@ type ProviderObservation struct {
 }
 
 type ProviderParameters struct {
+
+	// +kubebuilder:validation:Optional
 	VirtualNode []VirtualNodeParameters `json:"virtualNode,omitempty" tf:"virtual_node"`
 
+	// +kubebuilder:validation:Optional
 	VirtualRouter []VirtualRouterParameters `json:"virtualRouter,omitempty" tf:"virtual_router"`
 }
 
@@ -70,6 +85,8 @@ type VirtualNodeObservation struct {
 }
 
 type VirtualNodeParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualNodeName string `json:"virtualNodeName" tf:"virtual_node_name"`
 }
 
@@ -77,6 +94,8 @@ type VirtualRouterObservation struct {
 }
 
 type VirtualRouterParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualRouterName string `json:"virtualRouterName" tf:"virtual_router_name"`
 }
 

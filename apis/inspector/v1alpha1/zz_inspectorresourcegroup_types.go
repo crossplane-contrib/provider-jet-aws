@@ -29,8 +29,13 @@ type InspectorResourceGroupObservation struct {
 }
 
 type InspectorResourceGroupParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Tags map[string]string `json:"tags" tf:"tags"`
 }
 

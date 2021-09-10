@@ -28,6 +28,8 @@ type ActionObservation struct {
 }
 
 type ActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -35,6 +37,8 @@ type DefaultActionObservation struct {
 }
 
 type DefaultActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -42,8 +46,11 @@ type LoggingConfigurationObservation struct {
 }
 
 type LoggingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	LogDestination string `json:"logDestination" tf:"log_destination"`
 
+	// +kubebuilder:validation:Optional
 	RedactedFields []RedactedFieldsParameters `json:"redactedFields,omitempty" tf:"redacted_fields"`
 }
 
@@ -51,6 +58,8 @@ type OverrideActionObservation struct {
 }
 
 type OverrideActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -58,8 +67,11 @@ type RedactedFieldsFieldToMatchObservation struct {
 }
 
 type RedactedFieldsFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Data *string `json:"data,omitempty" tf:"data"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -67,6 +79,8 @@ type RedactedFieldsObservation struct {
 }
 
 type RedactedFieldsParameters struct {
+
+	// +kubebuilder:validation:Required
 	FieldToMatch []RedactedFieldsFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
 }
 
@@ -74,14 +88,20 @@ type RuleObservation struct {
 }
 
 type RuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Action []ActionParameters `json:"action,omitempty" tf:"action"`
 
+	// +kubebuilder:validation:Optional
 	OverrideAction []OverrideActionParameters `json:"overrideAction,omitempty" tf:"override_action"`
 
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
-	RuleId string `json:"ruleId" tf:"rule_id"`
+	// +kubebuilder:validation:Required
+	RuleID string `json:"ruleId" tf:"rule_id"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -90,20 +110,31 @@ type WafregionalWebAclObservation struct {
 }
 
 type WafregionalWebAclParameters struct {
+
+	// +kubebuilder:validation:Required
 	DefaultAction []DefaultActionParameters `json:"defaultAction" tf:"default_action"`
 
+	// +kubebuilder:validation:Optional
 	LoggingConfiguration []LoggingConfigurationParameters `json:"loggingConfiguration,omitempty" tf:"logging_configuration"`
 
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Rule []RuleParameters `json:"rule,omitempty" tf:"rule"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

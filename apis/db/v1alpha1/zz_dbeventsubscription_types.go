@@ -27,28 +27,41 @@ import (
 type DbEventSubscriptionObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	CustomerAwsId string `json:"customerAwsId" tf:"customer_aws_id"`
+	CustomerAwsID string `json:"customerAwsId" tf:"customer_aws_id"`
 }
 
 type DbEventSubscriptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	EventCategories []string `json:"eventCategories,omitempty" tf:"event_categories"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SnsTopic string `json:"snsTopic" tf:"sns_topic"`
 
+	// +kubebuilder:validation:Optional
 	SourceIds []string `json:"sourceIds,omitempty" tf:"source_ids"`
 
+	// +kubebuilder:validation:Optional
 	SourceType *string `json:"sourceType,omitempty" tf:"source_type"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

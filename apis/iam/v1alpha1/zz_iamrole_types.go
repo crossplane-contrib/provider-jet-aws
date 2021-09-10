@@ -29,34 +29,50 @@ type IamRoleObservation struct {
 
 	CreateDate string `json:"createDate" tf:"create_date"`
 
-	UniqueId string `json:"uniqueId" tf:"unique_id"`
+	UniqueID string `json:"uniqueId" tf:"unique_id"`
 }
 
 type IamRoleParameters struct {
+
+	// +kubebuilder:validation:Required
 	AssumeRolePolicy string `json:"assumeRolePolicy" tf:"assume_role_policy"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	ForceDetachPolicies *bool `json:"forceDetachPolicies,omitempty" tf:"force_detach_policies"`
 
+	// +kubebuilder:validation:Optional
 	InlinePolicy []InlinePolicyParameters `json:"inlinePolicy,omitempty" tf:"inline_policy"`
 
+	// +kubebuilder:validation:Optional
 	ManagedPolicyArns []string `json:"managedPolicyArns,omitempty" tf:"managed_policy_arns"`
 
+	// +kubebuilder:validation:Optional
 	MaxSessionDuration *int64 `json:"maxSessionDuration,omitempty" tf:"max_session_duration"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	PermissionsBoundary *string `json:"permissionsBoundary,omitempty" tf:"permissions_boundary"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -64,8 +80,11 @@ type InlinePolicyObservation struct {
 }
 
 type InlinePolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 }
 

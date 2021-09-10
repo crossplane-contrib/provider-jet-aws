@@ -33,18 +33,28 @@ type GluePartitionObservation struct {
 }
 
 type GluePartitionParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Required
 	PartitionValues []string `json:"partitionValues" tf:"partition_values"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	StorageDescriptor []GluePartitionStorageDescriptorParameters `json:"storageDescriptor,omitempty" tf:"storage_descriptor"`
 
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 }
 
@@ -52,28 +62,41 @@ type GluePartitionStorageDescriptorObservation struct {
 }
 
 type GluePartitionStorageDescriptorParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BucketColumns []string `json:"bucketColumns,omitempty" tf:"bucket_columns"`
 
+	// +kubebuilder:validation:Optional
 	Columns []StorageDescriptorColumnsParameters `json:"columns,omitempty" tf:"columns"`
 
+	// +kubebuilder:validation:Optional
 	Compressed *bool `json:"compressed,omitempty" tf:"compressed"`
 
+	// +kubebuilder:validation:Optional
 	InputFormat *string `json:"inputFormat,omitempty" tf:"input_format"`
 
+	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	NumberOfBuckets *int64 `json:"numberOfBuckets,omitempty" tf:"number_of_buckets"`
 
+	// +kubebuilder:validation:Optional
 	OutputFormat *string `json:"outputFormat,omitempty" tf:"output_format"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	SerDeInfo []StorageDescriptorSerDeInfoParameters `json:"serDeInfo,omitempty" tf:"ser_de_info"`
 
+	// +kubebuilder:validation:Optional
 	SkewedInfo []StorageDescriptorSkewedInfoParameters `json:"skewedInfo,omitempty" tf:"skewed_info"`
 
+	// +kubebuilder:validation:Optional
 	SortColumns []StorageDescriptorSortColumnsParameters `json:"sortColumns,omitempty" tf:"sort_columns"`
 
+	// +kubebuilder:validation:Optional
 	StoredAsSubDirectories *bool `json:"storedAsSubDirectories,omitempty" tf:"stored_as_sub_directories"`
 }
 
@@ -81,10 +104,14 @@ type StorageDescriptorColumnsObservation struct {
 }
 
 type StorageDescriptorColumnsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -92,10 +119,14 @@ type StorageDescriptorSerDeInfoObservation struct {
 }
 
 type StorageDescriptorSerDeInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	SerializationLibrary *string `json:"serializationLibrary,omitempty" tf:"serialization_library"`
 }
 
@@ -103,10 +134,14 @@ type StorageDescriptorSkewedInfoObservation struct {
 }
 
 type StorageDescriptorSkewedInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	SkewedColumnNames []string `json:"skewedColumnNames,omitempty" tf:"skewed_column_names"`
 
+	// +kubebuilder:validation:Optional
 	SkewedColumnValueLocationMaps map[string]string `json:"skewedColumnValueLocationMaps,omitempty" tf:"skewed_column_value_location_maps"`
 
+	// +kubebuilder:validation:Optional
 	SkewedColumnValues []string `json:"skewedColumnValues,omitempty" tf:"skewed_column_values"`
 }
 
@@ -114,8 +149,11 @@ type StorageDescriptorSortColumnsObservation struct {
 }
 
 type StorageDescriptorSortColumnsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Column string `json:"column" tf:"column"`
 
+	// +kubebuilder:validation:Required
 	SortOrder int64 `json:"sortOrder" tf:"sort_order"`
 }
 

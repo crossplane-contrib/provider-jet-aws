@@ -28,17 +28,23 @@ type AliasObservation struct {
 }
 
 type AliasParameters struct {
+
+	// +kubebuilder:validation:Required
 	EvaluateTargetHealth bool `json:"evaluateTargetHealth" tf:"evaluate_target_health"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	// +kubebuilder:validation:Required
+	ZoneID string `json:"zoneId" tf:"zone_id"`
 }
 
 type FailoverRoutingPolicyObservation struct {
 }
 
 type FailoverRoutingPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -46,10 +52,14 @@ type GeolocationRoutingPolicyObservation struct {
 }
 
 type GeolocationRoutingPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Continent *string `json:"continent,omitempty" tf:"continent"`
 
+	// +kubebuilder:validation:Optional
 	Country *string `json:"country,omitempty" tf:"country"`
 
+	// +kubebuilder:validation:Optional
 	Subdivision *string `json:"subdivision,omitempty" tf:"subdivision"`
 }
 
@@ -57,6 +67,8 @@ type LatencyRoutingPolicyObservation struct {
 }
 
 type LatencyRoutingPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"region"`
 }
 
@@ -65,41 +77,61 @@ type Route53RecordObservation struct {
 }
 
 type Route53RecordParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Alias []AliasParameters `json:"alias,omitempty" tf:"alias"`
 
+	// +kubebuilder:validation:Optional
 	AllowOverwrite *bool `json:"allowOverwrite,omitempty" tf:"allow_overwrite"`
 
+	// +kubebuilder:validation:Optional
 	FailoverRoutingPolicy []FailoverRoutingPolicyParameters `json:"failoverRoutingPolicy,omitempty" tf:"failover_routing_policy"`
 
+	// +kubebuilder:validation:Optional
 	GeolocationRoutingPolicy []GeolocationRoutingPolicyParameters `json:"geolocationRoutingPolicy,omitempty" tf:"geolocation_routing_policy"`
 
-	HealthCheckId *string `json:"healthCheckId,omitempty" tf:"health_check_id"`
+	// +kubebuilder:validation:Optional
+	HealthCheckID *string `json:"healthCheckId,omitempty" tf:"health_check_id"`
 
+	// +kubebuilder:validation:Optional
 	LatencyRoutingPolicy []LatencyRoutingPolicyParameters `json:"latencyRoutingPolicy,omitempty" tf:"latency_routing_policy"`
 
+	// +kubebuilder:validation:Optional
 	MultivalueAnswerRoutingPolicy *bool `json:"multivalueAnswerRoutingPolicy,omitempty" tf:"multivalue_answer_routing_policy"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Records []string `json:"records,omitempty" tf:"records"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SetIdentifier *string `json:"setIdentifier,omitempty" tf:"set_identifier"`
 
-	Ttl *int64 `json:"ttl,omitempty" tf:"ttl"`
+	// +kubebuilder:validation:Optional
+	TTL *int64 `json:"ttl,omitempty" tf:"ttl"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	WeightedRoutingPolicy []WeightedRoutingPolicyParameters `json:"weightedRoutingPolicy,omitempty" tf:"weighted_routing_policy"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	// +kubebuilder:validation:Required
+	ZoneID string `json:"zoneId" tf:"zone_id"`
 }
 
 type WeightedRoutingPolicyObservation struct {
 }
 
 type WeightedRoutingPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Weight int64 `json:"weight" tf:"weight"`
 }
 

@@ -34,32 +34,49 @@ type EksIdentityProviderConfigOidcObservation struct {
 }
 
 type EksIdentityProviderConfigOidcParameters struct {
-	ClientId string `json:"clientId" tf:"client_id"`
 
+	// +kubebuilder:validation:Required
+	ClientID string `json:"clientId" tf:"client_id"`
+
+	// +kubebuilder:validation:Optional
 	GroupsClaim *string `json:"groupsClaim,omitempty" tf:"groups_claim"`
 
+	// +kubebuilder:validation:Optional
 	GroupsPrefix *string `json:"groupsPrefix,omitempty" tf:"groups_prefix"`
 
+	// +kubebuilder:validation:Required
 	IdentityProviderConfigName string `json:"identityProviderConfigName" tf:"identity_provider_config_name"`
 
-	IssuerUrl string `json:"issuerUrl" tf:"issuer_url"`
+	// +kubebuilder:validation:Required
+	IssuerURL string `json:"issuerUrl" tf:"issuer_url"`
 
+	// +kubebuilder:validation:Optional
 	RequiredClaims map[string]string `json:"requiredClaims,omitempty" tf:"required_claims"`
 
+	// +kubebuilder:validation:Optional
 	UsernameClaim *string `json:"usernameClaim,omitempty" tf:"username_claim"`
 
+	// +kubebuilder:validation:Optional
 	UsernamePrefix *string `json:"usernamePrefix,omitempty" tf:"username_prefix"`
 }
 
 type EksIdentityProviderConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	ClusterName string `json:"clusterName" tf:"cluster_name"`
 
+	// +kubebuilder:validation:Required
 	Oidc []EksIdentityProviderConfigOidcParameters `json:"oidc" tf:"oidc"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

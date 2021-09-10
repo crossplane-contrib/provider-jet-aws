@@ -28,13 +28,16 @@ type ActionThresholdObservation struct {
 }
 
 type ActionThresholdParameters struct {
+
+	// +kubebuilder:validation:Required
 	ActionThresholdType string `json:"actionThresholdType" tf:"action_threshold_type"`
 
+	// +kubebuilder:validation:Required
 	ActionThresholdValue float64 `json:"actionThresholdValue" tf:"action_threshold_value"`
 }
 
 type BudgetsBudgetActionObservation struct {
-	ActionId string `json:"actionId" tf:"action_id"`
+	ActionID string `json:"actionId" tf:"action_id"`
 
 	Arn string `json:"arn" tf:"arn"`
 
@@ -42,24 +45,37 @@ type BudgetsBudgetActionObservation struct {
 }
 
 type BudgetsBudgetActionParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
 
+	// +kubebuilder:validation:Optional
+	AccountID *string `json:"accountId,omitempty" tf:"account_id"`
+
+	// +kubebuilder:validation:Required
 	ActionThreshold []ActionThresholdParameters `json:"actionThreshold" tf:"action_threshold"`
 
+	// +kubebuilder:validation:Required
 	ActionType string `json:"actionType" tf:"action_type"`
 
+	// +kubebuilder:validation:Required
 	ApprovalModel string `json:"approvalModel" tf:"approval_model"`
 
+	// +kubebuilder:validation:Required
 	BudgetName string `json:"budgetName" tf:"budget_name"`
 
+	// +kubebuilder:validation:Required
 	Definition []DefinitionParameters `json:"definition" tf:"definition"`
 
+	// +kubebuilder:validation:Required
 	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
 
+	// +kubebuilder:validation:Required
 	NotificationType string `json:"notificationType" tf:"notification_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Subscriber []SubscriberParameters `json:"subscriber" tf:"subscriber"`
 }
 
@@ -67,10 +83,14 @@ type DefinitionObservation struct {
 }
 
 type DefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	IamActionDefinition []IamActionDefinitionParameters `json:"iamActionDefinition,omitempty" tf:"iam_action_definition"`
 
+	// +kubebuilder:validation:Optional
 	ScpActionDefinition []ScpActionDefinitionParameters `json:"scpActionDefinition,omitempty" tf:"scp_action_definition"`
 
+	// +kubebuilder:validation:Optional
 	SsmActionDefinition []SsmActionDefinitionParameters `json:"ssmActionDefinition,omitempty" tf:"ssm_action_definition"`
 }
 
@@ -78,12 +98,17 @@ type IamActionDefinitionObservation struct {
 }
 
 type IamActionDefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Groups []string `json:"groups,omitempty" tf:"groups"`
 
+	// +kubebuilder:validation:Required
 	PolicyArn string `json:"policyArn" tf:"policy_arn"`
 
+	// +kubebuilder:validation:Optional
 	Roles []string `json:"roles,omitempty" tf:"roles"`
 
+	// +kubebuilder:validation:Optional
 	Users []string `json:"users,omitempty" tf:"users"`
 }
 
@@ -91,8 +116,11 @@ type ScpActionDefinitionObservation struct {
 }
 
 type ScpActionDefinitionParameters struct {
-	PolicyId string `json:"policyId" tf:"policy_id"`
 
+	// +kubebuilder:validation:Required
+	PolicyID string `json:"policyId" tf:"policy_id"`
+
+	// +kubebuilder:validation:Required
 	TargetIds []string `json:"targetIds" tf:"target_ids"`
 }
 
@@ -100,10 +128,14 @@ type SsmActionDefinitionObservation struct {
 }
 
 type SsmActionDefinitionParameters struct {
+
+	// +kubebuilder:validation:Required
 	ActionSubType string `json:"actionSubType" tf:"action_sub_type"`
 
+	// +kubebuilder:validation:Required
 	InstanceIds []string `json:"instanceIds" tf:"instance_ids"`
 
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"region"`
 }
 
@@ -111,8 +143,11 @@ type SubscriberObservation struct {
 }
 
 type SubscriberParameters struct {
+
+	// +kubebuilder:validation:Required
 	Address string `json:"address" tf:"address"`
 
+	// +kubebuilder:validation:Required
 	SubscriptionType string `json:"subscriptionType" tf:"subscription_type"`
 }
 

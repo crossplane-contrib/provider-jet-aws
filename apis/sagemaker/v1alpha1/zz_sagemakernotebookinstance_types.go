@@ -27,40 +27,58 @@ import (
 type SagemakerNotebookInstanceObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceId" tf:"network_interface_id"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type SagemakerNotebookInstanceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AdditionalCodeRepositories []string `json:"additionalCodeRepositories,omitempty" tf:"additional_code_repositories"`
 
+	// +kubebuilder:validation:Optional
 	DefaultCodeRepository *string `json:"defaultCodeRepository,omitempty" tf:"default_code_repository"`
 
+	// +kubebuilder:validation:Optional
 	DirectInternetAccess *string `json:"directInternetAccess,omitempty" tf:"direct_internet_access"`
 
+	// +kubebuilder:validation:Required
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	LifecycleConfigName *string `json:"lifecycleConfigName,omitempty" tf:"lifecycle_config_name"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	RootAccess *string `json:"rootAccess,omitempty" tf:"root_access"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 }
 

@@ -28,16 +28,25 @@ type S3AccountPublicAccessBlockObservation struct {
 }
 
 type S3AccountPublicAccessBlockParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
 
+	// +kubebuilder:validation:Optional
+	AccountID *string `json:"accountId,omitempty" tf:"account_id"`
+
+	// +kubebuilder:validation:Optional
 	BlockPublicAcls *bool `json:"blockPublicAcls,omitempty" tf:"block_public_acls"`
 
+	// +kubebuilder:validation:Optional
 	BlockPublicPolicy *bool `json:"blockPublicPolicy,omitempty" tf:"block_public_policy"`
 
+	// +kubebuilder:validation:Optional
 	IgnorePublicAcls *bool `json:"ignorePublicAcls,omitempty" tf:"ignore_public_acls"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RestrictPublicBuckets *bool `json:"restrictPublicBuckets,omitempty" tf:"restrict_public_buckets"`
 }
 

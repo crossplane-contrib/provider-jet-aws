@@ -27,22 +27,33 @@ import (
 type IamUserObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	UniqueId string `json:"uniqueId" tf:"unique_id"`
+	UniqueID string `json:"uniqueId" tf:"unique_id"`
 }
 
 type IamUserParameters struct {
+
+	// Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	PermissionsBoundary *string `json:"permissionsBoundary,omitempty" tf:"permissions_boundary"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

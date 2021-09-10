@@ -25,7 +25,7 @@ import (
 )
 
 type GatewayNetworkInterfaceObservation struct {
-	Ipv4Address string `json:"ipv4Address" tf:"ipv4_address"`
+	IPv4Address string `json:"ipv4Address" tf:"ipv4_address"`
 }
 
 type GatewayNetworkInterfaceParameters struct {
@@ -36,27 +36,34 @@ type SmbActiveDirectorySettingsObservation struct {
 }
 
 type SmbActiveDirectorySettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DomainControllers []string `json:"domainControllers,omitempty" tf:"domain_controllers"`
 
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// +kubebuilder:validation:Optional
 	OrganizationalUnit *string `json:"organizationalUnit,omitempty" tf:"organizational_unit"`
 
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// +kubebuilder:validation:Optional
 	TimeoutInSeconds *int64 `json:"timeoutInSeconds,omitempty" tf:"timeout_in_seconds"`
 
+	// +kubebuilder:validation:Required
 	Username string `json:"username" tf:"username"`
 }
 
 type StoragegatewayGatewayObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Ec2InstanceId string `json:"ec2InstanceId" tf:"ec2_instance_id"`
+	Ec2InstanceID string `json:"ec2InstanceId" tf:"ec2_instance_id"`
 
 	EndpointType string `json:"endpointType" tf:"endpoint_type"`
 
-	GatewayId string `json:"gatewayId" tf:"gateway_id"`
+	GatewayID string `json:"gatewayId" tf:"gateway_id"`
 
 	GatewayNetworkInterface []GatewayNetworkInterfaceObservation `json:"gatewayNetworkInterface" tf:"gateway_network_interface"`
 
@@ -64,40 +71,61 @@ type StoragegatewayGatewayObservation struct {
 }
 
 type StoragegatewayGatewayParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ActivationKey *string `json:"activationKey,omitempty" tf:"activation_key"`
 
+	// +kubebuilder:validation:Optional
 	AverageDownloadRateLimitInBitsPerSec *int64 `json:"averageDownloadRateLimitInBitsPerSec,omitempty" tf:"average_download_rate_limit_in_bits_per_sec"`
 
+	// +kubebuilder:validation:Optional
 	AverageUploadRateLimitInBitsPerSec *int64 `json:"averageUploadRateLimitInBitsPerSec,omitempty" tf:"average_upload_rate_limit_in_bits_per_sec"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchLogGroupArn *string `json:"cloudwatchLogGroupArn,omitempty" tf:"cloudwatch_log_group_arn"`
 
-	GatewayIpAddress *string `json:"gatewayIpAddress,omitempty" tf:"gateway_ip_address"`
+	// +kubebuilder:validation:Optional
+	GatewayIPAddress *string `json:"gatewayIpAddress,omitempty" tf:"gateway_ip_address"`
 
+	// +kubebuilder:validation:Required
 	GatewayName string `json:"gatewayName" tf:"gateway_name"`
 
+	// +kubebuilder:validation:Required
 	GatewayTimezone string `json:"gatewayTimezone" tf:"gateway_timezone"`
 
+	// +kubebuilder:validation:Optional
 	GatewayType *string `json:"gatewayType,omitempty" tf:"gateway_type"`
 
+	// +kubebuilder:validation:Optional
 	GatewayVpcEndpoint *string `json:"gatewayVpcEndpoint,omitempty" tf:"gateway_vpc_endpoint"`
 
+	// +kubebuilder:validation:Optional
 	MediumChangerType *string `json:"mediumChangerType,omitempty" tf:"medium_changer_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SmbActiveDirectorySettings []SmbActiveDirectorySettingsParameters `json:"smbActiveDirectorySettings,omitempty" tf:"smb_active_directory_settings"`
 
+	// +kubebuilder:validation:Optional
 	SmbFileShareVisibility *bool `json:"smbFileShareVisibility,omitempty" tf:"smb_file_share_visibility"`
 
+	// +kubebuilder:validation:Optional
 	SmbGuestPassword *string `json:"smbGuestPassword,omitempty" tf:"smb_guest_password"`
 
+	// +kubebuilder:validation:Optional
 	SmbSecurityStrategy *string `json:"smbSecurityStrategy,omitempty" tf:"smb_security_strategy"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TapeDriveType *string `json:"tapeDriveType,omitempty" tf:"tape_drive_type"`
 }
 

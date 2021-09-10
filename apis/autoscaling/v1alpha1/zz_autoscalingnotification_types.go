@@ -28,12 +28,19 @@ type AutoscalingNotificationObservation struct {
 }
 
 type AutoscalingNotificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	GroupNames []string `json:"groupNames" tf:"group_names"`
 
+	// +kubebuilder:validation:Required
 	Notifications []string `json:"notifications" tf:"notifications"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	TopicArn string `json:"topicArn" tf:"topic_arn"`
 }
 

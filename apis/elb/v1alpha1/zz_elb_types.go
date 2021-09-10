@@ -28,60 +28,86 @@ type AccessLogsObservation struct {
 }
 
 type AccessLogsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	BucketPrefix *string `json:"bucketPrefix,omitempty" tf:"bucket_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Interval *int64 `json:"interval,omitempty" tf:"interval"`
 }
 
 type ElbObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
-	SourceSecurityGroupId string `json:"sourceSecurityGroupId" tf:"source_security_group_id"`
+	SourceSecurityGroupID string `json:"sourceSecurityGroupId" tf:"source_security_group_id"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneId" tf:"zone_id"`
 }
 
 type ElbParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessLogs []AccessLogsParameters `json:"accessLogs,omitempty" tf:"access_logs"`
 
+	// +kubebuilder:validation:Optional
 	AvailabilityZones []string `json:"availabilityZones,omitempty" tf:"availability_zones"`
 
+	// +kubebuilder:validation:Optional
 	ConnectionDraining *bool `json:"connectionDraining,omitempty" tf:"connection_draining"`
 
+	// +kubebuilder:validation:Optional
 	ConnectionDrainingTimeout *int64 `json:"connectionDrainingTimeout,omitempty" tf:"connection_draining_timeout"`
 
+	// +kubebuilder:validation:Optional
 	CrossZoneLoadBalancing *bool `json:"crossZoneLoadBalancing,omitempty" tf:"cross_zone_load_balancing"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheck []HealthCheckParameters `json:"healthCheck,omitempty" tf:"health_check"`
 
+	// +kubebuilder:validation:Optional
 	IdleTimeout *int64 `json:"idleTimeout,omitempty" tf:"idle_timeout"`
 
+	// +kubebuilder:validation:Optional
 	Instances []string `json:"instances,omitempty" tf:"instances"`
 
+	// +kubebuilder:validation:Optional
 	Internal *bool `json:"internal,omitempty" tf:"internal"`
 
+	// +kubebuilder:validation:Required
 	Listener []ListenerParameters `json:"listener" tf:"listener"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
+	// +kubebuilder:validation:Optional
 	SourceSecurityGroup *string `json:"sourceSecurityGroup,omitempty" tf:"source_security_group"`
 
+	// +kubebuilder:validation:Optional
 	Subnets []string `json:"subnets,omitempty" tf:"subnets"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -89,14 +115,20 @@ type HealthCheckObservation struct {
 }
 
 type HealthCheckParameters struct {
+
+	// +kubebuilder:validation:Required
 	HealthyThreshold int64 `json:"healthyThreshold" tf:"healthy_threshold"`
 
+	// +kubebuilder:validation:Required
 	Interval int64 `json:"interval" tf:"interval"`
 
+	// +kubebuilder:validation:Required
 	Target string `json:"target" tf:"target"`
 
+	// +kubebuilder:validation:Required
 	Timeout int64 `json:"timeout" tf:"timeout"`
 
+	// +kubebuilder:validation:Required
 	UnhealthyThreshold int64 `json:"unhealthyThreshold" tf:"unhealthy_threshold"`
 }
 
@@ -104,15 +136,21 @@ type ListenerObservation struct {
 }
 
 type ListenerParameters struct {
+
+	// +kubebuilder:validation:Required
 	InstancePort int64 `json:"instancePort" tf:"instance_port"`
 
+	// +kubebuilder:validation:Required
 	InstanceProtocol string `json:"instanceProtocol" tf:"instance_protocol"`
 
+	// +kubebuilder:validation:Required
 	LbPort int64 `json:"lbPort" tf:"lb_port"`
 
+	// +kubebuilder:validation:Required
 	LbProtocol string `json:"lbProtocol" tf:"lb_protocol"`
 
-	SslCertificateId *string `json:"sslCertificateId,omitempty" tf:"ssl_certificate_id"`
+	// +kubebuilder:validation:Optional
+	SslCertificateID *string `json:"sslCertificateId,omitempty" tf:"ssl_certificate_id"`
 }
 
 // ElbSpec defines the desired state of Elb

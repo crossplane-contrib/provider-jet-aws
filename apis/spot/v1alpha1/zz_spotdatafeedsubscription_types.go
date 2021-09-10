@@ -28,10 +28,16 @@ type SpotDatafeedSubscriptionObservation struct {
 }
 
 type SpotDatafeedSubscriptionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

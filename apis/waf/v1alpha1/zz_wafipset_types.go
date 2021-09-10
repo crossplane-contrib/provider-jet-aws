@@ -24,12 +24,15 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type IpSetDescriptorsObservation struct {
+type IPSetDescriptorsObservation struct {
 }
 
-type IpSetDescriptorsParameters struct {
+type IPSetDescriptorsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -38,10 +41,16 @@ type WafIpsetObservation struct {
 }
 
 type WafIpsetParameters struct {
-	IpSetDescriptors []IpSetDescriptorsParameters `json:"ipSetDescriptors,omitempty" tf:"ip_set_descriptors"`
 
+	// +kubebuilder:validation:Optional
+	IPSetDescriptors []IPSetDescriptorsParameters `json:"ipSetDescriptors,omitempty" tf:"ip_set_descriptors"`
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

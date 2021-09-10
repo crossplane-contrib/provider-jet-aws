@@ -28,11 +28,17 @@ type NetworkInterfaceSgAttachmentObservation struct {
 }
 
 type NetworkInterfaceSgAttachmentParameters struct {
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
 
+	// +kubebuilder:validation:Required
+	NetworkInterfaceID string `json:"networkInterfaceId" tf:"network_interface_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	// +kubebuilder:validation:Required
+	SecurityGroupID string `json:"securityGroupId" tf:"security_group_id"`
 }
 
 // NetworkInterfaceSgAttachmentSpec defines the desired state of NetworkInterfaceSgAttachment

@@ -28,8 +28,11 @@ type DestinationPortRangeObservation struct {
 }
 
 type DestinationPortRangeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FromPort *int64 `json:"fromPort,omitempty" tf:"from_port"`
 
+	// +kubebuilder:validation:Optional
 	ToPort *int64 `json:"toPort,omitempty" tf:"to_port"`
 }
 
@@ -38,35 +41,52 @@ type Ec2TrafficMirrorFilterRuleObservation struct {
 }
 
 type Ec2TrafficMirrorFilterRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	DestinationCidrBlock string `json:"destinationCidrBlock" tf:"destination_cidr_block"`
 
+	// +kubebuilder:validation:Optional
 	DestinationPortRange []DestinationPortRangeParameters `json:"destinationPortRange,omitempty" tf:"destination_port_range"`
 
+	// +kubebuilder:validation:Optional
 	Protocol *int64 `json:"protocol,omitempty" tf:"protocol"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RuleAction string `json:"ruleAction" tf:"rule_action"`
 
+	// +kubebuilder:validation:Required
 	RuleNumber int64 `json:"ruleNumber" tf:"rule_number"`
 
+	// +kubebuilder:validation:Required
 	SourceCidrBlock string `json:"sourceCidrBlock" tf:"source_cidr_block"`
 
+	// +kubebuilder:validation:Optional
 	SourcePortRange []SourcePortRangeParameters `json:"sourcePortRange,omitempty" tf:"source_port_range"`
 
+	// +kubebuilder:validation:Required
 	TrafficDirection string `json:"trafficDirection" tf:"traffic_direction"`
 
-	TrafficMirrorFilterId string `json:"trafficMirrorFilterId" tf:"traffic_mirror_filter_id"`
+	// +kubebuilder:validation:Required
+	TrafficMirrorFilterID string `json:"trafficMirrorFilterId" tf:"traffic_mirror_filter_id"`
 }
 
 type SourcePortRangeObservation struct {
 }
 
 type SourcePortRangeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FromPort *int64 `json:"fromPort,omitempty" tf:"from_port"`
 
+	// +kubebuilder:validation:Optional
 	ToPort *int64 `json:"toPort,omitempty" tf:"to_port"`
 }
 

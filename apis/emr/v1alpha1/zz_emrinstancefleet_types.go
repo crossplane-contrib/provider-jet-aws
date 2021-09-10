@@ -28,8 +28,11 @@ type EmrInstanceFleetInstanceTypeConfigsConfigurationsObservation struct {
 }
 
 type EmrInstanceFleetInstanceTypeConfigsConfigurationsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Classification *string `json:"classification,omitempty" tf:"classification"`
 
+	// +kubebuilder:validation:Optional
 	Properties map[string]string `json:"properties,omitempty" tf:"properties"`
 }
 
@@ -37,12 +40,17 @@ type EmrInstanceFleetInstanceTypeConfigsEbsConfigObservation struct {
 }
 
 type EmrInstanceFleetInstanceTypeConfigsEbsConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	VolumesPerInstance *int64 `json:"volumesPerInstance,omitempty" tf:"volumes_per_instance"`
 }
 
@@ -50,16 +58,23 @@ type EmrInstanceFleetInstanceTypeConfigsObservation struct {
 }
 
 type EmrInstanceFleetInstanceTypeConfigsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BidPrice *string `json:"bidPrice,omitempty" tf:"bid_price"`
 
+	// +kubebuilder:validation:Optional
 	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"bidPriceAsPercentageOfOnDemandPrice,omitempty" tf:"bid_price_as_percentage_of_on_demand_price"`
 
+	// +kubebuilder:validation:Optional
 	Configurations []EmrInstanceFleetInstanceTypeConfigsConfigurationsParameters `json:"configurations,omitempty" tf:"configurations"`
 
+	// +kubebuilder:validation:Optional
 	EbsConfig []EmrInstanceFleetInstanceTypeConfigsEbsConfigParameters `json:"ebsConfig,omitempty" tf:"ebs_config"`
 
+	// +kubebuilder:validation:Required
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	WeightedCapacity *int64 `json:"weightedCapacity,omitempty" tf:"weighted_capacity"`
 }
 
@@ -70,12 +85,17 @@ type EmrInstanceFleetLaunchSpecificationsOnDemandSpecificationObservation struct
 }
 
 type EmrInstanceFleetLaunchSpecificationsOnDemandSpecificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	AllocationStrategy string `json:"allocationStrategy" tf:"allocation_strategy"`
 }
 
 type EmrInstanceFleetLaunchSpecificationsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	OnDemandSpecification []EmrInstanceFleetLaunchSpecificationsOnDemandSpecificationParameters `json:"onDemandSpecification,omitempty" tf:"on_demand_specification"`
 
+	// +kubebuilder:validation:Optional
 	SpotSpecification []EmrInstanceFleetLaunchSpecificationsSpotSpecificationParameters `json:"spotSpecification,omitempty" tf:"spot_specification"`
 }
 
@@ -83,12 +103,17 @@ type EmrInstanceFleetLaunchSpecificationsSpotSpecificationObservation struct {
 }
 
 type EmrInstanceFleetLaunchSpecificationsSpotSpecificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	AllocationStrategy string `json:"allocationStrategy" tf:"allocation_strategy"`
 
+	// +kubebuilder:validation:Optional
 	BlockDurationMinutes *int64 `json:"blockDurationMinutes,omitempty" tf:"block_duration_minutes"`
 
+	// +kubebuilder:validation:Required
 	TimeoutAction string `json:"timeoutAction" tf:"timeout_action"`
 
+	// +kubebuilder:validation:Required
 	TimeoutDurationMinutes int64 `json:"timeoutDurationMinutes" tf:"timeout_duration_minutes"`
 }
 
@@ -99,18 +124,28 @@ type EmrInstanceFleetObservation struct {
 }
 
 type EmrInstanceFleetParameters struct {
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
 
+	// +kubebuilder:validation:Required
+	ClusterID string `json:"clusterId" tf:"cluster_id"`
+
+	// +kubebuilder:validation:Optional
 	InstanceTypeConfigs []EmrInstanceFleetInstanceTypeConfigsParameters `json:"instanceTypeConfigs,omitempty" tf:"instance_type_configs"`
 
+	// +kubebuilder:validation:Optional
 	LaunchSpecifications []EmrInstanceFleetLaunchSpecificationsParameters `json:"launchSpecifications,omitempty" tf:"launch_specifications"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	TargetOnDemandCapacity *int64 `json:"targetOnDemandCapacity,omitempty" tf:"target_on_demand_capacity"`
 
+	// +kubebuilder:validation:Optional
 	TargetSpotCapacity *int64 `json:"targetSpotCapacity,omitempty" tf:"target_spot_capacity"`
 }
 

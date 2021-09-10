@@ -28,10 +28,16 @@ type IamUserPolicyAttachmentObservation struct {
 }
 
 type IamUserPolicyAttachmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	PolicyArn string `json:"policyArn" tf:"policy_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	User string `json:"user" tf:"user"`
 }
 

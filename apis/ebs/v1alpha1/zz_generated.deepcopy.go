@@ -97,8 +97,8 @@ func (in *DiskContainerParameters) DeepCopyInto(out *DiskContainerParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Url != nil {
-		in, out := &in.Url, &out.Url
+	if in.URL != nil {
+		in, out := &in.URL, &out.URL
 		*out = new(string)
 		**out = **in
 	}
@@ -484,8 +484,8 @@ func (in *EbsSnapshotCopyParameters) DeepCopyInto(out *EbsSnapshotCopyParameters
 		*out = new(bool)
 		**out = **in
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -650,8 +650,8 @@ func (in *EbsSnapshotImportParameters) DeepCopyInto(out *EbsSnapshotImportParame
 		*out = new(bool)
 		**out = **in
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -922,8 +922,8 @@ func (in *EbsVolumeParameters) DeepCopyInto(out *EbsVolumeParameters) {
 		*out = new(int64)
 		**out = **in
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -942,8 +942,8 @@ func (in *EbsVolumeParameters) DeepCopyInto(out *EbsVolumeParameters) {
 		*out = new(int64)
 		**out = **in
 	}
-	if in.SnapshotId != nil {
-		in, out := &in.SnapshotId, &out.SnapshotId
+	if in.SnapshotID != nil {
+		in, out := &in.SnapshotID, &out.SnapshotID
 		*out = new(string)
 		**out = **in
 	}

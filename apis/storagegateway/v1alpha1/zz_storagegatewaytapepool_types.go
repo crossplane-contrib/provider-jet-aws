@@ -29,18 +29,28 @@ type StoragegatewayTapePoolObservation struct {
 }
 
 type StoragegatewayTapePoolParameters struct {
+
+	// +kubebuilder:validation:Required
 	PoolName string `json:"poolName" tf:"pool_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RetentionLockTimeInDays *int64 `json:"retentionLockTimeInDays,omitempty" tf:"retention_lock_time_in_days"`
 
+	// +kubebuilder:validation:Optional
 	RetentionLockType *string `json:"retentionLockType,omitempty" tf:"retention_lock_type"`
 
+	// +kubebuilder:validation:Required
 	StorageClass string `json:"storageClass" tf:"storage_class"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

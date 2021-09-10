@@ -29,12 +29,19 @@ type Apigatewayv2DeploymentObservation struct {
 }
 
 type Apigatewayv2DeploymentParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Triggers map[string]string `json:"triggers,omitempty" tf:"triggers"`
 }
 

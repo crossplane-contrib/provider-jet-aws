@@ -28,34 +28,49 @@ type ConstraintsObservation struct {
 }
 
 type ConstraintsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EncryptionContextEquals map[string]string `json:"encryptionContextEquals,omitempty" tf:"encryption_context_equals"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionContextSubset map[string]string `json:"encryptionContextSubset,omitempty" tf:"encryption_context_subset"`
 }
 
 type KmsGrantObservation struct {
-	GrantId string `json:"grantId" tf:"grant_id"`
+	GrantID string `json:"grantId" tf:"grant_id"`
 
 	GrantToken string `json:"grantToken" tf:"grant_token"`
 }
 
 type KmsGrantParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Constraints []ConstraintsParameters `json:"constraints,omitempty" tf:"constraints"`
 
+	// +kubebuilder:validation:Optional
 	GrantCreationTokens []string `json:"grantCreationTokens,omitempty" tf:"grant_creation_tokens"`
 
+	// +kubebuilder:validation:Required
 	GranteePrincipal string `json:"granteePrincipal" tf:"grantee_principal"`
 
-	KeyId string `json:"keyId" tf:"key_id"`
+	// +kubebuilder:validation:Required
+	KeyID string `json:"keyId" tf:"key_id"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Operations []string `json:"operations" tf:"operations"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RetireOnDelete *bool `json:"retireOnDelete,omitempty" tf:"retire_on_delete"`
 
+	// +kubebuilder:validation:Optional
 	RetiringPrincipal *string `json:"retiringPrincipal,omitempty" tf:"retiring_principal"`
 }
 

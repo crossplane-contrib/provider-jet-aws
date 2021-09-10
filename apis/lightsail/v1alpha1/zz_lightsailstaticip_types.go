@@ -27,14 +27,19 @@ import (
 type LightsailStaticIpObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 
 	SupportCode string `json:"supportCode" tf:"support_code"`
 }
 
 type LightsailStaticIpParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

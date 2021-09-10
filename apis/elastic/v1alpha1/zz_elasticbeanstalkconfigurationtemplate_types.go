@@ -28,18 +28,28 @@ type ElasticBeanstalkConfigurationTemplateObservation struct {
 }
 
 type ElasticBeanstalkConfigurationTemplateParameters struct {
+
+	// +kubebuilder:validation:Required
 	Application string `json:"application" tf:"application"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	EnvironmentId *string `json:"environmentId,omitempty" tf:"environment_id"`
+	// +kubebuilder:validation:Optional
+	EnvironmentID *string `json:"environmentId,omitempty" tf:"environment_id"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Setting []SettingParameters `json:"setting,omitempty" tf:"setting"`
 
+	// +kubebuilder:validation:Optional
 	SolutionStackName *string `json:"solutionStackName,omitempty" tf:"solution_stack_name"`
 }
 
@@ -47,12 +57,17 @@ type SettingObservation struct {
 }
 
 type SettingParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 
+	// +kubebuilder:validation:Optional
 	Resource *string `json:"resource,omitempty" tf:"resource"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

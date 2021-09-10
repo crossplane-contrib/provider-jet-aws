@@ -28,12 +28,17 @@ type BlockDeviceMappingObservation struct {
 }
 
 type BlockDeviceMappingParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeviceName *string `json:"deviceName,omitempty" tf:"device_name"`
 
+	// +kubebuilder:validation:Optional
 	Ebs []EbsParameters `json:"ebs,omitempty" tf:"ebs"`
 
+	// +kubebuilder:validation:Optional
 	NoDevice *bool `json:"noDevice,omitempty" tf:"no_device"`
 
+	// +kubebuilder:validation:Optional
 	VirtualName *string `json:"virtualName,omitempty" tf:"virtual_name"`
 }
 
@@ -41,6 +46,8 @@ type ComponentObservation struct {
 }
 
 type ComponentParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComponentArn string `json:"componentArn" tf:"component_arn"`
 }
 
@@ -48,18 +55,26 @@ type EbsObservation struct {
 }
 
 type EbsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteOnTermination *string `json:"deleteOnTermination,omitempty" tf:"delete_on_termination"`
 
+	// +kubebuilder:validation:Optional
 	Encrypted *string `json:"encrypted,omitempty" tf:"encrypted"`
 
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	// +kubebuilder:validation:Optional
+	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
 
+	// +kubebuilder:validation:Optional
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 
+	// +kubebuilder:validation:Optional
 	VolumeType *string `json:"volumeType,omitempty" tf:"volume_type"`
 }
 
@@ -74,24 +89,37 @@ type ImagebuilderImageRecipeObservation struct {
 }
 
 type ImagebuilderImageRecipeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BlockDeviceMapping []BlockDeviceMappingParameters `json:"blockDeviceMapping,omitempty" tf:"block_device_mapping"`
 
+	// +kubebuilder:validation:Required
 	Component []ComponentParameters `json:"component" tf:"component"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	ParentImage string `json:"parentImage" tf:"parent_image"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Version string `json:"version" tf:"version"`
 
+	// +kubebuilder:validation:Optional
 	WorkingDirectory *string `json:"workingDirectory,omitempty" tf:"working_directory"`
 }
 

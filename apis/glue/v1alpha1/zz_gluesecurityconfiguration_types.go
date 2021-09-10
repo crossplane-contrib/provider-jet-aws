@@ -28,8 +28,11 @@ type CloudwatchEncryptionObservation struct {
 }
 
 type CloudwatchEncryptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchEncryptionMode *string `json:"cloudwatchEncryptionMode,omitempty" tf:"cloudwatch_encryption_mode"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 }
 
@@ -37,10 +40,14 @@ type EncryptionConfigurationObservation struct {
 }
 
 type EncryptionConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	CloudwatchEncryption []CloudwatchEncryptionParameters `json:"cloudwatchEncryption" tf:"cloudwatch_encryption"`
 
+	// +kubebuilder:validation:Required
 	JobBookmarksEncryption []JobBookmarksEncryptionParameters `json:"jobBookmarksEncryption" tf:"job_bookmarks_encryption"`
 
+	// +kubebuilder:validation:Required
 	S3Encryption []S3EncryptionParameters `json:"s3Encryption" tf:"s3_encryption"`
 }
 
@@ -48,10 +55,16 @@ type GlueSecurityConfigurationObservation struct {
 }
 
 type GlueSecurityConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	EncryptionConfiguration []EncryptionConfigurationParameters `json:"encryptionConfiguration" tf:"encryption_configuration"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -59,8 +72,11 @@ type JobBookmarksEncryptionObservation struct {
 }
 
 type JobBookmarksEncryptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	JobBookmarksEncryptionMode *string `json:"jobBookmarksEncryptionMode,omitempty" tf:"job_bookmarks_encryption_mode"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 }
 
@@ -68,8 +84,11 @@ type S3EncryptionObservation struct {
 }
 
 type S3EncryptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	S3EncryptionMode *string `json:"s3EncryptionMode,omitempty" tf:"s3_encryption_mode"`
 }
 

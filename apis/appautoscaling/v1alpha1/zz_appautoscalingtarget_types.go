@@ -28,18 +28,28 @@ type AppautoscalingTargetObservation struct {
 }
 
 type AppautoscalingTargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	MaxCapacity int64 `json:"maxCapacity" tf:"max_capacity"`
 
+	// +kubebuilder:validation:Required
 	MinCapacity int64 `json:"minCapacity" tf:"min_capacity"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	ScalableDimension string `json:"scalableDimension" tf:"scalable_dimension"`
 
+	// +kubebuilder:validation:Required
 	ServiceNamespace string `json:"serviceNamespace" tf:"service_namespace"`
 }
 

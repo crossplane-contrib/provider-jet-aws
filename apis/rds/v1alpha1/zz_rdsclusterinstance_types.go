@@ -27,13 +27,13 @@ import (
 type RdsClusterInstanceObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DbiResourceId string `json:"dbiResourceId" tf:"dbi_resource_id"`
+	DbiResourceID string `json:"dbiResourceId" tf:"dbi_resource_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
 	EngineVersionActual string `json:"engineVersionActual" tf:"engine_version_actual"`
 
-	KmsKeyId string `json:"kmsKeyId" tf:"kms_key_id"`
+	KmsKeyID string `json:"kmsKeyId" tf:"kms_key_id"`
 
 	Port int64 `json:"port" tf:"port"`
 
@@ -43,52 +43,79 @@ type RdsClusterInstanceObservation struct {
 }
 
 type RdsClusterInstanceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately"`
 
+	// +kubebuilder:validation:Optional
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade,omitempty" tf:"auto_minor_version_upgrade"`
 
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
+	// +kubebuilder:validation:Optional
 	CaCertIdentifier *string `json:"caCertIdentifier,omitempty" tf:"ca_cert_identifier"`
 
+	// +kubebuilder:validation:Required
 	ClusterIdentifier string `json:"clusterIdentifier" tf:"cluster_identifier"`
 
+	// +kubebuilder:validation:Optional
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot,omitempty" tf:"copy_tags_to_snapshot"`
 
-	DbParameterGroupName *string `json:"dbParameterGroupName,omitempty" tf:"db_parameter_group_name"`
+	// +kubebuilder:validation:Optional
+	DBParameterGroupName *string `json:"dbParameterGroupName,omitempty" tf:"db_parameter_group_name"`
 
-	DbSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
+	// +kubebuilder:validation:Optional
+	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
 
+	// +kubebuilder:validation:Optional
 	Engine *string `json:"engine,omitempty" tf:"engine"`
 
+	// +kubebuilder:validation:Optional
 	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version"`
 
+	// +kubebuilder:validation:Optional
 	Identifier *string `json:"identifier,omitempty" tf:"identifier"`
 
+	// +kubebuilder:validation:Optional
 	IdentifierPrefix *string `json:"identifierPrefix,omitempty" tf:"identifier_prefix"`
 
+	// +kubebuilder:validation:Required
 	InstanceClass string `json:"instanceClass" tf:"instance_class"`
 
+	// +kubebuilder:validation:Optional
 	MonitoringInterval *int64 `json:"monitoringInterval,omitempty" tf:"monitoring_interval"`
 
+	// +kubebuilder:validation:Optional
 	MonitoringRoleArn *string `json:"monitoringRoleArn,omitempty" tf:"monitoring_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	PerformanceInsightsEnabled *bool `json:"performanceInsightsEnabled,omitempty" tf:"performance_insights_enabled"`
 
-	PerformanceInsightsKmsKeyId *string `json:"performanceInsightsKmsKeyId,omitempty" tf:"performance_insights_kms_key_id"`
+	// +kubebuilder:validation:Optional
+	PerformanceInsightsKmsKeyID *string `json:"performanceInsightsKmsKeyId,omitempty" tf:"performance_insights_kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	PreferredBackupWindow *string `json:"preferredBackupWindow,omitempty" tf:"preferred_backup_window"`
 
+	// +kubebuilder:validation:Optional
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow,omitempty" tf:"preferred_maintenance_window"`
 
+	// +kubebuilder:validation:Optional
 	PromotionTier *int64 `json:"promotionTier,omitempty" tf:"promotion_tier"`
 
+	// +kubebuilder:validation:Optional
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

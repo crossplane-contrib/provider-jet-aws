@@ -29,12 +29,19 @@ type SecurityhubActionTargetObservation struct {
 }
 
 type SecurityhubActionTargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Description string `json:"description" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Identifier string `json:"identifier" tf:"identifier"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

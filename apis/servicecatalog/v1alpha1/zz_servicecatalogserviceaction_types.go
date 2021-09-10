@@ -28,14 +28,20 @@ type DefinitionObservation struct {
 }
 
 type DefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AssumeRole *string `json:"assumeRole,omitempty" tf:"assume_role"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters *string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Version string `json:"version" tf:"version"`
 }
 
@@ -43,14 +49,22 @@ type ServicecatalogServiceActionObservation struct {
 }
 
 type ServicecatalogServiceActionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
+	// +kubebuilder:validation:Required
 	Definition []DefinitionParameters `json:"definition" tf:"definition"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

@@ -29,13 +29,20 @@ type ApiGatewayResourceObservation struct {
 }
 
 type ApiGatewayResourceParameters struct {
-	ParentId string `json:"parentId" tf:"parent_id"`
 
+	// +kubebuilder:validation:Required
+	ParentID string `json:"parentId" tf:"parent_id"`
+
+	// +kubebuilder:validation:Required
 	PathPart string `json:"pathPart" tf:"path_part"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 }
 
 // ApiGatewayResourceSpec defines the desired state of ApiGatewayResource

@@ -28,8 +28,11 @@ type AttributeObservation struct {
 }
 
 type AttributeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -42,40 +45,61 @@ type DynamodbTableObservation struct {
 }
 
 type DynamodbTableParameters struct {
+
+	// +kubebuilder:validation:Required
 	Attribute []AttributeParameters `json:"attribute" tf:"attribute"`
 
+	// +kubebuilder:validation:Optional
 	BillingMode *string `json:"billingMode,omitempty" tf:"billing_mode"`
 
+	// +kubebuilder:validation:Optional
 	GlobalSecondaryIndex []GlobalSecondaryIndexParameters `json:"globalSecondaryIndex,omitempty" tf:"global_secondary_index"`
 
+	// +kubebuilder:validation:Required
 	HashKey string `json:"hashKey" tf:"hash_key"`
 
+	// +kubebuilder:validation:Optional
 	LocalSecondaryIndex []LocalSecondaryIndexParameters `json:"localSecondaryIndex,omitempty" tf:"local_secondary_index"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PointInTimeRecovery []PointInTimeRecoveryParameters `json:"pointInTimeRecovery,omitempty" tf:"point_in_time_recovery"`
 
+	// +kubebuilder:validation:Optional
 	RangeKey *string `json:"rangeKey,omitempty" tf:"range_key"`
 
+	// +kubebuilder:validation:Optional
 	ReadCapacity *int64 `json:"readCapacity,omitempty" tf:"read_capacity"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Replica []DynamodbTableReplicaParameters `json:"replica,omitempty" tf:"replica"`
 
+	// +kubebuilder:validation:Optional
 	ServerSideEncryption []ServerSideEncryptionParameters `json:"serverSideEncryption,omitempty" tf:"server_side_encryption"`
 
+	// +kubebuilder:validation:Optional
 	StreamEnabled *bool `json:"streamEnabled,omitempty" tf:"stream_enabled"`
 
+	// +kubebuilder:validation:Optional
 	StreamViewType *string `json:"streamViewType,omitempty" tf:"stream_view_type"`
 
+	// +kubebuilder:validation:Optional
+	TTL []TTLParameters `json:"ttl,omitempty" tf:"ttl"`
+
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Ttl []TtlParameters `json:"ttl,omitempty" tf:"ttl"`
-
+	// +kubebuilder:validation:Optional
 	WriteCapacity *int64 `json:"writeCapacity,omitempty" tf:"write_capacity"`
 }
 
@@ -83,8 +107,11 @@ type DynamodbTableReplicaObservation struct {
 }
 
 type DynamodbTableReplicaParameters struct {
+
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Required
 	RegionName string `json:"regionName" tf:"region_name"`
 }
 
@@ -92,18 +119,26 @@ type GlobalSecondaryIndexObservation struct {
 }
 
 type GlobalSecondaryIndexParameters struct {
+
+	// +kubebuilder:validation:Required
 	HashKey string `json:"hashKey" tf:"hash_key"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NonKeyAttributes []string `json:"nonKeyAttributes,omitempty" tf:"non_key_attributes"`
 
+	// +kubebuilder:validation:Required
 	ProjectionType string `json:"projectionType" tf:"projection_type"`
 
+	// +kubebuilder:validation:Optional
 	RangeKey *string `json:"rangeKey,omitempty" tf:"range_key"`
 
+	// +kubebuilder:validation:Optional
 	ReadCapacity *int64 `json:"readCapacity,omitempty" tf:"read_capacity"`
 
+	// +kubebuilder:validation:Optional
 	WriteCapacity *int64 `json:"writeCapacity,omitempty" tf:"write_capacity"`
 }
 
@@ -111,12 +146,17 @@ type LocalSecondaryIndexObservation struct {
 }
 
 type LocalSecondaryIndexParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NonKeyAttributes []string `json:"nonKeyAttributes,omitempty" tf:"non_key_attributes"`
 
+	// +kubebuilder:validation:Required
 	ProjectionType string `json:"projectionType" tf:"projection_type"`
 
+	// +kubebuilder:validation:Required
 	RangeKey string `json:"rangeKey" tf:"range_key"`
 }
 
@@ -124,6 +164,8 @@ type PointInTimeRecoveryObservation struct {
 }
 
 type PointInTimeRecoveryParameters struct {
+
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 }
 
@@ -131,19 +173,26 @@ type ServerSideEncryptionObservation struct {
 }
 
 type ServerSideEncryptionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 }
 
-type TtlObservation struct {
+type TTLObservation struct {
 }
 
-type TtlParameters struct {
+type TTLParameters struct {
+
+	// +kubebuilder:validation:Required
 	AttributeName string `json:"attributeName" tf:"attribute_name"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 }
 

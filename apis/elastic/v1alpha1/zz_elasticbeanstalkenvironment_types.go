@@ -28,12 +28,17 @@ type AllSettingsObservation struct {
 }
 
 type AllSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 
+	// +kubebuilder:validation:Optional
 	Resource *string `json:"resource,omitempty" tf:"resource"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -46,7 +51,7 @@ type ElasticBeanstalkEnvironmentObservation struct {
 
 	Cname string `json:"cname" tf:"cname"`
 
-	EndpointUrl string `json:"endpointUrl" tf:"endpoint_url"`
+	EndpointURL string `json:"endpointUrl" tf:"endpoint_url"`
 
 	Instances []string `json:"instances" tf:"instances"`
 
@@ -60,34 +65,52 @@ type ElasticBeanstalkEnvironmentObservation struct {
 }
 
 type ElasticBeanstalkEnvironmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Application string `json:"application" tf:"application"`
 
+	// +kubebuilder:validation:Optional
 	CnamePrefix *string `json:"cnamePrefix,omitempty" tf:"cname_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PlatformArn *string `json:"platformArn,omitempty" tf:"platform_arn"`
 
+	// +kubebuilder:validation:Optional
 	PollInterval *string `json:"pollInterval,omitempty" tf:"poll_interval"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Setting []ElasticBeanstalkEnvironmentSettingParameters `json:"setting,omitempty" tf:"setting"`
 
+	// +kubebuilder:validation:Optional
 	SolutionStackName *string `json:"solutionStackName,omitempty" tf:"solution_stack_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TemplateName *string `json:"templateName,omitempty" tf:"template_name"`
 
+	// +kubebuilder:validation:Optional
 	Tier *string `json:"tier,omitempty" tf:"tier"`
 
+	// +kubebuilder:validation:Optional
 	VersionLabel *string `json:"versionLabel,omitempty" tf:"version_label"`
 
+	// +kubebuilder:validation:Optional
 	WaitForReadyTimeout *string `json:"waitForReadyTimeout,omitempty" tf:"wait_for_ready_timeout"`
 }
 
@@ -95,12 +118,17 @@ type ElasticBeanstalkEnvironmentSettingObservation struct {
 }
 
 type ElasticBeanstalkEnvironmentSettingParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 
+	// +kubebuilder:validation:Optional
 	Resource *string `json:"resource,omitempty" tf:"resource"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

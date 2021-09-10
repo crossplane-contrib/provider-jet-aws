@@ -385,8 +385,8 @@ func (in *Ec2AttributesParameters) DeepCopyInto(out *Ec2AttributesParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.SubnetId != nil {
-		in, out := &in.SubnetId, &out.SubnetId
+	if in.SubnetID != nil {
+		in, out := &in.SubnetID, &out.SubnetID
 		*out = new(string)
 		**out = **in
 	}
@@ -511,8 +511,8 @@ func (in *EmrClusterParameters) DeepCopyInto(out *EmrClusterParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.ConfigurationsJson != nil {
-		in, out := &in.ConfigurationsJson, &out.ConfigurationsJson
+	if in.ConfigurationsJSON != nil {
+		in, out := &in.ConfigurationsJSON, &out.ConfigurationsJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -530,8 +530,8 @@ func (in *EmrClusterParameters) DeepCopyInto(out *EmrClusterParameters) {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
-	if in.CustomAmiId != nil {
-		in, out := &in.CustomAmiId, &out.CustomAmiId
+	if in.CustomAmiID != nil {
+		in, out := &in.CustomAmiID, &out.CustomAmiID
 		*out = new(string)
 		**out = **in
 	}
@@ -559,8 +559,8 @@ func (in *EmrClusterParameters) DeepCopyInto(out *EmrClusterParameters) {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
-	if in.LogUri != nil {
-		in, out := &in.LogUri, &out.LogUri
+	if in.LogURI != nil {
+		in, out := &in.LogURI, &out.LogURI
 		*out = new(string)
 		**out = **in
 	}
@@ -1197,8 +1197,8 @@ func (in *EmrInstanceGroupParameters) DeepCopyInto(out *EmrInstanceGroupParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.ConfigurationsJson != nil {
-		in, out := &in.ConfigurationsJson, &out.ConfigurationsJson
+	if in.ConfigurationsJSON != nil {
+		in, out := &in.ConfigurationsJSON, &out.ConfigurationsJSON
 		*out = new(string)
 		**out = **in
 	}

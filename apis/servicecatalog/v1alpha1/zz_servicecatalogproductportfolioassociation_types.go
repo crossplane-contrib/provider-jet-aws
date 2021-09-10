@@ -28,15 +28,23 @@ type ServicecatalogProductPortfolioAssociationObservation struct {
 }
 
 type ServicecatalogProductPortfolioAssociationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
-	PortfolioId string `json:"portfolioId" tf:"portfolio_id"`
+	// +kubebuilder:validation:Required
+	PortfolioID string `json:"portfolioId" tf:"portfolio_id"`
 
-	ProductId string `json:"productId" tf:"product_id"`
+	// +kubebuilder:validation:Required
+	ProductID string `json:"productId" tf:"product_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SourcePortfolioId *string `json:"sourcePortfolioId,omitempty" tf:"source_portfolio_id"`
+	// +kubebuilder:validation:Optional
+	SourcePortfolioID *string `json:"sourcePortfolioId,omitempty" tf:"source_portfolio_id"`
 }
 
 // ServicecatalogProductPortfolioAssociationSpec defines the desired state of ServicecatalogProductPortfolioAssociation

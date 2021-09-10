@@ -27,18 +27,26 @@ import (
 type SecretsmanagerSecretVersionObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	VersionId string `json:"versionId" tf:"version_id"`
+	VersionID string `json:"versionId" tf:"version_id"`
 }
 
 type SecretsmanagerSecretVersionParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecretBinary *string `json:"secretBinary,omitempty" tf:"secret_binary"`
 
-	SecretId string `json:"secretId" tf:"secret_id"`
+	// +kubebuilder:validation:Required
+	SecretID string `json:"secretId" tf:"secret_id"`
 
+	// +kubebuilder:validation:Optional
 	SecretString *string `json:"secretString,omitempty" tf:"secret_string"`
 
+	// +kubebuilder:validation:Optional
 	VersionStages []string `json:"versionStages,omitempty" tf:"version_stages"`
 }
 

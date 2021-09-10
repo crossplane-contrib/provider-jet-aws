@@ -27,42 +27,54 @@ import (
 type LightsailInstanceObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	CpuCount int64 `json:"cpuCount" tf:"cpu_count"`
+	CPUCount int64 `json:"cpuCount" tf:"cpu_count"`
 
 	CreatedAt string `json:"createdAt" tf:"created_at"`
 
-	Ipv6Address string `json:"ipv6Address" tf:"ipv6_address"`
+	IPv6Address string `json:"ipv6Address" tf:"ipv6_address"`
 
-	Ipv6Addresses []string `json:"ipv6Addresses" tf:"ipv6_addresses"`
+	IPv6Addresses []string `json:"ipv6Addresses" tf:"ipv6_addresses"`
 
-	IsStaticIp bool `json:"isStaticIp" tf:"is_static_ip"`
+	IsStaticIP bool `json:"isStaticIp" tf:"is_static_ip"`
 
-	PrivateIpAddress string `json:"privateIpAddress" tf:"private_ip_address"`
+	PrivateIPAddress string `json:"privateIpAddress" tf:"private_ip_address"`
 
-	PublicIpAddress string `json:"publicIpAddress" tf:"public_ip_address"`
+	PublicIPAddress string `json:"publicIpAddress" tf:"public_ip_address"`
 
-	RamSize float64 `json:"ramSize" tf:"ram_size"`
+	RAMSize float64 `json:"ramSize" tf:"ram_size"`
 
 	Username string `json:"username" tf:"username"`
 }
 
 type LightsailInstanceParameters struct {
+
+	// +kubebuilder:validation:Required
 	AvailabilityZone string `json:"availabilityZone" tf:"availability_zone"`
 
-	BlueprintId string `json:"blueprintId" tf:"blueprint_id"`
+	// +kubebuilder:validation:Required
+	BlueprintID string `json:"blueprintId" tf:"blueprint_id"`
 
-	BundleId string `json:"bundleId" tf:"bundle_id"`
+	// +kubebuilder:validation:Required
+	BundleID string `json:"bundleId" tf:"bundle_id"`
 
+	// +kubebuilder:validation:Optional
 	KeyPairName *string `json:"keyPairName,omitempty" tf:"key_pair_name"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	UserData *string `json:"userData,omitempty" tf:"user_data"`
 }
 

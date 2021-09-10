@@ -27,56 +27,79 @@ import (
 type FsxLustreFileSystemObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
 	MountName string `json:"mountName" tf:"mount_name"`
 
 	NetworkInterfaceIds []string `json:"networkInterfaceIds" tf:"network_interface_ids"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type FsxLustreFileSystemParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AutoImportPolicy *string `json:"autoImportPolicy,omitempty" tf:"auto_import_policy"`
 
+	// +kubebuilder:validation:Optional
 	AutomaticBackupRetentionDays *int64 `json:"automaticBackupRetentionDays,omitempty" tf:"automatic_backup_retention_days"`
 
+	// +kubebuilder:validation:Optional
 	CopyTagsToBackups *bool `json:"copyTagsToBackups,omitempty" tf:"copy_tags_to_backups"`
 
+	// +kubebuilder:validation:Optional
 	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime,omitempty" tf:"daily_automatic_backup_start_time"`
 
+	// +kubebuilder:validation:Optional
 	DataCompressionType *string `json:"dataCompressionType,omitempty" tf:"data_compression_type"`
 
+	// +kubebuilder:validation:Optional
 	DeploymentType *string `json:"deploymentType,omitempty" tf:"deployment_type"`
 
+	// +kubebuilder:validation:Optional
 	DriveCacheType *string `json:"driveCacheType,omitempty" tf:"drive_cache_type"`
 
+	// +kubebuilder:validation:Optional
 	ExportPath *string `json:"exportPath,omitempty" tf:"export_path"`
 
+	// +kubebuilder:validation:Optional
 	ImportPath *string `json:"importPath,omitempty" tf:"import_path"`
 
+	// +kubebuilder:validation:Optional
 	ImportedFileChunkSize *int64 `json:"importedFileChunkSize,omitempty" tf:"imported_file_chunk_size"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	PerUnitStorageThroughput *int64 `json:"perUnitStorageThroughput,omitempty" tf:"per_unit_storage_throughput"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	StorageCapacity int64 `json:"storageCapacity" tf:"storage_capacity"`
 
+	// +kubebuilder:validation:Optional
 	StorageType *string `json:"storageType,omitempty" tf:"storage_type"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime,omitempty" tf:"weekly_maintenance_start_time"`
 }
 

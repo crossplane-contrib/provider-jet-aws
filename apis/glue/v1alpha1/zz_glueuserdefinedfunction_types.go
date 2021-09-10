@@ -31,20 +31,31 @@ type GlueUserDefinedFunctionObservation struct {
 }
 
 type GlueUserDefinedFunctionParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Required
 	ClassName string `json:"className" tf:"class_name"`
 
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	OwnerName string `json:"ownerName" tf:"owner_name"`
 
+	// +kubebuilder:validation:Required
 	OwnerType string `json:"ownerType" tf:"owner_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ResourceUris []ResourceUrisParameters `json:"resourceUris,omitempty" tf:"resource_uris"`
 }
 
@@ -52,9 +63,12 @@ type ResourceUrisObservation struct {
 }
 
 type ResourceUrisParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResourceType string `json:"resourceType" tf:"resource_type"`
 
-	Uri string `json:"uri" tf:"uri"`
+	// +kubebuilder:validation:Required
+	URI string `json:"uri" tf:"uri"`
 }
 
 // GlueUserDefinedFunctionSpec defines the desired state of GlueUserDefinedFunction

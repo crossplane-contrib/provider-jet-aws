@@ -31,56 +31,85 @@ type SnsTopicObservation struct {
 }
 
 type SnsTopicParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplicationFailureFeedbackRoleArn *string `json:"applicationFailureFeedbackRoleArn,omitempty" tf:"application_failure_feedback_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	ApplicationSuccessFeedbackRoleArn *string `json:"applicationSuccessFeedbackRoleArn,omitempty" tf:"application_success_feedback_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	ApplicationSuccessFeedbackSampleRate *int64 `json:"applicationSuccessFeedbackSampleRate,omitempty" tf:"application_success_feedback_sample_rate"`
 
+	// +kubebuilder:validation:Optional
 	ContentBasedDeduplication *bool `json:"contentBasedDeduplication,omitempty" tf:"content_based_deduplication"`
 
+	// +kubebuilder:validation:Optional
 	DeliveryPolicy *string `json:"deliveryPolicy,omitempty" tf:"delivery_policy"`
 
+	// +kubebuilder:validation:Optional
 	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 
+	// +kubebuilder:validation:Optional
 	FifoTopic *bool `json:"fifoTopic,omitempty" tf:"fifo_topic"`
 
+	// +kubebuilder:validation:Optional
 	FirehoseFailureFeedbackRoleArn *string `json:"firehoseFailureFeedbackRoleArn,omitempty" tf:"firehose_failure_feedback_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	FirehoseSuccessFeedbackRoleArn *string `json:"firehoseSuccessFeedbackRoleArn,omitempty" tf:"firehose_success_feedback_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	FirehoseSuccessFeedbackSampleRate *int64 `json:"firehoseSuccessFeedbackSampleRate,omitempty" tf:"firehose_success_feedback_sample_rate"`
 
-	HttpFailureFeedbackRoleArn *string `json:"httpFailureFeedbackRoleArn,omitempty" tf:"http_failure_feedback_role_arn"`
+	// +kubebuilder:validation:Optional
+	HTTPFailureFeedbackRoleArn *string `json:"httpFailureFeedbackRoleArn,omitempty" tf:"http_failure_feedback_role_arn"`
 
-	HttpSuccessFeedbackRoleArn *string `json:"httpSuccessFeedbackRoleArn,omitempty" tf:"http_success_feedback_role_arn"`
+	// +kubebuilder:validation:Optional
+	HTTPSuccessFeedbackRoleArn *string `json:"httpSuccessFeedbackRoleArn,omitempty" tf:"http_success_feedback_role_arn"`
 
-	HttpSuccessFeedbackSampleRate *int64 `json:"httpSuccessFeedbackSampleRate,omitempty" tf:"http_success_feedback_sample_rate"`
+	// +kubebuilder:validation:Optional
+	HTTPSuccessFeedbackSampleRate *int64 `json:"httpSuccessFeedbackSampleRate,omitempty" tf:"http_success_feedback_sample_rate"`
 
-	KmsMasterKeyId *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id"`
 
+	// +kubebuilder:validation:Optional
 	LambdaFailureFeedbackRoleArn *string `json:"lambdaFailureFeedbackRoleArn,omitempty" tf:"lambda_failure_feedback_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	LambdaSuccessFeedbackRoleArn *string `json:"lambdaSuccessFeedbackRoleArn,omitempty" tf:"lambda_success_feedback_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	LambdaSuccessFeedbackSampleRate *int64 `json:"lambdaSuccessFeedbackSampleRate,omitempty" tf:"lambda_success_feedback_sample_rate"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SqsFailureFeedbackRoleArn *string `json:"sqsFailureFeedbackRoleArn,omitempty" tf:"sqs_failure_feedback_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	SqsSuccessFeedbackRoleArn *string `json:"sqsSuccessFeedbackRoleArn,omitempty" tf:"sqs_success_feedback_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	SqsSuccessFeedbackSampleRate *int64 `json:"sqsSuccessFeedbackSampleRate,omitempty" tf:"sqs_success_feedback_sample_rate"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

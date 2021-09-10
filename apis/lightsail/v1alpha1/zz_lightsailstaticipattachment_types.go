@@ -25,15 +25,21 @@ import (
 )
 
 type LightsailStaticIpAttachmentObservation struct {
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 }
 
 type LightsailStaticIpAttachmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	InstanceName string `json:"instanceName" tf:"instance_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	StaticIpName string `json:"staticIpName" tf:"static_ip_name"`
+	// +kubebuilder:validation:Required
+	StaticIPName string `json:"staticIpName" tf:"static_ip_name"`
 }
 
 // LightsailStaticIpAttachmentSpec defines the desired state of LightsailStaticIpAttachment

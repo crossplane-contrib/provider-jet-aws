@@ -31,50 +31,72 @@ type ConnectSettingsObservation struct {
 }
 
 type ConnectSettingsParameters struct {
-	CustomerDnsIps []string `json:"customerDnsIps" tf:"customer_dns_ips"`
 
+	// +kubebuilder:validation:Required
+	CustomerDNSIps []string `json:"customerDnsIps" tf:"customer_dns_ips"`
+
+	// +kubebuilder:validation:Required
 	CustomerUsername string `json:"customerUsername" tf:"customer_username"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type DirectoryServiceDirectoryObservation struct {
-	AccessUrl string `json:"accessUrl" tf:"access_url"`
+	AccessURL string `json:"accessUrl" tf:"access_url"`
 
-	DnsIpAddresses []string `json:"dnsIpAddresses" tf:"dns_ip_addresses"`
+	DNSIPAddresses []string `json:"dnsIpAddresses" tf:"dns_ip_addresses"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	SecurityGroupID string `json:"securityGroupId" tf:"security_group_id"`
 }
 
 type DirectoryServiceDirectoryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Alias *string `json:"alias,omitempty" tf:"alias"`
 
+	// +kubebuilder:validation:Optional
 	ConnectSettings []ConnectSettingsParameters `json:"connectSettings,omitempty" tf:"connect_settings"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Edition *string `json:"edition,omitempty" tf:"edition"`
 
+	// +kubebuilder:validation:Optional
 	EnableSso *bool `json:"enableSso,omitempty" tf:"enable_sso"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ShortName *string `json:"shortName,omitempty" tf:"short_name"`
 
+	// +kubebuilder:validation:Optional
 	Size *string `json:"size,omitempty" tf:"size"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	VpcSettings []VpcSettingsParameters `json:"vpcSettings,omitempty" tf:"vpc_settings"`
 }
 
@@ -83,9 +105,12 @@ type VpcSettingsObservation struct {
 }
 
 type VpcSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // DirectoryServiceDirectorySpec defines the desired state of DirectoryServiceDirectory

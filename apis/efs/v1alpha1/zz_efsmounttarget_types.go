@@ -25,31 +25,39 @@ import (
 )
 
 type EfsMountTargetObservation struct {
-	AvailabilityZoneId string `json:"availabilityZoneId" tf:"availability_zone_id"`
+	AvailabilityZoneID string `json:"availabilityZoneId" tf:"availability_zone_id"`
 
 	AvailabilityZoneName string `json:"availabilityZoneName" tf:"availability_zone_name"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
 	FileSystemArn string `json:"fileSystemArn" tf:"file_system_arn"`
 
-	MountTargetDnsName string `json:"mountTargetDnsName" tf:"mount_target_dns_name"`
+	MountTargetDNSName string `json:"mountTargetDnsName" tf:"mount_target_dns_name"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceId" tf:"network_interface_id"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 }
 
 type EfsMountTargetParameters struct {
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
 
-	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
+	// +kubebuilder:validation:Required
+	FileSystemID string `json:"fileSystemId" tf:"file_system_id"`
 
+	// +kubebuilder:validation:Optional
+	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	// +kubebuilder:validation:Required
+	SubnetID string `json:"subnetId" tf:"subnet_id"`
 }
 
 // EfsMountTargetSpec defines the desired state of EfsMountTarget

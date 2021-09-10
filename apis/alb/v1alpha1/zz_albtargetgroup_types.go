@@ -31,53 +31,79 @@ type AlbTargetGroupObservation struct {
 }
 
 type AlbTargetGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeregistrationDelay *int64 `json:"deregistrationDelay,omitempty" tf:"deregistration_delay"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheck []HealthCheckParameters `json:"healthCheck,omitempty" tf:"health_check"`
 
+	// +kubebuilder:validation:Optional
 	LambdaMultiValueHeadersEnabled *bool `json:"lambdaMultiValueHeadersEnabled,omitempty" tf:"lambda_multi_value_headers_enabled"`
 
+	// +kubebuilder:validation:Optional
 	LoadBalancingAlgorithmType *string `json:"loadBalancingAlgorithmType,omitempty" tf:"load_balancing_algorithm_type"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
-	PreserveClientIp *string `json:"preserveClientIp,omitempty" tf:"preserve_client_ip"`
+	// +kubebuilder:validation:Optional
+	PreserveClientIP *string `json:"preserveClientIp,omitempty" tf:"preserve_client_ip"`
 
+	// +kubebuilder:validation:Optional
 	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
 
+	// +kubebuilder:validation:Optional
 	ProtocolVersion *string `json:"protocolVersion,omitempty" tf:"protocol_version"`
 
+	// +kubebuilder:validation:Optional
 	ProxyProtocolV2 *bool `json:"proxyProtocolV2,omitempty" tf:"proxy_protocol_v2"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SlowStart *int64 `json:"slowStart,omitempty" tf:"slow_start"`
 
+	// +kubebuilder:validation:Optional
 	Stickiness []AlbTargetGroupStickinessParameters `json:"stickiness,omitempty" tf:"stickiness"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TargetType *string `json:"targetType,omitempty" tf:"target_type"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	// +kubebuilder:validation:Optional
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
 }
 
 type AlbTargetGroupStickinessObservation struct {
 }
 
 type AlbTargetGroupStickinessParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CookieDuration *int64 `json:"cookieDuration,omitempty" tf:"cookie_duration"`
 
+	// +kubebuilder:validation:Optional
 	CookieName *string `json:"cookieName,omitempty" tf:"cookie_name"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -85,22 +111,32 @@ type HealthCheckObservation struct {
 }
 
 type HealthCheckParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	HealthyThreshold *int64 `json:"healthyThreshold,omitempty" tf:"healthy_threshold"`
 
+	// +kubebuilder:validation:Optional
 	Interval *int64 `json:"interval,omitempty" tf:"interval"`
 
+	// +kubebuilder:validation:Optional
 	Matcher *string `json:"matcher,omitempty" tf:"matcher"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	Port *string `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Optional
 	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
 
+	// +kubebuilder:validation:Optional
 	Timeout *int64 `json:"timeout,omitempty" tf:"timeout"`
 
+	// +kubebuilder:validation:Optional
 	UnhealthyThreshold *int64 `json:"unhealthyThreshold,omitempty" tf:"unhealthy_threshold"`
 }
 

@@ -28,16 +28,23 @@ type CustomCookbooksSourceObservation struct {
 }
 
 type CustomCookbooksSourceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Password *string `json:"password,omitempty" tf:"password"`
 
+	// +kubebuilder:validation:Optional
 	Revision *string `json:"revision,omitempty" tf:"revision"`
 
-	SshKey *string `json:"sshKey,omitempty" tf:"ssh_key"`
+	// +kubebuilder:validation:Optional
+	SSHKey *string `json:"sshKey,omitempty" tf:"ssh_key"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
-	Url string `json:"url" tf:"url"`
+	// +kubebuilder:validation:Required
+	URL string `json:"url" tf:"url"`
 
+	// +kubebuilder:validation:Optional
 	Username *string `json:"username,omitempty" tf:"username"`
 }
 
@@ -48,51 +55,77 @@ type OpsworksStackObservation struct {
 }
 
 type OpsworksStackParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AgentVersion *string `json:"agentVersion,omitempty" tf:"agent_version"`
 
+	// +kubebuilder:validation:Optional
 	BerkshelfVersion *string `json:"berkshelfVersion,omitempty" tf:"berkshelf_version"`
 
+	// +kubebuilder:validation:Optional
 	Color *string `json:"color,omitempty" tf:"color"`
 
+	// +kubebuilder:validation:Optional
 	ConfigurationManagerName *string `json:"configurationManagerName,omitempty" tf:"configuration_manager_name"`
 
+	// +kubebuilder:validation:Optional
 	ConfigurationManagerVersion *string `json:"configurationManagerVersion,omitempty" tf:"configuration_manager_version"`
 
+	// +kubebuilder:validation:Optional
 	CustomCookbooksSource []CustomCookbooksSourceParameters `json:"customCookbooksSource,omitempty" tf:"custom_cookbooks_source"`
 
-	CustomJson *string `json:"customJson,omitempty" tf:"custom_json"`
+	// +kubebuilder:validation:Optional
+	CustomJSON *string `json:"customJson,omitempty" tf:"custom_json"`
 
+	// +kubebuilder:validation:Optional
 	DefaultAvailabilityZone *string `json:"defaultAvailabilityZone,omitempty" tf:"default_availability_zone"`
 
+	// +kubebuilder:validation:Required
 	DefaultInstanceProfileArn string `json:"defaultInstanceProfileArn" tf:"default_instance_profile_arn"`
 
+	// +kubebuilder:validation:Optional
 	DefaultOs *string `json:"defaultOs,omitempty" tf:"default_os"`
 
+	// +kubebuilder:validation:Optional
 	DefaultRootDeviceType *string `json:"defaultRootDeviceType,omitempty" tf:"default_root_device_type"`
 
-	DefaultSshKeyName *string `json:"defaultSshKeyName,omitempty" tf:"default_ssh_key_name"`
+	// +kubebuilder:validation:Optional
+	DefaultSSHKeyName *string `json:"defaultSshKeyName,omitempty" tf:"default_ssh_key_name"`
 
-	DefaultSubnetId *string `json:"defaultSubnetId,omitempty" tf:"default_subnet_id"`
+	// +kubebuilder:validation:Optional
+	DefaultSubnetID *string `json:"defaultSubnetId,omitempty" tf:"default_subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	HostnameTheme *string `json:"hostnameTheme,omitempty" tf:"hostname_theme"`
 
+	// +kubebuilder:validation:Optional
 	ManageBerkshelf *bool `json:"manageBerkshelf,omitempty" tf:"manage_berkshelf"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServiceRoleArn string `json:"serviceRoleArn" tf:"service_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	UseCustomCookbooks *bool `json:"useCustomCookbooks,omitempty" tf:"use_custom_cookbooks"`
 
+	// +kubebuilder:validation:Optional
 	UseOpsworksSecurityGroups *bool `json:"useOpsworksSecurityGroups,omitempty" tf:"use_opsworks_security_groups"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	// +kubebuilder:validation:Optional
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
 }
 
 // OpsworksStackSpec defines the desired state of OpsworksStack

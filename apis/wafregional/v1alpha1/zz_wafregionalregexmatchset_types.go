@@ -28,8 +28,11 @@ type RegexMatchTupleFieldToMatchObservation struct {
 }
 
 type RegexMatchTupleFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Data *string `json:"data,omitempty" tf:"data"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -37,10 +40,14 @@ type RegexMatchTupleObservation struct {
 }
 
 type RegexMatchTupleParameters struct {
+
+	// +kubebuilder:validation:Required
 	FieldToMatch []RegexMatchTupleFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
 
-	RegexPatternSetId string `json:"regexPatternSetId" tf:"regex_pattern_set_id"`
+	// +kubebuilder:validation:Required
+	RegexPatternSetID string `json:"regexPatternSetId" tf:"regex_pattern_set_id"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation string `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -48,10 +55,16 @@ type WafregionalRegexMatchSetObservation struct {
 }
 
 type WafregionalRegexMatchSetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	RegexMatchTuple []RegexMatchTupleParameters `json:"regexMatchTuple,omitempty" tf:"regex_match_tuple"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

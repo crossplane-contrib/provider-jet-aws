@@ -28,12 +28,19 @@ type TransferSshKeyObservation struct {
 }
 
 type TransferSshKeyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Body string `json:"body" tf:"body"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ServerId string `json:"serverId" tf:"server_id"`
+	// +kubebuilder:validation:Required
+	ServerID string `json:"serverId" tf:"server_id"`
 
+	// +kubebuilder:validation:Required
 	UserName string `json:"userName" tf:"user_name"`
 }
 

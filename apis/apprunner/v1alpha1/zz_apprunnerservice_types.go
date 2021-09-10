@@ -27,30 +27,42 @@ import (
 type ApprunnerServiceObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	ServiceId string `json:"serviceId" tf:"service_id"`
+	ServiceID string `json:"serviceId" tf:"service_id"`
 
-	ServiceUrl string `json:"serviceUrl" tf:"service_url"`
+	ServiceURL string `json:"serviceUrl" tf:"service_url"`
 
 	Status string `json:"status" tf:"status"`
 }
 
 type ApprunnerServiceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AutoScalingConfigurationArn *string `json:"autoScalingConfigurationArn,omitempty" tf:"auto_scaling_configuration_arn"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionConfiguration []EncryptionConfigurationParameters `json:"encryptionConfiguration,omitempty" tf:"encryption_configuration"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheckConfiguration []HealthCheckConfigurationParameters `json:"healthCheckConfiguration,omitempty" tf:"health_check_configuration"`
 
+	// +kubebuilder:validation:Optional
 	InstanceConfiguration []InstanceConfigurationParameters `json:"instanceConfiguration,omitempty" tf:"instance_configuration"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServiceName string `json:"serviceName" tf:"service_name"`
 
+	// +kubebuilder:validation:Required
 	SourceConfiguration []SourceConfigurationParameters `json:"sourceConfiguration" tf:"source_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -58,8 +70,11 @@ type AuthenticationConfigurationObservation struct {
 }
 
 type AuthenticationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessRoleArn *string `json:"accessRoleArn,omitempty" tf:"access_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	ConnectionArn *string `json:"connectionArn,omitempty" tf:"connection_arn"`
 }
 
@@ -67,8 +82,11 @@ type CodeConfigurationObservation struct {
 }
 
 type CodeConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CodeConfigurationValues []CodeConfigurationValuesParameters `json:"codeConfigurationValues,omitempty" tf:"code_configuration_values"`
 
+	// +kubebuilder:validation:Required
 	ConfigurationSource string `json:"configurationSource" tf:"configuration_source"`
 }
 
@@ -76,14 +94,20 @@ type CodeConfigurationValuesObservation struct {
 }
 
 type CodeConfigurationValuesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BuildCommand *string `json:"buildCommand,omitempty" tf:"build_command"`
 
+	// +kubebuilder:validation:Optional
 	Port *string `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Required
 	Runtime string `json:"runtime" tf:"runtime"`
 
+	// +kubebuilder:validation:Optional
 	RuntimeEnvironmentVariables map[string]string `json:"runtimeEnvironmentVariables,omitempty" tf:"runtime_environment_variables"`
 
+	// +kubebuilder:validation:Optional
 	StartCommand *string `json:"startCommand,omitempty" tf:"start_command"`
 }
 
@@ -91,10 +115,14 @@ type CodeRepositoryObservation struct {
 }
 
 type CodeRepositoryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CodeConfiguration []CodeConfigurationParameters `json:"codeConfiguration,omitempty" tf:"code_configuration"`
 
-	RepositoryUrl string `json:"repositoryUrl" tf:"repository_url"`
+	// +kubebuilder:validation:Required
+	RepositoryURL string `json:"repositoryUrl" tf:"repository_url"`
 
+	// +kubebuilder:validation:Required
 	SourceCodeVersion []SourceCodeVersionParameters `json:"sourceCodeVersion" tf:"source_code_version"`
 }
 
@@ -102,6 +130,8 @@ type EncryptionConfigurationObservation struct {
 }
 
 type EncryptionConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	KmsKey string `json:"kmsKey" tf:"kms_key"`
 }
 
@@ -109,16 +139,23 @@ type HealthCheckConfigurationObservation struct {
 }
 
 type HealthCheckConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	HealthyThreshold *int64 `json:"healthyThreshold,omitempty" tf:"healthy_threshold"`
 
+	// +kubebuilder:validation:Optional
 	Interval *int64 `json:"interval,omitempty" tf:"interval"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
 
+	// +kubebuilder:validation:Optional
 	Timeout *int64 `json:"timeout,omitempty" tf:"timeout"`
 
+	// +kubebuilder:validation:Optional
 	UnhealthyThreshold *int64 `json:"unhealthyThreshold,omitempty" tf:"unhealthy_threshold"`
 }
 
@@ -126,10 +163,14 @@ type ImageConfigurationObservation struct {
 }
 
 type ImageConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Port *string `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Optional
 	RuntimeEnvironmentVariables map[string]string `json:"runtimeEnvironmentVariables,omitempty" tf:"runtime_environment_variables"`
 
+	// +kubebuilder:validation:Optional
 	StartCommand *string `json:"startCommand,omitempty" tf:"start_command"`
 }
 
@@ -137,10 +178,14 @@ type ImageRepositoryObservation struct {
 }
 
 type ImageRepositoryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ImageConfiguration []ImageConfigurationParameters `json:"imageConfiguration,omitempty" tf:"image_configuration"`
 
+	// +kubebuilder:validation:Required
 	ImageIdentifier string `json:"imageIdentifier" tf:"image_identifier"`
 
+	// +kubebuilder:validation:Required
 	ImageRepositoryType string `json:"imageRepositoryType" tf:"image_repository_type"`
 }
 
@@ -148,10 +193,14 @@ type InstanceConfigurationObservation struct {
 }
 
 type InstanceConfigurationParameters struct {
-	Cpu *string `json:"cpu,omitempty" tf:"cpu"`
 
+	// +kubebuilder:validation:Optional
+	CPU *string `json:"cpu,omitempty" tf:"cpu"`
+
+	// +kubebuilder:validation:Required
 	InstanceRoleArn string `json:"instanceRoleArn" tf:"instance_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Memory *string `json:"memory,omitempty" tf:"memory"`
 }
 
@@ -159,8 +208,11 @@ type SourceCodeVersionObservation struct {
 }
 
 type SourceCodeVersionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -168,12 +220,17 @@ type SourceConfigurationObservation struct {
 }
 
 type SourceConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuthenticationConfiguration []AuthenticationConfigurationParameters `json:"authenticationConfiguration,omitempty" tf:"authentication_configuration"`
 
+	// +kubebuilder:validation:Optional
 	AutoDeploymentsEnabled *bool `json:"autoDeploymentsEnabled,omitempty" tf:"auto_deployments_enabled"`
 
+	// +kubebuilder:validation:Optional
 	CodeRepository []CodeRepositoryParameters `json:"codeRepository,omitempty" tf:"code_repository"`
 
+	// +kubebuilder:validation:Optional
 	ImageRepository []ImageRepositoryParameters `json:"imageRepository,omitempty" tf:"image_repository"`
 }
 

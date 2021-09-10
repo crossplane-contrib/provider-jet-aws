@@ -28,19 +28,29 @@ type Ec2TransitGatewayPeeringAttachmentObservation struct {
 }
 
 type Ec2TransitGatewayPeeringAttachmentParameters struct {
-	PeerAccountId *string `json:"peerAccountId,omitempty" tf:"peer_account_id"`
 
+	// +kubebuilder:validation:Optional
+	PeerAccountID *string `json:"peerAccountId,omitempty" tf:"peer_account_id"`
+
+	// +kubebuilder:validation:Required
 	PeerRegion string `json:"peerRegion" tf:"peer_region"`
 
-	PeerTransitGatewayId string `json:"peerTransitGatewayId" tf:"peer_transit_gateway_id"`
+	// +kubebuilder:validation:Required
+	PeerTransitGatewayID string `json:"peerTransitGatewayId" tf:"peer_transit_gateway_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TransitGatewayId string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	// +kubebuilder:validation:Required
+	TransitGatewayID string `json:"transitGatewayId" tf:"transit_gateway_id"`
 }
 
 // Ec2TransitGatewayPeeringAttachmentSpec defines the desired state of Ec2TransitGatewayPeeringAttachment

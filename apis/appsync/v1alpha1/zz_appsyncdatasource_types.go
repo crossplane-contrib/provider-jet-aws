@@ -29,24 +29,37 @@ type AppsyncDatasourceObservation struct {
 }
 
 type AppsyncDatasourceParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DynamodbConfig []DynamodbConfigParameters `json:"dynamodbConfig,omitempty" tf:"dynamodb_config"`
 
+	// +kubebuilder:validation:Optional
 	ElasticsearchConfig []ElasticsearchConfigParameters `json:"elasticsearchConfig,omitempty" tf:"elasticsearch_config"`
 
-	HttpConfig []HttpConfigParameters `json:"httpConfig,omitempty" tf:"http_config"`
+	// +kubebuilder:validation:Optional
+	HTTPConfig []HTTPConfigParameters `json:"httpConfig,omitempty" tf:"http_config"`
 
+	// +kubebuilder:validation:Optional
 	LambdaConfig []LambdaConfigParameters `json:"lambdaConfig,omitempty" tf:"lambda_config"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ServiceRoleArn *string `json:"serviceRoleArn,omitempty" tf:"service_role_arn"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -54,10 +67,14 @@ type DynamodbConfigObservation struct {
 }
 
 type DynamodbConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Region *string `json:"region,omitempty" tf:"region"`
 
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 
+	// +kubebuilder:validation:Optional
 	UseCallerCredentials *bool `json:"useCallerCredentials,omitempty" tf:"use_caller_credentials"`
 }
 
@@ -65,15 +82,20 @@ type ElasticsearchConfigObservation struct {
 }
 
 type ElasticsearchConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
+	// +kubebuilder:validation:Optional
 	Region *string `json:"region,omitempty" tf:"region"`
 }
 
-type HttpConfigObservation struct {
+type HTTPConfigObservation struct {
 }
 
-type HttpConfigParameters struct {
+type HTTPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 }
 
@@ -81,6 +103,8 @@ type LambdaConfigObservation struct {
 }
 
 type LambdaConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FunctionArn string `json:"functionArn" tf:"function_arn"`
 }
 

@@ -28,44 +28,58 @@ type AttributesObservation struct {
 }
 
 type AttributesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FlowLogsEnabled *bool `json:"flowLogsEnabled,omitempty" tf:"flow_logs_enabled"`
 
+	// +kubebuilder:validation:Optional
 	FlowLogsS3Bucket *string `json:"flowLogsS3Bucket,omitempty" tf:"flow_logs_s3_bucket"`
 
+	// +kubebuilder:validation:Optional
 	FlowLogsS3Prefix *string `json:"flowLogsS3Prefix,omitempty" tf:"flow_logs_s3_prefix"`
 }
 
 type GlobalacceleratorAcceleratorObservation struct {
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneId" tf:"hosted_zone_id"`
 
-	IpSets []IpSetsObservation `json:"ipSets" tf:"ip_sets"`
+	IPSets []IPSetsObservation `json:"ipSets" tf:"ip_sets"`
 }
 
 type GlobalacceleratorAcceleratorParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Attributes []AttributesParameters `json:"attributes,omitempty" tf:"attributes"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	IpAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type"`
+	// +kubebuilder:validation:Optional
+	IPAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
-type IpSetsObservation struct {
-	IpAddresses []string `json:"ipAddresses" tf:"ip_addresses"`
+type IPSetsObservation struct {
+	IPAddresses []string `json:"ipAddresses" tf:"ip_addresses"`
 
-	IpFamily string `json:"ipFamily" tf:"ip_family"`
+	IPFamily string `json:"ipFamily" tf:"ip_family"`
 }
 
-type IpSetsParameters struct {
+type IPSetsParameters struct {
 }
 
 // GlobalacceleratorAcceleratorSpec defines the desired state of GlobalacceleratorAccelerator

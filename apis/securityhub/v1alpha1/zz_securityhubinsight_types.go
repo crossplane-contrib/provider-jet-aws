@@ -24,12 +24,15 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type AwsAccountIdObservation struct {
+type AwsAccountIDObservation struct {
 }
 
-type AwsAccountIdParameters struct {
+type AwsAccountIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -37,8 +40,11 @@ type CompanyNameObservation struct {
 }
 
 type CompanyNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -46,8 +52,11 @@ type ComplianceStatusObservation struct {
 }
 
 type ComplianceStatusParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -55,10 +64,14 @@ type ConfidenceObservation struct {
 }
 
 type ConfidenceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Eq *string `json:"eq,omitempty" tf:"eq"`
 
+	// +kubebuilder:validation:Optional
 	Gte *string `json:"gte,omitempty" tf:"gte"`
 
+	// +kubebuilder:validation:Optional
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
@@ -66,10 +79,14 @@ type CreatedAtObservation struct {
 }
 
 type CreatedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []DateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
@@ -77,10 +94,14 @@ type CriticalityObservation struct {
 }
 
 type CriticalityParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Eq *string `json:"eq,omitempty" tf:"eq"`
 
+	// +kubebuilder:validation:Optional
 	Gte *string `json:"gte,omitempty" tf:"gte"`
 
+	// +kubebuilder:validation:Optional
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
@@ -88,8 +109,11 @@ type DateRangeObservation struct {
 }
 
 type DateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -97,8 +121,11 @@ type DescriptionObservation struct {
 }
 
 type DescriptionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -106,180 +133,269 @@ type FiltersObservation struct {
 }
 
 type FiltersParameters struct {
-	AwsAccountId []AwsAccountIdParameters `json:"awsAccountId,omitempty" tf:"aws_account_id"`
 
+	// +kubebuilder:validation:Optional
+	AwsAccountID []AwsAccountIDParameters `json:"awsAccountId,omitempty" tf:"aws_account_id"`
+
+	// +kubebuilder:validation:Optional
 	CompanyName []CompanyNameParameters `json:"companyName,omitempty" tf:"company_name"`
 
+	// +kubebuilder:validation:Optional
 	ComplianceStatus []ComplianceStatusParameters `json:"complianceStatus,omitempty" tf:"compliance_status"`
 
+	// +kubebuilder:validation:Optional
 	Confidence []ConfidenceParameters `json:"confidence,omitempty" tf:"confidence"`
 
+	// +kubebuilder:validation:Optional
 	CreatedAt []CreatedAtParameters `json:"createdAt,omitempty" tf:"created_at"`
 
+	// +kubebuilder:validation:Optional
 	Criticality []CriticalityParameters `json:"criticality,omitempty" tf:"criticality"`
 
+	// +kubebuilder:validation:Optional
 	Description []DescriptionParameters `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	FindingProviderFieldsConfidence []FindingProviderFieldsConfidenceParameters `json:"findingProviderFieldsConfidence,omitempty" tf:"finding_provider_fields_confidence"`
 
+	// +kubebuilder:validation:Optional
 	FindingProviderFieldsCriticality []FindingProviderFieldsCriticalityParameters `json:"findingProviderFieldsCriticality,omitempty" tf:"finding_provider_fields_criticality"`
 
-	FindingProviderFieldsRelatedFindingsId []FindingProviderFieldsRelatedFindingsIdParameters `json:"findingProviderFieldsRelatedFindingsId,omitempty" tf:"finding_provider_fields_related_findings_id"`
+	// +kubebuilder:validation:Optional
+	FindingProviderFieldsRelatedFindingsID []FindingProviderFieldsRelatedFindingsIDParameters `json:"findingProviderFieldsRelatedFindingsId,omitempty" tf:"finding_provider_fields_related_findings_id"`
 
+	// +kubebuilder:validation:Optional
 	FindingProviderFieldsRelatedFindingsProductArn []FindingProviderFieldsRelatedFindingsProductArnParameters `json:"findingProviderFieldsRelatedFindingsProductArn,omitempty" tf:"finding_provider_fields_related_findings_product_arn"`
 
+	// +kubebuilder:validation:Optional
 	FindingProviderFieldsSeverityLabel []FindingProviderFieldsSeverityLabelParameters `json:"findingProviderFieldsSeverityLabel,omitempty" tf:"finding_provider_fields_severity_label"`
 
+	// +kubebuilder:validation:Optional
 	FindingProviderFieldsSeverityOriginal []FindingProviderFieldsSeverityOriginalParameters `json:"findingProviderFieldsSeverityOriginal,omitempty" tf:"finding_provider_fields_severity_original"`
 
+	// +kubebuilder:validation:Optional
 	FindingProviderFieldsTypes []FindingProviderFieldsTypesParameters `json:"findingProviderFieldsTypes,omitempty" tf:"finding_provider_fields_types"`
 
+	// +kubebuilder:validation:Optional
 	FirstObservedAt []FirstObservedAtParameters `json:"firstObservedAt,omitempty" tf:"first_observed_at"`
 
-	GeneratorId []GeneratorIdParameters `json:"generatorId,omitempty" tf:"generator_id"`
+	// +kubebuilder:validation:Optional
+	GeneratorID []GeneratorIDParameters `json:"generatorId,omitempty" tf:"generator_id"`
 
-	Id []IdParameters `json:"id,omitempty" tf:"id"`
+	// +kubebuilder:validation:Optional
+	ID []IDParameters `json:"id,omitempty" tf:"id"`
 
+	// +kubebuilder:validation:Optional
 	Keyword []KeywordParameters `json:"keyword,omitempty" tf:"keyword"`
 
+	// +kubebuilder:validation:Optional
 	LastObservedAt []LastObservedAtParameters `json:"lastObservedAt,omitempty" tf:"last_observed_at"`
 
+	// +kubebuilder:validation:Optional
 	MalwareName []MalwareNameParameters `json:"malwareName,omitempty" tf:"malware_name"`
 
+	// +kubebuilder:validation:Optional
 	MalwarePath []MalwarePathParameters `json:"malwarePath,omitempty" tf:"malware_path"`
 
+	// +kubebuilder:validation:Optional
 	MalwareState []MalwareStateParameters `json:"malwareState,omitempty" tf:"malware_state"`
 
+	// +kubebuilder:validation:Optional
 	MalwareType []MalwareTypeParameters `json:"malwareType,omitempty" tf:"malware_type"`
 
+	// +kubebuilder:validation:Optional
 	NetworkDestinationDomain []NetworkDestinationDomainParameters `json:"networkDestinationDomain,omitempty" tf:"network_destination_domain"`
 
-	NetworkDestinationIpv4 []NetworkDestinationIpv4Parameters `json:"networkDestinationIpv4,omitempty" tf:"network_destination_ipv4"`
+	// +kubebuilder:validation:Optional
+	NetworkDestinationIPv4 []NetworkDestinationIPv4Parameters `json:"networkDestinationIpv4,omitempty" tf:"network_destination_ipv4"`
 
-	NetworkDestinationIpv6 []NetworkDestinationIpv6Parameters `json:"networkDestinationIpv6,omitempty" tf:"network_destination_ipv6"`
+	// +kubebuilder:validation:Optional
+	NetworkDestinationIPv6 []NetworkDestinationIPv6Parameters `json:"networkDestinationIpv6,omitempty" tf:"network_destination_ipv6"`
 
+	// +kubebuilder:validation:Optional
 	NetworkDestinationPort []NetworkDestinationPortParameters `json:"networkDestinationPort,omitempty" tf:"network_destination_port"`
 
+	// +kubebuilder:validation:Optional
 	NetworkDirection []NetworkDirectionParameters `json:"networkDirection,omitempty" tf:"network_direction"`
 
+	// +kubebuilder:validation:Optional
 	NetworkProtocol []NetworkProtocolParameters `json:"networkProtocol,omitempty" tf:"network_protocol"`
 
+	// +kubebuilder:validation:Optional
 	NetworkSourceDomain []NetworkSourceDomainParameters `json:"networkSourceDomain,omitempty" tf:"network_source_domain"`
 
-	NetworkSourceIpv4 []NetworkSourceIpv4Parameters `json:"networkSourceIpv4,omitempty" tf:"network_source_ipv4"`
+	// +kubebuilder:validation:Optional
+	NetworkSourceIPv4 []NetworkSourceIPv4Parameters `json:"networkSourceIpv4,omitempty" tf:"network_source_ipv4"`
 
-	NetworkSourceIpv6 []NetworkSourceIpv6Parameters `json:"networkSourceIpv6,omitempty" tf:"network_source_ipv6"`
+	// +kubebuilder:validation:Optional
+	NetworkSourceIPv6 []NetworkSourceIPv6Parameters `json:"networkSourceIpv6,omitempty" tf:"network_source_ipv6"`
 
+	// +kubebuilder:validation:Optional
 	NetworkSourceMac []NetworkSourceMacParameters `json:"networkSourceMac,omitempty" tf:"network_source_mac"`
 
+	// +kubebuilder:validation:Optional
 	NetworkSourcePort []NetworkSourcePortParameters `json:"networkSourcePort,omitempty" tf:"network_source_port"`
 
+	// +kubebuilder:validation:Optional
 	NoteText []NoteTextParameters `json:"noteText,omitempty" tf:"note_text"`
 
+	// +kubebuilder:validation:Optional
 	NoteUpdatedAt []NoteUpdatedAtParameters `json:"noteUpdatedAt,omitempty" tf:"note_updated_at"`
 
+	// +kubebuilder:validation:Optional
 	NoteUpdatedBy []NoteUpdatedByParameters `json:"noteUpdatedBy,omitempty" tf:"note_updated_by"`
 
+	// +kubebuilder:validation:Optional
 	ProcessLaunchedAt []ProcessLaunchedAtParameters `json:"processLaunchedAt,omitempty" tf:"process_launched_at"`
 
+	// +kubebuilder:validation:Optional
 	ProcessName []ProcessNameParameters `json:"processName,omitempty" tf:"process_name"`
 
+	// +kubebuilder:validation:Optional
 	ProcessParentPid []ProcessParentPidParameters `json:"processParentPid,omitempty" tf:"process_parent_pid"`
 
+	// +kubebuilder:validation:Optional
 	ProcessPath []ProcessPathParameters `json:"processPath,omitempty" tf:"process_path"`
 
+	// +kubebuilder:validation:Optional
 	ProcessPid []ProcessPidParameters `json:"processPid,omitempty" tf:"process_pid"`
 
+	// +kubebuilder:validation:Optional
 	ProcessTerminatedAt []ProcessTerminatedAtParameters `json:"processTerminatedAt,omitempty" tf:"process_terminated_at"`
 
+	// +kubebuilder:validation:Optional
 	ProductArn []ProductArnParameters `json:"productArn,omitempty" tf:"product_arn"`
 
+	// +kubebuilder:validation:Optional
 	ProductFields []ProductFieldsParameters `json:"productFields,omitempty" tf:"product_fields"`
 
+	// +kubebuilder:validation:Optional
 	ProductName []ProductNameParameters `json:"productName,omitempty" tf:"product_name"`
 
+	// +kubebuilder:validation:Optional
 	RecommendationText []RecommendationTextParameters `json:"recommendationText,omitempty" tf:"recommendation_text"`
 
+	// +kubebuilder:validation:Optional
 	RecordState []RecordStateParameters `json:"recordState,omitempty" tf:"record_state"`
 
-	RelatedFindingsId []RelatedFindingsIdParameters `json:"relatedFindingsId,omitempty" tf:"related_findings_id"`
+	// +kubebuilder:validation:Optional
+	RelatedFindingsID []RelatedFindingsIDParameters `json:"relatedFindingsId,omitempty" tf:"related_findings_id"`
 
+	// +kubebuilder:validation:Optional
 	RelatedFindingsProductArn []RelatedFindingsProductArnParameters `json:"relatedFindingsProductArn,omitempty" tf:"related_findings_product_arn"`
 
+	// +kubebuilder:validation:Optional
+	ResourceAwsEc2InstanceIPv4Addresses []ResourceAwsEc2InstanceIPv4AddressesParameters `json:"resourceAwsEc2InstanceIpv4Addresses,omitempty" tf:"resource_aws_ec2_instance_ipv4_addresses"`
+
+	// +kubebuilder:validation:Optional
+	ResourceAwsEc2InstanceIPv6Addresses []ResourceAwsEc2InstanceIPv6AddressesParameters `json:"resourceAwsEc2InstanceIpv6Addresses,omitempty" tf:"resource_aws_ec2_instance_ipv6_addresses"`
+
+	// +kubebuilder:validation:Optional
 	ResourceAwsEc2InstanceIamInstanceProfileArn []ResourceAwsEc2InstanceIamInstanceProfileArnParameters `json:"resourceAwsEc2InstanceIamInstanceProfileArn,omitempty" tf:"resource_aws_ec2_instance_iam_instance_profile_arn"`
 
-	ResourceAwsEc2InstanceImageId []ResourceAwsEc2InstanceImageIdParameters `json:"resourceAwsEc2InstanceImageId,omitempty" tf:"resource_aws_ec2_instance_image_id"`
+	// +kubebuilder:validation:Optional
+	ResourceAwsEc2InstanceImageID []ResourceAwsEc2InstanceImageIDParameters `json:"resourceAwsEc2InstanceImageId,omitempty" tf:"resource_aws_ec2_instance_image_id"`
 
-	ResourceAwsEc2InstanceIpv4Addresses []ResourceAwsEc2InstanceIpv4AddressesParameters `json:"resourceAwsEc2InstanceIpv4Addresses,omitempty" tf:"resource_aws_ec2_instance_ipv4_addresses"`
-
-	ResourceAwsEc2InstanceIpv6Addresses []ResourceAwsEc2InstanceIpv6AddressesParameters `json:"resourceAwsEc2InstanceIpv6Addresses,omitempty" tf:"resource_aws_ec2_instance_ipv6_addresses"`
-
+	// +kubebuilder:validation:Optional
 	ResourceAwsEc2InstanceKeyName []ResourceAwsEc2InstanceKeyNameParameters `json:"resourceAwsEc2InstanceKeyName,omitempty" tf:"resource_aws_ec2_instance_key_name"`
 
+	// +kubebuilder:validation:Optional
 	ResourceAwsEc2InstanceLaunchedAt []ResourceAwsEc2InstanceLaunchedAtParameters `json:"resourceAwsEc2InstanceLaunchedAt,omitempty" tf:"resource_aws_ec2_instance_launched_at"`
 
-	ResourceAwsEc2InstanceSubnetId []ResourceAwsEc2InstanceSubnetIdParameters `json:"resourceAwsEc2InstanceSubnetId,omitempty" tf:"resource_aws_ec2_instance_subnet_id"`
+	// +kubebuilder:validation:Optional
+	ResourceAwsEc2InstanceSubnetID []ResourceAwsEc2InstanceSubnetIDParameters `json:"resourceAwsEc2InstanceSubnetId,omitempty" tf:"resource_aws_ec2_instance_subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	ResourceAwsEc2InstanceType []ResourceAwsEc2InstanceTypeParameters `json:"resourceAwsEc2InstanceType,omitempty" tf:"resource_aws_ec2_instance_type"`
 
-	ResourceAwsEc2InstanceVpcId []ResourceAwsEc2InstanceVpcIdParameters `json:"resourceAwsEc2InstanceVpcId,omitempty" tf:"resource_aws_ec2_instance_vpc_id"`
+	// +kubebuilder:validation:Optional
+	ResourceAwsEc2InstanceVpcID []ResourceAwsEc2InstanceVpcIDParameters `json:"resourceAwsEc2InstanceVpcId,omitempty" tf:"resource_aws_ec2_instance_vpc_id"`
 
+	// +kubebuilder:validation:Optional
 	ResourceAwsIamAccessKeyCreatedAt []ResourceAwsIamAccessKeyCreatedAtParameters `json:"resourceAwsIamAccessKeyCreatedAt,omitempty" tf:"resource_aws_iam_access_key_created_at"`
 
+	// +kubebuilder:validation:Optional
 	ResourceAwsIamAccessKeyStatus []ResourceAwsIamAccessKeyStatusParameters `json:"resourceAwsIamAccessKeyStatus,omitempty" tf:"resource_aws_iam_access_key_status"`
 
+	// +kubebuilder:validation:Optional
 	ResourceAwsIamAccessKeyUserName []ResourceAwsIamAccessKeyUserNameParameters `json:"resourceAwsIamAccessKeyUserName,omitempty" tf:"resource_aws_iam_access_key_user_name"`
 
-	ResourceAwsS3BucketOwnerId []ResourceAwsS3BucketOwnerIdParameters `json:"resourceAwsS3BucketOwnerId,omitempty" tf:"resource_aws_s3_bucket_owner_id"`
+	// +kubebuilder:validation:Optional
+	ResourceAwsS3BucketOwnerID []ResourceAwsS3BucketOwnerIDParameters `json:"resourceAwsS3BucketOwnerId,omitempty" tf:"resource_aws_s3_bucket_owner_id"`
 
+	// +kubebuilder:validation:Optional
 	ResourceAwsS3BucketOwnerName []ResourceAwsS3BucketOwnerNameParameters `json:"resourceAwsS3BucketOwnerName,omitempty" tf:"resource_aws_s3_bucket_owner_name"`
 
-	ResourceContainerImageId []ResourceContainerImageIdParameters `json:"resourceContainerImageId,omitempty" tf:"resource_container_image_id"`
+	// +kubebuilder:validation:Optional
+	ResourceContainerImageID []ResourceContainerImageIDParameters `json:"resourceContainerImageId,omitempty" tf:"resource_container_image_id"`
 
+	// +kubebuilder:validation:Optional
 	ResourceContainerImageName []ResourceContainerImageNameParameters `json:"resourceContainerImageName,omitempty" tf:"resource_container_image_name"`
 
+	// +kubebuilder:validation:Optional
 	ResourceContainerLaunchedAt []ResourceContainerLaunchedAtParameters `json:"resourceContainerLaunchedAt,omitempty" tf:"resource_container_launched_at"`
 
+	// +kubebuilder:validation:Optional
 	ResourceContainerName []ResourceContainerNameParameters `json:"resourceContainerName,omitempty" tf:"resource_container_name"`
 
+	// +kubebuilder:validation:Optional
 	ResourceDetailsOther []ResourceDetailsOtherParameters `json:"resourceDetailsOther,omitempty" tf:"resource_details_other"`
 
-	ResourceId []ResourceIdParameters `json:"resourceId,omitempty" tf:"resource_id"`
+	// +kubebuilder:validation:Optional
+	ResourceID []ResourceIDParameters `json:"resourceId,omitempty" tf:"resource_id"`
 
+	// +kubebuilder:validation:Optional
 	ResourcePartition []ResourcePartitionParameters `json:"resourcePartition,omitempty" tf:"resource_partition"`
 
+	// +kubebuilder:validation:Optional
 	ResourceRegion []ResourceRegionParameters `json:"resourceRegion,omitempty" tf:"resource_region"`
 
+	// +kubebuilder:validation:Optional
 	ResourceTags []ResourceTagsParameters `json:"resourceTags,omitempty" tf:"resource_tags"`
 
+	// +kubebuilder:validation:Optional
 	ResourceType []ResourceTypeParameters `json:"resourceType,omitempty" tf:"resource_type"`
 
+	// +kubebuilder:validation:Optional
 	SeverityLabel []SeverityLabelParameters `json:"severityLabel,omitempty" tf:"severity_label"`
 
-	SourceUrl []SourceUrlParameters `json:"sourceUrl,omitempty" tf:"source_url"`
+	// +kubebuilder:validation:Optional
+	SourceURL []SourceURLParameters `json:"sourceUrl,omitempty" tf:"source_url"`
 
+	// +kubebuilder:validation:Optional
 	ThreatIntelIndicatorCategory []ThreatIntelIndicatorCategoryParameters `json:"threatIntelIndicatorCategory,omitempty" tf:"threat_intel_indicator_category"`
 
+	// +kubebuilder:validation:Optional
 	ThreatIntelIndicatorLastObservedAt []ThreatIntelIndicatorLastObservedAtParameters `json:"threatIntelIndicatorLastObservedAt,omitempty" tf:"threat_intel_indicator_last_observed_at"`
 
+	// +kubebuilder:validation:Optional
 	ThreatIntelIndicatorSource []ThreatIntelIndicatorSourceParameters `json:"threatIntelIndicatorSource,omitempty" tf:"threat_intel_indicator_source"`
 
-	ThreatIntelIndicatorSourceUrl []ThreatIntelIndicatorSourceUrlParameters `json:"threatIntelIndicatorSourceUrl,omitempty" tf:"threat_intel_indicator_source_url"`
+	// +kubebuilder:validation:Optional
+	ThreatIntelIndicatorSourceURL []ThreatIntelIndicatorSourceURLParameters `json:"threatIntelIndicatorSourceUrl,omitempty" tf:"threat_intel_indicator_source_url"`
 
+	// +kubebuilder:validation:Optional
 	ThreatIntelIndicatorType []ThreatIntelIndicatorTypeParameters `json:"threatIntelIndicatorType,omitempty" tf:"threat_intel_indicator_type"`
 
+	// +kubebuilder:validation:Optional
 	ThreatIntelIndicatorValue []ThreatIntelIndicatorValueParameters `json:"threatIntelIndicatorValue,omitempty" tf:"threat_intel_indicator_value"`
 
+	// +kubebuilder:validation:Optional
 	Title []TitleParameters `json:"title,omitempty" tf:"title"`
 
+	// +kubebuilder:validation:Optional
 	Type []TypeParameters `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	UpdatedAt []UpdatedAtParameters `json:"updatedAt,omitempty" tf:"updated_at"`
 
+	// +kubebuilder:validation:Optional
 	UserDefinedValues []UserDefinedValuesParameters `json:"userDefinedValues,omitempty" tf:"user_defined_values"`
 
+	// +kubebuilder:validation:Optional
 	VerificationState []VerificationStateParameters `json:"verificationState,omitempty" tf:"verification_state"`
 
+	// +kubebuilder:validation:Optional
 	WorkflowStatus []WorkflowStatusParameters `json:"workflowStatus,omitempty" tf:"workflow_status"`
 }
 
@@ -287,10 +403,14 @@ type FindingProviderFieldsConfidenceObservation struct {
 }
 
 type FindingProviderFieldsConfidenceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Eq *string `json:"eq,omitempty" tf:"eq"`
 
+	// +kubebuilder:validation:Optional
 	Gte *string `json:"gte,omitempty" tf:"gte"`
 
+	// +kubebuilder:validation:Optional
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
@@ -298,19 +418,26 @@ type FindingProviderFieldsCriticalityObservation struct {
 }
 
 type FindingProviderFieldsCriticalityParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Eq *string `json:"eq,omitempty" tf:"eq"`
 
+	// +kubebuilder:validation:Optional
 	Gte *string `json:"gte,omitempty" tf:"gte"`
 
+	// +kubebuilder:validation:Optional
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
-type FindingProviderFieldsRelatedFindingsIdObservation struct {
+type FindingProviderFieldsRelatedFindingsIDObservation struct {
 }
 
-type FindingProviderFieldsRelatedFindingsIdParameters struct {
+type FindingProviderFieldsRelatedFindingsIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -318,8 +445,11 @@ type FindingProviderFieldsRelatedFindingsProductArnObservation struct {
 }
 
 type FindingProviderFieldsRelatedFindingsProductArnParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -327,8 +457,11 @@ type FindingProviderFieldsSeverityLabelObservation struct {
 }
 
 type FindingProviderFieldsSeverityLabelParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -336,8 +469,11 @@ type FindingProviderFieldsSeverityOriginalObservation struct {
 }
 
 type FindingProviderFieldsSeverityOriginalParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -345,8 +481,11 @@ type FindingProviderFieldsTypesObservation struct {
 }
 
 type FindingProviderFieldsTypesParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -354,8 +493,11 @@ type FirstObservedAtDateRangeObservation struct {
 }
 
 type FirstObservedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -363,28 +505,38 @@ type FirstObservedAtObservation struct {
 }
 
 type FirstObservedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []FirstObservedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
-type GeneratorIdObservation struct {
+type GeneratorIDObservation struct {
 }
 
-type GeneratorIdParameters struct {
+type GeneratorIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type IdObservation struct {
+type IDObservation struct {
 }
 
-type IdParameters struct {
+type IDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -392,6 +544,8 @@ type KeywordObservation struct {
 }
 
 type KeywordParameters struct {
+
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -399,8 +553,11 @@ type LastObservedAtDateRangeObservation struct {
 }
 
 type LastObservedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -408,10 +565,14 @@ type LastObservedAtObservation struct {
 }
 
 type LastObservedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []LastObservedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
@@ -419,8 +580,11 @@ type MalwareNameObservation struct {
 }
 
 type MalwareNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -428,8 +592,11 @@ type MalwarePathObservation struct {
 }
 
 type MalwarePathParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -437,8 +604,11 @@ type MalwareStateObservation struct {
 }
 
 type MalwareStateParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -446,8 +616,11 @@ type MalwareTypeObservation struct {
 }
 
 type MalwareTypeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -455,22 +628,29 @@ type NetworkDestinationDomainObservation struct {
 }
 
 type NetworkDestinationDomainParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type NetworkDestinationIpv4Observation struct {
+type NetworkDestinationIPv4Observation struct {
 }
 
-type NetworkDestinationIpv4Parameters struct {
+type NetworkDestinationIPv4Parameters struct {
+
+	// +kubebuilder:validation:Required
 	Cidr string `json:"cidr" tf:"cidr"`
 }
 
-type NetworkDestinationIpv6Observation struct {
+type NetworkDestinationIPv6Observation struct {
 }
 
-type NetworkDestinationIpv6Parameters struct {
+type NetworkDestinationIPv6Parameters struct {
+
+	// +kubebuilder:validation:Required
 	Cidr string `json:"cidr" tf:"cidr"`
 }
 
@@ -478,10 +658,14 @@ type NetworkDestinationPortObservation struct {
 }
 
 type NetworkDestinationPortParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Eq *string `json:"eq,omitempty" tf:"eq"`
 
+	// +kubebuilder:validation:Optional
 	Gte *string `json:"gte,omitempty" tf:"gte"`
 
+	// +kubebuilder:validation:Optional
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
@@ -489,8 +673,11 @@ type NetworkDirectionObservation struct {
 }
 
 type NetworkDirectionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -498,8 +685,11 @@ type NetworkProtocolObservation struct {
 }
 
 type NetworkProtocolParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -507,22 +697,29 @@ type NetworkSourceDomainObservation struct {
 }
 
 type NetworkSourceDomainParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type NetworkSourceIpv4Observation struct {
+type NetworkSourceIPv4Observation struct {
 }
 
-type NetworkSourceIpv4Parameters struct {
+type NetworkSourceIPv4Parameters struct {
+
+	// +kubebuilder:validation:Required
 	Cidr string `json:"cidr" tf:"cidr"`
 }
 
-type NetworkSourceIpv6Observation struct {
+type NetworkSourceIPv6Observation struct {
 }
 
-type NetworkSourceIpv6Parameters struct {
+type NetworkSourceIPv6Parameters struct {
+
+	// +kubebuilder:validation:Required
 	Cidr string `json:"cidr" tf:"cidr"`
 }
 
@@ -530,8 +727,11 @@ type NetworkSourceMacObservation struct {
 }
 
 type NetworkSourceMacParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -539,10 +739,14 @@ type NetworkSourcePortObservation struct {
 }
 
 type NetworkSourcePortParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Eq *string `json:"eq,omitempty" tf:"eq"`
 
+	// +kubebuilder:validation:Optional
 	Gte *string `json:"gte,omitempty" tf:"gte"`
 
+	// +kubebuilder:validation:Optional
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
@@ -550,8 +754,11 @@ type NoteTextObservation struct {
 }
 
 type NoteTextParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -559,8 +766,11 @@ type NoteUpdatedAtDateRangeObservation struct {
 }
 
 type NoteUpdatedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -568,10 +778,14 @@ type NoteUpdatedAtObservation struct {
 }
 
 type NoteUpdatedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []NoteUpdatedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
@@ -579,8 +793,11 @@ type NoteUpdatedByObservation struct {
 }
 
 type NoteUpdatedByParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -588,8 +805,11 @@ type ProcessLaunchedAtDateRangeObservation struct {
 }
 
 type ProcessLaunchedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -597,10 +817,14 @@ type ProcessLaunchedAtObservation struct {
 }
 
 type ProcessLaunchedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []ProcessLaunchedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
@@ -608,8 +832,11 @@ type ProcessNameObservation struct {
 }
 
 type ProcessNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -617,10 +844,14 @@ type ProcessParentPidObservation struct {
 }
 
 type ProcessParentPidParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Eq *string `json:"eq,omitempty" tf:"eq"`
 
+	// +kubebuilder:validation:Optional
 	Gte *string `json:"gte,omitempty" tf:"gte"`
 
+	// +kubebuilder:validation:Optional
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
@@ -628,8 +859,11 @@ type ProcessPathObservation struct {
 }
 
 type ProcessPathParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -637,10 +871,14 @@ type ProcessPidObservation struct {
 }
 
 type ProcessPidParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Eq *string `json:"eq,omitempty" tf:"eq"`
 
+	// +kubebuilder:validation:Optional
 	Gte *string `json:"gte,omitempty" tf:"gte"`
 
+	// +kubebuilder:validation:Optional
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 }
 
@@ -648,8 +886,11 @@ type ProcessTerminatedAtDateRangeObservation struct {
 }
 
 type ProcessTerminatedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -657,10 +898,14 @@ type ProcessTerminatedAtObservation struct {
 }
 
 type ProcessTerminatedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []ProcessTerminatedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
@@ -668,8 +913,11 @@ type ProductArnObservation struct {
 }
 
 type ProductArnParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -677,10 +925,14 @@ type ProductFieldsObservation struct {
 }
 
 type ProductFieldsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -688,8 +940,11 @@ type ProductNameObservation struct {
 }
 
 type ProductNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -697,8 +952,11 @@ type RecommendationTextObservation struct {
 }
 
 type RecommendationTextParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -706,17 +964,23 @@ type RecordStateObservation struct {
 }
 
 type RecordStateParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type RelatedFindingsIdObservation struct {
+type RelatedFindingsIDObservation struct {
 }
 
-type RelatedFindingsIdParameters struct {
+type RelatedFindingsIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -724,49 +988,65 @@ type RelatedFindingsProductArnObservation struct {
 }
 
 type RelatedFindingsProductArnParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
+}
+
+type ResourceAwsEc2InstanceIPv4AddressesObservation struct {
+}
+
+type ResourceAwsEc2InstanceIPv4AddressesParameters struct {
+
+	// +kubebuilder:validation:Required
+	Cidr string `json:"cidr" tf:"cidr"`
+}
+
+type ResourceAwsEc2InstanceIPv6AddressesObservation struct {
+}
+
+type ResourceAwsEc2InstanceIPv6AddressesParameters struct {
+
+	// +kubebuilder:validation:Required
+	Cidr string `json:"cidr" tf:"cidr"`
 }
 
 type ResourceAwsEc2InstanceIamInstanceProfileArnObservation struct {
 }
 
 type ResourceAwsEc2InstanceIamInstanceProfileArnParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceAwsEc2InstanceImageIdObservation struct {
+type ResourceAwsEc2InstanceImageIDObservation struct {
 }
 
-type ResourceAwsEc2InstanceImageIdParameters struct {
+type ResourceAwsEc2InstanceImageIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
-}
-
-type ResourceAwsEc2InstanceIpv4AddressesObservation struct {
-}
-
-type ResourceAwsEc2InstanceIpv4AddressesParameters struct {
-	Cidr string `json:"cidr" tf:"cidr"`
-}
-
-type ResourceAwsEc2InstanceIpv6AddressesObservation struct {
-}
-
-type ResourceAwsEc2InstanceIpv6AddressesParameters struct {
-	Cidr string `json:"cidr" tf:"cidr"`
 }
 
 type ResourceAwsEc2InstanceKeyNameObservation struct {
 }
 
 type ResourceAwsEc2InstanceKeyNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -774,8 +1054,11 @@ type ResourceAwsEc2InstanceLaunchedAtDateRangeObservation struct {
 }
 
 type ResourceAwsEc2InstanceLaunchedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -783,19 +1066,26 @@ type ResourceAwsEc2InstanceLaunchedAtObservation struct {
 }
 
 type ResourceAwsEc2InstanceLaunchedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []ResourceAwsEc2InstanceLaunchedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
-type ResourceAwsEc2InstanceSubnetIdObservation struct {
+type ResourceAwsEc2InstanceSubnetIDObservation struct {
 }
 
-type ResourceAwsEc2InstanceSubnetIdParameters struct {
+type ResourceAwsEc2InstanceSubnetIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -803,17 +1093,23 @@ type ResourceAwsEc2InstanceTypeObservation struct {
 }
 
 type ResourceAwsEc2InstanceTypeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceAwsEc2InstanceVpcIdObservation struct {
+type ResourceAwsEc2InstanceVpcIDObservation struct {
 }
 
-type ResourceAwsEc2InstanceVpcIdParameters struct {
+type ResourceAwsEc2InstanceVpcIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -821,8 +1117,11 @@ type ResourceAwsIamAccessKeyCreatedAtDateRangeObservation struct {
 }
 
 type ResourceAwsIamAccessKeyCreatedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -830,10 +1129,14 @@ type ResourceAwsIamAccessKeyCreatedAtObservation struct {
 }
 
 type ResourceAwsIamAccessKeyCreatedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []ResourceAwsIamAccessKeyCreatedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
@@ -841,8 +1144,11 @@ type ResourceAwsIamAccessKeyStatusObservation struct {
 }
 
 type ResourceAwsIamAccessKeyStatusParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -850,17 +1156,23 @@ type ResourceAwsIamAccessKeyUserNameObservation struct {
 }
 
 type ResourceAwsIamAccessKeyUserNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceAwsS3BucketOwnerIdObservation struct {
+type ResourceAwsS3BucketOwnerIDObservation struct {
 }
 
-type ResourceAwsS3BucketOwnerIdParameters struct {
+type ResourceAwsS3BucketOwnerIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -868,17 +1180,23 @@ type ResourceAwsS3BucketOwnerNameObservation struct {
 }
 
 type ResourceAwsS3BucketOwnerNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceContainerImageIdObservation struct {
+type ResourceContainerImageIDObservation struct {
 }
 
-type ResourceContainerImageIdParameters struct {
+type ResourceContainerImageIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -886,8 +1204,11 @@ type ResourceContainerImageNameObservation struct {
 }
 
 type ResourceContainerImageNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -895,8 +1216,11 @@ type ResourceContainerLaunchedAtDateRangeObservation struct {
 }
 
 type ResourceContainerLaunchedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -904,10 +1228,14 @@ type ResourceContainerLaunchedAtObservation struct {
 }
 
 type ResourceContainerLaunchedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []ResourceContainerLaunchedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
@@ -915,8 +1243,11 @@ type ResourceContainerNameObservation struct {
 }
 
 type ResourceContainerNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -924,19 +1255,26 @@ type ResourceDetailsOtherObservation struct {
 }
 
 type ResourceDetailsOtherParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type ResourceIdObservation struct {
+type ResourceIDObservation struct {
 }
 
-type ResourceIdParameters struct {
+type ResourceIDParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -944,8 +1282,11 @@ type ResourcePartitionObservation struct {
 }
 
 type ResourcePartitionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -953,8 +1294,11 @@ type ResourceRegionObservation struct {
 }
 
 type ResourceRegionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -962,10 +1306,14 @@ type ResourceTagsObservation struct {
 }
 
 type ResourceTagsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -973,8 +1321,11 @@ type ResourceTypeObservation struct {
 }
 
 type ResourceTypeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -983,12 +1334,19 @@ type SecurityhubInsightObservation struct {
 }
 
 type SecurityhubInsightParameters struct {
+
+	// +kubebuilder:validation:Required
 	Filters []FiltersParameters `json:"filters" tf:"filters"`
 
+	// +kubebuilder:validation:Required
 	GroupByAttribute string `json:"groupByAttribute" tf:"group_by_attribute"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -996,17 +1354,23 @@ type SeverityLabelObservation struct {
 }
 
 type SeverityLabelParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type SourceUrlObservation struct {
+type SourceURLObservation struct {
 }
 
-type SourceUrlParameters struct {
+type SourceURLParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -1014,8 +1378,11 @@ type ThreatIntelIndicatorCategoryObservation struct {
 }
 
 type ThreatIntelIndicatorCategoryParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -1023,8 +1390,11 @@ type ThreatIntelIndicatorLastObservedAtDateRangeObservation struct {
 }
 
 type ThreatIntelIndicatorLastObservedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -1032,10 +1402,14 @@ type ThreatIntelIndicatorLastObservedAtObservation struct {
 }
 
 type ThreatIntelIndicatorLastObservedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []ThreatIntelIndicatorLastObservedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
@@ -1043,17 +1417,23 @@ type ThreatIntelIndicatorSourceObservation struct {
 }
 
 type ThreatIntelIndicatorSourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
-type ThreatIntelIndicatorSourceUrlObservation struct {
+type ThreatIntelIndicatorSourceURLObservation struct {
 }
 
-type ThreatIntelIndicatorSourceUrlParameters struct {
+type ThreatIntelIndicatorSourceURLParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -1061,8 +1441,11 @@ type ThreatIntelIndicatorTypeObservation struct {
 }
 
 type ThreatIntelIndicatorTypeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -1070,8 +1453,11 @@ type ThreatIntelIndicatorValueObservation struct {
 }
 
 type ThreatIntelIndicatorValueParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -1079,8 +1465,11 @@ type TitleObservation struct {
 }
 
 type TitleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -1088,8 +1477,11 @@ type TypeObservation struct {
 }
 
 type TypeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -1097,8 +1489,11 @@ type UpdatedAtDateRangeObservation struct {
 }
 
 type UpdatedAtDateRangeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -1106,10 +1501,14 @@ type UpdatedAtObservation struct {
 }
 
 type UpdatedAtParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DateRange []UpdatedAtDateRangeParameters `json:"dateRange,omitempty" tf:"date_range"`
 
+	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 }
 
@@ -1117,10 +1516,14 @@ type UserDefinedValuesObservation struct {
 }
 
 type UserDefinedValuesParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -1128,8 +1531,11 @@ type VerificationStateObservation struct {
 }
 
 type VerificationStateParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -1137,8 +1543,11 @@ type WorkflowStatusObservation struct {
 }
 
 type WorkflowStatusParameters struct {
+
+	// +kubebuilder:validation:Required
 	Comparison string `json:"comparison" tf:"comparison"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

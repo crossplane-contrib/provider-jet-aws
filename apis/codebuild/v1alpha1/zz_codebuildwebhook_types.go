@@ -25,22 +25,30 @@ import (
 )
 
 type CodebuildWebhookObservation struct {
-	PayloadUrl string `json:"payloadUrl" tf:"payload_url"`
+	PayloadURL string `json:"payloadUrl" tf:"payload_url"`
 
 	Secret string `json:"secret" tf:"secret"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type CodebuildWebhookParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BranchFilter *string `json:"branchFilter,omitempty" tf:"branch_filter"`
 
+	// +kubebuilder:validation:Optional
 	BuildType *string `json:"buildType,omitempty" tf:"build_type"`
 
+	// +kubebuilder:validation:Optional
 	FilterGroup []FilterGroupParameters `json:"filterGroup,omitempty" tf:"filter_group"`
 
+	// +kubebuilder:validation:Required
 	ProjectName string `json:"projectName" tf:"project_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -48,6 +56,8 @@ type FilterGroupObservation struct {
 }
 
 type FilterGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Filter []FilterParameters `json:"filter,omitempty" tf:"filter"`
 }
 
@@ -55,10 +65,14 @@ type FilterObservation struct {
 }
 
 type FilterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ExcludeMatchedPattern *bool `json:"excludeMatchedPattern,omitempty" tf:"exclude_matched_pattern"`
 
+	// +kubebuilder:validation:Required
 	Pattern string `json:"pattern" tf:"pattern"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

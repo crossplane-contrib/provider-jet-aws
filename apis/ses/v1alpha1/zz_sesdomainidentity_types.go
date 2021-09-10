@@ -31,8 +31,13 @@ type SesDomainIdentityObservation struct {
 }
 
 type SesDomainIdentityParameters struct {
+
+	// +kubebuilder:validation:Required
 	Domain string `json:"domain" tf:"domain"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

@@ -27,13 +27,13 @@ import (
 type CloudformationTypeObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DefaultVersionId string `json:"defaultVersionId" tf:"default_version_id"`
+	DefaultVersionID string `json:"defaultVersionId" tf:"default_version_id"`
 
 	DeprecatedStatus string `json:"deprecatedStatus" tf:"deprecated_status"`
 
 	Description string `json:"description" tf:"description"`
 
-	DocumentationUrl string `json:"documentationUrl" tf:"documentation_url"`
+	DocumentationURL string `json:"documentationUrl" tf:"documentation_url"`
 
 	IsDefaultVersion bool `json:"isDefaultVersion" tf:"is_default_version"`
 
@@ -41,26 +41,35 @@ type CloudformationTypeObservation struct {
 
 	Schema string `json:"schema" tf:"schema"`
 
-	SourceUrl string `json:"sourceUrl" tf:"source_url"`
+	SourceURL string `json:"sourceUrl" tf:"source_url"`
 
 	TypeArn string `json:"typeArn" tf:"type_arn"`
 
-	VersionId string `json:"versionId" tf:"version_id"`
+	VersionID string `json:"versionId" tf:"version_id"`
 
 	Visibility string `json:"visibility" tf:"visibility"`
 }
 
 type CloudformationTypeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ExecutionRoleArn *string `json:"executionRoleArn,omitempty" tf:"execution_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	LoggingConfig []LoggingConfigParameters `json:"loggingConfig,omitempty" tf:"logging_config"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SchemaHandlerPackage string `json:"schemaHandlerPackage" tf:"schema_handler_package"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	TypeName string `json:"typeName" tf:"type_name"`
 }
 
@@ -68,8 +77,11 @@ type LoggingConfigObservation struct {
 }
 
 type LoggingConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	LogGroupName string `json:"logGroupName" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Required
 	LogRoleArn string `json:"logRoleArn" tf:"log_role_arn"`
 }
 

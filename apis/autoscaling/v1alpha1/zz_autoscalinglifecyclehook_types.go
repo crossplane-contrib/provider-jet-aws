@@ -28,22 +28,34 @@ type AutoscalingLifecycleHookObservation struct {
 }
 
 type AutoscalingLifecycleHookParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutoscalingGroupName string `json:"autoscalingGroupName" tf:"autoscaling_group_name"`
 
+	// +kubebuilder:validation:Optional
 	DefaultResult *string `json:"defaultResult,omitempty" tf:"default_result"`
 
+	// +kubebuilder:validation:Optional
 	HeartbeatTimeout *int64 `json:"heartbeatTimeout,omitempty" tf:"heartbeat_timeout"`
 
+	// +kubebuilder:validation:Required
 	LifecycleTransition string `json:"lifecycleTransition" tf:"lifecycle_transition"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NotificationMetadata *string `json:"notificationMetadata,omitempty" tf:"notification_metadata"`
 
+	// +kubebuilder:validation:Optional
 	NotificationTargetArn *string `json:"notificationTargetArn,omitempty" tf:"notification_target_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 }
 

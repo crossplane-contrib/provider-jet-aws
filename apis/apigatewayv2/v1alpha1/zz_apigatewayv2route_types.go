@@ -28,30 +28,46 @@ type Apigatewayv2RouteObservation struct {
 }
 
 type Apigatewayv2RouteParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
-	ApiKeyRequired *bool `json:"apiKeyRequired,omitempty" tf:"api_key_required"`
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Optional
+	APIKeyRequired *bool `json:"apiKeyRequired,omitempty" tf:"api_key_required"`
+
+	// +kubebuilder:validation:Optional
 	AuthorizationScopes []string `json:"authorizationScopes,omitempty" tf:"authorization_scopes"`
 
+	// +kubebuilder:validation:Optional
 	AuthorizationType *string `json:"authorizationType,omitempty" tf:"authorization_type"`
 
-	AuthorizerId *string `json:"authorizerId,omitempty" tf:"authorizer_id"`
+	// +kubebuilder:validation:Optional
+	AuthorizerID *string `json:"authorizerId,omitempty" tf:"authorizer_id"`
 
+	// +kubebuilder:validation:Optional
 	ModelSelectionExpression *string `json:"modelSelectionExpression,omitempty" tf:"model_selection_expression"`
 
+	// +kubebuilder:validation:Optional
 	OperationName *string `json:"operationName,omitempty" tf:"operation_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RequestModels map[string]string `json:"requestModels,omitempty" tf:"request_models"`
 
+	// +kubebuilder:validation:Optional
 	RequestParameter []RequestParameterParameters `json:"requestParameter,omitempty" tf:"request_parameter"`
 
+	// +kubebuilder:validation:Required
 	RouteKey string `json:"routeKey" tf:"route_key"`
 
+	// +kubebuilder:validation:Optional
 	RouteResponseSelectionExpression *string `json:"routeResponseSelectionExpression,omitempty" tf:"route_response_selection_expression"`
 
+	// +kubebuilder:validation:Optional
 	Target *string `json:"target,omitempty" tf:"target"`
 }
 
@@ -59,8 +75,11 @@ type RequestParameterObservation struct {
 }
 
 type RequestParameterParameters struct {
+
+	// +kubebuilder:validation:Required
 	RequestParameterKey string `json:"requestParameterKey" tf:"request_parameter_key"`
 
+	// +kubebuilder:validation:Required
 	Required bool `json:"required" tf:"required"`
 }
 

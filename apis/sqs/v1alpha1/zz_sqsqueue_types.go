@@ -27,44 +27,65 @@ import (
 type SqsQueueObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type SqsQueueParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ContentBasedDeduplication *bool `json:"contentBasedDeduplication,omitempty" tf:"content_based_deduplication"`
 
+	// +kubebuilder:validation:Optional
 	DeduplicationScope *string `json:"deduplicationScope,omitempty" tf:"deduplication_scope"`
 
+	// +kubebuilder:validation:Optional
 	DelaySeconds *int64 `json:"delaySeconds,omitempty" tf:"delay_seconds"`
 
+	// +kubebuilder:validation:Optional
 	FifoQueue *bool `json:"fifoQueue,omitempty" tf:"fifo_queue"`
 
+	// +kubebuilder:validation:Optional
 	FifoThroughputLimit *string `json:"fifoThroughputLimit,omitempty" tf:"fifo_throughput_limit"`
 
+	// +kubebuilder:validation:Optional
 	KmsDataKeyReusePeriodSeconds *int64 `json:"kmsDataKeyReusePeriodSeconds,omitempty" tf:"kms_data_key_reuse_period_seconds"`
 
-	KmsMasterKeyId *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id"`
 
+	// +kubebuilder:validation:Optional
 	MaxMessageSize *int64 `json:"maxMessageSize,omitempty" tf:"max_message_size"`
 
+	// +kubebuilder:validation:Optional
 	MessageRetentionSeconds *int64 `json:"messageRetentionSeconds,omitempty" tf:"message_retention_seconds"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
+	// +kubebuilder:validation:Optional
 	ReceiveWaitTimeSeconds *int64 `json:"receiveWaitTimeSeconds,omitempty" tf:"receive_wait_time_seconds"`
 
+	// +kubebuilder:validation:Optional
 	RedrivePolicy *string `json:"redrivePolicy,omitempty" tf:"redrive_policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VisibilityTimeoutSeconds *int64 `json:"visibilityTimeoutSeconds,omitempty" tf:"visibility_timeout_seconds"`
 }
 

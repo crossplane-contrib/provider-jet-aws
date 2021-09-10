@@ -31,13 +31,20 @@ type KmsAliasObservation struct {
 }
 
 type KmsAliasParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	TargetKeyId string `json:"targetKeyId" tf:"target_key_id"`
+	// +kubebuilder:validation:Required
+	TargetKeyID string `json:"targetKeyId" tf:"target_key_id"`
 }
 
 // KmsAliasSpec defines the desired state of KmsAlias

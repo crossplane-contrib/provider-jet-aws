@@ -29,26 +29,40 @@ type CloudwatchEventRuleObservation struct {
 }
 
 type CloudwatchEventRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	EventBusName *string `json:"eventBusName,omitempty" tf:"event_bus_name"`
 
+	// +kubebuilder:validation:Optional
 	EventPattern *string `json:"eventPattern,omitempty" tf:"event_pattern"`
 
+	// +kubebuilder:validation:Optional
 	IsEnabled *bool `json:"isEnabled,omitempty" tf:"is_enabled"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	ScheduleExpression *string `json:"scheduleExpression,omitempty" tf:"schedule_expression"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

@@ -28,12 +28,19 @@ type LambdaProvisionedConcurrencyConfigObservation struct {
 }
 
 type LambdaProvisionedConcurrencyConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FunctionName string `json:"functionName" tf:"function_name"`
 
+	// +kubebuilder:validation:Required
 	ProvisionedConcurrentExecutions int64 `json:"provisionedConcurrentExecutions" tf:"provisioned_concurrent_executions"`
 
+	// +kubebuilder:validation:Required
 	Qualifier string `json:"qualifier" tf:"qualifier"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

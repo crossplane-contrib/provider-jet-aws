@@ -25,25 +25,33 @@ import (
 )
 
 type CognitoUserPoolUiCustomizationObservation struct {
+	CSSVersion string `json:"cssVersion" tf:"css_version"`
+
 	CreationDate string `json:"creationDate" tf:"creation_date"`
 
-	CssVersion string `json:"cssVersion" tf:"css_version"`
-
-	ImageUrl string `json:"imageUrl" tf:"image_url"`
+	ImageURL string `json:"imageUrl" tf:"image_url"`
 
 	LastModifiedDate string `json:"lastModifiedDate" tf:"last_modified_date"`
 }
 
 type CognitoUserPoolUiCustomizationParameters struct {
-	ClientId *string `json:"clientId,omitempty" tf:"client_id"`
 
-	Css *string `json:"css,omitempty" tf:"css"`
+	// +kubebuilder:validation:Optional
+	CSS *string `json:"css,omitempty" tf:"css"`
 
+	// +kubebuilder:validation:Optional
+	ClientID *string `json:"clientId,omitempty" tf:"client_id"`
+
+	// +kubebuilder:validation:Optional
 	ImageFile *string `json:"imageFile,omitempty" tf:"image_file"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	// +kubebuilder:validation:Required
+	UserPoolID string `json:"userPoolId" tf:"user_pool_id"`
 }
 
 // CognitoUserPoolUiCustomizationSpec defines the desired state of CognitoUserPoolUiCustomization

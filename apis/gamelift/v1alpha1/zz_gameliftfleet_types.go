@@ -28,12 +28,17 @@ type Ec2InboundPermissionObservation struct {
 }
 
 type Ec2InboundPermissionParameters struct {
+
+	// +kubebuilder:validation:Required
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
-	IpRange string `json:"ipRange" tf:"ip_range"`
+	// +kubebuilder:validation:Required
+	IPRange string `json:"ipRange" tf:"ip_range"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// +kubebuilder:validation:Required
 	ToPort int64 `json:"toPort" tf:"to_port"`
 }
 
@@ -46,32 +51,49 @@ type GameliftFleetObservation struct {
 }
 
 type GameliftFleetParameters struct {
-	BuildId string `json:"buildId" tf:"build_id"`
 
+	// +kubebuilder:validation:Required
+	BuildID string `json:"buildId" tf:"build_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Ec2InboundPermission []Ec2InboundPermissionParameters `json:"ec2InboundPermission,omitempty" tf:"ec2_inbound_permission"`
 
+	// +kubebuilder:validation:Required
 	Ec2InstanceType string `json:"ec2InstanceType" tf:"ec2_instance_type"`
 
+	// +kubebuilder:validation:Optional
 	FleetType *string `json:"fleetType,omitempty" tf:"fleet_type"`
 
+	// +kubebuilder:validation:Optional
 	InstanceRoleArn *string `json:"instanceRoleArn,omitempty" tf:"instance_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	MetricGroups []string `json:"metricGroups,omitempty" tf:"metric_groups"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NewGameSessionProtectionPolicy *string `json:"newGameSessionProtectionPolicy,omitempty" tf:"new_game_session_protection_policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ResourceCreationLimitPolicy []ResourceCreationLimitPolicyParameters `json:"resourceCreationLimitPolicy,omitempty" tf:"resource_creation_limit_policy"`
 
+	// +kubebuilder:validation:Optional
 	RuntimeConfiguration []RuntimeConfigurationParameters `json:"runtimeConfiguration,omitempty" tf:"runtime_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -79,8 +101,11 @@ type ResourceCreationLimitPolicyObservation struct {
 }
 
 type ResourceCreationLimitPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	NewGameSessionsPerCreator *int64 `json:"newGameSessionsPerCreator,omitempty" tf:"new_game_sessions_per_creator"`
 
+	// +kubebuilder:validation:Optional
 	PolicyPeriodInMinutes *int64 `json:"policyPeriodInMinutes,omitempty" tf:"policy_period_in_minutes"`
 }
 
@@ -88,10 +113,14 @@ type RuntimeConfigurationObservation struct {
 }
 
 type RuntimeConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	GameSessionActivationTimeoutSeconds *int64 `json:"gameSessionActivationTimeoutSeconds,omitempty" tf:"game_session_activation_timeout_seconds"`
 
+	// +kubebuilder:validation:Optional
 	MaxConcurrentGameSessionActivations *int64 `json:"maxConcurrentGameSessionActivations,omitempty" tf:"max_concurrent_game_session_activations"`
 
+	// +kubebuilder:validation:Optional
 	ServerProcess []ServerProcessParameters `json:"serverProcess,omitempty" tf:"server_process"`
 }
 
@@ -99,10 +128,14 @@ type ServerProcessObservation struct {
 }
 
 type ServerProcessParameters struct {
+
+	// +kubebuilder:validation:Required
 	ConcurrentExecutions int64 `json:"concurrentExecutions" tf:"concurrent_executions"`
 
+	// +kubebuilder:validation:Required
 	LaunchPath string `json:"launchPath" tf:"launch_path"`
 
+	// +kubebuilder:validation:Optional
 	Parameters *string `json:"parameters,omitempty" tf:"parameters"`
 }
 

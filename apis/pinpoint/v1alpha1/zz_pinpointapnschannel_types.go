@@ -28,25 +28,38 @@ type PinpointApnsChannelObservation struct {
 }
 
 type PinpointApnsChannelParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
-	BundleId *string `json:"bundleId,omitempty" tf:"bundle_id"`
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Optional
+	BundleID *string `json:"bundleId,omitempty" tf:"bundle_id"`
+
+	// +kubebuilder:validation:Optional
 	Certificate *string `json:"certificate,omitempty" tf:"certificate"`
 
+	// +kubebuilder:validation:Optional
 	DefaultAuthenticationMethod *string `json:"defaultAuthenticationMethod,omitempty" tf:"default_authentication_method"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	PrivateKey *string `json:"privateKey,omitempty" tf:"private_key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	TeamId *string `json:"teamId,omitempty" tf:"team_id"`
+	// +kubebuilder:validation:Optional
+	TeamID *string `json:"teamId,omitempty" tf:"team_id"`
 
+	// +kubebuilder:validation:Optional
 	TokenKey *string `json:"tokenKey,omitempty" tf:"token_key"`
 
-	TokenKeyId *string `json:"tokenKeyId,omitempty" tf:"token_key_id"`
+	// +kubebuilder:validation:Optional
+	TokenKeyID *string `json:"tokenKeyId,omitempty" tf:"token_key_id"`
 }
 
 // PinpointApnsChannelSpec defines the desired state of PinpointApnsChannel

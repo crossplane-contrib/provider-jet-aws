@@ -31,14 +31,22 @@ type BackupVaultObservation struct {
 }
 
 type BackupVaultParameters struct {
+
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

@@ -29,32 +29,46 @@ type SnsTopicSubscriptionObservation struct {
 
 	ConfirmationWasAuthenticated bool `json:"confirmationWasAuthenticated" tf:"confirmation_was_authenticated"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
 	PendingConfirmation bool `json:"pendingConfirmation" tf:"pending_confirmation"`
 }
 
 type SnsTopicSubscriptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ConfirmationTimeoutInMinutes *int64 `json:"confirmationTimeoutInMinutes,omitempty" tf:"confirmation_timeout_in_minutes"`
 
+	// +kubebuilder:validation:Optional
 	DeliveryPolicy *string `json:"deliveryPolicy,omitempty" tf:"delivery_policy"`
 
+	// +kubebuilder:validation:Required
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
+	// +kubebuilder:validation:Optional
 	EndpointAutoConfirms *bool `json:"endpointAutoConfirms,omitempty" tf:"endpoint_auto_confirms"`
 
+	// +kubebuilder:validation:Optional
 	FilterPolicy *string `json:"filterPolicy,omitempty" tf:"filter_policy"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// +kubebuilder:validation:Optional
 	RawMessageDelivery *bool `json:"rawMessageDelivery,omitempty" tf:"raw_message_delivery"`
 
+	// +kubebuilder:validation:Optional
 	RedrivePolicy *string `json:"redrivePolicy,omitempty" tf:"redrive_policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SubscriptionRoleArn *string `json:"subscriptionRoleArn,omitempty" tf:"subscription_role_arn"`
 
+	// +kubebuilder:validation:Required
 	TopicArn string `json:"topicArn" tf:"topic_arn"`
 }
 

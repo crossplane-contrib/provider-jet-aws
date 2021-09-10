@@ -28,14 +28,22 @@ type ApiGatewayMethodSettingsObservation struct {
 }
 
 type ApiGatewayMethodSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	MethodPath string `json:"methodPath" tf:"method_path"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Required
 	Settings []SettingsParameters `json:"settings" tf:"settings"`
 
+	// +kubebuilder:validation:Required
 	StageName string `json:"stageName" tf:"stage_name"`
 }
 
@@ -43,24 +51,35 @@ type SettingsObservation struct {
 }
 
 type SettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CacheDataEncrypted *bool `json:"cacheDataEncrypted,omitempty" tf:"cache_data_encrypted"`
 
-	CacheTtlInSeconds *int64 `json:"cacheTtlInSeconds,omitempty" tf:"cache_ttl_in_seconds"`
+	// +kubebuilder:validation:Optional
+	CacheTTLInSeconds *int64 `json:"cacheTtlInSeconds,omitempty" tf:"cache_ttl_in_seconds"`
 
+	// +kubebuilder:validation:Optional
 	CachingEnabled *bool `json:"cachingEnabled,omitempty" tf:"caching_enabled"`
 
+	// +kubebuilder:validation:Optional
 	DataTraceEnabled *bool `json:"dataTraceEnabled,omitempty" tf:"data_trace_enabled"`
 
+	// +kubebuilder:validation:Optional
 	LoggingLevel *string `json:"loggingLevel,omitempty" tf:"logging_level"`
 
+	// +kubebuilder:validation:Optional
 	MetricsEnabled *bool `json:"metricsEnabled,omitempty" tf:"metrics_enabled"`
 
+	// +kubebuilder:validation:Optional
 	RequireAuthorizationForCacheControl *bool `json:"requireAuthorizationForCacheControl,omitempty" tf:"require_authorization_for_cache_control"`
 
+	// +kubebuilder:validation:Optional
 	ThrottlingBurstLimit *int64 `json:"throttlingBurstLimit,omitempty" tf:"throttling_burst_limit"`
 
+	// +kubebuilder:validation:Optional
 	ThrottlingRateLimit *float64 `json:"throttlingRateLimit,omitempty" tf:"throttling_rate_limit"`
 
+	// +kubebuilder:validation:Optional
 	UnauthorizedCacheControlHeaderStrategy *string `json:"unauthorizedCacheControlHeaderStrategy,omitempty" tf:"unauthorized_cache_control_header_strategy"`
 }
 

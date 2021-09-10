@@ -28,10 +28,14 @@ type ActionObservation struct {
 }
 
 type ActionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Allow []AllowParameters `json:"allow,omitempty" tf:"allow"`
 
+	// +kubebuilder:validation:Optional
 	Block []BlockParameters `json:"block,omitempty" tf:"block"`
 
+	// +kubebuilder:validation:Optional
 	Count []CountParameters `json:"count,omitempty" tf:"count"`
 }
 
@@ -45,6 +49,8 @@ type AllowObservation struct {
 }
 
 type AllowParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomRequestHandling []CustomRequestHandlingParameters `json:"customRequestHandling,omitempty" tf:"custom_request_handling"`
 }
 
@@ -52,6 +58,8 @@ type AndStatementObservation struct {
 }
 
 type AndStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Statement []StatementParameters `json:"statement" tf:"statement"`
 }
 
@@ -77,19 +85,27 @@ type AndStatementStatementByteMatchStatementFieldToMatchObservation struct {
 }
 
 type AndStatementStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []AndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []AndStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []AndStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []AndStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []AndStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []AndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []AndStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []AndStatementStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type AndStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -102,6 +118,8 @@ type AndStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation 
 }
 
 type AndStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -109,25 +127,32 @@ type AndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObser
 }
 
 type AndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type AndStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type AndStatementStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type AndStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type AndStatementStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type AndStatementStatementByteMatchStatementObservation struct {
 }
 
 type AndStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []AndStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []AndStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -135,17 +160,23 @@ type AndStatementStatementByteMatchStatementTextTransformationObservation struct
 }
 
 type AndStatementStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type AndStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type AndStatementStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type AndStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type AndStatementStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -153,54 +184,66 @@ type AndStatementStatementGeoMatchStatementObservation struct {
 }
 
 type AndStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []AndStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []AndStatementStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type AndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type AndStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type AndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type AndStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type AndStatementStatementIpSetReferenceStatementObservation struct {
+type AndStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type AndStatementStatementIpSetReferenceStatementParameters struct {
+type AndStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []AndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []AndStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type AndStatementStatementObservation struct {
 }
 
 type AndStatementStatementParameters struct {
-	AndStatement []AndStatementParameters `json:"andStatement,omitempty" tf:"and_statement"`
 
-	ByteMatchStatement []StatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
+	// +kubebuilder:validation:Optional
+	ByteMatchStatement []AndStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
-	GeoMatchStatement []StatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+	// +kubebuilder:validation:Optional
+	GeoMatchStatement []AndStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	IpSetReferenceStatement []StatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []AndStatementStatementIPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
-	NotStatement []NotStatementParameters `json:"notStatement,omitempty" tf:"not_statement"`
+	// +kubebuilder:validation:Optional
+	RegexPatternSetReferenceStatement []StatementAndStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
-	OrStatement []OrStatementParameters `json:"orStatement,omitempty" tf:"or_statement"`
+	// +kubebuilder:validation:Optional
+	SizeConstraintStatement []StatementAndStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
-	RegexPatternSetReferenceStatement []AndStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	SqliMatchStatement []StatementAndStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
-	SizeConstraintStatement []AndStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
-
-	SqliMatchStatement []AndStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
-
-	XssMatchStatement []AndStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []StatementAndStatementStatementXSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -225,19 +268,27 @@ type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservati
 }
 
 type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -250,6 +301,8 @@ type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHea
 }
 
 type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -257,23 +310,29 @@ type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQue
 }
 
 type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type AndStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type AndStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []AndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []AndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -281,8 +340,11 @@ type AndStatementStatementRegexPatternSetReferenceStatementTextTransformationObs
 }
 
 type AndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -308,19 +370,27 @@ type AndStatementStatementSizeConstraintStatementFieldToMatchObservation struct 
 }
 
 type AndStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []AndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []AndStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []AndStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []AndStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []AndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []AndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []AndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []AndStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type AndStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -333,6 +403,8 @@ type AndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObserva
 }
 
 type AndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -340,25 +412,32 @@ type AndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument
 }
 
 type AndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type AndStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type AndStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type AndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type AndStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type AndStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type AndStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []AndStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []AndStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -366,8 +445,11 @@ type AndStatementStatementSizeConstraintStatementTextTransformationObservation s
 }
 
 type AndStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -393,19 +475,27 @@ type AndStatementStatementSqliMatchStatementFieldToMatchObservation struct {
 }
 
 type AndStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []AndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []AndStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []AndStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []AndStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []AndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []AndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []AndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []AndStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type AndStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -418,6 +508,8 @@ type AndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation 
 }
 
 type AndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -425,21 +517,26 @@ type AndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObser
 }
 
 type AndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type AndStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type AndStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type AndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type AndStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type AndStatementStatementSqliMatchStatementObservation struct {
 }
 
 type AndStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []AndStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []AndStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -447,89 +544,110 @@ type AndStatementStatementSqliMatchStatementTextTransformationObservation struct
 }
 
 type AndStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []AndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type AndStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []AndStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []AndStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []AndStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []AndStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []AndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []AndStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []AndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []AndStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []AndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []AndStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []AndStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []AndStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []AndStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type AndStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type AndStatementStatementXssMatchStatementObservation struct {
+type AndStatementStatementXSSMatchStatementObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []AndStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type AndStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []AndStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []AndStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []AndStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type AndStatementStatementXssMatchStatementTextTransformationObservation struct {
+type AndStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type AndStatementStatementXssMatchStatementTextTransformationParameters struct {
+type AndStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -537,6 +655,8 @@ type BlockObservation struct {
 }
 
 type BlockParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomResponse []CustomResponseParameters `json:"customResponse,omitempty" tf:"custom_response"`
 }
 
@@ -568,19 +688,27 @@ type ByteMatchStatementFieldToMatchObservation struct {
 }
 
 type ByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []ByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []ByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []ByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []ByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []ByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []ByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []ByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []ByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type ByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -593,6 +721,8 @@ type ByteMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
 type ByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -600,25 +730,32 @@ type ByteMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
 type ByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type ByteMatchStatementFieldToMatchUriPathObservation struct {
+type ByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type ByteMatchStatementFieldToMatchUriPathParameters struct {
+type ByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type ByteMatchStatementObservation struct {
 }
 
 type ByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []FieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []TextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -626,8 +763,11 @@ type ByteMatchStatementTextTransformationObservation struct {
 }
 
 type ByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -635,6 +775,8 @@ type CountCustomRequestHandlingObservation struct {
 }
 
 type CountCustomRequestHandlingParameters struct {
+
+	// +kubebuilder:validation:Required
 	InsertHeader []CustomRequestHandlingInsertHeaderParameters `json:"insertHeader" tf:"insert_header"`
 }
 
@@ -642,6 +784,8 @@ type CountObservation struct {
 }
 
 type CountParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomRequestHandling []CountCustomRequestHandlingParameters `json:"customRequestHandling,omitempty" tf:"custom_request_handling"`
 }
 
@@ -649,8 +793,11 @@ type CustomRequestHandlingInsertHeaderObservation struct {
 }
 
 type CustomRequestHandlingInsertHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -658,6 +805,8 @@ type CustomRequestHandlingObservation struct {
 }
 
 type CustomRequestHandlingParameters struct {
+
+	// +kubebuilder:validation:Required
 	InsertHeader []InsertHeaderParameters `json:"insertHeader" tf:"insert_header"`
 }
 
@@ -665,8 +814,11 @@ type CustomResponseObservation struct {
 }
 
 type CustomResponseParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResponseCode int64 `json:"responseCode" tf:"response_code"`
 
+	// +kubebuilder:validation:Optional
 	ResponseHeader []ResponseHeaderParameters `json:"responseHeader,omitempty" tf:"response_header"`
 }
 
@@ -692,19 +844,27 @@ type FieldToMatchObservation struct {
 }
 
 type FieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []AllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []BodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []MethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []QueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []SingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []SingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []UriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []URIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type FieldToMatchQueryStringObservation struct {
@@ -717,6 +877,8 @@ type FieldToMatchSingleHeaderObservation struct {
 }
 
 type FieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -724,30 +886,38 @@ type FieldToMatchSingleQueryArgumentObservation struct {
 }
 
 type FieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type FieldToMatchUriPathObservation struct {
+type FieldToMatchURIPathObservation struct {
 }
 
-type FieldToMatchUriPathParameters struct {
+type FieldToMatchURIPathParameters struct {
 }
 
-type ForwardedIpConfigObservation struct {
+type ForwardedIPConfigObservation struct {
 }
 
-type ForwardedIpConfigParameters struct {
+type ForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
-type GeoMatchStatementForwardedIpConfigObservation struct {
+type GeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type GeoMatchStatementForwardedIpConfigParameters struct {
+type GeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -755,49 +925,66 @@ type GeoMatchStatementObservation struct {
 }
 
 type GeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []ForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []ForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+}
+
+type IPSetForwardedIPConfigObservation struct {
+}
+
+type IPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	// +kubebuilder:validation:Required
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	// +kubebuilder:validation:Required
+	Position string `json:"position" tf:"position"`
+}
+
+type IPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
+}
+
+type IPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
+	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
+
+	// +kubebuilder:validation:Required
+	HeaderName string `json:"headerName" tf:"header_name"`
+
+	// +kubebuilder:validation:Required
+	Position string `json:"position" tf:"position"`
+}
+
+type IPSetReferenceStatementObservation struct {
+}
+
+type IPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
+	Arn string `json:"arn" tf:"arn"`
+
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []IPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type InsertHeaderObservation struct {
 }
 
 type InsertHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
-}
-
-type IpSetForwardedIpConfigObservation struct {
-}
-
-type IpSetForwardedIpConfigParameters struct {
-	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
-
-	HeaderName string `json:"headerName" tf:"header_name"`
-
-	Position string `json:"position" tf:"position"`
-}
-
-type IpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
-}
-
-type IpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
-	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
-
-	HeaderName string `json:"headerName" tf:"header_name"`
-
-	Position string `json:"position" tf:"position"`
-}
-
-type IpSetReferenceStatementObservation struct {
-}
-
-type IpSetReferenceStatementParameters struct {
-	Arn string `json:"arn" tf:"arn"`
-
-	IpSetForwardedIpConfig []IpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type MethodObservation struct {
@@ -810,14 +997,9 @@ type NotStatementObservation struct {
 }
 
 type NotStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Statement []NotStatementStatementParameters `json:"statement" tf:"statement"`
-}
-
-type NotStatementStatementAndStatementObservation struct {
-}
-
-type NotStatementStatementAndStatementParameters struct {
-	Statement []StatementAndStatementStatementParameters `json:"statement" tf:"statement"`
 }
 
 type NotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -842,19 +1024,27 @@ type NotStatementStatementByteMatchStatementFieldToMatchObservation struct {
 }
 
 type NotStatementStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []NotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []NotStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []NotStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []NotStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []NotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []NotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []NotStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []NotStatementStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type NotStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -867,6 +1057,8 @@ type NotStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation 
 }
 
 type NotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -874,25 +1066,32 @@ type NotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObser
 }
 
 type NotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type NotStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type NotStatementStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type NotStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type NotStatementStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type NotStatementStatementByteMatchStatementObservation struct {
 }
 
 type NotStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -900,17 +1099,23 @@ type NotStatementStatementByteMatchStatementTextTransformationObservation struct
 }
 
 type NotStatementStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type NotStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type NotStatementStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type NotStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type NotStatementStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -918,41 +1123,56 @@ type NotStatementStatementGeoMatchStatementObservation struct {
 }
 
 type NotStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []StatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []StatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type NotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type NotStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type NotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type NotStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type NotStatementStatementIpSetReferenceStatementObservation struct {
+type NotStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type NotStatementStatementIpSetReferenceStatementParameters struct {
+type NotStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []StatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []StatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type NotStatementStatementNotStatementStatementByteMatchStatementObservation struct {
 }
 
 type NotStatementStatementNotStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementNotStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementNotStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -960,37 +1180,51 @@ type NotStatementStatementNotStatementStatementGeoMatchStatementObservation stru
 }
 
 type NotStatementStatementNotStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []StatementNotStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []StatementNotStatementStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type NotStatementStatementNotStatementStatementIpSetReferenceStatementObservation struct {
+type NotStatementStatementNotStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type NotStatementStatementNotStatementStatementIpSetReferenceStatementParameters struct {
+type NotStatementStatementNotStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []StatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []StatementNotStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type NotStatementStatementObservation struct {
 }
 
 type NotStatementStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ByteMatchStatement []NotStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
+	// +kubebuilder:validation:Optional
 	GeoMatchStatement []NotStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	IpSetReferenceStatement []NotStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []NotStatementStatementIPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	RegexPatternSetReferenceStatement []StatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	SizeConstraintStatement []StatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
+	// +kubebuilder:validation:Optional
 	SqliMatchStatement []StatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
-	XssMatchStatement []StatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []StatementXSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -1015,19 +1249,27 @@ type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservati
 }
 
 type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -1040,6 +1282,8 @@ type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHea
 }
 
 type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -1047,23 +1291,29 @@ type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQue
 }
 
 type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type NotStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type NotStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []NotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []NotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -1071,8 +1321,11 @@ type NotStatementStatementRegexPatternSetReferenceStatementTextTransformationObs
 }
 
 type NotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -1098,19 +1351,27 @@ type NotStatementStatementSizeConstraintStatementFieldToMatchObservation struct 
 }
 
 type NotStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []NotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []NotStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []NotStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []NotStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []NotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []NotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []NotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []NotStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type NotStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -1123,6 +1384,8 @@ type NotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObserva
 }
 
 type NotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -1130,25 +1393,32 @@ type NotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument
 }
 
 type NotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type NotStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type NotStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type NotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type NotStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type NotStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type NotStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []NotStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []NotStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -1156,8 +1426,11 @@ type NotStatementStatementSizeConstraintStatementTextTransformationObservation s
 }
 
 type NotStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -1183,19 +1456,27 @@ type NotStatementStatementSqliMatchStatementFieldToMatchObservation struct {
 }
 
 type NotStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []NotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []NotStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []NotStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []NotStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []NotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []NotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []NotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []NotStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type NotStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -1208,6 +1489,8 @@ type NotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation 
 }
 
 type NotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -1215,21 +1498,26 @@ type NotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObser
 }
 
 type NotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type NotStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type NotStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type NotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type NotStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type NotStatementStatementSqliMatchStatementObservation struct {
 }
 
 type NotStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []NotStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []NotStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -1237,89 +1525,110 @@ type NotStatementStatementSqliMatchStatementTextTransformationObservation struct
 }
 
 type NotStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []NotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type NotStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []NotStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []NotStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []NotStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []NotStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []NotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []NotStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []NotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []NotStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []NotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []NotStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []NotStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []NotStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []NotStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type NotStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type NotStatementStatementXssMatchStatementObservation struct {
+type NotStatementStatementXSSMatchStatementObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []NotStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type NotStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []NotStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []NotStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []NotStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type NotStatementStatementXssMatchStatementTextTransformationObservation struct {
+type NotStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type NotStatementStatementXssMatchStatementTextTransformationParameters struct {
+type NotStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -1327,6 +1636,8 @@ type OrStatementObservation struct {
 }
 
 type OrStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Statement []OrStatementStatementParameters `json:"statement" tf:"statement"`
 }
 
@@ -1334,26 +1645,9 @@ type OrStatementStatementAndStatementObservation struct {
 }
 
 type OrStatementStatementAndStatementParameters struct {
-	Statement []OrStatementStatementAndStatementStatementParameters `json:"statement" tf:"statement"`
-}
 
-type OrStatementStatementAndStatementStatementObservation struct {
-}
-
-type OrStatementStatementAndStatementStatementParameters struct {
-	ByteMatchStatement []StatementAndStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
-
-	GeoMatchStatement []StatementAndStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
-
-	IpSetReferenceStatement []StatementAndStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
-
-	RegexPatternSetReferenceStatement []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
-
-	SizeConstraintStatement []OrStatementStatementAndStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
-
-	SqliMatchStatement []OrStatementStatementAndStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
-
-	XssMatchStatement []OrStatementStatementAndStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Required
+	Statement []StatementAndStatementStatementParameters `json:"statement" tf:"statement"`
 }
 
 type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -1378,19 +1672,27 @@ type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementF
 }
 
 type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -1403,6 +1705,8 @@ type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementF
 }
 
 type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -1410,23 +1714,29 @@ type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementF
 }
 
 type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -1434,8 +1744,11 @@ type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementT
 }
 
 type OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -1461,19 +1774,27 @@ type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatc
 }
 
 type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -1486,6 +1807,8 @@ type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatc
 }
 
 type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -1493,25 +1816,32 @@ type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatc
 }
 
 type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementAndStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type OrStatementStatementAndStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementAndStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -1519,8 +1849,11 @@ type OrStatementStatementAndStatementStatementSizeConstraintStatementTextTransfo
 }
 
 type OrStatementStatementAndStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -1546,19 +1879,27 @@ type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchObse
 }
 
 type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -1571,6 +1912,8 @@ type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSing
 }
 
 type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -1578,21 +1921,26 @@ type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSing
 }
 
 type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementAndStatementStatementSqliMatchStatementObservation struct {
 }
 
 type OrStatementStatementAndStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementAndStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -1600,89 +1948,110 @@ type OrStatementStatementAndStatementStatementSqliMatchStatementTextTransformati
 }
 
 type OrStatementStatementAndStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []OrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type OrStatementStatementAndStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []OrStatementStatementAndStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []OrStatementStatementAndStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []OrStatementStatementAndStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementTextTransformationObservation struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type OrStatementStatementAndStatementStatementXssMatchStatementTextTransformationParameters struct {
+type OrStatementStatementAndStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -1708,19 +2077,27 @@ type OrStatementStatementByteMatchStatementFieldToMatchObservation struct {
 }
 
 type OrStatementStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -1733,6 +2110,8 @@ type OrStatementStatementByteMatchStatementFieldToMatchSingleHeaderObservation s
 }
 
 type OrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -1740,25 +2119,32 @@ type OrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentObserv
 }
 
 type OrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementByteMatchStatementObservation struct {
 }
 
 type OrStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -1766,17 +2152,23 @@ type OrStatementStatementByteMatchStatementTextTransformationObservation struct 
 }
 
 type OrStatementStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type OrStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type OrStatementStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type OrStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type OrStatementStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -1784,35 +2176,47 @@ type OrStatementStatementGeoMatchStatementObservation struct {
 }
 
 type OrStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []OrStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []OrStatementStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type OrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type OrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type OrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type OrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type OrStatementStatementIpSetReferenceStatementObservation struct {
+type OrStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type OrStatementStatementIpSetReferenceStatementParameters struct {
+type OrStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []OrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []OrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type OrStatementStatementNotStatementObservation struct {
 }
 
 type OrStatementStatementNotStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Statement []OrStatementStatementNotStatementStatementParameters `json:"statement" tf:"statement"`
 }
 
@@ -1838,19 +2242,27 @@ type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchObse
 }
 
 type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -1863,6 +2275,8 @@ type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSing
 }
 
 type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -1870,25 +2284,32 @@ type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSing
 }
 
 type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementNotStatementStatementByteMatchStatementObservation struct {
 }
 
 type OrStatementStatementNotStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementNotStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -1896,17 +2317,23 @@ type OrStatementStatementNotStatementStatementByteMatchStatementTextTransformati
 }
 
 type OrStatementStatementNotStatementStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type OrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type OrStatementStatementNotStatementStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type OrStatementStatementNotStatementStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -1914,48 +2341,66 @@ type OrStatementStatementNotStatementStatementGeoMatchStatementObservation struc
 }
 
 type OrStatementStatementNotStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []OrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []OrStatementStatementNotStatementStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type OrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type OrStatementStatementNotStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type OrStatementStatementNotStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type OrStatementStatementNotStatementStatementIpSetReferenceStatementObservation struct {
+type OrStatementStatementNotStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementIpSetReferenceStatementParameters struct {
+type OrStatementStatementNotStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []OrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []OrStatementStatementNotStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type OrStatementStatementNotStatementStatementObservation struct {
 }
 
 type OrStatementStatementNotStatementStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ByteMatchStatement []OrStatementStatementNotStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
+	// +kubebuilder:validation:Optional
 	GeoMatchStatement []OrStatementStatementNotStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	IpSetReferenceStatement []OrStatementStatementNotStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []OrStatementStatementNotStatementStatementIPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	RegexPatternSetReferenceStatement []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	SizeConstraintStatement []OrStatementStatementNotStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
+	// +kubebuilder:validation:Optional
 	SqliMatchStatement []OrStatementStatementNotStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
-	XssMatchStatement []OrStatementStatementNotStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []OrStatementStatementNotStatementStatementXSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -1980,19 +2425,27 @@ type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementF
 }
 
 type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -2005,6 +2458,8 @@ type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementF
 }
 
 type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -2012,23 +2467,29 @@ type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementF
 }
 
 type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2036,8 +2497,11 @@ type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementT
 }
 
 type OrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -2063,19 +2527,27 @@ type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatc
 }
 
 type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -2088,6 +2560,8 @@ type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatc
 }
 
 type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -2095,25 +2569,32 @@ type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatc
 }
 
 type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementNotStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type OrStatementStatementNotStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementNotStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2121,8 +2602,11 @@ type OrStatementStatementNotStatementStatementSizeConstraintStatementTextTransfo
 }
 
 type OrStatementStatementNotStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -2148,19 +2632,27 @@ type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchObse
 }
 
 type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -2173,6 +2665,8 @@ type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSing
 }
 
 type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -2180,21 +2674,26 @@ type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSing
 }
 
 type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementNotStatementStatementSqliMatchStatementObservation struct {
 }
 
 type OrStatementStatementNotStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementNotStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2202,89 +2701,110 @@ type OrStatementStatementNotStatementStatementSqliMatchStatementTextTransformati
 }
 
 type OrStatementStatementNotStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []OrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type OrStatementStatementNotStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []OrStatementStatementNotStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []OrStatementStatementNotStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []OrStatementStatementNotStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementTextTransformationObservation struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type OrStatementStatementNotStatementStatementXssMatchStatementTextTransformationParameters struct {
+type OrStatementStatementNotStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -2295,6 +2815,8 @@ type OrStatementStatementOrStatementObservation struct {
 }
 
 type OrStatementStatementOrStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Statement []OrStatementStatementOrStatementStatementParameters `json:"statement" tf:"statement"`
 }
 
@@ -2320,19 +2842,27 @@ type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchObser
 }
 
 type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -2345,6 +2875,8 @@ type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingl
 }
 
 type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -2352,25 +2884,32 @@ type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingl
 }
 
 type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementOrStatementStatementByteMatchStatementObservation struct {
 }
 
 type OrStatementStatementOrStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementOrStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2378,17 +2917,23 @@ type OrStatementStatementOrStatementStatementByteMatchStatementTextTransformatio
 }
 
 type OrStatementStatementOrStatementStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type OrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type OrStatementStatementOrStatementStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type OrStatementStatementOrStatementStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -2396,77 +2941,107 @@ type OrStatementStatementOrStatementStatementGeoMatchStatementObservation struct
 }
 
 type OrStatementStatementOrStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []OrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []OrStatementStatementOrStatementStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type OrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type OrStatementStatementOrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type OrStatementStatementOrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type OrStatementStatementOrStatementStatementIpSetReferenceStatementObservation struct {
+type OrStatementStatementOrStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementIpSetReferenceStatementParameters struct {
+type OrStatementStatementOrStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []OrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []OrStatementStatementOrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type OrStatementStatementOrStatementStatementObservation struct {
 }
 
 type OrStatementStatementOrStatementStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ByteMatchStatement []OrStatementStatementOrStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
+	// +kubebuilder:validation:Optional
 	GeoMatchStatement []OrStatementStatementOrStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	IpSetReferenceStatement []OrStatementStatementOrStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []OrStatementStatementOrStatementStatementIPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	RegexPatternSetReferenceStatement []OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	SizeConstraintStatement []OrStatementStatementOrStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
+	// +kubebuilder:validation:Optional
 	SqliMatchStatement []OrStatementStatementOrStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
-	XssMatchStatement []OrStatementStatementOrStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []OrStatementStatementOrStatementStatementXSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
 }
 
 type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2474,8 +3049,11 @@ type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTe
 }
 
 type OrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -2501,19 +3079,27 @@ type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch
 }
 
 type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -2526,6 +3112,8 @@ type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch
 }
 
 type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -2533,25 +3121,32 @@ type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch
 }
 
 type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementOrStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type OrStatementStatementOrStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementOrStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2559,8 +3154,11 @@ type OrStatementStatementOrStatementStatementSizeConstraintStatementTextTransfor
 }
 
 type OrStatementStatementOrStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -2586,19 +3184,27 @@ type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchObser
 }
 
 type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -2611,6 +3217,8 @@ type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingl
 }
 
 type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -2618,21 +3226,26 @@ type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingl
 }
 
 type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementOrStatementStatementSqliMatchStatementObservation struct {
 }
 
 type OrStatementStatementOrStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementOrStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2640,106 +3253,135 @@ type OrStatementStatementOrStatementStatementSqliMatchStatementTextTransformatio
 }
 
 type OrStatementStatementOrStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []OrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type OrStatementStatementOrStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []OrStatementStatementOrStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []OrStatementStatementOrStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []OrStatementStatementOrStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementTextTransformationObservation struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type OrStatementStatementOrStatementStatementXssMatchStatementTextTransformationParameters struct {
+type OrStatementStatementOrStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
 type OrStatementStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ByteMatchStatement []OrStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
+	// +kubebuilder:validation:Optional
 	GeoMatchStatement []OrStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	IpSetReferenceStatement []OrStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []OrStatementStatementIPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	RegexPatternSetReferenceStatement []OrStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	SizeConstraintStatement []OrStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
+	// +kubebuilder:validation:Optional
 	SqliMatchStatement []OrStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
-	XssMatchStatement []OrStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []OrStatementStatementXSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -2764,19 +3406,27 @@ type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchObservatio
 }
 
 type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -2789,6 +3439,8 @@ type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHead
 }
 
 type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -2796,23 +3448,29 @@ type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQuer
 }
 
 type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type OrStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2820,8 +3478,11 @@ type OrStatementStatementRegexPatternSetReferenceStatementTextTransformationObse
 }
 
 type OrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -2847,19 +3508,27 @@ type OrStatementStatementSizeConstraintStatementFieldToMatchObservation struct {
 }
 
 type OrStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -2872,6 +3541,8 @@ type OrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderObservat
 }
 
 type OrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -2879,25 +3550,32 @@ type OrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentO
 }
 
 type OrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type OrStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2905,8 +3583,11 @@ type OrStatementStatementSizeConstraintStatementTextTransformationObservation st
 }
 
 type OrStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -2932,19 +3613,27 @@ type OrStatementStatementSqliMatchStatementFieldToMatchObservation struct {
 }
 
 type OrStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type OrStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -2957,6 +3646,8 @@ type OrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObservation s
 }
 
 type OrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -2964,21 +3655,26 @@ type OrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObserv
 }
 
 type OrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type OrStatementStatementSqliMatchStatementObservation struct {
 }
 
 type OrStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []OrStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []OrStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -2986,89 +3682,110 @@ type OrStatementStatementSqliMatchStatementTextTransformationObservation struct 
 }
 
 type OrStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []OrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type OrStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []OrStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []OrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []OrStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []OrStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []OrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []OrStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []OrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []OrStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []OrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []OrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []OrStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []OrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type OrStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type OrStatementStatementXssMatchStatementObservation struct {
+type OrStatementStatementXSSMatchStatementObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []OrStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type OrStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []OrStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []OrStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []OrStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type OrStatementStatementXssMatchStatementTextTransformationObservation struct {
+type OrStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type OrStatementStatementXssMatchStatementTextTransformationParameters struct {
+type OrStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -3100,19 +3817,27 @@ type RegexPatternSetReferenceStatementFieldToMatchObservation struct {
 }
 
 type RegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []FieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []FieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []FieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []FieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []FieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []FieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []FieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []FieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -3125,6 +3850,8 @@ type RegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservation struct
 }
 
 type RegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -3132,23 +3859,29 @@ type RegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentObservation
 }
 
 type RegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type RegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type RegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type RegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type RegexPatternSetReferenceStatementObservation struct {
 }
 
 type RegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []RegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []RegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -3156,8 +3889,11 @@ type RegexPatternSetReferenceStatementTextTransformationObservation struct {
 }
 
 type RegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -3165,8 +3901,11 @@ type ResponseHeaderObservation struct {
 }
 
 type ResponseHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -3174,14 +3913,20 @@ type RuleObservation struct {
 }
 
 type RuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action []ActionParameters `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
-	Statement []RuleStatementParameters `json:"statement" tf:"statement"`
+	// +kubebuilder:validation:Required
+	Statement []StatementParameters `json:"statement" tf:"statement"`
 
+	// +kubebuilder:validation:Required
 	VisibilityConfig []VisibilityConfigParameters `json:"visibilityConfig" tf:"visibility_config"`
 }
 
@@ -3207,19 +3952,27 @@ type RuleStatementByteMatchStatementFieldToMatchObservation struct {
 }
 
 type RuleStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RuleStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RuleStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RuleStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RuleStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RuleStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RuleStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -3232,6 +3985,8 @@ type RuleStatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
 type RuleStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -3239,25 +3994,32 @@ type RuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation s
 }
 
 type RuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type RuleStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type RuleStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type RuleStatementByteMatchStatementObservation struct {
 }
 
 type RuleStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []RuleStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []RuleStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -3265,17 +4027,23 @@ type RuleStatementByteMatchStatementTextTransformationObservation struct {
 }
 
 type RuleStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type RuleStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type RuleStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type RuleStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type RuleStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -3283,70 +4051,47 @@ type RuleStatementGeoMatchStatementObservation struct {
 }
 
 type RuleStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []RuleStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []RuleStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type RuleStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type RuleStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type RuleStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type RuleStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type RuleStatementIpSetReferenceStatementObservation struct {
+type RuleStatementIPSetReferenceStatementObservation struct {
 }
 
-type RuleStatementIpSetReferenceStatementParameters struct {
+type RuleStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []RuleStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
-}
-
-type RuleStatementNotStatementObservation struct {
-}
-
-type RuleStatementNotStatementParameters struct {
-	Statement []RuleStatementNotStatementStatementParameters `json:"statement" tf:"statement"`
-}
-
-type RuleStatementNotStatementStatementObservation struct {
-}
-
-type RuleStatementNotStatementStatementParameters struct {
-	AndStatement []NotStatementStatementAndStatementParameters `json:"andStatement,omitempty" tf:"and_statement"`
-
-	ByteMatchStatement []StatementNotStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
-
-	GeoMatchStatement []StatementNotStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
-
-	IpSetReferenceStatement []StatementNotStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
-
-	NotStatement []StatementNotStatementParameters `json:"notStatement,omitempty" tf:"not_statement"`
-
-	OrStatement []StatementOrStatementParameters `json:"orStatement,omitempty" tf:"or_statement"`
-
-	RegexPatternSetReferenceStatement []StatementNotStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
-
-	SizeConstraintStatement []StatementNotStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
-
-	SqliMatchStatement []StatementNotStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
-
-	XssMatchStatement []StatementNotStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
-}
-
-type RuleStatementObservation struct {
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []RuleStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type RuleStatementOrStatementObservation struct {
 }
 
 type RuleStatementOrStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Statement []RuleStatementOrStatementStatementParameters `json:"statement" tf:"statement"`
 }
 
@@ -3372,19 +4117,27 @@ type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchObservation 
 }
 
 type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -3397,6 +4150,8 @@ type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader
 }
 
 type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -3404,25 +4159,32 @@ type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryA
 }
 
 type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type RuleStatementOrStatementStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type RuleStatementOrStatementStatementByteMatchStatementObservation struct {
 }
 
 type RuleStatementOrStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []RuleStatementOrStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []RuleStatementOrStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -3430,17 +4192,23 @@ type RuleStatementOrStatementStatementByteMatchStatementTextTransformationObserv
 }
 
 type RuleStatementOrStatementStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type RuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type RuleStatementOrStatementStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type RuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type RuleStatementOrStatementStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -3448,54 +4216,75 @@ type RuleStatementOrStatementStatementGeoMatchStatementObservation struct {
 }
 
 type RuleStatementOrStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []RuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []RuleStatementOrStatementStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type RuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type RuleStatementOrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type RuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type RuleStatementOrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type RuleStatementOrStatementStatementIpSetReferenceStatementObservation struct {
+type RuleStatementOrStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type RuleStatementOrStatementStatementIpSetReferenceStatementParameters struct {
+type RuleStatementOrStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []RuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []RuleStatementOrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type RuleStatementOrStatementStatementObservation struct {
 }
 
 type RuleStatementOrStatementStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AndStatement []OrStatementStatementAndStatementParameters `json:"andStatement,omitempty" tf:"and_statement"`
 
+	// +kubebuilder:validation:Optional
 	ByteMatchStatement []RuleStatementOrStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
+	// +kubebuilder:validation:Optional
 	GeoMatchStatement []RuleStatementOrStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	IpSetReferenceStatement []RuleStatementOrStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []RuleStatementOrStatementStatementIPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	NotStatement []OrStatementStatementNotStatementParameters `json:"notStatement,omitempty" tf:"not_statement"`
 
+	// +kubebuilder:validation:Optional
 	OrStatement []OrStatementStatementOrStatementParameters `json:"orStatement,omitempty" tf:"or_statement"`
 
+	// +kubebuilder:validation:Optional
 	RegexPatternSetReferenceStatement []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	SizeConstraintStatement []RuleStatementOrStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
+	// +kubebuilder:validation:Optional
 	SqliMatchStatement []RuleStatementOrStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
-	XssMatchStatement []RuleStatementOrStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []RuleStatementOrStatementStatementXSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -3520,19 +4309,27 @@ type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMa
 }
 
 type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -3545,6 +4342,8 @@ type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMa
 }
 
 type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -3552,23 +4351,29 @@ type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMa
 }
 
 type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []RuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -3576,8 +4381,11 @@ type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTrans
 }
 
 type RuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -3603,19 +4411,27 @@ type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchObserva
 }
 
 type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -3628,6 +4444,8 @@ type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleH
 }
 
 type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -3635,25 +4453,32 @@ type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQ
 }
 
 type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type RuleStatementOrStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type RuleStatementOrStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []RuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []RuleStatementOrStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -3661,8 +4486,11 @@ type RuleStatementOrStatementStatementSizeConstraintStatementTextTransformationO
 }
 
 type RuleStatementOrStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -3688,19 +4516,27 @@ type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchObservation 
 }
 
 type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -3713,6 +4549,8 @@ type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader
 }
 
 type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -3720,21 +4558,26 @@ type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryA
 }
 
 type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type RuleStatementOrStatementStatementSqliMatchStatementObservation struct {
 }
 
 type RuleStatementOrStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []RuleStatementOrStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []RuleStatementOrStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -3742,112 +4585,111 @@ type RuleStatementOrStatementStatementSqliMatchStatementTextTransformationObserv
 }
 
 type RuleStatementOrStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []RuleStatementOrStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type RuleStatementOrStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []RuleStatementOrStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []RuleStatementOrStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []RuleStatementOrStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementTextTransformationObservation struct {
+type RuleStatementOrStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type RuleStatementOrStatementStatementXssMatchStatementTextTransformationParameters struct {
+type RuleStatementOrStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
-}
-
-type RuleStatementParameters struct {
-	AndStatement []StatementAndStatementParameters `json:"andStatement,omitempty" tf:"and_statement"`
-
-	ByteMatchStatement []RuleStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
-
-	GeoMatchStatement []RuleStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
-
-	IpSetReferenceStatement []RuleStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
-
-	NotStatement []RuleStatementNotStatementParameters `json:"notStatement,omitempty" tf:"not_statement"`
-
-	OrStatement []RuleStatementOrStatementParameters `json:"orStatement,omitempty" tf:"or_statement"`
-
-	RegexPatternSetReferenceStatement []RuleStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
-
-	SizeConstraintStatement []RuleStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
-
-	SqliMatchStatement []RuleStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
-
-	XssMatchStatement []RuleStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type RuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -3872,19 +4714,27 @@ type RuleStatementRegexPatternSetReferenceStatementFieldToMatchObservation struc
 }
 
 type RuleStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -3897,6 +4747,8 @@ type RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObser
 }
 
 type RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -3904,23 +4756,29 @@ type RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgume
 }
 
 type RuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type RuleStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type RuleStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type RuleStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []RuleStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []RuleStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -3928,8 +4786,11 @@ type RuleStatementRegexPatternSetReferenceStatementTextTransformationObservation
 }
 
 type RuleStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -3955,19 +4816,27 @@ type RuleStatementSizeConstraintStatementFieldToMatchObservation struct {
 }
 
 type RuleStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RuleStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RuleStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RuleStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RuleStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RuleStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RuleStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -3980,6 +4849,8 @@ type RuleStatementSizeConstraintStatementFieldToMatchSingleHeaderObservation str
 }
 
 type RuleStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -3987,25 +4858,32 @@ type RuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservat
 }
 
 type RuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type RuleStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type RuleStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type RuleStatementSizeConstraintStatementObservation struct {
 }
 
 type RuleStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []RuleStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []RuleStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -4013,8 +4891,11 @@ type RuleStatementSizeConstraintStatementTextTransformationObservation struct {
 }
 
 type RuleStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -4040,19 +4921,27 @@ type RuleStatementSqliMatchStatementFieldToMatchObservation struct {
 }
 
 type RuleStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RuleStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RuleStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RuleStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RuleStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RuleStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RuleStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -4065,6 +4954,8 @@ type RuleStatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
 type RuleStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4072,21 +4963,26 @@ type RuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation s
 }
 
 type RuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type RuleStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type RuleStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type RuleStatementSqliMatchStatementObservation struct {
 }
 
 type RuleStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []RuleStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []RuleStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -4094,89 +4990,110 @@ type RuleStatementSqliMatchStatementTextTransformationObservation struct {
 }
 
 type RuleStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type RuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type RuleStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type RuleStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type RuleStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type RuleStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type RuleStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type RuleStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchObservation struct {
+type RuleStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []RuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type RuleStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []RuleStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []RuleStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []RuleStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []RuleStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []RuleStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []RuleStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []RuleStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []RuleStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []RuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []RuleStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []RuleStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []RuleStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []RuleStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type RuleStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type RuleStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type RuleStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type RuleStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type RuleStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type RuleStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type RuleStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RuleStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type RuleStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type RuleStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type RuleStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type RuleStatementXssMatchStatementObservation struct {
+type RuleStatementXSSMatchStatementObservation struct {
 }
 
-type RuleStatementXssMatchStatementParameters struct {
-	FieldToMatch []RuleStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type RuleStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []RuleStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []RuleStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []RuleStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type RuleStatementXssMatchStatementTextTransformationObservation struct {
+type RuleStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type RuleStatementXssMatchStatementTextTransformationParameters struct {
+type RuleStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -4184,6 +5101,8 @@ type SingleHeaderObservation struct {
 }
 
 type SingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4191,6 +5110,8 @@ type SingleQueryArgumentObservation struct {
 }
 
 type SingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4216,19 +5137,27 @@ type SizeConstraintStatementFieldToMatchObservation struct {
 }
 
 type SizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []SizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []SizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []SizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []SizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []SizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []SizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []SizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []SizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type SizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -4241,6 +5170,8 @@ type SizeConstraintStatementFieldToMatchSingleHeaderObservation struct {
 }
 
 type SizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4248,25 +5179,32 @@ type SizeConstraintStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
 type SizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type SizeConstraintStatementFieldToMatchUriPathObservation struct {
+type SizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type SizeConstraintStatementFieldToMatchUriPathParameters struct {
+type SizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type SizeConstraintStatementObservation struct {
 }
 
 type SizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []SizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []SizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -4274,8 +5212,11 @@ type SizeConstraintStatementTextTransformationObservation struct {
 }
 
 type SizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -4301,19 +5242,27 @@ type SqliMatchStatementFieldToMatchObservation struct {
 }
 
 type SqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []SqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []SqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []SqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []SqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []SqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []SqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []SqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []SqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type SqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -4326,6 +5275,8 @@ type SqliMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
 type SqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4333,21 +5284,26 @@ type SqliMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
 type SqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type SqliMatchStatementFieldToMatchUriPathObservation struct {
+type SqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type SqliMatchStatementFieldToMatchUriPathParameters struct {
+type SqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type SqliMatchStatementObservation struct {
 }
 
 type SqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []SqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []SqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -4355,8 +5311,11 @@ type SqliMatchStatementTextTransformationObservation struct {
 }
 
 type SqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -4364,6 +5323,8 @@ type StatementAndStatementObservation struct {
 }
 
 type StatementAndStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Statement []AndStatementStatementParameters `json:"statement" tf:"statement"`
 }
 
@@ -4389,19 +5350,27 @@ type StatementAndStatementStatementByteMatchStatementFieldToMatchObservation str
 }
 
 type StatementAndStatementStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementAndStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementAndStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementAndStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementAndStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementAndStatementStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementAndStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -4414,6 +5383,8 @@ type StatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeaderObs
 }
 
 type StatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4421,25 +5392,32 @@ type StatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgu
 }
 
 type StatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementAndStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type StatementAndStatementStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementAndStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type StatementAndStatementStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementAndStatementStatementByteMatchStatementObservation struct {
 }
 
 type StatementAndStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementAndStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementAndStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -4447,17 +5425,23 @@ type StatementAndStatementStatementByteMatchStatementTextTransformationObservati
 }
 
 type StatementAndStatementStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type StatementAndStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type StatementAndStatementStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type StatementAndStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type StatementAndStatementStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -4465,48 +5449,66 @@ type StatementAndStatementStatementGeoMatchStatementObservation struct {
 }
 
 type StatementAndStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []StatementAndStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []StatementAndStatementStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type StatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type StatementAndStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type StatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type StatementAndStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type StatementAndStatementStatementIpSetReferenceStatementObservation struct {
+type StatementAndStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type StatementAndStatementStatementIpSetReferenceStatementParameters struct {
+type StatementAndStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []StatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []StatementAndStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type StatementAndStatementStatementObservation struct {
 }
 
 type StatementAndStatementStatementParameters struct {
-	ByteMatchStatement []AndStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
-	GeoMatchStatement []AndStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
+	// +kubebuilder:validation:Optional
+	ByteMatchStatement []StatementAndStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
-	IpSetReferenceStatement []AndStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	GeoMatchStatement []StatementAndStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	RegexPatternSetReferenceStatement []StatementAndStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []StatementAndStatementStatementIPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
-	SizeConstraintStatement []StatementAndStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
+	// +kubebuilder:validation:Optional
+	RegexPatternSetReferenceStatement []OrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
-	SqliMatchStatement []StatementAndStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+	// +kubebuilder:validation:Optional
+	SizeConstraintStatement []OrStatementStatementAndStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
-	XssMatchStatement []StatementAndStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	SqliMatchStatement []OrStatementStatementAndStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
+
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []OrStatementStatementAndStatementStatementXSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -4531,19 +5533,27 @@ type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch
 }
 
 type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -4556,6 +5566,8 @@ type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch
 }
 
 type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4563,23 +5575,29 @@ type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch
 }
 
 type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementAndStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type StatementAndStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -4587,8 +5605,11 @@ type StatementAndStatementStatementRegexPatternSetReferenceStatementTextTransfor
 }
 
 type StatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -4614,19 +5635,27 @@ type StatementAndStatementStatementSizeConstraintStatementFieldToMatchObservatio
 }
 
 type StatementAndStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementAndStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementAndStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementAndStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -4639,6 +5668,8 @@ type StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHead
 }
 
 type StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4646,25 +5677,32 @@ type StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQuer
 }
 
 type StatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type StatementAndStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementAndStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type StatementAndStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementAndStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementAndStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -4672,8 +5710,11 @@ type StatementAndStatementStatementSizeConstraintStatementTextTransformationObse
 }
 
 type StatementAndStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -4699,19 +5740,27 @@ type StatementAndStatementStatementSqliMatchStatementFieldToMatchObservation str
 }
 
 type StatementAndStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementAndStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementAndStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementAndStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementAndStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -4724,6 +5773,8 @@ type StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObs
 }
 
 type StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4731,21 +5782,26 @@ type StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgu
 }
 
 type StatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementAndStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type StatementAndStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementAndStatementStatementSqliMatchStatementObservation struct {
 }
 
 type StatementAndStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementAndStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementAndStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -4753,89 +5809,110 @@ type StatementAndStatementStatementSqliMatchStatementTextTransformationObservati
 }
 
 type StatementAndStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []StatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []StatementAndStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []StatementAndStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []StatementAndStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []StatementAndStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []StatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []StatementAndStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []StatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []StatementAndStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []StatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []StatementAndStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []StatementAndStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []StatementAndStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []StatementAndStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type StatementAndStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementObservation struct {
+type StatementAndStatementStatementXSSMatchStatementObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []StatementAndStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type StatementAndStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []StatementAndStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []StatementAndStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []StatementAndStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type StatementAndStatementStatementXssMatchStatementTextTransformationObservation struct {
+type StatementAndStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type StatementAndStatementStatementXssMatchStatementTextTransformationParameters struct {
+type StatementAndStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -4861,19 +5938,27 @@ type StatementByteMatchStatementFieldToMatchObservation struct {
 }
 
 type StatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -4886,6 +5971,8 @@ type StatementByteMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
 type StatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -4893,25 +5980,32 @@ type StatementByteMatchStatementFieldToMatchSingleQueryArgumentObservation struc
 }
 
 type StatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type StatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type StatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementByteMatchStatementObservation struct {
 }
 
 type StatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []ByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []ByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -4919,17 +6013,23 @@ type StatementByteMatchStatementTextTransformationObservation struct {
 }
 
 type StatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type StatementGeoMatchStatementForwardedIpConfigObservation struct {
+type StatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type StatementGeoMatchStatementForwardedIpConfigParameters struct {
+type StatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -4937,35 +6037,47 @@ type StatementGeoMatchStatementObservation struct {
 }
 
 type StatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []GeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []GeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type StatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type StatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type StatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type StatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type StatementIpSetReferenceStatementObservation struct {
+type StatementIPSetReferenceStatementObservation struct {
 }
 
-type StatementIpSetReferenceStatementParameters struct {
+type StatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []IpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []IPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type StatementNotStatementObservation struct {
 }
 
 type StatementNotStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Statement []StatementNotStatementStatementParameters `json:"statement" tf:"statement"`
 }
 
@@ -4991,19 +6103,27 @@ type StatementNotStatementStatementByteMatchStatementFieldToMatchObservation str
 }
 
 type StatementNotStatementStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementNotStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementNotStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementNotStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementNotStatementStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementNotStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -5016,6 +6136,8 @@ type StatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderObs
 }
 
 type StatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -5023,25 +6145,32 @@ type StatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgu
 }
 
 type StatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementNotStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type StatementNotStatementStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementNotStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type StatementNotStatementStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementNotStatementStatementByteMatchStatementObservation struct {
 }
 
 type StatementNotStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []NotStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []NotStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -5049,17 +6178,23 @@ type StatementNotStatementStatementByteMatchStatementTextTransformationObservati
 }
 
 type StatementNotStatementStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type StatementNotStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type StatementNotStatementStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type StatementNotStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type StatementNotStatementStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -5067,48 +6202,66 @@ type StatementNotStatementStatementGeoMatchStatementObservation struct {
 }
 
 type StatementNotStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []NotStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []NotStatementStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type StatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type StatementNotStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type StatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type StatementNotStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type StatementNotStatementStatementIpSetReferenceStatementObservation struct {
+type StatementNotStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type StatementNotStatementStatementIpSetReferenceStatementParameters struct {
+type StatementNotStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []NotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []NotStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type StatementNotStatementStatementObservation struct {
 }
 
 type StatementNotStatementStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ByteMatchStatement []NotStatementStatementNotStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
+	// +kubebuilder:validation:Optional
 	GeoMatchStatement []NotStatementStatementNotStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	IpSetReferenceStatement []NotStatementStatementNotStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []NotStatementStatementNotStatementStatementIPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	RegexPatternSetReferenceStatement []NotStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	SizeConstraintStatement []NotStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
+	// +kubebuilder:validation:Optional
 	SqliMatchStatement []NotStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
-	XssMatchStatement []NotStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []NotStatementStatementXSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -5133,19 +6286,27 @@ type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch
 }
 
 type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -5158,6 +6319,8 @@ type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch
 }
 
 type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -5165,23 +6328,29 @@ type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch
 }
 
 type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementNotStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type StatementNotStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -5189,8 +6358,11 @@ type StatementNotStatementStatementRegexPatternSetReferenceStatementTextTransfor
 }
 
 type StatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -5216,19 +6388,27 @@ type StatementNotStatementStatementSizeConstraintStatementFieldToMatchObservatio
 }
 
 type StatementNotStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementNotStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementNotStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementNotStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -5241,6 +6421,8 @@ type StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHead
 }
 
 type StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -5248,25 +6430,32 @@ type StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQuer
 }
 
 type StatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type StatementNotStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementNotStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type StatementNotStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementNotStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementNotStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -5274,8 +6463,11 @@ type StatementNotStatementStatementSizeConstraintStatementTextTransformationObse
 }
 
 type StatementNotStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -5301,19 +6493,27 @@ type StatementNotStatementStatementSqliMatchStatementFieldToMatchObservation str
 }
 
 type StatementNotStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementNotStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementNotStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementNotStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementNotStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -5326,6 +6526,8 @@ type StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObs
 }
 
 type StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -5333,21 +6535,26 @@ type StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgu
 }
 
 type StatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementNotStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type StatementNotStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementNotStatementStatementSqliMatchStatementObservation struct {
 }
 
 type StatementNotStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementNotStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementNotStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -5355,89 +6562,110 @@ type StatementNotStatementStatementSqliMatchStatementTextTransformationObservati
 }
 
 type StatementNotStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []StatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []StatementNotStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []StatementNotStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []StatementNotStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []StatementNotStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []StatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []StatementNotStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []StatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []StatementNotStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []StatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []StatementNotStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []StatementNotStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []StatementNotStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []StatementNotStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type StatementNotStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementObservation struct {
+type StatementNotStatementStatementXSSMatchStatementObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []StatementNotStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type StatementNotStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []StatementNotStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []StatementNotStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []StatementNotStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type StatementNotStatementStatementXssMatchStatementTextTransformationObservation struct {
+type StatementNotStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type StatementNotStatementStatementXssMatchStatementTextTransformationParameters struct {
+type StatementNotStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -5448,6 +6676,8 @@ type StatementOrStatementObservation struct {
 }
 
 type StatementOrStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Statement []StatementOrStatementStatementParameters `json:"statement" tf:"statement"`
 }
 
@@ -5473,19 +6703,27 @@ type StatementOrStatementStatementByteMatchStatementFieldToMatchObservation stru
 }
 
 type StatementOrStatementStatementByteMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementOrStatementStatementByteMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementOrStatementStatementByteMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementOrStatementStatementByteMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringObservation struct {
@@ -5498,6 +6736,8 @@ type StatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderObse
 }
 
 type StatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -5505,25 +6745,32 @@ type StatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgum
 }
 
 type StatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementOrStatementStatementByteMatchStatementFieldToMatchUriPathObservation struct {
+type StatementOrStatementStatementByteMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementOrStatementStatementByteMatchStatementFieldToMatchUriPathParameters struct {
+type StatementOrStatementStatementByteMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementOrStatementStatementByteMatchStatementObservation struct {
 }
 
 type StatementOrStatementStatementByteMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementOrStatementStatementByteMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Required
 	SearchString string `json:"searchString" tf:"search_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementOrStatementStatementByteMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -5531,17 +6778,23 @@ type StatementOrStatementStatementByteMatchStatementTextTransformationObservatio
 }
 
 type StatementOrStatementStatementByteMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type StatementOrStatementStatementGeoMatchStatementForwardedIpConfigObservation struct {
+type StatementOrStatementStatementGeoMatchStatementForwardedIPConfigObservation struct {
 }
 
-type StatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters struct {
+type StatementOrStatementStatementGeoMatchStatementForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 }
 
@@ -5549,48 +6802,66 @@ type StatementOrStatementStatementGeoMatchStatementObservation struct {
 }
 
 type StatementOrStatementStatementGeoMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	CountryCodes []string `json:"countryCodes" tf:"country_codes"`
 
-	ForwardedIpConfig []StatementOrStatementStatementGeoMatchStatementForwardedIpConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	ForwardedIPConfig []StatementOrStatementStatementGeoMatchStatementForwardedIPConfigParameters `json:"forwardedIpConfig,omitempty" tf:"forwarded_ip_config"`
 }
 
-type StatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigObservation struct {
+type StatementOrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigObservation struct {
 }
 
-type StatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters struct {
+type StatementOrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FallbackBehavior string `json:"fallbackBehavior" tf:"fallback_behavior"`
 
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	Position string `json:"position" tf:"position"`
 }
 
-type StatementOrStatementStatementIpSetReferenceStatementObservation struct {
+type StatementOrStatementStatementIPSetReferenceStatementObservation struct {
 }
 
-type StatementOrStatementStatementIpSetReferenceStatementParameters struct {
+type StatementOrStatementStatementIPSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	IpSetForwardedIpConfig []StatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
+	// +kubebuilder:validation:Optional
+	IPSetForwardedIPConfig []StatementOrStatementStatementIPSetReferenceStatementIPSetForwardedIPConfigParameters `json:"ipSetForwardedIpConfig,omitempty" tf:"ip_set_forwarded_ip_config"`
 }
 
 type StatementOrStatementStatementObservation struct {
 }
 
 type StatementOrStatementStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ByteMatchStatement []StatementOrStatementStatementByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
+	// +kubebuilder:validation:Optional
 	GeoMatchStatement []StatementOrStatementStatementGeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	IpSetReferenceStatement []StatementOrStatementStatementIpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []StatementOrStatementStatementIPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	RegexPatternSetReferenceStatement []StatementOrStatementStatementRegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	SizeConstraintStatement []StatementOrStatementStatementSizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
+	// +kubebuilder:validation:Optional
 	SqliMatchStatement []StatementOrStatementStatementSqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
-	XssMatchStatement []StatementOrStatementStatementXssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []StatementOrStatementStatementXSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -5615,19 +6886,27 @@ type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchO
 }
 
 type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []OrStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -5640,6 +6919,8 @@ type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchS
 }
 
 type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -5647,23 +6928,29 @@ type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchS
 }
 
 type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementOrStatementStatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type StatementOrStatementStatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -5671,8 +6958,11 @@ type StatementOrStatementStatementRegexPatternSetReferenceStatementTextTransform
 }
 
 type StatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -5698,19 +6988,27 @@ type StatementOrStatementStatementSizeConstraintStatementFieldToMatchObservation
 }
 
 type StatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementOrStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -5723,6 +7021,8 @@ type StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeade
 }
 
 type StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -5730,25 +7030,32 @@ type StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQuery
 }
 
 type StatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type StatementOrStatementStatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementOrStatementStatementSizeConstraintStatementObservation struct {
 }
 
 type StatementOrStatementStatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementOrStatementStatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementOrStatementStatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -5756,8 +7063,11 @@ type StatementOrStatementStatementSizeConstraintStatementTextTransformationObser
 }
 
 type StatementOrStatementStatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -5783,19 +7093,27 @@ type StatementOrStatementStatementSqliMatchStatementFieldToMatchObservation stru
 }
 
 type StatementOrStatementStatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementOrStatementStatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementOrStatementStatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementOrStatementStatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -5808,6 +7126,8 @@ type StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderObse
 }
 
 type StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -5815,21 +7135,26 @@ type StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgum
 }
 
 type StatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementOrStatementStatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type StatementOrStatementStatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementOrStatementStatementSqliMatchStatementObservation struct {
 }
 
 type StatementOrStatementStatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementOrStatementStatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementOrStatementStatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -5837,106 +7162,135 @@ type StatementOrStatementStatementSqliMatchStatementTextTransformationObservatio
 }
 
 type StatementOrStatementStatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchBodyObservation struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchMethodObservation struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchObservation struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []StatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []StatementOrStatementStatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []StatementOrStatementStatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []StatementOrStatementStatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []StatementOrStatementStatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []StatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []StatementOrStatementStatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []StatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []StatementOrStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []StatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []StatementOrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []StatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []StatementOrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []StatementOrStatementStatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type StatementOrStatementStatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementObservation struct {
+type StatementOrStatementStatementXSSMatchStatementObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementParameters struct {
-	FieldToMatch []StatementOrStatementStatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type StatementOrStatementStatementXSSMatchStatementParameters struct {
 
-	TextTransformation []StatementOrStatementStatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []StatementOrStatementStatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []StatementOrStatementStatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type StatementOrStatementStatementXssMatchStatementTextTransformationObservation struct {
+type StatementOrStatementStatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type StatementOrStatementStatementXssMatchStatementTextTransformationParameters struct {
+type StatementOrStatementStatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
 type StatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ByteMatchStatement []ByteMatchStatementParameters `json:"byteMatchStatement,omitempty" tf:"byte_match_statement"`
 
+	// +kubebuilder:validation:Optional
 	GeoMatchStatement []GeoMatchStatementParameters `json:"geoMatchStatement,omitempty" tf:"geo_match_statement"`
 
-	IpSetReferenceStatement []IpSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
+	// +kubebuilder:validation:Optional
+	IPSetReferenceStatement []IPSetReferenceStatementParameters `json:"ipSetReferenceStatement,omitempty" tf:"ip_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	RegexPatternSetReferenceStatement []RegexPatternSetReferenceStatementParameters `json:"regexPatternSetReferenceStatement,omitempty" tf:"regex_pattern_set_reference_statement"`
 
+	// +kubebuilder:validation:Optional
 	SizeConstraintStatement []SizeConstraintStatementParameters `json:"sizeConstraintStatement,omitempty" tf:"size_constraint_statement"`
 
+	// +kubebuilder:validation:Optional
 	SqliMatchStatement []SqliMatchStatementParameters `json:"sqliMatchStatement,omitempty" tf:"sqli_match_statement"`
 
-	XssMatchStatement []XssMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
+	// +kubebuilder:validation:Optional
+	XSSMatchStatement []XSSMatchStatementParameters `json:"xssMatchStatement,omitempty" tf:"xss_match_statement"`
 }
 
 type StatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsObservation struct {
@@ -5961,19 +7315,27 @@ type StatementRegexPatternSetReferenceStatementFieldToMatchObservation struct {
 }
 
 type StatementRegexPatternSetReferenceStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RegexPatternSetReferenceStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RegexPatternSetReferenceStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RegexPatternSetReferenceStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RegexPatternSetReferenceStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RegexPatternSetReferenceStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementRegexPatternSetReferenceStatementFieldToMatchQueryStringObservation struct {
@@ -5986,6 +7348,8 @@ type StatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderObservati
 }
 
 type StatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -5993,23 +7357,29 @@ type StatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOb
 }
 
 type StatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementRegexPatternSetReferenceStatementFieldToMatchUriPathObservation struct {
+type StatementRegexPatternSetReferenceStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementRegexPatternSetReferenceStatementFieldToMatchUriPathParameters struct {
+type StatementRegexPatternSetReferenceStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementRegexPatternSetReferenceStatementObservation struct {
 }
 
 type StatementRegexPatternSetReferenceStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementRegexPatternSetReferenceStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementRegexPatternSetReferenceStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -6017,8 +7387,11 @@ type StatementRegexPatternSetReferenceStatementTextTransformationObservation str
 }
 
 type StatementRegexPatternSetReferenceStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -6044,19 +7417,27 @@ type StatementSizeConstraintStatementFieldToMatchObservation struct {
 }
 
 type StatementSizeConstraintStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementSizeConstraintStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementSizeConstraintStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementSizeConstraintStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementSizeConstraintStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementSizeConstraintStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementSizeConstraintStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementSizeConstraintStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementSizeConstraintStatementFieldToMatchQueryStringObservation struct {
@@ -6069,6 +7450,8 @@ type StatementSizeConstraintStatementFieldToMatchSingleHeaderObservation struct 
 }
 
 type StatementSizeConstraintStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -6076,25 +7459,32 @@ type StatementSizeConstraintStatementFieldToMatchSingleQueryArgumentObservation 
 }
 
 type StatementSizeConstraintStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementSizeConstraintStatementFieldToMatchUriPathObservation struct {
+type StatementSizeConstraintStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementSizeConstraintStatementFieldToMatchUriPathParameters struct {
+type StatementSizeConstraintStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementSizeConstraintStatementObservation struct {
 }
 
 type StatementSizeConstraintStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementSizeConstraintStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementSizeConstraintStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -6102,8 +7492,11 @@ type StatementSizeConstraintStatementTextTransformationObservation struct {
 }
 
 type StatementSizeConstraintStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -6129,19 +7522,27 @@ type StatementSqliMatchStatementFieldToMatchObservation struct {
 }
 
 type StatementSqliMatchStatementFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []StatementSqliMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []StatementSqliMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []StatementSqliMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []StatementSqliMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []StatementSqliMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []StatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []StatementSqliMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []StatementSqliMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type StatementSqliMatchStatementFieldToMatchQueryStringObservation struct {
@@ -6154,6 +7555,8 @@ type StatementSqliMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
 type StatementSqliMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -6161,21 +7564,26 @@ type StatementSqliMatchStatementFieldToMatchSingleQueryArgumentObservation struc
 }
 
 type StatementSqliMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementSqliMatchStatementFieldToMatchUriPathObservation struct {
+type StatementSqliMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementSqliMatchStatementFieldToMatchUriPathParameters struct {
+type StatementSqliMatchStatementFieldToMatchURIPathParameters struct {
 }
 
 type StatementSqliMatchStatementObservation struct {
 }
 
 type StatementSqliMatchStatementParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FieldToMatch []StatementSqliMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation []StatementSqliMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -6183,89 +7591,110 @@ type StatementSqliMatchStatementTextTransformationObservation struct {
 }
 
 type StatementSqliMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type StatementXssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type StatementXSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type StatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type StatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type StatementXssMatchStatementFieldToMatchBodyObservation struct {
+type StatementXSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type StatementXssMatchStatementFieldToMatchBodyParameters struct {
+type StatementXSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type StatementXssMatchStatementFieldToMatchMethodObservation struct {
+type StatementXSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type StatementXssMatchStatementFieldToMatchMethodParameters struct {
+type StatementXSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type StatementXssMatchStatementFieldToMatchObservation struct {
+type StatementXSSMatchStatementFieldToMatchObservation struct {
 }
 
-type StatementXssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []StatementXssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type StatementXSSMatchStatementFieldToMatchParameters struct {
 
-	Body []StatementXssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []StatementXSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []StatementXssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []StatementXSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []StatementXssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []StatementXSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []StatementXssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []StatementXSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []StatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []StatementXSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []StatementXssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []StatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []StatementXSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type StatementXssMatchStatementFieldToMatchQueryStringObservation struct {
+type StatementXSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type StatementXssMatchStatementFieldToMatchQueryStringParameters struct {
+type StatementXSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type StatementXssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type StatementXSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type StatementXssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type StatementXSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementXssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type StatementXSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type StatementXssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type StatementXSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type StatementXssMatchStatementFieldToMatchUriPathObservation struct {
+type StatementXSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type StatementXssMatchStatementFieldToMatchUriPathParameters struct {
+type StatementXSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type StatementXssMatchStatementObservation struct {
+type StatementXSSMatchStatementObservation struct {
 }
 
-type StatementXssMatchStatementParameters struct {
-	FieldToMatch []StatementXssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type StatementXSSMatchStatementParameters struct {
 
-	TextTransformation []StatementXssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []StatementXSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []StatementXSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type StatementXssMatchStatementTextTransformationObservation struct {
+type StatementXSSMatchStatementTextTransformationObservation struct {
 }
 
-type StatementXssMatchStatementTextTransformationParameters struct {
+type StatementXSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -6273,25 +7702,32 @@ type TextTransformationObservation struct {
 }
 
 type TextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type UriPathObservation struct {
+type URIPathObservation struct {
 }
 
-type UriPathParameters struct {
+type URIPathParameters struct {
 }
 
 type VisibilityConfigObservation struct {
 }
 
 type VisibilityConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	CloudwatchMetricsEnabled bool `json:"cloudwatchMetricsEnabled" tf:"cloudwatch_metrics_enabled"`
 
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Required
 	SampledRequestsEnabled bool `json:"sampledRequestsEnabled" tf:"sampled_requests_enabled"`
 }
 
@@ -6302,22 +7738,34 @@ type Wafv2RuleGroupObservation struct {
 }
 
 type Wafv2RuleGroupParameters struct {
+
+	// +kubebuilder:validation:Required
 	Capacity int64 `json:"capacity" tf:"capacity"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Rule []RuleParameters `json:"rule,omitempty" tf:"rule"`
 
+	// +kubebuilder:validation:Required
 	Scope string `json:"scope" tf:"scope"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	VisibilityConfig []Wafv2RuleGroupVisibilityConfigParameters `json:"visibilityConfig" tf:"visibility_config"`
 }
 
@@ -6325,91 +7773,113 @@ type Wafv2RuleGroupVisibilityConfigObservation struct {
 }
 
 type Wafv2RuleGroupVisibilityConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	CloudwatchMetricsEnabled bool `json:"cloudwatchMetricsEnabled" tf:"cloudwatch_metrics_enabled"`
 
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Required
 	SampledRequestsEnabled bool `json:"sampledRequestsEnabled" tf:"sampled_requests_enabled"`
 }
 
-type XssMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
+type XSSMatchStatementFieldToMatchAllQueryArgumentsObservation struct {
 }
 
-type XssMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
+type XSSMatchStatementFieldToMatchAllQueryArgumentsParameters struct {
 }
 
-type XssMatchStatementFieldToMatchBodyObservation struct {
+type XSSMatchStatementFieldToMatchBodyObservation struct {
 }
 
-type XssMatchStatementFieldToMatchBodyParameters struct {
+type XSSMatchStatementFieldToMatchBodyParameters struct {
 }
 
-type XssMatchStatementFieldToMatchMethodObservation struct {
+type XSSMatchStatementFieldToMatchMethodObservation struct {
 }
 
-type XssMatchStatementFieldToMatchMethodParameters struct {
+type XSSMatchStatementFieldToMatchMethodParameters struct {
 }
 
-type XssMatchStatementFieldToMatchObservation struct {
+type XSSMatchStatementFieldToMatchObservation struct {
 }
 
-type XssMatchStatementFieldToMatchParameters struct {
-	AllQueryArguments []XssMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
+type XSSMatchStatementFieldToMatchParameters struct {
 
-	Body []XssMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
+	// +kubebuilder:validation:Optional
+	AllQueryArguments []XSSMatchStatementFieldToMatchAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
-	Method []XssMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
+	// +kubebuilder:validation:Optional
+	Body []XSSMatchStatementFieldToMatchBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []XssMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Method []XSSMatchStatementFieldToMatchMethodParameters `json:"method,omitempty" tf:"method"`
 
-	SingleHeader []XssMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
+	// +kubebuilder:validation:Optional
+	QueryString []XSSMatchStatementFieldToMatchQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
-	SingleQueryArgument []XssMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+	// +kubebuilder:validation:Optional
+	SingleHeader []XSSMatchStatementFieldToMatchSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
-	UriPath []XssMatchStatementFieldToMatchUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	SingleQueryArgument []XSSMatchStatementFieldToMatchSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
+
+	// +kubebuilder:validation:Optional
+	URIPath []XSSMatchStatementFieldToMatchURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
-type XssMatchStatementFieldToMatchQueryStringObservation struct {
+type XSSMatchStatementFieldToMatchQueryStringObservation struct {
 }
 
-type XssMatchStatementFieldToMatchQueryStringParameters struct {
+type XSSMatchStatementFieldToMatchQueryStringParameters struct {
 }
 
-type XssMatchStatementFieldToMatchSingleHeaderObservation struct {
+type XSSMatchStatementFieldToMatchSingleHeaderObservation struct {
 }
 
-type XssMatchStatementFieldToMatchSingleHeaderParameters struct {
+type XSSMatchStatementFieldToMatchSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type XssMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
+type XSSMatchStatementFieldToMatchSingleQueryArgumentObservation struct {
 }
 
-type XssMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+type XSSMatchStatementFieldToMatchSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type XssMatchStatementFieldToMatchUriPathObservation struct {
+type XSSMatchStatementFieldToMatchURIPathObservation struct {
 }
 
-type XssMatchStatementFieldToMatchUriPathParameters struct {
+type XSSMatchStatementFieldToMatchURIPathParameters struct {
 }
 
-type XssMatchStatementObservation struct {
+type XSSMatchStatementObservation struct {
 }
 
-type XssMatchStatementParameters struct {
-	FieldToMatch []XssMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+type XSSMatchStatementParameters struct {
 
-	TextTransformation []XssMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
+	// +kubebuilder:validation:Optional
+	FieldToMatch []XSSMatchStatementFieldToMatchParameters `json:"fieldToMatch,omitempty" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
+	TextTransformation []XSSMatchStatementTextTransformationParameters `json:"textTransformation" tf:"text_transformation"`
 }
 
-type XssMatchStatementTextTransformationObservation struct {
+type XSSMatchStatementTextTransformationObservation struct {
 }
 
-type XssMatchStatementTextTransformationParameters struct {
+type XSSMatchStatementTextTransformationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

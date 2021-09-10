@@ -258,13 +258,13 @@ func (in *CloudhsmV2HsmParameters) DeepCopyInto(out *CloudhsmV2HsmParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.IpAddress != nil {
-		in, out := &in.IpAddress, &out.IpAddress
+	if in.IPAddress != nil {
+		in, out := &in.IPAddress, &out.IPAddress
 		*out = new(string)
 		**out = **in
 	}
-	if in.SubnetId != nil {
-		in, out := &in.SubnetId, &out.SubnetId
+	if in.SubnetID != nil {
+		in, out := &in.SubnetID, &out.SubnetID
 		*out = new(string)
 		**out = **in
 	}

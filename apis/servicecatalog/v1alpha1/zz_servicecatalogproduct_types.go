@@ -28,16 +28,23 @@ type ProvisioningArtifactParametersObservation struct {
 }
 
 type ProvisioningArtifactParametersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DisableTemplateValidation *bool `json:"disableTemplateValidation,omitempty" tf:"disable_template_validation"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	TemplatePhysicalId *string `json:"templatePhysicalId,omitempty" tf:"template_physical_id"`
+	// +kubebuilder:validation:Optional
+	TemplatePhysicalID *string `json:"templatePhysicalId,omitempty" tf:"template_physical_id"`
 
-	TemplateUrl *string `json:"templateUrl,omitempty" tf:"template_url"`
+	// +kubebuilder:validation:Optional
+	TemplateURL *string `json:"templateUrl,omitempty" tf:"template_url"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -52,30 +59,46 @@ type ServicecatalogProductObservation struct {
 }
 
 type ServicecatalogProductParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Distributor *string `json:"distributor,omitempty" tf:"distributor"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Owner string `json:"owner" tf:"owner"`
 
+	// +kubebuilder:validation:Required
 	ProvisioningArtifactParameters []ProvisioningArtifactParametersParameters `json:"provisioningArtifactParameters" tf:"provisioning_artifact_parameters"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SupportDescription *string `json:"supportDescription,omitempty" tf:"support_description"`
 
+	// +kubebuilder:validation:Optional
 	SupportEmail *string `json:"supportEmail,omitempty" tf:"support_email"`
 
-	SupportUrl *string `json:"supportUrl,omitempty" tf:"support_url"`
+	// +kubebuilder:validation:Optional
+	SupportURL *string `json:"supportUrl,omitempty" tf:"support_url"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

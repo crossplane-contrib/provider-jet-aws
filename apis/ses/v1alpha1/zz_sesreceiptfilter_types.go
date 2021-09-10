@@ -29,12 +29,19 @@ type SesReceiptFilterObservation struct {
 }
 
 type SesReceiptFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Cidr string `json:"cidr" tf:"cidr"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Policy string `json:"policy" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

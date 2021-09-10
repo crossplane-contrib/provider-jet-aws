@@ -82,6 +82,8 @@ spec:
                   protocol:
                     type: string
                   region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
                     type: string
                   securityGroupId:
                     type: string
@@ -93,6 +95,7 @@ spec:
                     format: int64
                     type: integer
                   type:
+                    description: Type of rule, ingress (inbound) or egress (outbound).
                     type: string
                 required:
                 - fromPort

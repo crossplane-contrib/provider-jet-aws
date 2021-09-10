@@ -28,8 +28,11 @@ type CreateDatabaseDefaultPermissionsObservation struct {
 }
 
 type CreateDatabaseDefaultPermissionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Permissions []string `json:"permissions,omitempty" tf:"permissions"`
 
+	// +kubebuilder:validation:Optional
 	Principal *string `json:"principal,omitempty" tf:"principal"`
 }
 
@@ -37,8 +40,11 @@ type CreateTableDefaultPermissionsObservation struct {
 }
 
 type CreateTableDefaultPermissionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Permissions []string `json:"permissions,omitempty" tf:"permissions"`
 
+	// +kubebuilder:validation:Optional
 	Principal *string `json:"principal,omitempty" tf:"principal"`
 }
 
@@ -46,16 +52,25 @@ type LakeformationDataLakeSettingsObservation struct {
 }
 
 type LakeformationDataLakeSettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Admins []string `json:"admins,omitempty" tf:"admins"`
 
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
 	CreateDatabaseDefaultPermissions []CreateDatabaseDefaultPermissionsParameters `json:"createDatabaseDefaultPermissions,omitempty" tf:"create_database_default_permissions"`
 
+	// +kubebuilder:validation:Optional
 	CreateTableDefaultPermissions []CreateTableDefaultPermissionsParameters `json:"createTableDefaultPermissions,omitempty" tf:"create_table_default_permissions"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	TrustedResourceOwners []string `json:"trustedResourceOwners,omitempty" tf:"trusted_resource_owners"`
 }
 

@@ -27,26 +27,35 @@ import (
 type CloudhsmV2ClusterObservation struct {
 	ClusterCertificates []ClusterCertificatesObservation `json:"clusterCertificates" tf:"cluster_certificates"`
 
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
+	ClusterID string `json:"clusterId" tf:"cluster_id"`
 
 	ClusterState string `json:"clusterState" tf:"cluster_state"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	SecurityGroupID string `json:"securityGroupId" tf:"security_group_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type CloudhsmV2ClusterParameters struct {
+
+	// +kubebuilder:validation:Required
 	HsmType string `json:"hsmType" tf:"hsm_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SourceBackupIdentifier *string `json:"sourceBackupIdentifier,omitempty" tf:"source_backup_identifier"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

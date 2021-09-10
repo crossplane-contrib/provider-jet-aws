@@ -28,12 +28,19 @@ type SecretsmanagerSecretPolicyObservation struct {
 }
 
 type SecretsmanagerSecretPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BlockPublicPolicy *bool `json:"blockPublicPolicy,omitempty" tf:"block_public_policy"`
 
+	// +kubebuilder:validation:Required
 	Policy string `json:"policy" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SecretArn string `json:"secretArn" tf:"secret_arn"`
 }
 

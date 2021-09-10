@@ -131,8 +131,8 @@ func (in *SqsQueueParameters) DeepCopyInto(out *SqsQueueParameters) {
 		*out = new(int64)
 		**out = **in
 	}
-	if in.KmsMasterKeyId != nil {
-		in, out := &in.KmsMasterKeyId, &out.KmsMasterKeyId
+	if in.KmsMasterKeyID != nil {
+		in, out := &in.KmsMasterKeyID, &out.KmsMasterKeyID
 		*out = new(string)
 		**out = **in
 	}

@@ -28,44 +28,63 @@ type WorkspacePropertiesObservation struct {
 }
 
 type WorkspacePropertiesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ComputeTypeName *string `json:"computeTypeName,omitempty" tf:"compute_type_name"`
 
+	// +kubebuilder:validation:Optional
 	RootVolumeSizeGib *int64 `json:"rootVolumeSizeGib,omitempty" tf:"root_volume_size_gib"`
 
+	// +kubebuilder:validation:Optional
 	RunningMode *string `json:"runningMode,omitempty" tf:"running_mode"`
 
+	// +kubebuilder:validation:Optional
 	RunningModeAutoStopTimeoutInMinutes *int64 `json:"runningModeAutoStopTimeoutInMinutes,omitempty" tf:"running_mode_auto_stop_timeout_in_minutes"`
 
+	// +kubebuilder:validation:Optional
 	UserVolumeSizeGib *int64 `json:"userVolumeSizeGib,omitempty" tf:"user_volume_size_gib"`
 }
 
 type WorkspacesWorkspaceObservation struct {
 	ComputerName string `json:"computerName" tf:"computer_name"`
 
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 
 	State string `json:"state" tf:"state"`
 }
 
 type WorkspacesWorkspaceParameters struct {
-	BundleId string `json:"bundleId" tf:"bundle_id"`
 
-	DirectoryId string `json:"directoryId" tf:"directory_id"`
+	// +kubebuilder:validation:Required
+	BundleID string `json:"bundleId" tf:"bundle_id"`
 
+	// +kubebuilder:validation:Required
+	DirectoryID string `json:"directoryId" tf:"directory_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RootVolumeEncryptionEnabled *bool `json:"rootVolumeEncryptionEnabled,omitempty" tf:"root_volume_encryption_enabled"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	UserName string `json:"userName" tf:"user_name"`
 
+	// +kubebuilder:validation:Optional
 	UserVolumeEncryptionEnabled *bool `json:"userVolumeEncryptionEnabled,omitempty" tf:"user_volume_encryption_enabled"`
 
+	// +kubebuilder:validation:Optional
 	VolumeEncryptionKey *string `json:"volumeEncryptionKey,omitempty" tf:"volume_encryption_key"`
 
+	// +kubebuilder:validation:Optional
 	WorkspaceProperties []WorkspacePropertiesParameters `json:"workspaceProperties,omitempty" tf:"workspace_properties"`
 }
 

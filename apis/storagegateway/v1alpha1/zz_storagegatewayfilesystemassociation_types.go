@@ -28,6 +28,8 @@ type CacheAttributesObservation struct {
 }
 
 type CacheAttributesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CacheStaleTimeoutInSeconds *int64 `json:"cacheStaleTimeoutInSeconds,omitempty" tf:"cache_stale_timeout_in_seconds"`
 }
 
@@ -36,22 +38,34 @@ type StoragegatewayFileSystemAssociationObservation struct {
 }
 
 type StoragegatewayFileSystemAssociationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuditDestinationArn *string `json:"auditDestinationArn,omitempty" tf:"audit_destination_arn"`
 
+	// +kubebuilder:validation:Optional
 	CacheAttributes []CacheAttributesParameters `json:"cacheAttributes,omitempty" tf:"cache_attributes"`
 
+	// +kubebuilder:validation:Required
 	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
 
+	// +kubebuilder:validation:Required
 	LocationArn string `json:"locationArn" tf:"location_arn"`
 
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Username string `json:"username" tf:"username"`
 }
 

@@ -28,24 +28,37 @@ type Route53ResolverFirewallRuleObservation struct {
 }
 
 type Route53ResolverFirewallRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action string `json:"action" tf:"action"`
 
-	BlockOverrideDnsType *string `json:"blockOverrideDnsType,omitempty" tf:"block_override_dns_type"`
+	// +kubebuilder:validation:Optional
+	BlockOverrideDNSType *string `json:"blockOverrideDnsType,omitempty" tf:"block_override_dns_type"`
 
+	// +kubebuilder:validation:Optional
 	BlockOverrideDomain *string `json:"blockOverrideDomain,omitempty" tf:"block_override_domain"`
 
-	BlockOverrideTtl *int64 `json:"blockOverrideTtl,omitempty" tf:"block_override_ttl"`
+	// +kubebuilder:validation:Optional
+	BlockOverrideTTL *int64 `json:"blockOverrideTtl,omitempty" tf:"block_override_ttl"`
 
+	// +kubebuilder:validation:Optional
 	BlockResponse *string `json:"blockResponse,omitempty" tf:"block_response"`
 
-	FirewallDomainListId string `json:"firewallDomainListId" tf:"firewall_domain_list_id"`
+	// +kubebuilder:validation:Required
+	FirewallDomainListID string `json:"firewallDomainListId" tf:"firewall_domain_list_id"`
 
-	FirewallRuleGroupId string `json:"firewallRuleGroupId" tf:"firewall_rule_group_id"`
+	// +kubebuilder:validation:Required
+	FirewallRuleGroupID string `json:"firewallRuleGroupId" tf:"firewall_rule_group_id"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

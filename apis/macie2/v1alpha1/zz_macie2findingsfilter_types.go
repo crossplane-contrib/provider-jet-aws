@@ -28,20 +28,29 @@ type CriterionObservation struct {
 }
 
 type CriterionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Eq []string `json:"eq,omitempty" tf:"eq"`
 
+	// +kubebuilder:validation:Optional
 	EqExactMatch []string `json:"eqExactMatch,omitempty" tf:"eq_exact_match"`
 
+	// +kubebuilder:validation:Required
 	Field string `json:"field" tf:"field"`
 
+	// +kubebuilder:validation:Optional
 	Gt *string `json:"gt,omitempty" tf:"gt"`
 
+	// +kubebuilder:validation:Optional
 	Gte *string `json:"gte,omitempty" tf:"gte"`
 
+	// +kubebuilder:validation:Optional
 	Lt *string `json:"lt,omitempty" tf:"lt"`
 
+	// +kubebuilder:validation:Optional
 	Lte *string `json:"lte,omitempty" tf:"lte"`
 
+	// +kubebuilder:validation:Optional
 	Neq []string `json:"neq,omitempty" tf:"neq"`
 }
 
@@ -49,6 +58,8 @@ type FindingCriteriaObservation struct {
 }
 
 type FindingCriteriaParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Criterion []CriterionParameters `json:"criterion,omitempty" tf:"criterion"`
 }
 
@@ -57,22 +68,34 @@ type Macie2FindingsFilterObservation struct {
 }
 
 type Macie2FindingsFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action string `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	FindingCriteria []FindingCriteriaParameters `json:"findingCriteria" tf:"finding_criteria"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Position *int64 `json:"position,omitempty" tf:"position"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

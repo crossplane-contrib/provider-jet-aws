@@ -29,17 +29,26 @@ type DxHostedPrivateVirtualInterfaceAccepterObservation struct {
 }
 
 type DxHostedPrivateVirtualInterfaceAccepterParameters struct {
-	DxGatewayId *string `json:"dxGatewayId,omitempty" tf:"dx_gateway_id"`
 
+	// +kubebuilder:validation:Optional
+	DxGatewayID *string `json:"dxGatewayId,omitempty" tf:"dx_gateway_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VirtualInterfaceId string `json:"virtualInterfaceId" tf:"virtual_interface_id"`
+	// +kubebuilder:validation:Required
+	VirtualInterfaceID string `json:"virtualInterfaceId" tf:"virtual_interface_id"`
 
-	VpnGatewayId *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
+	// +kubebuilder:validation:Optional
+	VpnGatewayID *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
 }
 
 // DxHostedPrivateVirtualInterfaceAccepterSpec defines the desired state of DxHostedPrivateVirtualInterfaceAccepter

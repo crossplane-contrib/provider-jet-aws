@@ -33,20 +33,31 @@ type EksAddonObservation struct {
 }
 
 type EksAddonParameters struct {
+
+	// +kubebuilder:validation:Required
 	AddonName string `json:"addonName" tf:"addon_name"`
 
+	// +kubebuilder:validation:Optional
 	AddonVersion *string `json:"addonVersion,omitempty" tf:"addon_version"`
 
+	// +kubebuilder:validation:Required
 	ClusterName string `json:"clusterName" tf:"cluster_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ResolveConflicts *string `json:"resolveConflicts,omitempty" tf:"resolve_conflicts"`
 
+	// +kubebuilder:validation:Optional
 	ServiceAccountRoleArn *string `json:"serviceAccountRoleArn,omitempty" tf:"service_account_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

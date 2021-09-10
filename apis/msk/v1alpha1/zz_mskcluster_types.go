@@ -28,10 +28,14 @@ type BrokerLogsObservation struct {
 }
 
 type BrokerLogsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchLogs []CloudwatchLogsParameters `json:"cloudwatchLogs,omitempty" tf:"cloudwatch_logs"`
 
+	// +kubebuilder:validation:Optional
 	Firehose []FirehoseParameters `json:"firehose,omitempty" tf:"firehose"`
 
+	// +kubebuilder:validation:Optional
 	S3 []S3Parameters `json:"s3,omitempty" tf:"s3"`
 }
 
@@ -39,14 +43,20 @@ type BrokerNodeGroupInfoObservation struct {
 }
 
 type BrokerNodeGroupInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AzDistribution *string `json:"azDistribution,omitempty" tf:"az_distribution"`
 
+	// +kubebuilder:validation:Required
 	ClientSubnets []string `json:"clientSubnets" tf:"client_subnets"`
 
+	// +kubebuilder:validation:Required
 	EbsVolumeSize int64 `json:"ebsVolumeSize" tf:"ebs_volume_size"`
 
+	// +kubebuilder:validation:Required
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
+	// +kubebuilder:validation:Required
 	SecurityGroups []string `json:"securityGroups" tf:"security_groups"`
 }
 
@@ -54,17 +64,23 @@ type ClientAuthenticationObservation struct {
 }
 
 type ClientAuthenticationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Sasl []SaslParameters `json:"sasl,omitempty" tf:"sasl"`
 
-	Tls []TlsParameters `json:"tls,omitempty" tf:"tls"`
+	// +kubebuilder:validation:Optional
+	TLS []TLSParameters `json:"tls,omitempty" tf:"tls"`
 }
 
 type CloudwatchLogsObservation struct {
 }
 
 type CloudwatchLogsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogGroup *string `json:"logGroup,omitempty" tf:"log_group"`
 }
 
@@ -72,8 +88,11 @@ type ConfigurationInfoObservation struct {
 }
 
 type ConfigurationInfoParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Required
 	Revision int64 `json:"revision" tf:"revision"`
 }
 
@@ -81,8 +100,11 @@ type EncryptionInTransitObservation struct {
 }
 
 type EncryptionInTransitParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ClientBroker *string `json:"clientBroker,omitempty" tf:"client_broker"`
 
+	// +kubebuilder:validation:Optional
 	InCluster *bool `json:"inCluster,omitempty" tf:"in_cluster"`
 }
 
@@ -90,8 +112,11 @@ type EncryptionInfoObservation struct {
 }
 
 type EncryptionInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EncryptionAtRestKmsKeyArn *string `json:"encryptionAtRestKmsKeyArn,omitempty" tf:"encryption_at_rest_kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionInTransit []EncryptionInTransitParameters `json:"encryptionInTransit,omitempty" tf:"encryption_in_transit"`
 }
 
@@ -99,8 +124,11 @@ type FirehoseObservation struct {
 }
 
 type FirehoseParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeliveryStream *string `json:"deliveryStream,omitempty" tf:"delivery_stream"`
 
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 }
 
@@ -108,6 +136,8 @@ type JmxExporterObservation struct {
 }
 
 type JmxExporterParameters struct {
+
+	// +kubebuilder:validation:Required
 	EnabledInBroker bool `json:"enabledInBroker" tf:"enabled_in_broker"`
 }
 
@@ -115,6 +145,8 @@ type LoggingInfoObservation struct {
 }
 
 type LoggingInfoParameters struct {
+
+	// +kubebuilder:validation:Required
 	BrokerLogs []BrokerLogsParameters `json:"brokerLogs" tf:"broker_logs"`
 }
 
@@ -127,7 +159,7 @@ type MskClusterObservation struct {
 
 	BootstrapBrokersSaslScram string `json:"bootstrapBrokersSaslScram" tf:"bootstrap_brokers_sasl_scram"`
 
-	BootstrapBrokersTls string `json:"bootstrapBrokersTls" tf:"bootstrap_brokers_tls"`
+	BootstrapBrokersTLS string `json:"bootstrapBrokersTls" tf:"bootstrap_brokers_tls"`
 
 	CurrentVersion string `json:"currentVersion" tf:"current_version"`
 
@@ -135,30 +167,46 @@ type MskClusterObservation struct {
 }
 
 type MskClusterParameters struct {
+
+	// +kubebuilder:validation:Required
 	BrokerNodeGroupInfo []BrokerNodeGroupInfoParameters `json:"brokerNodeGroupInfo" tf:"broker_node_group_info"`
 
+	// +kubebuilder:validation:Optional
 	ClientAuthentication []ClientAuthenticationParameters `json:"clientAuthentication,omitempty" tf:"client_authentication"`
 
+	// +kubebuilder:validation:Required
 	ClusterName string `json:"clusterName" tf:"cluster_name"`
 
+	// +kubebuilder:validation:Optional
 	ConfigurationInfo []ConfigurationInfoParameters `json:"configurationInfo,omitempty" tf:"configuration_info"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionInfo []EncryptionInfoParameters `json:"encryptionInfo,omitempty" tf:"encryption_info"`
 
+	// +kubebuilder:validation:Optional
 	EnhancedMonitoring *string `json:"enhancedMonitoring,omitempty" tf:"enhanced_monitoring"`
 
+	// +kubebuilder:validation:Required
 	KafkaVersion string `json:"kafkaVersion" tf:"kafka_version"`
 
+	// +kubebuilder:validation:Optional
 	LoggingInfo []LoggingInfoParameters `json:"loggingInfo,omitempty" tf:"logging_info"`
 
+	// +kubebuilder:validation:Required
 	NumberOfBrokerNodes int64 `json:"numberOfBrokerNodes" tf:"number_of_broker_nodes"`
 
+	// +kubebuilder:validation:Optional
 	OpenMonitoring []OpenMonitoringParameters `json:"openMonitoring,omitempty" tf:"open_monitoring"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -166,6 +214,8 @@ type NodeExporterObservation struct {
 }
 
 type NodeExporterParameters struct {
+
+	// +kubebuilder:validation:Required
 	EnabledInBroker bool `json:"enabledInBroker" tf:"enabled_in_broker"`
 }
 
@@ -173,6 +223,8 @@ type OpenMonitoringObservation struct {
 }
 
 type OpenMonitoringParameters struct {
+
+	// +kubebuilder:validation:Required
 	Prometheus []PrometheusParameters `json:"prometheus" tf:"prometheus"`
 }
 
@@ -180,8 +232,11 @@ type PrometheusObservation struct {
 }
 
 type PrometheusParameters struct {
+
+	// +kubebuilder:validation:Optional
 	JmxExporter []JmxExporterParameters `json:"jmxExporter,omitempty" tf:"jmx_exporter"`
 
+	// +kubebuilder:validation:Optional
 	NodeExporter []NodeExporterParameters `json:"nodeExporter,omitempty" tf:"node_exporter"`
 }
 
@@ -189,10 +244,14 @@ type S3Observation struct {
 }
 
 type S3Parameters struct {
+
+	// +kubebuilder:validation:Optional
 	Bucket *string `json:"bucket,omitempty" tf:"bucket"`
 
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 }
 
@@ -200,15 +259,20 @@ type SaslObservation struct {
 }
 
 type SaslParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Iam *bool `json:"iam,omitempty" tf:"iam"`
 
+	// +kubebuilder:validation:Optional
 	Scram *bool `json:"scram,omitempty" tf:"scram"`
 }
 
-type TlsObservation struct {
+type TLSObservation struct {
 }
 
-type TlsParameters struct {
+type TLSParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CertificateAuthorityArns []string `json:"certificateAuthorityArns,omitempty" tf:"certificate_authority_arns"`
 }
 

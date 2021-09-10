@@ -29,26 +29,40 @@ type ServicecatalogProvisioningArtifactObservation struct {
 }
 
 type ServicecatalogProvisioningArtifactParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
+	// +kubebuilder:validation:Optional
 	Active *bool `json:"active,omitempty" tf:"active"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DisableTemplateValidation *bool `json:"disableTemplateValidation,omitempty" tf:"disable_template_validation"`
 
+	// +kubebuilder:validation:Optional
 	Guidance *string `json:"guidance,omitempty" tf:"guidance"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	ProductId string `json:"productId" tf:"product_id"`
+	// +kubebuilder:validation:Required
+	ProductID string `json:"productId" tf:"product_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	TemplatePhysicalId *string `json:"templatePhysicalId,omitempty" tf:"template_physical_id"`
+	// +kubebuilder:validation:Optional
+	TemplatePhysicalID *string `json:"templatePhysicalId,omitempty" tf:"template_physical_id"`
 
-	TemplateUrl *string `json:"templateUrl,omitempty" tf:"template_url"`
+	// +kubebuilder:validation:Optional
+	TemplateURL *string `json:"templateUrl,omitempty" tf:"template_url"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 

@@ -29,22 +29,34 @@ type CodestarnotificationsNotificationRuleObservation struct {
 }
 
 type CodestarnotificationsNotificationRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	DetailType string `json:"detailType" tf:"detail_type"`
 
+	// +kubebuilder:validation:Required
 	EventTypeIds []string `json:"eventTypeIds" tf:"event_type_ids"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Resource string `json:"resource" tf:"resource"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Target []TargetParameters `json:"target,omitempty" tf:"target"`
 }
 
@@ -53,8 +65,11 @@ type TargetObservation struct {
 }
 
 type TargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Address string `json:"address" tf:"address"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 

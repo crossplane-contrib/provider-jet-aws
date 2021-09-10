@@ -25,7 +25,7 @@ import (
 )
 
 type SecurityhubStandardsControlObservation struct {
-	ControlId string `json:"controlId" tf:"control_id"`
+	ControlID string `json:"controlId" tf:"control_id"`
 
 	ControlStatusUpdatedAt string `json:"controlStatusUpdatedAt" tf:"control_status_updated_at"`
 
@@ -33,7 +33,7 @@ type SecurityhubStandardsControlObservation struct {
 
 	RelatedRequirements []string `json:"relatedRequirements" tf:"related_requirements"`
 
-	RemediationUrl string `json:"remediationUrl" tf:"remediation_url"`
+	RemediationURL string `json:"remediationUrl" tf:"remediation_url"`
 
 	SeverityRating string `json:"severityRating" tf:"severity_rating"`
 
@@ -41,12 +41,19 @@ type SecurityhubStandardsControlObservation struct {
 }
 
 type SecurityhubStandardsControlParameters struct {
+
+	// +kubebuilder:validation:Required
 	ControlStatus string `json:"controlStatus" tf:"control_status"`
 
+	// +kubebuilder:validation:Optional
 	DisabledReason *string `json:"disabledReason,omitempty" tf:"disabled_reason"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	StandardsControlArn string `json:"standardsControlArn" tf:"standards_control_arn"`
 }
 

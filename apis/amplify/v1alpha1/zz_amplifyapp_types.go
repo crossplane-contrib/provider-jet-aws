@@ -33,44 +33,67 @@ type AmplifyAppObservation struct {
 }
 
 type AmplifyAppParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessToken *string `json:"accessToken,omitempty" tf:"access_token"`
 
+	// +kubebuilder:validation:Optional
 	AutoBranchCreationConfig []AutoBranchCreationConfigParameters `json:"autoBranchCreationConfig,omitempty" tf:"auto_branch_creation_config"`
 
+	// +kubebuilder:validation:Optional
 	AutoBranchCreationPatterns []string `json:"autoBranchCreationPatterns,omitempty" tf:"auto_branch_creation_patterns"`
 
+	// +kubebuilder:validation:Optional
 	BasicAuthCredentials *string `json:"basicAuthCredentials,omitempty" tf:"basic_auth_credentials"`
 
+	// +kubebuilder:validation:Optional
 	BuildSpec *string `json:"buildSpec,omitempty" tf:"build_spec"`
 
+	// +kubebuilder:validation:Optional
 	CustomRule []CustomRuleParameters `json:"customRule,omitempty" tf:"custom_rule"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	EnableAutoBranchCreation *bool `json:"enableAutoBranchCreation,omitempty" tf:"enable_auto_branch_creation"`
 
+	// +kubebuilder:validation:Optional
 	EnableBasicAuth *bool `json:"enableBasicAuth,omitempty" tf:"enable_basic_auth"`
 
+	// +kubebuilder:validation:Optional
 	EnableBranchAutoBuild *bool `json:"enableBranchAutoBuild,omitempty" tf:"enable_branch_auto_build"`
 
+	// +kubebuilder:validation:Optional
 	EnableBranchAutoDeletion *bool `json:"enableBranchAutoDeletion,omitempty" tf:"enable_branch_auto_deletion"`
 
+	// +kubebuilder:validation:Optional
 	EnvironmentVariables map[string]string `json:"environmentVariables,omitempty" tf:"environment_variables"`
 
+	// +kubebuilder:validation:Optional
 	IamServiceRoleArn *string `json:"iamServiceRoleArn,omitempty" tf:"iam_service_role_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	OauthToken *string `json:"oauthToken,omitempty" tf:"oauth_token"`
 
+	// +kubebuilder:validation:Optional
 	Platform *string `json:"platform,omitempty" tf:"platform"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Repository *string `json:"repository,omitempty" tf:"repository"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -78,24 +101,35 @@ type AutoBranchCreationConfigObservation struct {
 }
 
 type AutoBranchCreationConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BasicAuthCredentials *string `json:"basicAuthCredentials,omitempty" tf:"basic_auth_credentials"`
 
+	// +kubebuilder:validation:Optional
 	BuildSpec *string `json:"buildSpec,omitempty" tf:"build_spec"`
 
+	// +kubebuilder:validation:Optional
 	EnableAutoBuild *bool `json:"enableAutoBuild,omitempty" tf:"enable_auto_build"`
 
+	// +kubebuilder:validation:Optional
 	EnableBasicAuth *bool `json:"enableBasicAuth,omitempty" tf:"enable_basic_auth"`
 
+	// +kubebuilder:validation:Optional
 	EnablePerformanceMode *bool `json:"enablePerformanceMode,omitempty" tf:"enable_performance_mode"`
 
+	// +kubebuilder:validation:Optional
 	EnablePullRequestPreview *bool `json:"enablePullRequestPreview,omitempty" tf:"enable_pull_request_preview"`
 
+	// +kubebuilder:validation:Optional
 	EnvironmentVariables map[string]string `json:"environmentVariables,omitempty" tf:"environment_variables"`
 
+	// +kubebuilder:validation:Optional
 	Framework *string `json:"framework,omitempty" tf:"framework"`
 
+	// +kubebuilder:validation:Optional
 	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName,omitempty" tf:"pull_request_environment_name"`
 
+	// +kubebuilder:validation:Optional
 	Stage *string `json:"stage,omitempty" tf:"stage"`
 }
 
@@ -103,12 +137,17 @@ type CustomRuleObservation struct {
 }
 
 type CustomRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Condition *string `json:"condition,omitempty" tf:"condition"`
 
+	// +kubebuilder:validation:Required
 	Source string `json:"source" tf:"source"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
+	// +kubebuilder:validation:Required
 	Target string `json:"target" tf:"target"`
 }
 
@@ -119,7 +158,7 @@ type ProductionBranchObservation struct {
 
 	Status string `json:"status" tf:"status"`
 
-	ThumbnailUrl string `json:"thumbnailUrl" tf:"thumbnail_url"`
+	ThumbnailURL string `json:"thumbnailUrl" tf:"thumbnail_url"`
 }
 
 type ProductionBranchParameters struct {

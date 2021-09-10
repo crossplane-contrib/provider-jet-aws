@@ -28,18 +28,26 @@ type DestinationObservation struct {
 }
 
 type DestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"region"`
 
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	// +kubebuilder:validation:Required
+	RegistryID string `json:"registryId" tf:"registry_id"`
 }
 
 type EcrReplicationConfigurationObservation struct {
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	RegistryID string `json:"registryId" tf:"registry_id"`
 }
 
 type EcrReplicationConfigurationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ReplicationConfiguration []ReplicationConfigurationParameters `json:"replicationConfiguration,omitempty" tf:"replication_configuration"`
 }
 
@@ -47,6 +55,8 @@ type ReplicationConfigurationObservation struct {
 }
 
 type ReplicationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Rule []RuleParameters `json:"rule" tf:"rule"`
 }
 
@@ -54,6 +64,8 @@ type RuleObservation struct {
 }
 
 type RuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Destination []DestinationParameters `json:"destination" tf:"destination"`
 }
 

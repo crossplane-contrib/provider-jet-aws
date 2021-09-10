@@ -28,14 +28,20 @@ type BucketObservation struct {
 }
 
 type BucketParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
 
+	// +kubebuilder:validation:Optional
+	AccountID *string `json:"accountId,omitempty" tf:"account_id"`
+
+	// +kubebuilder:validation:Required
 	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
 
+	// +kubebuilder:validation:Optional
 	Encryption []EncryptionParameters `json:"encryption,omitempty" tf:"encryption"`
 
+	// +kubebuilder:validation:Required
 	Format string `json:"format" tf:"format"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 }
 
@@ -43,8 +49,11 @@ type EncryptionObservation struct {
 }
 
 type EncryptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	SseKms []SseKmsParameters `json:"sseKms,omitempty" tf:"sse_kms"`
 
+	// +kubebuilder:validation:Optional
 	SseS3 []SseS3Parameters `json:"sseS3,omitempty" tf:"sse_s3"`
 }
 
@@ -52,6 +61,8 @@ type S3BucketInventoryDestinationObservation struct {
 }
 
 type S3BucketInventoryDestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket []BucketParameters `json:"bucket" tf:"bucket"`
 }
 
@@ -59,6 +70,8 @@ type S3BucketInventoryFilterObservation struct {
 }
 
 type S3BucketInventoryFilterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 }
 
@@ -66,22 +79,34 @@ type S3BucketInventoryObservation struct {
 }
 
 type S3BucketInventoryParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Required
 	Destination []S3BucketInventoryDestinationParameters `json:"destination" tf:"destination"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Filter []S3BucketInventoryFilterParameters `json:"filter,omitempty" tf:"filter"`
 
+	// +kubebuilder:validation:Required
 	IncludedObjectVersions string `json:"includedObjectVersions" tf:"included_object_versions"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	OptionalFields []string `json:"optionalFields,omitempty" tf:"optional_fields"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Schedule []ScheduleParameters `json:"schedule" tf:"schedule"`
 }
 
@@ -89,6 +114,8 @@ type ScheduleObservation struct {
 }
 
 type ScheduleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Frequency string `json:"frequency" tf:"frequency"`
 }
 
@@ -96,7 +123,9 @@ type SseKmsObservation struct {
 }
 
 type SseKmsParameters struct {
-	KeyId string `json:"keyId" tf:"key_id"`
+
+	// +kubebuilder:validation:Required
+	KeyID string `json:"keyId" tf:"key_id"`
 }
 
 type SseS3Observation struct {

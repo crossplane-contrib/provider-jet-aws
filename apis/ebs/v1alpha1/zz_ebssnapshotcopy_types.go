@@ -27,32 +27,43 @@ import (
 type EbsSnapshotCopyObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DataEncryptionKeyId string `json:"dataEncryptionKeyId" tf:"data_encryption_key_id"`
+	DataEncryptionKeyID string `json:"dataEncryptionKeyId" tf:"data_encryption_key_id"`
 
 	OwnerAlias string `json:"ownerAlias" tf:"owner_alias"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeId" tf:"volume_id"`
 
 	VolumeSize int64 `json:"volumeSize" tf:"volume_size"`
 }
 
 type EbsSnapshotCopyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SourceRegion string `json:"sourceRegion" tf:"source_region"`
 
-	SourceSnapshotId string `json:"sourceSnapshotId" tf:"source_snapshot_id"`
+	// +kubebuilder:validation:Required
+	SourceSnapshotID string `json:"sourceSnapshotId" tf:"source_snapshot_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

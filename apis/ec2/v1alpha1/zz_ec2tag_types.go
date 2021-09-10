@@ -28,12 +28,19 @@ type Ec2TagObservation struct {
 }
 
 type Ec2TagParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

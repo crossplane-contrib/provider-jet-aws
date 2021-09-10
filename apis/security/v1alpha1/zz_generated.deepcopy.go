@@ -52,8 +52,8 @@ func (in *EgressParameters) DeepCopyInto(out *EgressParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Ipv6CidrBlocks != nil {
-		in, out := &in.Ipv6CidrBlocks, &out.Ipv6CidrBlocks
+	if in.IPv6CidrBlocks != nil {
+		in, out := &in.IPv6CidrBlocks, &out.IPv6CidrBlocks
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
@@ -112,8 +112,8 @@ func (in *IngressParameters) DeepCopyInto(out *IngressParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Ipv6CidrBlocks != nil {
-		in, out := &in.Ipv6CidrBlocks, &out.Ipv6CidrBlocks
+	if in.IPv6CidrBlocks != nil {
+		in, out := &in.IPv6CidrBlocks, &out.IPv6CidrBlocks
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
@@ -269,8 +269,8 @@ func (in *SecurityGroupParameters) DeepCopyInto(out *SecurityGroupParameters) {
 			(*out)[key] = val
 		}
 	}
-	if in.VpcId != nil {
-		in, out := &in.VpcId, &out.VpcId
+	if in.VpcID != nil {
+		in, out := &in.VpcID, &out.VpcID
 		*out = new(string)
 		**out = **in
 	}
@@ -373,8 +373,8 @@ func (in *SecurityGroupRuleParameters) DeepCopyInto(out *SecurityGroupRuleParame
 		*out = new(string)
 		**out = **in
 	}
-	if in.Ipv6CidrBlocks != nil {
-		in, out := &in.Ipv6CidrBlocks, &out.Ipv6CidrBlocks
+	if in.IPv6CidrBlocks != nil {
+		in, out := &in.IPv6CidrBlocks, &out.IPv6CidrBlocks
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
@@ -388,8 +388,8 @@ func (in *SecurityGroupRuleParameters) DeepCopyInto(out *SecurityGroupRuleParame
 		*out = new(bool)
 		**out = **in
 	}
-	if in.SourceSecurityGroupId != nil {
-		in, out := &in.SourceSecurityGroupId, &out.SourceSecurityGroupId
+	if in.SourceSecurityGroupID != nil {
+		in, out := &in.SourceSecurityGroupID, &out.SourceSecurityGroupID
 		*out = new(string)
 		**out = **in
 	}

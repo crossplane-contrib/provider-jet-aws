@@ -29,20 +29,31 @@ type AthenaWorkgroupObservation struct {
 }
 
 type AthenaWorkgroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Configuration []ConfigurationParameters `json:"configuration,omitempty" tf:"configuration"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	State *string `json:"state,omitempty" tf:"state"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -50,14 +61,20 @@ type ConfigurationObservation struct {
 }
 
 type ConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BytesScannedCutoffPerQuery *int64 `json:"bytesScannedCutoffPerQuery,omitempty" tf:"bytes_scanned_cutoff_per_query"`
 
+	// +kubebuilder:validation:Optional
 	EnforceWorkgroupConfiguration *bool `json:"enforceWorkgroupConfiguration,omitempty" tf:"enforce_workgroup_configuration"`
 
+	// +kubebuilder:validation:Optional
 	PublishCloudwatchMetricsEnabled *bool `json:"publishCloudwatchMetricsEnabled,omitempty" tf:"publish_cloudwatch_metrics_enabled"`
 
+	// +kubebuilder:validation:Optional
 	RequesterPaysEnabled *bool `json:"requesterPaysEnabled,omitempty" tf:"requester_pays_enabled"`
 
+	// +kubebuilder:validation:Optional
 	ResultConfiguration []ResultConfigurationParameters `json:"resultConfiguration,omitempty" tf:"result_configuration"`
 }
 
@@ -65,8 +82,11 @@ type ResultConfigurationEncryptionConfigurationObservation struct {
 }
 
 type ResultConfigurationEncryptionConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EncryptionOption *string `json:"encryptionOption,omitempty" tf:"encryption_option"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 }
 
@@ -74,8 +94,11 @@ type ResultConfigurationObservation struct {
 }
 
 type ResultConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EncryptionConfiguration []ResultConfigurationEncryptionConfigurationParameters `json:"encryptionConfiguration,omitempty" tf:"encryption_configuration"`
 
+	// +kubebuilder:validation:Optional
 	OutputLocation *string `json:"outputLocation,omitempty" tf:"output_location"`
 }
 

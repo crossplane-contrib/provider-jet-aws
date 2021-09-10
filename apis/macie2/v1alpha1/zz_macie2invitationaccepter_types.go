@@ -25,12 +25,17 @@ import (
 )
 
 type Macie2InvitationAccepterObservation struct {
-	InvitationId string `json:"invitationId" tf:"invitation_id"`
+	InvitationID string `json:"invitationId" tf:"invitation_id"`
 }
 
 type Macie2InvitationAccepterParameters struct {
-	AdministratorAccountId string `json:"administratorAccountId" tf:"administrator_account_id"`
 
+	// +kubebuilder:validation:Required
+	AdministratorAccountID string `json:"administratorAccountId" tf:"administrator_account_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

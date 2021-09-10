@@ -29,14 +29,22 @@ type SecretsmanagerSecretRotationObservation struct {
 }
 
 type SecretsmanagerSecretRotationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RotationLambdaArn string `json:"rotationLambdaArn" tf:"rotation_lambda_arn"`
 
+	// +kubebuilder:validation:Required
 	RotationRules []SecretsmanagerSecretRotationRotationRulesParameters `json:"rotationRules" tf:"rotation_rules"`
 
-	SecretId string `json:"secretId" tf:"secret_id"`
+	// +kubebuilder:validation:Required
+	SecretID string `json:"secretId" tf:"secret_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 }
 
@@ -44,6 +52,8 @@ type SecretsmanagerSecretRotationRotationRulesObservation struct {
 }
 
 type SecretsmanagerSecretRotationRotationRulesParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutomaticallyAfterDays int64 `json:"automaticallyAfterDays" tf:"automatically_after_days"`
 }
 

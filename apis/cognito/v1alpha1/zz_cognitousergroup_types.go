@@ -28,17 +28,26 @@ type CognitoUserGroupObservation struct {
 }
 
 type CognitoUserGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Precedence *int64 `json:"precedence,omitempty" tf:"precedence"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	// +kubebuilder:validation:Required
+	UserPoolID string `json:"userPoolId" tf:"user_pool_id"`
 }
 
 // CognitoUserGroupSpec defines the desired state of CognitoUserGroup

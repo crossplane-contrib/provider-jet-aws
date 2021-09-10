@@ -31,22 +31,34 @@ type CodeartifactRepositoryObservation struct {
 }
 
 type CodeartifactRepositoryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Domain string `json:"domain" tf:"domain"`
 
+	// +kubebuilder:validation:Optional
 	DomainOwner *string `json:"domainOwner,omitempty" tf:"domain_owner"`
 
+	// +kubebuilder:validation:Optional
 	ExternalConnections []ExternalConnectionsParameters `json:"externalConnections,omitempty" tf:"external_connections"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Repository string `json:"repository" tf:"repository"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Upstream []UpstreamParameters `json:"upstream,omitempty" tf:"upstream"`
 }
 
@@ -57,6 +69,8 @@ type ExternalConnectionsObservation struct {
 }
 
 type ExternalConnectionsParameters struct {
+
+	// +kubebuilder:validation:Required
 	ExternalConnectionName string `json:"externalConnectionName" tf:"external_connection_name"`
 }
 
@@ -64,6 +78,8 @@ type UpstreamObservation struct {
 }
 
 type UpstreamParameters struct {
+
+	// +kubebuilder:validation:Required
 	RepositoryName string `json:"repositoryName" tf:"repository_name"`
 }
 

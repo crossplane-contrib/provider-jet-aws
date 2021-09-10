@@ -28,14 +28,22 @@ type DynamodbTableItemObservation struct {
 }
 
 type DynamodbTableItemParameters struct {
+
+	// +kubebuilder:validation:Required
 	HashKey string `json:"hashKey" tf:"hash_key"`
 
+	// +kubebuilder:validation:Required
 	Item string `json:"item" tf:"item"`
 
+	// +kubebuilder:validation:Optional
 	RangeKey *string `json:"rangeKey,omitempty" tf:"range_key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 }
 

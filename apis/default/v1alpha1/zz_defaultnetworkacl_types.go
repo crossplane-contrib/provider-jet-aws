@@ -27,24 +27,34 @@ import (
 type DefaultNetworkAclObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type DefaultNetworkAclParameters struct {
-	DefaultNetworkAclId string `json:"defaultNetworkAclId" tf:"default_network_acl_id"`
 
+	// +kubebuilder:validation:Required
+	DefaultNetworkACLID string `json:"defaultNetworkAclId" tf:"default_network_acl_id"`
+
+	// +kubebuilder:validation:Optional
 	Egress []EgressParameters `json:"egress,omitempty" tf:"egress"`
 
+	// +kubebuilder:validation:Optional
 	Ingress []IngressParameters `json:"ingress,omitempty" tf:"ingress"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -52,22 +62,32 @@ type EgressObservation struct {
 }
 
 type EgressParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action string `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Optional
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block"`
 
+	// +kubebuilder:validation:Required
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
+	// +kubebuilder:validation:Optional
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+
+	// +kubebuilder:validation:Optional
 	IcmpCode *int64 `json:"icmpCode,omitempty" tf:"icmp_code"`
 
+	// +kubebuilder:validation:Optional
 	IcmpType *int64 `json:"icmpType,omitempty" tf:"icmp_type"`
 
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
-
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// +kubebuilder:validation:Required
 	RuleNo int64 `json:"ruleNo" tf:"rule_no"`
 
+	// +kubebuilder:validation:Required
 	ToPort int64 `json:"toPort" tf:"to_port"`
 }
 
@@ -75,22 +95,32 @@ type IngressObservation struct {
 }
 
 type IngressParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action string `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Optional
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block"`
 
+	// +kubebuilder:validation:Required
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
+	// +kubebuilder:validation:Optional
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+
+	// +kubebuilder:validation:Optional
 	IcmpCode *int64 `json:"icmpCode,omitempty" tf:"icmp_code"`
 
+	// +kubebuilder:validation:Optional
 	IcmpType *int64 `json:"icmpType,omitempty" tf:"icmp_type"`
 
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
-
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// +kubebuilder:validation:Required
 	RuleNo int64 `json:"ruleNo" tf:"rule_no"`
 
+	// +kubebuilder:validation:Required
 	ToPort int64 `json:"toPort" tf:"to_port"`
 }
 

@@ -539,6 +539,11 @@ func (in *AmplifyBranchParameters) DeepCopyInto(out *AmplifyBranchParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.TTL != nil {
+		in, out := &in.TTL, &out.TTL
+		*out = new(string)
+		**out = **in
+	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
 		*out = make(map[string]string, len(*in))
@@ -552,11 +557,6 @@ func (in *AmplifyBranchParameters) DeepCopyInto(out *AmplifyBranchParameters) {
 		for key, val := range *in {
 			(*out)[key] = val
 		}
-	}
-	if in.Ttl != nil {
-		in, out := &in.Ttl, &out.Ttl
-		*out = new(string)
-		**out = **in
 	}
 }
 

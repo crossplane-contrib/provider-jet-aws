@@ -27,30 +27,43 @@ import (
 type RedshiftEventSubscriptionObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	CustomerAwsId string `json:"customerAwsId" tf:"customer_aws_id"`
+	CustomerAwsID string `json:"customerAwsId" tf:"customer_aws_id"`
 
 	Status string `json:"status" tf:"status"`
 }
 
 type RedshiftEventSubscriptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	EventCategories []string `json:"eventCategories,omitempty" tf:"event_categories"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Severity *string `json:"severity,omitempty" tf:"severity"`
 
+	// +kubebuilder:validation:Required
 	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
 
+	// +kubebuilder:validation:Optional
 	SourceIds []string `json:"sourceIds,omitempty" tf:"source_ids"`
 
+	// +kubebuilder:validation:Optional
 	SourceType *string `json:"sourceType,omitempty" tf:"source_type"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

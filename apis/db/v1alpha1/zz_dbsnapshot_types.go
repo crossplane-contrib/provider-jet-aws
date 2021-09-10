@@ -29,7 +29,7 @@ type DbSnapshotObservation struct {
 
 	AvailabilityZone string `json:"availabilityZone" tf:"availability_zone"`
 
-	DbSnapshotArn string `json:"dbSnapshotArn" tf:"db_snapshot_arn"`
+	DBSnapshotArn string `json:"dbSnapshotArn" tf:"db_snapshot_arn"`
 
 	Encrypted bool `json:"encrypted" tf:"encrypted"`
 
@@ -39,7 +39,7 @@ type DbSnapshotObservation struct {
 
 	Iops int64 `json:"iops" tf:"iops"`
 
-	KmsKeyId string `json:"kmsKeyId" tf:"kms_key_id"`
+	KmsKeyID string `json:"kmsKeyId" tf:"kms_key_id"`
 
 	LicenseModel string `json:"licenseModel" tf:"license_model"`
 
@@ -49,7 +49,7 @@ type DbSnapshotObservation struct {
 
 	SnapshotType string `json:"snapshotType" tf:"snapshot_type"`
 
-	SourceDbSnapshotIdentifier string `json:"sourceDbSnapshotIdentifier" tf:"source_db_snapshot_identifier"`
+	SourceDBSnapshotIdentifier string `json:"sourceDbSnapshotIdentifier" tf:"source_db_snapshot_identifier"`
 
 	SourceRegion string `json:"sourceRegion" tf:"source_region"`
 
@@ -57,18 +57,26 @@ type DbSnapshotObservation struct {
 
 	StorageType string `json:"storageType" tf:"storage_type"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type DbSnapshotParameters struct {
-	DbInstanceIdentifier string `json:"dbInstanceIdentifier" tf:"db_instance_identifier"`
 
-	DbSnapshotIdentifier string `json:"dbSnapshotIdentifier" tf:"db_snapshot_identifier"`
+	// +kubebuilder:validation:Required
+	DBInstanceIdentifier string `json:"dbInstanceIdentifier" tf:"db_instance_identifier"`
 
+	// +kubebuilder:validation:Required
+	DBSnapshotIdentifier string `json:"dbSnapshotIdentifier" tf:"db_snapshot_identifier"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

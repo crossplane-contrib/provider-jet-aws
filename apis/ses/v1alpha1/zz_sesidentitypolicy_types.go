@@ -28,12 +28,19 @@ type SesIdentityPolicyObservation struct {
 }
 
 type SesIdentityPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Identity string `json:"identity" tf:"identity"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Policy string `json:"policy" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

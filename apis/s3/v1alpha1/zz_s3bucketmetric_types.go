@@ -28,8 +28,11 @@ type S3BucketMetricFilterObservation struct {
 }
 
 type S3BucketMetricFilterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 }
 
@@ -37,12 +40,19 @@ type S3BucketMetricObservation struct {
 }
 
 type S3BucketMetricParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	Filter []S3BucketMetricFilterParameters `json:"filter,omitempty" tf:"filter"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

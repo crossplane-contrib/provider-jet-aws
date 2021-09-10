@@ -29,28 +29,43 @@ type CurReportDefinitionObservation struct {
 }
 
 type CurReportDefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AdditionalArtifacts []string `json:"additionalArtifacts,omitempty" tf:"additional_artifacts"`
 
+	// +kubebuilder:validation:Required
 	AdditionalSchemaElements []string `json:"additionalSchemaElements" tf:"additional_schema_elements"`
 
+	// +kubebuilder:validation:Required
 	Compression string `json:"compression" tf:"compression"`
 
+	// +kubebuilder:validation:Required
 	Format string `json:"format" tf:"format"`
 
+	// +kubebuilder:validation:Optional
 	RefreshClosedReports *bool `json:"refreshClosedReports,omitempty" tf:"refresh_closed_reports"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ReportName string `json:"reportName" tf:"report_name"`
 
+	// +kubebuilder:validation:Optional
 	ReportVersioning *string `json:"reportVersioning,omitempty" tf:"report_versioning"`
 
+	// +kubebuilder:validation:Required
 	S3Bucket string `json:"s3Bucket" tf:"s3_bucket"`
 
+	// +kubebuilder:validation:Optional
 	S3Prefix *string `json:"s3Prefix,omitempty" tf:"s3_prefix"`
 
+	// +kubebuilder:validation:Required
 	S3Region string `json:"s3Region" tf:"s3_region"`
 
+	// +kubebuilder:validation:Required
 	TimeUnit string `json:"timeUnit" tf:"time_unit"`
 }
 

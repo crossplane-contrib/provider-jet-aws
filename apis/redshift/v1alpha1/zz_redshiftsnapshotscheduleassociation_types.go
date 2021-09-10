@@ -28,10 +28,16 @@ type RedshiftSnapshotScheduleAssociationObservation struct {
 }
 
 type RedshiftSnapshotScheduleAssociationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ClusterIdentifier string `json:"clusterIdentifier" tf:"cluster_identifier"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ScheduleIdentifier string `json:"scheduleIdentifier" tf:"schedule_identifier"`
 }
 

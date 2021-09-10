@@ -25,18 +25,26 @@ import (
 )
 
 type CodedeployDeploymentConfigObservation struct {
-	DeploymentConfigId string `json:"deploymentConfigId" tf:"deployment_config_id"`
+	DeploymentConfigID string `json:"deploymentConfigId" tf:"deployment_config_id"`
 }
 
 type CodedeployDeploymentConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ComputePlatform *string `json:"computePlatform,omitempty" tf:"compute_platform"`
 
+	// +kubebuilder:validation:Required
 	DeploymentConfigName string `json:"deploymentConfigName" tf:"deployment_config_name"`
 
+	// +kubebuilder:validation:Optional
 	MinimumHealthyHosts []MinimumHealthyHostsParameters `json:"minimumHealthyHosts,omitempty" tf:"minimum_healthy_hosts"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	TrafficRoutingConfig []TrafficRoutingConfigParameters `json:"trafficRoutingConfig,omitempty" tf:"traffic_routing_config"`
 }
 
@@ -44,8 +52,11 @@ type MinimumHealthyHostsObservation struct {
 }
 
 type MinimumHealthyHostsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	Value *int64 `json:"value,omitempty" tf:"value"`
 }
 
@@ -53,8 +64,11 @@ type TimeBasedCanaryObservation struct {
 }
 
 type TimeBasedCanaryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Interval *int64 `json:"interval,omitempty" tf:"interval"`
 
+	// +kubebuilder:validation:Optional
 	Percentage *int64 `json:"percentage,omitempty" tf:"percentage"`
 }
 
@@ -62,8 +76,11 @@ type TimeBasedLinearObservation struct {
 }
 
 type TimeBasedLinearParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Interval *int64 `json:"interval,omitempty" tf:"interval"`
 
+	// +kubebuilder:validation:Optional
 	Percentage *int64 `json:"percentage,omitempty" tf:"percentage"`
 }
 
@@ -71,10 +88,14 @@ type TrafficRoutingConfigObservation struct {
 }
 
 type TrafficRoutingConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	TimeBasedCanary []TimeBasedCanaryParameters `json:"timeBasedCanary,omitempty" tf:"time_based_canary"`
 
+	// +kubebuilder:validation:Optional
 	TimeBasedLinear []TimeBasedLinearParameters `json:"timeBasedLinear,omitempty" tf:"time_based_linear"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 

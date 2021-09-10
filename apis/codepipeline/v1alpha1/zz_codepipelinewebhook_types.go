@@ -28,32 +28,47 @@ type AuthenticationConfigurationObservation struct {
 }
 
 type AuthenticationConfigurationParameters struct {
-	AllowedIpRange *string `json:"allowedIpRange,omitempty" tf:"allowed_ip_range"`
 
+	// +kubebuilder:validation:Optional
+	AllowedIPRange *string `json:"allowedIpRange,omitempty" tf:"allowed_ip_range"`
+
+	// +kubebuilder:validation:Optional
 	SecretToken *string `json:"secretToken,omitempty" tf:"secret_token"`
 }
 
 type CodepipelineWebhookObservation struct {
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type CodepipelineWebhookParameters struct {
+
+	// +kubebuilder:validation:Required
 	Authentication string `json:"authentication" tf:"authentication"`
 
+	// +kubebuilder:validation:Optional
 	AuthenticationConfiguration []AuthenticationConfigurationParameters `json:"authenticationConfiguration,omitempty" tf:"authentication_configuration"`
 
+	// +kubebuilder:validation:Required
 	Filter []FilterParameters `json:"filter" tf:"filter"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	TargetAction string `json:"targetAction" tf:"target_action"`
 
+	// +kubebuilder:validation:Required
 	TargetPipeline string `json:"targetPipeline" tf:"target_pipeline"`
 }
 
@@ -61,8 +76,11 @@ type FilterObservation struct {
 }
 
 type FilterParameters struct {
-	JsonPath string `json:"jsonPath" tf:"json_path"`
 
+	// +kubebuilder:validation:Required
+	JSONPath string `json:"jsonPath" tf:"json_path"`
+
+	// +kubebuilder:validation:Required
 	MatchEquals string `json:"matchEquals" tf:"match_equals"`
 }
 

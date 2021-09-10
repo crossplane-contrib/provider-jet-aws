@@ -28,10 +28,16 @@ type MskScramSecretAssociationObservation struct {
 }
 
 type MskScramSecretAssociationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ClusterArn string `json:"clusterArn" tf:"cluster_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SecretArnList []string `json:"secretArnList" tf:"secret_arn_list"`
 }
 

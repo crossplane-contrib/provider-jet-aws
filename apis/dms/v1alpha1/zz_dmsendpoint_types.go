@@ -29,46 +29,70 @@ type DmsEndpointObservation struct {
 }
 
 type DmsEndpointParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn"`
 
+	// +kubebuilder:validation:Optional
 	DatabaseName *string `json:"databaseName,omitempty" tf:"database_name"`
 
+	// +kubebuilder:validation:Optional
 	ElasticsearchSettings []ElasticsearchSettingsParameters `json:"elasticsearchSettings,omitempty" tf:"elasticsearch_settings"`
 
-	EndpointId string `json:"endpointId" tf:"endpoint_id"`
+	// +kubebuilder:validation:Required
+	EndpointID string `json:"endpointId" tf:"endpoint_id"`
 
+	// +kubebuilder:validation:Required
 	EndpointType string `json:"endpointType" tf:"endpoint_type"`
 
+	// +kubebuilder:validation:Required
 	EngineName string `json:"engineName" tf:"engine_name"`
 
+	// +kubebuilder:validation:Optional
 	ExtraConnectionAttributes *string `json:"extraConnectionAttributes,omitempty" tf:"extra_connection_attributes"`
 
+	// +kubebuilder:validation:Optional
 	KafkaSettings []KafkaSettingsParameters `json:"kafkaSettings,omitempty" tf:"kafka_settings"`
 
+	// +kubebuilder:validation:Optional
 	KinesisSettings []KinesisSettingsParameters `json:"kinesisSettings,omitempty" tf:"kinesis_settings"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	MongodbSettings []MongodbSettingsParameters `json:"mongodbSettings,omitempty" tf:"mongodb_settings"`
 
+	// +kubebuilder:validation:Optional
 	Password *string `json:"password,omitempty" tf:"password"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	S3Settings []S3SettingsParameters `json:"s3Settings,omitempty" tf:"s3_settings"`
 
+	// +kubebuilder:validation:Optional
 	ServerName *string `json:"serverName,omitempty" tf:"server_name"`
 
+	// +kubebuilder:validation:Optional
 	ServiceAccessRole *string `json:"serviceAccessRole,omitempty" tf:"service_access_role"`
 
+	// +kubebuilder:validation:Optional
 	SslMode *string `json:"sslMode,omitempty" tf:"ssl_mode"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Username *string `json:"username,omitempty" tf:"username"`
 }
 
@@ -76,12 +100,17 @@ type ElasticsearchSettingsObservation struct {
 }
 
 type ElasticsearchSettingsParameters struct {
-	EndpointUri string `json:"endpointUri" tf:"endpoint_uri"`
 
+	// +kubebuilder:validation:Required
+	EndpointURI string `json:"endpointUri" tf:"endpoint_uri"`
+
+	// +kubebuilder:validation:Optional
 	ErrorRetryDuration *int64 `json:"errorRetryDuration,omitempty" tf:"error_retry_duration"`
 
+	// +kubebuilder:validation:Optional
 	FullLoadErrorPercentage *int64 `json:"fullLoadErrorPercentage,omitempty" tf:"full_load_error_percentage"`
 
+	// +kubebuilder:validation:Required
 	ServiceAccessRoleArn string `json:"serviceAccessRoleArn" tf:"service_access_role_arn"`
 }
 
@@ -89,8 +118,11 @@ type KafkaSettingsObservation struct {
 }
 
 type KafkaSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Broker string `json:"broker" tf:"broker"`
 
+	// +kubebuilder:validation:Optional
 	Topic *string `json:"topic,omitempty" tf:"topic"`
 }
 
@@ -98,10 +130,14 @@ type KinesisSettingsObservation struct {
 }
 
 type KinesisSettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MessageFormat *string `json:"messageFormat,omitempty" tf:"message_format"`
 
+	// +kubebuilder:validation:Optional
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn,omitempty" tf:"service_access_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	StreamArn *string `json:"streamArn,omitempty" tf:"stream_arn"`
 }
 
@@ -109,16 +145,23 @@ type MongodbSettingsObservation struct {
 }
 
 type MongodbSettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuthMechanism *string `json:"authMechanism,omitempty" tf:"auth_mechanism"`
 
+	// +kubebuilder:validation:Optional
 	AuthSource *string `json:"authSource,omitempty" tf:"auth_source"`
 
+	// +kubebuilder:validation:Optional
 	AuthType *string `json:"authType,omitempty" tf:"auth_type"`
 
+	// +kubebuilder:validation:Optional
 	DocsToInvestigate *string `json:"docsToInvestigate,omitempty" tf:"docs_to_investigate"`
 
-	ExtractDocId *string `json:"extractDocId,omitempty" tf:"extract_doc_id"`
+	// +kubebuilder:validation:Optional
+	ExtractDocID *string `json:"extractDocId,omitempty" tf:"extract_doc_id"`
 
+	// +kubebuilder:validation:Optional
 	NestingLevel *string `json:"nestingLevel,omitempty" tf:"nesting_level"`
 }
 
@@ -126,20 +169,29 @@ type S3SettingsObservation struct {
 }
 
 type S3SettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BucketFolder *string `json:"bucketFolder,omitempty" tf:"bucket_folder"`
 
+	// +kubebuilder:validation:Optional
 	BucketName *string `json:"bucketName,omitempty" tf:"bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	CompressionType *string `json:"compressionType,omitempty" tf:"compression_type"`
 
+	// +kubebuilder:validation:Optional
 	CsvDelimiter *string `json:"csvDelimiter,omitempty" tf:"csv_delimiter"`
 
+	// +kubebuilder:validation:Optional
 	CsvRowDelimiter *string `json:"csvRowDelimiter,omitempty" tf:"csv_row_delimiter"`
 
+	// +kubebuilder:validation:Optional
 	DatePartitionEnabled *bool `json:"datePartitionEnabled,omitempty" tf:"date_partition_enabled"`
 
+	// +kubebuilder:validation:Optional
 	ExternalTableDefinition *string `json:"externalTableDefinition,omitempty" tf:"external_table_definition"`
 
+	// +kubebuilder:validation:Optional
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn,omitempty" tf:"service_access_role_arn"`
 }
 

@@ -33,16 +33,23 @@ type IamServiceLinkedRoleObservation struct {
 
 	Path string `json:"path" tf:"path"`
 
-	UniqueId string `json:"uniqueId" tf:"unique_id"`
+	UniqueID string `json:"uniqueId" tf:"unique_id"`
 }
 
 type IamServiceLinkedRoleParameters struct {
+
+	// +kubebuilder:validation:Required
 	AwsServiceName string `json:"awsServiceName" tf:"aws_service_name"`
 
+	// +kubebuilder:validation:Optional
 	CustomSuffix *string `json:"customSuffix,omitempty" tf:"custom_suffix"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

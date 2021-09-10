@@ -28,27 +28,40 @@ type CloudwatchEventPermissionObservation struct {
 }
 
 type CloudwatchEventPermissionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Action *string `json:"action,omitempty" tf:"action"`
 
+	// +kubebuilder:validation:Optional
 	Condition []ConditionParameters `json:"condition,omitempty" tf:"condition"`
 
+	// +kubebuilder:validation:Optional
 	EventBusName *string `json:"eventBusName,omitempty" tf:"event_bus_name"`
 
+	// +kubebuilder:validation:Required
 	Principal string `json:"principal" tf:"principal"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	StatementId string `json:"statementId" tf:"statement_id"`
+	// +kubebuilder:validation:Required
+	StatementID string `json:"statementId" tf:"statement_id"`
 }
 
 type ConditionObservation struct {
 }
 
 type ConditionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

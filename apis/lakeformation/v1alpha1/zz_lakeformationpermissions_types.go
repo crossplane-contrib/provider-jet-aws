@@ -28,17 +28,23 @@ type DataLocationObservation struct {
 }
 
 type DataLocationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
 }
 
 type DatabaseObservation struct {
 }
 
 type DatabaseParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -46,24 +52,37 @@ type LakeformationPermissionsObservation struct {
 }
 
 type LakeformationPermissionsParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Optional
 	CatalogResource *bool `json:"catalogResource,omitempty" tf:"catalog_resource"`
 
+	// +kubebuilder:validation:Optional
 	DataLocation []DataLocationParameters `json:"dataLocation,omitempty" tf:"data_location"`
 
+	// +kubebuilder:validation:Optional
 	Database []DatabaseParameters `json:"database,omitempty" tf:"database"`
 
+	// +kubebuilder:validation:Required
 	Permissions []string `json:"permissions" tf:"permissions"`
 
+	// +kubebuilder:validation:Optional
 	PermissionsWithGrantOption []string `json:"permissionsWithGrantOption,omitempty" tf:"permissions_with_grant_option"`
 
+	// +kubebuilder:validation:Required
 	Principal string `json:"principal" tf:"principal"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Table []TableParameters `json:"table,omitempty" tf:"table"`
 
+	// +kubebuilder:validation:Optional
 	TableWithColumns []TableWithColumnsParameters `json:"tableWithColumns,omitempty" tf:"table_with_columns"`
 }
 
@@ -71,12 +90,17 @@ type TableObservation struct {
 }
 
 type TableParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Wildcard *bool `json:"wildcard,omitempty" tf:"wildcard"`
 }
 
@@ -84,16 +108,23 @@ type TableWithColumnsObservation struct {
 }
 
 type TableWithColumnsParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Optional
 	ColumnNames []string `json:"columnNames,omitempty" tf:"column_names"`
 
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// +kubebuilder:validation:Optional
 	ExcludedColumnNames []string `json:"excludedColumnNames,omitempty" tf:"excluded_column_names"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Wildcard *bool `json:"wildcard,omitempty" tf:"wildcard"`
 }
 

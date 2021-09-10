@@ -29,12 +29,19 @@ type AppsyncApiKeyObservation struct {
 }
 
 type AppsyncApiKeyParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Expires *string `json:"expires,omitempty" tf:"expires"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

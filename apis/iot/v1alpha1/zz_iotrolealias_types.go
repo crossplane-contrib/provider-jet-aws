@@ -29,12 +29,19 @@ type IotRoleAliasObservation struct {
 }
 
 type IotRoleAliasParameters struct {
+
+	// +kubebuilder:validation:Required
 	Alias string `json:"alias" tf:"alias"`
 
+	// +kubebuilder:validation:Optional
 	CredentialDuration *int64 `json:"credentialDuration,omitempty" tf:"credential_duration"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 

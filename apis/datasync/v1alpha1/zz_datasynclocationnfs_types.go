@@ -27,22 +27,32 @@ import (
 type DatasyncLocationNfsObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type DatasyncLocationNfsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MountOptions []MountOptionsParameters `json:"mountOptions,omitempty" tf:"mount_options"`
 
+	// +kubebuilder:validation:Required
 	OnPremConfig []OnPremConfigParameters `json:"onPremConfig" tf:"on_prem_config"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServerHostname string `json:"serverHostname" tf:"server_hostname"`
 
+	// +kubebuilder:validation:Required
 	Subdirectory string `json:"subdirectory" tf:"subdirectory"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -50,6 +60,8 @@ type MountOptionsObservation struct {
 }
 
 type MountOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version"`
 }
 
@@ -57,6 +69,8 @@ type OnPremConfigObservation struct {
 }
 
 type OnPremConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	AgentArns []string `json:"agentArns" tf:"agent_arns"`
 }
 

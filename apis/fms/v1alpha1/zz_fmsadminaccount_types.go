@@ -28,8 +28,13 @@ type FmsAdminAccountObservation struct {
 }
 
 type FmsAdminAccountParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
 
+	// +kubebuilder:validation:Optional
+	AccountID *string `json:"accountId,omitempty" tf:"account_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

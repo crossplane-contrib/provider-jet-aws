@@ -29,12 +29,19 @@ type BackupVaultNotificationsObservation struct {
 }
 
 type BackupVaultNotificationsParameters struct {
+
+	// +kubebuilder:validation:Required
 	BackupVaultEvents []string `json:"backupVaultEvents" tf:"backup_vault_events"`
 
+	// +kubebuilder:validation:Required
 	BackupVaultName string `json:"backupVaultName" tf:"backup_vault_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
 }
 

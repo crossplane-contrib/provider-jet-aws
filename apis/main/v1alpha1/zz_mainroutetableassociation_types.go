@@ -25,15 +25,21 @@ import (
 )
 
 type MainRouteTableAssociationObservation struct {
-	OriginalRouteTableId string `json:"originalRouteTableId" tf:"original_route_table_id"`
+	OriginalRouteTableID string `json:"originalRouteTableId" tf:"original_route_table_id"`
 }
 
 type MainRouteTableAssociationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
+	// +kubebuilder:validation:Required
+	RouteTableID string `json:"routeTableId" tf:"route_table_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // MainRouteTableAssociationSpec defines the desired state of MainRouteTableAssociation

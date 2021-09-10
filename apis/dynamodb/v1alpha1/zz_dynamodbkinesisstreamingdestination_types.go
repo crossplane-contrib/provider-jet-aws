@@ -28,10 +28,16 @@ type DynamodbKinesisStreamingDestinationObservation struct {
 }
 
 type DynamodbKinesisStreamingDestinationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	StreamArn string `json:"streamArn" tf:"stream_arn"`
 
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 }
 

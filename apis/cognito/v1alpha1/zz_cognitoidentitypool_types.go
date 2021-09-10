@@ -29,26 +29,40 @@ type CognitoIdentityPoolObservation struct {
 }
 
 type CognitoIdentityPoolParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowClassicFlow *bool `json:"allowClassicFlow,omitempty" tf:"allow_classic_flow"`
 
+	// +kubebuilder:validation:Optional
 	AllowUnauthenticatedIdentities *bool `json:"allowUnauthenticatedIdentities,omitempty" tf:"allow_unauthenticated_identities"`
 
+	// +kubebuilder:validation:Optional
 	CognitoIdentityProviders []CognitoIdentityProvidersParameters `json:"cognitoIdentityProviders,omitempty" tf:"cognito_identity_providers"`
 
+	// +kubebuilder:validation:Optional
 	DeveloperProviderName *string `json:"developerProviderName,omitempty" tf:"developer_provider_name"`
 
+	// +kubebuilder:validation:Required
 	IdentityPoolName string `json:"identityPoolName" tf:"identity_pool_name"`
 
+	// +kubebuilder:validation:Optional
 	OpenidConnectProviderArns []string `json:"openidConnectProviderArns,omitempty" tf:"openid_connect_provider_arns"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SamlProviderArns []string `json:"samlProviderArns,omitempty" tf:"saml_provider_arns"`
 
+	// +kubebuilder:validation:Optional
 	SupportedLoginProviders map[string]string `json:"supportedLoginProviders,omitempty" tf:"supported_login_providers"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -56,10 +70,14 @@ type CognitoIdentityProvidersObservation struct {
 }
 
 type CognitoIdentityProvidersParameters struct {
-	ClientId *string `json:"clientId,omitempty" tf:"client_id"`
 
+	// +kubebuilder:validation:Optional
+	ClientID *string `json:"clientId,omitempty" tf:"client_id"`
+
+	// +kubebuilder:validation:Optional
 	ProviderName *string `json:"providerName,omitempty" tf:"provider_name"`
 
+	// +kubebuilder:validation:Optional
 	ServerSideTokenCheck *bool `json:"serverSideTokenCheck,omitempty" tf:"server_side_token_check"`
 }
 

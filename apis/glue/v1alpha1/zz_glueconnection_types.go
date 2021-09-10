@@ -29,20 +29,31 @@ type GlueConnectionObservation struct {
 }
 
 type GlueConnectionParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Optional
 	ConnectionProperties map[string]string `json:"connectionProperties,omitempty" tf:"connection_properties"`
 
+	// +kubebuilder:validation:Optional
 	ConnectionType *string `json:"connectionType,omitempty" tf:"connection_type"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	MatchCriteria []string `json:"matchCriteria,omitempty" tf:"match_criteria"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PhysicalConnectionRequirements []PhysicalConnectionRequirementsParameters `json:"physicalConnectionRequirements,omitempty" tf:"physical_connection_requirements"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -50,11 +61,15 @@ type PhysicalConnectionRequirementsObservation struct {
 }
 
 type PhysicalConnectionRequirementsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
-	SecurityGroupIdList []string `json:"securityGroupIdList,omitempty" tf:"security_group_id_list"`
+	// +kubebuilder:validation:Optional
+	SecurityGroupIDList []string `json:"securityGroupIdList,omitempty" tf:"security_group_id_list"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 }
 
 // GlueConnectionSpec defines the desired state of GlueConnection

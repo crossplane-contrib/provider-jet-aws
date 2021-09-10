@@ -28,10 +28,14 @@ type AutoScalingGroupProviderObservation struct {
 }
 
 type AutoScalingGroupProviderParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutoScalingGroupArn string `json:"autoScalingGroupArn" tf:"auto_scaling_group_arn"`
 
+	// +kubebuilder:validation:Optional
 	ManagedScaling []ManagedScalingParameters `json:"managedScaling,omitempty" tf:"managed_scaling"`
 
+	// +kubebuilder:validation:Optional
 	ManagedTerminationProtection *string `json:"managedTerminationProtection,omitempty" tf:"managed_termination_protection"`
 }
 
@@ -40,14 +44,22 @@ type EcsCapacityProviderObservation struct {
 }
 
 type EcsCapacityProviderParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutoScalingGroupProvider []AutoScalingGroupProviderParameters `json:"autoScalingGroupProvider" tf:"auto_scaling_group_provider"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -55,14 +67,20 @@ type ManagedScalingObservation struct {
 }
 
 type ManagedScalingParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InstanceWarmupPeriod *int64 `json:"instanceWarmupPeriod,omitempty" tf:"instance_warmup_period"`
 
+	// +kubebuilder:validation:Optional
 	MaximumScalingStepSize *int64 `json:"maximumScalingStepSize,omitempty" tf:"maximum_scaling_step_size"`
 
+	// +kubebuilder:validation:Optional
 	MinimumScalingStepSize *int64 `json:"minimumScalingStepSize,omitempty" tf:"minimum_scaling_step_size"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
+	// +kubebuilder:validation:Optional
 	TargetCapacity *int64 `json:"targetCapacity,omitempty" tf:"target_capacity"`
 }
 

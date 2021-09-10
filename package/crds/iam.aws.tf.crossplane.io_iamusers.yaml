@@ -63,6 +63,8 @@ spec:
               forProvider:
                 properties:
                   forceDestroy:
+                    description: Delete user even if it has non-Terraform-managed
+                      IAM access keys, login profile or MFA devices
                     type: boolean
                   name:
                     type: string
@@ -71,6 +73,8 @@ spec:
                   permissionsBoundary:
                     type: string
                   region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
                     type: string
                   tags:
                     additionalProperties:

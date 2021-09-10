@@ -28,28 +28,41 @@ type ActionObservation struct {
 }
 
 type ActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Category string `json:"category" tf:"category"`
 
+	// +kubebuilder:validation:Optional
 	Configuration map[string]string `json:"configuration,omitempty" tf:"configuration"`
 
+	// +kubebuilder:validation:Optional
 	InputArtifacts []string `json:"inputArtifacts,omitempty" tf:"input_artifacts"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Namespace *string `json:"namespace,omitempty" tf:"namespace"`
 
+	// +kubebuilder:validation:Optional
 	OutputArtifacts []string `json:"outputArtifacts,omitempty" tf:"output_artifacts"`
 
+	// +kubebuilder:validation:Required
 	Owner string `json:"owner" tf:"owner"`
 
+	// +kubebuilder:validation:Required
 	Provider string `json:"provider" tf:"provider"`
 
+	// +kubebuilder:validation:Optional
 	Region *string `json:"region,omitempty" tf:"region"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	RunOrder *int64 `json:"runOrder,omitempty" tf:"run_order"`
 
+	// +kubebuilder:validation:Required
 	Version string `json:"version" tf:"version"`
 }
 
@@ -57,12 +70,17 @@ type ArtifactStoreObservation struct {
 }
 
 type ArtifactStoreParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EncryptionKey []EncryptionKeyParameters `json:"encryptionKey,omitempty" tf:"encryption_key"`
 
+	// +kubebuilder:validation:Required
 	Location string `json:"location" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	Region *string `json:"region,omitempty" tf:"region"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -71,18 +89,28 @@ type CodepipelineObservation struct {
 }
 
 type CodepipelineParameters struct {
+
+	// +kubebuilder:validation:Required
 	ArtifactStore []ArtifactStoreParameters `json:"artifactStore" tf:"artifact_store"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	Stage []StageParameters `json:"stage" tf:"stage"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -90,8 +118,11 @@ type EncryptionKeyObservation struct {
 }
 
 type EncryptionKeyParameters struct {
-	Id string `json:"id" tf:"id"`
 
+	// +kubebuilder:validation:Required
+	ID string `json:"id" tf:"id"`
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -99,8 +130,11 @@ type StageObservation struct {
 }
 
 type StageParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action []ActionParameters `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 

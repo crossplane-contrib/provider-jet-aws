@@ -31,14 +31,22 @@ type ApprunnerConnectionObservation struct {
 }
 
 type ApprunnerConnectionParameters struct {
+
+	// +kubebuilder:validation:Required
 	ConnectionName string `json:"connectionName" tf:"connection_name"`
 
+	// +kubebuilder:validation:Required
 	ProviderType string `json:"providerType" tf:"provider_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

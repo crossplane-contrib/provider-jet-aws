@@ -27,20 +27,29 @@ import (
 type DatasyncLocationEfsObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type DatasyncLocationEfsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Ec2Config []Ec2ConfigParameters `json:"ec2Config" tf:"ec2_config"`
 
+	// +kubebuilder:validation:Required
 	EfsFileSystemArn string `json:"efsFileSystemArn" tf:"efs_file_system_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Subdirectory *string `json:"subdirectory,omitempty" tf:"subdirectory"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -48,8 +57,11 @@ type Ec2ConfigObservation struct {
 }
 
 type Ec2ConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	SecurityGroupArns []string `json:"securityGroupArns" tf:"security_group_arns"`
 
+	// +kubebuilder:validation:Required
 	SubnetArn string `json:"subnetArn" tf:"subnet_arn"`
 }
 

@@ -28,10 +28,16 @@ type AcmCertificateValidationObservation struct {
 }
 
 type AcmCertificateValidationParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ValidationRecordFqdns []string `json:"validationRecordFqdns,omitempty" tf:"validation_record_fqdns"`
 }
 

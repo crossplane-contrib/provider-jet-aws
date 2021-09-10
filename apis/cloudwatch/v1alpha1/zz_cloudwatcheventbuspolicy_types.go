@@ -28,10 +28,16 @@ type CloudwatchEventBusPolicyObservation struct {
 }
 
 type CloudwatchEventBusPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EventBusName *string `json:"eventBusName,omitempty" tf:"event_bus_name"`
 
+	// +kubebuilder:validation:Required
 	Policy string `json:"policy" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

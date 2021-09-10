@@ -25,21 +25,28 @@ import (
 )
 
 type Ec2ClientVpnNetworkAssociationObservation struct {
-	AssociationId string `json:"associationId" tf:"association_id"`
+	AssociationID string `json:"associationId" tf:"association_id"`
 
 	Status string `json:"status" tf:"status"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type Ec2ClientVpnNetworkAssociationParameters struct {
-	ClientVpnEndpointId string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
 
+	// +kubebuilder:validation:Required
+	ClientVpnEndpointID string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	// +kubebuilder:validation:Required
+	SubnetID string `json:"subnetId" tf:"subnet_id"`
 }
 
 // Ec2ClientVpnNetworkAssociationSpec defines the desired state of Ec2ClientVpnNetworkAssociation

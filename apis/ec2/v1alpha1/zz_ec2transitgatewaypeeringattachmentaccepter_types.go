@@ -25,23 +25,30 @@ import (
 )
 
 type Ec2TransitGatewayPeeringAttachmentAccepterObservation struct {
-	PeerAccountId string `json:"peerAccountId" tf:"peer_account_id"`
+	PeerAccountID string `json:"peerAccountId" tf:"peer_account_id"`
 
 	PeerRegion string `json:"peerRegion" tf:"peer_region"`
 
-	PeerTransitGatewayId string `json:"peerTransitGatewayId" tf:"peer_transit_gateway_id"`
+	PeerTransitGatewayID string `json:"peerTransitGatewayId" tf:"peer_transit_gateway_id"`
 
-	TransitGatewayId string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	TransitGatewayID string `json:"transitGatewayId" tf:"transit_gateway_id"`
 }
 
 type Ec2TransitGatewayPeeringAttachmentAccepterParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TransitGatewayAttachmentId string `json:"transitGatewayAttachmentId" tf:"transit_gateway_attachment_id"`
+	// +kubebuilder:validation:Required
+	TransitGatewayAttachmentID string `json:"transitGatewayAttachmentId" tf:"transit_gateway_attachment_id"`
 }
 
 // Ec2TransitGatewayPeeringAttachmentAccepterSpec defines the desired state of Ec2TransitGatewayPeeringAttachmentAccepter

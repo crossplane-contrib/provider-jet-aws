@@ -29,12 +29,19 @@ type SagemakerNotebookInstanceLifecycleConfigurationObservation struct {
 }
 
 type SagemakerNotebookInstanceLifecycleConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	OnCreate *string `json:"onCreate,omitempty" tf:"on_create"`
 
+	// +kubebuilder:validation:Optional
 	OnStart *string `json:"onStart,omitempty" tf:"on_start"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

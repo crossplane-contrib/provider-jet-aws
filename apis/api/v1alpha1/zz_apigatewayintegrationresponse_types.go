@@ -28,22 +28,34 @@ type ApiGatewayIntegrationResponseObservation struct {
 }
 
 type ApiGatewayIntegrationResponseParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ContentHandling *string `json:"contentHandling,omitempty" tf:"content_handling"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	// +kubebuilder:validation:Required
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
+	// +kubebuilder:validation:Optional
 	ResponseParameters map[string]string `json:"responseParameters,omitempty" tf:"response_parameters"`
 
+	// +kubebuilder:validation:Optional
 	ResponseTemplates map[string]string `json:"responseTemplates,omitempty" tf:"response_templates"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Optional
 	SelectionPattern *string `json:"selectionPattern,omitempty" tf:"selection_pattern"`
 
+	// +kubebuilder:validation:Required
 	StatusCode string `json:"statusCode" tf:"status_code"`
 }
 

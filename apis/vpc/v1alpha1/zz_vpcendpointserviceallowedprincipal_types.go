@@ -28,11 +28,17 @@ type VpcEndpointServiceAllowedPrincipalObservation struct {
 }
 
 type VpcEndpointServiceAllowedPrincipalParameters struct {
+
+	// +kubebuilder:validation:Required
 	PrincipalArn string `json:"principalArn" tf:"principal_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	VpcEndpointServiceId string `json:"vpcEndpointServiceId" tf:"vpc_endpoint_service_id"`
+	// +kubebuilder:validation:Required
+	VpcEndpointServiceID string `json:"vpcEndpointServiceId" tf:"vpc_endpoint_service_id"`
 }
 
 // VpcEndpointServiceAllowedPrincipalSpec defines the desired state of VpcEndpointServiceAllowedPrincipal

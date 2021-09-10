@@ -48,24 +48,37 @@ type EksClusterObservation struct {
 }
 
 type EksClusterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EnabledClusterLogTypes []string `json:"enabledClusterLogTypes,omitempty" tf:"enabled_cluster_log_types"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionConfig []EncryptionConfigParameters `json:"encryptionConfig,omitempty" tf:"encryption_config"`
 
+	// +kubebuilder:validation:Optional
 	KubernetesNetworkConfig []KubernetesNetworkConfigParameters `json:"kubernetesNetworkConfig,omitempty" tf:"kubernetes_network_config"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version"`
 
+	// +kubebuilder:validation:Required
 	VpcConfig []VpcConfigParameters `json:"vpcConfig" tf:"vpc_config"`
 }
 
@@ -73,8 +86,11 @@ type EncryptionConfigObservation struct {
 }
 
 type EncryptionConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	Provider []ProviderParameters `json:"provider" tf:"provider"`
 
+	// +kubebuilder:validation:Required
 	Resources []string `json:"resources" tf:"resources"`
 }
 
@@ -89,7 +105,9 @@ type KubernetesNetworkConfigObservation struct {
 }
 
 type KubernetesNetworkConfigParameters struct {
-	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr,omitempty" tf:"service_ipv4_cidr"`
+
+	// +kubebuilder:validation:Optional
+	ServiceIPv4Cidr *string `json:"serviceIpv4Cidr,omitempty" tf:"service_ipv4_cidr"`
 }
 
 type OidcObservation struct {
@@ -103,24 +121,32 @@ type ProviderObservation struct {
 }
 
 type ProviderParameters struct {
+
+	// +kubebuilder:validation:Required
 	KeyArn string `json:"keyArn" tf:"key_arn"`
 }
 
 type VpcConfigObservation struct {
-	ClusterSecurityGroupId string `json:"clusterSecurityGroupId" tf:"cluster_security_group_id"`
+	ClusterSecurityGroupID string `json:"clusterSecurityGroupId" tf:"cluster_security_group_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type VpcConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EndpointPrivateAccess *bool `json:"endpointPrivateAccess,omitempty" tf:"endpoint_private_access"`
 
+	// +kubebuilder:validation:Optional
 	EndpointPublicAccess *bool `json:"endpointPublicAccess,omitempty" tf:"endpoint_public_access"`
 
+	// +kubebuilder:validation:Optional
 	PublicAccessCidrs []string `json:"publicAccessCidrs,omitempty" tf:"public_access_cidrs"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 }
 

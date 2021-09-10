@@ -35,24 +35,37 @@ type KmsExternalKeyObservation struct {
 }
 
 type KmsExternalKeyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BypassPolicyLockoutSafetyCheck *bool `json:"bypassPolicyLockoutSafetyCheck,omitempty" tf:"bypass_policy_lockout_safety_check"`
 
+	// +kubebuilder:validation:Optional
 	DeletionWindowInDays *int64 `json:"deletionWindowInDays,omitempty" tf:"deletion_window_in_days"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	KeyMaterialBase64 *string `json:"keyMaterialBase64,omitempty" tf:"key_material_base64"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	ValidTo *string `json:"validTo,omitempty" tf:"valid_to"`
 }
 

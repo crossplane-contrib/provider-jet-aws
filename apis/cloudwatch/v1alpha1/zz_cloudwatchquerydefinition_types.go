@@ -25,16 +25,23 @@ import (
 )
 
 type CloudwatchQueryDefinitionObservation struct {
-	QueryDefinitionId string `json:"queryDefinitionId" tf:"query_definition_id"`
+	QueryDefinitionID string `json:"queryDefinitionId" tf:"query_definition_id"`
 }
 
 type CloudwatchQueryDefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	LogGroupNames []string `json:"logGroupNames,omitempty" tf:"log_group_names"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	QueryString string `json:"queryString" tf:"query_string"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

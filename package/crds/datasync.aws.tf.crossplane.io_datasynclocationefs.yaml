@@ -80,6 +80,8 @@ spec:
                   efsFileSystemArn:
                     type: string
                   region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
                     type: string
                   subdirectory:
                     type: string

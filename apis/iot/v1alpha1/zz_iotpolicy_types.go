@@ -27,14 +27,20 @@ import (
 type IotPolicyObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DefaultVersionId string `json:"defaultVersionId" tf:"default_version_id"`
+	DefaultVersionID string `json:"defaultVersionId" tf:"default_version_id"`
 }
 
 type IotPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Policy string `json:"policy" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

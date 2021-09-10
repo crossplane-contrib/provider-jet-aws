@@ -28,12 +28,17 @@ type AuthObservation struct {
 }
 
 type AuthParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuthScheme *string `json:"authScheme,omitempty" tf:"auth_scheme"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	IamAuth *string `json:"iamAuth,omitempty" tf:"iam_auth"`
 
+	// +kubebuilder:validation:Optional
 	SecretArn *string `json:"secretArn,omitempty" tf:"secret_arn"`
 }
 
@@ -44,28 +49,43 @@ type DbProxyObservation struct {
 }
 
 type DbProxyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Auth []AuthParameters `json:"auth" tf:"auth"`
 
+	// +kubebuilder:validation:Optional
 	DebugLogging *bool `json:"debugLogging,omitempty" tf:"debug_logging"`
 
+	// +kubebuilder:validation:Required
 	EngineFamily string `json:"engineFamily" tf:"engine_family"`
 
+	// +kubebuilder:validation:Optional
 	IdleClientTimeout *int64 `json:"idleClientTimeout,omitempty" tf:"idle_client_timeout"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RequireTls *bool `json:"requireTls,omitempty" tf:"require_tls"`
+	// +kubebuilder:validation:Optional
+	RequireTLS *bool `json:"requireTls,omitempty" tf:"require_tls"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	VpcSubnetIds []string `json:"vpcSubnetIds" tf:"vpc_subnet_ids"`
 }
 

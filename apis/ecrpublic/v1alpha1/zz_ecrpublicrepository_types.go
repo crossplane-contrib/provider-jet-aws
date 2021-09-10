@@ -28,34 +28,48 @@ type CatalogDataObservation struct {
 }
 
 type CatalogDataParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AboutText *string `json:"aboutText,omitempty" tf:"about_text"`
 
+	// +kubebuilder:validation:Optional
 	Architectures []string `json:"architectures,omitempty" tf:"architectures"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	LogoImageBlob *string `json:"logoImageBlob,omitempty" tf:"logo_image_blob"`
 
+	// +kubebuilder:validation:Optional
 	OperatingSystems []string `json:"operatingSystems,omitempty" tf:"operating_systems"`
 
+	// +kubebuilder:validation:Optional
 	UsageText *string `json:"usageText,omitempty" tf:"usage_text"`
 }
 
 type EcrpublicRepositoryObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	RegistryID string `json:"registryId" tf:"registry_id"`
 
-	RepositoryUri string `json:"repositoryUri" tf:"repository_uri"`
+	RepositoryURI string `json:"repositoryUri" tf:"repository_uri"`
 }
 
 type EcrpublicRepositoryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CatalogData []CatalogDataParameters `json:"catalogData,omitempty" tf:"catalog_data"`
 
+	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RepositoryName string `json:"repositoryName" tf:"repository_name"`
 }
 

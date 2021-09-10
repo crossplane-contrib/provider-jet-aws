@@ -27,36 +27,47 @@ import (
 type DefaultSubnetObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	AssignIpv6AddressOnCreation bool `json:"assignIpv6AddressOnCreation" tf:"assign_ipv6_address_on_creation"`
+	AssignIPv6AddressOnCreation bool `json:"assignIpv6AddressOnCreation" tf:"assign_ipv6_address_on_creation"`
 
-	AvailabilityZoneId string `json:"availabilityZoneId" tf:"availability_zone_id"`
+	AvailabilityZoneID string `json:"availabilityZoneId" tf:"availability_zone_id"`
 
 	CidrBlock string `json:"cidrBlock" tf:"cidr_block"`
 
-	Ipv6CidrBlock string `json:"ipv6CidrBlock" tf:"ipv6_cidr_block"`
+	IPv6CidrBlock string `json:"ipv6CidrBlock" tf:"ipv6_cidr_block"`
 
-	Ipv6CidrBlockAssociationId string `json:"ipv6CidrBlockAssociationId" tf:"ipv6_cidr_block_association_id"`
+	IPv6CidrBlockAssociationID string `json:"ipv6CidrBlockAssociationId" tf:"ipv6_cidr_block_association_id"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type DefaultSubnetParameters struct {
+
+	// +kubebuilder:validation:Required
 	AvailabilityZone string `json:"availabilityZone" tf:"availability_zone"`
 
-	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
+	// +kubebuilder:validation:Optional
+	CustomerOwnedIPv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
 
-	MapCustomerOwnedIpOnLaunch *bool `json:"mapCustomerOwnedIpOnLaunch,omitempty" tf:"map_customer_owned_ip_on_launch"`
+	// +kubebuilder:validation:Optional
+	MapCustomerOwnedIPOnLaunch *bool `json:"mapCustomerOwnedIpOnLaunch,omitempty" tf:"map_customer_owned_ip_on_launch"`
 
-	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch,omitempty" tf:"map_public_ip_on_launch"`
+	// +kubebuilder:validation:Optional
+	MapPublicIPOnLaunch *bool `json:"mapPublicIpOnLaunch,omitempty" tf:"map_public_ip_on_launch"`
 
+	// +kubebuilder:validation:Optional
 	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

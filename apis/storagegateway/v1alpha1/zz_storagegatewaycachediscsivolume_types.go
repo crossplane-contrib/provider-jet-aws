@@ -37,30 +37,44 @@ type StoragegatewayCachedIscsiVolumeObservation struct {
 
 	VolumeArn string `json:"volumeArn" tf:"volume_arn"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeId" tf:"volume_id"`
 }
 
 type StoragegatewayCachedIscsiVolumeParameters struct {
+
+	// +kubebuilder:validation:Required
 	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
 
+	// +kubebuilder:validation:Optional
 	KmsEncrypted *bool `json:"kmsEncrypted,omitempty" tf:"kms_encrypted"`
 
+	// +kubebuilder:validation:Optional
 	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	// +kubebuilder:validation:Required
+	NetworkInterfaceID string `json:"networkInterfaceId" tf:"network_interface_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	// +kubebuilder:validation:Optional
+	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
 
+	// +kubebuilder:validation:Optional
 	SourceVolumeArn *string `json:"sourceVolumeArn,omitempty" tf:"source_volume_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	TargetName string `json:"targetName" tf:"target_name"`
 
+	// +kubebuilder:validation:Required
 	VolumeSizeInBytes int64 `json:"volumeSizeInBytes" tf:"volume_size_in_bytes"`
 }
 

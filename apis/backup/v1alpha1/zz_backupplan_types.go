@@ -28,8 +28,11 @@ type AdvancedBackupSettingObservation struct {
 }
 
 type AdvancedBackupSettingParameters struct {
+
+	// +kubebuilder:validation:Required
 	BackupOptions map[string]string `json:"backupOptions" tf:"backup_options"`
 
+	// +kubebuilder:validation:Required
 	ResourceType string `json:"resourceType" tf:"resource_type"`
 }
 
@@ -40,16 +43,25 @@ type BackupPlanObservation struct {
 }
 
 type BackupPlanParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AdvancedBackupSetting []AdvancedBackupSettingParameters `json:"advancedBackupSetting,omitempty" tf:"advanced_backup_setting"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Rule []RuleParameters `json:"rule" tf:"rule"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -57,8 +69,11 @@ type CopyActionObservation struct {
 }
 
 type CopyActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationVaultArn string `json:"destinationVaultArn" tf:"destination_vault_arn"`
 
+	// +kubebuilder:validation:Optional
 	Lifecycle []LifecycleParameters `json:"lifecycle,omitempty" tf:"lifecycle"`
 }
 
@@ -66,8 +81,11 @@ type LifecycleObservation struct {
 }
 
 type LifecycleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ColdStorageAfter *int64 `json:"coldStorageAfter,omitempty" tf:"cold_storage_after"`
 
+	// +kubebuilder:validation:Optional
 	DeleteAfter *int64 `json:"deleteAfter,omitempty" tf:"delete_after"`
 }
 
@@ -75,8 +93,11 @@ type RuleLifecycleObservation struct {
 }
 
 type RuleLifecycleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ColdStorageAfter *int64 `json:"coldStorageAfter,omitempty" tf:"cold_storage_after"`
 
+	// +kubebuilder:validation:Optional
 	DeleteAfter *int64 `json:"deleteAfter,omitempty" tf:"delete_after"`
 }
 
@@ -84,22 +105,32 @@ type RuleObservation struct {
 }
 
 type RuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CompletionWindow *int64 `json:"completionWindow,omitempty" tf:"completion_window"`
 
+	// +kubebuilder:validation:Optional
 	CopyAction []CopyActionParameters `json:"copyAction,omitempty" tf:"copy_action"`
 
+	// +kubebuilder:validation:Optional
 	EnableContinuousBackup *bool `json:"enableContinuousBackup,omitempty" tf:"enable_continuous_backup"`
 
+	// +kubebuilder:validation:Optional
 	Lifecycle []RuleLifecycleParameters `json:"lifecycle,omitempty" tf:"lifecycle"`
 
+	// +kubebuilder:validation:Optional
 	RecoveryPointTags map[string]string `json:"recoveryPointTags,omitempty" tf:"recovery_point_tags"`
 
+	// +kubebuilder:validation:Required
 	RuleName string `json:"ruleName" tf:"rule_name"`
 
+	// +kubebuilder:validation:Optional
 	Schedule *string `json:"schedule,omitempty" tf:"schedule"`
 
+	// +kubebuilder:validation:Optional
 	StartWindow *int64 `json:"startWindow,omitempty" tf:"start_window"`
 
+	// +kubebuilder:validation:Required
 	TargetVaultName string `json:"targetVaultName" tf:"target_vault_name"`
 }
 

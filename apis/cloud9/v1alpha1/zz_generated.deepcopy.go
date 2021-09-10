@@ -116,8 +116,8 @@ func (in *Cloud9EnvironmentEc2Parameters) DeepCopyInto(out *Cloud9EnvironmentEc2
 		*out = new(string)
 		**out = **in
 	}
-	if in.SubnetId != nil {
-		in, out := &in.SubnetId, &out.SubnetId
+	if in.SubnetID != nil {
+		in, out := &in.SubnetID, &out.SubnetID
 		*out = new(string)
 		**out = **in
 	}

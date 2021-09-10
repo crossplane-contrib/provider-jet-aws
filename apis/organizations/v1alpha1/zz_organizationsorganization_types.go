@@ -29,7 +29,7 @@ type AccountsObservation struct {
 
 	Email string `json:"email" tf:"email"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -44,7 +44,7 @@ type NonMasterAccountsObservation struct {
 
 	Email string `json:"email" tf:"email"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Name string `json:"name" tf:"name"`
 
@@ -63,7 +63,7 @@ type OrganizationsOrganizationObservation struct {
 
 	MasterAccountEmail string `json:"masterAccountEmail" tf:"master_account_email"`
 
-	MasterAccountId string `json:"masterAccountId" tf:"master_account_id"`
+	MasterAccountID string `json:"masterAccountId" tf:"master_account_id"`
 
 	NonMasterAccounts []NonMasterAccountsObservation `json:"nonMasterAccounts" tf:"non_master_accounts"`
 
@@ -71,12 +71,19 @@ type OrganizationsOrganizationObservation struct {
 }
 
 type OrganizationsOrganizationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AwsServiceAccessPrincipals []string `json:"awsServiceAccessPrincipals,omitempty" tf:"aws_service_access_principals"`
 
+	// +kubebuilder:validation:Optional
 	EnabledPolicyTypes []string `json:"enabledPolicyTypes,omitempty" tf:"enabled_policy_types"`
 
+	// +kubebuilder:validation:Optional
 	FeatureSet *string `json:"featureSet,omitempty" tf:"feature_set"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -92,7 +99,7 @@ type PolicyTypesParameters struct {
 type RootsObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Id string `json:"id" tf:"id"`
+	ID string `json:"id" tf:"id"`
 
 	Name string `json:"name" tf:"name"`
 

@@ -29,27 +29,40 @@ type ConfigConformancePackObservation struct {
 }
 
 type ConfigConformancePackParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeliveryS3Bucket *string `json:"deliveryS3Bucket,omitempty" tf:"delivery_s3_bucket"`
 
+	// +kubebuilder:validation:Optional
 	DeliveryS3KeyPrefix *string `json:"deliveryS3KeyPrefix,omitempty" tf:"delivery_s3_key_prefix"`
 
+	// +kubebuilder:validation:Optional
 	InputParameter []InputParameterParameters `json:"inputParameter,omitempty" tf:"input_parameter"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	TemplateBody *string `json:"templateBody,omitempty" tf:"template_body"`
 
-	TemplateS3Uri *string `json:"templateS3Uri,omitempty" tf:"template_s3_uri"`
+	// +kubebuilder:validation:Optional
+	TemplateS3URI *string `json:"templateS3Uri,omitempty" tf:"template_s3_uri"`
 }
 
 type InputParameterObservation struct {
 }
 
 type InputParameterParameters struct {
+
+	// +kubebuilder:validation:Required
 	ParameterName string `json:"parameterName" tf:"parameter_name"`
 
+	// +kubebuilder:validation:Required
 	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
 }
 

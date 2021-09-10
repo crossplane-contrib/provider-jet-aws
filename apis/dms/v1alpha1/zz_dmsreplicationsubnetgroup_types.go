@@ -27,20 +27,29 @@ import (
 type DmsReplicationSubnetGroupObservation struct {
 	ReplicationSubnetGroupArn string `json:"replicationSubnetGroupArn" tf:"replication_subnet_group_arn"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type DmsReplicationSubnetGroupParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ReplicationSubnetGroupDescription string `json:"replicationSubnetGroupDescription" tf:"replication_subnet_group_description"`
 
-	ReplicationSubnetGroupId string `json:"replicationSubnetGroupId" tf:"replication_subnet_group_id"`
+	// +kubebuilder:validation:Required
+	ReplicationSubnetGroupID string `json:"replicationSubnetGroupId" tf:"replication_subnet_group_id"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

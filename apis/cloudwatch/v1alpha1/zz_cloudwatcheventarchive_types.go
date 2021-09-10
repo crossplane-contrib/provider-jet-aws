@@ -29,16 +29,25 @@ type CloudwatchEventArchiveObservation struct {
 }
 
 type CloudwatchEventArchiveParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	EventPattern *string `json:"eventPattern,omitempty" tf:"event_pattern"`
 
+	// +kubebuilder:validation:Required
 	EventSourceArn string `json:"eventSourceArn" tf:"event_source_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RetentionDays *int64 `json:"retentionDays,omitempty" tf:"retention_days"`
 }
 

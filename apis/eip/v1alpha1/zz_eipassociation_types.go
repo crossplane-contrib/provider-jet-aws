@@ -28,18 +28,28 @@ type EipAssociationObservation struct {
 }
 
 type EipAssociationParameters struct {
-	AllocationId *string `json:"allocationId,omitempty" tf:"allocation_id"`
 
+	// +kubebuilder:validation:Optional
+	AllocationID *string `json:"allocationId,omitempty" tf:"allocation_id"`
+
+	// +kubebuilder:validation:Optional
 	AllowReassociation *bool `json:"allowReassociation,omitempty" tf:"allow_reassociation"`
 
-	InstanceId *string `json:"instanceId,omitempty" tf:"instance_id"`
+	// +kubebuilder:validation:Optional
+	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id"`
 
-	NetworkInterfaceId *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id"`
+	// +kubebuilder:validation:Optional
+	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id"`
 
-	PrivateIpAddress *string `json:"privateIpAddress,omitempty" tf:"private_ip_address"`
+	// +kubebuilder:validation:Optional
+	PrivateIPAddress *string `json:"privateIpAddress,omitempty" tf:"private_ip_address"`
 
-	PublicIp *string `json:"publicIp,omitempty" tf:"public_ip"`
+	// +kubebuilder:validation:Optional
+	PublicIP *string `json:"publicIp,omitempty" tf:"public_ip"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

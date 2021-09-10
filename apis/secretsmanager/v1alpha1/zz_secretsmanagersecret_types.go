@@ -33,8 +33,11 @@ type ReplicaObservation struct {
 }
 
 type ReplicaParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"region"`
 }
 
@@ -42,6 +45,8 @@ type RotationRulesObservation struct {
 }
 
 type RotationRulesParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutomaticallyAfterDays int64 `json:"automaticallyAfterDays" tf:"automatically_after_days"`
 }
 
@@ -52,30 +57,46 @@ type SecretsmanagerSecretObservation struct {
 }
 
 type SecretsmanagerSecretParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	ForceOverwriteReplicaSecret *bool `json:"forceOverwriteReplicaSecret,omitempty" tf:"force_overwrite_replica_secret"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
+	// +kubebuilder:validation:Optional
 	RecoveryWindowInDays *int64 `json:"recoveryWindowInDays,omitempty" tf:"recovery_window_in_days"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Replica []ReplicaParameters `json:"replica,omitempty" tf:"replica"`
 
+	// +kubebuilder:validation:Optional
 	RotationLambdaArn *string `json:"rotationLambdaArn,omitempty" tf:"rotation_lambda_arn"`
 
+	// +kubebuilder:validation:Optional
 	RotationRules []RotationRulesParameters `json:"rotationRules,omitempty" tf:"rotation_rules"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

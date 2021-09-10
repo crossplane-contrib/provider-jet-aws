@@ -28,16 +28,25 @@ type ApiGatewayGatewayResponseObservation struct {
 }
 
 type ApiGatewayGatewayResponseParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ResponseParameters map[string]string `json:"responseParameters,omitempty" tf:"response_parameters"`
 
+	// +kubebuilder:validation:Optional
 	ResponseTemplates map[string]string `json:"responseTemplates,omitempty" tf:"response_templates"`
 
+	// +kubebuilder:validation:Required
 	ResponseType string `json:"responseType" tf:"response_type"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Optional
 	StatusCode *string `json:"statusCode,omitempty" tf:"status_code"`
 }
 

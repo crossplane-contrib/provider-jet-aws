@@ -28,10 +28,16 @@ type ElbAttachmentObservation struct {
 }
 
 type ElbAttachmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Elb string `json:"elb" tf:"elb"`
 
+	// +kubebuilder:validation:Required
 	Instance string `json:"instance" tf:"instance"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

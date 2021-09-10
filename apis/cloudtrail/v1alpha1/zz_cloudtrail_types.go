@@ -31,38 +31,58 @@ type CloudtrailObservation struct {
 }
 
 type CloudtrailParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudWatchLogsGroupArn *string `json:"cloudWatchLogsGroupArn,omitempty" tf:"cloud_watch_logs_group_arn"`
 
+	// +kubebuilder:validation:Optional
 	CloudWatchLogsRoleArn *string `json:"cloudWatchLogsRoleArn,omitempty" tf:"cloud_watch_logs_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	EnableLogFileValidation *bool `json:"enableLogFileValidation,omitempty" tf:"enable_log_file_validation"`
 
+	// +kubebuilder:validation:Optional
 	EnableLogging *bool `json:"enableLogging,omitempty" tf:"enable_logging"`
 
+	// +kubebuilder:validation:Optional
 	EventSelector []EventSelectorParameters `json:"eventSelector,omitempty" tf:"event_selector"`
 
+	// +kubebuilder:validation:Optional
 	IncludeGlobalServiceEvents *bool `json:"includeGlobalServiceEvents,omitempty" tf:"include_global_service_events"`
 
+	// +kubebuilder:validation:Optional
 	InsightSelector []InsightSelectorParameters `json:"insightSelector,omitempty" tf:"insight_selector"`
 
+	// +kubebuilder:validation:Optional
 	IsMultiRegionTrail *bool `json:"isMultiRegionTrail,omitempty" tf:"is_multi_region_trail"`
 
+	// +kubebuilder:validation:Optional
 	IsOrganizationTrail *bool `json:"isOrganizationTrail,omitempty" tf:"is_organization_trail"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	S3BucketName string `json:"s3BucketName" tf:"s3_bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	S3KeyPrefix *string `json:"s3KeyPrefix,omitempty" tf:"s3_key_prefix"`
 
+	// +kubebuilder:validation:Optional
 	SnsTopicName *string `json:"snsTopicName,omitempty" tf:"sns_topic_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -70,8 +90,11 @@ type DataResourceObservation struct {
 }
 
 type DataResourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 
@@ -79,10 +102,14 @@ type EventSelectorObservation struct {
 }
 
 type EventSelectorParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DataResource []DataResourceParameters `json:"dataResource,omitempty" tf:"data_resource"`
 
+	// +kubebuilder:validation:Optional
 	IncludeManagementEvents *bool `json:"includeManagementEvents,omitempty" tf:"include_management_events"`
 
+	// +kubebuilder:validation:Optional
 	ReadWriteType *string `json:"readWriteType,omitempty" tf:"read_write_type"`
 }
 
@@ -90,6 +117,8 @@ type InsightSelectorObservation struct {
 }
 
 type InsightSelectorParameters struct {
+
+	// +kubebuilder:validation:Required
 	InsightType string `json:"insightType" tf:"insight_type"`
 }
 

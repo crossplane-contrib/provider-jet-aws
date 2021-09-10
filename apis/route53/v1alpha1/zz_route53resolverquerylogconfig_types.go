@@ -27,20 +27,28 @@ import (
 type Route53ResolverQueryLogConfigObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
 	ShareStatus string `json:"shareStatus" tf:"share_status"`
 }
 
 type Route53ResolverQueryLogConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

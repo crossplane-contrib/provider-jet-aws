@@ -28,16 +28,25 @@ type Apigatewayv2ModelObservation struct {
 }
 
 type Apigatewayv2ModelParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Schema string `json:"schema" tf:"schema"`
 }
 

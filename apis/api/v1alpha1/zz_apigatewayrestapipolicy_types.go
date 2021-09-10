@@ -28,11 +28,17 @@ type ApiGatewayRestApiPolicyObservation struct {
 }
 
 type ApiGatewayRestApiPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Policy string `json:"policy" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 }
 
 // ApiGatewayRestApiPolicySpec defines the desired state of ApiGatewayRestApiPolicy

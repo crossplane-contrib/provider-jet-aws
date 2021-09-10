@@ -28,6 +28,8 @@ type ActionDefinitionObservation struct {
 }
 
 type ActionDefinitionParameters struct {
+
+	// +kubebuilder:validation:Required
 	PublishMetricAction []PublishMetricActionParameters `json:"publishMetricAction" tf:"publish_metric_action"`
 }
 
@@ -35,6 +37,8 @@ type DimensionObservation struct {
 }
 
 type DimensionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -42,14 +46,20 @@ type FirewallPolicyObservation struct {
 }
 
 type FirewallPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	StatefulRuleGroupReference []StatefulRuleGroupReferenceParameters `json:"statefulRuleGroupReference,omitempty" tf:"stateful_rule_group_reference"`
 
+	// +kubebuilder:validation:Optional
 	StatelessCustomAction []StatelessCustomActionParameters `json:"statelessCustomAction,omitempty" tf:"stateless_custom_action"`
 
+	// +kubebuilder:validation:Required
 	StatelessDefaultActions []string `json:"statelessDefaultActions" tf:"stateless_default_actions"`
 
+	// +kubebuilder:validation:Required
 	StatelessFragmentDefaultActions []string `json:"statelessFragmentDefaultActions" tf:"stateless_fragment_default_actions"`
 
+	// +kubebuilder:validation:Optional
 	StatelessRuleGroupReference []StatelessRuleGroupReferenceParameters `json:"statelessRuleGroupReference,omitempty" tf:"stateless_rule_group_reference"`
 }
 
@@ -60,16 +70,25 @@ type NetworkfirewallFirewallPolicyObservation struct {
 }
 
 type NetworkfirewallFirewallPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	FirewallPolicy []FirewallPolicyParameters `json:"firewallPolicy" tf:"firewall_policy"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -77,6 +96,8 @@ type PublishMetricActionObservation struct {
 }
 
 type PublishMetricActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Dimension []DimensionParameters `json:"dimension" tf:"dimension"`
 }
 
@@ -84,6 +105,8 @@ type StatefulRuleGroupReferenceObservation struct {
 }
 
 type StatefulRuleGroupReferenceParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 
@@ -91,8 +114,11 @@ type StatelessCustomActionObservation struct {
 }
 
 type StatelessCustomActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	ActionDefinition []ActionDefinitionParameters `json:"actionDefinition" tf:"action_definition"`
 
+	// +kubebuilder:validation:Required
 	ActionName string `json:"actionName" tf:"action_name"`
 }
 
@@ -100,8 +126,11 @@ type StatelessRuleGroupReferenceObservation struct {
 }
 
 type StatelessRuleGroupReferenceParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 

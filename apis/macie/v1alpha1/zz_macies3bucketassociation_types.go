@@ -28,8 +28,11 @@ type ClassificationTypeObservation struct {
 }
 
 type ClassificationTypeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Continuous *string `json:"continuous,omitempty" tf:"continuous"`
 
+	// +kubebuilder:validation:Optional
 	OneTime *string `json:"oneTime,omitempty" tf:"one_time"`
 }
 
@@ -37,14 +40,22 @@ type MacieS3BucketAssociationObservation struct {
 }
 
 type MacieS3BucketAssociationParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketName string `json:"bucketName" tf:"bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	ClassificationType []ClassificationTypeParameters `json:"classificationType,omitempty" tf:"classification_type"`
 
-	MemberAccountId *string `json:"memberAccountId,omitempty" tf:"member_account_id"`
+	// +kubebuilder:validation:Optional
+	MemberAccountID *string `json:"memberAccountId,omitempty" tf:"member_account_id"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

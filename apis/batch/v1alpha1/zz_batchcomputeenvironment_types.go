@@ -35,22 +35,34 @@ type BatchComputeEnvironmentObservation struct {
 }
 
 type BatchComputeEnvironmentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ComputeEnvironmentName *string `json:"computeEnvironmentName,omitempty" tf:"compute_environment_name"`
 
+	// +kubebuilder:validation:Optional
 	ComputeEnvironmentNamePrefix *string `json:"computeEnvironmentNamePrefix,omitempty" tf:"compute_environment_name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	ComputeResources []ComputeResourcesParameters `json:"computeResources,omitempty" tf:"compute_resources"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ServiceRole *string `json:"serviceRole,omitempty" tf:"service_role"`
 
+	// +kubebuilder:validation:Optional
 	State *string `json:"state,omitempty" tf:"state"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -58,34 +70,50 @@ type ComputeResourcesObservation struct {
 }
 
 type ComputeResourcesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllocationStrategy *string `json:"allocationStrategy,omitempty" tf:"allocation_strategy"`
 
+	// +kubebuilder:validation:Optional
 	BidPercentage *int64 `json:"bidPercentage,omitempty" tf:"bid_percentage"`
 
+	// +kubebuilder:validation:Optional
 	DesiredVcpus *int64 `json:"desiredVcpus,omitempty" tf:"desired_vcpus"`
 
+	// +kubebuilder:validation:Optional
 	Ec2KeyPair *string `json:"ec2KeyPair,omitempty" tf:"ec2_key_pair"`
 
-	ImageId *string `json:"imageId,omitempty" tf:"image_id"`
+	// +kubebuilder:validation:Optional
+	ImageID *string `json:"imageId,omitempty" tf:"image_id"`
 
+	// +kubebuilder:validation:Optional
 	InstanceRole *string `json:"instanceRole,omitempty" tf:"instance_role"`
 
+	// +kubebuilder:validation:Optional
 	InstanceType []string `json:"instanceType,omitempty" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate,omitempty" tf:"launch_template"`
 
+	// +kubebuilder:validation:Required
 	MaxVcpus int64 `json:"maxVcpus" tf:"max_vcpus"`
 
+	// +kubebuilder:validation:Optional
 	MinVcpus *int64 `json:"minVcpus,omitempty" tf:"min_vcpus"`
 
+	// +kubebuilder:validation:Required
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Optional
 	SpotIamFleetRole *string `json:"spotIamFleetRole,omitempty" tf:"spot_iam_fleet_role"`
 
+	// +kubebuilder:validation:Required
 	Subnets []string `json:"subnets" tf:"subnets"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -93,10 +121,14 @@ type LaunchTemplateObservation struct {
 }
 
 type LaunchTemplateParameters struct {
-	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
 
+	// +kubebuilder:validation:Optional
+	LaunchTemplateID *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+
+	// +kubebuilder:validation:Optional
 	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
 
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version"`
 }
 

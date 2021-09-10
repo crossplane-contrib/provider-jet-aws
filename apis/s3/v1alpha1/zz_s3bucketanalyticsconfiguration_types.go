@@ -28,6 +28,8 @@ type DataExportDestinationObservation struct {
 }
 
 type DataExportDestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	S3BucketDestination []S3BucketDestinationParameters `json:"s3BucketDestination" tf:"s3_bucket_destination"`
 }
 
@@ -35,8 +37,11 @@ type DataExportObservation struct {
 }
 
 type DataExportParameters struct {
+
+	// +kubebuilder:validation:Required
 	Destination []DataExportDestinationParameters `json:"destination" tf:"destination"`
 
+	// +kubebuilder:validation:Optional
 	OutputSchemaVersion *string `json:"outputSchemaVersion,omitempty" tf:"output_schema_version"`
 }
 
@@ -44,8 +49,11 @@ type S3BucketAnalyticsConfigurationFilterObservation struct {
 }
 
 type S3BucketAnalyticsConfigurationFilterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 }
 
@@ -53,14 +61,22 @@ type S3BucketAnalyticsConfigurationObservation struct {
 }
 
 type S3BucketAnalyticsConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	Filter []S3BucketAnalyticsConfigurationFilterParameters `json:"filter,omitempty" tf:"filter"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	StorageClassAnalysis []StorageClassAnalysisParameters `json:"storageClassAnalysis,omitempty" tf:"storage_class_analysis"`
 }
 
@@ -68,12 +84,17 @@ type S3BucketDestinationObservation struct {
 }
 
 type S3BucketDestinationParameters struct {
-	BucketAccountId *string `json:"bucketAccountId,omitempty" tf:"bucket_account_id"`
 
+	// +kubebuilder:validation:Optional
+	BucketAccountID *string `json:"bucketAccountId,omitempty" tf:"bucket_account_id"`
+
+	// +kubebuilder:validation:Required
 	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
 
+	// +kubebuilder:validation:Optional
 	Format *string `json:"format,omitempty" tf:"format"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 }
 
@@ -81,6 +102,8 @@ type StorageClassAnalysisObservation struct {
 }
 
 type StorageClassAnalysisParameters struct {
+
+	// +kubebuilder:validation:Required
 	DataExport []DataExportParameters `json:"dataExport" tf:"data_export"`
 }
 

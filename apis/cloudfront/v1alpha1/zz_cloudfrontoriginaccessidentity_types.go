@@ -33,12 +33,17 @@ type CloudfrontOriginAccessIdentityObservation struct {
 
 	IamArn string `json:"iamArn" tf:"iam_arn"`
 
-	S3CanonicalUserId string `json:"s3CanonicalUserId" tf:"s3_canonical_user_id"`
+	S3CanonicalUserID string `json:"s3CanonicalUserId" tf:"s3_canonical_user_id"`
 }
 
 type CloudfrontOriginAccessIdentityParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

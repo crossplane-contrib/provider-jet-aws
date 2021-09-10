@@ -28,12 +28,19 @@ type PinpointEventStreamObservation struct {
 }
 
 type PinpointEventStreamParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
+
+	// +kubebuilder:validation:Required
 	DestinationStreamArn string `json:"destinationStreamArn" tf:"destination_stream_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 

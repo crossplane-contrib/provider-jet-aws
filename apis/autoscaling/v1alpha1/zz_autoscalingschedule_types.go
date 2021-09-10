@@ -29,24 +29,37 @@ type AutoscalingScheduleObservation struct {
 }
 
 type AutoscalingScheduleParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutoscalingGroupName string `json:"autoscalingGroupName" tf:"autoscaling_group_name"`
 
+	// +kubebuilder:validation:Optional
 	DesiredCapacity *int64 `json:"desiredCapacity,omitempty" tf:"desired_capacity"`
 
+	// +kubebuilder:validation:Optional
 	EndTime *string `json:"endTime,omitempty" tf:"end_time"`
 
+	// +kubebuilder:validation:Optional
 	MaxSize *int64 `json:"maxSize,omitempty" tf:"max_size"`
 
+	// +kubebuilder:validation:Optional
 	MinSize *int64 `json:"minSize,omitempty" tf:"min_size"`
 
+	// +kubebuilder:validation:Optional
 	Recurrence *string `json:"recurrence,omitempty" tf:"recurrence"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ScheduledActionName string `json:"scheduledActionName" tf:"scheduled_action_name"`
 
+	// +kubebuilder:validation:Optional
 	StartTime *string `json:"startTime,omitempty" tf:"start_time"`
 
+	// +kubebuilder:validation:Optional
 	TimeZone *string `json:"timeZone,omitempty" tf:"time_zone"`
 }
 

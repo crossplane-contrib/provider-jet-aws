@@ -27,26 +27,38 @@ import (
 type ConfigConfigRuleObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	RuleId string `json:"ruleId" tf:"rule_id"`
+	RuleID string `json:"ruleId" tf:"rule_id"`
 }
 
 type ConfigConfigRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	InputParameters *string `json:"inputParameters,omitempty" tf:"input_parameters"`
 
+	// +kubebuilder:validation:Optional
 	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency,omitempty" tf:"maximum_execution_frequency"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Scope []ScopeParameters `json:"scope,omitempty" tf:"scope"`
 
+	// +kubebuilder:validation:Required
 	Source []SourceParameters `json:"source" tf:"source"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -54,12 +66,17 @@ type ScopeObservation struct {
 }
 
 type ScopeParameters struct {
-	ComplianceResourceId *string `json:"complianceResourceId,omitempty" tf:"compliance_resource_id"`
 
+	// +kubebuilder:validation:Optional
+	ComplianceResourceID *string `json:"complianceResourceId,omitempty" tf:"compliance_resource_id"`
+
+	// +kubebuilder:validation:Optional
 	ComplianceResourceTypes []string `json:"complianceResourceTypes,omitempty" tf:"compliance_resource_types"`
 
+	// +kubebuilder:validation:Optional
 	TagKey *string `json:"tagKey,omitempty" tf:"tag_key"`
 
+	// +kubebuilder:validation:Optional
 	TagValue *string `json:"tagValue,omitempty" tf:"tag_value"`
 }
 
@@ -67,10 +84,14 @@ type SourceDetailObservation struct {
 }
 
 type SourceDetailParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EventSource *string `json:"eventSource,omitempty" tf:"event_source"`
 
+	// +kubebuilder:validation:Optional
 	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency,omitempty" tf:"maximum_execution_frequency"`
 
+	// +kubebuilder:validation:Optional
 	MessageType *string `json:"messageType,omitempty" tf:"message_type"`
 }
 
@@ -78,10 +99,14 @@ type SourceObservation struct {
 }
 
 type SourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	Owner string `json:"owner" tf:"owner"`
 
+	// +kubebuilder:validation:Optional
 	SourceDetail []SourceDetailParameters `json:"sourceDetail,omitempty" tf:"source_detail"`
 
+	// +kubebuilder:validation:Required
 	SourceIdentifier string `json:"sourceIdentifier" tf:"source_identifier"`
 }
 

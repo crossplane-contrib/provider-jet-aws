@@ -29,14 +29,22 @@ type QuicksightGroupObservation struct {
 }
 
 type QuicksightGroupParameters struct {
-	AwsAccountId *string `json:"awsAccountId,omitempty" tf:"aws_account_id"`
 
+	// +kubebuilder:validation:Optional
+	AwsAccountID *string `json:"awsAccountId,omitempty" tf:"aws_account_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	GroupName string `json:"groupName" tf:"group_name"`
 
+	// +kubebuilder:validation:Optional
 	Namespace *string `json:"namespace,omitempty" tf:"namespace"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

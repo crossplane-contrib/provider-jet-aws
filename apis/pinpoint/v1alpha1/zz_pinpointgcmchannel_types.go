@@ -28,12 +28,19 @@ type PinpointGcmChannelObservation struct {
 }
 
 type PinpointGcmChannelParameters struct {
-	ApiKey string `json:"apiKey" tf:"api_key"`
 
-	ApplicationId string `json:"applicationId" tf:"application_id"`
+	// +kubebuilder:validation:Required
+	APIKey string `json:"apiKey" tf:"api_key"`
 
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

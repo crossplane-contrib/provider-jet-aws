@@ -521,8 +521,8 @@ func (in *CrlConfigurationParameters) DeepCopyInto(out *CrlConfigurationParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.S3ObjectAcl != nil {
-		in, out := &in.S3ObjectAcl, &out.S3ObjectAcl
+	if in.S3ObjectACL != nil {
+		in, out := &in.S3ObjectACL, &out.S3ObjectACL
 		*out = new(string)
 		**out = **in
 	}

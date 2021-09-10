@@ -27,13 +27,13 @@ import (
 type RamResourceShareAccepterObservation struct {
 	InvitationArn string `json:"invitationArn" tf:"invitation_arn"`
 
-	ReceiverAccountId string `json:"receiverAccountId" tf:"receiver_account_id"`
+	ReceiverAccountID string `json:"receiverAccountId" tf:"receiver_account_id"`
 
 	Resources []string `json:"resources" tf:"resources"`
 
-	SenderAccountId string `json:"senderAccountId" tf:"sender_account_id"`
+	SenderAccountID string `json:"senderAccountId" tf:"sender_account_id"`
 
-	ShareId string `json:"shareId" tf:"share_id"`
+	ShareID string `json:"shareId" tf:"share_id"`
 
 	ShareName string `json:"shareName" tf:"share_name"`
 
@@ -41,8 +41,13 @@ type RamResourceShareAccepterObservation struct {
 }
 
 type RamResourceShareAccepterParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ShareArn string `json:"shareArn" tf:"share_arn"`
 }
 

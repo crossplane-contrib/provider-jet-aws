@@ -28,11 +28,17 @@ type ServicecatalogBudgetResourceAssociationObservation struct {
 }
 
 type ServicecatalogBudgetResourceAssociationParameters struct {
+
+	// +kubebuilder:validation:Required
 	BudgetName string `json:"budgetName" tf:"budget_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 }
 
 // ServicecatalogBudgetResourceAssociationSpec defines the desired state of ServicecatalogBudgetResourceAssociation

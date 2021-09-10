@@ -166,8 +166,8 @@ func (in *OrganizationsAccountParameters) DeepCopyInto(out *OrganizationsAccount
 		*out = new(string)
 		**out = **in
 	}
-	if in.ParentId != nil {
-		in, out := &in.ParentId, &out.ParentId
+	if in.ParentID != nil {
+		in, out := &in.ParentID, &out.ParentID
 		*out = new(string)
 		**out = **in
 	}

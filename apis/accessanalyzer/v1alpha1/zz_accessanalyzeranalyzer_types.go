@@ -29,14 +29,22 @@ type AccessanalyzerAnalyzerObservation struct {
 }
 
 type AccessanalyzerAnalyzerParameters struct {
+
+	// +kubebuilder:validation:Required
 	AnalyzerName string `json:"analyzerName" tf:"analyzer_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 

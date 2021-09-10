@@ -28,10 +28,16 @@ type CloudfrontMonitoringSubscriptionObservation struct {
 }
 
 type CloudfrontMonitoringSubscriptionParameters struct {
-	DistributionId string `json:"distributionId" tf:"distribution_id"`
 
+	// +kubebuilder:validation:Required
+	DistributionID string `json:"distributionId" tf:"distribution_id"`
+
+	// +kubebuilder:validation:Required
 	MonitoringSubscription []MonitoringSubscriptionParameters `json:"monitoringSubscription" tf:"monitoring_subscription"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -39,6 +45,8 @@ type MonitoringSubscriptionObservation struct {
 }
 
 type MonitoringSubscriptionParameters struct {
+
+	// +kubebuilder:validation:Required
 	RealtimeMetricsSubscriptionConfig []RealtimeMetricsSubscriptionConfigParameters `json:"realtimeMetricsSubscriptionConfig" tf:"realtime_metrics_subscription_config"`
 }
 
@@ -46,6 +54,8 @@ type RealtimeMetricsSubscriptionConfigObservation struct {
 }
 
 type RealtimeMetricsSubscriptionConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	RealtimeMetricsSubscriptionStatus string `json:"realtimeMetricsSubscriptionStatus" tf:"realtime_metrics_subscription_status"`
 }
 

@@ -28,8 +28,11 @@ type ClusterModeObservation struct {
 }
 
 type ClusterModeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	NumNodeGroups *int64 `json:"numNodeGroups,omitempty" tf:"num_node_groups"`
 
+	// +kubebuilder:validation:Required
 	ReplicasPerNodeGroup int64 `json:"replicasPerNodeGroup" tf:"replicas_per_node_group"`
 }
 
@@ -50,68 +53,103 @@ type ElasticacheReplicationGroupObservation struct {
 }
 
 type ElasticacheReplicationGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately"`
 
+	// +kubebuilder:validation:Optional
 	AtRestEncryptionEnabled *bool `json:"atRestEncryptionEnabled,omitempty" tf:"at_rest_encryption_enabled"`
 
+	// +kubebuilder:validation:Optional
 	AuthToken *string `json:"authToken,omitempty" tf:"auth_token"`
 
+	// +kubebuilder:validation:Optional
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade,omitempty" tf:"auto_minor_version_upgrade"`
 
+	// +kubebuilder:validation:Optional
 	AutomaticFailoverEnabled *bool `json:"automaticFailoverEnabled,omitempty" tf:"automatic_failover_enabled"`
 
+	// +kubebuilder:validation:Optional
 	AvailabilityZones []string `json:"availabilityZones,omitempty" tf:"availability_zones"`
 
+	// +kubebuilder:validation:Optional
 	ClusterMode []ClusterModeParameters `json:"clusterMode,omitempty" tf:"cluster_mode"`
 
+	// +kubebuilder:validation:Optional
 	Engine *string `json:"engine,omitempty" tf:"engine"`
 
+	// +kubebuilder:validation:Optional
 	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version"`
 
+	// +kubebuilder:validation:Optional
 	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier"`
 
-	GlobalReplicationGroupId *string `json:"globalReplicationGroupId,omitempty" tf:"global_replication_group_id"`
+	// +kubebuilder:validation:Optional
+	GlobalReplicationGroupID *string `json:"globalReplicationGroupId,omitempty" tf:"global_replication_group_id"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window"`
 
+	// +kubebuilder:validation:Optional
 	MultiAzEnabled *bool `json:"multiAzEnabled,omitempty" tf:"multi_az_enabled"`
 
+	// +kubebuilder:validation:Optional
 	NodeType *string `json:"nodeType,omitempty" tf:"node_type"`
 
+	// +kubebuilder:validation:Optional
 	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn"`
 
+	// +kubebuilder:validation:Optional
 	NumberCacheClusters *int64 `json:"numberCacheClusters,omitempty" tf:"number_cache_clusters"`
 
+	// +kubebuilder:validation:Optional
 	ParameterGroupName *string `json:"parameterGroupName,omitempty" tf:"parameter_group_name"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ReplicationGroupDescription string `json:"replicationGroupDescription" tf:"replication_group_description"`
 
-	ReplicationGroupId string `json:"replicationGroupId" tf:"replication_group_id"`
+	// +kubebuilder:validation:Required
+	ReplicationGroupID string `json:"replicationGroupId" tf:"replication_group_id"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupNames []string `json:"securityGroupNames,omitempty" tf:"security_group_names"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotArns []string `json:"snapshotArns,omitempty" tf:"snapshot_arns"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotName *string `json:"snapshotName,omitempty" tf:"snapshot_name"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotRetentionLimit *int64 `json:"snapshotRetentionLimit,omitempty" tf:"snapshot_retention_limit"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotWindow *string `json:"snapshotWindow,omitempty" tf:"snapshot_window"`
 
+	// +kubebuilder:validation:Optional
 	SubnetGroupName *string `json:"subnetGroupName,omitempty" tf:"subnet_group_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TransitEncryptionEnabled *bool `json:"transitEncryptionEnabled,omitempty" tf:"transit_encryption_enabled"`
 }
 

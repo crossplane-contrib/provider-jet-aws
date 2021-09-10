@@ -31,14 +31,22 @@ type PinpointSmsChannelObservation struct {
 }
 
 type PinpointSmsChannelParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SenderId *string `json:"senderId,omitempty" tf:"sender_id"`
+	// +kubebuilder:validation:Optional
+	SenderID *string `json:"senderId,omitempty" tf:"sender_id"`
 
+	// +kubebuilder:validation:Optional
 	ShortCode *string `json:"shortCode,omitempty" tf:"short_code"`
 }
 

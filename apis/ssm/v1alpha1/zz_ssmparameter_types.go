@@ -29,30 +29,46 @@ type SsmParameterObservation struct {
 }
 
 type SsmParameterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowedPattern *string `json:"allowedPattern,omitempty" tf:"allowed_pattern"`
 
+	// +kubebuilder:validation:Optional
 	Arn *string `json:"arn,omitempty" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	DataType *string `json:"dataType,omitempty" tf:"data_type"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	KeyId *string `json:"keyId,omitempty" tf:"key_id"`
+	// +kubebuilder:validation:Optional
+	KeyID *string `json:"keyId,omitempty" tf:"key_id"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Overwrite *bool `json:"overwrite,omitempty" tf:"overwrite"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Tier *string `json:"tier,omitempty" tf:"tier"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

@@ -28,47 +28,70 @@ type ApiGatewayIntegrationObservation struct {
 }
 
 type ApiGatewayIntegrationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CacheKeyParameters []string `json:"cacheKeyParameters,omitempty" tf:"cache_key_parameters"`
 
+	// +kubebuilder:validation:Optional
 	CacheNamespace *string `json:"cacheNamespace,omitempty" tf:"cache_namespace"`
 
-	ConnectionId *string `json:"connectionId,omitempty" tf:"connection_id"`
+	// +kubebuilder:validation:Optional
+	ConnectionID *string `json:"connectionId,omitempty" tf:"connection_id"`
 
+	// +kubebuilder:validation:Optional
 	ConnectionType *string `json:"connectionType,omitempty" tf:"connection_type"`
 
+	// +kubebuilder:validation:Optional
 	ContentHandling *string `json:"contentHandling,omitempty" tf:"content_handling"`
 
+	// +kubebuilder:validation:Optional
 	Credentials *string `json:"credentials,omitempty" tf:"credentials"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	// +kubebuilder:validation:Required
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
-	IntegrationHttpMethod *string `json:"integrationHttpMethod,omitempty" tf:"integration_http_method"`
+	// +kubebuilder:validation:Optional
+	IntegrationHTTPMethod *string `json:"integrationHttpMethod,omitempty" tf:"integration_http_method"`
 
+	// +kubebuilder:validation:Optional
 	PassthroughBehavior *string `json:"passthroughBehavior,omitempty" tf:"passthrough_behavior"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RequestParameters map[string]string `json:"requestParameters,omitempty" tf:"request_parameters"`
 
+	// +kubebuilder:validation:Optional
 	RequestTemplates map[string]string `json:"requestTemplates,omitempty" tf:"request_templates"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Optional
+	TLSConfig []TLSConfigParameters `json:"tlsConfig,omitempty" tf:"tls_config"`
+
+	// +kubebuilder:validation:Optional
 	TimeoutMilliseconds *int64 `json:"timeoutMilliseconds,omitempty" tf:"timeout_milliseconds"`
 
-	TlsConfig []TlsConfigParameters `json:"tlsConfig,omitempty" tf:"tls_config"`
-
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
-	Uri *string `json:"uri,omitempty" tf:"uri"`
+	// +kubebuilder:validation:Optional
+	URI *string `json:"uri,omitempty" tf:"uri"`
 }
 
-type TlsConfigObservation struct {
+type TLSConfigObservation struct {
 }
 
-type TlsConfigParameters struct {
+type TLSConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InsecureSkipVerification *bool `json:"insecureSkipVerification,omitempty" tf:"insecure_skip_verification"`
 }
 

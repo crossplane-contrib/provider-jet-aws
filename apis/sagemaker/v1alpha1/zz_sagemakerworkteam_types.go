@@ -28,10 +28,14 @@ type CognitoMemberDefinitionObservation struct {
 }
 
 type CognitoMemberDefinitionParameters struct {
-	ClientId string `json:"clientId" tf:"client_id"`
 
+	// +kubebuilder:validation:Required
+	ClientID string `json:"clientId" tf:"client_id"`
+
+	// +kubebuilder:validation:Required
 	UserGroup string `json:"userGroup" tf:"user_group"`
 
+	// +kubebuilder:validation:Required
 	UserPool string `json:"userPool" tf:"user_pool"`
 }
 
@@ -39,8 +43,11 @@ type MemberDefinitionObservation struct {
 }
 
 type MemberDefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CognitoMemberDefinition []CognitoMemberDefinitionParameters `json:"cognitoMemberDefinition,omitempty" tf:"cognito_member_definition"`
 
+	// +kubebuilder:validation:Optional
 	OidcMemberDefinition []OidcMemberDefinitionParameters `json:"oidcMemberDefinition,omitempty" tf:"oidc_member_definition"`
 }
 
@@ -48,6 +55,8 @@ type NotificationConfigurationObservation struct {
 }
 
 type NotificationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn"`
 }
 
@@ -55,6 +64,8 @@ type OidcMemberDefinitionObservation struct {
 }
 
 type OidcMemberDefinitionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Groups []string `json:"groups" tf:"groups"`
 }
 
@@ -65,20 +76,31 @@ type SagemakerWorkteamObservation struct {
 }
 
 type SagemakerWorkteamParameters struct {
+
+	// +kubebuilder:validation:Required
 	Description string `json:"description" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	MemberDefinition []MemberDefinitionParameters `json:"memberDefinition" tf:"member_definition"`
 
+	// +kubebuilder:validation:Optional
 	NotificationConfiguration []NotificationConfigurationParameters `json:"notificationConfiguration,omitempty" tf:"notification_configuration"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	WorkforceName string `json:"workforceName" tf:"workforce_name"`
 
+	// +kubebuilder:validation:Required
 	WorkteamName string `json:"workteamName" tf:"workteam_name"`
 }
 

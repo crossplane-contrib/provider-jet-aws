@@ -24,7 +24,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type PrivateDnsNameConfigurationObservation struct {
+type PrivateDNSNameConfigurationObservation struct {
 	Name string `json:"name" tf:"name"`
 
 	State string `json:"state" tf:"state"`
@@ -34,7 +34,7 @@ type PrivateDnsNameConfigurationObservation struct {
 	Value string `json:"value" tf:"value"`
 }
 
-type PrivateDnsNameConfigurationParameters struct {
+type PrivateDNSNameConfigurationParameters struct {
 }
 
 type VpcEndpointServiceObservation struct {
@@ -42,11 +42,11 @@ type VpcEndpointServiceObservation struct {
 
 	AvailabilityZones []string `json:"availabilityZones" tf:"availability_zones"`
 
-	BaseEndpointDnsNames []string `json:"baseEndpointDnsNames" tf:"base_endpoint_dns_names"`
+	BaseEndpointDNSNames []string `json:"baseEndpointDnsNames" tf:"base_endpoint_dns_names"`
 
 	ManagesVpcEndpoints bool `json:"managesVpcEndpoints" tf:"manages_vpc_endpoints"`
 
-	PrivateDnsNameConfiguration []PrivateDnsNameConfigurationObservation `json:"privateDnsNameConfiguration" tf:"private_dns_name_configuration"`
+	PrivateDNSNameConfiguration []PrivateDNSNameConfigurationObservation `json:"privateDnsNameConfiguration" tf:"private_dns_name_configuration"`
 
 	ServiceName string `json:"serviceName" tf:"service_name"`
 
@@ -56,20 +56,31 @@ type VpcEndpointServiceObservation struct {
 }
 
 type VpcEndpointServiceParameters struct {
+
+	// +kubebuilder:validation:Required
 	AcceptanceRequired bool `json:"acceptanceRequired" tf:"acceptance_required"`
 
+	// +kubebuilder:validation:Optional
 	AllowedPrincipals []string `json:"allowedPrincipals,omitempty" tf:"allowed_principals"`
 
+	// +kubebuilder:validation:Optional
 	GatewayLoadBalancerArns []string `json:"gatewayLoadBalancerArns,omitempty" tf:"gateway_load_balancer_arns"`
 
+	// +kubebuilder:validation:Optional
 	NetworkLoadBalancerArns []string `json:"networkLoadBalancerArns,omitempty" tf:"network_load_balancer_arns"`
 
-	PrivateDnsName *string `json:"privateDnsName,omitempty" tf:"private_dns_name"`
+	// +kubebuilder:validation:Optional
+	PrivateDNSName *string `json:"privateDnsName,omitempty" tf:"private_dns_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

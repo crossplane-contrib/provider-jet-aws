@@ -31,14 +31,22 @@ type MskConfigurationObservation struct {
 }
 
 type MskConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	KafkaVersions []string `json:"kafkaVersions,omitempty" tf:"kafka_versions"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServerProperties string `json:"serverProperties" tf:"server_properties"`
 }
 

@@ -28,16 +28,25 @@ type Ec2ClientVpnAuthorizationRuleObservation struct {
 }
 
 type Ec2ClientVpnAuthorizationRuleParameters struct {
-	AccessGroupId *string `json:"accessGroupId,omitempty" tf:"access_group_id"`
 
+	// +kubebuilder:validation:Optional
+	AccessGroupID *string `json:"accessGroupId,omitempty" tf:"access_group_id"`
+
+	// +kubebuilder:validation:Optional
 	AuthorizeAllGroups *bool `json:"authorizeAllGroups,omitempty" tf:"authorize_all_groups"`
 
-	ClientVpnEndpointId string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
+	// +kubebuilder:validation:Required
+	ClientVpnEndpointID string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	TargetNetworkCidr string `json:"targetNetworkCidr" tf:"target_network_cidr"`
 }
 

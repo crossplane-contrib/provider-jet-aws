@@ -28,10 +28,16 @@ type RamResourceAssociationObservation struct {
 }
 
 type RamResourceAssociationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 
+	// +kubebuilder:validation:Required
 	ResourceShareArn string `json:"resourceShareArn" tf:"resource_share_arn"`
 }
 

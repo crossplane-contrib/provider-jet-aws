@@ -28,18 +28,28 @@ type ApiGatewayMethodResponseObservation struct {
 }
 
 type ApiGatewayMethodResponseParameters struct {
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
 
+	// +kubebuilder:validation:Required
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
+	// +kubebuilder:validation:Optional
 	ResponseModels map[string]string `json:"responseModels,omitempty" tf:"response_models"`
 
+	// +kubebuilder:validation:Optional
 	ResponseParameters map[string]bool `json:"responseParameters,omitempty" tf:"response_parameters"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Required
 	StatusCode string `json:"statusCode" tf:"status_code"`
 }
 

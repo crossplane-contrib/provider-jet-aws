@@ -28,12 +28,19 @@ type LoadBalancerListenerPolicyObservation struct {
 }
 
 type LoadBalancerListenerPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	LoadBalancerName string `json:"loadBalancerName" tf:"load_balancer_name"`
 
+	// +kubebuilder:validation:Required
 	LoadBalancerPort int64 `json:"loadBalancerPort" tf:"load_balancer_port"`
 
+	// +kubebuilder:validation:Optional
 	PolicyNames []string `json:"policyNames,omitempty" tf:"policy_names"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

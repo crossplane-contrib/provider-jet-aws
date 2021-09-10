@@ -29,16 +29,25 @@ type WafregionalRuleObservation struct {
 }
 
 type WafregionalRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Predicate []WafregionalRulePredicateParameters `json:"predicate,omitempty" tf:"predicate"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -46,10 +55,14 @@ type WafregionalRulePredicateObservation struct {
 }
 
 type WafregionalRulePredicateParameters struct {
-	DataId string `json:"dataId" tf:"data_id"`
 
+	// +kubebuilder:validation:Required
+	DataID string `json:"dataId" tf:"data_id"`
+
+	// +kubebuilder:validation:Required
 	Negated bool `json:"negated" tf:"negated"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

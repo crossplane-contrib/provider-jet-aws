@@ -35,10 +35,16 @@ type SagemakerImageVersionObservation struct {
 }
 
 type SagemakerImageVersionParameters struct {
+
+	// +kubebuilder:validation:Required
 	BaseImage string `json:"baseImage" tf:"base_image"`
 
+	// +kubebuilder:validation:Required
 	ImageName string `json:"imageName" tf:"image_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

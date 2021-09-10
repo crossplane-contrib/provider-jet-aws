@@ -28,8 +28,11 @@ type IdentityProviderObservation struct {
 }
 
 type IdentityProviderParameters struct {
+
+	// +kubebuilder:validation:Required
 	SamlMetadata string `json:"samlMetadata" tf:"saml_metadata"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -37,11 +40,15 @@ type NetworkObservation struct {
 }
 
 type NetworkParameters struct {
+
+	// +kubebuilder:validation:Required
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type WorklinkFleetObservation struct {
@@ -55,20 +62,31 @@ type WorklinkFleetObservation struct {
 }
 
 type WorklinkFleetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuditStreamArn *string `json:"auditStreamArn,omitempty" tf:"audit_stream_arn"`
 
+	// +kubebuilder:validation:Optional
 	DeviceCaCertificate *string `json:"deviceCaCertificate,omitempty" tf:"device_ca_certificate"`
 
+	// +kubebuilder:validation:Optional
 	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 
+	// +kubebuilder:validation:Optional
 	IdentityProvider []IdentityProviderParameters `json:"identityProvider,omitempty" tf:"identity_provider"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Network []NetworkParameters `json:"network,omitempty" tf:"network"`
 
+	// +kubebuilder:validation:Optional
 	OptimizeForEndUserLocation *bool `json:"optimizeForEndUserLocation,omitempty" tf:"optimize_for_end_user_location"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

@@ -28,8 +28,11 @@ type HomeDirectoryMappingsObservation struct {
 }
 
 type HomeDirectoryMappingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Entry string `json:"entry" tf:"entry"`
 
+	// +kubebuilder:validation:Required
 	Target string `json:"target" tf:"target"`
 }
 
@@ -37,11 +40,15 @@ type PosixProfileObservation struct {
 }
 
 type PosixProfileParameters struct {
-	Gid int64 `json:"gid" tf:"gid"`
 
+	// +kubebuilder:validation:Required
+	GID int64 `json:"gid" tf:"gid"`
+
+	// +kubebuilder:validation:Optional
 	SecondaryGids []int64 `json:"secondaryGids,omitempty" tf:"secondary_gids"`
 
-	Uid int64 `json:"uid" tf:"uid"`
+	// +kubebuilder:validation:Required
+	UID int64 `json:"uid" tf:"uid"`
 }
 
 type TransferUserObservation struct {
@@ -49,26 +56,40 @@ type TransferUserObservation struct {
 }
 
 type TransferUserParameters struct {
+
+	// +kubebuilder:validation:Optional
 	HomeDirectory *string `json:"homeDirectory,omitempty" tf:"home_directory"`
 
+	// +kubebuilder:validation:Optional
 	HomeDirectoryMappings []HomeDirectoryMappingsParameters `json:"homeDirectoryMappings,omitempty" tf:"home_directory_mappings"`
 
+	// +kubebuilder:validation:Optional
 	HomeDirectoryType *string `json:"homeDirectoryType,omitempty" tf:"home_directory_type"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
+	// +kubebuilder:validation:Optional
 	PosixProfile []PosixProfileParameters `json:"posixProfile,omitempty" tf:"posix_profile"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Role string `json:"role" tf:"role"`
 
-	ServerId string `json:"serverId" tf:"server_id"`
+	// +kubebuilder:validation:Required
+	ServerID string `json:"serverId" tf:"server_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	UserName string `json:"userName" tf:"user_name"`
 }
 

@@ -35,16 +35,25 @@ type DefaultVpcDhcpOptionsObservation struct {
 }
 
 type DefaultVpcDhcpOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	NetbiosNameServers []string `json:"netbiosNameServers,omitempty" tf:"netbios_name_servers"`
 
+	// +kubebuilder:validation:Optional
 	NetbiosNodeType *string `json:"netbiosNodeType,omitempty" tf:"netbios_node_type"`
 
-	OwnerId *string `json:"ownerId,omitempty" tf:"owner_id"`
+	// +kubebuilder:validation:Optional
+	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

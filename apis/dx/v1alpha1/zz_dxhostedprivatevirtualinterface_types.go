@@ -35,26 +35,40 @@ type DxHostedPrivateVirtualInterfaceObservation struct {
 }
 
 type DxHostedPrivateVirtualInterfaceParameters struct {
+
+	// +kubebuilder:validation:Required
 	AddressFamily string `json:"addressFamily" tf:"address_family"`
 
+	// +kubebuilder:validation:Optional
 	AmazonAddress *string `json:"amazonAddress,omitempty" tf:"amazon_address"`
 
+	// +kubebuilder:validation:Required
 	BgpAsn int64 `json:"bgpAsn" tf:"bgp_asn"`
 
+	// +kubebuilder:validation:Optional
 	BgpAuthKey *string `json:"bgpAuthKey,omitempty" tf:"bgp_auth_key"`
 
-	ConnectionId string `json:"connectionId" tf:"connection_id"`
+	// +kubebuilder:validation:Required
+	ConnectionID string `json:"connectionId" tf:"connection_id"`
 
+	// +kubebuilder:validation:Optional
 	CustomerAddress *string `json:"customerAddress,omitempty" tf:"customer_address"`
 
+	// +kubebuilder:validation:Optional
 	Mtu *int64 `json:"mtu,omitempty" tf:"mtu"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
-	OwnerAccountId string `json:"ownerAccountId" tf:"owner_account_id"`
+	// +kubebuilder:validation:Required
+	OwnerAccountID string `json:"ownerAccountId" tf:"owner_account_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Vlan int64 `json:"vlan" tf:"vlan"`
 }
 

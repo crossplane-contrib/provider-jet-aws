@@ -25,7 +25,7 @@ import (
 )
 
 type CognitoUserPoolDomainObservation struct {
-	AwsAccountId string `json:"awsAccountId" tf:"aws_account_id"`
+	AwsAccountID string `json:"awsAccountId" tf:"aws_account_id"`
 
 	CloudfrontDistributionArn string `json:"cloudfrontDistributionArn" tf:"cloudfront_distribution_arn"`
 
@@ -35,13 +35,20 @@ type CognitoUserPoolDomainObservation struct {
 }
 
 type CognitoUserPoolDomainParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn"`
 
+	// +kubebuilder:validation:Required
 	Domain string `json:"domain" tf:"domain"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	// +kubebuilder:validation:Required
+	UserPoolID string `json:"userPoolId" tf:"user_pool_id"`
 }
 
 // CognitoUserPoolDomainSpec defines the desired state of CognitoUserPoolDomain

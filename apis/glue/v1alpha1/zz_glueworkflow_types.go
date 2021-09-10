@@ -29,18 +29,28 @@ type GlueWorkflowObservation struct {
 }
 
 type GlueWorkflowParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DefaultRunProperties map[string]string `json:"defaultRunProperties,omitempty" tf:"default_run_properties"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	MaxConcurrentRuns *int64 `json:"maxConcurrentRuns,omitempty" tf:"max_concurrent_runs"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

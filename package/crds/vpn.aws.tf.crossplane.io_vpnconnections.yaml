@@ -71,6 +71,8 @@ spec:
                   localIpv6NetworkCidr:
                     type: string
                   region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
                     type: string
                   remoteIpv4NetworkCidr:
                     type: string

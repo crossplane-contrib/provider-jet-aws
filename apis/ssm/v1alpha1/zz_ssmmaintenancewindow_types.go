@@ -28,32 +28,49 @@ type SsmMaintenanceWindowObservation struct {
 }
 
 type SsmMaintenanceWindowParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowUnassociatedTargets *bool `json:"allowUnassociatedTargets,omitempty" tf:"allow_unassociated_targets"`
 
+	// +kubebuilder:validation:Required
 	Cutoff int64 `json:"cutoff" tf:"cutoff"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Duration int64 `json:"duration" tf:"duration"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	EndDate *string `json:"endDate,omitempty" tf:"end_date"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Schedule string `json:"schedule" tf:"schedule"`
 
+	// +kubebuilder:validation:Optional
 	ScheduleOffset *int64 `json:"scheduleOffset,omitempty" tf:"schedule_offset"`
 
+	// +kubebuilder:validation:Optional
 	ScheduleTimezone *string `json:"scheduleTimezone,omitempty" tf:"schedule_timezone"`
 
+	// +kubebuilder:validation:Optional
 	StartDate *string `json:"startDate,omitempty" tf:"start_date"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

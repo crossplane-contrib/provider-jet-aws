@@ -365,13 +365,13 @@ func (in *RdsClusterInstanceParameters) DeepCopyInto(out *RdsClusterInstancePara
 		*out = new(bool)
 		**out = **in
 	}
-	if in.DbParameterGroupName != nil {
-		in, out := &in.DbParameterGroupName, &out.DbParameterGroupName
+	if in.DBParameterGroupName != nil {
+		in, out := &in.DBParameterGroupName, &out.DBParameterGroupName
 		*out = new(string)
 		**out = **in
 	}
-	if in.DbSubnetGroupName != nil {
-		in, out := &in.DbSubnetGroupName, &out.DbSubnetGroupName
+	if in.DBSubnetGroupName != nil {
+		in, out := &in.DBSubnetGroupName, &out.DBSubnetGroupName
 		*out = new(string)
 		**out = **in
 	}
@@ -410,8 +410,8 @@ func (in *RdsClusterInstanceParameters) DeepCopyInto(out *RdsClusterInstancePara
 		*out = new(bool)
 		**out = **in
 	}
-	if in.PerformanceInsightsKmsKeyId != nil {
-		in, out := &in.PerformanceInsightsKmsKeyId, &out.PerformanceInsightsKmsKeyId
+	if in.PerformanceInsightsKmsKeyID != nil {
+		in, out := &in.PerformanceInsightsKmsKeyID, &out.PerformanceInsightsKmsKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -749,18 +749,18 @@ func (in *RdsClusterParameters) DeepCopyInto(out *RdsClusterParameters) {
 		*out = new(bool)
 		**out = **in
 	}
+	if in.DBClusterParameterGroupName != nil {
+		in, out := &in.DBClusterParameterGroupName, &out.DBClusterParameterGroupName
+		*out = new(string)
+		**out = **in
+	}
+	if in.DBSubnetGroupName != nil {
+		in, out := &in.DBSubnetGroupName, &out.DBSubnetGroupName
+		*out = new(string)
+		**out = **in
+	}
 	if in.DatabaseName != nil {
 		in, out := &in.DatabaseName, &out.DatabaseName
-		*out = new(string)
-		**out = **in
-	}
-	if in.DbClusterParameterGroupName != nil {
-		in, out := &in.DbClusterParameterGroupName, &out.DbClusterParameterGroupName
-		*out = new(string)
-		**out = **in
-	}
-	if in.DbSubnetGroupName != nil {
-		in, out := &in.DbSubnetGroupName, &out.DbSubnetGroupName
 		*out = new(string)
 		**out = **in
 	}
@@ -769,8 +769,8 @@ func (in *RdsClusterParameters) DeepCopyInto(out *RdsClusterParameters) {
 		*out = new(bool)
 		**out = **in
 	}
-	if in.EnableHttpEndpoint != nil {
-		in, out := &in.EnableHttpEndpoint, &out.EnableHttpEndpoint
+	if in.EnableHTTPEndpoint != nil {
+		in, out := &in.EnableHTTPEndpoint, &out.EnableHTTPEndpoint
 		*out = new(bool)
 		**out = **in
 	}
@@ -814,8 +814,8 @@ func (in *RdsClusterParameters) DeepCopyInto(out *RdsClusterParameters) {
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -1185,8 +1185,8 @@ func (in *RdsGlobalClusterParameters) DeepCopyInto(out *RdsGlobalClusterParamete
 		*out = new(bool)
 		**out = **in
 	}
-	if in.SourceDbClusterIdentifier != nil {
-		in, out := &in.SourceDbClusterIdentifier, &out.SourceDbClusterIdentifier
+	if in.SourceDBClusterIdentifier != nil {
+		in, out := &in.SourceDBClusterIdentifier, &out.SourceDBClusterIdentifier
 		*out = new(string)
 		**out = **in
 	}

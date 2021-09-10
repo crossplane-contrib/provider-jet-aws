@@ -27,36 +27,53 @@ import (
 type Ec2CapacityReservationObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 }
 
 type Ec2CapacityReservationParameters struct {
+
+	// +kubebuilder:validation:Required
 	AvailabilityZone string `json:"availabilityZone" tf:"availability_zone"`
 
+	// +kubebuilder:validation:Optional
 	EbsOptimized *bool `json:"ebsOptimized,omitempty" tf:"ebs_optimized"`
 
+	// +kubebuilder:validation:Optional
 	EndDate *string `json:"endDate,omitempty" tf:"end_date"`
 
+	// +kubebuilder:validation:Optional
 	EndDateType *string `json:"endDateType,omitempty" tf:"end_date_type"`
 
+	// +kubebuilder:validation:Optional
 	EphemeralStorage *bool `json:"ephemeralStorage,omitempty" tf:"ephemeral_storage"`
 
+	// +kubebuilder:validation:Required
 	InstanceCount int64 `json:"instanceCount" tf:"instance_count"`
 
+	// +kubebuilder:validation:Optional
 	InstanceMatchCriteria *string `json:"instanceMatchCriteria,omitempty" tf:"instance_match_criteria"`
 
+	// +kubebuilder:validation:Required
 	InstancePlatform string `json:"instancePlatform" tf:"instance_platform"`
 
+	// +kubebuilder:validation:Required
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Tenancy *string `json:"tenancy,omitempty" tf:"tenancy"`
 }
 

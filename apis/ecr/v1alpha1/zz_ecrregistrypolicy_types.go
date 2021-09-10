@@ -25,12 +25,17 @@ import (
 )
 
 type EcrRegistryPolicyObservation struct {
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	RegistryID string `json:"registryId" tf:"registry_id"`
 }
 
 type EcrRegistryPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Policy string `json:"policy" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

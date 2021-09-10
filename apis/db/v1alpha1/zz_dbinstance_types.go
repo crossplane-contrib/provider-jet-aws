@@ -31,128 +31,187 @@ type DbInstanceObservation struct {
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneId" tf:"hosted_zone_id"`
 
 	LatestRestorableTime string `json:"latestRestorableTime" tf:"latest_restorable_time"`
 
 	Replicas []string `json:"replicas" tf:"replicas"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
 	Status string `json:"status" tf:"status"`
 }
 
 type DbInstanceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllocatedStorage *int64 `json:"allocatedStorage,omitempty" tf:"allocated_storage"`
 
+	// +kubebuilder:validation:Optional
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade,omitempty" tf:"allow_major_version_upgrade"`
 
+	// +kubebuilder:validation:Optional
 	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately"`
 
+	// +kubebuilder:validation:Optional
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade,omitempty" tf:"auto_minor_version_upgrade"`
 
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
+	// +kubebuilder:validation:Optional
 	BackupRetentionPeriod *int64 `json:"backupRetentionPeriod,omitempty" tf:"backup_retention_period"`
 
+	// +kubebuilder:validation:Optional
 	BackupWindow *string `json:"backupWindow,omitempty" tf:"backup_window"`
 
+	// +kubebuilder:validation:Optional
 	CaCertIdentifier *string `json:"caCertIdentifier,omitempty" tf:"ca_cert_identifier"`
 
+	// +kubebuilder:validation:Optional
 	CharacterSetName *string `json:"characterSetName,omitempty" tf:"character_set_name"`
 
+	// +kubebuilder:validation:Optional
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot,omitempty" tf:"copy_tags_to_snapshot"`
 
-	CustomerOwnedIpEnabled *bool `json:"customerOwnedIpEnabled,omitempty" tf:"customer_owned_ip_enabled"`
+	// +kubebuilder:validation:Optional
+	CustomerOwnedIPEnabled *bool `json:"customerOwnedIpEnabled,omitempty" tf:"customer_owned_ip_enabled"`
 
-	DbSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
+	// +kubebuilder:validation:Optional
+	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
 
+	// +kubebuilder:validation:Optional
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups,omitempty" tf:"delete_automated_backups"`
 
+	// +kubebuilder:validation:Optional
 	DeletionProtection *bool `json:"deletionProtection,omitempty" tf:"deletion_protection"`
 
+	// +kubebuilder:validation:Optional
 	Domain *string `json:"domain,omitempty" tf:"domain"`
 
+	// +kubebuilder:validation:Optional
 	DomainIamRoleName *string `json:"domainIamRoleName,omitempty" tf:"domain_iam_role_name"`
 
+	// +kubebuilder:validation:Optional
 	EnabledCloudwatchLogsExports []string `json:"enabledCloudwatchLogsExports,omitempty" tf:"enabled_cloudwatch_logs_exports"`
 
+	// +kubebuilder:validation:Optional
 	Engine *string `json:"engine,omitempty" tf:"engine"`
 
+	// +kubebuilder:validation:Optional
 	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version"`
 
+	// +kubebuilder:validation:Optional
 	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier"`
 
+	// +kubebuilder:validation:Optional
 	IamDatabaseAuthenticationEnabled *bool `json:"iamDatabaseAuthenticationEnabled,omitempty" tf:"iam_database_authentication_enabled"`
 
+	// +kubebuilder:validation:Optional
 	Identifier *string `json:"identifier,omitempty" tf:"identifier"`
 
+	// +kubebuilder:validation:Optional
 	IdentifierPrefix *string `json:"identifierPrefix,omitempty" tf:"identifier_prefix"`
 
+	// +kubebuilder:validation:Required
 	InstanceClass string `json:"instanceClass" tf:"instance_class"`
 
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	LicenseModel *string `json:"licenseModel,omitempty" tf:"license_model"`
 
+	// +kubebuilder:validation:Optional
 	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window"`
 
+	// +kubebuilder:validation:Optional
 	MaxAllocatedStorage *int64 `json:"maxAllocatedStorage,omitempty" tf:"max_allocated_storage"`
 
+	// +kubebuilder:validation:Optional
 	MonitoringInterval *int64 `json:"monitoringInterval,omitempty" tf:"monitoring_interval"`
 
+	// +kubebuilder:validation:Optional
 	MonitoringRoleArn *string `json:"monitoringRoleArn,omitempty" tf:"monitoring_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	MultiAz *bool `json:"multiAz,omitempty" tf:"multi_az"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NcharCharacterSetName *string `json:"ncharCharacterSetName,omitempty" tf:"nchar_character_set_name"`
 
+	// +kubebuilder:validation:Optional
 	OptionGroupName *string `json:"optionGroupName,omitempty" tf:"option_group_name"`
 
+	// +kubebuilder:validation:Optional
 	ParameterGroupName *string `json:"parameterGroupName,omitempty" tf:"parameter_group_name"`
 
+	// +kubebuilder:validation:Optional
 	Password *string `json:"password,omitempty" tf:"password"`
 
+	// +kubebuilder:validation:Optional
 	PerformanceInsightsEnabled *bool `json:"performanceInsightsEnabled,omitempty" tf:"performance_insights_enabled"`
 
-	PerformanceInsightsKmsKeyId *string `json:"performanceInsightsKmsKeyId,omitempty" tf:"performance_insights_kms_key_id"`
+	// +kubebuilder:validation:Optional
+	PerformanceInsightsKmsKeyID *string `json:"performanceInsightsKmsKeyId,omitempty" tf:"performance_insights_kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	PerformanceInsightsRetentionPeriod *int64 `json:"performanceInsightsRetentionPeriod,omitempty" tf:"performance_insights_retention_period"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Optional
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ReplicateSourceDb *string `json:"replicateSourceDb,omitempty" tf:"replicate_source_db"`
+	// +kubebuilder:validation:Optional
+	ReplicateSourceDB *string `json:"replicateSourceDb,omitempty" tf:"replicate_source_db"`
 
+	// +kubebuilder:validation:Optional
 	RestoreToPointInTime []RestoreToPointInTimeParameters `json:"restoreToPointInTime,omitempty" tf:"restore_to_point_in_time"`
 
+	// +kubebuilder:validation:Optional
 	S3Import []S3ImportParameters `json:"s3Import,omitempty" tf:"s3_import"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupNames []string `json:"securityGroupNames,omitempty" tf:"security_group_names"`
 
+	// +kubebuilder:validation:Optional
 	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotIdentifier *string `json:"snapshotIdentifier,omitempty" tf:"snapshot_identifier"`
 
+	// +kubebuilder:validation:Optional
 	StorageEncrypted *bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted"`
 
+	// +kubebuilder:validation:Optional
 	StorageType *string `json:"storageType,omitempty" tf:"storage_type"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Timezone *string `json:"timezone,omitempty" tf:"timezone"`
 
+	// +kubebuilder:validation:Optional
 	Username *string `json:"username,omitempty" tf:"username"`
 
+	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 }
 
@@ -160,12 +219,17 @@ type RestoreToPointInTimeObservation struct {
 }
 
 type RestoreToPointInTimeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	RestoreTime *string `json:"restoreTime,omitempty" tf:"restore_time"`
 
-	SourceDbInstanceIdentifier *string `json:"sourceDbInstanceIdentifier,omitempty" tf:"source_db_instance_identifier"`
+	// +kubebuilder:validation:Optional
+	SourceDBInstanceIdentifier *string `json:"sourceDbInstanceIdentifier,omitempty" tf:"source_db_instance_identifier"`
 
-	SourceDbiResourceId *string `json:"sourceDbiResourceId,omitempty" tf:"source_dbi_resource_id"`
+	// +kubebuilder:validation:Optional
+	SourceDbiResourceID *string `json:"sourceDbiResourceId,omitempty" tf:"source_dbi_resource_id"`
 
+	// +kubebuilder:validation:Optional
 	UseLatestRestorableTime *bool `json:"useLatestRestorableTime,omitempty" tf:"use_latest_restorable_time"`
 }
 
@@ -173,14 +237,20 @@ type S3ImportObservation struct {
 }
 
 type S3ImportParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketName string `json:"bucketName" tf:"bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	BucketPrefix *string `json:"bucketPrefix,omitempty" tf:"bucket_prefix"`
 
+	// +kubebuilder:validation:Required
 	IngestionRole string `json:"ingestionRole" tf:"ingestion_role"`
 
+	// +kubebuilder:validation:Required
 	SourceEngine string `json:"sourceEngine" tf:"source_engine"`
 
+	// +kubebuilder:validation:Required
 	SourceEngineVersion string `json:"sourceEngineVersion" tf:"source_engine_version"`
 }
 

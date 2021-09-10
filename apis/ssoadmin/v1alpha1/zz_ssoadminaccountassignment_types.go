@@ -28,18 +28,28 @@ type SsoadminAccountAssignmentObservation struct {
 }
 
 type SsoadminAccountAssignmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	InstanceArn string `json:"instanceArn" tf:"instance_arn"`
 
+	// +kubebuilder:validation:Required
 	PermissionSetArn string `json:"permissionSetArn" tf:"permission_set_arn"`
 
-	PrincipalId string `json:"principalId" tf:"principal_id"`
+	// +kubebuilder:validation:Required
+	PrincipalID string `json:"principalId" tf:"principal_id"`
 
+	// +kubebuilder:validation:Required
 	PrincipalType string `json:"principalType" tf:"principal_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	TargetId string `json:"targetId" tf:"target_id"`
+	// +kubebuilder:validation:Required
+	TargetID string `json:"targetId" tf:"target_id"`
 
+	// +kubebuilder:validation:Optional
 	TargetType *string `json:"targetType,omitempty" tf:"target_type"`
 }
 

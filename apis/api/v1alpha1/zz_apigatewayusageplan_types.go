@@ -24,27 +24,51 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
+type APIStagesObservation struct {
+}
+
+type APIStagesParameters struct {
+
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Required
+	Stage string `json:"stage" tf:"stage"`
+}
+
 type ApiGatewayUsagePlanObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 }
 
 type ApiGatewayUsagePlanParameters struct {
-	ApiStages []ApiStagesParameters `json:"apiStages,omitempty" tf:"api_stages"`
 
+	// +kubebuilder:validation:Optional
+	APIStages []APIStagesParameters `json:"apiStages,omitempty" tf:"api_stages"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	ProductCode *string `json:"productCode,omitempty" tf:"product_code"`
 
+	// +kubebuilder:validation:Optional
 	QuotaSettings []QuotaSettingsParameters `json:"quotaSettings,omitempty" tf:"quota_settings"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	ThrottleSettings []ApiGatewayUsagePlanThrottleSettingsParameters `json:"throttleSettings,omitempty" tf:"throttle_settings"`
 }
 
@@ -52,28 +76,26 @@ type ApiGatewayUsagePlanThrottleSettingsObservation struct {
 }
 
 type ApiGatewayUsagePlanThrottleSettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BurstLimit *int64 `json:"burstLimit,omitempty" tf:"burst_limit"`
 
+	// +kubebuilder:validation:Optional
 	RateLimit *float64 `json:"rateLimit,omitempty" tf:"rate_limit"`
-}
-
-type ApiStagesObservation struct {
-}
-
-type ApiStagesParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
-
-	Stage string `json:"stage" tf:"stage"`
 }
 
 type QuotaSettingsObservation struct {
 }
 
 type QuotaSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Limit int64 `json:"limit" tf:"limit"`
 
+	// +kubebuilder:validation:Optional
 	Offset *int64 `json:"offset,omitempty" tf:"offset"`
 
+	// +kubebuilder:validation:Required
 	Period string `json:"period" tf:"period"`
 }
 

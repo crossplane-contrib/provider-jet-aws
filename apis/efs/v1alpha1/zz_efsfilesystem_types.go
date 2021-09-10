@@ -27,38 +27,52 @@ import (
 type EfsFileSystemObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	AvailabilityZoneId string `json:"availabilityZoneId" tf:"availability_zone_id"`
+	AvailabilityZoneID string `json:"availabilityZoneId" tf:"availability_zone_id"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
 	NumberOfMountTargets int64 `json:"numberOfMountTargets" tf:"number_of_mount_targets"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
 	SizeInBytes []SizeInBytesObservation `json:"sizeInBytes" tf:"size_in_bytes"`
 }
 
 type EfsFileSystemParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AvailabilityZoneName *string `json:"availabilityZoneName,omitempty" tf:"availability_zone_name"`
 
+	// +kubebuilder:validation:Optional
 	CreationToken *string `json:"creationToken,omitempty" tf:"creation_token"`
 
+	// +kubebuilder:validation:Optional
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	LifecyclePolicy []LifecyclePolicyParameters `json:"lifecyclePolicy,omitempty" tf:"lifecycle_policy"`
 
+	// +kubebuilder:validation:Optional
 	PerformanceMode *string `json:"performanceMode,omitempty" tf:"performance_mode"`
 
+	// +kubebuilder:validation:Optional
 	ProvisionedThroughputInMibps *float64 `json:"provisionedThroughputInMibps,omitempty" tf:"provisioned_throughput_in_mibps"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	ThroughputMode *string `json:"throughputMode,omitempty" tf:"throughput_mode"`
 }
 
@@ -66,6 +80,8 @@ type LifecyclePolicyObservation struct {
 }
 
 type LifecyclePolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	TransitionToIa string `json:"transitionToIa" tf:"transition_to_ia"`
 }
 

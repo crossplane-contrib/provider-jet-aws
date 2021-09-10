@@ -28,10 +28,14 @@ type CreationInfoObservation struct {
 }
 
 type CreationInfoParameters struct {
-	OwnerGid int64 `json:"ownerGid" tf:"owner_gid"`
 
-	OwnerUid int64 `json:"ownerUid" tf:"owner_uid"`
+	// +kubebuilder:validation:Required
+	OwnerGID int64 `json:"ownerGid" tf:"owner_gid"`
 
+	// +kubebuilder:validation:Required
+	OwnerUID int64 `json:"ownerUid" tf:"owner_uid"`
+
+	// +kubebuilder:validation:Required
 	Permissions string `json:"permissions" tf:"permissions"`
 }
 
@@ -40,20 +44,29 @@ type EfsAccessPointObservation struct {
 
 	FileSystemArn string `json:"fileSystemArn" tf:"file_system_arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 }
 
 type EfsAccessPointParameters struct {
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
 
+	// +kubebuilder:validation:Required
+	FileSystemID string `json:"fileSystemId" tf:"file_system_id"`
+
+	// +kubebuilder:validation:Optional
 	PosixUser []PosixUserParameters `json:"posixUser,omitempty" tf:"posix_user"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RootDirectory []RootDirectoryParameters `json:"rootDirectory,omitempty" tf:"root_directory"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -61,19 +74,26 @@ type PosixUserObservation struct {
 }
 
 type PosixUserParameters struct {
-	Gid int64 `json:"gid" tf:"gid"`
 
+	// +kubebuilder:validation:Required
+	GID int64 `json:"gid" tf:"gid"`
+
+	// +kubebuilder:validation:Optional
 	SecondaryGids []int64 `json:"secondaryGids,omitempty" tf:"secondary_gids"`
 
-	Uid int64 `json:"uid" tf:"uid"`
+	// +kubebuilder:validation:Required
+	UID int64 `json:"uid" tf:"uid"`
 }
 
 type RootDirectoryObservation struct {
 }
 
 type RootDirectoryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CreationInfo []CreationInfoParameters `json:"creationInfo,omitempty" tf:"creation_info"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 }
 

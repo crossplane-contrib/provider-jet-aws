@@ -27,35 +27,49 @@ import (
 type Route53ResolverRuleObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
 	ShareStatus string `json:"shareStatus" tf:"share_status"`
 }
 
 type Route53ResolverRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResolverEndpointId *string `json:"resolverEndpointId,omitempty" tf:"resolver_endpoint_id"`
+	// +kubebuilder:validation:Optional
+	ResolverEndpointID *string `json:"resolverEndpointId,omitempty" tf:"resolver_endpoint_id"`
 
+	// +kubebuilder:validation:Required
 	RuleType string `json:"ruleType" tf:"rule_type"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TargetIp []TargetIpParameters `json:"targetIp,omitempty" tf:"target_ip"`
+	// +kubebuilder:validation:Optional
+	TargetIP []TargetIPParameters `json:"targetIp,omitempty" tf:"target_ip"`
 }
 
-type TargetIpObservation struct {
+type TargetIPObservation struct {
 }
 
-type TargetIpParameters struct {
-	Ip string `json:"ip" tf:"ip"`
+type TargetIPParameters struct {
 
+	// +kubebuilder:validation:Required
+	IP string `json:"ip" tf:"ip"`
+
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 }
 

@@ -28,16 +28,23 @@ type CsvClassifierObservation struct {
 }
 
 type CsvClassifierParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowSingleColumn *bool `json:"allowSingleColumn,omitempty" tf:"allow_single_column"`
 
+	// +kubebuilder:validation:Optional
 	ContainsHeader *string `json:"containsHeader,omitempty" tf:"contains_header"`
 
+	// +kubebuilder:validation:Optional
 	Delimiter *string `json:"delimiter,omitempty" tf:"delimiter"`
 
+	// +kubebuilder:validation:Optional
 	DisableValueTrimming *bool `json:"disableValueTrimming,omitempty" tf:"disable_value_trimming"`
 
+	// +kubebuilder:validation:Optional
 	Header []string `json:"header,omitempty" tf:"header"`
 
+	// +kubebuilder:validation:Optional
 	QuoteSymbol *string `json:"quoteSymbol,omitempty" tf:"quote_symbol"`
 }
 
@@ -45,43 +52,61 @@ type GlueClassifierObservation struct {
 }
 
 type GlueClassifierParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CsvClassifier []CsvClassifierParameters `json:"csvClassifier,omitempty" tf:"csv_classifier"`
 
+	// +kubebuilder:validation:Optional
 	GrokClassifier []GrokClassifierParameters `json:"grokClassifier,omitempty" tf:"grok_classifier"`
 
-	JsonClassifier []JsonClassifierParameters `json:"jsonClassifier,omitempty" tf:"json_classifier"`
+	// +kubebuilder:validation:Optional
+	JSONClassifier []JSONClassifierParameters `json:"jsonClassifier,omitempty" tf:"json_classifier"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	XmlClassifier []XmlClassifierParameters `json:"xmlClassifier,omitempty" tf:"xml_classifier"`
+	// +kubebuilder:validation:Optional
+	XMLClassifier []XMLClassifierParameters `json:"xmlClassifier,omitempty" tf:"xml_classifier"`
 }
 
 type GrokClassifierObservation struct {
 }
 
 type GrokClassifierParameters struct {
+
+	// +kubebuilder:validation:Required
 	Classification string `json:"classification" tf:"classification"`
 
+	// +kubebuilder:validation:Optional
 	CustomPatterns *string `json:"customPatterns,omitempty" tf:"custom_patterns"`
 
+	// +kubebuilder:validation:Required
 	GrokPattern string `json:"grokPattern" tf:"grok_pattern"`
 }
 
-type JsonClassifierObservation struct {
+type JSONClassifierObservation struct {
 }
 
-type JsonClassifierParameters struct {
-	JsonPath string `json:"jsonPath" tf:"json_path"`
+type JSONClassifierParameters struct {
+
+	// +kubebuilder:validation:Required
+	JSONPath string `json:"jsonPath" tf:"json_path"`
 }
 
-type XmlClassifierObservation struct {
+type XMLClassifierObservation struct {
 }
 
-type XmlClassifierParameters struct {
+type XMLClassifierParameters struct {
+
+	// +kubebuilder:validation:Required
 	Classification string `json:"classification" tf:"classification"`
 
+	// +kubebuilder:validation:Required
 	RowTag string `json:"rowTag" tf:"row_tag"`
 }
 

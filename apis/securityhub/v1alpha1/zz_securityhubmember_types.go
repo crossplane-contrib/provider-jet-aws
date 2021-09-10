@@ -25,18 +25,25 @@ import (
 )
 
 type SecurityhubMemberObservation struct {
-	MasterId string `json:"masterId" tf:"master_id"`
+	MasterID string `json:"masterId" tf:"master_id"`
 
 	MemberStatus string `json:"memberStatus" tf:"member_status"`
 }
 
 type SecurityhubMemberParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
 
+	// +kubebuilder:validation:Required
+	AccountID string `json:"accountId" tf:"account_id"`
+
+	// +kubebuilder:validation:Required
 	Email string `json:"email" tf:"email"`
 
+	// +kubebuilder:validation:Optional
 	Invite *bool `json:"invite,omitempty" tf:"invite"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

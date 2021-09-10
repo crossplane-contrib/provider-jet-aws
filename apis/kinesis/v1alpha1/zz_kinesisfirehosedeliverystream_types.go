@@ -28,10 +28,14 @@ type CloudwatchLoggingOptionsObservation struct {
 }
 
 type CloudwatchLoggingOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
@@ -39,8 +43,11 @@ type CommonAttributesObservation struct {
 }
 
 type CommonAttributesParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -48,12 +55,17 @@ type DataFormatConversionConfigurationObservation struct {
 }
 
 type DataFormatConversionConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Required
 	InputFormatConfiguration []InputFormatConfigurationParameters `json:"inputFormatConfiguration" tf:"input_format_configuration"`
 
+	// +kubebuilder:validation:Required
 	OutputFormatConfiguration []OutputFormatConfigurationParameters `json:"outputFormatConfiguration" tf:"output_format_configuration"`
 
+	// +kubebuilder:validation:Required
 	SchemaConfiguration []SchemaConfigurationParameters `json:"schemaConfiguration" tf:"schema_configuration"`
 }
 
@@ -61,39 +73,56 @@ type DeserializerObservation struct {
 }
 
 type DeserializerParameters struct {
-	HiveJsonSerDe []HiveJsonSerDeParameters `json:"hiveJsonSerDe,omitempty" tf:"hive_json_ser_de"`
 
-	OpenXJsonSerDe []OpenXJsonSerDeParameters `json:"openXJsonSerDe,omitempty" tf:"open_x_json_ser_de"`
+	// +kubebuilder:validation:Optional
+	HiveJSONSerDe []HiveJSONSerDeParameters `json:"hiveJsonSerDe,omitempty" tf:"hive_json_ser_de"`
+
+	// +kubebuilder:validation:Optional
+	OpenXJSONSerDe []OpenXJSONSerDeParameters `json:"openXJsonSerDe,omitempty" tf:"open_x_json_ser_de"`
 }
 
 type ElasticsearchConfigurationObservation struct {
 }
 
 type ElasticsearchConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval"`
 
+	// +kubebuilder:validation:Optional
 	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchLoggingOptions []CloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
+	// +kubebuilder:validation:Optional
 	ClusterEndpoint *string `json:"clusterEndpoint,omitempty" tf:"cluster_endpoint"`
 
+	// +kubebuilder:validation:Optional
 	DomainArn *string `json:"domainArn,omitempty" tf:"domain_arn"`
 
+	// +kubebuilder:validation:Required
 	IndexName string `json:"indexName" tf:"index_name"`
 
+	// +kubebuilder:validation:Optional
 	IndexRotationPeriod *string `json:"indexRotationPeriod,omitempty" tf:"index_rotation_period"`
 
+	// +kubebuilder:validation:Optional
 	ProcessingConfiguration []ProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
+	// +kubebuilder:validation:Optional
 	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 
+	// +kubebuilder:validation:Optional
 	TypeName *string `json:"typeName,omitempty" tf:"type_name"`
 
+	// +kubebuilder:validation:Optional
 	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 }
 
@@ -101,10 +130,14 @@ type ExtendedS3ConfigurationCloudwatchLoggingOptionsObservation struct {
 }
 
 type ExtendedS3ConfigurationCloudwatchLoggingOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
@@ -112,30 +145,44 @@ type ExtendedS3ConfigurationObservation struct {
 }
 
 type ExtendedS3ConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
 
+	// +kubebuilder:validation:Optional
 	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval"`
 
+	// +kubebuilder:validation:Optional
 	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchLoggingOptions []ExtendedS3ConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
+	// +kubebuilder:validation:Optional
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
+	// +kubebuilder:validation:Optional
 	DataFormatConversionConfiguration []DataFormatConversionConfigurationParameters `json:"dataFormatConversionConfiguration,omitempty" tf:"data_format_conversion_configuration"`
 
+	// +kubebuilder:validation:Optional
 	ErrorOutputPrefix *string `json:"errorOutputPrefix,omitempty" tf:"error_output_prefix"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Optional
 	ProcessingConfiguration []ExtendedS3ConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	S3BackupConfiguration []S3BackupConfigurationParameters `json:"s3BackupConfiguration,omitempty" tf:"s3_backup_configuration"`
 
+	// +kubebuilder:validation:Optional
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 }
 
@@ -143,78 +190,107 @@ type ExtendedS3ConfigurationProcessingConfigurationObservation struct {
 }
 
 type ExtendedS3ConfigurationProcessingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Processors []ProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
 }
 
-type HiveJsonSerDeObservation struct {
+type HTTPEndpointConfigurationCloudwatchLoggingOptionsObservation struct {
 }
 
-type HiveJsonSerDeParameters struct {
-	TimestampFormats []string `json:"timestampFormats,omitempty" tf:"timestamp_formats"`
-}
+type HTTPEndpointConfigurationCloudwatchLoggingOptionsParameters struct {
 
-type HttpEndpointConfigurationCloudwatchLoggingOptionsObservation struct {
-}
-
-type HttpEndpointConfigurationCloudwatchLoggingOptionsParameters struct {
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
-type HttpEndpointConfigurationObservation struct {
+type HTTPEndpointConfigurationObservation struct {
 }
 
-type HttpEndpointConfigurationParameters struct {
+type HTTPEndpointConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessKey *string `json:"accessKey,omitempty" tf:"access_key"`
 
+	// +kubebuilder:validation:Optional
 	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval"`
 
+	// +kubebuilder:validation:Optional
 	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size"`
 
-	CloudwatchLoggingOptions []HttpEndpointConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
+	// +kubebuilder:validation:Optional
+	CloudwatchLoggingOptions []HTTPEndpointConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
-	ProcessingConfiguration []HttpEndpointConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
+	// +kubebuilder:validation:Optional
+	ProcessingConfiguration []HTTPEndpointConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
+	// +kubebuilder:validation:Optional
 	RequestConfiguration []RequestConfigurationParameters `json:"requestConfiguration,omitempty" tf:"request_configuration"`
 
+	// +kubebuilder:validation:Optional
 	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 
-	Url string `json:"url" tf:"url"`
+	// +kubebuilder:validation:Required
+	URL string `json:"url" tf:"url"`
 }
 
-type HttpEndpointConfigurationProcessingConfigurationObservation struct {
+type HTTPEndpointConfigurationProcessingConfigurationObservation struct {
 }
 
-type HttpEndpointConfigurationProcessingConfigurationParameters struct {
+type HTTPEndpointConfigurationProcessingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	Processors []HttpEndpointConfigurationProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
+	// +kubebuilder:validation:Optional
+	Processors []HTTPEndpointConfigurationProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
 }
 
-type HttpEndpointConfigurationProcessingConfigurationProcessorsObservation struct {
+type HTTPEndpointConfigurationProcessingConfigurationProcessorsObservation struct {
 }
 
-type HttpEndpointConfigurationProcessingConfigurationProcessorsParameters struct {
+type HTTPEndpointConfigurationProcessingConfigurationProcessorsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Parameters []ProcessingConfigurationProcessorsParametersParameters `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
+}
+
+type HiveJSONSerDeObservation struct {
+}
+
+type HiveJSONSerDeParameters struct {
+
+	// +kubebuilder:validation:Optional
+	TimestampFormats []string `json:"timestampFormats,omitempty" tf:"timestamp_formats"`
 }
 
 type InputFormatConfigurationObservation struct {
 }
 
 type InputFormatConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Deserializer []DeserializerParameters `json:"deserializer" tf:"deserializer"`
 }
 
@@ -222,81 +298,118 @@ type KinesisFirehoseDeliveryStreamObservation struct {
 }
 
 type KinesisFirehoseDeliveryStreamParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Arn *string `json:"arn,omitempty" tf:"arn"`
 
+	// +kubebuilder:validation:Required
 	Destination string `json:"destination" tf:"destination"`
 
-	DestinationId *string `json:"destinationId,omitempty" tf:"destination_id"`
+	// +kubebuilder:validation:Optional
+	DestinationID *string `json:"destinationId,omitempty" tf:"destination_id"`
 
+	// +kubebuilder:validation:Optional
 	ElasticsearchConfiguration []ElasticsearchConfigurationParameters `json:"elasticsearchConfiguration,omitempty" tf:"elasticsearch_configuration"`
 
+	// +kubebuilder:validation:Optional
 	ExtendedS3Configuration []ExtendedS3ConfigurationParameters `json:"extendedS3Configuration,omitempty" tf:"extended_s3_configuration"`
 
-	HttpEndpointConfiguration []HttpEndpointConfigurationParameters `json:"httpEndpointConfiguration,omitempty" tf:"http_endpoint_configuration"`
+	// +kubebuilder:validation:Optional
+	HTTPEndpointConfiguration []HTTPEndpointConfigurationParameters `json:"httpEndpointConfiguration,omitempty" tf:"http_endpoint_configuration"`
 
+	// +kubebuilder:validation:Optional
 	KinesisSourceConfiguration []KinesisSourceConfigurationParameters `json:"kinesisSourceConfiguration,omitempty" tf:"kinesis_source_configuration"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	RedshiftConfiguration []RedshiftConfigurationParameters `json:"redshiftConfiguration,omitempty" tf:"redshift_configuration"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	S3Configuration []S3ConfigurationParameters `json:"s3Configuration,omitempty" tf:"s3_configuration"`
 
+	// +kubebuilder:validation:Optional
 	ServerSideEncryption []ServerSideEncryptionParameters `json:"serverSideEncryption,omitempty" tf:"server_side_encryption"`
 
+	// +kubebuilder:validation:Optional
 	SplunkConfiguration []SplunkConfigurationParameters `json:"splunkConfiguration,omitempty" tf:"splunk_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VersionId *string `json:"versionId,omitempty" tf:"version_id"`
+	// +kubebuilder:validation:Optional
+	VersionID *string `json:"versionId,omitempty" tf:"version_id"`
 }
 
 type KinesisSourceConfigurationObservation struct {
 }
 
 type KinesisSourceConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	KinesisStreamArn string `json:"kinesisStreamArn" tf:"kinesis_stream_arn"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
-type OpenXJsonSerDeObservation struct {
+type OpenXJSONSerDeObservation struct {
 }
 
-type OpenXJsonSerDeParameters struct {
+type OpenXJSONSerDeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CaseInsensitive *bool `json:"caseInsensitive,omitempty" tf:"case_insensitive"`
 
-	ColumnToJsonKeyMappings map[string]string `json:"columnToJsonKeyMappings,omitempty" tf:"column_to_json_key_mappings"`
+	// +kubebuilder:validation:Optional
+	ColumnToJSONKeyMappings map[string]string `json:"columnToJsonKeyMappings,omitempty" tf:"column_to_json_key_mappings"`
 
-	ConvertDotsInJsonKeysToUnderscores *bool `json:"convertDotsInJsonKeysToUnderscores,omitempty" tf:"convert_dots_in_json_keys_to_underscores"`
+	// +kubebuilder:validation:Optional
+	ConvertDotsInJSONKeysToUnderscores *bool `json:"convertDotsInJsonKeysToUnderscores,omitempty" tf:"convert_dots_in_json_keys_to_underscores"`
 }
 
 type OrcSerDeObservation struct {
 }
 
 type OrcSerDeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BlockSizeBytes *int64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes"`
 
+	// +kubebuilder:validation:Optional
 	BloomFilterColumns []string `json:"bloomFilterColumns,omitempty" tf:"bloom_filter_columns"`
 
+	// +kubebuilder:validation:Optional
 	BloomFilterFalsePositiveProbability *float64 `json:"bloomFilterFalsePositiveProbability,omitempty" tf:"bloom_filter_false_positive_probability"`
 
+	// +kubebuilder:validation:Optional
 	Compression *string `json:"compression,omitempty" tf:"compression"`
 
+	// +kubebuilder:validation:Optional
 	DictionaryKeyThreshold *float64 `json:"dictionaryKeyThreshold,omitempty" tf:"dictionary_key_threshold"`
 
+	// +kubebuilder:validation:Optional
 	EnablePadding *bool `json:"enablePadding,omitempty" tf:"enable_padding"`
 
+	// +kubebuilder:validation:Optional
 	FormatVersion *string `json:"formatVersion,omitempty" tf:"format_version"`
 
+	// +kubebuilder:validation:Optional
 	PaddingTolerance *float64 `json:"paddingTolerance,omitempty" tf:"padding_tolerance"`
 
+	// +kubebuilder:validation:Optional
 	RowIndexStride *int64 `json:"rowIndexStride,omitempty" tf:"row_index_stride"`
 
+	// +kubebuilder:validation:Optional
 	StripeSizeBytes *int64 `json:"stripeSizeBytes,omitempty" tf:"stripe_size_bytes"`
 }
 
@@ -304,6 +417,8 @@ type OutputFormatConfigurationObservation struct {
 }
 
 type OutputFormatConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Serializer []SerializerParameters `json:"serializer" tf:"serializer"`
 }
 
@@ -311,8 +426,11 @@ type ParametersObservation struct {
 }
 
 type ParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	ParameterName string `json:"parameterName" tf:"parameter_name"`
 
+	// +kubebuilder:validation:Required
 	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
 }
 
@@ -320,16 +438,23 @@ type ParquetSerDeObservation struct {
 }
 
 type ParquetSerDeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BlockSizeBytes *int64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes"`
 
+	// +kubebuilder:validation:Optional
 	Compression *string `json:"compression,omitempty" tf:"compression"`
 
+	// +kubebuilder:validation:Optional
 	EnableDictionaryCompression *bool `json:"enableDictionaryCompression,omitempty" tf:"enable_dictionary_compression"`
 
+	// +kubebuilder:validation:Optional
 	MaxPaddingBytes *int64 `json:"maxPaddingBytes,omitempty" tf:"max_padding_bytes"`
 
+	// +kubebuilder:validation:Optional
 	PageSizeBytes *int64 `json:"pageSizeBytes,omitempty" tf:"page_size_bytes"`
 
+	// +kubebuilder:validation:Optional
 	WriterVersion *string `json:"writerVersion,omitempty" tf:"writer_version"`
 }
 
@@ -337,8 +462,11 @@ type ProcessingConfigurationObservation struct {
 }
 
 type ProcessingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Processors []ProcessorsParameters `json:"processors,omitempty" tf:"processors"`
 }
 
@@ -346,8 +474,11 @@ type ProcessingConfigurationProcessorsObservation struct {
 }
 
 type ProcessingConfigurationProcessorsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Parameters []ProcessorsParametersParameters `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -355,8 +486,11 @@ type ProcessingConfigurationProcessorsParametersObservation struct {
 }
 
 type ProcessingConfigurationProcessorsParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	ParameterName string `json:"parameterName" tf:"parameter_name"`
 
+	// +kubebuilder:validation:Required
 	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
 }
 
@@ -364,8 +498,11 @@ type ProcessorsObservation struct {
 }
 
 type ProcessorsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Parameters []ParametersParameters `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -373,8 +510,11 @@ type ProcessorsParametersObservation struct {
 }
 
 type ProcessorsParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	ParameterName string `json:"parameterName" tf:"parameter_name"`
 
+	// +kubebuilder:validation:Required
 	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
 }
 
@@ -382,10 +522,14 @@ type RedshiftConfigurationCloudwatchLoggingOptionsObservation struct {
 }
 
 type RedshiftConfigurationCloudwatchLoggingOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
@@ -393,28 +537,41 @@ type RedshiftConfigurationObservation struct {
 }
 
 type RedshiftConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchLoggingOptions []RedshiftConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
+	// +kubebuilder:validation:Required
 	ClusterJdbcurl string `json:"clusterJdbcurl" tf:"cluster_jdbcurl"`
 
+	// +kubebuilder:validation:Optional
 	CopyOptions *string `json:"copyOptions,omitempty" tf:"copy_options"`
 
+	// +kubebuilder:validation:Optional
 	DataTableColumns *string `json:"dataTableColumns,omitempty" tf:"data_table_columns"`
 
+	// +kubebuilder:validation:Required
 	DataTableName string `json:"dataTableName" tf:"data_table_name"`
 
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// +kubebuilder:validation:Optional
 	ProcessingConfiguration []RedshiftConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
+	// +kubebuilder:validation:Optional
 	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	S3BackupConfiguration []RedshiftConfigurationS3BackupConfigurationParameters `json:"s3BackupConfiguration,omitempty" tf:"s3_backup_configuration"`
 
+	// +kubebuilder:validation:Optional
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 
+	// +kubebuilder:validation:Required
 	Username string `json:"username" tf:"username"`
 }
 
@@ -422,8 +579,11 @@ type RedshiftConfigurationProcessingConfigurationObservation struct {
 }
 
 type RedshiftConfigurationProcessingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Processors []RedshiftConfigurationProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
 }
 
@@ -431,8 +591,11 @@ type RedshiftConfigurationProcessingConfigurationProcessorsObservation struct {
 }
 
 type RedshiftConfigurationProcessingConfigurationProcessorsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Parameters []RedshiftConfigurationProcessingConfigurationProcessorsParametersParameters `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -440,8 +603,11 @@ type RedshiftConfigurationProcessingConfigurationProcessorsParametersObservation
 }
 
 type RedshiftConfigurationProcessingConfigurationProcessorsParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	ParameterName string `json:"parameterName" tf:"parameter_name"`
 
+	// +kubebuilder:validation:Required
 	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
 }
 
@@ -449,10 +615,14 @@ type RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsObservati
 }
 
 type RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
@@ -460,20 +630,29 @@ type RedshiftConfigurationS3BackupConfigurationObservation struct {
 }
 
 type RedshiftConfigurationS3BackupConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
 
+	// +kubebuilder:validation:Optional
 	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval"`
 
+	// +kubebuilder:validation:Optional
 	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchLoggingOptions []RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
+	// +kubebuilder:validation:Optional
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -481,8 +660,11 @@ type RequestConfigurationObservation struct {
 }
 
 type RequestConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CommonAttributes []CommonAttributesParameters `json:"commonAttributes,omitempty" tf:"common_attributes"`
 
+	// +kubebuilder:validation:Optional
 	ContentEncoding *string `json:"contentEncoding,omitempty" tf:"content_encoding"`
 }
 
@@ -490,10 +672,14 @@ type S3BackupConfigurationCloudwatchLoggingOptionsObservation struct {
 }
 
 type S3BackupConfigurationCloudwatchLoggingOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
@@ -501,20 +687,29 @@ type S3BackupConfigurationObservation struct {
 }
 
 type S3BackupConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
 
+	// +kubebuilder:validation:Optional
 	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval"`
 
+	// +kubebuilder:validation:Optional
 	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchLoggingOptions []S3BackupConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
+	// +kubebuilder:validation:Optional
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -522,10 +717,14 @@ type S3ConfigurationCloudwatchLoggingOptionsObservation struct {
 }
 
 type S3ConfigurationCloudwatchLoggingOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
@@ -533,20 +732,29 @@ type S3ConfigurationObservation struct {
 }
 
 type S3ConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
 
+	// +kubebuilder:validation:Optional
 	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval"`
 
+	// +kubebuilder:validation:Optional
 	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchLoggingOptions []S3ConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
+	// +kubebuilder:validation:Optional
 	CompressionFormat *string `json:"compressionFormat,omitempty" tf:"compression_format"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -554,25 +762,35 @@ type SchemaConfigurationObservation struct {
 }
 
 type SchemaConfigurationParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// +kubebuilder:validation:Optional
 	Region *string `json:"region,omitempty" tf:"region"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 
-	VersionId *string `json:"versionId,omitempty" tf:"version_id"`
+	// +kubebuilder:validation:Optional
+	VersionID *string `json:"versionId,omitempty" tf:"version_id"`
 }
 
 type SerializerObservation struct {
 }
 
 type SerializerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	OrcSerDe []OrcSerDeParameters `json:"orcSerDe,omitempty" tf:"orc_ser_de"`
 
+	// +kubebuilder:validation:Optional
 	ParquetSerDe []ParquetSerDeParameters `json:"parquetSerDe,omitempty" tf:"parquet_ser_de"`
 }
 
@@ -580,10 +798,14 @@ type ServerSideEncryptionObservation struct {
 }
 
 type ServerSideEncryptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	KeyArn *string `json:"keyArn,omitempty" tf:"key_arn"`
 
+	// +kubebuilder:validation:Optional
 	KeyType *string `json:"keyType,omitempty" tf:"key_type"`
 }
 
@@ -591,10 +813,14 @@ type SplunkConfigurationCloudwatchLoggingOptionsObservation struct {
 }
 
 type SplunkConfigurationCloudwatchLoggingOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	LogStreamName *string `json:"logStreamName,omitempty" tf:"log_stream_name"`
 }
 
@@ -602,20 +828,29 @@ type SplunkConfigurationObservation struct {
 }
 
 type SplunkConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchLoggingOptions []SplunkConfigurationCloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
+	// +kubebuilder:validation:Optional
 	HecAcknowledgmentTimeout *int64 `json:"hecAcknowledgmentTimeout,omitempty" tf:"hec_acknowledgment_timeout"`
 
+	// +kubebuilder:validation:Required
 	HecEndpoint string `json:"hecEndpoint" tf:"hec_endpoint"`
 
+	// +kubebuilder:validation:Optional
 	HecEndpointType *string `json:"hecEndpointType,omitempty" tf:"hec_endpoint_type"`
 
+	// +kubebuilder:validation:Required
 	HecToken string `json:"hecToken" tf:"hec_token"`
 
+	// +kubebuilder:validation:Optional
 	ProcessingConfiguration []SplunkConfigurationProcessingConfigurationParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration"`
 
+	// +kubebuilder:validation:Optional
 	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration"`
 
+	// +kubebuilder:validation:Optional
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode"`
 }
 
@@ -623,8 +858,11 @@ type SplunkConfigurationProcessingConfigurationObservation struct {
 }
 
 type SplunkConfigurationProcessingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Processors []SplunkConfigurationProcessingConfigurationProcessorsParameters `json:"processors,omitempty" tf:"processors"`
 }
 
@@ -632,8 +870,11 @@ type SplunkConfigurationProcessingConfigurationProcessorsObservation struct {
 }
 
 type SplunkConfigurationProcessingConfigurationProcessorsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Parameters []SplunkConfigurationProcessingConfigurationProcessorsParametersParameters `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -641,20 +882,27 @@ type SplunkConfigurationProcessingConfigurationProcessorsParametersObservation s
 }
 
 type SplunkConfigurationProcessingConfigurationProcessorsParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	ParameterName string `json:"parameterName" tf:"parameter_name"`
 
+	// +kubebuilder:validation:Required
 	ParameterValue string `json:"parameterValue" tf:"parameter_value"`
 }
 
 type VpcConfigObservation struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type VpcConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 }
 

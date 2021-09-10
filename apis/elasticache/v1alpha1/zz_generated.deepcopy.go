@@ -236,8 +236,8 @@ func (in *ElasticacheClusterParameters) DeepCopyInto(out *ElasticacheClusterPara
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	if in.ReplicationGroupId != nil {
-		in, out := &in.ReplicationGroupId, &out.ReplicationGroupId
+	if in.ReplicationGroupID != nil {
+		in, out := &in.ReplicationGroupID, &out.ReplicationGroupID
 		*out = new(string)
 		**out = **in
 	}
@@ -745,13 +745,13 @@ func (in *ElasticacheReplicationGroupParameters) DeepCopyInto(out *ElasticacheRe
 		*out = new(string)
 		**out = **in
 	}
-	if in.GlobalReplicationGroupId != nil {
-		in, out := &in.GlobalReplicationGroupId, &out.GlobalReplicationGroupId
+	if in.GlobalReplicationGroupID != nil {
+		in, out := &in.GlobalReplicationGroupID, &out.GlobalReplicationGroupID
 		*out = new(string)
 		**out = **in
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}

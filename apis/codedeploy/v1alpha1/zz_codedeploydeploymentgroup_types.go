@@ -28,10 +28,14 @@ type AlarmConfigurationObservation struct {
 }
 
 type AlarmConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Alarms []string `json:"alarms,omitempty" tf:"alarms"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	IgnorePollAlarmFailure *bool `json:"ignorePollAlarmFailure,omitempty" tf:"ignore_poll_alarm_failure"`
 }
 
@@ -39,8 +43,11 @@ type AutoRollbackConfigurationObservation struct {
 }
 
 type AutoRollbackConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Events []string `json:"events,omitempty" tf:"events"`
 }
 
@@ -48,10 +55,14 @@ type BlueGreenDeploymentConfigObservation struct {
 }
 
 type BlueGreenDeploymentConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeploymentReadyOption []DeploymentReadyOptionParameters `json:"deploymentReadyOption,omitempty" tf:"deployment_ready_option"`
 
+	// +kubebuilder:validation:Optional
 	GreenFleetProvisioningOption []GreenFleetProvisioningOptionParameters `json:"greenFleetProvisioningOption,omitempty" tf:"green_fleet_provisioning_option"`
 
+	// +kubebuilder:validation:Optional
 	TerminateBlueInstancesOnDeploymentSuccess []TerminateBlueInstancesOnDeploymentSuccessParameters `json:"terminateBlueInstancesOnDeploymentSuccess,omitempty" tf:"terminate_blue_instances_on_deployment_success"`
 }
 
@@ -60,44 +71,65 @@ type CodedeployDeploymentGroupObservation struct {
 
 	ComputePlatform string `json:"computePlatform" tf:"compute_platform"`
 
-	DeploymentGroupId string `json:"deploymentGroupId" tf:"deployment_group_id"`
+	DeploymentGroupID string `json:"deploymentGroupId" tf:"deployment_group_id"`
 }
 
 type CodedeployDeploymentGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AlarmConfiguration []AlarmConfigurationParameters `json:"alarmConfiguration,omitempty" tf:"alarm_configuration"`
 
+	// +kubebuilder:validation:Required
 	AppName string `json:"appName" tf:"app_name"`
 
+	// +kubebuilder:validation:Optional
 	AutoRollbackConfiguration []AutoRollbackConfigurationParameters `json:"autoRollbackConfiguration,omitempty" tf:"auto_rollback_configuration"`
 
+	// +kubebuilder:validation:Optional
 	AutoscalingGroups []string `json:"autoscalingGroups,omitempty" tf:"autoscaling_groups"`
 
+	// +kubebuilder:validation:Optional
 	BlueGreenDeploymentConfig []BlueGreenDeploymentConfigParameters `json:"blueGreenDeploymentConfig,omitempty" tf:"blue_green_deployment_config"`
 
+	// +kubebuilder:validation:Optional
 	DeploymentConfigName *string `json:"deploymentConfigName,omitempty" tf:"deployment_config_name"`
 
+	// +kubebuilder:validation:Required
 	DeploymentGroupName string `json:"deploymentGroupName" tf:"deployment_group_name"`
 
+	// +kubebuilder:validation:Optional
 	DeploymentStyle []DeploymentStyleParameters `json:"deploymentStyle,omitempty" tf:"deployment_style"`
 
+	// +kubebuilder:validation:Optional
 	Ec2TagFilter []Ec2TagFilterParameters `json:"ec2TagFilter,omitempty" tf:"ec2_tag_filter"`
 
+	// +kubebuilder:validation:Optional
 	Ec2TagSet []Ec2TagSetParameters `json:"ec2TagSet,omitempty" tf:"ec2_tag_set"`
 
+	// +kubebuilder:validation:Optional
 	EcsService []EcsServiceParameters `json:"ecsService,omitempty" tf:"ecs_service"`
 
+	// +kubebuilder:validation:Optional
 	LoadBalancerInfo []LoadBalancerInfoParameters `json:"loadBalancerInfo,omitempty" tf:"load_balancer_info"`
 
+	// +kubebuilder:validation:Optional
 	OnPremisesInstanceTagFilter []OnPremisesInstanceTagFilterParameters `json:"onPremisesInstanceTagFilter,omitempty" tf:"on_premises_instance_tag_filter"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServiceRoleArn string `json:"serviceRoleArn" tf:"service_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TriggerConfiguration []TriggerConfigurationParameters `json:"triggerConfiguration,omitempty" tf:"trigger_configuration"`
 }
 
@@ -105,8 +137,11 @@ type DeploymentReadyOptionObservation struct {
 }
 
 type DeploymentReadyOptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ActionOnTimeout *string `json:"actionOnTimeout,omitempty" tf:"action_on_timeout"`
 
+	// +kubebuilder:validation:Optional
 	WaitTimeInMinutes *int64 `json:"waitTimeInMinutes,omitempty" tf:"wait_time_in_minutes"`
 }
 
@@ -114,8 +149,11 @@ type DeploymentStyleObservation struct {
 }
 
 type DeploymentStyleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeploymentOption *string `json:"deploymentOption,omitempty" tf:"deployment_option"`
 
+	// +kubebuilder:validation:Optional
 	DeploymentType *string `json:"deploymentType,omitempty" tf:"deployment_type"`
 }
 
@@ -123,10 +161,14 @@ type Ec2TagFilterObservation struct {
 }
 
 type Ec2TagFilterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
@@ -134,10 +176,14 @@ type Ec2TagSetEc2TagFilterObservation struct {
 }
 
 type Ec2TagSetEc2TagFilterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
@@ -145,6 +191,8 @@ type Ec2TagSetObservation struct {
 }
 
 type Ec2TagSetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Ec2TagFilter []Ec2TagSetEc2TagFilterParameters `json:"ec2TagFilter,omitempty" tf:"ec2_tag_filter"`
 }
 
@@ -152,8 +200,11 @@ type EcsServiceObservation struct {
 }
 
 type EcsServiceParameters struct {
+
+	// +kubebuilder:validation:Required
 	ClusterName string `json:"clusterName" tf:"cluster_name"`
 
+	// +kubebuilder:validation:Required
 	ServiceName string `json:"serviceName" tf:"service_name"`
 }
 
@@ -161,6 +212,8 @@ type ElbInfoObservation struct {
 }
 
 type ElbInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 }
 
@@ -168,6 +221,8 @@ type GreenFleetProvisioningOptionObservation struct {
 }
 
 type GreenFleetProvisioningOptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Action *string `json:"action,omitempty" tf:"action"`
 }
 
@@ -175,10 +230,14 @@ type LoadBalancerInfoObservation struct {
 }
 
 type LoadBalancerInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ElbInfo []ElbInfoParameters `json:"elbInfo,omitempty" tf:"elb_info"`
 
+	// +kubebuilder:validation:Optional
 	TargetGroupInfo []TargetGroupInfoParameters `json:"targetGroupInfo,omitempty" tf:"target_group_info"`
 
+	// +kubebuilder:validation:Optional
 	TargetGroupPairInfo []TargetGroupPairInfoParameters `json:"targetGroupPairInfo,omitempty" tf:"target_group_pair_info"`
 }
 
@@ -186,10 +245,14 @@ type OnPremisesInstanceTagFilterObservation struct {
 }
 
 type OnPremisesInstanceTagFilterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
@@ -197,6 +260,8 @@ type ProdTrafficRouteObservation struct {
 }
 
 type ProdTrafficRouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	ListenerArns []string `json:"listenerArns" tf:"listener_arns"`
 }
 
@@ -204,6 +269,8 @@ type TargetGroupInfoObservation struct {
 }
 
 type TargetGroupInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 }
 
@@ -214,14 +281,20 @@ type TargetGroupPairInfoObservation struct {
 }
 
 type TargetGroupPairInfoParameters struct {
+
+	// +kubebuilder:validation:Required
 	ProdTrafficRoute []ProdTrafficRouteParameters `json:"prodTrafficRoute" tf:"prod_traffic_route"`
 
+	// +kubebuilder:validation:Required
 	TargetGroup []TargetGroupParameters `json:"targetGroup" tf:"target_group"`
 
+	// +kubebuilder:validation:Optional
 	TestTrafficRoute []TestTrafficRouteParameters `json:"testTrafficRoute,omitempty" tf:"test_traffic_route"`
 }
 
 type TargetGroupParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -229,8 +302,11 @@ type TerminateBlueInstancesOnDeploymentSuccessObservation struct {
 }
 
 type TerminateBlueInstancesOnDeploymentSuccessParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Action *string `json:"action,omitempty" tf:"action"`
 
+	// +kubebuilder:validation:Optional
 	TerminationWaitTimeInMinutes *int64 `json:"terminationWaitTimeInMinutes,omitempty" tf:"termination_wait_time_in_minutes"`
 }
 
@@ -238,6 +314,8 @@ type TestTrafficRouteObservation struct {
 }
 
 type TestTrafficRouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	ListenerArns []string `json:"listenerArns" tf:"listener_arns"`
 }
 
@@ -245,10 +323,14 @@ type TriggerConfigurationObservation struct {
 }
 
 type TriggerConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	TriggerEvents []string `json:"triggerEvents" tf:"trigger_events"`
 
+	// +kubebuilder:validation:Required
 	TriggerName string `json:"triggerName" tf:"trigger_name"`
 
+	// +kubebuilder:validation:Required
 	TriggerTargetArn string `json:"triggerTargetArn" tf:"trigger_target_arn"`
 }
 

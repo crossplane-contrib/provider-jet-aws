@@ -28,10 +28,16 @@ type LightsailInstancePublicPortsObservation struct {
 }
 
 type LightsailInstancePublicPortsParameters struct {
+
+	// +kubebuilder:validation:Required
 	InstanceName string `json:"instanceName" tf:"instance_name"`
 
+	// +kubebuilder:validation:Required
 	PortInfo []PortInfoParameters `json:"portInfo" tf:"port_info"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -39,12 +45,17 @@ type PortInfoObservation struct {
 }
 
 type PortInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Cidrs []string `json:"cidrs,omitempty" tf:"cidrs"`
 
+	// +kubebuilder:validation:Required
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// +kubebuilder:validation:Required
 	ToPort int64 `json:"toPort" tf:"to_port"`
 }
 

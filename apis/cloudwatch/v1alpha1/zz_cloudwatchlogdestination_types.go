@@ -29,12 +29,19 @@ type CloudwatchLogDestinationObservation struct {
 }
 
 type CloudwatchLogDestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	TargetArn string `json:"targetArn" tf:"target_arn"`
 }
 

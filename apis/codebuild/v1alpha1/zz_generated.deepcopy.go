@@ -199,8 +199,8 @@ func (in *BuildStatusConfigParameters) DeepCopyInto(out *BuildStatusConfigParame
 		*out = new(string)
 		**out = **in
 	}
-	if in.TargetUrl != nil {
-		in, out := &in.TargetUrl, &out.TargetUrl
+	if in.TargetURL != nil {
+		in, out := &in.TargetURL, &out.TargetURL
 		*out = new(string)
 		**out = **in
 	}
@@ -1652,8 +1652,8 @@ func (in *SourceBuildStatusConfigParameters) DeepCopyInto(out *SourceBuildStatus
 		*out = new(string)
 		**out = **in
 	}
-	if in.TargetUrl != nil {
-		in, out := &in.TargetUrl, &out.TargetUrl
+	if in.TargetURL != nil {
+		in, out := &in.TargetURL, &out.TargetURL
 		*out = new(string)
 		**out = **in
 	}

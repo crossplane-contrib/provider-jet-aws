@@ -25,7 +25,7 @@ import (
 )
 
 type Apigatewayv2ApiObservation struct {
-	ApiEndpoint string `json:"apiEndpoint" tf:"api_endpoint"`
+	APIEndpoint string `json:"apiEndpoint" tf:"api_endpoint"`
 
 	Arn string `json:"arn" tf:"arn"`
 
@@ -33,36 +33,55 @@ type Apigatewayv2ApiObservation struct {
 }
 
 type Apigatewayv2ApiParameters struct {
-	ApiKeySelectionExpression *string `json:"apiKeySelectionExpression,omitempty" tf:"api_key_selection_expression"`
 
+	// +kubebuilder:validation:Optional
+	APIKeySelectionExpression *string `json:"apiKeySelectionExpression,omitempty" tf:"api_key_selection_expression"`
+
+	// +kubebuilder:validation:Optional
 	Body *string `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	CorsConfiguration []CorsConfigurationParameters `json:"corsConfiguration,omitempty" tf:"cors_configuration"`
 
+	// +kubebuilder:validation:Optional
 	CredentialsArn *string `json:"credentialsArn,omitempty" tf:"credentials_arn"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint,omitempty" tf:"disable_execute_api_endpoint"`
+	// +kubebuilder:validation:Optional
+	DisableExecuteAPIEndpoint *bool `json:"disableExecuteApiEndpoint,omitempty" tf:"disable_execute_api_endpoint"`
 
+	// +kubebuilder:validation:Optional
 	FailOnWarnings *bool `json:"failOnWarnings,omitempty" tf:"fail_on_warnings"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	ProtocolType string `json:"protocolType" tf:"protocol_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RouteKey *string `json:"routeKey,omitempty" tf:"route_key"`
 
+	// +kubebuilder:validation:Optional
 	RouteSelectionExpression *string `json:"routeSelectionExpression,omitempty" tf:"route_selection_expression"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Target *string `json:"target,omitempty" tf:"target"`
 
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version"`
 }
 
@@ -70,16 +89,23 @@ type CorsConfigurationObservation struct {
 }
 
 type CorsConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowCredentials *bool `json:"allowCredentials,omitempty" tf:"allow_credentials"`
 
+	// +kubebuilder:validation:Optional
 	AllowHeaders []string `json:"allowHeaders,omitempty" tf:"allow_headers"`
 
+	// +kubebuilder:validation:Optional
 	AllowMethods []string `json:"allowMethods,omitempty" tf:"allow_methods"`
 
+	// +kubebuilder:validation:Optional
 	AllowOrigins []string `json:"allowOrigins,omitempty" tf:"allow_origins"`
 
+	// +kubebuilder:validation:Optional
 	ExposeHeaders []string `json:"exposeHeaders,omitempty" tf:"expose_headers"`
 
+	// +kubebuilder:validation:Optional
 	MaxAge *int64 `json:"maxAge,omitempty" tf:"max_age"`
 }
 

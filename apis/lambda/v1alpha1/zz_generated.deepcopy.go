@@ -1059,8 +1059,8 @@ func (in *LambdaFunctionParameters) DeepCopyInto(out *LambdaFunctionParameters) 
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
-	if in.ImageUri != nil {
-		in, out := &in.ImageUri, &out.ImageUri
+	if in.ImageURI != nil {
+		in, out := &in.ImageURI, &out.ImageURI
 		*out = new(string)
 		**out = **in
 	}
@@ -1456,13 +1456,13 @@ func (in *LambdaPermissionParameters) DeepCopyInto(out *LambdaPermissionParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.StatementId != nil {
-		in, out := &in.StatementId, &out.StatementId
+	if in.StatementID != nil {
+		in, out := &in.StatementID, &out.StatementID
 		*out = new(string)
 		**out = **in
 	}
-	if in.StatementIdPrefix != nil {
-		in, out := &in.StatementIdPrefix, &out.StatementIdPrefix
+	if in.StatementIDPrefix != nil {
+		in, out := &in.StatementIDPrefix, &out.StatementIDPrefix
 		*out = new(string)
 		**out = **in
 	}

@@ -28,19 +28,29 @@ type CognitoIdentityProviderObservation struct {
 }
 
 type CognitoIdentityProviderParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AttributeMapping map[string]string `json:"attributeMapping,omitempty" tf:"attribute_mapping"`
 
+	// +kubebuilder:validation:Optional
 	IdpIdentifiers []string `json:"idpIdentifiers,omitempty" tf:"idp_identifiers"`
 
+	// +kubebuilder:validation:Required
 	ProviderDetails map[string]string `json:"providerDetails" tf:"provider_details"`
 
+	// +kubebuilder:validation:Required
 	ProviderName string `json:"providerName" tf:"provider_name"`
 
+	// +kubebuilder:validation:Required
 	ProviderType string `json:"providerType" tf:"provider_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	// +kubebuilder:validation:Required
+	UserPoolID string `json:"userPoolId" tf:"user_pool_id"`
 }
 
 // CognitoIdentityProviderSpec defines the desired state of CognitoIdentityProvider

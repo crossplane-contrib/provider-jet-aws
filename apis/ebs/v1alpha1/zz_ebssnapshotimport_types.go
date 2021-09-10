@@ -28,12 +28,17 @@ type ClientDataObservation struct {
 }
 
 type ClientDataParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
+	// +kubebuilder:validation:Optional
 	UploadEnd *string `json:"uploadEnd,omitempty" tf:"upload_end"`
 
+	// +kubebuilder:validation:Optional
 	UploadSize *float64 `json:"uploadSize,omitempty" tf:"upload_size"`
 
+	// +kubebuilder:validation:Optional
 	UploadStart *string `json:"uploadStart,omitempty" tf:"upload_start"`
 }
 
@@ -41,44 +46,61 @@ type DiskContainerObservation struct {
 }
 
 type DiskContainerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Format string `json:"format" tf:"format"`
 
-	Url *string `json:"url,omitempty" tf:"url"`
+	// +kubebuilder:validation:Optional
+	URL *string `json:"url,omitempty" tf:"url"`
 
+	// +kubebuilder:validation:Optional
 	UserBucket []UserBucketParameters `json:"userBucket,omitempty" tf:"user_bucket"`
 }
 
 type EbsSnapshotImportObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DataEncryptionKeyId string `json:"dataEncryptionKeyId" tf:"data_encryption_key_id"`
+	DataEncryptionKeyID string `json:"dataEncryptionKeyId" tf:"data_encryption_key_id"`
 
 	OwnerAlias string `json:"ownerAlias" tf:"owner_alias"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
 	VolumeSize int64 `json:"volumeSize" tf:"volume_size"`
 }
 
 type EbsSnapshotImportParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ClientData []ClientDataParameters `json:"clientData,omitempty" tf:"client_data"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	DiskContainer []DiskContainerParameters `json:"diskContainer" tf:"disk_container"`
 
+	// +kubebuilder:validation:Optional
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoleName *string `json:"roleName,omitempty" tf:"role_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -86,8 +108,11 @@ type UserBucketObservation struct {
 }
 
 type UserBucketParameters struct {
+
+	// +kubebuilder:validation:Required
 	S3Bucket string `json:"s3Bucket" tf:"s3_bucket"`
 
+	// +kubebuilder:validation:Required
 	S3Key string `json:"s3Key" tf:"s3_key"`
 }
 

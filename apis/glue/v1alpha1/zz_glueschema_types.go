@@ -37,22 +37,34 @@ type GlueSchemaObservation struct {
 }
 
 type GlueSchemaParameters struct {
+
+	// +kubebuilder:validation:Required
 	Compatibility string `json:"compatibility" tf:"compatibility"`
 
+	// +kubebuilder:validation:Required
 	DataFormat string `json:"dataFormat" tf:"data_format"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RegistryArn *string `json:"registryArn,omitempty" tf:"registry_arn"`
 
+	// +kubebuilder:validation:Required
 	SchemaDefinition string `json:"schemaDefinition" tf:"schema_definition"`
 
+	// +kubebuilder:validation:Required
 	SchemaName string `json:"schemaName" tf:"schema_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

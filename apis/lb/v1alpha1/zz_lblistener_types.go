@@ -28,20 +28,29 @@ type AuthenticateCognitoObservation struct {
 }
 
 type AuthenticateCognitoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuthenticationRequestExtraParams map[string]string `json:"authenticationRequestExtraParams,omitempty" tf:"authentication_request_extra_params"`
 
+	// +kubebuilder:validation:Optional
 	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest,omitempty" tf:"on_unauthenticated_request"`
 
+	// +kubebuilder:validation:Optional
 	Scope *string `json:"scope,omitempty" tf:"scope"`
 
+	// +kubebuilder:validation:Optional
 	SessionCookieName *string `json:"sessionCookieName,omitempty" tf:"session_cookie_name"`
 
+	// +kubebuilder:validation:Optional
 	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout"`
 
+	// +kubebuilder:validation:Required
 	UserPoolArn string `json:"userPoolArn" tf:"user_pool_arn"`
 
-	UserPoolClientId string `json:"userPoolClientId" tf:"user_pool_client_id"`
+	// +kubebuilder:validation:Required
+	UserPoolClientID string `json:"userPoolClientId" tf:"user_pool_client_id"`
 
+	// +kubebuilder:validation:Required
 	UserPoolDomain string `json:"userPoolDomain" tf:"user_pool_domain"`
 }
 
@@ -49,26 +58,38 @@ type AuthenticateOidcObservation struct {
 }
 
 type AuthenticateOidcParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuthenticationRequestExtraParams map[string]string `json:"authenticationRequestExtraParams,omitempty" tf:"authentication_request_extra_params"`
 
+	// +kubebuilder:validation:Required
 	AuthorizationEndpoint string `json:"authorizationEndpoint" tf:"authorization_endpoint"`
 
-	ClientId string `json:"clientId" tf:"client_id"`
+	// +kubebuilder:validation:Required
+	ClientID string `json:"clientId" tf:"client_id"`
 
+	// +kubebuilder:validation:Required
 	ClientSecret string `json:"clientSecret" tf:"client_secret"`
 
+	// +kubebuilder:validation:Required
 	Issuer string `json:"issuer" tf:"issuer"`
 
+	// +kubebuilder:validation:Optional
 	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest,omitempty" tf:"on_unauthenticated_request"`
 
+	// +kubebuilder:validation:Optional
 	Scope *string `json:"scope,omitempty" tf:"scope"`
 
+	// +kubebuilder:validation:Optional
 	SessionCookieName *string `json:"sessionCookieName,omitempty" tf:"session_cookie_name"`
 
+	// +kubebuilder:validation:Optional
 	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout"`
 
+	// +kubebuilder:validation:Required
 	TokenEndpoint string `json:"tokenEndpoint" tf:"token_endpoint"`
 
+	// +kubebuilder:validation:Required
 	UserInfoEndpoint string `json:"userInfoEndpoint" tf:"user_info_endpoint"`
 }
 
@@ -76,20 +97,29 @@ type DefaultActionObservation struct {
 }
 
 type DefaultActionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuthenticateCognito []AuthenticateCognitoParameters `json:"authenticateCognito,omitempty" tf:"authenticate_cognito"`
 
+	// +kubebuilder:validation:Optional
 	AuthenticateOidc []AuthenticateOidcParameters `json:"authenticateOidc,omitempty" tf:"authenticate_oidc"`
 
+	// +kubebuilder:validation:Optional
 	FixedResponse []FixedResponseParameters `json:"fixedResponse,omitempty" tf:"fixed_response"`
 
+	// +kubebuilder:validation:Optional
 	Forward []ForwardParameters `json:"forward,omitempty" tf:"forward"`
 
+	// +kubebuilder:validation:Optional
 	Order *int64 `json:"order,omitempty" tf:"order"`
 
+	// +kubebuilder:validation:Optional
 	Redirect []RedirectParameters `json:"redirect,omitempty" tf:"redirect"`
 
+	// +kubebuilder:validation:Optional
 	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -97,10 +127,14 @@ type FixedResponseObservation struct {
 }
 
 type FixedResponseParameters struct {
+
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	MessageBody *string `json:"messageBody,omitempty" tf:"message_body"`
 
+	// +kubebuilder:validation:Optional
 	StatusCode *string `json:"statusCode,omitempty" tf:"status_code"`
 }
 
@@ -108,8 +142,11 @@ type ForwardObservation struct {
 }
 
 type ForwardParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Stickiness []StickinessParameters `json:"stickiness,omitempty" tf:"stickiness"`
 
+	// +kubebuilder:validation:Required
 	TargetGroup []TargetGroupParameters `json:"targetGroup" tf:"target_group"`
 }
 
@@ -118,24 +155,37 @@ type LbListenerObservation struct {
 }
 
 type LbListenerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AlpnPolicy *string `json:"alpnPolicy,omitempty" tf:"alpn_policy"`
 
+	// +kubebuilder:validation:Optional
 	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn"`
 
+	// +kubebuilder:validation:Required
 	DefaultAction []DefaultActionParameters `json:"defaultAction" tf:"default_action"`
 
+	// +kubebuilder:validation:Required
 	LoadBalancerArn string `json:"loadBalancerArn" tf:"load_balancer_arn"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Optional
 	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SslPolicy *string `json:"sslPolicy,omitempty" tf:"ssl_policy"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -143,16 +193,23 @@ type RedirectObservation struct {
 }
 
 type RedirectParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Host *string `json:"host,omitempty" tf:"host"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	Port *string `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Optional
 	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
 
+	// +kubebuilder:validation:Optional
 	Query *string `json:"query,omitempty" tf:"query"`
 
+	// +kubebuilder:validation:Required
 	StatusCode string `json:"statusCode" tf:"status_code"`
 }
 
@@ -160,8 +217,11 @@ type StickinessObservation struct {
 }
 
 type StickinessParameters struct {
+
+	// +kubebuilder:validation:Required
 	Duration int64 `json:"duration" tf:"duration"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 }
 
@@ -169,8 +229,11 @@ type TargetGroupObservation struct {
 }
 
 type TargetGroupParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	Weight *int64 `json:"weight,omitempty" tf:"weight"`
 }
 

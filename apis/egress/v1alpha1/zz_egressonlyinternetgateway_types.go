@@ -28,13 +28,20 @@ type EgressOnlyInternetGatewayObservation struct {
 }
 
 type EgressOnlyInternetGatewayParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // EgressOnlyInternetGatewaySpec defines the desired state of EgressOnlyInternetGateway

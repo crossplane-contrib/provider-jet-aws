@@ -784,8 +784,8 @@ func (in *LexBotParameters) DeepCopyInto(out *LexBotParameters) {
 		*out = new(bool)
 		**out = **in
 	}
-	if in.IdleSessionTtlInSeconds != nil {
-		in, out := &in.IdleSessionTtlInSeconds, &out.IdleSessionTtlInSeconds
+	if in.IdleSessionTTLInSeconds != nil {
+		in, out := &in.IdleSessionTTLInSeconds, &out.IdleSessionTTLInSeconds
 		*out = new(int64)
 		**out = **in
 	}
@@ -809,8 +809,8 @@ func (in *LexBotParameters) DeepCopyInto(out *LexBotParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.VoiceId != nil {
-		in, out := &in.VoiceId, &out.VoiceId
+	if in.VoiceID != nil {
+		in, out := &in.VoiceID, &out.VoiceID
 		*out = new(string)
 		**out = **in
 	}

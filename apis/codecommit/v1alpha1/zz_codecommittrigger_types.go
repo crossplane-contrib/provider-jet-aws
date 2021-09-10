@@ -25,14 +25,20 @@ import (
 )
 
 type CodecommitTriggerObservation struct {
-	ConfigurationId string `json:"configurationId" tf:"configuration_id"`
+	ConfigurationID string `json:"configurationId" tf:"configuration_id"`
 }
 
 type CodecommitTriggerParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RepositoryName string `json:"repositoryName" tf:"repository_name"`
 
+	// +kubebuilder:validation:Required
 	Trigger []TriggerParameters `json:"trigger" tf:"trigger"`
 }
 
@@ -40,14 +46,20 @@ type TriggerObservation struct {
 }
 
 type TriggerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Branches []string `json:"branches,omitempty" tf:"branches"`
 
+	// +kubebuilder:validation:Optional
 	CustomData *string `json:"customData,omitempty" tf:"custom_data"`
 
+	// +kubebuilder:validation:Required
 	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
 
+	// +kubebuilder:validation:Required
 	Events []string `json:"events" tf:"events"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 

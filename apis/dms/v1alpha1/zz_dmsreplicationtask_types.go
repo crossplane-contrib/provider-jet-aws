@@ -29,26 +29,40 @@ type DmsReplicationTaskObservation struct {
 }
 
 type DmsReplicationTaskParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CdcStartTime *string `json:"cdcStartTime,omitempty" tf:"cdc_start_time"`
 
+	// +kubebuilder:validation:Required
 	MigrationType string `json:"migrationType" tf:"migration_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ReplicationInstanceArn string `json:"replicationInstanceArn" tf:"replication_instance_arn"`
 
-	ReplicationTaskId string `json:"replicationTaskId" tf:"replication_task_id"`
+	// +kubebuilder:validation:Required
+	ReplicationTaskID string `json:"replicationTaskId" tf:"replication_task_id"`
 
+	// +kubebuilder:validation:Optional
 	ReplicationTaskSettings *string `json:"replicationTaskSettings,omitempty" tf:"replication_task_settings"`
 
+	// +kubebuilder:validation:Required
 	SourceEndpointArn string `json:"sourceEndpointArn" tf:"source_endpoint_arn"`
 
+	// +kubebuilder:validation:Required
 	TableMappings string `json:"tableMappings" tf:"table_mappings"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	TargetEndpointArn string `json:"targetEndpointArn" tf:"target_endpoint_arn"`
 }
 

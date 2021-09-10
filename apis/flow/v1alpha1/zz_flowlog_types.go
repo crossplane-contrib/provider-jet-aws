@@ -29,31 +29,47 @@ type FlowLogObservation struct {
 }
 
 type FlowLogParameters struct {
-	EniId *string `json:"eniId,omitempty" tf:"eni_id"`
 
+	// +kubebuilder:validation:Optional
+	EniID *string `json:"eniId,omitempty" tf:"eni_id"`
+
+	// +kubebuilder:validation:Optional
 	IamRoleArn *string `json:"iamRoleArn,omitempty" tf:"iam_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	LogDestination *string `json:"logDestination,omitempty" tf:"log_destination"`
 
+	// +kubebuilder:validation:Optional
 	LogDestinationType *string `json:"logDestinationType,omitempty" tf:"log_destination_type"`
 
+	// +kubebuilder:validation:Optional
 	LogFormat *string `json:"logFormat,omitempty" tf:"log_format"`
 
+	// +kubebuilder:validation:Optional
 	LogGroupName *string `json:"logGroupName,omitempty" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	MaxAggregationInterval *int64 `json:"maxAggregationInterval,omitempty" tf:"max_aggregation_interval"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	TrafficType string `json:"trafficType" tf:"traffic_type"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	// +kubebuilder:validation:Optional
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
 }
 
 // FlowLogSpec defines the desired state of FlowLog

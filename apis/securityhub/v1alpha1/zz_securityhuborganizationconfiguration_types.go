@@ -28,8 +28,13 @@ type SecurityhubOrganizationConfigurationObservation struct {
 }
 
 type SecurityhubOrganizationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutoEnable bool `json:"autoEnable" tf:"auto_enable"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

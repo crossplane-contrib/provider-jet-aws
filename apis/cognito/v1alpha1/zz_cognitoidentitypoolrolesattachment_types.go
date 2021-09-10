@@ -28,12 +28,19 @@ type CognitoIdentityPoolRolesAttachmentObservation struct {
 }
 
 type CognitoIdentityPoolRolesAttachmentParameters struct {
-	IdentityPoolId string `json:"identityPoolId" tf:"identity_pool_id"`
 
+	// +kubebuilder:validation:Required
+	IdentityPoolID string `json:"identityPoolId" tf:"identity_pool_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoleMapping []RoleMappingParameters `json:"roleMapping,omitempty" tf:"role_mapping"`
 
+	// +kubebuilder:validation:Required
 	Roles map[string]string `json:"roles" tf:"roles"`
 }
 
@@ -41,12 +48,17 @@ type MappingRuleObservation struct {
 }
 
 type MappingRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Claim string `json:"claim" tf:"claim"`
 
+	// +kubebuilder:validation:Required
 	MatchType string `json:"matchType" tf:"match_type"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -54,12 +66,17 @@ type RoleMappingObservation struct {
 }
 
 type RoleMappingParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AmbiguousRoleResolution *string `json:"ambiguousRoleResolution,omitempty" tf:"ambiguous_role_resolution"`
 
+	// +kubebuilder:validation:Required
 	IdentityProvider string `json:"identityProvider" tf:"identity_provider"`
 
+	// +kubebuilder:validation:Optional
 	MappingRule []MappingRuleParameters `json:"mappingRule,omitempty" tf:"mapping_rule"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

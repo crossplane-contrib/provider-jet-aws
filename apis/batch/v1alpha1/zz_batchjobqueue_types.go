@@ -29,18 +29,28 @@ type BatchJobQueueObservation struct {
 }
 
 type BatchJobQueueParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComputeEnvironments []string `json:"computeEnvironments" tf:"compute_environments"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	State string `json:"state" tf:"state"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

@@ -29,14 +29,22 @@ type AmplifyBackendEnvironmentObservation struct {
 }
 
 type AmplifyBackendEnvironmentParameters struct {
-	AppId string `json:"appId" tf:"app_id"`
 
+	// +kubebuilder:validation:Required
+	AppID string `json:"appId" tf:"app_id"`
+
+	// +kubebuilder:validation:Optional
 	DeploymentArtifacts *string `json:"deploymentArtifacts,omitempty" tf:"deployment_artifacts"`
 
+	// +kubebuilder:validation:Required
 	EnvironmentName string `json:"environmentName" tf:"environment_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	StackName *string `json:"stackName,omitempty" tf:"stack_name"`
 }
 

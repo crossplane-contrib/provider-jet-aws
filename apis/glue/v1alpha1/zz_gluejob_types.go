@@ -28,10 +28,14 @@ type CommandObservation struct {
 }
 
 type CommandParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PythonVersion *string `json:"pythonVersion,omitempty" tf:"python_version"`
 
+	// +kubebuilder:validation:Required
 	ScriptLocation string `json:"scriptLocation" tf:"script_location"`
 }
 
@@ -39,6 +43,8 @@ type ExecutionPropertyObservation struct {
 }
 
 type ExecutionPropertyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MaxConcurrentRuns *int64 `json:"maxConcurrentRuns,omitempty" tf:"max_concurrent_runs"`
 }
 
@@ -47,42 +53,64 @@ type GlueJobObservation struct {
 }
 
 type GlueJobParameters struct {
+
+	// +kubebuilder:validation:Required
 	Command []CommandParameters `json:"command" tf:"command"`
 
+	// +kubebuilder:validation:Optional
 	Connections []string `json:"connections,omitempty" tf:"connections"`
 
+	// +kubebuilder:validation:Optional
 	DefaultArguments map[string]string `json:"defaultArguments,omitempty" tf:"default_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	ExecutionProperty []ExecutionPropertyParameters `json:"executionProperty,omitempty" tf:"execution_property"`
 
+	// +kubebuilder:validation:Optional
 	GlueVersion *string `json:"glueVersion,omitempty" tf:"glue_version"`
 
+	// +kubebuilder:validation:Optional
 	MaxCapacity *float64 `json:"maxCapacity,omitempty" tf:"max_capacity"`
 
+	// +kubebuilder:validation:Optional
 	MaxRetries *int64 `json:"maxRetries,omitempty" tf:"max_retries"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NonOverridableArguments map[string]string `json:"nonOverridableArguments,omitempty" tf:"non_overridable_arguments"`
 
+	// +kubebuilder:validation:Optional
 	NotificationProperty []NotificationPropertyParameters `json:"notificationProperty,omitempty" tf:"notification_property"`
 
+	// +kubebuilder:validation:Optional
 	NumberOfWorkers *int64 `json:"numberOfWorkers,omitempty" tf:"number_of_workers"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	SecurityConfiguration *string `json:"securityConfiguration,omitempty" tf:"security_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Timeout *int64 `json:"timeout,omitempty" tf:"timeout"`
 
+	// +kubebuilder:validation:Optional
 	WorkerType *string `json:"workerType,omitempty" tf:"worker_type"`
 }
 
@@ -90,6 +118,8 @@ type NotificationPropertyObservation struct {
 }
 
 type NotificationPropertyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	NotifyDelayAfter *int64 `json:"notifyDelayAfter,omitempty" tf:"notify_delay_after"`
 }
 

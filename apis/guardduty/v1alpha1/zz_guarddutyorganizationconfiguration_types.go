@@ -28,6 +28,8 @@ type DatasourcesS3LogsObservation struct {
 }
 
 type DatasourcesS3LogsParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutoEnable bool `json:"autoEnable" tf:"auto_enable"`
 }
 
@@ -35,6 +37,8 @@ type GuarddutyOrganizationConfigurationDatasourcesObservation struct {
 }
 
 type GuarddutyOrganizationConfigurationDatasourcesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	S3Logs []DatasourcesS3LogsParameters `json:"s3Logs,omitempty" tf:"s3_logs"`
 }
 
@@ -42,12 +46,19 @@ type GuarddutyOrganizationConfigurationObservation struct {
 }
 
 type GuarddutyOrganizationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutoEnable bool `json:"autoEnable" tf:"auto_enable"`
 
+	// +kubebuilder:validation:Optional
 	Datasources []GuarddutyOrganizationConfigurationDatasourcesParameters `json:"datasources,omitempty" tf:"datasources"`
 
-	DetectorId string `json:"detectorId" tf:"detector_id"`
+	// +kubebuilder:validation:Required
+	DetectorID string `json:"detectorId" tf:"detector_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

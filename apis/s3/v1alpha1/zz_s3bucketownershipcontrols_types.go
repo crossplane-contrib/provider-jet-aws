@@ -28,10 +28,16 @@ type S3BucketOwnershipControlsObservation struct {
 }
 
 type S3BucketOwnershipControlsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Rule []S3BucketOwnershipControlsRuleParameters `json:"rule" tf:"rule"`
 }
 
@@ -39,6 +45,8 @@ type S3BucketOwnershipControlsRuleObservation struct {
 }
 
 type S3BucketOwnershipControlsRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	ObjectOwnership string `json:"objectOwnership" tf:"object_ownership"`
 }
 

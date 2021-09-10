@@ -28,8 +28,11 @@ type AbortStatementObservation struct {
 }
 
 type AbortStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Message []MessageParameters `json:"message" tf:"message"`
 
+	// +kubebuilder:validation:Optional
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 
@@ -37,10 +40,14 @@ type ClarificationPromptMessageObservation struct {
 }
 
 type ClarificationPromptMessageParameters struct {
+
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 
@@ -48,10 +55,14 @@ type ClarificationPromptObservation struct {
 }
 
 type ClarificationPromptParameters struct {
+
+	// +kubebuilder:validation:Required
 	MaxAttempts int64 `json:"maxAttempts" tf:"max_attempts"`
 
+	// +kubebuilder:validation:Required
 	Message []ClarificationPromptMessageParameters `json:"message" tf:"message"`
 
+	// +kubebuilder:validation:Optional
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 
@@ -59,8 +70,11 @@ type IntentObservation struct {
 }
 
 type IntentParameters struct {
+
+	// +kubebuilder:validation:Required
 	IntentName string `json:"intentName" tf:"intent_name"`
 
+	// +kubebuilder:validation:Required
 	IntentVersion string `json:"intentVersion" tf:"intent_version"`
 }
 
@@ -81,45 +95,67 @@ type LexBotObservation struct {
 }
 
 type LexBotParameters struct {
+
+	// +kubebuilder:validation:Required
 	AbortStatement []AbortStatementParameters `json:"abortStatement" tf:"abort_statement"`
 
+	// +kubebuilder:validation:Required
 	ChildDirected bool `json:"childDirected" tf:"child_directed"`
 
+	// +kubebuilder:validation:Optional
 	ClarificationPrompt []ClarificationPromptParameters `json:"clarificationPrompt,omitempty" tf:"clarification_prompt"`
 
+	// +kubebuilder:validation:Optional
 	CreateVersion *bool `json:"createVersion,omitempty" tf:"create_version"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DetectSentiment *bool `json:"detectSentiment,omitempty" tf:"detect_sentiment"`
 
+	// +kubebuilder:validation:Optional
 	EnableModelImprovements *bool `json:"enableModelImprovements,omitempty" tf:"enable_model_improvements"`
 
-	IdleSessionTtlInSeconds *int64 `json:"idleSessionTtlInSeconds,omitempty" tf:"idle_session_ttl_in_seconds"`
+	// +kubebuilder:validation:Optional
+	IdleSessionTTLInSeconds *int64 `json:"idleSessionTtlInSeconds,omitempty" tf:"idle_session_ttl_in_seconds"`
 
+	// +kubebuilder:validation:Required
 	Intent []IntentParameters `json:"intent" tf:"intent"`
 
+	// +kubebuilder:validation:Optional
 	Locale *string `json:"locale,omitempty" tf:"locale"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NluIntentConfidenceThreshold *float64 `json:"nluIntentConfidenceThreshold,omitempty" tf:"nlu_intent_confidence_threshold"`
 
+	// +kubebuilder:validation:Optional
 	ProcessBehavior *string `json:"processBehavior,omitempty" tf:"process_behavior"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	VoiceId *string `json:"voiceId,omitempty" tf:"voice_id"`
+	// +kubebuilder:validation:Optional
+	VoiceID *string `json:"voiceId,omitempty" tf:"voice_id"`
 }
 
 type MessageObservation struct {
 }
 
 type MessageParameters struct {
+
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 

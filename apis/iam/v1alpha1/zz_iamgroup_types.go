@@ -27,14 +27,20 @@ import (
 type IamGroupObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	UniqueId string `json:"uniqueId" tf:"unique_id"`
+	UniqueID string `json:"uniqueId" tf:"unique_id"`
 }
 
 type IamGroupParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

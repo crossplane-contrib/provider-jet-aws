@@ -33,20 +33,31 @@ type SsmActivationObservation struct {
 }
 
 type SsmActivationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	ExpirationDate *string `json:"expirationDate,omitempty" tf:"expiration_date"`
 
+	// +kubebuilder:validation:Required
 	IamRole string `json:"iamRole" tf:"iam_role"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RegistrationLimit *int64 `json:"registrationLimit,omitempty" tf:"registration_limit"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

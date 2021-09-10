@@ -28,12 +28,19 @@ type SesDomainMailFromObservation struct {
 }
 
 type SesDomainMailFromParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BehaviorOnMxFailure *string `json:"behaviorOnMxFailure,omitempty" tf:"behavior_on_mx_failure"`
 
+	// +kubebuilder:validation:Required
 	Domain string `json:"domain" tf:"domain"`
 
+	// +kubebuilder:validation:Required
 	MailFromDomain string `json:"mailFromDomain" tf:"mail_from_domain"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

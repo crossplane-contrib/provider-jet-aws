@@ -41,18 +41,25 @@ type ElasticacheGlobalReplicationGroupObservation struct {
 
 	EngineVersionActual string `json:"engineVersionActual" tf:"engine_version_actual"`
 
-	GlobalReplicationGroupId string `json:"globalReplicationGroupId" tf:"global_replication_group_id"`
+	GlobalReplicationGroupID string `json:"globalReplicationGroupId" tf:"global_replication_group_id"`
 
 	TransitEncryptionEnabled bool `json:"transitEncryptionEnabled" tf:"transit_encryption_enabled"`
 }
 
 type ElasticacheGlobalReplicationGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	GlobalReplicationGroupDescription *string `json:"globalReplicationGroupDescription,omitempty" tf:"global_replication_group_description"`
 
-	GlobalReplicationGroupIdSuffix string `json:"globalReplicationGroupIdSuffix" tf:"global_replication_group_id_suffix"`
+	// +kubebuilder:validation:Required
+	GlobalReplicationGroupIDSuffix string `json:"globalReplicationGroupIdSuffix" tf:"global_replication_group_id_suffix"`
 
-	PrimaryReplicationGroupId string `json:"primaryReplicationGroupId" tf:"primary_replication_group_id"`
+	// +kubebuilder:validation:Required
+	PrimaryReplicationGroupID string `json:"primaryReplicationGroupId" tf:"primary_replication_group_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

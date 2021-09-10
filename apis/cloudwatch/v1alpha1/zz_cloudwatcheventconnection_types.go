@@ -24,12 +24,15 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type ApiKeyObservation struct {
+type APIKeyObservation struct {
 }
 
-type ApiKeyParameters struct {
+type APIKeyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -37,12 +40,17 @@ type AuthParametersObservation struct {
 }
 
 type AuthParametersParameters struct {
-	ApiKey []ApiKeyParameters `json:"apiKey,omitempty" tf:"api_key"`
 
+	// +kubebuilder:validation:Optional
+	APIKey []APIKeyParameters `json:"apiKey,omitempty" tf:"api_key"`
+
+	// +kubebuilder:validation:Optional
 	Basic []BasicParameters `json:"basic,omitempty" tf:"basic"`
 
-	InvocationHttpParameters []InvocationHttpParametersParameters `json:"invocationHttpParameters,omitempty" tf:"invocation_http_parameters"`
+	// +kubebuilder:validation:Optional
+	InvocationHTTPParameters []InvocationHTTPParametersParameters `json:"invocationHttpParameters,omitempty" tf:"invocation_http_parameters"`
 
+	// +kubebuilder:validation:Optional
 	Oauth []OauthParameters `json:"oauth,omitempty" tf:"oauth"`
 }
 
@@ -50,8 +58,11 @@ type BasicObservation struct {
 }
 
 type BasicParameters struct {
+
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// +kubebuilder:validation:Required
 	Username string `json:"username" tf:"username"`
 }
 
@@ -59,10 +70,14 @@ type BodyObservation struct {
 }
 
 type BodyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
@@ -70,8 +85,11 @@ type ClientParametersObservation struct {
 }
 
 type ClientParametersParameters struct {
-	ClientId string `json:"clientId" tf:"client_id"`
 
+	// +kubebuilder:validation:Required
+	ClientID string `json:"clientId" tf:"client_id"`
+
+	// +kubebuilder:validation:Required
 	ClientSecret string `json:"clientSecret" tf:"client_secret"`
 }
 
@@ -82,14 +100,22 @@ type CloudwatchEventConnectionObservation struct {
 }
 
 type CloudwatchEventConnectionParameters struct {
+
+	// +kubebuilder:validation:Required
 	AuthParameters []AuthParametersParameters `json:"authParameters" tf:"auth_parameters"`
 
+	// +kubebuilder:validation:Required
 	AuthorizationType string `json:"authorizationType" tf:"authorization_type"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -97,65 +123,89 @@ type HeaderObservation struct {
 }
 
 type HeaderParameters struct {
+
+	// +kubebuilder:validation:Optional
 	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
-type InvocationHttpParametersObservation struct {
+type InvocationHTTPParametersObservation struct {
 }
 
-type InvocationHttpParametersParameters struct {
+type InvocationHTTPParametersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Body []BodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Header []HeaderParameters `json:"header,omitempty" tf:"header"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []QueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 }
 
-type OauthHttpParametersBodyObservation struct {
+type OauthHTTPParametersBodyObservation struct {
 }
 
-type OauthHttpParametersBodyParameters struct {
+type OauthHTTPParametersBodyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
-type OauthHttpParametersHeaderObservation struct {
+type OauthHTTPParametersHeaderObservation struct {
 }
 
-type OauthHttpParametersHeaderParameters struct {
+type OauthHTTPParametersHeaderParameters struct {
+
+	// +kubebuilder:validation:Optional
 	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
-type OauthHttpParametersObservation struct {
+type OauthHTTPParametersObservation struct {
 }
 
-type OauthHttpParametersParameters struct {
-	Body []OauthHttpParametersBodyParameters `json:"body,omitempty" tf:"body"`
+type OauthHTTPParametersParameters struct {
 
-	Header []OauthHttpParametersHeaderParameters `json:"header,omitempty" tf:"header"`
+	// +kubebuilder:validation:Optional
+	Body []OauthHTTPParametersBodyParameters `json:"body,omitempty" tf:"body"`
 
-	QueryString []OauthHttpParametersQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
+	// +kubebuilder:validation:Optional
+	Header []OauthHTTPParametersHeaderParameters `json:"header,omitempty" tf:"header"`
+
+	// +kubebuilder:validation:Optional
+	QueryString []OauthHTTPParametersQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 }
 
-type OauthHttpParametersQueryStringObservation struct {
+type OauthHTTPParametersQueryStringObservation struct {
 }
 
-type OauthHttpParametersQueryStringParameters struct {
+type OauthHTTPParametersQueryStringParameters struct {
+
+	// +kubebuilder:validation:Optional
 	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
@@ -163,23 +213,32 @@ type OauthObservation struct {
 }
 
 type OauthParameters struct {
+
+	// +kubebuilder:validation:Required
 	AuthorizationEndpoint string `json:"authorizationEndpoint" tf:"authorization_endpoint"`
 
+	// +kubebuilder:validation:Optional
 	ClientParameters []ClientParametersParameters `json:"clientParameters,omitempty" tf:"client_parameters"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	// +kubebuilder:validation:Required
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
-	OauthHttpParameters []OauthHttpParametersParameters `json:"oauthHttpParameters" tf:"oauth_http_parameters"`
+	// +kubebuilder:validation:Required
+	OauthHTTPParameters []OauthHTTPParametersParameters `json:"oauthHttpParameters" tf:"oauth_http_parameters"`
 }
 
 type QueryStringObservation struct {
 }
 
 type QueryStringParameters struct {
+
+	// +kubebuilder:validation:Optional
 	IsValueSecret *bool `json:"isValueSecret,omitempty" tf:"is_value_secret"`
 
+	// +kubebuilder:validation:Optional
 	Key *string `json:"key,omitempty" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 

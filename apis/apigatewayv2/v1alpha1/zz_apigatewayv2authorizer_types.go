@@ -28,26 +28,40 @@ type Apigatewayv2AuthorizerObservation struct {
 }
 
 type Apigatewayv2AuthorizerParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Optional
 	AuthorizerCredentialsArn *string `json:"authorizerCredentialsArn,omitempty" tf:"authorizer_credentials_arn"`
 
+	// +kubebuilder:validation:Optional
 	AuthorizerPayloadFormatVersion *string `json:"authorizerPayloadFormatVersion,omitempty" tf:"authorizer_payload_format_version"`
 
-	AuthorizerResultTtlInSeconds *int64 `json:"authorizerResultTtlInSeconds,omitempty" tf:"authorizer_result_ttl_in_seconds"`
+	// +kubebuilder:validation:Optional
+	AuthorizerResultTTLInSeconds *int64 `json:"authorizerResultTtlInSeconds,omitempty" tf:"authorizer_result_ttl_in_seconds"`
 
+	// +kubebuilder:validation:Required
 	AuthorizerType string `json:"authorizerType" tf:"authorizer_type"`
 
-	AuthorizerUri *string `json:"authorizerUri,omitempty" tf:"authorizer_uri"`
+	// +kubebuilder:validation:Optional
+	AuthorizerURI *string `json:"authorizerUri,omitempty" tf:"authorizer_uri"`
 
+	// +kubebuilder:validation:Optional
 	EnableSimpleResponses *bool `json:"enableSimpleResponses,omitempty" tf:"enable_simple_responses"`
 
+	// +kubebuilder:validation:Optional
 	IdentitySources []string `json:"identitySources,omitempty" tf:"identity_sources"`
 
+	// +kubebuilder:validation:Optional
 	JwtConfiguration []JwtConfigurationParameters `json:"jwtConfiguration,omitempty" tf:"jwt_configuration"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -55,8 +69,11 @@ type JwtConfigurationObservation struct {
 }
 
 type JwtConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Audience []string `json:"audience,omitempty" tf:"audience"`
 
+	// +kubebuilder:validation:Optional
 	Issuer *string `json:"issuer,omitempty" tf:"issuer"`
 }
 

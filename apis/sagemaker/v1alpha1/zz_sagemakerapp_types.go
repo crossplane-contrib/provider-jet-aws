@@ -28,8 +28,11 @@ type ResourceSpecObservation struct {
 }
 
 type ResourceSpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
 }
 
@@ -38,20 +41,31 @@ type SagemakerAppObservation struct {
 }
 
 type SagemakerAppParameters struct {
+
+	// +kubebuilder:validation:Required
 	AppName string `json:"appName" tf:"app_name"`
 
+	// +kubebuilder:validation:Required
 	AppType string `json:"appType" tf:"app_type"`
 
-	DomainId string `json:"domainId" tf:"domain_id"`
+	// +kubebuilder:validation:Required
+	DomainID string `json:"domainId" tf:"domain_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ResourceSpec []ResourceSpecParameters `json:"resourceSpec,omitempty" tf:"resource_spec"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	UserProfileName string `json:"userProfileName" tf:"user_profile_name"`
 }
 

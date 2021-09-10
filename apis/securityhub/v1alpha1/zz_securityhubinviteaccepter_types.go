@@ -25,12 +25,17 @@ import (
 )
 
 type SecurityhubInviteAccepterObservation struct {
-	InvitationId string `json:"invitationId" tf:"invitation_id"`
+	InvitationID string `json:"invitationId" tf:"invitation_id"`
 }
 
 type SecurityhubInviteAccepterParameters struct {
-	MasterId string `json:"masterId" tf:"master_id"`
 
+	// +kubebuilder:validation:Required
+	MasterID string `json:"masterId" tf:"master_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

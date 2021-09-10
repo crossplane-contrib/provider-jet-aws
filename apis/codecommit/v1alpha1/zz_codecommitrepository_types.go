@@ -27,24 +27,33 @@ import (
 type CodecommitRepositoryObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	CloneUrlHttp string `json:"cloneUrlHttp" tf:"clone_url_http"`
+	CloneURLHTTP string `json:"cloneUrlHttp" tf:"clone_url_http"`
 
-	CloneUrlSsh string `json:"cloneUrlSsh" tf:"clone_url_ssh"`
+	CloneURLSSH string `json:"cloneUrlSsh" tf:"clone_url_ssh"`
 
-	RepositoryId string `json:"repositoryId" tf:"repository_id"`
+	RepositoryID string `json:"repositoryId" tf:"repository_id"`
 }
 
 type CodecommitRepositoryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DefaultBranch *string `json:"defaultBranch,omitempty" tf:"default_branch"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RepositoryName string `json:"repositoryName" tf:"repository_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

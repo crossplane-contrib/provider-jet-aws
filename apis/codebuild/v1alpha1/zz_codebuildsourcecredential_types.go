@@ -29,14 +29,22 @@ type CodebuildSourceCredentialObservation struct {
 }
 
 type CodebuildSourceCredentialParameters struct {
+
+	// +kubebuilder:validation:Required
 	AuthType string `json:"authType" tf:"auth_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServerType string `json:"serverType" tf:"server_type"`
 
+	// +kubebuilder:validation:Required
 	Token string `json:"token" tf:"token"`
 
+	// +kubebuilder:validation:Optional
 	UserName *string `json:"userName,omitempty" tf:"user_name"`
 }
 

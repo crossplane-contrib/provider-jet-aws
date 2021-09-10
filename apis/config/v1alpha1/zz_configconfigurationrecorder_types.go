@@ -28,12 +28,19 @@ type ConfigConfigurationRecorderObservation struct {
 }
 
 type ConfigConfigurationRecorderParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	RecordingGroup []RecordingGroupParameters `json:"recordingGroup,omitempty" tf:"recording_group"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -41,10 +48,14 @@ type RecordingGroupObservation struct {
 }
 
 type RecordingGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllSupported *bool `json:"allSupported,omitempty" tf:"all_supported"`
 
+	// +kubebuilder:validation:Optional
 	IncludeGlobalResourceTypes *bool `json:"includeGlobalResourceTypes,omitempty" tf:"include_global_resource_types"`
 
+	// +kubebuilder:validation:Optional
 	ResourceTypes []string `json:"resourceTypes,omitempty" tf:"resource_types"`
 }
 

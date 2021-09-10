@@ -28,8 +28,11 @@ type AccessLogSettingsObservation struct {
 }
 
 type AccessLogSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
 
+	// +kubebuilder:validation:Required
 	Format string `json:"format" tf:"format"`
 }
 
@@ -38,36 +41,53 @@ type ApiGatewayStageObservation struct {
 
 	ExecutionArn string `json:"executionArn" tf:"execution_arn"`
 
-	InvokeUrl string `json:"invokeUrl" tf:"invoke_url"`
+	InvokeURL string `json:"invokeUrl" tf:"invoke_url"`
 }
 
 type ApiGatewayStageParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessLogSettings []AccessLogSettingsParameters `json:"accessLogSettings,omitempty" tf:"access_log_settings"`
 
+	// +kubebuilder:validation:Optional
 	CacheClusterEnabled *bool `json:"cacheClusterEnabled,omitempty" tf:"cache_cluster_enabled"`
 
+	// +kubebuilder:validation:Optional
 	CacheClusterSize *string `json:"cacheClusterSize,omitempty" tf:"cache_cluster_size"`
 
-	ClientCertificateId *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id"`
+	// +kubebuilder:validation:Optional
+	ClientCertificateID *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id"`
 
-	DeploymentId string `json:"deploymentId" tf:"deployment_id"`
+	// +kubebuilder:validation:Required
+	DeploymentID string `json:"deploymentId" tf:"deployment_id"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DocumentationVersion *string `json:"documentationVersion,omitempty" tf:"documentation_version"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Required
 	StageName string `json:"stageName" tf:"stage_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Variables map[string]string `json:"variables,omitempty" tf:"variables"`
 
+	// +kubebuilder:validation:Optional
 	XrayTracingEnabled *bool `json:"xrayTracingEnabled,omitempty" tf:"xray_tracing_enabled"`
 }
 

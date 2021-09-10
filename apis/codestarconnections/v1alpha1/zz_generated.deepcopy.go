@@ -329,8 +329,8 @@ func (in *VpcConfigurationParameters) DeepCopyInto(out *VpcConfigurationParamete
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	if in.TlsCertificate != nil {
-		in, out := &in.TlsCertificate, &out.TlsCertificate
+	if in.TLSCertificate != nil {
+		in, out := &in.TLSCertificate, &out.TLSCertificate
 		*out = new(string)
 		**out = **in
 	}

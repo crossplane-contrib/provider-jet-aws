@@ -28,6 +28,8 @@ type BackupPolicyObservation struct {
 }
 
 type BackupPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Status string `json:"status" tf:"status"`
 }
 
@@ -35,10 +37,16 @@ type EfsBackupPolicyObservation struct {
 }
 
 type EfsBackupPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	BackupPolicy []BackupPolicyParameters `json:"backupPolicy" tf:"backup_policy"`
 
-	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
+	// +kubebuilder:validation:Required
+	FileSystemID string `json:"fileSystemId" tf:"file_system_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

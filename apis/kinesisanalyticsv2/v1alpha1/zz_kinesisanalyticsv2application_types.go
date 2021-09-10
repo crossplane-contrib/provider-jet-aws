@@ -28,8 +28,11 @@ type ApplicationCodeConfigurationObservation struct {
 }
 
 type ApplicationCodeConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CodeContent []CodeContentParameters `json:"codeContent,omitempty" tf:"code_content"`
 
+	// +kubebuilder:validation:Required
 	CodeContentType string `json:"codeContentType" tf:"code_content_type"`
 }
 
@@ -37,18 +40,26 @@ type ApplicationConfigurationObservation struct {
 }
 
 type ApplicationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ApplicationCodeConfiguration []ApplicationCodeConfigurationParameters `json:"applicationCodeConfiguration" tf:"application_code_configuration"`
 
+	// +kubebuilder:validation:Optional
 	ApplicationSnapshotConfiguration []ApplicationSnapshotConfigurationParameters `json:"applicationSnapshotConfiguration,omitempty" tf:"application_snapshot_configuration"`
 
+	// +kubebuilder:validation:Optional
 	EnvironmentProperties []EnvironmentPropertiesParameters `json:"environmentProperties,omitempty" tf:"environment_properties"`
 
+	// +kubebuilder:validation:Optional
 	FlinkApplicationConfiguration []FlinkApplicationConfigurationParameters `json:"flinkApplicationConfiguration,omitempty" tf:"flink_application_configuration"`
 
+	// +kubebuilder:validation:Optional
 	RunConfiguration []RunConfigurationParameters `json:"runConfiguration,omitempty" tf:"run_configuration"`
 
-	SqlApplicationConfiguration []SqlApplicationConfigurationParameters `json:"sqlApplicationConfiguration,omitempty" tf:"sql_application_configuration"`
+	// +kubebuilder:validation:Optional
+	SQLApplicationConfiguration []SQLApplicationConfigurationParameters `json:"sqlApplicationConfiguration,omitempty" tf:"sql_application_configuration"`
 
+	// +kubebuilder:validation:Optional
 	VpcConfiguration []VpcConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
 }
 
@@ -56,8 +67,11 @@ type ApplicationRestoreConfigurationObservation struct {
 }
 
 type ApplicationRestoreConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplicationRestoreType *string `json:"applicationRestoreType,omitempty" tf:"application_restore_type"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotName *string `json:"snapshotName,omitempty" tf:"snapshot_name"`
 }
 
@@ -65,6 +79,8 @@ type ApplicationSnapshotConfigurationObservation struct {
 }
 
 type ApplicationSnapshotConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	SnapshotsEnabled bool `json:"snapshotsEnabled" tf:"snapshots_enabled"`
 }
 
@@ -72,20 +88,27 @@ type CheckpointConfigurationObservation struct {
 }
 
 type CheckpointConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CheckpointInterval *int64 `json:"checkpointInterval,omitempty" tf:"checkpoint_interval"`
 
+	// +kubebuilder:validation:Optional
 	CheckpointingEnabled *bool `json:"checkpointingEnabled,omitempty" tf:"checkpointing_enabled"`
 
+	// +kubebuilder:validation:Required
 	ConfigurationType string `json:"configurationType" tf:"configuration_type"`
 
+	// +kubebuilder:validation:Optional
 	MinPauseBetweenCheckpoints *int64 `json:"minPauseBetweenCheckpoints,omitempty" tf:"min_pause_between_checkpoints"`
 }
 
 type CloudwatchLoggingOptionsObservation struct {
-	CloudwatchLoggingOptionId string `json:"cloudwatchLoggingOptionId" tf:"cloudwatch_logging_option_id"`
+	CloudwatchLoggingOptionID string `json:"cloudwatchLoggingOptionId" tf:"cloudwatch_logging_option_id"`
 }
 
 type CloudwatchLoggingOptionsParameters struct {
+
+	// +kubebuilder:validation:Required
 	LogStreamArn string `json:"logStreamArn" tf:"log_stream_arn"`
 }
 
@@ -93,8 +116,11 @@ type CodeContentObservation struct {
 }
 
 type CodeContentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	S3ContentLocation []S3ContentLocationParameters `json:"s3ContentLocation,omitempty" tf:"s3_content_location"`
 
+	// +kubebuilder:validation:Optional
 	TextContent *string `json:"textContent,omitempty" tf:"text_content"`
 }
 
@@ -102,8 +128,11 @@ type CsvMappingParametersObservation struct {
 }
 
 type CsvMappingParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	RecordColumnDelimiter string `json:"recordColumnDelimiter" tf:"record_column_delimiter"`
 
+	// +kubebuilder:validation:Required
 	RecordRowDelimiter string `json:"recordRowDelimiter" tf:"record_row_delimiter"`
 }
 
@@ -111,6 +140,8 @@ type DestinationSchemaObservation struct {
 }
 
 type DestinationSchemaParameters struct {
+
+	// +kubebuilder:validation:Required
 	RecordFormatType string `json:"recordFormatType" tf:"record_format_type"`
 }
 
@@ -118,6 +149,8 @@ type EnvironmentPropertiesObservation struct {
 }
 
 type EnvironmentPropertiesParameters struct {
+
+	// +kubebuilder:validation:Required
 	PropertyGroup []PropertyGroupParameters `json:"propertyGroup" tf:"property_group"`
 }
 
@@ -125,10 +158,14 @@ type FlinkApplicationConfigurationObservation struct {
 }
 
 type FlinkApplicationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CheckpointConfiguration []CheckpointConfigurationParameters `json:"checkpointConfiguration,omitempty" tf:"checkpoint_configuration"`
 
+	// +kubebuilder:validation:Optional
 	MonitoringConfiguration []MonitoringConfigurationParameters `json:"monitoringConfiguration,omitempty" tf:"monitoring_configuration"`
 
+	// +kubebuilder:validation:Optional
 	ParallelismConfiguration []ParallelismConfigurationParameters `json:"parallelismConfiguration,omitempty" tf:"parallelism_configuration"`
 }
 
@@ -136,6 +173,8 @@ type FlinkRunConfigurationObservation struct {
 }
 
 type FlinkRunConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowNonRestoredState *bool `json:"allowNonRestoredState,omitempty" tf:"allow_non_restored_state"`
 }
 
@@ -143,35 +182,47 @@ type InputLambdaProcessorObservation struct {
 }
 
 type InputLambdaProcessorParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 
 type InputObservation struct {
 	InAppStreamNames []string `json:"inAppStreamNames" tf:"in_app_stream_names"`
 
-	InputId string `json:"inputId" tf:"input_id"`
+	InputID string `json:"inputId" tf:"input_id"`
 }
 
 type InputParallelismObservation struct {
 }
 
 type InputParallelismParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Count *int64 `json:"count,omitempty" tf:"count"`
 }
 
 type InputParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InputParallelism []InputParallelismParameters `json:"inputParallelism,omitempty" tf:"input_parallelism"`
 
+	// +kubebuilder:validation:Optional
 	InputProcessingConfiguration []InputProcessingConfigurationParameters `json:"inputProcessingConfiguration,omitempty" tf:"input_processing_configuration"`
 
+	// +kubebuilder:validation:Required
 	InputSchema []InputSchemaParameters `json:"inputSchema" tf:"input_schema"`
 
+	// +kubebuilder:validation:Optional
 	InputStartingPositionConfiguration []InputStartingPositionConfigurationParameters `json:"inputStartingPositionConfiguration,omitempty" tf:"input_starting_position_configuration"`
 
+	// +kubebuilder:validation:Optional
 	KinesisFirehoseInput []KinesisFirehoseInputParameters `json:"kinesisFirehoseInput,omitempty" tf:"kinesis_firehose_input"`
 
+	// +kubebuilder:validation:Optional
 	KinesisStreamsInput []KinesisStreamsInputParameters `json:"kinesisStreamsInput,omitempty" tf:"kinesis_streams_input"`
 
+	// +kubebuilder:validation:Required
 	NamePrefix string `json:"namePrefix" tf:"name_prefix"`
 }
 
@@ -179,6 +230,8 @@ type InputProcessingConfigurationObservation struct {
 }
 
 type InputProcessingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	InputLambdaProcessor []InputLambdaProcessorParameters `json:"inputLambdaProcessor" tf:"input_lambda_processor"`
 }
 
@@ -186,10 +239,14 @@ type InputSchemaObservation struct {
 }
 
 type InputSchemaParameters struct {
+
+	// +kubebuilder:validation:Required
 	RecordColumn []RecordColumnParameters `json:"recordColumn" tf:"record_column"`
 
+	// +kubebuilder:validation:Optional
 	RecordEncoding *string `json:"recordEncoding,omitempty" tf:"record_encoding"`
 
+	// +kubebuilder:validation:Required
 	RecordFormat []RecordFormatParameters `json:"recordFormat" tf:"record_format"`
 }
 
@@ -197,13 +254,17 @@ type InputStartingPositionConfigurationObservation struct {
 }
 
 type InputStartingPositionConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InputStartingPosition *string `json:"inputStartingPosition,omitempty" tf:"input_starting_position"`
 }
 
-type JsonMappingParametersObservation struct {
+type JSONMappingParametersObservation struct {
 }
 
-type JsonMappingParametersParameters struct {
+type JSONMappingParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	RecordRowPath string `json:"recordRowPath" tf:"record_row_path"`
 }
 
@@ -211,6 +272,8 @@ type KinesisFirehoseInputObservation struct {
 }
 
 type KinesisFirehoseInputParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 
@@ -218,6 +281,8 @@ type KinesisFirehoseOutputObservation struct {
 }
 
 type KinesisFirehoseOutputParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 
@@ -225,6 +290,8 @@ type KinesisStreamsInputObservation struct {
 }
 
 type KinesisStreamsInputParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 
@@ -232,6 +299,8 @@ type KinesisStreamsOutputObservation struct {
 }
 
 type KinesisStreamsOutputParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 
@@ -244,30 +313,44 @@ type Kinesisanalyticsv2ApplicationObservation struct {
 
 	Status string `json:"status" tf:"status"`
 
-	VersionId int64 `json:"versionId" tf:"version_id"`
+	VersionID int64 `json:"versionId" tf:"version_id"`
 }
 
 type Kinesisanalyticsv2ApplicationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplicationConfiguration []ApplicationConfigurationParameters `json:"applicationConfiguration,omitempty" tf:"application_configuration"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchLoggingOptions []CloudwatchLoggingOptionsParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	ForceStop *bool `json:"forceStop,omitempty" tf:"force_stop"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RuntimeEnvironment string `json:"runtimeEnvironment" tf:"runtime_environment"`
 
+	// +kubebuilder:validation:Required
 	ServiceExecutionRole string `json:"serviceExecutionRole" tf:"service_execution_role"`
 
+	// +kubebuilder:validation:Optional
 	StartApplication *bool `json:"startApplication,omitempty" tf:"start_application"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -275,6 +358,8 @@ type LambdaOutputObservation struct {
 }
 
 type LambdaOutputParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 
@@ -282,15 +367,20 @@ type MappingParametersCsvMappingParametersObservation struct {
 }
 
 type MappingParametersCsvMappingParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	RecordColumnDelimiter string `json:"recordColumnDelimiter" tf:"record_column_delimiter"`
 
+	// +kubebuilder:validation:Required
 	RecordRowDelimiter string `json:"recordRowDelimiter" tf:"record_row_delimiter"`
 }
 
-type MappingParametersJsonMappingParametersObservation struct {
+type MappingParametersJSONMappingParametersObservation struct {
 }
 
-type MappingParametersJsonMappingParametersParameters struct {
+type MappingParametersJSONMappingParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	RecordRowPath string `json:"recordRowPath" tf:"record_row_path"`
 }
 
@@ -298,35 +388,48 @@ type MappingParametersObservation struct {
 }
 
 type MappingParametersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CsvMappingParameters []CsvMappingParametersParameters `json:"csvMappingParameters,omitempty" tf:"csv_mapping_parameters"`
 
-	JsonMappingParameters []JsonMappingParametersParameters `json:"jsonMappingParameters,omitempty" tf:"json_mapping_parameters"`
+	// +kubebuilder:validation:Optional
+	JSONMappingParameters []JSONMappingParametersParameters `json:"jsonMappingParameters,omitempty" tf:"json_mapping_parameters"`
 }
 
 type MonitoringConfigurationObservation struct {
 }
 
 type MonitoringConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ConfigurationType string `json:"configurationType" tf:"configuration_type"`
 
+	// +kubebuilder:validation:Optional
 	LogLevel *string `json:"logLevel,omitempty" tf:"log_level"`
 
+	// +kubebuilder:validation:Optional
 	MetricsLevel *string `json:"metricsLevel,omitempty" tf:"metrics_level"`
 }
 
 type OutputObservation struct {
-	OutputId string `json:"outputId" tf:"output_id"`
+	OutputID string `json:"outputId" tf:"output_id"`
 }
 
 type OutputParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationSchema []DestinationSchemaParameters `json:"destinationSchema" tf:"destination_schema"`
 
+	// +kubebuilder:validation:Optional
 	KinesisFirehoseOutput []KinesisFirehoseOutputParameters `json:"kinesisFirehoseOutput,omitempty" tf:"kinesis_firehose_output"`
 
+	// +kubebuilder:validation:Optional
 	KinesisStreamsOutput []KinesisStreamsOutputParameters `json:"kinesisStreamsOutput,omitempty" tf:"kinesis_streams_output"`
 
+	// +kubebuilder:validation:Optional
 	LambdaOutput []LambdaOutputParameters `json:"lambdaOutput,omitempty" tf:"lambda_output"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -334,12 +437,17 @@ type ParallelismConfigurationObservation struct {
 }
 
 type ParallelismConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AutoScalingEnabled *bool `json:"autoScalingEnabled,omitempty" tf:"auto_scaling_enabled"`
 
+	// +kubebuilder:validation:Required
 	ConfigurationType string `json:"configurationType" tf:"configuration_type"`
 
+	// +kubebuilder:validation:Optional
 	Parallelism *int64 `json:"parallelism,omitempty" tf:"parallelism"`
 
+	// +kubebuilder:validation:Optional
 	ParallelismPerKpu *int64 `json:"parallelismPerKpu,omitempty" tf:"parallelism_per_kpu"`
 }
 
@@ -347,8 +455,11 @@ type PropertyGroupObservation struct {
 }
 
 type PropertyGroupParameters struct {
-	PropertyGroupId string `json:"propertyGroupId" tf:"property_group_id"`
 
+	// +kubebuilder:validation:Required
+	PropertyGroupID string `json:"propertyGroupId" tf:"property_group_id"`
+
+	// +kubebuilder:validation:Required
 	PropertyMap map[string]string `json:"propertyMap" tf:"property_map"`
 }
 
@@ -356,40 +467,54 @@ type RecordColumnObservation struct {
 }
 
 type RecordColumnParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Mapping *string `json:"mapping,omitempty" tf:"mapping"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
-	SqlType string `json:"sqlType" tf:"sql_type"`
+	// +kubebuilder:validation:Required
+	SQLType string `json:"sqlType" tf:"sql_type"`
 }
 
 type RecordFormatMappingParametersObservation struct {
 }
 
 type RecordFormatMappingParametersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CsvMappingParameters []MappingParametersCsvMappingParametersParameters `json:"csvMappingParameters,omitempty" tf:"csv_mapping_parameters"`
 
-	JsonMappingParameters []MappingParametersJsonMappingParametersParameters `json:"jsonMappingParameters,omitempty" tf:"json_mapping_parameters"`
+	// +kubebuilder:validation:Optional
+	JSONMappingParameters []MappingParametersJSONMappingParametersParameters `json:"jsonMappingParameters,omitempty" tf:"json_mapping_parameters"`
 }
 
 type RecordFormatObservation struct {
 }
 
 type RecordFormatParameters struct {
+
+	// +kubebuilder:validation:Required
 	MappingParameters []MappingParametersParameters `json:"mappingParameters" tf:"mapping_parameters"`
 
+	// +kubebuilder:validation:Required
 	RecordFormatType string `json:"recordFormatType" tf:"record_format_type"`
 }
 
 type ReferenceDataSourceObservation struct {
-	ReferenceId string `json:"referenceId" tf:"reference_id"`
+	ReferenceID string `json:"referenceId" tf:"reference_id"`
 }
 
 type ReferenceDataSourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	ReferenceSchema []ReferenceSchemaParameters `json:"referenceSchema" tf:"reference_schema"`
 
+	// +kubebuilder:validation:Required
 	S3ReferenceDataSource []S3ReferenceDataSourceParameters `json:"s3ReferenceDataSource" tf:"s3_reference_data_source"`
 
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 }
 
@@ -397,10 +522,14 @@ type ReferenceSchemaObservation struct {
 }
 
 type ReferenceSchemaParameters struct {
+
+	// +kubebuilder:validation:Required
 	RecordColumn []ReferenceSchemaRecordColumnParameters `json:"recordColumn" tf:"record_column"`
 
+	// +kubebuilder:validation:Optional
 	RecordEncoding *string `json:"recordEncoding,omitempty" tf:"record_encoding"`
 
+	// +kubebuilder:validation:Required
 	RecordFormat []ReferenceSchemaRecordFormatParameters `json:"recordFormat" tf:"record_format"`
 }
 
@@ -408,19 +537,26 @@ type ReferenceSchemaRecordColumnObservation struct {
 }
 
 type ReferenceSchemaRecordColumnParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Mapping *string `json:"mapping,omitempty" tf:"mapping"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
-	SqlType string `json:"sqlType" tf:"sql_type"`
+	// +kubebuilder:validation:Required
+	SQLType string `json:"sqlType" tf:"sql_type"`
 }
 
 type ReferenceSchemaRecordFormatObservation struct {
 }
 
 type ReferenceSchemaRecordFormatParameters struct {
+
+	// +kubebuilder:validation:Required
 	MappingParameters []RecordFormatMappingParametersParameters `json:"mappingParameters" tf:"mapping_parameters"`
 
+	// +kubebuilder:validation:Required
 	RecordFormatType string `json:"recordFormatType" tf:"record_format_type"`
 }
 
@@ -428,8 +564,11 @@ type RunConfigurationObservation struct {
 }
 
 type RunConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplicationRestoreConfiguration []ApplicationRestoreConfigurationParameters `json:"applicationRestoreConfiguration,omitempty" tf:"application_restore_configuration"`
 
+	// +kubebuilder:validation:Optional
 	FlinkRunConfiguration []FlinkRunConfigurationParameters `json:"flinkRunConfiguration,omitempty" tf:"flink_run_configuration"`
 }
 
@@ -437,10 +576,14 @@ type S3ContentLocationObservation struct {
 }
 
 type S3ContentLocationParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
 
+	// +kubebuilder:validation:Required
 	FileKey string `json:"fileKey" tf:"file_key"`
 
+	// +kubebuilder:validation:Optional
 	ObjectVersion *string `json:"objectVersion,omitempty" tf:"object_version"`
 }
 
@@ -448,31 +591,41 @@ type S3ReferenceDataSourceObservation struct {
 }
 
 type S3ReferenceDataSourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketArn string `json:"bucketArn" tf:"bucket_arn"`
 
+	// +kubebuilder:validation:Required
 	FileKey string `json:"fileKey" tf:"file_key"`
 }
 
-type SqlApplicationConfigurationObservation struct {
+type SQLApplicationConfigurationObservation struct {
 }
 
-type SqlApplicationConfigurationParameters struct {
+type SQLApplicationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Input []InputParameters `json:"input,omitempty" tf:"input"`
 
+	// +kubebuilder:validation:Optional
 	Output []OutputParameters `json:"output,omitempty" tf:"output"`
 
+	// +kubebuilder:validation:Optional
 	ReferenceDataSource []ReferenceDataSourceParameters `json:"referenceDataSource,omitempty" tf:"reference_data_source"`
 }
 
 type VpcConfigurationObservation struct {
-	VpcConfigurationId string `json:"vpcConfigurationId" tf:"vpc_configuration_id"`
+	VpcConfigurationID string `json:"vpcConfigurationId" tf:"vpc_configuration_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type VpcConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 }
 

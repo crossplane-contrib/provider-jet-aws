@@ -148,8 +148,8 @@ func (in *CloudtrailParameters) DeepCopyInto(out *CloudtrailParameters) {
 		*out = new(bool)
 		**out = **in
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}

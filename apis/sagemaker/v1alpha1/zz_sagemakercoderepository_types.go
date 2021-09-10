@@ -28,10 +28,14 @@ type GitConfigObservation struct {
 }
 
 type GitConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Branch *string `json:"branch,omitempty" tf:"branch"`
 
-	RepositoryUrl string `json:"repositoryUrl" tf:"repository_url"`
+	// +kubebuilder:validation:Required
+	RepositoryURL string `json:"repositoryUrl" tf:"repository_url"`
 
+	// +kubebuilder:validation:Optional
 	SecretArn *string `json:"secretArn,omitempty" tf:"secret_arn"`
 }
 
@@ -40,10 +44,16 @@ type SagemakerCodeRepositoryObservation struct {
 }
 
 type SagemakerCodeRepositoryParameters struct {
+
+	// +kubebuilder:validation:Required
 	CodeRepositoryName string `json:"codeRepositoryName" tf:"code_repository_name"`
 
+	// +kubebuilder:validation:Required
 	GitConfig []GitConfigParameters `json:"gitConfig" tf:"git_config"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

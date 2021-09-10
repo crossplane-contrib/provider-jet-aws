@@ -29,22 +29,34 @@ type DmsEventSubscriptionObservation struct {
 }
 
 type DmsEventSubscriptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Required
 	EventCategories []string `json:"eventCategories" tf:"event_categories"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
 
+	// +kubebuilder:validation:Optional
 	SourceIds []string `json:"sourceIds,omitempty" tf:"source_ids"`
 
+	// +kubebuilder:validation:Optional
 	SourceType *string `json:"sourceType,omitempty" tf:"source_type"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

@@ -28,22 +28,32 @@ type EbsBlockDeviceObservation struct {
 }
 
 type EbsBlockDeviceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteOnTermination *bool `json:"deleteOnTermination,omitempty" tf:"delete_on_termination"`
 
+	// +kubebuilder:validation:Required
 	DeviceName string `json:"deviceName" tf:"device_name"`
 
+	// +kubebuilder:validation:Optional
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
+	// +kubebuilder:validation:Optional
 	NoDevice *bool `json:"noDevice,omitempty" tf:"no_device"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	// +kubebuilder:validation:Optional
+	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
 
+	// +kubebuilder:validation:Optional
 	Throughput *int64 `json:"throughput,omitempty" tf:"throughput"`
 
+	// +kubebuilder:validation:Optional
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 
+	// +kubebuilder:validation:Optional
 	VolumeType *string `json:"volumeType,omitempty" tf:"volume_type"`
 }
 
@@ -51,8 +61,11 @@ type EphemeralBlockDeviceObservation struct {
 }
 
 type EphemeralBlockDeviceParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeviceName string `json:"deviceName" tf:"device_name"`
 
+	// +kubebuilder:validation:Required
 	VirtualName string `json:"virtualName" tf:"virtual_name"`
 }
 
@@ -61,46 +74,70 @@ type LaunchConfigurationObservation struct {
 }
 
 type LaunchConfigurationParameters struct {
-	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress,omitempty" tf:"associate_public_ip_address"`
 
+	// +kubebuilder:validation:Optional
+	AssociatePublicIPAddress *bool `json:"associatePublicIpAddress,omitempty" tf:"associate_public_ip_address"`
+
+	// +kubebuilder:validation:Optional
 	EbsBlockDevice []EbsBlockDeviceParameters `json:"ebsBlockDevice,omitempty" tf:"ebs_block_device"`
 
+	// +kubebuilder:validation:Optional
 	EbsOptimized *bool `json:"ebsOptimized,omitempty" tf:"ebs_optimized"`
 
+	// +kubebuilder:validation:Optional
 	EnableMonitoring *bool `json:"enableMonitoring,omitempty" tf:"enable_monitoring"`
 
+	// +kubebuilder:validation:Optional
 	EphemeralBlockDevice []EphemeralBlockDeviceParameters `json:"ephemeralBlockDevice,omitempty" tf:"ephemeral_block_device"`
 
+	// +kubebuilder:validation:Optional
 	IamInstanceProfile *string `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile"`
 
-	ImageId string `json:"imageId" tf:"image_id"`
+	// +kubebuilder:validation:Required
+	ImageID string `json:"imageId" tf:"image_id"`
 
+	// +kubebuilder:validation:Required
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	KeyName *string `json:"keyName,omitempty" tf:"key_name"`
 
+	// +kubebuilder:validation:Optional
 	MetadataOptions []MetadataOptionsParameters `json:"metadataOptions,omitempty" tf:"metadata_options"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	PlacementTenancy *string `json:"placementTenancy,omitempty" tf:"placement_tenancy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RootBlockDevice []RootBlockDeviceParameters `json:"rootBlockDevice,omitempty" tf:"root_block_device"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
+	// +kubebuilder:validation:Optional
 	SpotPrice *string `json:"spotPrice,omitempty" tf:"spot_price"`
 
+	// +kubebuilder:validation:Optional
 	UserData *string `json:"userData,omitempty" tf:"user_data"`
 
+	// +kubebuilder:validation:Optional
 	UserDataBase64 *string `json:"userDataBase64,omitempty" tf:"user_data_base64"`
 
-	VpcClassicLinkId *string `json:"vpcClassicLinkId,omitempty" tf:"vpc_classic_link_id"`
+	// +kubebuilder:validation:Optional
+	VpcClassicLinkID *string `json:"vpcClassicLinkId,omitempty" tf:"vpc_classic_link_id"`
 
+	// +kubebuilder:validation:Optional
 	VpcClassicLinkSecurityGroups []string `json:"vpcClassicLinkSecurityGroups,omitempty" tf:"vpc_classic_link_security_groups"`
 }
 
@@ -108,27 +145,38 @@ type MetadataOptionsObservation struct {
 }
 
 type MetadataOptionsParameters struct {
-	HttpEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint"`
 
-	HttpPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit"`
+	// +kubebuilder:validation:Optional
+	HTTPEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint"`
 
-	HttpTokens *string `json:"httpTokens,omitempty" tf:"http_tokens"`
+	// +kubebuilder:validation:Optional
+	HTTPPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit"`
+
+	// +kubebuilder:validation:Optional
+	HTTPTokens *string `json:"httpTokens,omitempty" tf:"http_tokens"`
 }
 
 type RootBlockDeviceObservation struct {
 }
 
 type RootBlockDeviceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteOnTermination *bool `json:"deleteOnTermination,omitempty" tf:"delete_on_termination"`
 
+	// +kubebuilder:validation:Optional
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
+	// +kubebuilder:validation:Optional
 	Throughput *int64 `json:"throughput,omitempty" tf:"throughput"`
 
+	// +kubebuilder:validation:Optional
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 
+	// +kubebuilder:validation:Optional
 	VolumeType *string `json:"volumeType,omitempty" tf:"volume_type"`
 }
 

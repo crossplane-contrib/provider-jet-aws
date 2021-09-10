@@ -28,15 +28,23 @@ type AlbTargetGroupAttachmentObservation struct {
 }
 
 type AlbTargetGroupAttachmentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	TargetGroupArn string `json:"targetGroupArn" tf:"target_group_arn"`
 
-	TargetId string `json:"targetId" tf:"target_id"`
+	// +kubebuilder:validation:Required
+	TargetID string `json:"targetId" tf:"target_id"`
 }
 
 // AlbTargetGroupAttachmentSpec defines the desired state of AlbTargetGroupAttachment

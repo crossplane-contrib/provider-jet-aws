@@ -28,12 +28,17 @@ type CloudwatchAlarmObservation struct {
 }
 
 type CloudwatchAlarmParameters struct {
+
+	// +kubebuilder:validation:Required
 	AlarmName string `json:"alarmName" tf:"alarm_name"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	StateReason string `json:"stateReason" tf:"state_reason"`
 
+	// +kubebuilder:validation:Required
 	StateValue string `json:"stateValue" tf:"state_value"`
 }
 
@@ -41,16 +46,23 @@ type CloudwatchMetricObservation struct {
 }
 
 type CloudwatchMetricParameters struct {
+
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Required
 	MetricNamespace string `json:"metricNamespace" tf:"metric_namespace"`
 
+	// +kubebuilder:validation:Optional
 	MetricTimestamp *string `json:"metricTimestamp,omitempty" tf:"metric_timestamp"`
 
+	// +kubebuilder:validation:Required
 	MetricUnit string `json:"metricUnit" tf:"metric_unit"`
 
+	// +kubebuilder:validation:Required
 	MetricValue string `json:"metricValue" tf:"metric_value"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -58,24 +70,35 @@ type DynamodbObservation struct {
 }
 
 type DynamodbParameters struct {
+
+	// +kubebuilder:validation:Required
 	HashKeyField string `json:"hashKeyField" tf:"hash_key_field"`
 
+	// +kubebuilder:validation:Optional
 	HashKeyType *string `json:"hashKeyType,omitempty" tf:"hash_key_type"`
 
+	// +kubebuilder:validation:Required
 	HashKeyValue string `json:"hashKeyValue" tf:"hash_key_value"`
 
+	// +kubebuilder:validation:Optional
 	Operation *string `json:"operation,omitempty" tf:"operation"`
 
+	// +kubebuilder:validation:Optional
 	PayloadField *string `json:"payloadField,omitempty" tf:"payload_field"`
 
+	// +kubebuilder:validation:Optional
 	RangeKeyField *string `json:"rangeKeyField,omitempty" tf:"range_key_field"`
 
+	// +kubebuilder:validation:Optional
 	RangeKeyType *string `json:"rangeKeyType,omitempty" tf:"range_key_type"`
 
+	// +kubebuilder:validation:Optional
 	RangeKeyValue *string `json:"rangeKeyValue,omitempty" tf:"range_key_value"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 }
 
@@ -83,8 +106,11 @@ type Dynamodbv2Observation struct {
 }
 
 type Dynamodbv2Parameters struct {
+
+	// +kubebuilder:validation:Optional
 	PutItem []PutItemParameters `json:"putItem,omitempty" tf:"put_item"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -92,6 +118,8 @@ type Dynamodbv2PutItemObservation struct {
 }
 
 type Dynamodbv2PutItemParameters struct {
+
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 }
 
@@ -99,14 +127,20 @@ type ElasticsearchObservation struct {
 }
 
 type ElasticsearchParameters struct {
+
+	// +kubebuilder:validation:Required
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	Id string `json:"id" tf:"id"`
+	// +kubebuilder:validation:Required
+	ID string `json:"id" tf:"id"`
 
+	// +kubebuilder:validation:Required
 	Index string `json:"index" tf:"index"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -114,12 +148,17 @@ type ErrorActionCloudwatchAlarmObservation struct {
 }
 
 type ErrorActionCloudwatchAlarmParameters struct {
+
+	// +kubebuilder:validation:Required
 	AlarmName string `json:"alarmName" tf:"alarm_name"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	StateReason string `json:"stateReason" tf:"state_reason"`
 
+	// +kubebuilder:validation:Required
 	StateValue string `json:"stateValue" tf:"state_value"`
 }
 
@@ -127,16 +166,23 @@ type ErrorActionCloudwatchMetricObservation struct {
 }
 
 type ErrorActionCloudwatchMetricParameters struct {
+
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Required
 	MetricNamespace string `json:"metricNamespace" tf:"metric_namespace"`
 
+	// +kubebuilder:validation:Optional
 	MetricTimestamp *string `json:"metricTimestamp,omitempty" tf:"metric_timestamp"`
 
+	// +kubebuilder:validation:Required
 	MetricUnit string `json:"metricUnit" tf:"metric_unit"`
 
+	// +kubebuilder:validation:Required
 	MetricValue string `json:"metricValue" tf:"metric_value"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -144,24 +190,35 @@ type ErrorActionDynamodbObservation struct {
 }
 
 type ErrorActionDynamodbParameters struct {
+
+	// +kubebuilder:validation:Required
 	HashKeyField string `json:"hashKeyField" tf:"hash_key_field"`
 
+	// +kubebuilder:validation:Optional
 	HashKeyType *string `json:"hashKeyType,omitempty" tf:"hash_key_type"`
 
+	// +kubebuilder:validation:Required
 	HashKeyValue string `json:"hashKeyValue" tf:"hash_key_value"`
 
+	// +kubebuilder:validation:Optional
 	Operation *string `json:"operation,omitempty" tf:"operation"`
 
+	// +kubebuilder:validation:Optional
 	PayloadField *string `json:"payloadField,omitempty" tf:"payload_field"`
 
+	// +kubebuilder:validation:Optional
 	RangeKeyField *string `json:"rangeKeyField,omitempty" tf:"range_key_field"`
 
+	// +kubebuilder:validation:Optional
 	RangeKeyType *string `json:"rangeKeyType,omitempty" tf:"range_key_type"`
 
+	// +kubebuilder:validation:Optional
 	RangeKeyValue *string `json:"rangeKeyValue,omitempty" tf:"range_key_value"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 }
 
@@ -169,8 +226,11 @@ type ErrorActionDynamodbv2Observation struct {
 }
 
 type ErrorActionDynamodbv2Parameters struct {
+
+	// +kubebuilder:validation:Optional
 	PutItem []Dynamodbv2PutItemParameters `json:"putItem,omitempty" tf:"put_item"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -178,14 +238,20 @@ type ErrorActionElasticsearchObservation struct {
 }
 
 type ErrorActionElasticsearchParameters struct {
+
+	// +kubebuilder:validation:Required
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
-	Id string `json:"id" tf:"id"`
+	// +kubebuilder:validation:Required
+	ID string `json:"id" tf:"id"`
 
+	// +kubebuilder:validation:Required
 	Index string `json:"index" tf:"index"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -193,34 +259,50 @@ type ErrorActionObservation struct {
 }
 
 type ErrorActionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchAlarm []ErrorActionCloudwatchAlarmParameters `json:"cloudwatchAlarm,omitempty" tf:"cloudwatch_alarm"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchMetric []ErrorActionCloudwatchMetricParameters `json:"cloudwatchMetric,omitempty" tf:"cloudwatch_metric"`
 
+	// +kubebuilder:validation:Optional
 	Dynamodb []ErrorActionDynamodbParameters `json:"dynamodb,omitempty" tf:"dynamodb"`
 
+	// +kubebuilder:validation:Optional
 	Dynamodbv2 []ErrorActionDynamodbv2Parameters `json:"dynamodbv2,omitempty" tf:"dynamodbv2"`
 
+	// +kubebuilder:validation:Optional
 	Elasticsearch []ErrorActionElasticsearchParameters `json:"elasticsearch,omitempty" tf:"elasticsearch"`
 
+	// +kubebuilder:validation:Optional
 	Firehose []FirehoseParameters `json:"firehose,omitempty" tf:"firehose"`
 
+	// +kubebuilder:validation:Optional
 	IotAnalytics []IotAnalyticsParameters `json:"iotAnalytics,omitempty" tf:"iot_analytics"`
 
+	// +kubebuilder:validation:Optional
 	IotEvents []IotEventsParameters `json:"iotEvents,omitempty" tf:"iot_events"`
 
+	// +kubebuilder:validation:Optional
 	Kinesis []KinesisParameters `json:"kinesis,omitempty" tf:"kinesis"`
 
+	// +kubebuilder:validation:Optional
 	Lambda []LambdaParameters `json:"lambda,omitempty" tf:"lambda"`
 
+	// +kubebuilder:validation:Optional
 	Republish []RepublishParameters `json:"republish,omitempty" tf:"republish"`
 
+	// +kubebuilder:validation:Optional
 	S3 []S3Parameters `json:"s3,omitempty" tf:"s3"`
 
+	// +kubebuilder:validation:Optional
 	Sns []SnsParameters `json:"sns,omitempty" tf:"sns"`
 
+	// +kubebuilder:validation:Optional
 	Sqs []SqsParameters `json:"sqs,omitempty" tf:"sqs"`
 
+	// +kubebuilder:validation:Optional
 	StepFunctions []StepFunctionsParameters `json:"stepFunctions,omitempty" tf:"step_functions"`
 }
 
@@ -228,10 +310,14 @@ type FirehoseObservation struct {
 }
 
 type FirehoseParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeliveryStreamName string `json:"deliveryStreamName" tf:"delivery_stream_name"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Separator *string `json:"separator,omitempty" tf:"separator"`
 }
 
@@ -239,8 +325,11 @@ type IotAnalyticsObservation struct {
 }
 
 type IotAnalyticsParameters struct {
+
+	// +kubebuilder:validation:Required
 	ChannelName string `json:"channelName" tf:"channel_name"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -248,10 +337,14 @@ type IotEventsObservation struct {
 }
 
 type IotEventsParameters struct {
+
+	// +kubebuilder:validation:Required
 	InputName string `json:"inputName" tf:"input_name"`
 
-	MessageId *string `json:"messageId,omitempty" tf:"message_id"`
+	// +kubebuilder:validation:Optional
+	MessageID *string `json:"messageId,omitempty" tf:"message_id"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -259,10 +352,14 @@ type IotTopicRuleFirehoseObservation struct {
 }
 
 type IotTopicRuleFirehoseParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeliveryStreamName string `json:"deliveryStreamName" tf:"delivery_stream_name"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Separator *string `json:"separator,omitempty" tf:"separator"`
 }
 
@@ -270,8 +367,11 @@ type IotTopicRuleIotAnalyticsObservation struct {
 }
 
 type IotTopicRuleIotAnalyticsParameters struct {
+
+	// +kubebuilder:validation:Required
 	ChannelName string `json:"channelName" tf:"channel_name"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -279,10 +379,14 @@ type IotTopicRuleIotEventsObservation struct {
 }
 
 type IotTopicRuleIotEventsParameters struct {
+
+	// +kubebuilder:validation:Required
 	InputName string `json:"inputName" tf:"input_name"`
 
-	MessageId *string `json:"messageId,omitempty" tf:"message_id"`
+	// +kubebuilder:validation:Optional
+	MessageID *string `json:"messageId,omitempty" tf:"message_id"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -290,10 +394,14 @@ type IotTopicRuleKinesisObservation struct {
 }
 
 type IotTopicRuleKinesisParameters struct {
+
+	// +kubebuilder:validation:Optional
 	PartitionKey *string `json:"partitionKey,omitempty" tf:"partition_key"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	StreamName string `json:"streamName" tf:"stream_name"`
 }
 
@@ -301,6 +409,8 @@ type IotTopicRuleLambdaObservation struct {
 }
 
 type IotTopicRuleLambdaParameters struct {
+
+	// +kubebuilder:validation:Required
 	FunctionArn string `json:"functionArn" tf:"function_arn"`
 }
 
@@ -309,52 +419,79 @@ type IotTopicRuleObservation struct {
 }
 
 type IotTopicRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchAlarm []CloudwatchAlarmParameters `json:"cloudwatchAlarm,omitempty" tf:"cloudwatch_alarm"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchMetric []CloudwatchMetricParameters `json:"cloudwatchMetric,omitempty" tf:"cloudwatch_metric"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Dynamodb []DynamodbParameters `json:"dynamodb,omitempty" tf:"dynamodb"`
 
+	// +kubebuilder:validation:Optional
 	Dynamodbv2 []Dynamodbv2Parameters `json:"dynamodbv2,omitempty" tf:"dynamodbv2"`
 
+	// +kubebuilder:validation:Optional
 	Elasticsearch []ElasticsearchParameters `json:"elasticsearch,omitempty" tf:"elasticsearch"`
 
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	ErrorAction []ErrorActionParameters `json:"errorAction,omitempty" tf:"error_action"`
 
+	// +kubebuilder:validation:Optional
 	Firehose []IotTopicRuleFirehoseParameters `json:"firehose,omitempty" tf:"firehose"`
 
+	// +kubebuilder:validation:Optional
 	IotAnalytics []IotTopicRuleIotAnalyticsParameters `json:"iotAnalytics,omitempty" tf:"iot_analytics"`
 
+	// +kubebuilder:validation:Optional
 	IotEvents []IotTopicRuleIotEventsParameters `json:"iotEvents,omitempty" tf:"iot_events"`
 
+	// +kubebuilder:validation:Optional
 	Kinesis []IotTopicRuleKinesisParameters `json:"kinesis,omitempty" tf:"kinesis"`
 
+	// +kubebuilder:validation:Optional
 	Lambda []IotTopicRuleLambdaParameters `json:"lambda,omitempty" tf:"lambda"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Republish []IotTopicRuleRepublishParameters `json:"republish,omitempty" tf:"republish"`
 
+	// +kubebuilder:validation:Optional
 	S3 []IotTopicRuleS3Parameters `json:"s3,omitempty" tf:"s3"`
 
+	// +kubebuilder:validation:Required
+	SQL string `json:"sql" tf:"sql"`
+
+	// +kubebuilder:validation:Required
+	SQLVersion string `json:"sqlVersion" tf:"sql_version"`
+
+	// +kubebuilder:validation:Optional
 	Sns []IotTopicRuleSnsParameters `json:"sns,omitempty" tf:"sns"`
 
-	Sql string `json:"sql" tf:"sql"`
-
-	SqlVersion string `json:"sqlVersion" tf:"sql_version"`
-
+	// +kubebuilder:validation:Optional
 	Sqs []IotTopicRuleSqsParameters `json:"sqs,omitempty" tf:"sqs"`
 
+	// +kubebuilder:validation:Optional
 	StepFunctions []IotTopicRuleStepFunctionsParameters `json:"stepFunctions,omitempty" tf:"step_functions"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -362,10 +499,14 @@ type IotTopicRuleRepublishObservation struct {
 }
 
 type IotTopicRuleRepublishParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Qos *int64 `json:"qos,omitempty" tf:"qos"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	Topic string `json:"topic" tf:"topic"`
 }
 
@@ -373,10 +514,14 @@ type IotTopicRuleS3Observation struct {
 }
 
 type IotTopicRuleS3Parameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketName string `json:"bucketName" tf:"bucket_name"`
 
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -384,10 +529,14 @@ type IotTopicRuleSnsObservation struct {
 }
 
 type IotTopicRuleSnsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MessageFormat *string `json:"messageFormat,omitempty" tf:"message_format"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	TargetArn string `json:"targetArn" tf:"target_arn"`
 }
 
@@ -395,10 +544,14 @@ type IotTopicRuleSqsObservation struct {
 }
 
 type IotTopicRuleSqsParameters struct {
-	QueueUrl string `json:"queueUrl" tf:"queue_url"`
 
+	// +kubebuilder:validation:Required
+	QueueURL string `json:"queueUrl" tf:"queue_url"`
+
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	UseBase64 bool `json:"useBase64" tf:"use_base64"`
 }
 
@@ -406,10 +559,14 @@ type IotTopicRuleStepFunctionsObservation struct {
 }
 
 type IotTopicRuleStepFunctionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ExecutionNamePrefix *string `json:"executionNamePrefix,omitempty" tf:"execution_name_prefix"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	StateMachineName string `json:"stateMachineName" tf:"state_machine_name"`
 }
 
@@ -417,10 +574,14 @@ type KinesisObservation struct {
 }
 
 type KinesisParameters struct {
+
+	// +kubebuilder:validation:Optional
 	PartitionKey *string `json:"partitionKey,omitempty" tf:"partition_key"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	StreamName string `json:"streamName" tf:"stream_name"`
 }
 
@@ -428,6 +589,8 @@ type LambdaObservation struct {
 }
 
 type LambdaParameters struct {
+
+	// +kubebuilder:validation:Required
 	FunctionArn string `json:"functionArn" tf:"function_arn"`
 }
 
@@ -435,6 +598,8 @@ type PutItemObservation struct {
 }
 
 type PutItemParameters struct {
+
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 }
 
@@ -442,10 +607,14 @@ type RepublishObservation struct {
 }
 
 type RepublishParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Qos *int64 `json:"qos,omitempty" tf:"qos"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	Topic string `json:"topic" tf:"topic"`
 }
 
@@ -453,10 +622,14 @@ type S3Observation struct {
 }
 
 type S3Parameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketName string `json:"bucketName" tf:"bucket_name"`
 
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 
@@ -464,10 +637,14 @@ type SnsObservation struct {
 }
 
 type SnsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MessageFormat *string `json:"messageFormat,omitempty" tf:"message_format"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	TargetArn string `json:"targetArn" tf:"target_arn"`
 }
 
@@ -475,10 +652,14 @@ type SqsObservation struct {
 }
 
 type SqsParameters struct {
-	QueueUrl string `json:"queueUrl" tf:"queue_url"`
 
+	// +kubebuilder:validation:Required
+	QueueURL string `json:"queueUrl" tf:"queue_url"`
+
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	UseBase64 bool `json:"useBase64" tf:"use_base64"`
 }
 
@@ -486,10 +667,14 @@ type StepFunctionsObservation struct {
 }
 
 type StepFunctionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ExecutionNamePrefix *string `json:"executionNamePrefix,omitempty" tf:"execution_name_prefix"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	StateMachineName string `json:"stateMachineName" tf:"state_machine_name"`
 }
 

@@ -31,20 +31,31 @@ type EksFargateProfileObservation struct {
 }
 
 type EksFargateProfileParameters struct {
+
+	// +kubebuilder:validation:Required
 	ClusterName string `json:"clusterName" tf:"cluster_name"`
 
+	// +kubebuilder:validation:Required
 	FargateProfileName string `json:"fargateProfileName" tf:"fargate_profile_name"`
 
+	// +kubebuilder:validation:Required
 	PodExecutionRoleArn string `json:"podExecutionRoleArn" tf:"pod_execution_role_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Selector []SelectorParameters `json:"selector" tf:"selector"`
 
+	// +kubebuilder:validation:Optional
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -52,8 +63,11 @@ type SelectorObservation struct {
 }
 
 type SelectorParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Labels map[string]string `json:"labels,omitempty" tf:"labels"`
 
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 }
 

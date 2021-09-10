@@ -33,16 +33,25 @@ type AcmpcaCertificateObservation struct {
 }
 
 type AcmpcaCertificateParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateAuthorityArn string `json:"certificateAuthorityArn" tf:"certificate_authority_arn"`
 
+	// +kubebuilder:validation:Required
 	CertificateSigningRequest string `json:"certificateSigningRequest" tf:"certificate_signing_request"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SigningAlgorithm string `json:"signingAlgorithm" tf:"signing_algorithm"`
 
+	// +kubebuilder:validation:Optional
 	TemplateArn *string `json:"templateArn,omitempty" tf:"template_arn"`
 
+	// +kubebuilder:validation:Required
 	Validity []ValidityParameters `json:"validity" tf:"validity"`
 }
 
@@ -50,8 +59,11 @@ type ValidityObservation struct {
 }
 
 type ValidityParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

@@ -28,10 +28,14 @@ type AccountAggregationSourceObservation struct {
 }
 
 type AccountAggregationSourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	AccountIds []string `json:"accountIds" tf:"account_ids"`
 
+	// +kubebuilder:validation:Optional
 	AllRegions *bool `json:"allRegions,omitempty" tf:"all_regions"`
 
+	// +kubebuilder:validation:Optional
 	Regions []string `json:"regions,omitempty" tf:"regions"`
 }
 
@@ -40,16 +44,25 @@ type ConfigConfigurationAggregatorObservation struct {
 }
 
 type ConfigConfigurationAggregatorParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccountAggregationSource []AccountAggregationSourceParameters `json:"accountAggregationSource,omitempty" tf:"account_aggregation_source"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	OrganizationAggregationSource []OrganizationAggregationSourceParameters `json:"organizationAggregationSource,omitempty" tf:"organization_aggregation_source"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -57,10 +70,14 @@ type OrganizationAggregationSourceObservation struct {
 }
 
 type OrganizationAggregationSourceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllRegions *bool `json:"allRegions,omitempty" tf:"all_regions"`
 
+	// +kubebuilder:validation:Optional
 	Regions []string `json:"regions,omitempty" tf:"regions"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 

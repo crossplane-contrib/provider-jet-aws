@@ -28,8 +28,13 @@ type BackupGlobalSettingsObservation struct {
 }
 
 type BackupGlobalSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	GlobalSettings map[string]string `json:"globalSettings" tf:"global_settings"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

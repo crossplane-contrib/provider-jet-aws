@@ -29,22 +29,29 @@ type IamAccessKeyObservation struct {
 
 	EncryptedSecret string `json:"encryptedSecret" tf:"encrypted_secret"`
 
-	EncryptedSesSmtpPasswordV4 string `json:"encryptedSesSmtpPasswordV4" tf:"encrypted_ses_smtp_password_v4"`
+	EncryptedSesSMTPPasswordV4 string `json:"encryptedSesSmtpPasswordV4" tf:"encrypted_ses_smtp_password_v4"`
 
 	KeyFingerprint string `json:"keyFingerprint" tf:"key_fingerprint"`
 
 	Secret string `json:"secret" tf:"secret"`
 
-	SesSmtpPasswordV4 string `json:"sesSmtpPasswordV4" tf:"ses_smtp_password_v4"`
+	SesSMTPPasswordV4 string `json:"sesSmtpPasswordV4" tf:"ses_smtp_password_v4"`
 }
 
 type IamAccessKeyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	PgpKey *string `json:"pgpKey,omitempty" tf:"pgp_key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
+	// +kubebuilder:validation:Required
 	User string `json:"user" tf:"user"`
 }
 
