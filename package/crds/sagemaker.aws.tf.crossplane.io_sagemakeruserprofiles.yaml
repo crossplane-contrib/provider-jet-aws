@@ -65,6 +65,8 @@ spec:
                 properties:
                   domainId:
                     type: string
+                  region:
+                    type: string
                   singleSignOnUserIdentifier:
                     type: string
                   singleSignOnUserValue:
@@ -168,6 +170,7 @@ spec:
                     type: array
                 required:
                 - domainId
+                - region
                 - userProfileName
                 type: object
               providerConfigRef:

@@ -33,6 +33,8 @@ type SesIdentityPolicyParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SesIdentityPolicySpec defines the desired state of SesIdentityPolicy

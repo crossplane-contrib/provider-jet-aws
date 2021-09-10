@@ -62,6 +62,8 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   repositoryName:
                     type: string
                   trigger:
@@ -88,6 +90,7 @@ spec:
                       type: object
                     type: array
                 required:
+                - region
                 - repositoryName
                 - trigger
                 type: object

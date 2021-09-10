@@ -55,6 +55,8 @@ type CloudformationTypeParameters struct {
 
 	LoggingConfig []LoggingConfigParameters `json:"loggingConfig,omitempty" tf:"logging_config"`
 
+	Region string `json:"region" tf:"-"`
+
 	SchemaHandlerPackage string `json:"schemaHandlerPackage" tf:"schema_handler_package"`
 
 	Type *string `json:"type,omitempty" tf:"type"`

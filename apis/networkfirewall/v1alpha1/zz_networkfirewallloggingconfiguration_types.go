@@ -49,6 +49,8 @@ type NetworkfirewallLoggingConfigurationParameters struct {
 	FirewallArn string `json:"firewallArn" tf:"firewall_arn"`
 
 	LoggingConfiguration []LoggingConfigurationParameters `json:"loggingConfiguration" tf:"logging_configuration"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // NetworkfirewallLoggingConfigurationSpec defines the desired state of NetworkfirewallLoggingConfiguration

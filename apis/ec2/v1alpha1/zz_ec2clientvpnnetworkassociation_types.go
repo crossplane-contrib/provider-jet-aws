@@ -35,6 +35,8 @@ type Ec2ClientVpnNetworkAssociationObservation struct {
 type Ec2ClientVpnNetworkAssociationParameters struct {
 	ClientVpnEndpointId string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
 	SubnetId string `json:"subnetId" tf:"subnet_id"`

@@ -38,6 +38,8 @@ type DxGatewayAssociationProposalParameters struct {
 	DxGatewayId string `json:"dxGatewayId" tf:"dx_gateway_id"`
 
 	DxGatewayOwnerAccountId string `json:"dxGatewayOwnerAccountId" tf:"dx_gateway_owner_account_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // DxGatewayAssociationProposalSpec defines the desired state of DxGatewayAssociationProposal

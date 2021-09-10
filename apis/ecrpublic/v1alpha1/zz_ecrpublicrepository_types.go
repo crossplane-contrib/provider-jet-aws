@@ -54,6 +54,8 @@ type EcrpublicRepositoryParameters struct {
 
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	Region string `json:"region" tf:"-"`
+
 	RepositoryName string `json:"repositoryName" tf:"repository_name"`
 }
 

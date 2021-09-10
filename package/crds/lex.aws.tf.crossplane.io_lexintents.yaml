@@ -215,6 +215,8 @@ spec:
                     type: string
                   parentIntentSignature:
                     type: string
+                  region:
+                    type: string
                   rejectionStatement:
                     items:
                       properties:
@@ -302,6 +304,7 @@ spec:
                 required:
                 - fulfillmentActivity
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

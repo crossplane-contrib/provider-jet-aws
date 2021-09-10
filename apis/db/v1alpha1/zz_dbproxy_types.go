@@ -54,6 +54,8 @@ type DbProxyParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequireTls *bool `json:"requireTls,omitempty" tf:"require_tls"`
 
 	RoleArn string `json:"roleArn" tf:"role_arn"`

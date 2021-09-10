@@ -72,6 +72,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   retrievalRoleArn:
                     type: string
                   tags:
@@ -97,6 +99,7 @@ spec:
                 - applicationId
                 - locationUri
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

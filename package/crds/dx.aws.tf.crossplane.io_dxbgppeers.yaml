@@ -73,11 +73,14 @@ spec:
                     type: string
                   customerAddress:
                     type: string
+                  region:
+                    type: string
                   virtualInterfaceId:
                     type: string
                 required:
                 - addressFamily
                 - bgpAsn
+                - region
                 - virtualInterfaceId
                 type: object
               providerConfigRef:

@@ -137,6 +137,8 @@ spec:
                       - toPort
                       type: object
                     type: array
+                  region:
+                    type: string
                   revokeRulesOnDelete:
                     type: boolean
                   tags:
@@ -149,6 +151,8 @@ spec:
                     type: object
                   vpcId:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

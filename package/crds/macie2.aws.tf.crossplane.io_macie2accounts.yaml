@@ -64,8 +64,12 @@ spec:
                 properties:
                   findingPublishingFrequency:
                     type: string
+                  region:
+                    type: string
                   status:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

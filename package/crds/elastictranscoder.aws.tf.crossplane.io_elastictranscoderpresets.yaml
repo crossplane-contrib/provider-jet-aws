@@ -98,6 +98,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   thumbnails:
                     items:
                       properties:
@@ -183,6 +185,7 @@ spec:
                     type: array
                 required:
                 - container
+                - region
                 type: object
               providerConfigRef:
                 default:

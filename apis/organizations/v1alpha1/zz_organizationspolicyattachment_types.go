@@ -30,6 +30,8 @@ type OrganizationsPolicyAttachmentObservation struct {
 type OrganizationsPolicyAttachmentParameters struct {
 	PolicyId string `json:"policyId" tf:"policy_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	TargetId string `json:"targetId" tf:"target_id"`
 }
 

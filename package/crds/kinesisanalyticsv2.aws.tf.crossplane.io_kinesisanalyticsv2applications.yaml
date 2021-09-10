@@ -488,6 +488,8 @@ spec:
                     type: boolean
                   name:
                     type: string
+                  region:
+                    type: string
                   runtimeEnvironment:
                     type: string
                   serviceExecutionRole:
@@ -504,6 +506,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - runtimeEnvironment
                 - serviceExecutionRole
                 type: object

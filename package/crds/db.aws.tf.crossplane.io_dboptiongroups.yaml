@@ -106,6 +106,8 @@ spec:
                     type: array
                   optionGroupDescription:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -117,6 +119,7 @@ spec:
                 required:
                 - engineName
                 - majorEngineVersion
+                - region
                 type: object
               providerConfigRef:
                 default:

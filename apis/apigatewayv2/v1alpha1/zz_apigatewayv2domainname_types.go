@@ -37,6 +37,8 @@ type Apigatewayv2DomainNameParameters struct {
 
 	MutualTlsAuthentication []MutualTlsAuthenticationParameters `json:"mutualTlsAuthentication,omitempty" tf:"mutual_tls_authentication"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

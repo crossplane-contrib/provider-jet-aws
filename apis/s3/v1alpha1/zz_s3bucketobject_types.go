@@ -65,6 +65,8 @@ type S3BucketObjectParameters struct {
 
 	ObjectLockRetainUntilDate *string `json:"objectLockRetainUntilDate,omitempty" tf:"object_lock_retain_until_date"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServerSideEncryption *string `json:"serverSideEncryption,omitempty" tf:"server_side_encryption"`
 
 	Source *string `json:"source,omitempty" tf:"source"`

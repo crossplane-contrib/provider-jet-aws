@@ -182,6 +182,8 @@ spec:
                     type: string
                   propagateTags:
                     type: string
+                  region:
+                    type: string
                   schedulingStrategy:
                     type: string
                   serviceRegistries:
@@ -215,6 +217,7 @@ spec:
                     type: boolean
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

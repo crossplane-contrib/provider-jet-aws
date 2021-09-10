@@ -51,6 +51,8 @@ type Ec2CapacityReservationParameters struct {
 
 	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

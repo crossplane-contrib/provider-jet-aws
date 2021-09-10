@@ -98,6 +98,8 @@ type RedshiftClusterParameters struct {
 
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible"`
 
+	Region string `json:"region" tf:"-"`
+
 	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot"`
 
 	SnapshotClusterIdentifier *string `json:"snapshotClusterIdentifier,omitempty" tf:"snapshot_cluster_identifier"`

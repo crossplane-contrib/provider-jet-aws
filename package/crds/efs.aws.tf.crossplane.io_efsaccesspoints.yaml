@@ -83,6 +83,8 @@ spec:
                       - uid
                       type: object
                     type: array
+                  region:
+                    type: string
                   rootDirectory:
                     items:
                       properties:
@@ -117,6 +119,7 @@ spec:
                     type: object
                 required:
                 - fileSystemId
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -55,6 +55,8 @@ type ApiGatewayDomainNameParameters struct {
 
 	MutualTlsAuthentication []MutualTlsAuthenticationParameters `json:"mutualTlsAuthentication,omitempty" tf:"mutual_tls_authentication"`
 
+	Region string `json:"region" tf:"-"`
+
 	RegionalCertificateArn *string `json:"regionalCertificateArn,omitempty" tf:"regional_certificate_arn"`
 
 	RegionalCertificateName *string `json:"regionalCertificateName,omitempty" tf:"regional_certificate_name"`

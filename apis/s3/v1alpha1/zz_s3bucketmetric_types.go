@@ -42,6 +42,8 @@ type S3BucketMetricParameters struct {
 	Filter []S3BucketMetricFilterParameters `json:"filter,omitempty" tf:"filter"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // S3BucketMetricSpec defines the desired state of S3BucketMetric

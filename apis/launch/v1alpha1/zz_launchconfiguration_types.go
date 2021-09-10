@@ -87,6 +87,8 @@ type LaunchConfigurationParameters struct {
 
 	PlacementTenancy *string `json:"placementTenancy,omitempty" tf:"placement_tenancy"`
 
+	Region string `json:"region" tf:"-"`
+
 	RootBlockDevice []RootBlockDeviceParameters `json:"rootBlockDevice,omitempty" tf:"root_block_device"`
 
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`

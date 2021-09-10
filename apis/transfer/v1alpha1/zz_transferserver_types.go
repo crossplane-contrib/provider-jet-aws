@@ -68,6 +68,8 @@ type TransferServerParameters struct {
 
 	Protocols []string `json:"protocols,omitempty" tf:"protocols"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityPolicyName *string `json:"securityPolicyName,omitempty" tf:"security_policy_name"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

@@ -29,6 +29,8 @@ type IamAccountAliasObservation struct {
 
 type IamAccountAliasParameters struct {
 	AccountAlias string `json:"accountAlias" tf:"account_alias"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // IamAccountAliasSpec defines the desired state of IamAccountAlias

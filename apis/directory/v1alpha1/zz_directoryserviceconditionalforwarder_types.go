@@ -32,6 +32,8 @@ type DirectoryServiceConditionalForwarderParameters struct {
 
 	DnsIps []string `json:"dnsIps" tf:"dns_ips"`
 
+	Region string `json:"region" tf:"-"`
+
 	RemoteDomainName string `json:"remoteDomainName" tf:"remote_domain_name"`
 }
 

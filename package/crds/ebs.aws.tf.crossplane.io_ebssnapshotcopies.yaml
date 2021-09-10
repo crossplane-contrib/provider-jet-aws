@@ -68,6 +68,8 @@ spec:
                     type: boolean
                   kmsKeyId:
                     type: string
+                  region:
+                    type: string
                   sourceRegion:
                     type: string
                   sourceSnapshotId:
@@ -81,6 +83,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - sourceRegion
                 - sourceSnapshotId
                 type: object

@@ -35,6 +35,8 @@ type PinpointSmsChannelParameters struct {
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	Region string `json:"region" tf:"-"`
+
 	SenderId *string `json:"senderId,omitempty" tf:"sender_id"`
 
 	ShortCode *string `json:"shortCode,omitempty" tf:"short_code"`

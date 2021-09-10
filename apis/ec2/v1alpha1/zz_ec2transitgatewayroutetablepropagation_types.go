@@ -31,6 +31,8 @@ type Ec2TransitGatewayRouteTablePropagationObservation struct {
 }
 
 type Ec2TransitGatewayRouteTablePropagationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	TransitGatewayAttachmentId string `json:"transitGatewayAttachmentId" tf:"transit_gateway_attachment_id"`
 
 	TransitGatewayRouteTableId string `json:"transitGatewayRouteTableId" tf:"transit_gateway_route_table_id"`

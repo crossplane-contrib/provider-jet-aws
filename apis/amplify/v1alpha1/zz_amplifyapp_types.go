@@ -65,6 +65,8 @@ type AmplifyAppParameters struct {
 
 	Platform *string `json:"platform,omitempty" tf:"platform"`
 
+	Region string `json:"region" tf:"-"`
+
 	Repository *string `json:"repository,omitempty" tf:"repository"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

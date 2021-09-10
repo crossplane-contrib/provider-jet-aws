@@ -39,6 +39,8 @@ type XraySamplingRuleParameters struct {
 
 	Priority int64 `json:"priority" tf:"priority"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReservoirSize int64 `json:"reservoirSize" tf:"reservoir_size"`
 
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`

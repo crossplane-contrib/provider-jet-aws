@@ -82,6 +82,8 @@ spec:
                       - value
                       type: object
                     type: array
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -93,6 +95,7 @@ spec:
                 required:
                 - family
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

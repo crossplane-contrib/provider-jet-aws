@@ -33,6 +33,8 @@ type DatasyncLocationS3Observation struct {
 type DatasyncLocationS3Parameters struct {
 	AgentArns []string `json:"agentArns,omitempty" tf:"agent_arns"`
 
+	Region string `json:"region" tf:"-"`
+
 	S3BucketArn string `json:"s3BucketArn" tf:"s3_bucket_arn"`
 
 	S3Config []S3ConfigParameters `json:"s3Config" tf:"s3_config"`

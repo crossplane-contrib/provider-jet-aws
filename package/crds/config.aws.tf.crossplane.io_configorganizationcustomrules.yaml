@@ -78,6 +78,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   resourceIdScope:
                     type: string
                   resourceTypesScope:
@@ -95,6 +97,7 @@ spec:
                 required:
                 - lambdaFunctionArn
                 - name
+                - region
                 - triggerTypes
                 type: object
               providerConfigRef:

@@ -35,6 +35,8 @@ type AthenaDatabaseParameters struct {
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type EncryptionConfigurationObservation struct {

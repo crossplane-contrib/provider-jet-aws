@@ -136,6 +136,8 @@ type ElasticsearchDomainParameters struct {
 
 	NodeToNodeEncryption []NodeToNodeEncryptionParameters `json:"nodeToNodeEncryption,omitempty" tf:"node_to_node_encryption"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnapshotOptions []SnapshotOptionsParameters `json:"snapshotOptions,omitempty" tf:"snapshot_options"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

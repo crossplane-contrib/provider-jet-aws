@@ -66,10 +66,13 @@ spec:
                 properties:
                   policyId:
                     type: string
+                  region:
+                    type: string
                   targetId:
                     type: string
                 required:
                 - policyId
+                - region
                 - targetId
                 type: object
               providerConfigRef:

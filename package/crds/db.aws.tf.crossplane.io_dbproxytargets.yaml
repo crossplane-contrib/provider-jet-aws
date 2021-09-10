@@ -68,10 +68,13 @@ spec:
                     type: string
                   dbProxyName:
                     type: string
+                  region:
+                    type: string
                   targetGroupName:
                     type: string
                 required:
                 - dbProxyName
+                - region
                 - targetGroupName
                 type: object
               providerConfigRef:

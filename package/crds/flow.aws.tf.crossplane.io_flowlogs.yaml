@@ -77,6 +77,8 @@ spec:
                   maxAggregationInterval:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   subnetId:
                     type: string
                   tags:
@@ -92,6 +94,7 @@ spec:
                   vpcId:
                     type: string
                 required:
+                - region
                 - trafficType
                 type: object
               providerConfigRef:

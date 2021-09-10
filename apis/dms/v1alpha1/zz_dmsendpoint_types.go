@@ -55,6 +55,8 @@ type DmsEndpointParameters struct {
 
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	Region string `json:"region" tf:"-"`
+
 	S3Settings []S3SettingsParameters `json:"s3Settings,omitempty" tf:"s3_settings"`
 
 	ServerName *string `json:"serverName,omitempty" tf:"server_name"`

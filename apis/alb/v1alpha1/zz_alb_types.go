@@ -72,6 +72,8 @@ type AlbParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
 	SubnetMapping []SubnetMappingParameters `json:"subnetMapping,omitempty" tf:"subnet_mapping"`

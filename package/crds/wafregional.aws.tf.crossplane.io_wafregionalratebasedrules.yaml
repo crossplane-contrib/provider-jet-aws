@@ -88,6 +88,8 @@ spec:
                   rateLimit:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -101,6 +103,7 @@ spec:
                 - name
                 - rateKey
                 - rateLimit
+                - region
                 type: object
               providerConfigRef:
                 default:

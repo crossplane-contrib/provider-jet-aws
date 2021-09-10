@@ -35,6 +35,8 @@ type DatasyncLocationNfsParameters struct {
 
 	OnPremConfig []OnPremConfigParameters `json:"onPremConfig" tf:"on_prem_config"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServerHostname string `json:"serverHostname" tf:"server_hostname"`
 
 	Subdirectory string `json:"subdirectory" tf:"subdirectory"`

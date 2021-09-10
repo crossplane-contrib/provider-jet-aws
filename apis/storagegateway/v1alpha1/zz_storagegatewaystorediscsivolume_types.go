@@ -59,6 +59,8 @@ type StoragegatewayStoredIscsiVolumeParameters struct {
 
 	PreserveExistingData bool `json:"preserveExistingData" tf:"preserve_existing_data"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

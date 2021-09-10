@@ -39,6 +39,8 @@ type DatasyncTaskParameters struct {
 
 	Options []OptionsParameters `json:"options,omitempty" tf:"options"`
 
+	Region string `json:"region" tf:"-"`
+
 	Schedule []ScheduleParameters `json:"schedule,omitempty" tf:"schedule"`
 
 	SourceLocationArn string `json:"sourceLocationArn" tf:"source_location_arn"`

@@ -69,9 +69,12 @@ spec:
                     type: string
                   enabled:
                     type: boolean
+                  region:
+                    type: string
                 required:
                 - apiKey
                 - applicationId
+                - region
                 type: object
               providerConfigRef:
                 default:

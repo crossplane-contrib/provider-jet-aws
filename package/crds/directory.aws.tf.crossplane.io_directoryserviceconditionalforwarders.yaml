@@ -70,11 +70,14 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   remoteDomainName:
                     type: string
                 required:
                 - directoryId
                 - dnsIps
+                - region
                 - remoteDomainName
                 type: object
               providerConfigRef:

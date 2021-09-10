@@ -31,6 +31,8 @@ type StoragegatewayCacheParameters struct {
 	DiskId string `json:"diskId" tf:"disk_id"`
 
 	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // StoragegatewayCacheSpec defines the desired state of StoragegatewayCache

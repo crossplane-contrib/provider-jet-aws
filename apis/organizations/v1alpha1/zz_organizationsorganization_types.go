@@ -76,6 +76,8 @@ type OrganizationsOrganizationParameters struct {
 	EnabledPolicyTypes []string `json:"enabledPolicyTypes,omitempty" tf:"enabled_policy_types"`
 
 	FeatureSet *string `json:"featureSet,omitempty" tf:"feature_set"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type PolicyTypesObservation struct {

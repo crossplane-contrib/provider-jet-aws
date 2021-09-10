@@ -66,10 +66,13 @@ spec:
                 properties:
                   policy:
                     type: string
+                  region:
+                    type: string
                   restApiId:
                     type: string
                 required:
                 - policy
+                - region
                 - restApiId
                 type: object
               providerConfigRef:

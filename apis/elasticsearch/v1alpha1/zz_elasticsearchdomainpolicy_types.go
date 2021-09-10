@@ -31,6 +31,8 @@ type ElasticsearchDomainPolicyParameters struct {
 	AccessPolicies string `json:"accessPolicies" tf:"access_policies"`
 
 	DomainName string `json:"domainName" tf:"domain_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // ElasticsearchDomainPolicySpec defines the desired state of ElasticsearchDomainPolicy

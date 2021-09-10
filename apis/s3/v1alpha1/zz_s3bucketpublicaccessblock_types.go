@@ -36,6 +36,8 @@ type S3BucketPublicAccessBlockParameters struct {
 
 	IgnorePublicAcls *bool `json:"ignorePublicAcls,omitempty" tf:"ignore_public_acls"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestrictPublicBuckets *bool `json:"restrictPublicBuckets,omitempty" tf:"restrict_public_buckets"`
 }
 

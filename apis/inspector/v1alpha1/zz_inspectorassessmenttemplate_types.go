@@ -33,6 +33,8 @@ type InspectorAssessmentTemplateParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RulesPackageArns []string `json:"rulesPackageArns" tf:"rules_package_arns"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

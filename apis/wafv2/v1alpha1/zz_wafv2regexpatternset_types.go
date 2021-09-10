@@ -42,6 +42,8 @@ type Wafv2RegexPatternSetParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RegularExpression []RegularExpressionParameters `json:"regularExpression,omitempty" tf:"regular_expression"`
 
 	Scope string `json:"scope" tf:"scope"`

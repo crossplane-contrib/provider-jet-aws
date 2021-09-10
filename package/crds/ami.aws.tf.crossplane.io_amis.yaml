@@ -114,6 +114,8 @@ spec:
                     type: string
                   ramdiskId:
                     type: string
+                  region:
+                    type: string
                   rootDeviceName:
                     type: string
                   sriovNetSupport:
@@ -130,6 +132,7 @@ spec:
                     type: string
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

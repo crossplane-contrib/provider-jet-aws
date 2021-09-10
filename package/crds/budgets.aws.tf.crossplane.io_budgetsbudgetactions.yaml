@@ -144,6 +144,8 @@ spec:
                     type: string
                   notificationType:
                     type: string
+                  region:
+                    type: string
                   subscriber:
                     items:
                       properties:
@@ -164,6 +166,7 @@ spec:
                 - definition
                 - executionRoleArn
                 - notificationType
+                - region
                 - subscriber
                 type: object
               providerConfigRef:

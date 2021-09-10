@@ -70,9 +70,12 @@ spec:
                     type: string
                   imageFile:
                     type: string
+                  region:
+                    type: string
                   userPoolId:
                     type: string
                 required:
+                - region
                 - userPoolId
                 type: object
               providerConfigRef:

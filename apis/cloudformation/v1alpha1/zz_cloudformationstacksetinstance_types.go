@@ -33,7 +33,7 @@ type CloudformationStackSetInstanceParameters struct {
 
 	ParameterOverrides map[string]string `json:"parameterOverrides,omitempty" tf:"parameter_overrides"`
 
-	Region *string `json:"region,omitempty" tf:"region"`
+	Region string `json:"region" tf:"-"`
 
 	RetainStack *bool `json:"retainStack,omitempty" tf:"retain_stack"`
 

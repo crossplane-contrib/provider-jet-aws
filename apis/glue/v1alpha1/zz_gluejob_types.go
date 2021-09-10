@@ -71,6 +71,8 @@ type GlueJobParameters struct {
 
 	NumberOfWorkers *int64 `json:"numberOfWorkers,omitempty" tf:"number_of_workers"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
 	SecurityConfiguration *string `json:"securityConfiguration,omitempty" tf:"security_configuration"`

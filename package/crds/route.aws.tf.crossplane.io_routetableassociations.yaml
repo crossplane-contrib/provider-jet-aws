@@ -65,11 +65,14 @@ spec:
                 properties:
                   gatewayId:
                     type: string
+                  region:
+                    type: string
                   routeTableId:
                     type: string
                   subnetId:
                     type: string
                 required:
+                - region
                 - routeTableId
                 type: object
               providerConfigRef:

@@ -33,6 +33,8 @@ type AutoscalingAttachmentParameters struct {
 	AutoscalingGroupName string `json:"autoscalingGroupName" tf:"autoscaling_group_name"`
 
 	Elb *string `json:"elb,omitempty" tf:"elb"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // AutoscalingAttachmentSpec defines the desired state of AutoscalingAttachment

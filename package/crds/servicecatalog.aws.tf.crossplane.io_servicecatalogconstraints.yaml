@@ -74,12 +74,15 @@ spec:
                     type: string
                   productId:
                     type: string
+                  region:
+                    type: string
                   type:
                     type: string
                 required:
                 - parameters
                 - portfolioId
                 - productId
+                - region
                 - type
                 type: object
               providerConfigRef:

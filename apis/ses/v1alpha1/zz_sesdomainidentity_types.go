@@ -32,6 +32,8 @@ type SesDomainIdentityObservation struct {
 
 type SesDomainIdentityParameters struct {
 	Domain string `json:"domain" tf:"domain"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SesDomainIdentitySpec defines the desired state of SesDomainIdentity

@@ -90,6 +90,8 @@ type OpsworksRailsAppLayerParameters struct {
 
 	PassengerVersion *string `json:"passengerVersion,omitempty" tf:"passenger_version"`
 
+	Region string `json:"region" tf:"-"`
+
 	RubyVersion *string `json:"rubyVersion,omitempty" tf:"ruby_version"`
 
 	RubygemsVersion *string `json:"rubygemsVersion,omitempty" tf:"rubygems_version"`

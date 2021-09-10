@@ -29,6 +29,8 @@ type Route53ZoneAssociationObservation struct {
 }
 
 type Route53ZoneAssociationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	VpcId string `json:"vpcId" tf:"vpc_id"`
 
 	VpcRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region"`

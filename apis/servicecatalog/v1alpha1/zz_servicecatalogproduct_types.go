@@ -64,6 +64,8 @@ type ServicecatalogProductParameters struct {
 
 	ProvisioningArtifactParameters []ProvisioningArtifactParametersParameters `json:"provisioningArtifactParameters" tf:"provisioning_artifact_parameters"`
 
+	Region string `json:"region" tf:"-"`
+
 	SupportDescription *string `json:"supportDescription,omitempty" tf:"support_description"`
 
 	SupportEmail *string `json:"supportEmail,omitempty" tf:"support_email"`

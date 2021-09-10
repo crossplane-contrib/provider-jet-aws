@@ -66,6 +66,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   route:
                     items:
                       properties:
@@ -108,6 +110,7 @@ spec:
                   vpcId:
                     type: string
                 required:
+                - region
                 - vpcId
                 type: object
               providerConfigRef:

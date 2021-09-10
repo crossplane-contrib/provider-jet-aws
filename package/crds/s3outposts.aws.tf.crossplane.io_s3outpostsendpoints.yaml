@@ -65,12 +65,15 @@ spec:
                 properties:
                   outpostId:
                     type: string
+                  region:
+                    type: string
                   securityGroupId:
                     type: string
                   subnetId:
                     type: string
                 required:
                 - outpostId
+                - region
                 - securityGroupId
                 - subnetId
                 type: object

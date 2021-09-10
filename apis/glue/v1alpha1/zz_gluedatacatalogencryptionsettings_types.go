@@ -58,6 +58,8 @@ type GlueDataCatalogEncryptionSettingsParameters struct {
 	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
 	DataCatalogEncryptionSettings []DataCatalogEncryptionSettingsParameters `json:"dataCatalogEncryptionSettings" tf:"data_catalog_encryption_settings"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // GlueDataCatalogEncryptionSettingsSpec defines the desired state of GlueDataCatalogEncryptionSettings

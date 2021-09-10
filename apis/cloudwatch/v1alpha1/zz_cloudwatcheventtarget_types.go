@@ -63,6 +63,8 @@ type CloudwatchEventTargetParameters struct {
 
 	RedshiftTarget []RedshiftTargetParameters `json:"redshiftTarget,omitempty" tf:"redshift_target"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetryPolicy []RetryPolicyParameters `json:"retryPolicy,omitempty" tf:"retry_policy"`
 
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`

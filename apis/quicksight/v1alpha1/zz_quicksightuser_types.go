@@ -39,6 +39,8 @@ type QuicksightUserParameters struct {
 
 	Namespace *string `json:"namespace,omitempty" tf:"namespace"`
 
+	Region string `json:"region" tf:"-"`
+
 	SessionName *string `json:"sessionName,omitempty" tf:"session_name"`
 
 	UserName *string `json:"userName,omitempty" tf:"user_name"`

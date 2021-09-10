@@ -62,6 +62,8 @@ type AppmeshGatewayRouteParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Spec []SpecParameters `json:"spec" tf:"spec"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

@@ -24,18 +24,18 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/crossplane-contrib/terrajet/pkg/comments"
+	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/iancoleman/strcase"
 	"github.com/pkg/errors"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
-
-	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 )
 
 // Constants to use in generated artifacts.
 const (
-	modulePath  = "github.com/crossplane-contrib/provider-tf-aws"
-	groupSuffix = ".aws.tf.crossplane.io"
+	modulePath        = "github.com/crossplane-contrib/provider-tf-aws"
+	groupSuffix       = ".aws.tf.crossplane.io"
 	providerShortName = "tfaws"
 )
 
@@ -86,6 +86,12 @@ func main() { // nolint:gocyclo
 	controllerPkgList := []string{
 		"github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws",
 	}
+
+	regionSchema, err := getRegionSchema()
+	if err != nil {
+		panic(errors.Wrap(err, "cannot get region schema"))
+	}
+
 	for group, resources := range groups {
 		version := "v1alpha1"
 		versionGen := pipeline.NewVersionGenerator(wd, modulePath, strings.ToLower(group)+groupSuffix, version)
@@ -105,7 +111,9 @@ func main() { // nolint:gocyclo
 		for _, name := range keys {
 			// We don't want Aws prefix in all kinds.
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
-			if err := crdGen.Generate(version, kind, resources[name]); err != nil {
+			resource := resources[name]
+			resource.Schema["region"] = regionSchema
+			if err := crdGen.Generate(version, kind, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
 			if err := tfGen.Generate(version, kind, name, "id"); err != nil {
@@ -138,4 +146,17 @@ func main() { // nolint:gocyclo
 		panic(errors.Wrap(err, "cannot run goimports for internal folder"))
 	}
 	fmt.Printf("\nGenerated %d resources!\n", count)
+}
+
+func getRegionSchema() (*schema.Schema, error) {
+	c := "Region is the region you'd like your resource to be created in.\n"
+	comment, err := comments.New(c, comments.WithTFTag("-"))
+	if err != nil {
+		return nil, errors.Wrap(err, "cannot build comment")
+	}
+	return &schema.Schema{
+		Type:        schema.TypeString,
+		Required:    true,
+		Description: comment.String(),
+	}, nil
 }

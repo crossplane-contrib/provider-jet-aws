@@ -33,6 +33,8 @@ type Apigatewayv2DeploymentParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	Region string `json:"region" tf:"-"`
+
 	Triggers map[string]string `json:"triggers,omitempty" tf:"triggers"`
 }
 

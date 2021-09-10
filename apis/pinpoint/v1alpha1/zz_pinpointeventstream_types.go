@@ -32,6 +32,8 @@ type PinpointEventStreamParameters struct {
 
 	DestinationStreamArn string `json:"destinationStreamArn" tf:"destination_stream_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 

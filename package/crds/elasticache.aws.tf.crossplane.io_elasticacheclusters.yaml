@@ -95,6 +95,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   replicationGroupId:
                     type: string
                   securityGroupIds:
@@ -128,6 +130,7 @@ spec:
                     type: object
                 required:
                 - clusterId
+                - region
                 type: object
               providerConfigRef:
                 default:

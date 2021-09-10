@@ -31,6 +31,8 @@ type ElbAttachmentParameters struct {
 	Elb string `json:"elb" tf:"elb"`
 
 	Instance string `json:"instance" tf:"instance"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // ElbAttachmentSpec defines the desired state of ElbAttachment

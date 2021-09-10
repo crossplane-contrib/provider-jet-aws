@@ -61,6 +61,8 @@ type EmrInstanceGroupParameters struct {
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
 	Name *string `json:"name,omitempty" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // EmrInstanceGroupSpec defines the desired state of EmrInstanceGroup

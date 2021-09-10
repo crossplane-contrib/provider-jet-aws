@@ -34,6 +34,8 @@ type BackupSelectionParameters struct {
 
 	PlanId string `json:"planId" tf:"plan_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	Resources []string `json:"resources,omitempty" tf:"resources"`
 
 	SelectionTag []SelectionTagParameters `json:"selectionTag,omitempty" tf:"selection_tag"`

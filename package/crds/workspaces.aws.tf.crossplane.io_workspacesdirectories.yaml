@@ -69,6 +69,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   selfServicePermissions:
                     items:
                       properties:
@@ -134,6 +136,7 @@ spec:
                     type: array
                 required:
                 - directoryId
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -133,6 +133,8 @@ type CodebuildProjectParameters struct {
 
 	QueuedTimeout *int64 `json:"queuedTimeout,omitempty" tf:"queued_timeout"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecondaryArtifacts []SecondaryArtifactsParameters `json:"secondaryArtifacts,omitempty" tf:"secondary_artifacts"`
 
 	SecondarySources []SecondarySourcesParameters `json:"secondarySources,omitempty" tf:"secondary_sources"`

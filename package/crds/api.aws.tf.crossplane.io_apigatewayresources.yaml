@@ -67,11 +67,14 @@ spec:
                     type: string
                   pathPart:
                     type: string
+                  region:
+                    type: string
                   restApiId:
                     type: string
                 required:
                 - parentId
                 - pathPart
+                - region
                 - restApiId
                 type: object
               providerConfigRef:

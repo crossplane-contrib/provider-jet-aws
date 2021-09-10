@@ -81,6 +81,8 @@ type CognitoUserPoolParameters struct {
 
 	PasswordPolicy []PasswordPolicyParameters `json:"passwordPolicy,omitempty" tf:"password_policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	Schema []SchemaParameters `json:"schema,omitempty" tf:"schema"`
 
 	SmsAuthenticationMessage *string `json:"smsAuthenticationMessage,omitempty" tf:"sms_authentication_message"`

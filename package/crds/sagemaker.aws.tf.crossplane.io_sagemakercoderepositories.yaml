@@ -79,9 +79,12 @@ spec:
                       - repositoryUrl
                       type: object
                     type: array
+                  region:
+                    type: string
                 required:
                 - codeRepositoryName
                 - gitConfig
+                - region
                 type: object
               providerConfigRef:
                 default:

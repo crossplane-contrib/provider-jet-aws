@@ -79,9 +79,12 @@ spec:
                           type: array
                       type: object
                     type: array
+                  region:
+                    type: string
                   roleArn:
                     type: string
                 required:
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

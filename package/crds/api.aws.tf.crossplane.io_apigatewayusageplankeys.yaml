@@ -67,11 +67,14 @@ spec:
                     type: string
                   keyType:
                     type: string
+                  region:
+                    type: string
                   usagePlanId:
                     type: string
                 required:
                 - keyId
                 - keyType
+                - region
                 - usagePlanId
                 type: object
               providerConfigRef:

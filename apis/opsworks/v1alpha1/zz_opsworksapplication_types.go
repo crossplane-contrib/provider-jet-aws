@@ -82,6 +82,8 @@ type OpsworksApplicationParameters struct {
 
 	RailsEnv *string `json:"railsEnv,omitempty" tf:"rails_env"`
 
+	Region string `json:"region" tf:"-"`
+
 	ShortName *string `json:"shortName,omitempty" tf:"short_name"`
 
 	SslConfiguration []SslConfigurationParameters `json:"sslConfiguration,omitempty" tf:"ssl_configuration"`

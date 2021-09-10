@@ -95,6 +95,8 @@ spec:
                   privateIpsCount:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   securityGroups:
                     items:
                       type: string
@@ -112,6 +114,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - subnetId
                 type: object
               providerConfigRef:

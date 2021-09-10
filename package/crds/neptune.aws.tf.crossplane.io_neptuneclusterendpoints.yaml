@@ -73,6 +73,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   staticMembers:
                     items:
                       type: string
@@ -89,6 +91,7 @@ spec:
                 - clusterEndpointIdentifier
                 - clusterIdentifier
                 - endpointType
+                - region
                 type: object
               providerConfigRef:
                 default:

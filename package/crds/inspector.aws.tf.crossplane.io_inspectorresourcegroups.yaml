@@ -63,11 +63,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
                     type: object
                 required:
+                - region
                 - tags
                 type: object
               providerConfigRef:

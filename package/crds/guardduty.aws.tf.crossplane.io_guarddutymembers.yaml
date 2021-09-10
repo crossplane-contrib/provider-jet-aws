@@ -74,10 +74,13 @@ spec:
                     type: string
                   invite:
                     type: boolean
+                  region:
+                    type: string
                 required:
                 - accountId
                 - detectorId
                 - email
+                - region
                 type: object
               providerConfigRef:
                 default:

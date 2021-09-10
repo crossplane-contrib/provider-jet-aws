@@ -47,6 +47,8 @@ type AutoscalingPolicyParameters struct {
 
 	PredictiveScalingConfiguration []PredictiveScalingConfigurationParameters `json:"predictiveScalingConfiguration,omitempty" tf:"predictive_scaling_configuration"`
 
+	Region string `json:"region" tf:"-"`
+
 	ScalingAdjustment *int64 `json:"scalingAdjustment,omitempty" tf:"scaling_adjustment"`
 
 	StepAdjustment []StepAdjustmentParameters `json:"stepAdjustment,omitempty" tf:"step_adjustment"`

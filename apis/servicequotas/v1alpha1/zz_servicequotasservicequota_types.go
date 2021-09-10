@@ -43,6 +43,8 @@ type ServicequotasServiceQuotaObservation struct {
 type ServicequotasServiceQuotaParameters struct {
 	QuotaCode string `json:"quotaCode" tf:"quota_code"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServiceCode string `json:"serviceCode" tf:"service_code"`
 
 	Value float64 `json:"value" tf:"value"`

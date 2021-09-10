@@ -86,9 +86,12 @@ spec:
                     type: array
                   forceDestroy:
                     type: boolean
+                  region:
+                    type: string
                   repositoryName:
                     type: string
                 required:
+                - region
                 - repositoryName
                 type: object
               providerConfigRef:

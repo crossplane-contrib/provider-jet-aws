@@ -67,9 +67,12 @@ spec:
                     type: string
                   policy:
                     type: string
+                  region:
+                    type: string
                 required:
                 - bucket
                 - policy
+                - region
                 type: object
               providerConfigRef:
                 default:

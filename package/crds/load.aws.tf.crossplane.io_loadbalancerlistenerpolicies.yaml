@@ -73,9 +73,12 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                 required:
                 - loadBalancerName
                 - loadBalancerPort
+                - region
                 type: object
               providerConfigRef:
                 default:

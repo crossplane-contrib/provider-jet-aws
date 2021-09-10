@@ -35,6 +35,8 @@ type ServicecatalogTagOptionResourceAssociationObservation struct {
 }
 
 type ServicecatalogTagOptionResourceAssociationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ResourceId string `json:"resourceId" tf:"resource_id"`
 
 	TagOptionId string `json:"tagOptionId" tf:"tag_option_id"`

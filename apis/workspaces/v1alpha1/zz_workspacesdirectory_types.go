@@ -98,6 +98,8 @@ type WorkspacesDirectoryParameters struct {
 
 	IpGroupIds []string `json:"ipGroupIds,omitempty" tf:"ip_group_ids"`
 
+	Region string `json:"region" tf:"-"`
+
 	SelfServicePermissions []SelfServicePermissionsParameters `json:"selfServicePermissions,omitempty" tf:"self_service_permissions"`
 
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`

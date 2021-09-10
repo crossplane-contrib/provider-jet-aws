@@ -113,6 +113,8 @@ spec:
                   permanentDeletionTimeInDays:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   revocationConfiguration:
                     items:
                       properties:
@@ -148,6 +150,7 @@ spec:
                     type: string
                 required:
                 - certificateAuthorityConfiguration
+                - region
                 type: object
               providerConfigRef:
                 default:

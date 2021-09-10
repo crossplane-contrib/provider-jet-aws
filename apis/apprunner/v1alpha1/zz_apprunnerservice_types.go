@@ -43,6 +43,8 @@ type ApprunnerServiceParameters struct {
 
 	InstanceConfiguration []InstanceConfigurationParameters `json:"instanceConfiguration,omitempty" tf:"instance_configuration"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServiceName string `json:"serviceName" tf:"service_name"`
 
 	SourceConfiguration []SourceConfigurationParameters `json:"sourceConfiguration" tf:"source_configuration"`

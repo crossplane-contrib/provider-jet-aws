@@ -64,8 +64,11 @@ spec:
                 properties:
                   domainName:
                     type: string
+                  region:
+                    type: string
                 required:
                 - domainName
+                - region
                 type: object
               providerConfigRef:
                 default:

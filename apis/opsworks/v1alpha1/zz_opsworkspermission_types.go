@@ -34,6 +34,8 @@ type OpsworksPermissionParameters struct {
 
 	Level *string `json:"level,omitempty" tf:"level"`
 
+	Region string `json:"region" tf:"-"`
+
 	StackId *string `json:"stackId,omitempty" tf:"stack_id"`
 
 	UserArn string `json:"userArn" tf:"user_arn"`

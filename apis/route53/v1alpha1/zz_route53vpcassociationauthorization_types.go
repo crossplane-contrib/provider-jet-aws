@@ -28,6 +28,8 @@ type Route53VpcAssociationAuthorizationObservation struct {
 }
 
 type Route53VpcAssociationAuthorizationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	VpcId string `json:"vpcId" tf:"vpc_id"`
 
 	VpcRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region"`

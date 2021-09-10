@@ -42,6 +42,8 @@ type IamServiceLinkedRoleParameters struct {
 	CustomSuffix *string `json:"customSuffix,omitempty" tf:"custom_suffix"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // IamServiceLinkedRoleSpec defines the desired state of IamServiceLinkedRole

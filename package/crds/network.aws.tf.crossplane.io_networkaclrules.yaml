@@ -79,6 +79,8 @@ spec:
                     type: string
                   protocol:
                     type: string
+                  region:
+                    type: string
                   ruleAction:
                     type: string
                   ruleNumber:
@@ -90,6 +92,7 @@ spec:
                 required:
                 - networkAclId
                 - protocol
+                - region
                 - ruleAction
                 - ruleNumber
                 type: object

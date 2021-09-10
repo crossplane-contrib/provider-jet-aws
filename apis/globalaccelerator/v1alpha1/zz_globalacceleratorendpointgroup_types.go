@@ -56,6 +56,8 @@ type GlobalacceleratorEndpointGroupParameters struct {
 
 	PortOverride []PortOverrideParameters `json:"portOverride,omitempty" tf:"port_override"`
 
+	Region string `json:"region" tf:"-"`
+
 	ThresholdCount *int64 `json:"thresholdCount,omitempty" tf:"threshold_count"`
 
 	TrafficDialPercentage *float64 `json:"trafficDialPercentage,omitempty" tf:"traffic_dial_percentage"`

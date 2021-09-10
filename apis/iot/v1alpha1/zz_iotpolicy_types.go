@@ -34,6 +34,8 @@ type IotPolicyParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // IotPolicySpec defines the desired state of IotPolicy

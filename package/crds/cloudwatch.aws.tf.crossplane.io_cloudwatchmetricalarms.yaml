@@ -143,6 +143,8 @@ spec:
                   period:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   statistic:
                     type: string
                   tags:
@@ -165,6 +167,7 @@ spec:
                 - alarmName
                 - comparisonOperator
                 - evaluationPeriods
+                - region
                 type: object
               providerConfigRef:
                 default:

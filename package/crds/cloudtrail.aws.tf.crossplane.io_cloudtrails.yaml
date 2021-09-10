@@ -112,6 +112,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   s3BucketName:
                     type: string
                   s3KeyPrefix:
@@ -128,6 +130,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - s3BucketName
                 type: object
               providerConfigRef:

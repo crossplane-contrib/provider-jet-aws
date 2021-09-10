@@ -68,9 +68,12 @@ spec:
                     type: string
                   masterAccountId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - detectorId
                 - masterAccountId
+                - region
                 type: object
               providerConfigRef:
                 default:

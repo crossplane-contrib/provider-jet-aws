@@ -68,10 +68,13 @@ spec:
                     type: string
                   enableWwwSubdomain:
                     type: boolean
+                  region:
+                    type: string
                   serviceArn:
                     type: string
                 required:
                 - domainName
+                - region
                 - serviceArn
                 type: object
               providerConfigRef:

@@ -76,6 +76,8 @@ spec:
                     type: string
                   ownerType:
                     type: string
+                  region:
+                    type: string
                   resourceUris:
                     items:
                       properties:
@@ -94,6 +96,7 @@ spec:
                 - name
                 - ownerName
                 - ownerType
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -41,6 +41,8 @@ type CognitoUserPoolUiCustomizationParameters struct {
 
 	ImageFile *string `json:"imageFile,omitempty" tf:"image_file"`
 
+	Region string `json:"region" tf:"-"`
+
 	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
 }
 

@@ -102,9 +102,12 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                 required:
                 - encryptionConfiguration
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

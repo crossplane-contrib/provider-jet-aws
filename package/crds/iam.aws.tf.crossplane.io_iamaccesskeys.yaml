@@ -64,11 +64,14 @@ spec:
                 properties:
                   pgpKey:
                     type: string
+                  region:
+                    type: string
                   status:
                     type: string
                   user:
                     type: string
                 required:
+                - region
                 - user
                 type: object
               providerConfigRef:

@@ -90,6 +90,8 @@ spec:
                           type: string
                       type: object
                     type: array
+                  region:
+                    type: string
                   supportDescription:
                     type: string
                   supportEmail:
@@ -110,6 +112,7 @@ spec:
                 - name
                 - owner
                 - provisioningArtifactParameters
+                - region
                 - type
                 type: object
               providerConfigRef:

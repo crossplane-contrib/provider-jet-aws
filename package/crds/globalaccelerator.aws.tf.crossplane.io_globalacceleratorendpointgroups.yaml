@@ -104,6 +104,8 @@ spec:
                       - listenerPort
                       type: object
                     type: array
+                  region:
+                    type: string
                   thresholdCount:
                     format: int64
                     type: integer
@@ -111,6 +113,7 @@ spec:
                     type: number
                 required:
                 - listenerArn
+                - region
                 type: object
               providerConfigRef:
                 default:

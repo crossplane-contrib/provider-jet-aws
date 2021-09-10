@@ -64,11 +64,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   routeTableId:
                     type: string
                   vpcId:
                     type: string
                 required:
+                - region
                 - routeTableId
                 - vpcId
                 type: object

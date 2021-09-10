@@ -67,6 +67,8 @@ spec:
                     type: string
                   policyType:
                     type: string
+                  region:
+                    type: string
                   resourceId:
                     type: string
                   scalableDimension:
@@ -161,6 +163,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 - resourceId
                 - scalableDimension
                 - serviceNamespace

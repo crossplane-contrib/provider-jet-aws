@@ -40,6 +40,8 @@ type ApiGatewayMethodParameters struct {
 
 	OperationName *string `json:"operationName,omitempty" tf:"operation_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequestModels map[string]string `json:"requestModels,omitempty" tf:"request_models"`
 
 	RequestParameters map[string]bool `json:"requestParameters,omitempty" tf:"request_parameters"`

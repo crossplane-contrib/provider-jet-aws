@@ -64,6 +64,8 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                   strategy:
                     type: string
                   tags:
@@ -76,6 +78,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - strategy
                 type: object
               providerConfigRef:

@@ -41,6 +41,8 @@ type CloudwatchEventRuleParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 
 	ScheduleExpression *string `json:"scheduleExpression,omitempty" tf:"schedule_expression"`

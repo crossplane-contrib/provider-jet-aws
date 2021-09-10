@@ -93,11 +93,14 @@ spec:
                     type: string
                   pattern:
                     type: string
+                  region:
+                    type: string
                 required:
                 - logGroupName
                 - metricTransformation
                 - name
                 - pattern
+                - region
                 type: object
               providerConfigRef:
                 default:

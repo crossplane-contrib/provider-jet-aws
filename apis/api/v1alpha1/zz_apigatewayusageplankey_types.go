@@ -35,6 +35,8 @@ type ApiGatewayUsagePlanKeyParameters struct {
 
 	KeyType string `json:"keyType" tf:"key_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	UsagePlanId string `json:"usagePlanId" tf:"usage_plan_id"`
 }
 

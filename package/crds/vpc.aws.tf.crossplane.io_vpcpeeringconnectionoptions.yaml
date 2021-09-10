@@ -75,6 +75,8 @@ spec:
                           type: boolean
                       type: object
                     type: array
+                  region:
+                    type: string
                   requester:
                     items:
                       properties:
@@ -89,6 +91,7 @@ spec:
                   vpcPeeringConnectionId:
                     type: string
                 required:
+                - region
                 - vpcPeeringConnectionId
                 type: object
               providerConfigRef:

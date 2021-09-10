@@ -240,6 +240,8 @@ type KinesisFirehoseDeliveryStreamParameters struct {
 
 	RedshiftConfiguration []RedshiftConfigurationParameters `json:"redshiftConfiguration,omitempty" tf:"redshift_configuration"`
 
+	Region string `json:"region" tf:"-"`
+
 	S3Configuration []S3ConfigurationParameters `json:"s3Configuration,omitempty" tf:"s3_configuration"`
 
 	ServerSideEncryption []ServerSideEncryptionParameters `json:"serverSideEncryption,omitempty" tf:"server_side_encryption"`

@@ -68,11 +68,14 @@ spec:
                     type: string
                   destinationCidrBlock:
                     type: string
+                  region:
+                    type: string
                   targetVpcSubnetId:
                     type: string
                 required:
                 - clientVpnEndpointId
                 - destinationCidrBlock
+                - region
                 - targetVpcSubnetId
                 type: object
               providerConfigRef:

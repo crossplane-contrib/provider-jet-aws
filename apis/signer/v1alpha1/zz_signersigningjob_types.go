@@ -104,6 +104,8 @@ type SignerSigningJobParameters struct {
 
 	ProfileName string `json:"profileName" tf:"profile_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Source []SourceParameters `json:"source" tf:"source"`
 }
 

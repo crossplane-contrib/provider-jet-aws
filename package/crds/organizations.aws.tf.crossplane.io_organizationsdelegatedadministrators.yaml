@@ -66,10 +66,13 @@ spec:
                 properties:
                   accountId:
                     type: string
+                  region:
+                    type: string
                   servicePrincipal:
                     type: string
                 required:
                 - accountId
+                - region
                 - servicePrincipal
                 type: object
               providerConfigRef:

@@ -41,6 +41,8 @@ type DbOptionGroupParameters struct {
 
 	OptionGroupDescription *string `json:"optionGroupDescription,omitempty" tf:"option_group_description"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

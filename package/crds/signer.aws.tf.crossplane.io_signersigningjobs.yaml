@@ -84,6 +84,8 @@ spec:
                     type: boolean
                   profileName:
                     type: string
+                  region:
+                    type: string
                   source:
                     items:
                       properties:
@@ -109,6 +111,7 @@ spec:
                 required:
                 - destination
                 - profileName
+                - region
                 - source
                 type: object
               providerConfigRef:

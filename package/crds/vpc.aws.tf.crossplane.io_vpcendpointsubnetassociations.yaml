@@ -64,11 +64,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   subnetId:
                     type: string
                   vpcEndpointId:
                     type: string
                 required:
+                - region
                 - subnetId
                 - vpcEndpointId
                 type: object

@@ -68,6 +68,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   restApiId:
                     type: string
                   schema:
@@ -75,6 +77,7 @@ spec:
                 required:
                 - contentType
                 - name
+                - region
                 - restApiId
                 type: object
               providerConfigRef:

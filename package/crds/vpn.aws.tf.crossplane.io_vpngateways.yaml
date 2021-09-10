@@ -66,6 +66,8 @@ spec:
                     type: string
                   availabilityZone:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -76,6 +78,8 @@ spec:
                     type: object
                   vpcId:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

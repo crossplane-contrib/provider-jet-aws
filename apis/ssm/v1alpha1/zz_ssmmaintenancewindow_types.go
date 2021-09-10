@@ -42,6 +42,8 @@ type SsmMaintenanceWindowParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Schedule string `json:"schedule" tf:"schedule"`
 
 	ScheduleOffset *int64 `json:"scheduleOffset,omitempty" tf:"schedule_offset"`

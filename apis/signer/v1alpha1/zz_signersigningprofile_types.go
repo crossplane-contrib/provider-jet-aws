@@ -54,6 +54,8 @@ type SignerSigningProfileParameters struct {
 
 	PlatformId string `json:"platformId" tf:"platform_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SignatureValidityPeriod []SignatureValidityPeriodParameters `json:"signatureValidityPeriod,omitempty" tf:"signature_validity_period"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

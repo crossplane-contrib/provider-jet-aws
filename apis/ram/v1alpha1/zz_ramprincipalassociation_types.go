@@ -30,6 +30,8 @@ type RamPrincipalAssociationObservation struct {
 type RamPrincipalAssociationParameters struct {
 	Principal string `json:"principal" tf:"principal"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceShareArn string `json:"resourceShareArn" tf:"resource_share_arn"`
 }
 

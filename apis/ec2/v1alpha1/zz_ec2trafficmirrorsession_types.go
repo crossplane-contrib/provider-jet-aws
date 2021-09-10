@@ -37,6 +37,8 @@ type Ec2TrafficMirrorSessionParameters struct {
 
 	PacketLength *int64 `json:"packetLength,omitempty" tf:"packet_length"`
 
+	Region string `json:"region" tf:"-"`
+
 	SessionNumber int64 `json:"sessionNumber" tf:"session_number"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

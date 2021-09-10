@@ -67,9 +67,12 @@ spec:
                     type: string
                   gatewayArn:
                     type: string
+                  region:
+                    type: string
                 required:
                 - diskId
                 - gatewayArn
+                - region
                 type: object
               providerConfigRef:
                 default:

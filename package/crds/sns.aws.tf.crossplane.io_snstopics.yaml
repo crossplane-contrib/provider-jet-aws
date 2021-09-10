@@ -106,6 +106,8 @@ spec:
                     type: string
                   policy:
                     type: string
+                  region:
+                    type: string
                   sqsFailureFeedbackRoleArn:
                     type: string
                   sqsSuccessFeedbackRoleArn:
@@ -121,6 +123,8 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

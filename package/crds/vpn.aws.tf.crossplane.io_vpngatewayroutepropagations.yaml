@@ -64,11 +64,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   routeTableId:
                     type: string
                   vpnGatewayId:
                     type: string
                 required:
+                - region
                 - routeTableId
                 - vpnGatewayId
                 type: object

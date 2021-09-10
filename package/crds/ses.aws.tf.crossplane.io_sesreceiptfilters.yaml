@@ -68,10 +68,13 @@ spec:
                     type: string
                   policy:
                     type: string
+                  region:
+                    type: string
                 required:
                 - cidr
                 - name
                 - policy
+                - region
                 type: object
               providerConfigRef:
                 default:

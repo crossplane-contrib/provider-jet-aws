@@ -37,6 +37,8 @@ type IotThingParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ThingTypeName *string `json:"thingTypeName,omitempty" tf:"thing_type_name"`
 }
 

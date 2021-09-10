@@ -46,6 +46,8 @@ type ConfigConfigurationAggregatorParameters struct {
 
 	OrganizationAggregationSource []OrganizationAggregationSourceParameters `json:"organizationAggregationSource,omitempty" tf:"organization_aggregation_source"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

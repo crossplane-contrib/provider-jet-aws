@@ -41,6 +41,8 @@ type WafregionalIpsetParameters struct {
 	IpSetDescriptor []IpSetDescriptorParameters `json:"ipSetDescriptor,omitempty" tf:"ip_set_descriptor"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // WafregionalIpsetSpec defines the desired state of WafregionalIpset

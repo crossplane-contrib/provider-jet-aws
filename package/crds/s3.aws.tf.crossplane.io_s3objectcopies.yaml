@@ -138,6 +138,8 @@ spec:
                     type: string
                   objectLockRetainUntilDate:
                     type: string
+                  region:
+                    type: string
                   requestPayer:
                     type: string
                   serverSideEncryption:
@@ -167,6 +169,7 @@ spec:
                 required:
                 - bucket
                 - key
+                - region
                 - source
                 type: object
               providerConfigRef:

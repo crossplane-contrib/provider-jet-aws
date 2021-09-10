@@ -70,6 +70,8 @@ spec:
                     type: string
                   localIpv6NetworkCidr:
                     type: string
+                  region:
+                    type: string
                   remoteIpv4NetworkCidr:
                     type: string
                   remoteIpv6NetworkCidr:
@@ -210,6 +212,7 @@ spec:
                     type: string
                 required:
                 - customerGatewayId
+                - region
                 - type
                 type: object
               providerConfigRef:

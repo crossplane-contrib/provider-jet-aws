@@ -50,6 +50,8 @@ type AppmeshRouteParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Spec []AppmeshRouteSpecParameters `json:"spec" tf:"spec"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

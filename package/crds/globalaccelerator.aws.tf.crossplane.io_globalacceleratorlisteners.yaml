@@ -81,10 +81,13 @@ spec:
                     type: array
                   protocol:
                     type: string
+                  region:
+                    type: string
                 required:
                 - acceleratorArn
                 - portRange
                 - protocol
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -66,12 +66,15 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                   targetArn:
                     type: string
                 required:
                 - name
+                - region
                 - roleArn
                 - targetArn
                 type: object

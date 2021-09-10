@@ -76,6 +76,8 @@ spec:
                     type: string
                   pollInterval:
                     type: string
+                  region:
+                    type: string
                   setting:
                     items:
                       properties:
@@ -114,6 +116,7 @@ spec:
                 required:
                 - application
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

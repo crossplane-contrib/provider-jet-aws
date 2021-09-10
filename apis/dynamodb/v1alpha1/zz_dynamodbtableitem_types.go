@@ -34,6 +34,8 @@ type DynamodbTableItemParameters struct {
 
 	RangeKey *string `json:"rangeKey,omitempty" tf:"range_key"`
 
+	Region string `json:"region" tf:"-"`
+
 	TableName string `json:"tableName" tf:"table_name"`
 }
 

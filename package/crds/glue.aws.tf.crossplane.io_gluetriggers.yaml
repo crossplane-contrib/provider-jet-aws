@@ -118,6 +118,8 @@ spec:
                       - conditions
                       type: object
                     type: array
+                  region:
+                    type: string
                   schedule:
                     type: string
                   tags:
@@ -135,6 +137,7 @@ spec:
                 required:
                 - actions
                 - name
+                - region
                 - type
                 type: object
               providerConfigRef:

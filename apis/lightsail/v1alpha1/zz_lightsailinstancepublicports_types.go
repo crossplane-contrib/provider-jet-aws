@@ -31,6 +31,8 @@ type LightsailInstancePublicPortsParameters struct {
 	InstanceName string `json:"instanceName" tf:"instance_name"`
 
 	PortInfo []PortInfoParameters `json:"portInfo" tf:"port_info"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type PortInfoObservation struct {

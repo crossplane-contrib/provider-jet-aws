@@ -81,6 +81,8 @@ spec:
                     type: string
                   ownerAccountId:
                     type: string
+                  region:
+                    type: string
                   routeFilterPrefixes:
                     items:
                       type: string
@@ -94,6 +96,7 @@ spec:
                 - connectionId
                 - name
                 - ownerAccountId
+                - region
                 - routeFilterPrefixes
                 - vlan
                 type: object

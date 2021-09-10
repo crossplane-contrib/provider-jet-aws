@@ -38,6 +38,8 @@ type EcrReplicationConfigurationObservation struct {
 }
 
 type EcrReplicationConfigurationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ReplicationConfiguration []ReplicationConfigurationParameters `json:"replicationConfiguration,omitempty" tf:"replication_configuration"`
 }
 

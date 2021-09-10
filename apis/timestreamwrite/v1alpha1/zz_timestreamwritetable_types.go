@@ -40,6 +40,8 @@ type TimestreamwriteTableObservation struct {
 type TimestreamwriteTableParameters struct {
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetentionProperties []RetentionPropertiesParameters `json:"retentionProperties,omitempty" tf:"retention_properties"`
 
 	TableName string `json:"tableName" tf:"table_name"`

@@ -111,6 +111,8 @@ spec:
                     type: string
                   parentImage:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -127,6 +129,7 @@ spec:
                 - component
                 - name
                 - parentImage
+                - region
                 - version
                 type: object
               providerConfigRef:

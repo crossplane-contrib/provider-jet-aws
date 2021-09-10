@@ -29,6 +29,8 @@ type MacieMemberAccountAssociationObservation struct {
 
 type MacieMemberAccountAssociationParameters struct {
 	MemberAccountId string `json:"memberAccountId" tf:"member_account_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // MacieMemberAccountAssociationSpec defines the desired state of MacieMemberAccountAssociation

@@ -68,6 +68,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   registryName:
                     type: string
                   tags:
@@ -83,6 +85,7 @@ spec:
                 required:
                 - content
                 - name
+                - region
                 - registryName
                 - type
                 type: object

@@ -63,6 +63,8 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   vpcId:
                     type: string
                   vpcRegion:
@@ -70,6 +72,7 @@ spec:
                   zoneId:
                     type: string
                 required:
+                - region
                 - vpcId
                 - zoneId
                 type: object

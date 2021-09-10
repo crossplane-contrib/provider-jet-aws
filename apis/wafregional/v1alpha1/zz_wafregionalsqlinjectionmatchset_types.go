@@ -48,6 +48,8 @@ type WafregionalSqlInjectionMatchSetObservation struct {
 type WafregionalSqlInjectionMatchSetParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SqlInjectionMatchTuple []SqlInjectionMatchTupleParameters `json:"sqlInjectionMatchTuple,omitempty" tf:"sql_injection_match_tuple"`
 }
 

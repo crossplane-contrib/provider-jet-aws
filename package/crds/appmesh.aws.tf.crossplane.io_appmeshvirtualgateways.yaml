@@ -69,6 +69,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   spec:
                     items:
                       properties:
@@ -396,6 +398,7 @@ spec:
                 required:
                 - meshName
                 - name
+                - region
                 - spec
                 type: object
               providerConfigRef:

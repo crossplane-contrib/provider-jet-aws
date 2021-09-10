@@ -59,6 +59,8 @@ type EipParameters struct {
 
 	PublicIpv4Pool *string `json:"publicIpv4Pool,omitempty" tf:"public_ipv4_pool"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

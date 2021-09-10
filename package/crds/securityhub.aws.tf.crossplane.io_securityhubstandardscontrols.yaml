@@ -68,10 +68,13 @@ spec:
                     type: string
                   disabledReason:
                     type: string
+                  region:
+                    type: string
                   standardsControlArn:
                     type: string
                 required:
                 - controlStatus
+                - region
                 - standardsControlArn
                 type: object
               providerConfigRef:

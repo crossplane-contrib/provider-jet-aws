@@ -35,6 +35,8 @@ type IamUserSshKeyParameters struct {
 
 	PublicKey string `json:"publicKey" tf:"public_key"`
 
+	Region string `json:"region" tf:"-"`
+
 	Status *string `json:"status,omitempty" tf:"status"`
 
 	Username string `json:"username" tf:"username"`

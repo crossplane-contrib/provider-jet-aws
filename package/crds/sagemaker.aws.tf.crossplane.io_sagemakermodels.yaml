@@ -133,6 +133,8 @@ spec:
                       - image
                       type: object
                     type: array
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -159,6 +161,7 @@ spec:
                     type: array
                 required:
                 - executionRoleArn
+                - region
                 type: object
               providerConfigRef:
                 default:

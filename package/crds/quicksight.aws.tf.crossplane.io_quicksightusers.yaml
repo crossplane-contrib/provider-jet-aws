@@ -72,6 +72,8 @@ spec:
                     type: string
                   namespace:
                     type: string
+                  region:
+                    type: string
                   sessionName:
                     type: string
                   userName:
@@ -81,6 +83,7 @@ spec:
                 required:
                 - email
                 - identityType
+                - region
                 - userRole
                 type: object
               providerConfigRef:

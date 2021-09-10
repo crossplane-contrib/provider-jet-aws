@@ -79,6 +79,8 @@ spec:
                     type: array
                   privateKey:
                     type: string
+                  region:
+                    type: string
                   subjectAlternativeNames:
                     items:
                       type: string
@@ -93,6 +95,8 @@ spec:
                     type: object
                   validationMethod:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

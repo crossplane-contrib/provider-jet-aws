@@ -98,6 +98,8 @@ type WafregionalWebAclParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Rule []RuleParameters `json:"rule,omitempty" tf:"rule"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

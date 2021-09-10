@@ -87,8 +87,11 @@ spec:
                     type: array
                   projectName:
                     type: string
+                  region:
+                    type: string
                 required:
                 - projectName
+                - region
                 type: object
               providerConfigRef:
                 default:

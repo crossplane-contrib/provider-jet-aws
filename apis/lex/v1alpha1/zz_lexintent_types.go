@@ -133,6 +133,8 @@ type LexIntentParameters struct {
 
 	ParentIntentSignature *string `json:"parentIntentSignature,omitempty" tf:"parent_intent_signature"`
 
+	Region string `json:"region" tf:"-"`
+
 	RejectionStatement []LexIntentRejectionStatementParameters `json:"rejectionStatement,omitempty" tf:"rejection_statement"`
 
 	SampleUtterances []string `json:"sampleUtterances,omitempty" tf:"sample_utterances"`

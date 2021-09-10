@@ -71,6 +71,8 @@ spec:
                   priority:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   state:
                     type: string
                   tags:
@@ -85,6 +87,7 @@ spec:
                 - computeEnvironments
                 - name
                 - priority
+                - region
                 - state
                 type: object
               providerConfigRef:

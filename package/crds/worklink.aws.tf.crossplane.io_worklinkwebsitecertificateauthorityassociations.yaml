@@ -70,9 +70,12 @@ spec:
                     type: string
                   fleetArn:
                     type: string
+                  region:
+                    type: string
                 required:
                 - certificate
                 - fleetArn
+                - region
                 type: object
               providerConfigRef:
                 default:

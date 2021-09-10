@@ -129,6 +129,8 @@ spec:
                       - type
                       type: object
                     type: array
+                  region:
+                    type: string
                   serviceRole:
                     type: string
                   state:
@@ -144,6 +146,7 @@ spec:
                   type:
                     type: string
                 required:
+                - region
                 - type
                 type: object
               providerConfigRef:

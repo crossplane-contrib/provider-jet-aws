@@ -53,6 +53,8 @@ type RouteParameters struct {
 
 	NetworkInterfaceId *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
 
 	TransitGatewayId *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id"`

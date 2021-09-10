@@ -30,6 +30,8 @@ type NetworkInterfaceSgAttachmentObservation struct {
 type NetworkInterfaceSgAttachmentParameters struct {
 	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
 }
 

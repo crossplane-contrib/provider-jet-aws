@@ -81,6 +81,8 @@ spec:
                       - agentArns
                       type: object
                     type: array
+                  region:
+                    type: string
                   serverHostname:
                     type: string
                   subdirectory:
@@ -95,6 +97,7 @@ spec:
                     type: object
                 required:
                 - onPremConfig
+                - region
                 - serverHostname
                 - subdirectory
                 type: object

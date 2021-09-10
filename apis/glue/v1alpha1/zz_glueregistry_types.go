@@ -31,6 +31,8 @@ type GlueRegistryObservation struct {
 type GlueRegistryParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	Region string `json:"region" tf:"-"`
+
 	RegistryName string `json:"registryName" tf:"registry_name"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

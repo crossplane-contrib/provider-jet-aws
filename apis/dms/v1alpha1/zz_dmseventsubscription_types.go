@@ -35,6 +35,8 @@ type DmsEventSubscriptionParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
 
 	SourceIds []string `json:"sourceIds,omitempty" tf:"source_ids"`

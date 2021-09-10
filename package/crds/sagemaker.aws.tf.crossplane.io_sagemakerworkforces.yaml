@@ -105,6 +105,8 @@ spec:
                       - userInfoEndpoint
                       type: object
                     type: array
+                  region:
+                    type: string
                   sourceIpConfig:
                     items:
                       properties:
@@ -119,6 +121,7 @@ spec:
                   workforceName:
                     type: string
                 required:
+                - region
                 - workforceName
                 type: object
               providerConfigRef:

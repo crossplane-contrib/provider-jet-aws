@@ -31,6 +31,8 @@ type SecretsmanagerSecretVersionObservation struct {
 }
 
 type SecretsmanagerSecretVersionParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	SecretBinary *string `json:"secretBinary,omitempty" tf:"secret_binary"`
 
 	SecretId string `json:"secretId" tf:"secret_id"`

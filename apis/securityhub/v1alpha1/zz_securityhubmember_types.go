@@ -36,6 +36,8 @@ type SecurityhubMemberParameters struct {
 	Email string `json:"email" tf:"email"`
 
 	Invite *bool `json:"invite,omitempty" tf:"invite"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SecurityhubMemberSpec defines the desired state of SecurityhubMember

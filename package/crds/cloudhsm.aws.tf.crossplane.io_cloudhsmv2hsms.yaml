@@ -68,10 +68,13 @@ spec:
                     type: string
                   ipAddress:
                     type: string
+                  region:
+                    type: string
                   subnetId:
                     type: string
                 required:
                 - clusterId
+                - region
                 type: object
               providerConfigRef:
                 default:

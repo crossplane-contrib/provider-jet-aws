@@ -53,6 +53,8 @@ type LambdaFunctionEventInvokeConfigParameters struct {
 	MaximumRetryAttempts *int64 `json:"maximumRetryAttempts,omitempty" tf:"maximum_retry_attempts"`
 
 	Qualifier *string `json:"qualifier,omitempty" tf:"qualifier"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type OnSuccessObservation struct {

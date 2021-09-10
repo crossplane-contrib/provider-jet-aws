@@ -70,11 +70,14 @@ spec:
                     type: array
                   backupVaultName:
                     type: string
+                  region:
+                    type: string
                   snsTopicArn:
                     type: string
                 required:
                 - backupVaultEvents
                 - backupVaultName
+                - region
                 - snsTopicArn
                 type: object
               providerConfigRef:

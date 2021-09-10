@@ -70,10 +70,13 @@ spec:
                     type: boolean
                   pgpKey:
                     type: string
+                  region:
+                    type: string
                   user:
                     type: string
                 required:
                 - pgpKey
+                - region
                 - user
                 type: object
               providerConfigRef:

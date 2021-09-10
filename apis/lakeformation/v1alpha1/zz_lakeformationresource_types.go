@@ -31,6 +31,8 @@ type LakeformationResourceObservation struct {
 type LakeformationResourceParameters struct {
 	Arn string `json:"arn" tf:"arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 }
 

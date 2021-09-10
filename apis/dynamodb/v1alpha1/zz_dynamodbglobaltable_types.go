@@ -31,6 +31,8 @@ type DynamodbGlobalTableObservation struct {
 type DynamodbGlobalTableParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Replica []ReplicaParameters `json:"replica" tf:"replica"`
 }
 

@@ -41,6 +41,8 @@ type SchemasSchemaParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RegistryName string `json:"registryName" tf:"registry_name"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

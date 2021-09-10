@@ -80,6 +80,8 @@ spec:
                     type: boolean
                   redrivePolicy:
                     type: string
+                  region:
+                    type: string
                   subscriptionRoleArn:
                     type: string
                   topicArn:
@@ -87,6 +89,7 @@ spec:
                 required:
                 - endpoint
                 - protocol
+                - region
                 - topicArn
                 type: object
               providerConfigRef:

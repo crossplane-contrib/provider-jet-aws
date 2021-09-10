@@ -31,6 +31,8 @@ type AccessanalyzerAnalyzerObservation struct {
 type AccessanalyzerAnalyzerParameters struct {
 	AnalyzerName string `json:"analyzerName" tf:"analyzer_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

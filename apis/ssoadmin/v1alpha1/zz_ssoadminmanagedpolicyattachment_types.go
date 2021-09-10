@@ -34,6 +34,8 @@ type SsoadminManagedPolicyAttachmentParameters struct {
 	ManagedPolicyArn string `json:"managedPolicyArn" tf:"managed_policy_arn"`
 
 	PermissionSetArn string `json:"permissionSetArn" tf:"permission_set_arn"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SsoadminManagedPolicyAttachmentSpec defines the desired state of SsoadminManagedPolicyAttachment

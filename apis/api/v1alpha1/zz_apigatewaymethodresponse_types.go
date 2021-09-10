@@ -30,6 +30,8 @@ type ApiGatewayMethodResponseObservation struct {
 type ApiGatewayMethodResponseParameters struct {
 	HttpMethod string `json:"httpMethod" tf:"http_method"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceId string `json:"resourceId" tf:"resource_id"`
 
 	ResponseModels map[string]string `json:"responseModels,omitempty" tf:"response_models"`

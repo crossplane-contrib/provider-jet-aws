@@ -44,6 +44,8 @@ type BackupPlanParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Rule []RuleParameters `json:"rule" tf:"rule"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

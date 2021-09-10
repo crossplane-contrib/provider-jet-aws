@@ -43,6 +43,8 @@ type GlueUserDefinedFunctionParameters struct {
 
 	OwnerType string `json:"ownerType" tf:"owner_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceUris []ResourceUrisParameters `json:"resourceUris,omitempty" tf:"resource_uris"`
 }
 

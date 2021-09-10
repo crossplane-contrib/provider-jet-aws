@@ -31,6 +31,8 @@ type ShieldProtectionObservation struct {
 type ShieldProtectionParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

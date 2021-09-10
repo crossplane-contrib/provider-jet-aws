@@ -65,6 +65,8 @@ type AmplifyBranchParameters struct {
 
 	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName,omitempty" tf:"pull_request_environment_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Stage *string `json:"stage,omitempty" tf:"stage"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

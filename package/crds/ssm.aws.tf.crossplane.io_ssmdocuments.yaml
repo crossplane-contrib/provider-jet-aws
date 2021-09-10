@@ -90,6 +90,8 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -106,6 +108,7 @@ spec:
                 - content
                 - documentType
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

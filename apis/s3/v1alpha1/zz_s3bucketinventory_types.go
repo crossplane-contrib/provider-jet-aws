@@ -80,6 +80,8 @@ type S3BucketInventoryParameters struct {
 
 	OptionalFields []string `json:"optionalFields,omitempty" tf:"optional_fields"`
 
+	Region string `json:"region" tf:"-"`
+
 	Schedule []ScheduleParameters `json:"schedule" tf:"schedule"`
 }
 

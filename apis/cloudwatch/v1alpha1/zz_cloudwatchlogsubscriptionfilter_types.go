@@ -38,6 +38,8 @@ type CloudwatchLogSubscriptionFilterParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 }
 

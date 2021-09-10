@@ -32,6 +32,8 @@ type PrometheusWorkspaceObservation struct {
 
 type PrometheusWorkspaceParameters struct {
 	Alias *string `json:"alias,omitempty" tf:"alias"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // PrometheusWorkspaceSpec defines the desired state of PrometheusWorkspace

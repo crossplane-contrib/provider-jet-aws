@@ -49,6 +49,8 @@ type Macie2MemberParameters struct {
 
 	Invite *bool `json:"invite,omitempty" tf:"invite"`
 
+	Region string `json:"region" tf:"-"`
+
 	Status *string `json:"status,omitempty" tf:"status"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

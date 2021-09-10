@@ -110,6 +110,8 @@ type S3ObjectCopyParameters struct {
 
 	ObjectLockRetainUntilDate *string `json:"objectLockRetainUntilDate,omitempty" tf:"object_lock_retain_until_date"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequestPayer *string `json:"requestPayer,omitempty" tf:"request_payer"`
 
 	ServerSideEncryption *string `json:"serverSideEncryption,omitempty" tf:"server_side_encryption"`

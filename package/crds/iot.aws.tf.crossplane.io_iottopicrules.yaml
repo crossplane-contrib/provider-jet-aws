@@ -492,6 +492,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   republish:
                     items:
                       properties:
@@ -580,6 +582,7 @@ spec:
                 required:
                 - enabled
                 - name
+                - region
                 - sql
                 - sqlVersion
                 type: object

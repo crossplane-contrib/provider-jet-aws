@@ -92,6 +92,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   samplingRate:
                     format: int64
                     type: integer
@@ -99,6 +101,7 @@ spec:
                 - endpoint
                 - fields
                 - name
+                - region
                 - samplingRate
                 type: object
               providerConfigRef:

@@ -34,6 +34,8 @@ type AppsyncApiKeyParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
 	Expires *string `json:"expires,omitempty" tf:"expires"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // AppsyncApiKeySpec defines the desired state of AppsyncApiKey

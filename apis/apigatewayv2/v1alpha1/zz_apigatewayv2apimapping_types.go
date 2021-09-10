@@ -34,6 +34,8 @@ type Apigatewayv2ApiMappingParameters struct {
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Stage string `json:"stage" tf:"stage"`
 }
 

@@ -134,6 +134,8 @@ spec:
                     type: integer
                   name:
                     type: string
+                  region:
+                    type: string
                   shortName:
                     type: string
                   stackId:
@@ -154,6 +156,7 @@ spec:
                     type: boolean
                 required:
                 - name
+                - region
                 - shortName
                 - stackId
                 type: object

@@ -28,6 +28,8 @@ type VpcEndpointSubnetAssociationObservation struct {
 }
 
 type VpcEndpointSubnetAssociationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	SubnetId string `json:"subnetId" tf:"subnet_id"`
 
 	VpcEndpointId string `json:"vpcEndpointId" tf:"vpc_endpoint_id"`

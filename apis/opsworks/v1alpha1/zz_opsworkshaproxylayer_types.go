@@ -86,6 +86,8 @@ type OpsworksHaproxyLayerParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	StackId string `json:"stackId" tf:"stack_id"`
 
 	StatsEnabled *bool `json:"statsEnabled,omitempty" tf:"stats_enabled"`

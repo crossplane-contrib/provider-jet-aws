@@ -80,12 +80,15 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   restApiId:
                     type: string
                   type:
                     type: string
                 required:
                 - name
+                - region
                 - restApiId
                 type: object
               providerConfigRef:

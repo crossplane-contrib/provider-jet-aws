@@ -64,9 +64,12 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   ruleSetName:
                     type: string
                 required:
+                - region
                 - ruleSetName
                 type: object
               providerConfigRef:

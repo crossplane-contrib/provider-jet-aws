@@ -31,6 +31,8 @@ type SsmPatchGroupParameters struct {
 	BaselineId string `json:"baselineId" tf:"baseline_id"`
 
 	PatchGroup string `json:"patchGroup" tf:"patch_group"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SsmPatchGroupSpec defines the desired state of SsmPatchGroup

@@ -30,6 +30,8 @@ type S3BucketOwnershipControlsObservation struct {
 type S3BucketOwnershipControlsParameters struct {
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	Region string `json:"region" tf:"-"`
+
 	Rule []S3BucketOwnershipControlsRuleParameters `json:"rule" tf:"rule"`
 }
 

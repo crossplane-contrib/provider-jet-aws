@@ -37,6 +37,8 @@ type CodeartifactRepositoryPermissionsPolicyParameters struct {
 
 	PolicyRevision *string `json:"policyRevision,omitempty" tf:"policy_revision"`
 
+	Region string `json:"region" tf:"-"`
+
 	Repository string `json:"repository" tf:"repository"`
 }
 

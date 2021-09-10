@@ -67,10 +67,13 @@ spec:
                   credentialDuration:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   roleArn:
                     type: string
                 required:
                 - alias
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

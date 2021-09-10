@@ -32,6 +32,8 @@ type BackupVaultPolicyParameters struct {
 	BackupVaultName string `json:"backupVaultName" tf:"backup_vault_name"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // BackupVaultPolicySpec defines the desired state of BackupVaultPolicy

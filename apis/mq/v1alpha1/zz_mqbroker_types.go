@@ -135,6 +135,8 @@ type MqBrokerParameters struct {
 
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
 	StorageType *string `json:"storageType,omitempty" tf:"storage_type"`

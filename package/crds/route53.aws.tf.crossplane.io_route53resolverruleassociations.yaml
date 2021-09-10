@@ -66,11 +66,14 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                   resolverRuleId:
                     type: string
                   vpcId:
                     type: string
                 required:
+                - region
                 - resolverRuleId
                 - vpcId
                 type: object

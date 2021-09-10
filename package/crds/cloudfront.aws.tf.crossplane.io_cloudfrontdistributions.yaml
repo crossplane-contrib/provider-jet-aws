@@ -442,6 +442,8 @@ spec:
                     type: array
                   priceClass:
                     type: string
+                  region:
+                    type: string
                   restrictions:
                     items:
                       properties:
@@ -495,6 +497,7 @@ spec:
                 - defaultCacheBehavior
                 - enabled
                 - origin
+                - region
                 - restrictions
                 - viewerCertificate
                 type: object

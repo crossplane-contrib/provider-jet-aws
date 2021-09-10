@@ -67,11 +67,14 @@ spec:
                     type: string
                   destinationStreamArn:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                 required:
                 - applicationId
                 - destinationStreamArn
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

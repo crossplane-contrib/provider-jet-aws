@@ -72,6 +72,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   retentionPeriod:
                     format: int64
                     type: integer
@@ -92,6 +94,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - shardCount
                 type: object
               providerConfigRef:

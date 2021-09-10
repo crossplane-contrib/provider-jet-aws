@@ -41,6 +41,8 @@ type CognitoIdentityPoolParameters struct {
 
 	OpenidConnectProviderArns []string `json:"openidConnectProviderArns,omitempty" tf:"openid_connect_provider_arns"`
 
+	Region string `json:"region" tf:"-"`
+
 	SamlProviderArns []string `json:"samlProviderArns,omitempty" tf:"saml_provider_arns"`
 
 	SupportedLoginProviders map[string]string `json:"supportedLoginProviders,omitempty" tf:"supported_login_providers"`

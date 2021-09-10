@@ -69,6 +69,8 @@ spec:
                     type: integer
                   name:
                     type: string
+                  region:
+                    type: string
                   rulesPackageArns:
                     items:
                       type: string
@@ -86,6 +88,7 @@ spec:
                 required:
                 - duration
                 - name
+                - region
                 - rulesPackageArns
                 - targetArn
                 type: object

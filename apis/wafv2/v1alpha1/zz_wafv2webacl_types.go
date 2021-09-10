@@ -30992,6 +30992,8 @@ type Wafv2WebAclParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Rule []Wafv2WebAclRuleParameters `json:"rule,omitempty" tf:"rule"`
 
 	Scope string `json:"scope" tf:"scope"`

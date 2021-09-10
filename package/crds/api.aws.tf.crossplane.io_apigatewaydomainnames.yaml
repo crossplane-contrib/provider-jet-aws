@@ -97,6 +97,8 @@ spec:
                       - truststoreUri
                       type: object
                     type: array
+                  region:
+                    type: string
                   regionalCertificateArn:
                     type: string
                   regionalCertificateName:
@@ -113,6 +115,7 @@ spec:
                     type: object
                 required:
                 - domainName
+                - region
                 type: object
               providerConfigRef:
                 default:

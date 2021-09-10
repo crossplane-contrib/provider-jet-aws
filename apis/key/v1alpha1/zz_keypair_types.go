@@ -39,6 +39,8 @@ type KeyPairParameters struct {
 
 	PublicKey string `json:"publicKey" tf:"public_key"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

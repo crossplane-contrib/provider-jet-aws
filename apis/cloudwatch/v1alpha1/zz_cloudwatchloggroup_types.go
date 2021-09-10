@@ -35,6 +35,8 @@ type CloudwatchLogGroupParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetentionInDays *int64 `json:"retentionInDays,omitempty" tf:"retention_in_days"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

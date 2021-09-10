@@ -40,6 +40,8 @@ type AppconfigHostedConfigurationVersionParameters struct {
 	ContentType string `json:"contentType" tf:"content_type"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // AppconfigHostedConfigurationVersionSpec defines the desired state of AppconfigHostedConfigurationVersion

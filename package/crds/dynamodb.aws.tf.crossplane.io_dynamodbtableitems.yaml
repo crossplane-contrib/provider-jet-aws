@@ -68,11 +68,14 @@ spec:
                     type: string
                   rangeKey:
                     type: string
+                  region:
+                    type: string
                   tableName:
                     type: string
                 required:
                 - hashKey
                 - item
+                - region
                 - tableName
                 type: object
               providerConfigRef:

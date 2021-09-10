@@ -312,6 +312,8 @@ spec:
                     type: array
                   ramDiskId:
                     type: string
+                  region:
+                    type: string
                   securityGroupNames:
                     items:
                       type: string
@@ -343,6 +345,8 @@ spec:
                     items:
                       type: string
                     type: array
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

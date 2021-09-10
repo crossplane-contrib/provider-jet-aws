@@ -37,6 +37,8 @@ type Route53ResolverRuleParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResolverEndpointId *string `json:"resolverEndpointId,omitempty" tf:"resolver_endpoint_id"`
 
 	RuleType string `json:"ruleType" tf:"rule_type"`

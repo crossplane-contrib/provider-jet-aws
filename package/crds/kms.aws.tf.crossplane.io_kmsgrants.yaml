@@ -89,6 +89,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   retireOnDelete:
                     type: boolean
                   retiringPrincipal:
@@ -97,6 +99,7 @@ spec:
                 - granteePrincipal
                 - keyId
                 - operations
+                - region
                 type: object
               providerConfigRef:
                 default:

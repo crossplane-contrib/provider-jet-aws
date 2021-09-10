@@ -68,6 +68,8 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -79,6 +81,7 @@ spec:
                   workflowExecutionRetentionPeriodInDays:
                     type: string
                 required:
+                - region
                 - workflowExecutionRetentionPeriodInDays
                 type: object
               providerConfigRef:

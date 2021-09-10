@@ -72,6 +72,8 @@ type ElasticBeanstalkEnvironmentParameters struct {
 
 	PollInterval *string `json:"pollInterval,omitempty" tf:"poll_interval"`
 
+	Region string `json:"region" tf:"-"`
+
 	Setting []ElasticBeanstalkEnvironmentSettingParameters `json:"setting,omitempty" tf:"setting"`
 
 	SolutionStackName *string `json:"solutionStackName,omitempty" tf:"solution_stack_name"`

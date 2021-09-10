@@ -35,6 +35,8 @@ type AmplifyDomainAssociationParameters struct {
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubDomain []SubDomainParameters `json:"subDomain" tf:"sub_domain"`
 
 	WaitForVerification *bool `json:"waitForVerification,omitempty" tf:"wait_for_verification"`

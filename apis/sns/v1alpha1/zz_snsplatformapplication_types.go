@@ -47,6 +47,8 @@ type SnsPlatformApplicationParameters struct {
 
 	PlatformPrincipal *string `json:"platformPrincipal,omitempty" tf:"platform_principal"`
 
+	Region string `json:"region" tf:"-"`
+
 	SuccessFeedbackRoleArn *string `json:"successFeedbackRoleArn,omitempty" tf:"success_feedback_role_arn"`
 
 	SuccessFeedbackSampleRate *string `json:"successFeedbackSampleRate,omitempty" tf:"success_feedback_sample_rate"`

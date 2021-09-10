@@ -68,6 +68,8 @@ spec:
                     type: string
                   modelSelectionExpression:
                     type: string
+                  region:
+                    type: string
                   responseModels:
                     additionalProperties:
                       type: string
@@ -78,6 +80,7 @@ spec:
                     type: string
                 required:
                 - apiId
+                - region
                 - routeId
                 - routeResponseKey
                 type: object

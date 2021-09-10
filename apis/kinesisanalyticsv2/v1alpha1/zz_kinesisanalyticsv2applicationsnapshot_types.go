@@ -33,6 +33,8 @@ type Kinesisanalyticsv2ApplicationSnapshotObservation struct {
 type Kinesisanalyticsv2ApplicationSnapshotParameters struct {
 	ApplicationName string `json:"applicationName" tf:"application_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnapshotName string `json:"snapshotName" tf:"snapshot_name"`
 }
 

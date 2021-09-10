@@ -78,6 +78,8 @@ spec:
                     type: string
                   productId:
                     type: string
+                  region:
+                    type: string
                   templatePhysicalId:
                     type: string
                   templateUrl:
@@ -86,6 +88,7 @@ spec:
                     type: string
                 required:
                 - productId
+                - region
                 type: object
               providerConfigRef:
                 default:

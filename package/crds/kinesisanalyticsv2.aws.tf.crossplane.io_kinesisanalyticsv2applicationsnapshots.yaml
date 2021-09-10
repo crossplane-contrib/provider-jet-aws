@@ -66,10 +66,13 @@ spec:
                 properties:
                   applicationName:
                     type: string
+                  region:
+                    type: string
                   snapshotName:
                     type: string
                 required:
                 - applicationName
+                - region
                 - snapshotName
                 type: object
               providerConfigRef:

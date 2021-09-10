@@ -72,6 +72,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   scope:
                     type: string
                   tags:
@@ -85,6 +87,7 @@ spec:
                 required:
                 - ipAddressVersion
                 - name
+                - region
                 - scope
                 type: object
               providerConfigRef:

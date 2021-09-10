@@ -35,6 +35,8 @@ type CloudwatchLogMetricFilterParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	Pattern string `json:"pattern" tf:"pattern"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type MetricTransformationObservation struct {

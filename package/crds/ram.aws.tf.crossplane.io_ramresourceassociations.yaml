@@ -63,11 +63,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   resourceArn:
                     type: string
                   resourceShareArn:
                     type: string
                 required:
+                - region
                 - resourceArn
                 - resourceShareArn
                 type: object

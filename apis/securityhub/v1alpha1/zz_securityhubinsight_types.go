@@ -988,6 +988,8 @@ type SecurityhubInsightParameters struct {
 	GroupByAttribute string `json:"groupByAttribute" tf:"group_by_attribute"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type SeverityLabelObservation struct {

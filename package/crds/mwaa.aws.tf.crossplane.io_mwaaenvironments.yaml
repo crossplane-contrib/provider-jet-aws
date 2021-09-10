@@ -154,6 +154,8 @@ spec:
                     type: string
                   pluginsS3Path:
                     type: string
+                  region:
+                    type: string
                   requirementsS3ObjectVersion:
                     type: string
                   requirementsS3Path:
@@ -177,6 +179,7 @@ spec:
                 - executionRoleArn
                 - name
                 - networkConfiguration
+                - region
                 - sourceBucketArn
                 type: object
               providerConfigRef:

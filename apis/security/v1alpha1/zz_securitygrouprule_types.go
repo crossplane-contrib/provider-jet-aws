@@ -40,6 +40,8 @@ type SecurityGroupRuleParameters struct {
 
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
 
 	Self *bool `json:"self,omitempty" tf:"self"`

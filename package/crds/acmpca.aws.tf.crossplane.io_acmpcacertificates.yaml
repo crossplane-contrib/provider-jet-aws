@@ -66,6 +66,8 @@ spec:
                     type: string
                   certificateSigningRequest:
                     type: string
+                  region:
+                    type: string
                   signingAlgorithm:
                     type: string
                   templateArn:
@@ -85,6 +87,7 @@ spec:
                 required:
                 - certificateAuthorityArn
                 - certificateSigningRequest
+                - region
                 - signingAlgorithm
                 - validity
                 type: object

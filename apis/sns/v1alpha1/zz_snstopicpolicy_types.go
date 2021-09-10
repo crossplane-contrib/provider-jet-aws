@@ -32,6 +32,8 @@ type SnsTopicPolicyParameters struct {
 	Arn string `json:"arn" tf:"arn"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SnsTopicPolicySpec defines the desired state of SnsTopicPolicy

@@ -33,6 +33,8 @@ type CognitoResourceServerParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Scope []ScopeParameters `json:"scope,omitempty" tf:"scope"`
 
 	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`

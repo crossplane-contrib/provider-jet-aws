@@ -118,6 +118,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   setIdentifier:
                     type: string
                   ttl:
@@ -139,6 +141,7 @@ spec:
                     type: string
                 required:
                 - name
+                - region
                 - type
                 - zoneId
                 type: object

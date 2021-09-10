@@ -79,6 +79,8 @@ spec:
                     type: array
                   privateDnsName:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -89,6 +91,7 @@ spec:
                     type: object
                 required:
                 - acceptanceRequired
+                - region
                 type: object
               providerConfigRef:
                 default:

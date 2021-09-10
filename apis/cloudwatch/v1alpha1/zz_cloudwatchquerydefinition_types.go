@@ -34,6 +34,8 @@ type CloudwatchQueryDefinitionParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	QueryString string `json:"queryString" tf:"query_string"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudwatchQueryDefinitionSpec defines the desired state of CloudwatchQueryDefinition

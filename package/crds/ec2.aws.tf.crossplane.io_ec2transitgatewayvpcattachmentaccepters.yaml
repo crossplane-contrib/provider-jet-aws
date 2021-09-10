@@ -64,6 +64,8 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -79,6 +81,7 @@ spec:
                   transitGatewayDefaultRouteTablePropagation:
                     type: boolean
                 required:
+                - region
                 - transitGatewayAttachmentId
                 type: object
               providerConfigRef:

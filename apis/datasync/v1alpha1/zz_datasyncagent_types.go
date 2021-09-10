@@ -37,6 +37,8 @@ type DatasyncAgentParameters struct {
 
 	PrivateLinkEndpoint *string `json:"privateLinkEndpoint,omitempty" tf:"private_link_endpoint"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupArns []string `json:"securityGroupArns,omitempty" tf:"security_group_arns"`
 
 	SubnetArns []string `json:"subnetArns,omitempty" tf:"subnet_arns"`

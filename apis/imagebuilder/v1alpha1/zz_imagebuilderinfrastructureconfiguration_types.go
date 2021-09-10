@@ -45,6 +45,8 @@ type ImagebuilderInfrastructureConfigurationParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceTags map[string]string `json:"resourceTags,omitempty" tf:"resource_tags"`
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`

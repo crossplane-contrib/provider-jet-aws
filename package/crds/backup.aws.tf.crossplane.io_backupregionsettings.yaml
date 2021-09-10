@@ -63,11 +63,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   resourceTypeOptInPreference:
                     additionalProperties:
                       type: boolean
                     type: object
                 required:
+                - region
                 - resourceTypeOptInPreference
                 type: object
               providerConfigRef:

@@ -38,6 +38,8 @@ type ElasticacheUserParameters struct {
 
 	Passwords []string `json:"passwords,omitempty" tf:"passwords"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

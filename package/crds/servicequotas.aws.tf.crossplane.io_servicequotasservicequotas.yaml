@@ -66,12 +66,15 @@ spec:
                 properties:
                   quotaCode:
                     type: string
+                  region:
+                    type: string
                   serviceCode:
                     type: string
                   value:
                     type: number
                 required:
                 - quotaCode
+                - region
                 - serviceCode
                 - value
                 type: object

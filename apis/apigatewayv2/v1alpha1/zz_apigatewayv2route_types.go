@@ -42,6 +42,8 @@ type Apigatewayv2RouteParameters struct {
 
 	OperationName *string `json:"operationName,omitempty" tf:"operation_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequestModels map[string]string `json:"requestModels,omitempty" tf:"request_models"`
 
 	RequestParameter []RequestParameterParameters `json:"requestParameter,omitempty" tf:"request_parameter"`

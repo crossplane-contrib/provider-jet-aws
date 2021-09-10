@@ -53,6 +53,8 @@ type Apigatewayv2IntegrationParameters struct {
 
 	PayloadFormatVersion *string `json:"payloadFormatVersion,omitempty" tf:"payload_format_version"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequestParameters map[string]string `json:"requestParameters,omitempty" tf:"request_parameters"`
 
 	RequestTemplates map[string]string `json:"requestTemplates,omitempty" tf:"request_templates"`

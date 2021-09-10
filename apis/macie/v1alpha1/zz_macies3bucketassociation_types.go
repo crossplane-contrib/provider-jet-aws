@@ -44,6 +44,8 @@ type MacieS3BucketAssociationParameters struct {
 	MemberAccountId *string `json:"memberAccountId,omitempty" tf:"member_account_id"`
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // MacieS3BucketAssociationSpec defines the desired state of MacieS3BucketAssociation

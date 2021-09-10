@@ -30,6 +30,8 @@ type Macie2InvitationAccepterObservation struct {
 
 type Macie2InvitationAccepterParameters struct {
 	AdministratorAccountId string `json:"administratorAccountId" tf:"administrator_account_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // Macie2InvitationAccepterSpec defines the desired state of Macie2InvitationAccepter

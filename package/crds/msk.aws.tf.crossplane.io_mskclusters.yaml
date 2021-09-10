@@ -225,6 +225,8 @@ spec:
                       - prometheus
                       type: object
                     type: array
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -238,6 +240,7 @@ spec:
                 - clusterName
                 - kafkaVersion
                 - numberOfBrokerNodes
+                - region
                 type: object
               providerConfigRef:
                 default:

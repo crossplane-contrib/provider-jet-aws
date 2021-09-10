@@ -29,6 +29,8 @@ type CodecommitTriggerObservation struct {
 }
 
 type CodecommitTriggerParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	RepositoryName string `json:"repositoryName" tf:"repository_name"`
 
 	Trigger []TriggerParameters `json:"trigger" tf:"trigger"`

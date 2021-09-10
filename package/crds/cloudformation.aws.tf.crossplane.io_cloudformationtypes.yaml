@@ -77,6 +77,8 @@ spec:
                       - logRoleArn
                       type: object
                     type: array
+                  region:
+                    type: string
                   schemaHandlerPackage:
                     type: string
                   type:
@@ -84,6 +86,7 @@ spec:
                   typeName:
                     type: string
                 required:
+                - region
                 - schemaHandlerPackage
                 - typeName
                 type: object

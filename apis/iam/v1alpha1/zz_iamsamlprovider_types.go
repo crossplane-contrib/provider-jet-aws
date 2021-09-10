@@ -33,6 +33,8 @@ type IamSamlProviderObservation struct {
 type IamSamlProviderParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SamlMetadataDocument string `json:"samlMetadataDocument" tf:"saml_metadata_document"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

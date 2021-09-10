@@ -72,6 +72,8 @@ type ElbParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
 	SourceSecurityGroup *string `json:"sourceSecurityGroup,omitempty" tf:"source_security_group"`

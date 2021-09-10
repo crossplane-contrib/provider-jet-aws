@@ -33,6 +33,8 @@ type StoragegatewayUploadBufferParameters struct {
 	DiskPath *string `json:"diskPath,omitempty" tf:"disk_path"`
 
 	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // StoragegatewayUploadBufferSpec defines the desired state of StoragegatewayUploadBuffer

@@ -68,6 +68,8 @@ spec:
                     type: string
                   podExecutionRoleArn:
                     type: string
+                  region:
+                    type: string
                   selector:
                     items:
                       properties:
@@ -97,6 +99,7 @@ spec:
                 - clusterName
                 - fargateProfileName
                 - podExecutionRoleArn
+                - region
                 - selector
                 type: object
               providerConfigRef:

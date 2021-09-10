@@ -37,6 +37,8 @@ type AthenaWorkgroupParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	State *string `json:"state,omitempty" tf:"state"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

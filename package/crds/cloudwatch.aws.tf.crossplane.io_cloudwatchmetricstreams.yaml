@@ -89,6 +89,8 @@ spec:
                     type: string
                   outputFormat:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                   tags:
@@ -102,6 +104,7 @@ spec:
                 required:
                 - firehoseArn
                 - outputFormat
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

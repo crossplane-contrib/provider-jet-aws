@@ -84,12 +84,15 @@ spec:
                   priority:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                 required:
                 - action
                 - firewallDomainListId
                 - firewallRuleGroupId
                 - name
                 - priority
+                - region
                 type: object
               providerConfigRef:
                 default:

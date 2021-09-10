@@ -49,6 +49,8 @@ type AcmpcaCertificateAuthorityParameters struct {
 
 	PermanentDeletionTimeInDays *int64 `json:"permanentDeletionTimeInDays,omitempty" tf:"permanent_deletion_time_in_days"`
 
+	Region string `json:"region" tf:"-"`
+
 	RevocationConfiguration []RevocationConfigurationParameters `json:"revocationConfiguration,omitempty" tf:"revocation_configuration"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

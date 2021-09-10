@@ -87,9 +87,12 @@ spec:
                       - toPort
                       type: object
                     type: array
+                  region:
+                    type: string
                 required:
                 - instanceName
                 - portInfo
+                - region
                 type: object
               providerConfigRef:
                 default:

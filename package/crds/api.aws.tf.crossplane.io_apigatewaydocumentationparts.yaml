@@ -83,11 +83,14 @@ spec:
                     type: array
                   properties:
                     type: string
+                  region:
+                    type: string
                   restApiId:
                     type: string
                 required:
                 - location
                 - properties
+                - region
                 - restApiId
                 type: object
               providerConfigRef:

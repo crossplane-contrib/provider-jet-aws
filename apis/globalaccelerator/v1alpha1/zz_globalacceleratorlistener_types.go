@@ -35,6 +35,8 @@ type GlobalacceleratorListenerParameters struct {
 	PortRange []PortRangeParameters `json:"portRange" tf:"port_range"`
 
 	Protocol string `json:"protocol" tf:"protocol"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type PortRangeObservation struct {

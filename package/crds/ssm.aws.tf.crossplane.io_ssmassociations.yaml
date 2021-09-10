@@ -95,6 +95,8 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                  region:
+                    type: string
                   scheduleExpression:
                     type: string
                   targets:
@@ -113,6 +115,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

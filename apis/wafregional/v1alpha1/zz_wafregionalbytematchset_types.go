@@ -53,6 +53,8 @@ type WafregionalByteMatchSetParameters struct {
 	ByteMatchTuples []ByteMatchTuplesParameters `json:"byteMatchTuples,omitempty" tf:"byte_match_tuples"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // WafregionalByteMatchSetSpec defines the desired state of WafregionalByteMatchSet

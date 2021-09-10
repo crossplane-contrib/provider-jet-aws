@@ -34,6 +34,8 @@ type SagemakerNotebookInstanceLifecycleConfigurationParameters struct {
 	OnCreate *string `json:"onCreate,omitempty" tf:"on_create"`
 
 	OnStart *string `json:"onStart,omitempty" tf:"on_start"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SagemakerNotebookInstanceLifecycleConfigurationSpec defines the desired state of SagemakerNotebookInstanceLifecycleConfiguration

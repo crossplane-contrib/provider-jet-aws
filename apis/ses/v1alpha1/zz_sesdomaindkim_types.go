@@ -30,6 +30,8 @@ type SesDomainDkimObservation struct {
 
 type SesDomainDkimParameters struct {
 	Domain string `json:"domain" tf:"domain"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SesDomainDkimSpec defines the desired state of SesDomainDkim

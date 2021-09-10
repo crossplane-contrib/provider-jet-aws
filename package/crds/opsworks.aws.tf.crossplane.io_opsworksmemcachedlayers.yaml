@@ -137,6 +137,8 @@ spec:
                     type: integer
                   name:
                     type: string
+                  region:
+                    type: string
                   stackId:
                     type: string
                   systemPackages:
@@ -154,6 +156,7 @@ spec:
                   useEbsOptimizedInstances:
                     type: boolean
                 required:
+                - region
                 - stackId
                 type: object
               providerConfigRef:

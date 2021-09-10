@@ -45,6 +45,8 @@ type Route53ResolverFirewallRuleParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	Priority int64 `json:"priority" tf:"priority"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // Route53ResolverFirewallRuleSpec defines the desired state of Route53ResolverFirewallRule

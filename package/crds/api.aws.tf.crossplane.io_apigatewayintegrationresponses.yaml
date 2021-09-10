@@ -68,6 +68,8 @@ spec:
                     type: string
                   httpMethod:
                     type: string
+                  region:
+                    type: string
                   resourceId:
                     type: string
                   responseParameters:
@@ -86,6 +88,7 @@ spec:
                     type: string
                 required:
                 - httpMethod
+                - region
                 - resourceId
                 - restApiId
                 - statusCode

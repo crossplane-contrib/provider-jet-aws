@@ -84,6 +84,8 @@ spec:
                     type: integer
                   name:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -102,6 +104,7 @@ spec:
                 - bgpAsn
                 - connectionId
                 - name
+                - region
                 - vlan
                 type: object
               providerConfigRef:

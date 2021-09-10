@@ -136,6 +136,8 @@ spec:
                     type: string
                   publiclyAccessible:
                     type: boolean
+                  region:
+                    type: string
                   skipFinalSnapshot:
                     type: boolean
                   snapshotClusterIdentifier:
@@ -171,6 +173,7 @@ spec:
                 required:
                 - clusterIdentifier
                 - nodeType
+                - region
                 type: object
               providerConfigRef:
                 default:

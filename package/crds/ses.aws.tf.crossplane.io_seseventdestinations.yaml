@@ -100,6 +100,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   snsDestination:
                     items:
                       properties:
@@ -113,6 +115,7 @@ spec:
                 - configurationSetName
                 - matchingTypes
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

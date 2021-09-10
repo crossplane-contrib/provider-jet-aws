@@ -48,6 +48,8 @@ type NeptuneParameterGroupParameters struct {
 
 	Parameter []NeptuneParameterGroupParameterParameters `json:"parameter,omitempty" tf:"parameter"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

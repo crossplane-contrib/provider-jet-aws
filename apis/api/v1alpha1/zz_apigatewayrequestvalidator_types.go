@@ -30,6 +30,8 @@ type ApiGatewayRequestValidatorObservation struct {
 type ApiGatewayRequestValidatorParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestApiId string `json:"restApiId" tf:"rest_api_id"`
 
 	ValidateRequestBody *bool `json:"validateRequestBody,omitempty" tf:"validate_request_body"`

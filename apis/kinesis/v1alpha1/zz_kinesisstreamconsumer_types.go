@@ -33,6 +33,8 @@ type KinesisStreamConsumerObservation struct {
 type KinesisStreamConsumerParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	StreamArn string `json:"streamArn" tf:"stream_arn"`
 }
 

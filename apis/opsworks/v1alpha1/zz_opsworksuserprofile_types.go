@@ -30,6 +30,8 @@ type OpsworksUserProfileObservation struct {
 type OpsworksUserProfileParameters struct {
 	AllowSelfManagement *bool `json:"allowSelfManagement,omitempty" tf:"allow_self_management"`
 
+	Region string `json:"region" tf:"-"`
+
 	SshPublicKey *string `json:"sshPublicKey,omitempty" tf:"ssh_public_key"`
 
 	SshUsername string `json:"sshUsername" tf:"ssh_username"`

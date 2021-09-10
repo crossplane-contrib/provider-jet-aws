@@ -43,6 +43,8 @@ type SagemakerCodeRepositoryParameters struct {
 	CodeRepositoryName string `json:"codeRepositoryName" tf:"code_repository_name"`
 
 	GitConfig []GitConfigParameters `json:"gitConfig" tf:"git_config"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SagemakerCodeRepositorySpec defines the desired state of SagemakerCodeRepository

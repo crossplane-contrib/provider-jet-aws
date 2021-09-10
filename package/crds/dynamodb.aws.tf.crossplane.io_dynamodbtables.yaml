@@ -140,6 +140,8 @@ spec:
                   readCapacity:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   replica:
                     items:
                       properties:
@@ -194,6 +196,7 @@ spec:
                 - attribute
                 - hashKey
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

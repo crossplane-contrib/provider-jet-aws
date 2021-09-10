@@ -63,6 +63,8 @@ type GlueDevEndpointParameters struct {
 
 	PublicKeys []string `json:"publicKeys,omitempty" tf:"public_keys"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
 	SecurityConfiguration *string `json:"securityConfiguration,omitempty" tf:"security_configuration"`

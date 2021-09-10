@@ -37,6 +37,8 @@ type CodestarconnectionsHostParameters struct {
 
 	ProviderType string `json:"providerType" tf:"provider_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	VpcConfiguration []VpcConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
 }
 

@@ -61,6 +61,8 @@ type SagemakerAppImageConfigParameters struct {
 	AppImageConfigName string `json:"appImageConfigName" tf:"app_image_config_name"`
 
 	KernelGatewayImageConfig []KernelGatewayImageConfigParameters `json:"kernelGatewayImageConfig,omitempty" tf:"kernel_gateway_image_config"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SagemakerAppImageConfigSpec defines the desired state of SagemakerAppImageConfig

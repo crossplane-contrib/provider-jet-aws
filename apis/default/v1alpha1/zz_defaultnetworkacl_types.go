@@ -39,6 +39,8 @@ type DefaultNetworkAclParameters struct {
 
 	Ingress []IngressParameters `json:"ingress,omitempty" tf:"ingress"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

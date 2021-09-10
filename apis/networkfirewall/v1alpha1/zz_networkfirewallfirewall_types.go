@@ -59,6 +59,8 @@ type NetworkfirewallFirewallParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubnetChangeProtection *bool `json:"subnetChangeProtection,omitempty" tf:"subnet_change_protection"`
 
 	SubnetMapping []SubnetMappingParameters `json:"subnetMapping" tf:"subnet_mapping"`

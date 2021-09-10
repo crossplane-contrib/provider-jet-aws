@@ -38,6 +38,8 @@ type SagemakerImageVersionParameters struct {
 	BaseImage string `json:"baseImage" tf:"base_image"`
 
 	ImageName string `json:"imageName" tf:"image_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SagemakerImageVersionSpec defines the desired state of SagemakerImageVersion

@@ -58,6 +58,8 @@ type GlueCatalogTableParameters struct {
 
 	PartitionKeys []PartitionKeysParameters `json:"partitionKeys,omitempty" tf:"partition_keys"`
 
+	Region string `json:"region" tf:"-"`
+
 	Retention *int64 `json:"retention,omitempty" tf:"retention"`
 
 	StorageDescriptor []StorageDescriptorParameters `json:"storageDescriptor,omitempty" tf:"storage_descriptor"`

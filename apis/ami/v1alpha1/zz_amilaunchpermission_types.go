@@ -31,6 +31,8 @@ type AmiLaunchPermissionParameters struct {
 	AccountId string `json:"accountId" tf:"account_id"`
 
 	ImageId string `json:"imageId" tf:"image_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // AmiLaunchPermissionSpec defines the desired state of AmiLaunchPermission

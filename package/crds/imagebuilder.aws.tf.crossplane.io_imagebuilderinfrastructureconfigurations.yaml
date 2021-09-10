@@ -94,6 +94,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   resourceTags:
                     additionalProperties:
                       type: string
@@ -119,6 +121,7 @@ spec:
                 required:
                 - instanceProfileName
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

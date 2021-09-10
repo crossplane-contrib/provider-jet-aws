@@ -67,9 +67,12 @@ spec:
                     type: string
                   imageName:
                     type: string
+                  region:
+                    type: string
                 required:
                 - baseImage
                 - imageName
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -84,6 +84,8 @@ spec:
                     type: integer
                   name:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -101,6 +103,7 @@ spec:
                 - connectionId
                 - dxGatewayId
                 - name
+                - region
                 - vlan
                 type: object
               providerConfigRef:

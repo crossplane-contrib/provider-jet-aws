@@ -82,6 +82,8 @@ spec:
                     type: string
                   peerVpcId:
                     type: string
+                  region:
+                    type: string
                   requester:
                     items:
                       properties:
@@ -105,6 +107,7 @@ spec:
                     type: string
                 required:
                 - peerVpcId
+                - region
                 - vpcId
                 type: object
               providerConfigRef:

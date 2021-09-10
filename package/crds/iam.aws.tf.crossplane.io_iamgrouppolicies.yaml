@@ -70,9 +70,12 @@ spec:
                     type: string
                   policy:
                     type: string
+                  region:
+                    type: string
                 required:
                 - group
                 - policy
+                - region
                 type: object
               providerConfigRef:
                 default:

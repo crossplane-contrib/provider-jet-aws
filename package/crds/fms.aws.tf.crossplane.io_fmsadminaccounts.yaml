@@ -64,6 +64,10 @@ spec:
                 properties:
                   accountId:
                     type: string
+                  region:
+                    type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

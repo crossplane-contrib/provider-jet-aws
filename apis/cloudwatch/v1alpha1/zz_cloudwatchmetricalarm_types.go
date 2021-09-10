@@ -61,6 +61,8 @@ type CloudwatchMetricAlarmParameters struct {
 
 	Period *int64 `json:"period,omitempty" tf:"period"`
 
+	Region string `json:"region" tf:"-"`
+
 	Statistic *string `json:"statistic,omitempty" tf:"statistic"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

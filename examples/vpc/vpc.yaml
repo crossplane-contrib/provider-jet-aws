@@ -1,0 +1,14 @@
+apiVersion: vpc.aws.tf.crossplane.io/v1alpha1
+kind: Vpc
+metadata:
+  name: sample-vpc
+spec:
+  forProvider:
+    region: us-west-1
+    cidrBlock: 10.0.0.0/16
+    tagsAll:
+      Name: DemoVpc
+    tags:
+      Name: DemoVpc
+  providerConfigRef:
+    name: example

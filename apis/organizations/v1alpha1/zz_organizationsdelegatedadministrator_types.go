@@ -43,6 +43,8 @@ type OrganizationsDelegatedAdministratorObservation struct {
 type OrganizationsDelegatedAdministratorParameters struct {
 	AccountId string `json:"accountId" tf:"account_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServicePrincipal string `json:"servicePrincipal" tf:"service_principal"`
 }
 

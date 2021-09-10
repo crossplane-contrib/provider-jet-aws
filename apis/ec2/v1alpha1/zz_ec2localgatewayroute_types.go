@@ -33,6 +33,8 @@ type Ec2LocalGatewayRouteParameters struct {
 	LocalGatewayRouteTableId string `json:"localGatewayRouteTableId" tf:"local_gateway_route_table_id"`
 
 	LocalGatewayVirtualInterfaceGroupId string `json:"localGatewayVirtualInterfaceGroupId" tf:"local_gateway_virtual_interface_group_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // Ec2LocalGatewayRouteSpec defines the desired state of Ec2LocalGatewayRoute

@@ -107,6 +107,8 @@ type OpsworksInstanceParameters struct {
 
 	PublicIp *string `json:"publicIp,omitempty" tf:"public_ip"`
 
+	Region string `json:"region" tf:"-"`
+
 	RegisteredBy *string `json:"registeredBy,omitempty" tf:"registered_by"`
 
 	ReportedAgentVersion *string `json:"reportedAgentVersion,omitempty" tf:"reported_agent_version"`

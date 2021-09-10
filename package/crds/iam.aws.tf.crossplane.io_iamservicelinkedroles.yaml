@@ -69,8 +69,11 @@ spec:
                     type: string
                   description:
                     type: string
+                  region:
+                    type: string
                 required:
                 - awsServiceName
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -66,9 +66,12 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                   targetKeyId:
                     type: string
                 required:
+                - region
                 - targetKeyId
                 type: object
               providerConfigRef:

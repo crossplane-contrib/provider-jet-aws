@@ -37,6 +37,8 @@ type ApprunnerCustomDomainAssociationParameters struct {
 
 	EnableWwwSubdomain *bool `json:"enableWwwSubdomain,omitempty" tf:"enable_www_subdomain"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServiceArn string `json:"serviceArn" tf:"service_arn"`
 }
 

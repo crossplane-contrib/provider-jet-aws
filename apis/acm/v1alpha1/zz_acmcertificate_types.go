@@ -47,6 +47,8 @@ type AcmCertificateParameters struct {
 
 	PrivateKey *string `json:"privateKey,omitempty" tf:"private_key"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubjectAlternativeNames []string `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

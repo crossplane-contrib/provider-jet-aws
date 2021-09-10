@@ -35,6 +35,8 @@ type WafRuleParameters struct {
 
 	Predicates []WafRulePredicatesParameters `json:"predicates,omitempty" tf:"predicates"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

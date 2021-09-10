@@ -46,6 +46,8 @@ type Ec2TrafficMirrorFilterRuleParameters struct {
 
 	Protocol *int64 `json:"protocol,omitempty" tf:"protocol"`
 
+	Region string `json:"region" tf:"-"`
+
 	RuleAction string `json:"ruleAction" tf:"rule_action"`
 
 	RuleNumber int64 `json:"ruleNumber" tf:"rule_number"`

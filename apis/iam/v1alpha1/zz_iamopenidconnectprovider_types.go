@@ -31,6 +31,8 @@ type IamOpenidConnectProviderObservation struct {
 type IamOpenidConnectProviderParameters struct {
 	ClientIdList []string `json:"clientIdList" tf:"client_id_list"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

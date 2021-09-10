@@ -72,6 +72,8 @@ spec:
                     type: string
                   qualifier:
                     type: string
+                  region:
+                    type: string
                   sourceAccount:
                     type: string
                   sourceArn:
@@ -84,6 +86,7 @@ spec:
                 - action
                 - functionName
                 - principal
+                - region
                 type: object
               providerConfigRef:
                 default:

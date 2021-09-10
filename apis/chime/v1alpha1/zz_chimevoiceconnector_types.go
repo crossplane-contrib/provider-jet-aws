@@ -33,6 +33,8 @@ type ChimeVoiceConnectorParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequireEncryption bool `json:"requireEncryption" tf:"require_encryption"`
 }
 

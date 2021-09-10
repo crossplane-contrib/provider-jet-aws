@@ -99,6 +99,8 @@ type SesReceiptRuleParameters struct {
 
 	Recipients []string `json:"recipients,omitempty" tf:"recipients"`
 
+	Region string `json:"region" tf:"-"`
+
 	RuleSetName string `json:"ruleSetName" tf:"rule_set_name"`
 
 	S3Action []S3ActionParameters `json:"s3Action,omitempty" tf:"s3_action"`

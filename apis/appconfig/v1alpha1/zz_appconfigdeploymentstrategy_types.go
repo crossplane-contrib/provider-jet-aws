@@ -41,6 +41,8 @@ type AppconfigDeploymentStrategyParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReplicateTo string `json:"replicateTo" tf:"replicate_to"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

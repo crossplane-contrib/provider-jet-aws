@@ -64,8 +64,11 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

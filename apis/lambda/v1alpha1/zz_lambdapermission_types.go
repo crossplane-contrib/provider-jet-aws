@@ -38,6 +38,8 @@ type LambdaPermissionParameters struct {
 
 	Qualifier *string `json:"qualifier,omitempty" tf:"qualifier"`
 
+	Region string `json:"region" tf:"-"`
+
 	SourceAccount *string `json:"sourceAccount,omitempty" tf:"source_account"`
 
 	SourceArn *string `json:"sourceArn,omitempty" tf:"source_arn"`

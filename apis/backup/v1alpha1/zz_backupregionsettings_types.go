@@ -28,6 +28,8 @@ type BackupRegionSettingsObservation struct {
 }
 
 type BackupRegionSettingsParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ResourceTypeOptInPreference map[string]bool `json:"resourceTypeOptInPreference" tf:"resource_type_opt_in_preference"`
 }
 

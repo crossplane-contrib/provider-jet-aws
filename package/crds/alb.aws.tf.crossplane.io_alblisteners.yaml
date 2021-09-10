@@ -215,6 +215,8 @@ spec:
                     type: integer
                   protocol:
                     type: string
+                  region:
+                    type: string
                   sslPolicy:
                     type: string
                   tags:
@@ -228,6 +230,7 @@ spec:
                 required:
                 - defaultAction
                 - loadBalancerArn
+                - region
                 type: object
               providerConfigRef:
                 default:

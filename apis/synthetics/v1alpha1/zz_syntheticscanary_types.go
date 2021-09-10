@@ -67,6 +67,8 @@ type SyntheticsCanaryParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RunConfig []RunConfigParameters `json:"runConfig,omitempty" tf:"run_config"`
 
 	RuntimeVersion string `json:"runtimeVersion" tf:"runtime_version"`

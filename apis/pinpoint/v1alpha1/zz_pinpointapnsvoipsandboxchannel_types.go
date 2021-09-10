@@ -40,6 +40,8 @@ type PinpointApnsVoipSandboxChannelParameters struct {
 
 	PrivateKey *string `json:"privateKey,omitempty" tf:"private_key"`
 
+	Region string `json:"region" tf:"-"`
+
 	TeamId *string `json:"teamId,omitempty" tf:"team_id"`
 
 	TokenKey *string `json:"tokenKey,omitempty" tf:"token_key"`

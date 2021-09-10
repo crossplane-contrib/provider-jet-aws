@@ -39,6 +39,8 @@ type IamAccountPasswordPolicyParameters struct {
 
 	PasswordReusePrevention *int64 `json:"passwordReusePrevention,omitempty" tf:"password_reuse_prevention"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequireLowercaseCharacters *bool `json:"requireLowercaseCharacters,omitempty" tf:"require_lowercase_characters"`
 
 	RequireNumbers *bool `json:"requireNumbers,omitempty" tf:"require_numbers"`

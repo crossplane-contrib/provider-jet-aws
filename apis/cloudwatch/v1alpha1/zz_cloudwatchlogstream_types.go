@@ -32,6 +32,8 @@ type CloudwatchLogStreamParameters struct {
 	LogGroupName string `json:"logGroupName" tf:"log_group_name"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudwatchLogStreamSpec defines the desired state of CloudwatchLogStream

@@ -66,8 +66,11 @@ spec:
                     type: boolean
                   csr:
                     type: string
+                  region:
+                    type: string
                 required:
                 - active
+                - region
                 type: object
               providerConfigRef:
                 default:

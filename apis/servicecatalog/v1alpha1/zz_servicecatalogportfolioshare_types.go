@@ -35,6 +35,8 @@ type ServicecatalogPortfolioShareParameters struct {
 
 	PrincipalId string `json:"principalId" tf:"principal_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	ShareTagOptions *bool `json:"shareTagOptions,omitempty" tf:"share_tag_options"`
 
 	Type string `json:"type" tf:"type"`

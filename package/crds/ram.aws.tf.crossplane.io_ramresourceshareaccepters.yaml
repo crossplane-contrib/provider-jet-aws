@@ -64,9 +64,12 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   shareArn:
                     type: string
                 required:
+                - region
                 - shareArn
                 type: object
               providerConfigRef:

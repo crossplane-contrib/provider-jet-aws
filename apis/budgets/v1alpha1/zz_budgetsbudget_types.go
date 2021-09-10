@@ -49,6 +49,8 @@ type BudgetsBudgetParameters struct {
 
 	Notification []NotificationParameters `json:"notification,omitempty" tf:"notification"`
 
+	Region string `json:"region" tf:"-"`
+
 	TimePeriodEnd *string `json:"timePeriodEnd,omitempty" tf:"time_period_end"`
 
 	TimePeriodStart *string `json:"timePeriodStart,omitempty" tf:"time_period_start"`

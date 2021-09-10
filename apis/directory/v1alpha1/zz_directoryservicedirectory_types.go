@@ -63,6 +63,8 @@ type DirectoryServiceDirectoryParameters struct {
 
 	Password string `json:"password" tf:"password"`
 
+	Region string `json:"region" tf:"-"`
+
 	ShortName *string `json:"shortName,omitempty" tf:"short_name"`
 
 	Size *string `json:"size,omitempty" tf:"size"`

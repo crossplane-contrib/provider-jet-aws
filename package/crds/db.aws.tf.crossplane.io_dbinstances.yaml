@@ -155,6 +155,8 @@ spec:
                     type: integer
                   publiclyAccessible:
                     type: boolean
+                  region:
+                    type: string
                   replicateSourceDb:
                     type: string
                   restoreToPointInTime:
@@ -220,6 +222,7 @@ spec:
                     type: array
                 required:
                 - instanceClass
+                - region
                 type: object
               providerConfigRef:
                 default:

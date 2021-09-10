@@ -31,6 +31,8 @@ type LightsailStaticIpAttachmentObservation struct {
 type LightsailStaticIpAttachmentParameters struct {
 	InstanceName string `json:"instanceName" tf:"instance_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	StaticIpName string `json:"staticIpName" tf:"static_ip_name"`
 }
 

@@ -30,6 +30,8 @@ type IotPolicyAttachmentObservation struct {
 type IotPolicyAttachmentParameters struct {
 	Policy string `json:"policy" tf:"policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	Target string `json:"target" tf:"target"`
 }
 

@@ -31,7 +31,7 @@ type ConfigAggregateAuthorizationObservation struct {
 type ConfigAggregateAuthorizationParameters struct {
 	AccountId string `json:"accountId" tf:"account_id"`
 
-	Region string `json:"region" tf:"region"`
+	Region string `json:"region" tf:"-"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 

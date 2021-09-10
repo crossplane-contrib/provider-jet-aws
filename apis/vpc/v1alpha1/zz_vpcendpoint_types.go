@@ -58,6 +58,8 @@ type VpcEndpointParameters struct {
 
 	PrivateDnsEnabled *bool `json:"privateDnsEnabled,omitempty" tf:"private_dns_enabled"`
 
+	Region string `json:"region" tf:"-"`
+
 	RouteTableIds []string `json:"routeTableIds,omitempty" tf:"route_table_ids"`
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`

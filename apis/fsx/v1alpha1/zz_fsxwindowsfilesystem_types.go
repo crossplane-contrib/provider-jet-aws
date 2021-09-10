@@ -70,6 +70,8 @@ type FsxWindowsFileSystemParameters struct {
 
 	PreferredSubnetId *string `json:"preferredSubnetId,omitempty" tf:"preferred_subnet_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
 	SelfManagedActiveDirectory []SelfManagedActiveDirectoryParameters `json:"selfManagedActiveDirectory,omitempty" tf:"self_managed_active_directory"`

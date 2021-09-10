@@ -79,6 +79,8 @@ spec:
                     type: array
                   efsFileSystemArn:
                     type: string
+                  region:
+                    type: string
                   subdirectory:
                     type: string
                   tags:
@@ -92,6 +94,7 @@ spec:
                 required:
                 - ec2Config
                 - efsFileSystemArn
+                - region
                 type: object
               providerConfigRef:
                 default:

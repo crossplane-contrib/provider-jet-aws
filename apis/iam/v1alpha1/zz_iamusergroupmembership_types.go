@@ -30,6 +30,8 @@ type IamUserGroupMembershipObservation struct {
 type IamUserGroupMembershipParameters struct {
 	Groups []string `json:"groups" tf:"groups"`
 
+	Region string `json:"region" tf:"-"`
+
 	User string `json:"user" tf:"user"`
 }
 

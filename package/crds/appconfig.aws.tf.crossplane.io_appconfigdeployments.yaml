@@ -75,6 +75,8 @@ spec:
                     type: string
                   environmentId:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -89,6 +91,7 @@ spec:
                 - configurationVersion
                 - deploymentStrategyId
                 - environmentId
+                - region
                 type: object
               providerConfigRef:
                 default:

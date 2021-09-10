@@ -34,6 +34,8 @@ type KmsCiphertextParameters struct {
 	KeyId string `json:"keyId" tf:"key_id"`
 
 	Plaintext string `json:"plaintext" tf:"plaintext"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // KmsCiphertextSpec defines the desired state of KmsCiphertext

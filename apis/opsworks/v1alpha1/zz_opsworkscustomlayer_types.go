@@ -82,6 +82,8 @@ type OpsworksCustomLayerParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ShortName string `json:"shortName" tf:"short_name"`
 
 	StackId string `json:"stackId" tf:"stack_id"`

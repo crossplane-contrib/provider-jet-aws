@@ -30,6 +30,8 @@ type IamRolePolicyAttachmentObservation struct {
 type IamRolePolicyAttachmentParameters struct {
 	PolicyArn string `json:"policyArn" tf:"policy_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	Role string `json:"role" tf:"role"`
 }
 

@@ -36,6 +36,8 @@ type SignerSigningProfilePermissionParameters struct {
 
 	ProfileVersion *string `json:"profileVersion,omitempty" tf:"profile_version"`
 
+	Region string `json:"region" tf:"-"`
+
 	StatementId *string `json:"statementId,omitempty" tf:"statement_id"`
 
 	StatementIdPrefix *string `json:"statementIdPrefix,omitempty" tf:"statement_id_prefix"`

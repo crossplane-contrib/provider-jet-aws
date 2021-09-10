@@ -86,8 +86,11 @@ spec:
                     type: array
                   dbProxyName:
                     type: string
+                  region:
+                    type: string
                 required:
                 - dbProxyName
+                - region
                 type: object
               providerConfigRef:
                 default:

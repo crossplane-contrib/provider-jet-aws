@@ -33,6 +33,8 @@ type GameliftBuildParameters struct {
 
 	OperatingSystem string `json:"operatingSystem" tf:"operating_system"`
 
+	Region string `json:"region" tf:"-"`
+
 	StorageLocation []StorageLocationParameters `json:"storageLocation" tf:"storage_location"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

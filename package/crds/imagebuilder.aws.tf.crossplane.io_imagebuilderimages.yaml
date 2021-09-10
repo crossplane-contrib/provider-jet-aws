@@ -80,6 +80,8 @@ spec:
                     type: array
                   infrastructureConfigurationArn:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -91,6 +93,7 @@ spec:
                 required:
                 - imageRecipeArn
                 - infrastructureConfigurationArn
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -53,6 +53,8 @@ type DaxClusterParameters struct {
 
 	ParameterGroupName *string `json:"parameterGroupName,omitempty" tf:"parameter_group_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReplicationFactor int64 `json:"replicationFactor" tf:"replication_factor"`
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`

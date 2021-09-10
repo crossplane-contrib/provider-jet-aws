@@ -70,11 +70,14 @@ spec:
                     type: string
                   environmentName:
                     type: string
+                  region:
+                    type: string
                   stackName:
                     type: string
                 required:
                 - appId
                 - environmentName
+                - region
                 type: object
               providerConfigRef:
                 default:

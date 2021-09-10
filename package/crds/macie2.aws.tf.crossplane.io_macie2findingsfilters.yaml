@@ -108,6 +108,8 @@ spec:
                   position:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -119,6 +121,7 @@ spec:
                 required:
                 - action
                 - findingCriteria
+                - region
                 type: object
               providerConfigRef:
                 default:

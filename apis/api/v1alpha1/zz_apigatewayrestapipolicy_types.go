@@ -30,6 +30,8 @@ type ApiGatewayRestApiPolicyObservation struct {
 type ApiGatewayRestApiPolicyParameters struct {
 	Policy string `json:"policy" tf:"policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestApiId string `json:"restApiId" tf:"rest_api_id"`
 }
 

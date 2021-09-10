@@ -78,6 +78,8 @@ spec:
                     type: array
                   password:
                     type: string
+                  region:
+                    type: string
                   serverHostname:
                     type: string
                   subdirectory:
@@ -95,6 +97,7 @@ spec:
                 required:
                 - agentArns
                 - password
+                - region
                 - serverHostname
                 - subdirectory
                 - user

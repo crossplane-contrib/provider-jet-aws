@@ -64,6 +64,8 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   replicationSubnetGroupDescription:
                     type: string
                   replicationSubnetGroupId:
@@ -81,6 +83,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - replicationSubnetGroupDescription
                 - replicationSubnetGroupId
                 - subnetIds

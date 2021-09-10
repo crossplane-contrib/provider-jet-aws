@@ -53,6 +53,8 @@ type AlbTargetGroupParameters struct {
 
 	ProxyProtocolV2 *bool `json:"proxyProtocolV2,omitempty" tf:"proxy_protocol_v2"`
 
+	Region string `json:"region" tf:"-"`
+
 	SlowStart *int64 `json:"slowStart,omitempty" tf:"slow_start"`
 
 	Stickiness []AlbTargetGroupStickinessParameters `json:"stickiness,omitempty" tf:"stickiness"`

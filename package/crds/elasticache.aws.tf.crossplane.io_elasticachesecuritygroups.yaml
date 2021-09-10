@@ -68,12 +68,15 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   securityGroupNames:
                     items:
                       type: string
                     type: array
                 required:
                 - name
+                - region
                 - securityGroupNames
                 type: object
               providerConfigRef:

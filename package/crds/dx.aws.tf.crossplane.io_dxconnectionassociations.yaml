@@ -68,9 +68,12 @@ spec:
                     type: string
                   lagId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - connectionId
                 - lagId
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -31,6 +31,8 @@ type IamGroupPolicyAttachmentParameters struct {
 	Group string `json:"group" tf:"group"`
 
 	PolicyArn string `json:"policyArn" tf:"policy_arn"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // IamGroupPolicyAttachmentSpec defines the desired state of IamGroupPolicyAttachment

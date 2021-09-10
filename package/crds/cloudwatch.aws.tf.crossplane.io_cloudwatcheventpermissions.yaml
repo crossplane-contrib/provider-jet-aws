@@ -85,10 +85,13 @@ spec:
                     type: string
                   principal:
                     type: string
+                  region:
+                    type: string
                   statementId:
                     type: string
                 required:
                 - principal
+                - region
                 - statementId
                 type: object
               providerConfigRef:

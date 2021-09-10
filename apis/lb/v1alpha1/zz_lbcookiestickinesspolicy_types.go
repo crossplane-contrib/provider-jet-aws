@@ -35,6 +35,8 @@ type LbCookieStickinessPolicyParameters struct {
 	LoadBalancer string `json:"loadBalancer" tf:"load_balancer"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // LbCookieStickinessPolicySpec defines the desired state of LbCookieStickinessPolicy

@@ -68,6 +68,8 @@ spec:
                     type: boolean
                   instanceId:
                     type: string
+                  region:
+                    type: string
                   skipDestroy:
                     type: boolean
                   volumeId:
@@ -75,6 +77,7 @@ spec:
                 required:
                 - deviceName
                 - instanceId
+                - region
                 - volumeId
                 type: object
               providerConfigRef:

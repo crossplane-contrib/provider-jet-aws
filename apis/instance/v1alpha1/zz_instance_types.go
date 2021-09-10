@@ -164,6 +164,8 @@ type InstanceParameters struct {
 
 	PrivateIp *string `json:"privateIp,omitempty" tf:"private_ip"`
 
+	Region string `json:"region" tf:"-"`
+
 	RootBlockDevice []RootBlockDeviceParameters `json:"rootBlockDevice,omitempty" tf:"root_block_device"`
 
 	SecondaryPrivateIps []string `json:"secondaryPrivateIps,omitempty" tf:"secondary_private_ips"`

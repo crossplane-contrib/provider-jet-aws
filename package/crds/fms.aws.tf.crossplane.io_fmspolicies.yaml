@@ -94,6 +94,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   remediationEnabled:
                     type: boolean
                   resourceTags:
@@ -120,6 +122,7 @@ spec:
                 required:
                 - excludeResourceTags
                 - name
+                - region
                 - securityServicePolicyData
                 type: object
               providerConfigRef:

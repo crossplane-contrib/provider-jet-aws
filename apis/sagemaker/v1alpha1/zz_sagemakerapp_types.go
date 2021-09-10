@@ -44,6 +44,8 @@ type SagemakerAppParameters struct {
 
 	DomainId string `json:"domainId" tf:"domain_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceSpec []ResourceSpecParameters `json:"resourceSpec,omitempty" tf:"resource_spec"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

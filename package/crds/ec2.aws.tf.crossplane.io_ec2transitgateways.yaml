@@ -75,6 +75,8 @@ spec:
                     type: string
                   dnsSupport:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -85,6 +87,8 @@ spec:
                     type: object
                   vpnEcmpSupport:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

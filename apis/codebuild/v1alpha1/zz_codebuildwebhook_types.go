@@ -40,6 +40,8 @@ type CodebuildWebhookParameters struct {
 	FilterGroup []FilterGroupParameters `json:"filterGroup,omitempty" tf:"filter_group"`
 
 	ProjectName string `json:"projectName" tf:"project_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type FilterGroupObservation struct {

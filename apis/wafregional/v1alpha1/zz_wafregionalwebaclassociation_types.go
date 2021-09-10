@@ -28,6 +28,8 @@ type WafregionalWebAclAssociationObservation struct {
 }
 
 type WafregionalWebAclAssociationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 
 	WebAclId string `json:"webAclId" tf:"web_acl_id"`

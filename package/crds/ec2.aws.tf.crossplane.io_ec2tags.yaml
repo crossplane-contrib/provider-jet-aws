@@ -64,12 +64,15 @@ spec:
                 properties:
                   key:
                     type: string
+                  region:
+                    type: string
                   resourceId:
                     type: string
                   value:
                     type: string
                 required:
                 - key
+                - region
                 - resourceId
                 - value
                 type: object

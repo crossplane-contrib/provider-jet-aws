@@ -126,6 +126,8 @@ spec:
                       - containerName
                       type: object
                     type: array
+                  region:
+                    type: string
                   requiresCompatibilities:
                     items:
                       type: string
@@ -223,6 +225,7 @@ spec:
                 required:
                 - containerDefinitions
                 - family
+                - region
                 type: object
               providerConfigRef:
                 default:

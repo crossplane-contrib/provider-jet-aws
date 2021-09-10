@@ -68,6 +68,8 @@ spec:
                     type: string
                   ipAddress:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -81,6 +83,7 @@ spec:
                 required:
                 - bgpAsn
                 - ipAddress
+                - region
                 - type
                 type: object
               providerConfigRef:

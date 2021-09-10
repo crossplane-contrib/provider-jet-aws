@@ -68,6 +68,8 @@ spec:
                     type: string
                   planId:
                     type: string
+                  region:
+                    type: string
                   resources:
                     items:
                       type: string
@@ -91,6 +93,7 @@ spec:
                 - iamRoleArn
                 - name
                 - planId
+                - region
                 type: object
               providerConfigRef:
                 default:

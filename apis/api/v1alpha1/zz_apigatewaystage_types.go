@@ -56,6 +56,8 @@ type ApiGatewayStageParameters struct {
 
 	DocumentationVersion *string `json:"documentationVersion,omitempty" tf:"documentation_version"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestApiId string `json:"restApiId" tf:"rest_api_id"`
 
 	StageName string `json:"stageName" tf:"stage_name"`

@@ -70,11 +70,14 @@ spec:
                     type: string
                   domainName:
                     type: string
+                  region:
+                    type: string
                   stageName:
                     type: string
                 required:
                 - apiId
                 - domainName
+                - region
                 type: object
               providerConfigRef:
                 default:

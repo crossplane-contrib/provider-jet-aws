@@ -34,6 +34,8 @@ type SecurityhubActionTargetParameters struct {
 	Identifier string `json:"identifier" tf:"identifier"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SecurityhubActionTargetSpec defines the desired state of SecurityhubActionTarget

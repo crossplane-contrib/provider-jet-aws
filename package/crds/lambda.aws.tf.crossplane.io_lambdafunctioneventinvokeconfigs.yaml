@@ -97,8 +97,11 @@ spec:
                     type: integer
                   qualifier:
                     type: string
+                  region:
+                    type: string
                 required:
                 - functionName
+                - region
                 type: object
               providerConfigRef:
                 default:

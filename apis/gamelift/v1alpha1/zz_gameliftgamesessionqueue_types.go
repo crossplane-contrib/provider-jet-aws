@@ -35,6 +35,8 @@ type GameliftGameSessionQueueParameters struct {
 
 	PlayerLatencyPolicy []PlayerLatencyPolicyParameters `json:"playerLatencyPolicy,omitempty" tf:"player_latency_policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

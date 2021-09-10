@@ -41,6 +41,8 @@ type AutoscalingScheduleParameters struct {
 
 	Recurrence *string `json:"recurrence,omitempty" tf:"recurrence"`
 
+	Region string `json:"region" tf:"-"`
+
 	ScheduledActionName string `json:"scheduledActionName" tf:"scheduled_action_name"`
 
 	StartTime *string `json:"startTime,omitempty" tf:"start_time"`

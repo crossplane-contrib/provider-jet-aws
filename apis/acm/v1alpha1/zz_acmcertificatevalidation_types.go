@@ -30,6 +30,8 @@ type AcmCertificateValidationObservation struct {
 type AcmCertificateValidationParameters struct {
 	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	ValidationRecordFqdns []string `json:"validationRecordFqdns,omitempty" tf:"validation_record_fqdns"`
 }
 

@@ -28,6 +28,8 @@ type ApiGatewayGatewayResponseObservation struct {
 }
 
 type ApiGatewayGatewayResponseParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ResponseParameters map[string]string `json:"responseParameters,omitempty" tf:"response_parameters"`
 
 	ResponseTemplates map[string]string `json:"responseTemplates,omitempty" tf:"response_templates"`

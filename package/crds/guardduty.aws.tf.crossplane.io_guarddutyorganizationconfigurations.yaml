@@ -82,9 +82,12 @@ spec:
                     type: array
                   detectorId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - autoEnable
                 - detectorId
+                - region
                 type: object
               providerConfigRef:
                 default:

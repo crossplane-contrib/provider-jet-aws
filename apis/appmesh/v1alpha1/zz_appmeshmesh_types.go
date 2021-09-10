@@ -39,6 +39,8 @@ type AppmeshMeshObservation struct {
 type AppmeshMeshParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Spec []AppmeshMeshSpecParameters `json:"spec,omitempty" tf:"spec"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

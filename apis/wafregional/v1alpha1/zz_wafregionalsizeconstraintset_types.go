@@ -53,6 +53,8 @@ type WafregionalSizeConstraintSetObservation struct {
 type WafregionalSizeConstraintSetParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SizeConstraints []SizeConstraintsParameters `json:"sizeConstraints,omitempty" tf:"size_constraints"`
 }
 

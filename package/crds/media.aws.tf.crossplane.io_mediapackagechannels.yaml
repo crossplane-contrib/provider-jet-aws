@@ -67,6 +67,8 @@ spec:
                     type: string
                   description:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -77,6 +79,7 @@ spec:
                     type: object
                 required:
                 - channelId
+                - region
                 type: object
               providerConfigRef:
                 default:

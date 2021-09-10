@@ -33,6 +33,8 @@ type DaxSubnetGroupParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 }
 

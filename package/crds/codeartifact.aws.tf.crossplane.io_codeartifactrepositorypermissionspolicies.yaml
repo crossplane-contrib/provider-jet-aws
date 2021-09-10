@@ -72,11 +72,14 @@ spec:
                     type: string
                   policyRevision:
                     type: string
+                  region:
+                    type: string
                   repository:
                     type: string
                 required:
                 - domain
                 - policyDocument
+                - region
                 - repository
                 type: object
               providerConfigRef:

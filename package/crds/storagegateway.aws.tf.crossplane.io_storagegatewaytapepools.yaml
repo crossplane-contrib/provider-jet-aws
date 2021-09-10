@@ -65,6 +65,8 @@ spec:
                 properties:
                   poolName:
                     type: string
+                  region:
+                    type: string
                   retentionLockTimeInDays:
                     format: int64
                     type: integer
@@ -82,6 +84,7 @@ spec:
                     type: object
                 required:
                 - poolName
+                - region
                 - storageClass
                 type: object
               providerConfigRef:

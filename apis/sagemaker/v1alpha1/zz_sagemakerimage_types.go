@@ -35,6 +35,8 @@ type SagemakerImageParameters struct {
 
 	ImageName string `json:"imageName" tf:"image_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

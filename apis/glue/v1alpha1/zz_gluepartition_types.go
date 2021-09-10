@@ -41,6 +41,8 @@ type GluePartitionParameters struct {
 
 	PartitionValues []string `json:"partitionValues" tf:"partition_values"`
 
+	Region string `json:"region" tf:"-"`
+
 	StorageDescriptor []GluePartitionStorageDescriptorParameters `json:"storageDescriptor,omitempty" tf:"storage_descriptor"`
 
 	TableName string `json:"tableName" tf:"table_name"`

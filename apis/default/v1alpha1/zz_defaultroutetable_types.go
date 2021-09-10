@@ -37,6 +37,8 @@ type DefaultRouteTableParameters struct {
 
 	PropagatingVgws []string `json:"propagatingVgws,omitempty" tf:"propagating_vgws"`
 
+	Region string `json:"region" tf:"-"`
+
 	Route []RouteParameters `json:"route,omitempty" tf:"route"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

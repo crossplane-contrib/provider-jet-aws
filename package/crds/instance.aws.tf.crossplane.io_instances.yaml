@@ -216,6 +216,8 @@ spec:
                     type: string
                   privateIp:
                     type: string
+                  region:
+                    type: string
                   rootBlockDevice:
                     items:
                       properties:
@@ -276,6 +278,8 @@ spec:
                     items:
                       type: string
                     type: array
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

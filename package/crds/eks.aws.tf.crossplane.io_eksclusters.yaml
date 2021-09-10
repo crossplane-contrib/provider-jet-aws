@@ -96,6 +96,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                   tags:
@@ -133,6 +135,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 - roleArn
                 - vpcConfig
                 type: object

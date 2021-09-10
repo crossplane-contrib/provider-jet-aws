@@ -201,6 +201,8 @@ type LbListenerRuleParameters struct {
 
 	Priority *int64 `json:"priority,omitempty" tf:"priority"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

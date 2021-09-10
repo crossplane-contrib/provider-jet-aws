@@ -71,10 +71,13 @@ spec:
                     type: string
                   networkInterfaceId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - deviceIndex
                 - instanceId
                 - networkInterfaceId
+                - region
                 type: object
               providerConfigRef:
                 default:

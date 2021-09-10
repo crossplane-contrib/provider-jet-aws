@@ -127,6 +127,8 @@ type DbInstanceParameters struct {
 
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReplicateSourceDb *string `json:"replicateSourceDb,omitempty" tf:"replicate_source_db"`
 
 	RestoreToPointInTime []RestoreToPointInTimeParameters `json:"restoreToPointInTime,omitempty" tf:"restore_to_point_in_time"`

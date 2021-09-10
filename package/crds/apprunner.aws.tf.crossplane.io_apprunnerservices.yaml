@@ -107,6 +107,8 @@ spec:
                       - instanceRoleArn
                       type: object
                     type: array
+                  region:
+                    type: string
                   serviceName:
                     type: string
                   sourceConfiguration:
@@ -209,6 +211,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - serviceName
                 - sourceConfiguration
                 type: object

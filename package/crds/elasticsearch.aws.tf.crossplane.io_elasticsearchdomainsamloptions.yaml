@@ -66,6 +66,8 @@ spec:
                 properties:
                   domainName:
                     type: string
+                  region:
+                    type: string
                   samlOptions:
                     items:
                       properties:
@@ -98,6 +100,7 @@ spec:
                     type: array
                 required:
                 - domainName
+                - region
                 type: object
               providerConfigRef:
                 default:

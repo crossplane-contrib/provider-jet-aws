@@ -104,6 +104,8 @@ spec:
                     type: string
                   protocolType:
                     type: string
+                  region:
+                    type: string
                   routeKey:
                     type: string
                   routeSelectionExpression:
@@ -123,6 +125,7 @@ spec:
                 required:
                 - name
                 - protocolType
+                - region
                 type: object
               providerConfigRef:
                 default:

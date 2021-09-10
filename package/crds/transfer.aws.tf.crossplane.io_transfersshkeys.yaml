@@ -64,12 +64,15 @@ spec:
                 properties:
                   body:
                     type: string
+                  region:
+                    type: string
                   serverId:
                     type: string
                   userName:
                     type: string
                 required:
                 - body
+                - region
                 - serverId
                 - userName
                 type: object

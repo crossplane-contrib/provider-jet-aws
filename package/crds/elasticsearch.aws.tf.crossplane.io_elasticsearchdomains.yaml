@@ -212,6 +212,8 @@ spec:
                       - enabled
                       type: object
                     type: array
+                  region:
+                    type: string
                   snapshotOptions:
                     items:
                       properties:
@@ -245,6 +247,7 @@ spec:
                     type: array
                 required:
                 - domainName
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -130,6 +130,8 @@ spec:
                       - toPort
                       type: object
                     type: array
+                  region:
+                    type: string
                   subnetIds:
                     items:
                       type: string
@@ -145,6 +147,7 @@ spec:
                   vpcId:
                     type: string
                 required:
+                - region
                 - vpcId
                 type: object
               providerConfigRef:

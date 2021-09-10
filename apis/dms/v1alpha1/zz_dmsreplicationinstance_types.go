@@ -53,6 +53,8 @@ type DmsReplicationInstanceParameters struct {
 
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReplicationInstanceClass string `json:"replicationInstanceClass" tf:"replication_instance_class"`
 
 	ReplicationInstanceId string `json:"replicationInstanceId" tf:"replication_instance_id"`

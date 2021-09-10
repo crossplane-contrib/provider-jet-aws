@@ -30,6 +30,8 @@ type ApiGatewayMethodSettingsObservation struct {
 type ApiGatewayMethodSettingsParameters struct {
 	MethodPath string `json:"methodPath" tf:"method_path"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestApiId string `json:"restApiId" tf:"rest_api_id"`
 
 	Settings []SettingsParameters `json:"settings" tf:"settings"`

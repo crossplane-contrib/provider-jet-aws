@@ -72,9 +72,12 @@ spec:
                     type: string
                   principalType:
                     type: string
+                  region:
+                    type: string
                 required:
                 - portfolioId
                 - principalArn
+                - region
                 type: object
               providerConfigRef:
                 default:

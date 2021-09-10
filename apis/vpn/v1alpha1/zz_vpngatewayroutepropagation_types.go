@@ -28,6 +28,8 @@ type VpnGatewayRoutePropagationObservation struct {
 }
 
 type VpnGatewayRoutePropagationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
 
 	VpnGatewayId string `json:"vpnGatewayId" tf:"vpn_gateway_id"`

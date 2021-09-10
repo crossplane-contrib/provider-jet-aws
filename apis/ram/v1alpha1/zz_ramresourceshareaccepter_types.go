@@ -41,6 +41,8 @@ type RamResourceShareAccepterObservation struct {
 }
 
 type RamResourceShareAccepterParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ShareArn string `json:"shareArn" tf:"share_arn"`
 }
 

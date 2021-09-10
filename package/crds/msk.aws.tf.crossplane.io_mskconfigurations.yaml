@@ -70,10 +70,13 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   serverProperties:
                     type: string
                 required:
                 - name
+                - region
                 - serverProperties
                 type: object
               providerConfigRef:

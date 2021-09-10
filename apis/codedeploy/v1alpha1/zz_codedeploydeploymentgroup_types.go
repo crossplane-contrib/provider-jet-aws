@@ -90,6 +90,8 @@ type CodedeployDeploymentGroupParameters struct {
 
 	OnPremisesInstanceTagFilter []OnPremisesInstanceTagFilterParameters `json:"onPremisesInstanceTagFilter,omitempty" tf:"on_premises_instance_tag_filter"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServiceRoleArn string `json:"serviceRoleArn" tf:"service_role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

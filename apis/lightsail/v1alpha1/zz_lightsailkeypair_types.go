@@ -44,6 +44,8 @@ type LightsailKeyPairParameters struct {
 	PgpKey *string `json:"pgpKey,omitempty" tf:"pgp_key"`
 
 	PublicKey *string `json:"publicKey,omitempty" tf:"public_key"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // LightsailKeyPairSpec defines the desired state of LightsailKeyPair

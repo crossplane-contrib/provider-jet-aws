@@ -79,6 +79,8 @@ spec:
                       - name
                       type: object
                     type: array
+                  region:
+                    type: string
                   resourceType:
                     type: string
                   targetId:
@@ -89,6 +91,7 @@ spec:
                     type: string
                 required:
                 - configRuleName
+                - region
                 - targetId
                 - targetType
                 type: object

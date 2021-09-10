@@ -212,8 +212,6 @@ type S3BucketObservation struct {
 	BucketDomainName string `json:"bucketDomainName" tf:"bucket_domain_name"`
 
 	BucketRegionalDomainName string `json:"bucketRegionalDomainName" tf:"bucket_regional_domain_name"`
-
-	Region string `json:"region" tf:"region"`
 }
 
 type S3BucketParameters struct {
@@ -242,6 +240,8 @@ type S3BucketParameters struct {
 	ObjectLockConfiguration []ObjectLockConfigurationParameters `json:"objectLockConfiguration,omitempty" tf:"object_lock_configuration"`
 
 	Policy *string `json:"policy,omitempty" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 
 	ReplicationConfiguration []ReplicationConfigurationParameters `json:"replicationConfiguration,omitempty" tf:"replication_configuration"`
 

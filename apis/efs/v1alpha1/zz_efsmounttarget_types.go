@@ -45,6 +45,8 @@ type EfsMountTargetParameters struct {
 
 	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
 	SubnetId string `json:"subnetId" tf:"subnet_id"`

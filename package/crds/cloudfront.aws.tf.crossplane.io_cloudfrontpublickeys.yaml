@@ -71,8 +71,11 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                 required:
                 - encodedKey
+                - region
                 type: object
               providerConfigRef:
                 default:

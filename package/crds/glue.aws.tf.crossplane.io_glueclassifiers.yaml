@@ -106,6 +106,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   xmlClassifier:
                     items:
                       properties:
@@ -120,6 +122,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

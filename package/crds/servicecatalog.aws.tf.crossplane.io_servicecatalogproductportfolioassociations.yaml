@@ -70,11 +70,14 @@ spec:
                     type: string
                   productId:
                     type: string
+                  region:
+                    type: string
                   sourcePortfolioId:
                     type: string
                 required:
                 - portfolioId
                 - productId
+                - region
                 type: object
               providerConfigRef:
                 default:

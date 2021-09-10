@@ -52,6 +52,8 @@ type DocdbClusterSnapshotParameters struct {
 	DbClusterIdentifier string `json:"dbClusterIdentifier" tf:"db_cluster_identifier"`
 
 	DbClusterSnapshotIdentifier string `json:"dbClusterSnapshotIdentifier" tf:"db_cluster_snapshot_identifier"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // DocdbClusterSnapshotSpec defines the desired state of DocdbClusterSnapshot

@@ -30,6 +30,8 @@ type ElasticsearchDomainSamlOptionsObservation struct {
 type ElasticsearchDomainSamlOptionsParameters struct {
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SamlOptions []SamlOptionsParameters `json:"samlOptions,omitempty" tf:"saml_options"`
 }
 

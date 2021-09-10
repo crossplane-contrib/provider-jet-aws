@@ -67,6 +67,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   s3BucketArn:
                     type: string
                   s3Config:
@@ -91,6 +93,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - s3BucketArn
                 - s3Config
                 - subdirectory

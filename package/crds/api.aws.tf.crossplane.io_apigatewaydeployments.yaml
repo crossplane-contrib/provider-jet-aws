@@ -65,6 +65,8 @@ spec:
                 properties:
                   description:
                     type: string
+                  region:
+                    type: string
                   restApiId:
                     type: string
                   stageDescription:
@@ -80,6 +82,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - restApiId
                 type: object
               providerConfigRef:

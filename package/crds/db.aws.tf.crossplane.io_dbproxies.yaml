@@ -84,6 +84,8 @@ spec:
                     type: integer
                   name:
                     type: string
+                  region:
+                    type: string
                   requireTls:
                     type: boolean
                   roleArn:
@@ -108,6 +110,7 @@ spec:
                 - auth
                 - engineFamily
                 - name
+                - region
                 - roleArn
                 - vpcSubnetIds
                 type: object

@@ -65,6 +65,8 @@ type PinpointAppParameters struct {
 
 	QuietTime []QuietTimeParameters `json:"quietTime,omitempty" tf:"quiet_time"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

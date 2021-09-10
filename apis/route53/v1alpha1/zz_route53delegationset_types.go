@@ -30,6 +30,8 @@ type Route53DelegationSetObservation struct {
 
 type Route53DelegationSetParameters struct {
 	ReferenceName *string `json:"referenceName,omitempty" tf:"reference_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // Route53DelegationSetSpec defines the desired state of Route53DelegationSet

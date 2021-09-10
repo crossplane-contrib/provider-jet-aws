@@ -66,6 +66,8 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                   restApiId:
                     type: string
                   validateRequestBody:
@@ -74,6 +76,7 @@ spec:
                     type: boolean
                 required:
                 - name
+                - region
                 - restApiId
                 type: object
               providerConfigRef:

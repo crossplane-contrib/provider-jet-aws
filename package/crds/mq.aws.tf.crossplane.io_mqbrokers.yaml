@@ -152,6 +152,8 @@ spec:
                     type: array
                   publiclyAccessible:
                     type: boolean
+                  region:
+                    type: string
                   securityGroups:
                     items:
                       type: string
@@ -193,6 +195,7 @@ spec:
                 - engineType
                 - engineVersion
                 - hostInstanceType
+                - region
                 - user
                 type: object
               providerConfigRef:

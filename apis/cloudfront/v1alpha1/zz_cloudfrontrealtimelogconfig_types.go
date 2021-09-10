@@ -35,6 +35,8 @@ type CloudfrontRealtimeLogConfigParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SamplingRate int64 `json:"samplingRate" tf:"sampling_rate"`
 }
 

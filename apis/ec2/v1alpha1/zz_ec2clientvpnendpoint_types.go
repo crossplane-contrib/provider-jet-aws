@@ -67,6 +67,8 @@ type Ec2ClientVpnEndpointParameters struct {
 
 	DnsServers []string `json:"dnsServers,omitempty" tf:"dns_servers"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServerCertificateArn string `json:"serverCertificateArn" tf:"server_certificate_arn"`
 
 	SplitTunnel *bool `json:"splitTunnel,omitempty" tf:"split_tunnel"`

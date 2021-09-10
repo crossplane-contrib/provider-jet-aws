@@ -71,6 +71,8 @@ type GlueCrawlerParameters struct {
 
 	RecrawlPolicy []RecrawlPolicyParameters `json:"recrawlPolicy,omitempty" tf:"recrawl_policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	Role string `json:"role" tf:"role"`
 
 	S3Target []S3TargetParameters `json:"s3Target,omitempty" tf:"s3_target"`

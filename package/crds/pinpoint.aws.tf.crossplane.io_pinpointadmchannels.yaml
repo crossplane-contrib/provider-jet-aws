@@ -71,10 +71,13 @@ spec:
                     type: string
                   enabled:
                     type: boolean
+                  region:
+                    type: string
                 required:
                 - applicationId
                 - clientId
                 - clientSecret
+                - region
                 type: object
               providerConfigRef:
                 default:

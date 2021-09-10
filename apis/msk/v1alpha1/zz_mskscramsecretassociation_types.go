@@ -30,6 +30,8 @@ type MskScramSecretAssociationObservation struct {
 type MskScramSecretAssociationParameters struct {
 	ClusterArn string `json:"clusterArn" tf:"cluster_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecretArnList []string `json:"secretArnList" tf:"secret_arn_list"`
 }
 

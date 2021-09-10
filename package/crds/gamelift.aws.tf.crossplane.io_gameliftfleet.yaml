@@ -100,6 +100,8 @@ spec:
                     type: string
                   newGameSessionProtectionPolicy:
                     type: string
+                  region:
+                    type: string
                   resourceCreationLimitPolicy:
                     items:
                       properties:
@@ -149,6 +151,7 @@ spec:
                 - buildId
                 - ec2InstanceType
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

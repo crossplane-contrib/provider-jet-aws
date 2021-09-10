@@ -37,6 +37,8 @@ type Ec2ClientVpnRouteParameters struct {
 
 	DestinationCidrBlock string `json:"destinationCidrBlock" tf:"destination_cidr_block"`
 
+	Region string `json:"region" tf:"-"`
+
 	TargetVpcSubnetId string `json:"targetVpcSubnetId" tf:"target_vpc_subnet_id"`
 }
 

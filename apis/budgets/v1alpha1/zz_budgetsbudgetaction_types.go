@@ -58,6 +58,8 @@ type BudgetsBudgetActionParameters struct {
 
 	NotificationType string `json:"notificationType" tf:"notification_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	Subscriber []SubscriberParameters `json:"subscriber" tf:"subscriber"`
 }
 

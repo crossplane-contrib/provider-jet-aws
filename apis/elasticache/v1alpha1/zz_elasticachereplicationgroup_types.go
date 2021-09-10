@@ -88,6 +88,8 @@ type ElasticacheReplicationGroupParameters struct {
 
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReplicationGroupDescription string `json:"replicationGroupDescription" tf:"replication_group_description"`
 
 	ReplicationGroupId string `json:"replicationGroupId" tf:"replication_group_id"`

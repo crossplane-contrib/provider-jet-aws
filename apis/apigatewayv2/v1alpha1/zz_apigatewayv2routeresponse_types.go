@@ -32,6 +32,8 @@ type Apigatewayv2RouteResponseParameters struct {
 
 	ModelSelectionExpression *string `json:"modelSelectionExpression,omitempty" tf:"model_selection_expression"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResponseModels map[string]string `json:"responseModels,omitempty" tf:"response_models"`
 
 	RouteId string `json:"routeId" tf:"route_id"`

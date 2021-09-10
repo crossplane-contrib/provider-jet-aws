@@ -50,6 +50,8 @@ type WafRateBasedRuleParameters struct {
 
 	RateLimit int64 `json:"rateLimit" tf:"rate_limit"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

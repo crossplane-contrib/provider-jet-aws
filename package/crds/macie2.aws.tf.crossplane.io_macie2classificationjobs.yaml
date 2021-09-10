@@ -80,6 +80,8 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                   s3JobDefinition:
                     items:
                       properties:
@@ -215,6 +217,7 @@ spec:
                     type: object
                 required:
                 - jobType
+                - region
                 - s3JobDefinition
                 type: object
               providerConfigRef:

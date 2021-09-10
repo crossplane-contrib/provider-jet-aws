@@ -72,6 +72,8 @@ spec:
                     type: string
                   invite:
                     type: boolean
+                  region:
+                    type: string
                   status:
                     type: string
                   tags:
@@ -85,6 +87,7 @@ spec:
                 required:
                 - accountId
                 - email
+                - region
                 type: object
               providerConfigRef:
                 default:

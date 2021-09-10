@@ -100,6 +100,8 @@ spec:
                     type: array
                   principal:
                     type: string
+                  region:
+                    type: string
                   table:
                     items:
                       properties:
@@ -142,6 +144,7 @@ spec:
                 required:
                 - permissions
                 - principal
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -140,6 +140,8 @@ type Wafv2WebAclLoggingConfigurationParameters struct {
 
 	RedactedFields []RedactedFieldsParameters `json:"redactedFields,omitempty" tf:"redacted_fields"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 

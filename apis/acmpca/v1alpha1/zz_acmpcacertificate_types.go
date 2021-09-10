@@ -37,6 +37,8 @@ type AcmpcaCertificateParameters struct {
 
 	CertificateSigningRequest string `json:"certificateSigningRequest" tf:"certificate_signing_request"`
 
+	Region string `json:"region" tf:"-"`
+
 	SigningAlgorithm string `json:"signingAlgorithm" tf:"signing_algorithm"`
 
 	TemplateArn *string `json:"templateArn,omitempty" tf:"template_arn"`

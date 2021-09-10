@@ -34,6 +34,8 @@ type SsmMaintenanceWindowTargetParameters struct {
 
 	OwnerInformation *string `json:"ownerInformation,omitempty" tf:"owner_information"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceType string `json:"resourceType" tf:"resource_type"`
 
 	Targets []SsmMaintenanceWindowTargetTargetsParameters `json:"targets" tf:"targets"`

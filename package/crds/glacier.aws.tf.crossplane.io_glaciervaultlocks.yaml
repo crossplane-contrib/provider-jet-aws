@@ -68,11 +68,14 @@ spec:
                     type: boolean
                   policy:
                     type: string
+                  region:
+                    type: string
                   vaultName:
                     type: string
                 required:
                 - completeLock
                 - policy
+                - region
                 - vaultName
                 type: object
               providerConfigRef:

@@ -81,6 +81,8 @@ spec:
                     type: string
                   platformPrincipal:
                     type: string
+                  region:
+                    type: string
                   successFeedbackRoleArn:
                     type: string
                   successFeedbackSampleRate:
@@ -89,6 +91,7 @@ spec:
                 - name
                 - platform
                 - platformCredential
+                - region
                 type: object
               providerConfigRef:
                 default:

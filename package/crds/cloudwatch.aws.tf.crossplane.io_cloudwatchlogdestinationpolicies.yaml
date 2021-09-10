@@ -68,9 +68,12 @@ spec:
                     type: string
                   destinationName:
                     type: string
+                  region:
+                    type: string
                 required:
                 - accessPolicy
                 - destinationName
+                - region
                 type: object
               providerConfigRef:
                 default:

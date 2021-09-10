@@ -46,6 +46,8 @@ type EmrManagedScalingPolicyParameters struct {
 	ClusterId string `json:"clusterId" tf:"cluster_id"`
 
 	ComputeLimits []ComputeLimitsParameters `json:"computeLimits" tf:"compute_limits"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // EmrManagedScalingPolicySpec defines the desired state of EmrManagedScalingPolicy

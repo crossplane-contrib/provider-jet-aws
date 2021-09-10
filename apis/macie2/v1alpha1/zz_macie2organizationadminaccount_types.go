@@ -29,6 +29,8 @@ type Macie2OrganizationAdminAccountObservation struct {
 
 type Macie2OrganizationAdminAccountParameters struct {
 	AdminAccountId string `json:"adminAccountId" tf:"admin_account_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // Macie2OrganizationAdminAccountSpec defines the desired state of Macie2OrganizationAdminAccount

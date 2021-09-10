@@ -32,6 +32,8 @@ type RdsClusterRoleAssociationParameters struct {
 
 	FeatureName string `json:"featureName" tf:"feature_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 

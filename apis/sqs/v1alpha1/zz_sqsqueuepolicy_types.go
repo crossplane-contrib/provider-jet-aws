@@ -31,6 +31,8 @@ type SqsQueuePolicyParameters struct {
 	Policy string `json:"policy" tf:"policy"`
 
 	QueueUrl string `json:"queueUrl" tf:"queue_url"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SqsQueuePolicySpec defines the desired state of SqsQueuePolicy

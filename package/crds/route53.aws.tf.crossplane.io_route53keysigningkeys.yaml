@@ -69,12 +69,15 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   status:
                     type: string
                 required:
                 - hostedZoneId
                 - keyManagementServiceArn
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

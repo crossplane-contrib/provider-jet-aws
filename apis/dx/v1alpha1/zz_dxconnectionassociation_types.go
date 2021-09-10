@@ -31,6 +31,8 @@ type DxConnectionAssociationParameters struct {
 	ConnectionId string `json:"connectionId" tf:"connection_id"`
 
 	LagId string `json:"lagId" tf:"lag_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // DxConnectionAssociationSpec defines the desired state of DxConnectionAssociation

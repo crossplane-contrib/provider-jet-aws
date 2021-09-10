@@ -80,6 +80,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   sourceAmiId:
                     type: string
                   sourceAmiRegion:
@@ -94,6 +96,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - sourceAmiId
                 - sourceAmiRegion
                 type: object

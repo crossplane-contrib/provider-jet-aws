@@ -43,6 +43,8 @@ type AppsyncDatasourceParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServiceRoleArn *string `json:"serviceRoleArn,omitempty" tf:"service_role_arn"`
 
 	Type string `json:"type" tf:"type"`

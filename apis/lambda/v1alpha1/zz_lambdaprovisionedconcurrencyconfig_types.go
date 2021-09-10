@@ -33,6 +33,8 @@ type LambdaProvisionedConcurrencyConfigParameters struct {
 	ProvisionedConcurrentExecutions int64 `json:"provisionedConcurrentExecutions" tf:"provisioned_concurrent_executions"`
 
 	Qualifier string `json:"qualifier" tf:"qualifier"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // LambdaProvisionedConcurrencyConfigSpec defines the desired state of LambdaProvisionedConcurrencyConfig

@@ -36,6 +36,8 @@ type ElasticBeanstalkConfigurationTemplateParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Setting []SettingParameters `json:"setting,omitempty" tf:"setting"`
 
 	SolutionStackName *string `json:"solutionStackName,omitempty" tf:"solution_stack_name"`

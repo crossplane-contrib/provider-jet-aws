@@ -79,6 +79,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   schedule:
                     type: string
                   scheduleOffset:
@@ -100,6 +102,7 @@ spec:
                 - cutoff
                 - duration
                 - name
+                - region
                 - schedule
                 type: object
               providerConfigRef:

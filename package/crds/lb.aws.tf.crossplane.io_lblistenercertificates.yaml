@@ -67,9 +67,12 @@ spec:
                     type: string
                   listenerArn:
                     type: string
+                  region:
+                    type: string
                 required:
                 - certificateArn
                 - listenerArn
+                - region
                 type: object
               providerConfigRef:
                 default:

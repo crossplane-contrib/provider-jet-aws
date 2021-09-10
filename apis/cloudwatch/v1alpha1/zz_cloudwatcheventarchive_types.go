@@ -37,6 +37,8 @@ type CloudwatchEventArchiveParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetentionDays *int64 `json:"retentionDays,omitempty" tf:"retention_days"`
 }
 

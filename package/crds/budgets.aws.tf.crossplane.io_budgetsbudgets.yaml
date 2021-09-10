@@ -145,6 +145,8 @@ spec:
                       - thresholdType
                       type: object
                     type: array
+                  region:
+                    type: string
                   timePeriodEnd:
                     type: string
                   timePeriodStart:
@@ -155,6 +157,7 @@ spec:
                 - budgetType
                 - limitAmount
                 - limitUnit
+                - region
                 - timeUnit
                 type: object
               providerConfigRef:

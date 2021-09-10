@@ -41,6 +41,8 @@ type SsmActivationParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RegistrationLimit *int64 `json:"registrationLimit,omitempty" tf:"registration_limit"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

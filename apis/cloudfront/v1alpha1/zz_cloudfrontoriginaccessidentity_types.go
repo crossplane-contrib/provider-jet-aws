@@ -38,6 +38,8 @@ type CloudfrontOriginAccessIdentityObservation struct {
 
 type CloudfrontOriginAccessIdentityParameters struct {
 	Comment *string `json:"comment,omitempty" tf:"comment"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudfrontOriginAccessIdentitySpec defines the desired state of CloudfrontOriginAccessIdentity

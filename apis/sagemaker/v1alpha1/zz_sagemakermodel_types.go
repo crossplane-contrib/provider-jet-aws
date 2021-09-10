@@ -96,6 +96,8 @@ type SagemakerModelParameters struct {
 
 	PrimaryContainer []PrimaryContainerParameters `json:"primaryContainer,omitempty" tf:"primary_container"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

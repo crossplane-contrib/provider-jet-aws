@@ -90,9 +90,12 @@ spec:
                       - logDestinationConfig
                       type: object
                     type: array
+                  region:
+                    type: string
                 required:
                 - firewallArn
                 - loggingConfiguration
+                - region
                 type: object
               providerConfigRef:
                 default:

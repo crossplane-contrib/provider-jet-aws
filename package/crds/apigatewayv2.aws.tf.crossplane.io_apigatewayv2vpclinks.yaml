@@ -65,6 +65,8 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                   securityGroupIds:
                     items:
                       type: string
@@ -83,6 +85,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - securityGroupIds
                 - subnetIds
                 type: object

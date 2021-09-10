@@ -115,6 +115,8 @@ spec:
                       - transformType
                       type: object
                     type: array
+                  region:
+                    type: string
                   roleArn:
                     type: string
                   tags:
@@ -134,6 +136,7 @@ spec:
                 - inputRecordTables
                 - name
                 - parameters
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

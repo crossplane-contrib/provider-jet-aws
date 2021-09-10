@@ -107,6 +107,8 @@ type EmrInstanceFleetParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	TargetOnDemandCapacity *int64 `json:"targetOnDemandCapacity,omitempty" tf:"target_on_demand_capacity"`
 
 	TargetSpotCapacity *int64 `json:"targetSpotCapacity,omitempty" tf:"target_spot_capacity"`

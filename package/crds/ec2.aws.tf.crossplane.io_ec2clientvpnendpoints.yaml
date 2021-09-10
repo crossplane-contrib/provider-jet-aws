@@ -99,6 +99,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   serverCertificateArn:
                     type: string
                   splitTunnel:
@@ -117,6 +119,7 @@ spec:
                 - authenticationOptions
                 - clientCidrBlock
                 - connectionLogOptions
+                - region
                 - serverCertificateArn
                 type: object
               providerConfigRef:

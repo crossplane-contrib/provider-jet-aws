@@ -35,6 +35,8 @@ type LoadBalancerPolicyParameters struct {
 	PolicyName string `json:"policyName" tf:"policy_name"`
 
 	PolicyTypeName string `json:"policyTypeName" tf:"policy_type_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type PolicyAttributeObservation struct {

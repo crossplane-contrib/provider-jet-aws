@@ -72,6 +72,8 @@ spec:
                     type: string
                   profileVersion:
                     type: string
+                  region:
+                    type: string
                   statementId:
                     type: string
                   statementIdPrefix:
@@ -80,6 +82,7 @@ spec:
                 - action
                 - principal
                 - profileName
+                - region
                 type: object
               providerConfigRef:
                 default:

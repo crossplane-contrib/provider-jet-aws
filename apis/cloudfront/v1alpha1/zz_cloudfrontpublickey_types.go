@@ -38,6 +38,8 @@ type CloudfrontPublicKeyParameters struct {
 	Name *string `json:"name,omitempty" tf:"name"`
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudfrontPublicKeySpec defines the desired state of CloudfrontPublicKey

@@ -64,8 +64,11 @@ spec:
                 properties:
                   accountAlias:
                     type: string
+                  region:
+                    type: string
                 required:
                 - accountAlias
+                - region
                 type: object
               providerConfigRef:
                 default:

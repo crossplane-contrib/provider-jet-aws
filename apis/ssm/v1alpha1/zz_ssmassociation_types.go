@@ -60,6 +60,8 @@ type SsmAssociationParameters struct {
 
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	Region string `json:"region" tf:"-"`
+
 	ScheduleExpression *string `json:"scheduleExpression,omitempty" tf:"schedule_expression"`
 
 	Targets []TargetsParameters `json:"targets,omitempty" tf:"targets"`

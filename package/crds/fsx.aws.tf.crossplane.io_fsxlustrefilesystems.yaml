@@ -90,6 +90,8 @@ spec:
                   perUnitStorageThroughput:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   securityGroupIds:
                     items:
                       type: string
@@ -114,6 +116,7 @@ spec:
                   weeklyMaintenanceStartTime:
                     type: string
                 required:
+                - region
                 - storageCapacity
                 - subnetIds
                 type: object

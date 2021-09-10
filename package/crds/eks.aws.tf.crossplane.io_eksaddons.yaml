@@ -68,6 +68,8 @@ spec:
                     type: string
                   clusterName:
                     type: string
+                  region:
+                    type: string
                   resolveConflicts:
                     type: string
                   serviceAccountRoleArn:
@@ -83,6 +85,7 @@ spec:
                 required:
                 - addonName
                 - clusterName
+                - region
                 type: object
               providerConfigRef:
                 default:

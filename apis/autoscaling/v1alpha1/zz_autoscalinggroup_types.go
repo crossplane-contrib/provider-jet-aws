@@ -77,6 +77,8 @@ type AutoscalingGroupParameters struct {
 
 	ProtectFromScaleIn *bool `json:"protectFromScaleIn,omitempty" tf:"protect_from_scale_in"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServiceLinkedRoleArn *string `json:"serviceLinkedRoleArn,omitempty" tf:"service_linked_role_arn"`
 
 	SuspendedProcesses []string `json:"suspendedProcesses,omitempty" tf:"suspended_processes"`

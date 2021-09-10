@@ -98,9 +98,12 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                 required:
                 - clusterId
                 - instanceType
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -73,12 +73,15 @@ spec:
                     type: string
                   identity:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                 required:
                 - applicationId
                 - fromAddress
                 - identity
+                - region
                 type: object
               providerConfigRef:
                 default:

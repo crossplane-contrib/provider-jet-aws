@@ -86,6 +86,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   samlProviderArns:
                     items:
                       type: string
@@ -104,6 +106,7 @@ spec:
                     type: object
                 required:
                 - identityPoolName
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -96,6 +96,8 @@ spec:
                     type: integer
                   referenceName:
                     type: string
+                  region:
+                    type: string
                   regions:
                     items:
                       type: string
@@ -118,6 +120,7 @@ spec:
                   type:
                     type: string
                 required:
+                - region
                 - type
                 type: object
               providerConfigRef:

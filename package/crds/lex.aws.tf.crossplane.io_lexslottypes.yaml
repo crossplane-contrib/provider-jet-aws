@@ -81,11 +81,14 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   valueSelectionStrategy:
                     type: string
                 required:
                 - enumerationValue
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

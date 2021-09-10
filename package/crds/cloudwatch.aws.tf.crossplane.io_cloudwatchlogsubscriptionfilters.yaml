@@ -74,6 +74,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                 required:
@@ -81,6 +83,7 @@ spec:
                 - filterPattern
                 - logGroupName
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

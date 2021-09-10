@@ -88,8 +88,11 @@ spec:
                       - textTransformation
                       type: object
                     type: array
+                  region:
+                    type: string
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

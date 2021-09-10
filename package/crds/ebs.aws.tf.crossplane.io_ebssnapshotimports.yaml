@@ -106,6 +106,8 @@ spec:
                     type: boolean
                   kmsKeyId:
                     type: string
+                  region:
+                    type: string
                   roleName:
                     type: string
                   tags:
@@ -118,6 +120,7 @@ spec:
                     type: object
                 required:
                 - diskContainer
+                - region
                 type: object
               providerConfigRef:
                 default:

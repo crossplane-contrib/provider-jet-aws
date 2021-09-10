@@ -142,6 +142,8 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                   revokeRulesOnDelete:
                     type: boolean
                   tags:
@@ -154,6 +156,8 @@ spec:
                     type: object
                   vpcId:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

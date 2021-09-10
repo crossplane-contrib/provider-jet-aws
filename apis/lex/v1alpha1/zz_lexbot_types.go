@@ -107,6 +107,8 @@ type LexBotParameters struct {
 
 	ProcessBehavior *string `json:"processBehavior,omitempty" tf:"process_behavior"`
 
+	Region string `json:"region" tf:"-"`
+
 	VoiceId *string `json:"voiceId,omitempty" tf:"voice_id"`
 }
 

@@ -109,6 +109,8 @@ spec:
                           type: string
                       type: object
                     type: array
+                  region:
+                    type: string
                   schedule:
                     items:
                       properties:
@@ -130,6 +132,7 @@ spec:
                     type: object
                 required:
                 - destinationLocationArn
+                - region
                 - sourceLocationArn
                 type: object
               providerConfigRef:

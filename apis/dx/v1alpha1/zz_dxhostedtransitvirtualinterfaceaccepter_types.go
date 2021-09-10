@@ -31,6 +31,8 @@ type DxHostedTransitVirtualInterfaceAccepterObservation struct {
 type DxHostedTransitVirtualInterfaceAccepterParameters struct {
 	DxGatewayId string `json:"dxGatewayId" tf:"dx_gateway_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

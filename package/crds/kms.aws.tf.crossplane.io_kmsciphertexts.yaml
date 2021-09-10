@@ -70,9 +70,12 @@ spec:
                     type: string
                   plaintext:
                     type: string
+                  region:
+                    type: string
                 required:
                 - keyId
                 - plaintext
+                - region
                 type: object
               providerConfigRef:
                 default:

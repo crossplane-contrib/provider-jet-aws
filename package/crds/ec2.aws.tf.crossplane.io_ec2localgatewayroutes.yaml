@@ -69,10 +69,13 @@ spec:
                     type: string
                   localGatewayVirtualInterfaceGroupId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - destinationCidrBlock
                 - localGatewayRouteTableId
                 - localGatewayVirtualInterfaceGroupId
+                - region
                 type: object
               providerConfigRef:
                 default:

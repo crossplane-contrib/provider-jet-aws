@@ -110,6 +110,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   serviceRoleArn:
                     type: string
                   type:
@@ -117,6 +119,7 @@ spec:
                 required:
                 - apiId
                 - name
+                - region
                 - type
                 type: object
               providerConfigRef:

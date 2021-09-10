@@ -90,6 +90,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                   stage:
@@ -155,6 +157,7 @@ spec:
                 required:
                 - artifactStore
                 - name
+                - region
                 - roleArn
                 - stage
                 type: object

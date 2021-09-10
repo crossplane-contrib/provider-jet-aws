@@ -66,8 +66,11 @@ spec:
                     type: string
                   path:
                     type: string
+                  region:
+                    type: string
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

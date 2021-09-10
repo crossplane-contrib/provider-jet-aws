@@ -35,6 +35,8 @@ type PinpointAdmChannelParameters struct {
 	ClientSecret string `json:"clientSecret" tf:"client_secret"`
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // PinpointAdmChannelSpec defines the desired state of PinpointAdmChannel

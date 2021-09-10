@@ -402,6 +402,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   releaseLabel:
                     type: string
                   scaleDownBehavior:
@@ -459,6 +461,7 @@ spec:
                     type: boolean
                 required:
                 - name
+                - region
                 - releaseLabel
                 - serviceRole
                 type: object

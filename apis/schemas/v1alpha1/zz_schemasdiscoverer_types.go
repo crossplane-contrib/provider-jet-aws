@@ -31,6 +31,8 @@ type SchemasDiscovererObservation struct {
 type SchemasDiscovererParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	Region string `json:"region" tf:"-"`
+
 	SourceArn string `json:"sourceArn" tf:"source_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

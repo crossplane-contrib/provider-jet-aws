@@ -33,6 +33,8 @@ type IotRoleAliasParameters struct {
 
 	CredentialDuration *int64 `json:"credentialDuration,omitempty" tf:"credential_duration"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 

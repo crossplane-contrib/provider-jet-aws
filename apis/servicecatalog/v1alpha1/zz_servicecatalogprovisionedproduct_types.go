@@ -80,6 +80,8 @@ type ServicecatalogProvisionedProductParameters struct {
 
 	ProvisioningParameters []ProvisioningParametersParameters `json:"provisioningParameters,omitempty" tf:"provisioning_parameters"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetainPhysicalResources *bool `json:"retainPhysicalResources,omitempty" tf:"retain_physical_resources"`
 
 	StackSetProvisioningPreferences []StackSetProvisioningPreferencesParameters `json:"stackSetProvisioningPreferences,omitempty" tf:"stack_set_provisioning_preferences"`

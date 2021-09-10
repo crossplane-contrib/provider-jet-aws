@@ -65,10 +65,13 @@ spec:
                 properties:
                   policy:
                     type: string
+                  region:
+                    type: string
                   target:
                     type: string
                 required:
                 - policy
+                - region
                 - target
                 type: object
               providerConfigRef:

@@ -79,6 +79,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   routeFilterPrefixes:
                     items:
                       type: string
@@ -99,6 +101,7 @@ spec:
                 - bgpAsn
                 - connectionId
                 - name
+                - region
                 - routeFilterPrefixes
                 - vlan
                 type: object

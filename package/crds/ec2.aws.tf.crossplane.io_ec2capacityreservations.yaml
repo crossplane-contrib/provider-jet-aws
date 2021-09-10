@@ -84,6 +84,8 @@ spec:
                     type: string
                   outpostArn:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -99,6 +101,7 @@ spec:
                 - instanceCount
                 - instancePlatform
                 - instanceType
+                - region
                 type: object
               providerConfigRef:
                 default:

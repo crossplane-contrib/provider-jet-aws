@@ -208,6 +208,8 @@ type LaunchTemplateParameters struct {
 
 	RamDiskId *string `json:"ramDiskId,omitempty" tf:"ram_disk_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupNames []string `json:"securityGroupNames,omitempty" tf:"security_group_names"`
 
 	TagSpecifications []TagSpecificationsParameters `json:"tagSpecifications,omitempty" tf:"tag_specifications"`

@@ -70,6 +70,8 @@ spec:
                     type: string
                   password:
                     type: string
+                  region:
+                    type: string
                   securityGroupArns:
                     items:
                       type: string
@@ -89,6 +91,7 @@ spec:
                 required:
                 - fsxFilesystemArn
                 - password
+                - region
                 - securityGroupArns
                 - user
                 type: object

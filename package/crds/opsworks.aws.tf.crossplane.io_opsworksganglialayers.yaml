@@ -136,6 +136,8 @@ spec:
                     type: string
                   password:
                     type: string
+                  region:
+                    type: string
                   stackId:
                     type: string
                   systemPackages:
@@ -158,6 +160,7 @@ spec:
                     type: string
                 required:
                 - password
+                - region
                 - stackId
                 type: object
               providerConfigRef:

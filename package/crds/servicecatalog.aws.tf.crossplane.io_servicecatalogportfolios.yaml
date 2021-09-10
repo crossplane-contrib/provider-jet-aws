@@ -70,6 +70,8 @@ spec:
                     type: string
                   providerName:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -81,6 +83,7 @@ spec:
                 required:
                 - name
                 - providerName
+                - region
                 type: object
               providerConfigRef:
                 default:

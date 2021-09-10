@@ -68,6 +68,8 @@ spec:
                     type: string
                   publicKey:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -78,6 +80,7 @@ spec:
                     type: object
                 required:
                 - publicKey
+                - region
                 type: object
               providerConfigRef:
                 default:

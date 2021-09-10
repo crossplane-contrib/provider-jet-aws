@@ -47,6 +47,8 @@ type Ec2TransitGatewayParameters struct {
 
 	DnsSupport *string `json:"dnsSupport,omitempty" tf:"dns_support"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

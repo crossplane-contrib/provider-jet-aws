@@ -98,6 +98,8 @@ spec:
                     type: boolean
                   name:
                     type: string
+                  region:
+                    type: string
                   state:
                     type: string
                   tags:
@@ -110,6 +112,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

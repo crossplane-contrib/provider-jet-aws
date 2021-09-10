@@ -34,6 +34,8 @@ type ApiGatewayModelParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestApiId string `json:"restApiId" tf:"rest_api_id"`
 
 	Schema *string `json:"schema,omitempty" tf:"schema"`

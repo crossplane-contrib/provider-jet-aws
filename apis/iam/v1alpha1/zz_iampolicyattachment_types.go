@@ -34,6 +34,8 @@ type IamPolicyAttachmentParameters struct {
 
 	PolicyArn string `json:"policyArn" tf:"policy_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	Roles []string `json:"roles,omitempty" tf:"roles"`
 
 	Users []string `json:"users,omitempty" tf:"users"`

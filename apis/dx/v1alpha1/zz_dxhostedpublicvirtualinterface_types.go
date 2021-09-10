@@ -49,6 +49,8 @@ type DxHostedPublicVirtualInterfaceParameters struct {
 
 	OwnerAccountId string `json:"ownerAccountId" tf:"owner_account_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	RouteFilterPrefixes []string `json:"routeFilterPrefixes" tf:"route_filter_prefixes"`
 
 	Vlan int64 `json:"vlan" tf:"vlan"`

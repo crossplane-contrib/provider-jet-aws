@@ -75,6 +75,8 @@ spec:
                   minSize:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -85,6 +87,7 @@ spec:
                     type: object
                 required:
                 - autoScalingConfigurationName
+                - region
                 type: object
               providerConfigRef:
                 default:

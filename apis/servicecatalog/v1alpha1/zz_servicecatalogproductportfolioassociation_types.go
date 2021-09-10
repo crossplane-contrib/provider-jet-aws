@@ -34,6 +34,8 @@ type ServicecatalogProductPortfolioAssociationParameters struct {
 
 	ProductId string `json:"productId" tf:"product_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SourcePortfolioId *string `json:"sourcePortfolioId,omitempty" tf:"source_portfolio_id"`
 }
 

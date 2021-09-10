@@ -38,6 +38,8 @@ type SnsSmsPreferencesParameters struct {
 
 	MonthlySpendLimit *string `json:"monthlySpendLimit,omitempty" tf:"monthly_spend_limit"`
 
+	Region string `json:"region" tf:"-"`
+
 	UsageReportS3Bucket *string `json:"usageReportS3Bucket,omitempty" tf:"usage_report_s3_bucket"`
 }
 

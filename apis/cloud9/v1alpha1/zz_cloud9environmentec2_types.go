@@ -41,6 +41,8 @@ type Cloud9EnvironmentEc2Parameters struct {
 
 	OwnerArn *string `json:"ownerArn,omitempty" tf:"owner_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

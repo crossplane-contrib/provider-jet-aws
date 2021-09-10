@@ -54,6 +54,8 @@ type RdsGlobalClusterParameters struct {
 
 	GlobalClusterIdentifier string `json:"globalClusterIdentifier" tf:"global_cluster_identifier"`
 
+	Region string `json:"region" tf:"-"`
+
 	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier,omitempty" tf:"source_db_cluster_identifier"`
 
 	StorageEncrypted *bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted"`

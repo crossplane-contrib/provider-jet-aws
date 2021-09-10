@@ -79,6 +79,8 @@ type EcsTaskDefinitionParameters struct {
 
 	ProxyConfiguration []ProxyConfigurationParameters `json:"proxyConfiguration,omitempty" tf:"proxy_configuration"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequiresCompatibilities []string `json:"requiresCompatibilities,omitempty" tf:"requires_compatibilities"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

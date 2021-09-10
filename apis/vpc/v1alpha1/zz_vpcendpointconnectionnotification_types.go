@@ -35,6 +35,8 @@ type VpcEndpointConnectionNotificationParameters struct {
 
 	ConnectionNotificationArn string `json:"connectionNotificationArn" tf:"connection_notification_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	VpcEndpointId *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
 
 	VpcEndpointServiceId *string `json:"vpcEndpointServiceId,omitempty" tf:"vpc_endpoint_service_id"`

@@ -66,6 +66,8 @@ spec:
                     type: string
                   outpostId:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -77,6 +79,7 @@ spec:
                 required:
                 - bucket
                 - outpostId
+                - region
                 type: object
               providerConfigRef:
                 default:

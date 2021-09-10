@@ -30,6 +30,8 @@ type SecurityhubProductSubscriptionObservation struct {
 
 type SecurityhubProductSubscriptionParameters struct {
 	ProductArn string `json:"productArn" tf:"product_arn"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SecurityhubProductSubscriptionSpec defines the desired state of SecurityhubProductSubscription

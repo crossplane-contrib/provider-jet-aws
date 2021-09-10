@@ -40,6 +40,8 @@ type GuarddutyMemberParameters struct {
 	InvitationMessage *string `json:"invitationMessage,omitempty" tf:"invitation_message"`
 
 	Invite *bool `json:"invite,omitempty" tf:"invite"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // GuarddutyMemberSpec defines the desired state of GuarddutyMember

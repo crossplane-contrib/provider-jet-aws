@@ -65,10 +65,13 @@ spec:
                 properties:
                   destinationCidrBlock:
                     type: string
+                  region:
+                    type: string
                   vpnConnectionId:
                     type: string
                 required:
                 - destinationCidrBlock
+                - region
                 - vpnConnectionId
                 type: object
               providerConfigRef:

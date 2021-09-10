@@ -112,6 +112,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   setting:
                     items:
                       properties:
@@ -134,6 +136,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

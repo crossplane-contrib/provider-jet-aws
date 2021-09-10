@@ -42,6 +42,8 @@ type AutoscalingLifecycleHookParameters struct {
 
 	NotificationTargetArn *string `json:"notificationTargetArn,omitempty" tf:"notification_target_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 }
 

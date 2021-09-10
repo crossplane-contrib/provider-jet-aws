@@ -67,10 +67,13 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   user:
                     type: string
                 required:
                 - groups
+                - region
                 - user
                 type: object
               providerConfigRef:
