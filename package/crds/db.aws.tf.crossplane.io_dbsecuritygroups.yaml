@@ -79,6 +79,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -90,6 +92,7 @@ spec:
                 required:
                 - ingress
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

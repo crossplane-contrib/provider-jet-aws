@@ -66,6 +66,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   rules:
                     items:
                       properties:
@@ -87,6 +89,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

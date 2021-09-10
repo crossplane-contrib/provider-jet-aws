@@ -66,10 +66,13 @@ spec:
                 properties:
                   accountId:
                     type: string
+                  region:
+                    type: string
                   snapshotId:
                     type: string
                 required:
                 - accountId
+                - region
                 - snapshotId
                 type: object
               providerConfigRef:

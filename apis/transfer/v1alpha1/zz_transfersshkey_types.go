@@ -30,6 +30,8 @@ type TransferSshKeyObservation struct {
 type TransferSshKeyParameters struct {
 	Body string `json:"body" tf:"body"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServerId string `json:"serverId" tf:"server_id"`
 
 	UserName string `json:"userName" tf:"user_name"`

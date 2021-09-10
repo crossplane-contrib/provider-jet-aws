@@ -76,6 +76,8 @@ type CognitoUserPoolClientParameters struct {
 
 	RefreshTokenValidity *int64 `json:"refreshTokenValidity,omitempty" tf:"refresh_token_validity"`
 
+	Region string `json:"region" tf:"-"`
+
 	SupportedIdentityProviders []string `json:"supportedIdentityProviders,omitempty" tf:"supported_identity_providers"`
 
 	TokenValidityUnits []TokenValidityUnitsParameters `json:"tokenValidityUnits,omitempty" tf:"token_validity_units"`

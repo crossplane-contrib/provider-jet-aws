@@ -42,6 +42,8 @@ type SesConfigurationSetParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReputationMetricsEnabled *bool `json:"reputationMetricsEnabled,omitempty" tf:"reputation_metrics_enabled"`
 
 	SendingEnabled *bool `json:"sendingEnabled,omitempty" tf:"sending_enabled"`

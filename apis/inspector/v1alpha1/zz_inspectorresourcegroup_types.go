@@ -29,6 +29,8 @@ type InspectorResourceGroupObservation struct {
 }
 
 type InspectorResourceGroupParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags" tf:"tags"`
 }
 

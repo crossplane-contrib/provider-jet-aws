@@ -31,6 +31,8 @@ type Apigatewayv2VpcLinkObservation struct {
 type Apigatewayv2VpcLinkParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`

@@ -87,6 +87,8 @@ type SecurityGroupParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	RevokeRulesOnDelete *bool `json:"revokeRulesOnDelete,omitempty" tf:"revoke_rules_on_delete"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

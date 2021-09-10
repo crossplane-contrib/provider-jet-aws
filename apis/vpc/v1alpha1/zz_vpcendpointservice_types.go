@@ -66,6 +66,8 @@ type VpcEndpointServiceParameters struct {
 
 	PrivateDnsName *string `json:"privateDnsName,omitempty" tf:"private_dns_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

@@ -37,6 +37,8 @@ type NatGatewayParameters struct {
 
 	ConnectivityType *string `json:"connectivityType,omitempty" tf:"connectivity_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubnetId string `json:"subnetId" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

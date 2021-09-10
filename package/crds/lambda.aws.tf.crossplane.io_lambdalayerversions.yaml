@@ -75,6 +75,8 @@ spec:
                     type: string
                   licenseInfo:
                     type: string
+                  region:
+                    type: string
                   s3Bucket:
                     type: string
                   s3Key:
@@ -85,6 +87,7 @@ spec:
                     type: string
                 required:
                 - layerName
+                - region
                 type: object
               providerConfigRef:
                 default:

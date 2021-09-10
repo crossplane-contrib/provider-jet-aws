@@ -137,6 +137,8 @@ spec:
                     type: string
                   platform:
                     type: string
+                  region:
+                    type: string
                   repository:
                     type: string
                   tags:
@@ -149,6 +151,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

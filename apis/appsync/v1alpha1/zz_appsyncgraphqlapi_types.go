@@ -65,6 +65,8 @@ type AppsyncGraphqlApiParameters struct {
 
 	OpenidConnectConfig []AppsyncGraphqlApiOpenidConnectConfigParameters `json:"openidConnectConfig,omitempty" tf:"openid_connect_config"`
 
+	Region string `json:"region" tf:"-"`
+
 	Schema *string `json:"schema,omitempty" tf:"schema"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

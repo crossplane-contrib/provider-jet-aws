@@ -37,6 +37,8 @@ type ServerlessapplicationrepositoryCloudformationStackParameters struct {
 
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	Region string `json:"region" tf:"-"`
+
 	SemanticVersion *string `json:"semanticVersion,omitempty" tf:"semantic_version"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

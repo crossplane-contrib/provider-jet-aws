@@ -70,6 +70,8 @@ spec:
                     type: array
                   connectionNotificationArn:
                     type: string
+                  region:
+                    type: string
                   vpcEndpointId:
                     type: string
                   vpcEndpointServiceId:
@@ -77,6 +79,7 @@ spec:
                 required:
                 - connectionEvents
                 - connectionNotificationArn
+                - region
                 type: object
               providerConfigRef:
                 default:

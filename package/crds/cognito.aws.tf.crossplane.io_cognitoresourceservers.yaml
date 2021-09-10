@@ -67,6 +67,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   scope:
                     items:
                       properties:
@@ -84,6 +86,7 @@ spec:
                 required:
                 - identifier
                 - name
+                - region
                 - userPoolId
                 type: object
               providerConfigRef:

@@ -44,6 +44,8 @@ type S3OutpostsEndpointObservation struct {
 type S3OutpostsEndpointParameters struct {
 	OutpostId string `json:"outpostId" tf:"outpost_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
 
 	SubnetId string `json:"subnetId" tf:"subnet_id"`

@@ -108,6 +108,8 @@ spec:
                           type: string
                       type: object
                     type: array
+                  region:
+                    type: string
                   replaceUnhealthyInstances:
                     type: boolean
                   spotOptions:
@@ -169,6 +171,7 @@ spec:
                     type: string
                 required:
                 - launchTemplateConfig
+                - region
                 - targetCapacitySpecification
                 type: object
               providerConfigRef:

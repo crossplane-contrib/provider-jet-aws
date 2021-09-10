@@ -71,12 +71,15 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   retentionDays:
                     format: int64
                     type: integer
                 required:
                 - eventSourceArn
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -31,6 +31,8 @@ type SpotDatafeedSubscriptionParameters struct {
 	Bucket string `json:"bucket" tf:"bucket"`
 
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SpotDatafeedSubscriptionSpec defines the desired state of SpotDatafeedSubscription

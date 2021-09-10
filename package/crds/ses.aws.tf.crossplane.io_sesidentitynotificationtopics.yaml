@@ -70,11 +70,14 @@ spec:
                     type: boolean
                   notificationType:
                     type: string
+                  region:
+                    type: string
                   topicArn:
                     type: string
                 required:
                 - identity
                 - notificationType
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -75,6 +75,8 @@ spec:
                     type: string
                   policy:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -85,6 +87,8 @@ spec:
                     type: object
                   validTo:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

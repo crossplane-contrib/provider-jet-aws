@@ -107,6 +107,8 @@ type LambdaFunctionParameters struct {
 
 	Publish *bool `json:"publish,omitempty" tf:"publish"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReservedConcurrentExecutions *int64 `json:"reservedConcurrentExecutions,omitempty" tf:"reserved_concurrent_executions"`
 
 	Role string `json:"role" tf:"role"`

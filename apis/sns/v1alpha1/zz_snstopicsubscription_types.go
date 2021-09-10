@@ -51,6 +51,8 @@ type SnsTopicSubscriptionParameters struct {
 
 	RedrivePolicy *string `json:"redrivePolicy,omitempty" tf:"redrive_policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubscriptionRoleArn *string `json:"subscriptionRoleArn,omitempty" tf:"subscription_role_arn"`
 
 	TopicArn string `json:"topicArn" tf:"topic_arn"`

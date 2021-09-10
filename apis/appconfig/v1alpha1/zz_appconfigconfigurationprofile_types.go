@@ -39,6 +39,8 @@ type AppconfigConfigurationProfileParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetrievalRoleArn *string `json:"retrievalRoleArn,omitempty" tf:"retrieval_role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

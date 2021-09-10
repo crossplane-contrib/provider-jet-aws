@@ -34,6 +34,8 @@ type SesReceiptFilterParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SesReceiptFilterSpec defines the desired state of SesReceiptFilter

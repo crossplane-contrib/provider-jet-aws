@@ -283,6 +283,8 @@ spec:
                   priority:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -295,6 +297,7 @@ spec:
                 - action
                 - condition
                 - listenerArn
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -64,11 +64,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   resourceArn:
                     type: string
                   webAclId:
                     type: string
                 required:
+                - region
                 - resourceArn
                 - webAclId
                 type: object

@@ -70,8 +70,11 @@ spec:
                     type: string
                   namespace:
                     type: string
+                  region:
+                    type: string
                 required:
                 - groupName
+                - region
                 type: object
               providerConfigRef:
                 default:

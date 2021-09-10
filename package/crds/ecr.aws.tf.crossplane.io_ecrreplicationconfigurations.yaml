@@ -64,6 +64,8 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   replicationConfiguration:
                     items:
                       properties:
@@ -90,6 +92,8 @@ spec:
                       - rule
                       type: object
                     type: array
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

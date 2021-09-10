@@ -65,6 +65,8 @@ type SagemakerWorkforceParameters struct {
 
 	OidcConfig []OidcConfigParameters `json:"oidcConfig,omitempty" tf:"oidc_config"`
 
+	Region string `json:"region" tf:"-"`
+
 	SourceIpConfig []SourceIpConfigParameters `json:"sourceIpConfig,omitempty" tf:"source_ip_config"`
 
 	WorkforceName string `json:"workforceName" tf:"workforce_name"`

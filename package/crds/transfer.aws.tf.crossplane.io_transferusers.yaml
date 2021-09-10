@@ -99,6 +99,8 @@ spec:
                       - uid
                       type: object
                     type: array
+                  region:
+                    type: string
                   role:
                     type: string
                   serverId:
@@ -114,6 +116,7 @@ spec:
                   userName:
                     type: string
                 required:
+                - region
                 - role
                 - serverId
                 - userName

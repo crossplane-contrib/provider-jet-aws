@@ -39,6 +39,8 @@ type EksAddonParameters struct {
 
 	ClusterName string `json:"clusterName" tf:"cluster_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResolveConflicts *string `json:"resolveConflicts,omitempty" tf:"resolve_conflicts"`
 
 	ServiceAccountRoleArn *string `json:"serviceAccountRoleArn,omitempty" tf:"service_account_role_arn"`

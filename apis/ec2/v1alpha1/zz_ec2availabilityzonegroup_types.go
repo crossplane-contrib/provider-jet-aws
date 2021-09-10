@@ -31,6 +31,8 @@ type Ec2AvailabilityZoneGroupParameters struct {
 	GroupName string `json:"groupName" tf:"group_name"`
 
 	OptInStatus string `json:"optInStatus" tf:"opt_in_status"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // Ec2AvailabilityZoneGroupSpec defines the desired state of Ec2AvailabilityZoneGroup

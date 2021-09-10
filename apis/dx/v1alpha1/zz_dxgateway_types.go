@@ -32,6 +32,8 @@ type DxGatewayParameters struct {
 	AmazonSideAsn string `json:"amazonSideAsn" tf:"amazon_side_asn"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // DxGatewaySpec defines the desired state of DxGateway

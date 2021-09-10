@@ -34,6 +34,8 @@ type GlacierVaultLockParameters struct {
 
 	Policy string `json:"policy" tf:"policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	VaultName string `json:"vaultName" tf:"vault_name"`
 }
 

@@ -91,6 +91,8 @@ spec:
                           type: array
                       type: object
                     type: array
+                  region:
+                    type: string
                   requestTemplate:
                     type: string
                   responseTemplate:
@@ -100,6 +102,7 @@ spec:
                 required:
                 - apiId
                 - field
+                - region
                 - type
                 type: object
               providerConfigRef:

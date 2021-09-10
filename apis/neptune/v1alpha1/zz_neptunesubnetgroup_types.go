@@ -35,6 +35,8 @@ type NeptuneSubnetGroupParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

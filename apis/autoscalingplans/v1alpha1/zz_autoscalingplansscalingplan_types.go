@@ -42,6 +42,8 @@ type AutoscalingplansScalingPlanParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ScalingInstruction []ScalingInstructionParameters `json:"scalingInstruction" tf:"scaling_instruction"`
 }
 

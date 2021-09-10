@@ -38,6 +38,8 @@ type IotCertificateParameters struct {
 	Active bool `json:"active" tf:"active"`
 
 	Csr *string `json:"csr,omitempty" tf:"csr"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // IotCertificateSpec defines the desired state of IotCertificate

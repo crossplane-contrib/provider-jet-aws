@@ -56,6 +56,8 @@ type Route53HealthCheckParameters struct {
 
 	ReferenceName *string `json:"referenceName,omitempty" tf:"reference_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Regions []string `json:"regions,omitempty" tf:"regions"`
 
 	RequestInterval *int64 `json:"requestInterval,omitempty" tf:"request_interval"`

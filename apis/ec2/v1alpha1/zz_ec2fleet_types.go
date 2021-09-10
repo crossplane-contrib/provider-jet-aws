@@ -41,6 +41,8 @@ type Ec2FleetParameters struct {
 
 	OnDemandOptions []OnDemandOptionsParameters `json:"onDemandOptions,omitempty" tf:"on_demand_options"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReplaceUnhealthyInstances *bool `json:"replaceUnhealthyInstances,omitempty" tf:"replace_unhealthy_instances"`
 
 	SpotOptions []SpotOptionsParameters `json:"spotOptions,omitempty" tf:"spot_options"`

@@ -66,6 +66,8 @@ spec:
                 properties:
                   methodPath:
                     type: string
+                  region:
+                    type: string
                   restApiId:
                     type: string
                   settings:
@@ -99,6 +101,7 @@ spec:
                     type: string
                 required:
                 - methodPath
+                - region
                 - restApiId
                 - settings
                 - stageName

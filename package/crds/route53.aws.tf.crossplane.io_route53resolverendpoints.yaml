@@ -79,6 +79,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   securityGroupIds:
                     items:
                       type: string
@@ -94,6 +96,7 @@ spec:
                 required:
                 - direction
                 - ipAddress
+                - region
                 - securityGroupIds
                 type: object
               providerConfigRef:

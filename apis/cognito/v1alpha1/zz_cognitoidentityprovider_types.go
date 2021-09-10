@@ -38,6 +38,8 @@ type CognitoIdentityProviderParameters struct {
 
 	ProviderType string `json:"providerType" tf:"provider_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
 }
 

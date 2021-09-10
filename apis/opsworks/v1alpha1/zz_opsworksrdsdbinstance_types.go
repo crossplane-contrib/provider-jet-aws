@@ -34,6 +34,8 @@ type OpsworksRdsDbInstanceParameters struct {
 
 	RdsDbInstanceArn string `json:"rdsDbInstanceArn" tf:"rds_db_instance_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	StackId string `json:"stackId" tf:"stack_id"`
 }
 

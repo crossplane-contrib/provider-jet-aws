@@ -65,6 +65,8 @@ spec:
                 properties:
                   analyzerName:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -77,6 +79,7 @@ spec:
                     type: string
                 required:
                 - analyzerName
+                - region
                 type: object
               providerConfigRef:
                 default:

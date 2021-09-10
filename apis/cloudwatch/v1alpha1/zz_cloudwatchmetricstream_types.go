@@ -47,6 +47,8 @@ type CloudwatchMetricStreamParameters struct {
 
 	OutputFormat string `json:"outputFormat" tf:"output_format"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

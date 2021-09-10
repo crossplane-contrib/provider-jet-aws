@@ -66,10 +66,13 @@ spec:
                 properties:
                   licenseConfigurationArn:
                     type: string
+                  region:
+                    type: string
                   resourceArn:
                     type: string
                 required:
                 - licenseConfigurationArn
+                - region
                 - resourceArn
                 type: object
               providerConfigRef:

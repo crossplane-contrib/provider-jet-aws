@@ -145,6 +145,8 @@ spec:
                           type: string
                       type: object
                     type: array
+                  region:
+                    type: string
                   role:
                     type: string
                   s3Target:
@@ -191,6 +193,7 @@ spec:
                 required:
                 - databaseName
                 - name
+                - region
                 - role
                 type: object
               providerConfigRef:

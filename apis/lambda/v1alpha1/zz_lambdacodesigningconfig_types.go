@@ -45,6 +45,8 @@ type LambdaCodeSigningConfigParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
 	Policies []PoliciesParameters `json:"policies,omitempty" tf:"policies"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type PoliciesObservation struct {

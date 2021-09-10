@@ -129,6 +129,8 @@ spec:
                     type: string
                   preferredMaintenanceWindow:
                     type: string
+                  region:
+                    type: string
                   replicationSourceIdentifier:
                     type: string
                   restoreToPointInTime:
@@ -204,6 +206,8 @@ spec:
                     items:
                       type: string
                     type: array
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

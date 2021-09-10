@@ -64,10 +64,13 @@ spec:
                 properties:
                   cloudwatchLogGroupArn:
                     type: string
+                  region:
+                    type: string
                   zoneId:
                     type: string
                 required:
                 - cloudwatchLogGroupArn
+                - region
                 - zoneId
                 type: object
               providerConfigRef:

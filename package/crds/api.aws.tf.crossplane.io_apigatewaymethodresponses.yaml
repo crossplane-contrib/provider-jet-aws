@@ -66,6 +66,8 @@ spec:
                 properties:
                   httpMethod:
                     type: string
+                  region:
+                    type: string
                   resourceId:
                     type: string
                   responseModels:
@@ -82,6 +84,7 @@ spec:
                     type: string
                 required:
                 - httpMethod
+                - region
                 - resourceId
                 - restApiId
                 - statusCode

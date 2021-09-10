@@ -66,6 +66,8 @@ spec:
                     type: string
                   operatingSystem:
                     type: string
+                  region:
+                    type: string
                   storageLocation:
                     items:
                       properties:
@@ -94,6 +96,7 @@ spec:
                 required:
                 - name
                 - operatingSystem
+                - region
                 - storageLocation
                 type: object
               providerConfigRef:

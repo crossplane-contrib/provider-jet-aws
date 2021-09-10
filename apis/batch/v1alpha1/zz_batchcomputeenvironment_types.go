@@ -41,6 +41,8 @@ type BatchComputeEnvironmentParameters struct {
 
 	ComputeResources []ComputeResourcesParameters `json:"computeResources,omitempty" tf:"compute_resources"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServiceRole *string `json:"serviceRole,omitempty" tf:"service_role"`
 
 	State *string `json:"state,omitempty" tf:"state"`

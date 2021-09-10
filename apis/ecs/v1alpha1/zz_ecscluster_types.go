@@ -55,6 +55,8 @@ type EcsClusterParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Setting []SettingParameters `json:"setting,omitempty" tf:"setting"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

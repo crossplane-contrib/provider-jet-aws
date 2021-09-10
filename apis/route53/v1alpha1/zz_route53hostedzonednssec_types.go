@@ -30,6 +30,8 @@ type Route53HostedZoneDnssecObservation struct {
 type Route53HostedZoneDnssecParameters struct {
 	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SigningStatus *string `json:"signingStatus,omitempty" tf:"signing_status"`
 }
 

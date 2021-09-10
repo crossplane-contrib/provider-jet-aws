@@ -84,6 +84,8 @@ type OpsworksNodejsAppLayerParameters struct {
 
 	NodejsVersion *string `json:"nodejsVersion,omitempty" tf:"nodejs_version"`
 
+	Region string `json:"region" tf:"-"`
+
 	StackId string `json:"stackId" tf:"stack_id"`
 
 	SystemPackages []string `json:"systemPackages,omitempty" tf:"system_packages"`

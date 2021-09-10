@@ -33,6 +33,8 @@ type DmsReplicationTaskParameters struct {
 
 	MigrationType string `json:"migrationType" tf:"migration_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReplicationInstanceArn string `json:"replicationInstanceArn" tf:"replication_instance_arn"`
 
 	ReplicationTaskId string `json:"replicationTaskId" tf:"replication_task_id"`

@@ -43,6 +43,8 @@ type OrganizationsAccountParameters struct {
 
 	ParentId *string `json:"parentId,omitempty" tf:"parent_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleName *string `json:"roleName,omitempty" tf:"role_name"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

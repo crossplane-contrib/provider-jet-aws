@@ -54,6 +54,8 @@ type LakeformationDataLakeSettingsParameters struct {
 
 	CreateTableDefaultPermissions []CreateTableDefaultPermissionsParameters `json:"createTableDefaultPermissions,omitempty" tf:"create_table_default_permissions"`
 
+	Region string `json:"region" tf:"-"`
+
 	TrustedResourceOwners []string `json:"trustedResourceOwners,omitempty" tf:"trusted_resource_owners"`
 }
 

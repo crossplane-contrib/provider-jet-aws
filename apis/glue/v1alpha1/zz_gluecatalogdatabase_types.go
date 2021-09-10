@@ -39,6 +39,8 @@ type GlueCatalogDatabaseParameters struct {
 
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	Region string `json:"region" tf:"-"`
+
 	TargetDatabase []TargetDatabaseParameters `json:"targetDatabase,omitempty" tf:"target_database"`
 }
 

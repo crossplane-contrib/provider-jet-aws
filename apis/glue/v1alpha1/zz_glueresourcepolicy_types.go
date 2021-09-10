@@ -29,6 +29,8 @@ type GlueResourcePolicyObservation struct {
 
 type GlueResourcePolicyParameters struct {
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // GlueResourcePolicySpec defines the desired state of GlueResourcePolicy

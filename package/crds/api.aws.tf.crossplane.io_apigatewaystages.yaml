@@ -86,6 +86,8 @@ spec:
                     type: string
                   documentationVersion:
                     type: string
+                  region:
+                    type: string
                   restApiId:
                     type: string
                   stageName:
@@ -106,6 +108,7 @@ spec:
                     type: boolean
                 required:
                 - deploymentId
+                - region
                 - restApiId
                 - stageName
                 type: object

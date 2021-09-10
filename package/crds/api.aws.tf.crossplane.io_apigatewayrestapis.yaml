@@ -100,6 +100,8 @@ spec:
                     type: object
                   policy:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -110,6 +112,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

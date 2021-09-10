@@ -43,6 +43,8 @@ type DxGatewayAssociationParameters struct {
 
 	ProposalId *string `json:"proposalId,omitempty" tf:"proposal_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	VpnGatewayId *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
 }
 

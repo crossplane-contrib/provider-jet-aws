@@ -108,6 +108,8 @@ spec:
                     type: string
                   preferredMaintenanceWindow:
                     type: string
+                  region:
+                    type: string
                   skipFinalSnapshot:
                     type: boolean
                   snapshotIdentifier:
@@ -126,6 +128,8 @@ spec:
                     items:
                       type: string
                     type: array
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

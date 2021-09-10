@@ -174,6 +174,8 @@ type EmrClusterParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReleaseLabel string `json:"releaseLabel" tf:"release_label"`
 
 	ScaleDownBehavior *string `json:"scaleDownBehavior,omitempty" tf:"scale_down_behavior"`

@@ -70,6 +70,8 @@ type LambdaEventSourceMappingParameters struct {
 
 	Queues []string `json:"queues,omitempty" tf:"queues"`
 
+	Region string `json:"region" tf:"-"`
+
 	SelfManagedEventSource []SelfManagedEventSourceParameters `json:"selfManagedEventSource,omitempty" tf:"self_managed_event_source"`
 
 	SourceAccessConfiguration []SourceAccessConfigurationParameters `json:"sourceAccessConfiguration,omitempty" tf:"source_access_configuration"`

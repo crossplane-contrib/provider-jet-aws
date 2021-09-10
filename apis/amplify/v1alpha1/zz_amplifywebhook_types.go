@@ -36,6 +36,8 @@ type AmplifyWebhookParameters struct {
 	BranchName string `json:"branchName" tf:"branch_name"`
 
 	Description *string `json:"description,omitempty" tf:"description"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // AmplifyWebhookSpec defines the desired state of AmplifyWebhook

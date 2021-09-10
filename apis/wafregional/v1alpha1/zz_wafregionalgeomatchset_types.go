@@ -40,6 +40,8 @@ type WafregionalGeoMatchSetParameters struct {
 	GeoMatchConstraint []GeoMatchConstraintParameters `json:"geoMatchConstraint,omitempty" tf:"geo_match_constraint"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // WafregionalGeoMatchSetSpec defines the desired state of WafregionalGeoMatchSet

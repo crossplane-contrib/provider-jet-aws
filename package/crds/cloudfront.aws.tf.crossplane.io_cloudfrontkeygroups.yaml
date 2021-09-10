@@ -71,9 +71,12 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                 required:
                 - items
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

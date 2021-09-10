@@ -32,6 +32,8 @@ type ElasticacheSecurityGroupParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupNames []string `json:"securityGroupNames" tf:"security_group_names"`
 }
 

@@ -71,6 +71,8 @@ type SnsTopicParameters struct {
 
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	SqsFailureFeedbackRoleArn *string `json:"sqsFailureFeedbackRoleArn,omitempty" tf:"sqs_failure_feedback_role_arn"`
 
 	SqsSuccessFeedbackRoleArn *string `json:"sqsSuccessFeedbackRoleArn,omitempty" tf:"sqs_success_feedback_role_arn"`

@@ -67,6 +67,8 @@ spec:
                     type: string
                   providerType:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -78,6 +80,7 @@ spec:
                 required:
                 - connectionName
                 - providerType
+                - region
                 type: object
               providerConfigRef:
                 default:

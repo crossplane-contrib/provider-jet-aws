@@ -67,10 +67,13 @@ spec:
                     type: string
                   domain:
                     type: string
+                  region:
+                    type: string
                   userPoolId:
                     type: string
                 required:
                 - domain
+                - region
                 - userPoolId
                 type: object
               providerConfigRef:

@@ -66,9 +66,12 @@ spec:
                     type: string
                   queueUrl:
                     type: string
+                  region:
+                    type: string
                 required:
                 - policy
                 - queueUrl
+                - region
                 type: object
               providerConfigRef:
                 default:

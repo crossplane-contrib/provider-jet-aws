@@ -33,6 +33,8 @@ type SesTemplateParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Subject *string `json:"subject,omitempty" tf:"subject"`
 
 	Text *string `json:"text,omitempty" tf:"text"`

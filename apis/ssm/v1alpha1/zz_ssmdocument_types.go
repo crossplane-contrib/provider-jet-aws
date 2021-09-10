@@ -89,6 +89,8 @@ type SsmDocumentParameters struct {
 
 	Permissions map[string]string `json:"permissions,omitempty" tf:"permissions"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

@@ -47,6 +47,8 @@ type SagemakerNotebookInstanceParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
 	RootAccess *string `json:"rootAccess,omitempty" tf:"root_access"`

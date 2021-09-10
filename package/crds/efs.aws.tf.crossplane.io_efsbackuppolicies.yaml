@@ -73,9 +73,12 @@ spec:
                     type: array
                   fileSystemId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - backupPolicy
                 - fileSystemId
+                - region
                 type: object
               providerConfigRef:
                 default:

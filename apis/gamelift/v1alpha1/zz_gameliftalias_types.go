@@ -33,6 +33,8 @@ type GameliftAliasParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoutingStrategy []RoutingStrategyParameters `json:"routingStrategy" tf:"routing_strategy"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

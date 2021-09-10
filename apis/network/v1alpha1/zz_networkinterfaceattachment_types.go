@@ -36,6 +36,8 @@ type NetworkInterfaceAttachmentParameters struct {
 	InstanceId string `json:"instanceId" tf:"instance_id"`
 
 	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // NetworkInterfaceAttachmentSpec defines the desired state of NetworkInterfaceAttachment

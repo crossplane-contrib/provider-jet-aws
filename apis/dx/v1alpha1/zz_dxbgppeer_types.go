@@ -43,6 +43,8 @@ type DxBgpPeerParameters struct {
 
 	CustomerAddress *string `json:"customerAddress,omitempty" tf:"customer_address"`
 
+	Region string `json:"region" tf:"-"`
+
 	VirtualInterfaceId string `json:"virtualInterfaceId" tf:"virtual_interface_id"`
 }
 

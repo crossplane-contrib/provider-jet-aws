@@ -66,10 +66,13 @@ spec:
                 properties:
                   budgetName:
                     type: string
+                  region:
+                    type: string
                   resourceId:
                     type: string
                 required:
                 - budgetName
+                - region
                 - resourceId
                 type: object
               providerConfigRef:

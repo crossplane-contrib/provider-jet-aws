@@ -78,6 +78,8 @@ spec:
                     type: string
                   operationName:
                     type: string
+                  region:
+                    type: string
                   requestModels:
                     additionalProperties:
                       type: string
@@ -102,6 +104,7 @@ spec:
                     type: string
                 required:
                 - apiId
+                - region
                 - routeKey
                 type: object
               providerConfigRef:

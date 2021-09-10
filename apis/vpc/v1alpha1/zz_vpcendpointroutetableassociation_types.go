@@ -28,6 +28,8 @@ type VpcEndpointRouteTableAssociationObservation struct {
 }
 
 type VpcEndpointRouteTableAssociationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
 
 	VpcEndpointId string `json:"vpcEndpointId" tf:"vpc_endpoint_id"`

@@ -195,6 +195,8 @@ type SpotFleetRequestParameters struct {
 
 	OnDemandTargetCapacity *int64 `json:"onDemandTargetCapacity,omitempty" tf:"on_demand_target_capacity"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReplaceUnhealthyInstances *bool `json:"replaceUnhealthyInstances,omitempty" tf:"replace_unhealthy_instances"`
 
 	SpotMaintenanceStrategies []SpotMaintenanceStrategiesParameters `json:"spotMaintenanceStrategies,omitempty" tf:"spot_maintenance_strategies"`

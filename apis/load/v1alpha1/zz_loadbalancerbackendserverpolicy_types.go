@@ -33,6 +33,8 @@ type LoadBalancerBackendServerPolicyParameters struct {
 	LoadBalancerName string `json:"loadBalancerName" tf:"load_balancer_name"`
 
 	PolicyNames []string `json:"policyNames,omitempty" tf:"policy_names"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // LoadBalancerBackendServerPolicySpec defines the desired state of LoadBalancerBackendServerPolicy

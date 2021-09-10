@@ -47,6 +47,8 @@ type Route53ResolverEndpointParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

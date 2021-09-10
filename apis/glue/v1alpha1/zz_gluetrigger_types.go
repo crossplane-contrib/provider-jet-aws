@@ -80,6 +80,8 @@ type GlueTriggerParameters struct {
 
 	Predicate []PredicateParameters `json:"predicate,omitempty" tf:"predicate"`
 
+	Region string `json:"region" tf:"-"`
+
 	Schedule *string `json:"schedule,omitempty" tf:"schedule"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

@@ -39,6 +39,8 @@ type DatasyncLocationFsxWindowsFileSystemParameters struct {
 
 	Password string `json:"password" tf:"password"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupArns []string `json:"securityGroupArns" tf:"security_group_arns"`
 
 	Subdirectory *string `json:"subdirectory,omitempty" tf:"subdirectory"`

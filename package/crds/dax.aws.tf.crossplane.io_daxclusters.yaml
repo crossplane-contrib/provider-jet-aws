@@ -80,6 +80,8 @@ spec:
                     type: string
                   parameterGroupName:
                     type: string
+                  region:
+                    type: string
                   replicationFactor:
                     format: int64
                     type: integer
@@ -108,6 +110,7 @@ spec:
                 - clusterName
                 - iamRoleArn
                 - nodeType
+                - region
                 - replicationFactor
                 type: object
               providerConfigRef:

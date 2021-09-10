@@ -123,6 +123,8 @@ type SsmMaintenanceWindowTaskParameters struct {
 
 	Priority *int64 `json:"priority,omitempty" tf:"priority"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServiceRoleArn *string `json:"serviceRoleArn,omitempty" tf:"service_role_arn"`
 
 	Targets []SsmMaintenanceWindowTaskTargetsParameters `json:"targets,omitempty" tf:"targets"`

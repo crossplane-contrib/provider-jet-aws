@@ -34,6 +34,8 @@ type CloudfrontKeyGroupParameters struct {
 	Items []string `json:"items" tf:"items"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudfrontKeyGroupSpec defines the desired state of CloudfrontKeyGroup

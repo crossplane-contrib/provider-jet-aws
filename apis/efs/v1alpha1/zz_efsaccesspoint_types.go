@@ -48,6 +48,8 @@ type EfsAccessPointParameters struct {
 
 	PosixUser []PosixUserParameters `json:"posixUser,omitempty" tf:"posix_user"`
 
+	Region string `json:"region" tf:"-"`
+
 	RootDirectory []RootDirectoryParameters `json:"rootDirectory,omitempty" tf:"root_directory"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

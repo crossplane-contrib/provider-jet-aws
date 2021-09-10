@@ -80,6 +80,8 @@ spec:
                     type: boolean
                   findingPublishingFrequency:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -88,6 +90,8 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

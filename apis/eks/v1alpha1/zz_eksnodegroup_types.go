@@ -62,6 +62,8 @@ type EksNodeGroupParameters struct {
 
 	NodeRoleArn string `json:"nodeRoleArn" tf:"node_role_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReleaseVersion *string `json:"releaseVersion,omitempty" tf:"release_version"`
 
 	RemoteAccess []RemoteAccessParameters `json:"remoteAccess,omitempty" tf:"remote_access"`

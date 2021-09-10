@@ -34,6 +34,8 @@ type LightsailStaticIpObservation struct {
 
 type LightsailStaticIpParameters struct {
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // LightsailStaticIpSpec defines the desired state of LightsailStaticIp

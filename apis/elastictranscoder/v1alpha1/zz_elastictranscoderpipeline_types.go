@@ -63,6 +63,8 @@ type ElastictranscoderPipelineParameters struct {
 
 	OutputBucket *string `json:"outputBucket,omitempty" tf:"output_bucket"`
 
+	Region string `json:"region" tf:"-"`
+
 	Role string `json:"role" tf:"role"`
 
 	ThumbnailConfig []ThumbnailConfigParameters `json:"thumbnailConfig,omitempty" tf:"thumbnail_config"`

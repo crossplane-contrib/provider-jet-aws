@@ -66,6 +66,8 @@ spec:
                     type: string
                   connectivityType:
                     type: string
+                  region:
+                    type: string
                   subnetId:
                     type: string
                   tags:
@@ -77,6 +79,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - subnetId
                 type: object
               providerConfigRef:

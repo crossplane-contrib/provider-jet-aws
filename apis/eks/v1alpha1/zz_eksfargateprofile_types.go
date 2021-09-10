@@ -37,6 +37,8 @@ type EksFargateProfileParameters struct {
 
 	PodExecutionRoleArn string `json:"podExecutionRoleArn" tf:"pod_execution_role_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	Selector []SelectorParameters `json:"selector" tf:"selector"`
 
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`

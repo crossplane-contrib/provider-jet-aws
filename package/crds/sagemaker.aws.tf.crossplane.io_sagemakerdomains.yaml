@@ -151,6 +151,8 @@ spec:
                     type: string
                   kmsKeyId:
                     type: string
+                  region:
+                    type: string
                   retentionPolicy:
                     items:
                       properties:
@@ -176,6 +178,7 @@ spec:
                 - authMode
                 - defaultUserSettings
                 - domainName
+                - region
                 - subnetIds
                 - vpcId
                 type: object

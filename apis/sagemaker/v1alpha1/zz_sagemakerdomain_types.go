@@ -114,6 +114,8 @@ type SagemakerDomainParameters struct {
 
 	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetentionPolicy []RetentionPolicyParameters `json:"retentionPolicy,omitempty" tf:"retention_policy"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`

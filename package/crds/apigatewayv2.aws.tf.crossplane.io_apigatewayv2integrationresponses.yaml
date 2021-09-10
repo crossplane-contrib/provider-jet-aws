@@ -72,6 +72,8 @@ spec:
                     type: string
                   integrationResponseKey:
                     type: string
+                  region:
+                    type: string
                   responseTemplates:
                     additionalProperties:
                       type: string
@@ -82,6 +84,7 @@ spec:
                 - apiId
                 - integrationId
                 - integrationResponseKey
+                - region
                 type: object
               providerConfigRef:
                 default:

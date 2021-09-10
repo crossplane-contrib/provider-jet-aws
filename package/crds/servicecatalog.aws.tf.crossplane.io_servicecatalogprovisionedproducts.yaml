@@ -99,6 +99,8 @@ spec:
                       - key
                       type: object
                     type: array
+                  region:
+                    type: string
                   retainPhysicalResources:
                     type: boolean
                   stackSetProvisioningPreferences:
@@ -136,6 +138,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

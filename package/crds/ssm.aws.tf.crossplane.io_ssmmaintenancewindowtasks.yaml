@@ -75,6 +75,8 @@ spec:
                   priority:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   serviceRoleArn:
                     type: string
                   targets:
@@ -204,6 +206,7 @@ spec:
                 required:
                 - maxConcurrency
                 - maxErrors
+                - region
                 - taskArn
                 - taskType
                 - windowId

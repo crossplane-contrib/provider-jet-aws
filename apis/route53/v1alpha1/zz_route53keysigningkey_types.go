@@ -53,6 +53,8 @@ type Route53KeySigningKeyParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Status *string `json:"status,omitempty" tf:"status"`
 }
 

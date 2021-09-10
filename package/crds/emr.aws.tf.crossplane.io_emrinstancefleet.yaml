@@ -145,6 +145,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   targetOnDemandCapacity:
                     format: int64
                     type: integer
@@ -153,6 +155,7 @@ spec:
                     type: integer
                 required:
                 - clusterId
+                - region
                 type: object
               providerConfigRef:
                 default:

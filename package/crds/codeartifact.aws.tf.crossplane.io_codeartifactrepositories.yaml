@@ -78,6 +78,8 @@ spec:
                       - externalConnectionName
                       type: object
                     type: array
+                  region:
+                    type: string
                   repository:
                     type: string
                   tags:
@@ -99,6 +101,7 @@ spec:
                     type: array
                 required:
                 - domain
+                - region
                 - repository
                 type: object
               providerConfigRef:

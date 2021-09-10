@@ -89,9 +89,12 @@ spec:
                       - unitType
                       type: object
                     type: array
+                  region:
+                    type: string
                 required:
                 - clusterId
                 - computeLimits
+                - region
                 type: object
               providerConfigRef:
                 default:

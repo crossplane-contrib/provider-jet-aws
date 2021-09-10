@@ -72,12 +72,15 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   reputationMetricsEnabled:
                     type: boolean
                   sendingEnabled:
                     type: boolean
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

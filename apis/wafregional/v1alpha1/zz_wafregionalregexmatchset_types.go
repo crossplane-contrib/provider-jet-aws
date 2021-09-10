@@ -51,6 +51,8 @@ type WafregionalRegexMatchSetParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	RegexMatchTuple []RegexMatchTupleParameters `json:"regexMatchTuple,omitempty" tf:"regex_match_tuple"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // WafregionalRegexMatchSetSpec defines the desired state of WafregionalRegexMatchSet

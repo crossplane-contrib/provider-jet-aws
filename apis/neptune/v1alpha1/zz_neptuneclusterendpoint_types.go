@@ -39,6 +39,8 @@ type NeptuneClusterEndpointParameters struct {
 
 	ExcludedMembers []string `json:"excludedMembers,omitempty" tf:"excluded_members"`
 
+	Region string `json:"region" tf:"-"`
+
 	StaticMembers []string `json:"staticMembers,omitempty" tf:"static_members"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

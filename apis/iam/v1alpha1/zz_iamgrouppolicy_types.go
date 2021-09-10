@@ -35,6 +35,8 @@ type IamGroupPolicyParameters struct {
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // IamGroupPolicySpec defines the desired state of IamGroupPolicy

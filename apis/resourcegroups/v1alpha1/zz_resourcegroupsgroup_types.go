@@ -42,6 +42,8 @@ type ResourcegroupsGroupParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceQuery []ResourceQueryParameters `json:"resourceQuery" tf:"resource_query"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

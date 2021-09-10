@@ -82,6 +82,8 @@ spec:
                   protocol:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   ruleAction:
                     type: string
                   ruleNumber:
@@ -106,6 +108,7 @@ spec:
                     type: string
                 required:
                 - destinationCidrBlock
+                - region
                 - ruleAction
                 - ruleNumber
                 - sourceCidrBlock

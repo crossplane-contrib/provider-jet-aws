@@ -35,6 +35,8 @@ type CodestarnotificationsNotificationRuleParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Resource string `json:"resource" tf:"resource"`
 
 	Status *string `json:"status,omitempty" tf:"status"`

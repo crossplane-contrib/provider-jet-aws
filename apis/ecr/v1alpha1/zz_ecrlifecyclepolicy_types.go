@@ -31,6 +31,8 @@ type EcrLifecyclePolicyObservation struct {
 type EcrLifecyclePolicyParameters struct {
 	Policy string `json:"policy" tf:"policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	Repository string `json:"repository" tf:"repository"`
 }
 

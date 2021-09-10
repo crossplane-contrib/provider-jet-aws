@@ -40,6 +40,8 @@ type CloudwatchEventApiDestinationParameters struct {
 	InvocationRateLimitPerSecond *int64 `json:"invocationRateLimitPerSecond,omitempty" tf:"invocation_rate_limit_per_second"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudwatchEventApiDestinationSpec defines the desired state of CloudwatchEventApiDestination

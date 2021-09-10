@@ -122,6 +122,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   schedule:
                     items:
                       properties:
@@ -136,6 +138,7 @@ spec:
                 - destination
                 - includedObjectVersions
                 - name
+                - region
                 - schedule
                 type: object
               providerConfigRef:

@@ -70,9 +70,12 @@ spec:
                     type: string
                   primaryReplicationGroupId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - globalReplicationGroupIdSuffix
                 - primaryReplicationGroupId
+                - region
                 type: object
               providerConfigRef:
                 default:

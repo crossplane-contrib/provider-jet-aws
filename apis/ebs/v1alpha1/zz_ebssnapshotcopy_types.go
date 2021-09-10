@@ -45,6 +45,8 @@ type EbsSnapshotCopyParameters struct {
 
 	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SourceRegion string `json:"sourceRegion" tf:"source_region"`
 
 	SourceSnapshotId string `json:"sourceSnapshotId" tf:"source_snapshot_id"`

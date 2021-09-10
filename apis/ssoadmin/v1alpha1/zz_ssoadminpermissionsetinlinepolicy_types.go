@@ -33,6 +33,8 @@ type SsoadminPermissionSetInlinePolicyParameters struct {
 	InstanceArn string `json:"instanceArn" tf:"instance_arn"`
 
 	PermissionSetArn string `json:"permissionSetArn" tf:"permission_set_arn"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SsoadminPermissionSetInlinePolicySpec defines the desired state of SsoadminPermissionSetInlinePolicy

@@ -70,6 +70,8 @@ spec:
                     type: string
                   ipv6Support:
                     type: string
+                  region:
+                    type: string
                   subnetIds:
                     items:
                       type: string
@@ -91,6 +93,7 @@ spec:
                   vpcId:
                     type: string
                 required:
+                - region
                 - subnetIds
                 - transitGatewayId
                 - vpcId

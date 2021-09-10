@@ -31,6 +31,8 @@ type EfsFileSystemPolicyParameters struct {
 	FileSystemId string `json:"fileSystemId" tf:"file_system_id"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // EfsFileSystemPolicySpec defines the desired state of EfsFileSystemPolicy

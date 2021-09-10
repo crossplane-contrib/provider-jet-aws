@@ -74,6 +74,8 @@ spec:
                     type: string
                   ownerArn:
                     type: string
+                  region:
+                    type: string
                   subnetId:
                     type: string
                   tags:
@@ -87,6 +89,7 @@ spec:
                 required:
                 - instanceType
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

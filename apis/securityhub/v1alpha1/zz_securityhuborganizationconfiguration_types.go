@@ -29,6 +29,8 @@ type SecurityhubOrganizationConfigurationObservation struct {
 
 type SecurityhubOrganizationConfigurationParameters struct {
 	AutoEnable bool `json:"autoEnable" tf:"auto_enable"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SecurityhubOrganizationConfigurationSpec defines the desired state of SecurityhubOrganizationConfiguration

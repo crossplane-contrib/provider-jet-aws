@@ -67,10 +67,13 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   requireEncryption:
                     type: boolean
                 required:
                 - name
+                - region
                 - requireEncryption
                 type: object
               providerConfigRef:

@@ -66,6 +66,10 @@ spec:
                 properties:
                   comment:
                     type: string
+                  region:
+                    type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

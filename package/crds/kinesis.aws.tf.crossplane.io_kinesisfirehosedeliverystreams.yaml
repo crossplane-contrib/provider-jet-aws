@@ -591,6 +591,8 @@ spec:
                       - username
                       type: object
                     type: array
+                  region:
+                    type: string
                   s3Configuration:
                     items:
                       properties:
@@ -711,6 +713,7 @@ spec:
                 required:
                 - destination
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

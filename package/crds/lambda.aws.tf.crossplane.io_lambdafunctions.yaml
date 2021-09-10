@@ -132,6 +132,8 @@ spec:
                     type: string
                   publish:
                     type: boolean
+                  region:
+                    type: string
                   reservedConcurrentExecutions:
                     format: int64
                     type: integer
@@ -185,6 +187,7 @@ spec:
                     type: array
                 required:
                 - functionName
+                - region
                 - role
                 type: object
               providerConfigRef:

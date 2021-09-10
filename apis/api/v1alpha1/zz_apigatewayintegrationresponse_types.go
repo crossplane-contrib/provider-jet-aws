@@ -32,6 +32,8 @@ type ApiGatewayIntegrationResponseParameters struct {
 
 	HttpMethod string `json:"httpMethod" tf:"http_method"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceId string `json:"resourceId" tf:"resource_id"`
 
 	ResponseParameters map[string]string `json:"responseParameters,omitempty" tf:"response_parameters"`

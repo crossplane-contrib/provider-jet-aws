@@ -39,6 +39,8 @@ type CognitoUserPoolDomainParameters struct {
 
 	Domain string `json:"domain" tf:"domain"`
 
+	Region string `json:"region" tf:"-"`
+
 	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
 }
 

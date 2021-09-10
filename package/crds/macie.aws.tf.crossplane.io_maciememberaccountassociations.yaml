@@ -66,8 +66,11 @@ spec:
                 properties:
                   memberAccountId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - memberAccountId
+                - region
                 type: object
               providerConfigRef:
                 default:

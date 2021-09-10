@@ -69,6 +69,8 @@ spec:
                     type: string
                   path:
                     type: string
+                  region:
+                    type: string
                   role:
                     type: string
                   tags:
@@ -79,6 +81,8 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

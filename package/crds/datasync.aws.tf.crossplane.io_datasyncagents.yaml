@@ -70,6 +70,8 @@ spec:
                     type: string
                   privateLinkEndpoint:
                     type: string
+                  region:
+                    type: string
                   securityGroupArns:
                     items:
                       type: string
@@ -88,6 +90,8 @@ spec:
                     type: object
                   vpcEndpointId:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -28,6 +28,8 @@ type Route53ResolverQueryLogConfigAssociationObservation struct {
 }
 
 type Route53ResolverQueryLogConfigAssociationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ResolverQueryLogConfigId string `json:"resolverQueryLogConfigId" tf:"resolver_query_log_config_id"`
 
 	ResourceId string `json:"resourceId" tf:"resource_id"`

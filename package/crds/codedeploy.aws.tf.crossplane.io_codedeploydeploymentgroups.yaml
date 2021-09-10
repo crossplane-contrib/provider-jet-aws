@@ -247,6 +247,8 @@ spec:
                           type: string
                       type: object
                     type: array
+                  region:
+                    type: string
                   serviceRoleArn:
                     type: string
                   tags:
@@ -277,6 +279,7 @@ spec:
                 required:
                 - appName
                 - deploymentGroupName
+                - region
                 - serviceRoleArn
                 type: object
               providerConfigRef:

@@ -57,6 +57,8 @@ type CloudfrontOriginRequestPolicyParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	QueryStringsConfig []CloudfrontOriginRequestPolicyQueryStringsConfigParameters `json:"queryStringsConfig" tf:"query_strings_config"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type CloudfrontOriginRequestPolicyQueryStringsConfigObservation struct {

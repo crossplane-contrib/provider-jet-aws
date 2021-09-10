@@ -30,6 +30,8 @@ type RedshiftSnapshotScheduleAssociationObservation struct {
 type RedshiftSnapshotScheduleAssociationParameters struct {
 	ClusterIdentifier string `json:"clusterIdentifier" tf:"cluster_identifier"`
 
+	Region string `json:"region" tf:"-"`
+
 	ScheduleIdentifier string `json:"scheduleIdentifier" tf:"schedule_identifier"`
 }
 

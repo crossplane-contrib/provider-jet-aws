@@ -68,6 +68,8 @@ type WorklinkFleetParameters struct {
 	Network []NetworkParameters `json:"network,omitempty" tf:"network"`
 
 	OptimizeForEndUserLocation *bool `json:"optimizeForEndUserLocation,omitempty" tf:"optimize_for_end_user_location"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // WorklinkFleetSpec defines the desired state of WorklinkFleet

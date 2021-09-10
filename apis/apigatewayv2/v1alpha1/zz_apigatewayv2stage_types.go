@@ -58,6 +58,8 @@ type Apigatewayv2StageParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RouteSettings []RouteSettingsParameters `json:"routeSettings,omitempty" tf:"route_settings"`
 
 	StageVariables map[string]string `json:"stageVariables,omitempty" tf:"stage_variables"`

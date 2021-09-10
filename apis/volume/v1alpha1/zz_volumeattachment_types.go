@@ -34,6 +34,8 @@ type VolumeAttachmentParameters struct {
 
 	InstanceId string `json:"instanceId" tf:"instance_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SkipDestroy *bool `json:"skipDestroy,omitempty" tf:"skip_destroy"`
 
 	VolumeId string `json:"volumeId" tf:"volume_id"`

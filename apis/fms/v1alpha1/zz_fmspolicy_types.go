@@ -50,6 +50,8 @@ type FmsPolicyParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RemediationEnabled *bool `json:"remediationEnabled,omitempty" tf:"remediation_enabled"`
 
 	ResourceTags map[string]string `json:"resourceTags,omitempty" tf:"resource_tags"`

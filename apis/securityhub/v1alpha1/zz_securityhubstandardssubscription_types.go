@@ -28,6 +28,8 @@ type SecurityhubStandardsSubscriptionObservation struct {
 }
 
 type SecurityhubStandardsSubscriptionParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	StandardsArn string `json:"standardsArn" tf:"standards_arn"`
 }
 

@@ -33,6 +33,8 @@ type ServicecatalogTagOptionParameters struct {
 
 	Key string `json:"key" tf:"key"`
 
+	Region string `json:"region" tf:"-"`
+
 	Value string `json:"value" tf:"value"`
 }
 

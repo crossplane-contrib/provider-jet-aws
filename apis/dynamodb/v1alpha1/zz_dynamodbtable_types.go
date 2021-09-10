@@ -60,6 +60,8 @@ type DynamodbTableParameters struct {
 
 	ReadCapacity *int64 `json:"readCapacity,omitempty" tf:"read_capacity"`
 
+	Region string `json:"region" tf:"-"`
+
 	Replica []DynamodbTableReplicaParameters `json:"replica,omitempty" tf:"replica"`
 
 	ServerSideEncryption []ServerSideEncryptionParameters `json:"serverSideEncryption,omitempty" tf:"server_side_encryption"`

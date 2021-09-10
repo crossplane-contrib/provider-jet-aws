@@ -75,6 +75,8 @@ spec:
                   priority:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   reservoirSize:
                     format: int64
                     type: integer
@@ -104,6 +106,7 @@ spec:
                 - host
                 - httpMethod
                 - priority
+                - region
                 - reservoirSize
                 - resourceArn
                 - serviceName

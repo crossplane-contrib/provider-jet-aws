@@ -66,6 +66,8 @@ spec:
                 properties:
                   identityPoolId:
                     type: string
+                  region:
+                    type: string
                   roleMapping:
                     items:
                       properties:
@@ -104,6 +106,7 @@ spec:
                     type: object
                 required:
                 - identityPoolId
+                - region
                 - roles
                 type: object
               providerConfigRef:

@@ -66,6 +66,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   routingStrategy:
                     items:
                       properties:
@@ -89,6 +91,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - routingStrategy
                 type: object
               providerConfigRef:

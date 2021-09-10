@@ -53,6 +53,8 @@ type IamRoleParameters struct {
 
 	PermissionsBoundary *string `json:"permissionsBoundary,omitempty" tf:"permissions_boundary"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

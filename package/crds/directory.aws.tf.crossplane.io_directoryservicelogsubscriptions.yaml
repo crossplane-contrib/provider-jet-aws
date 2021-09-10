@@ -68,9 +68,12 @@ spec:
                     type: string
                   logGroupName:
                     type: string
+                  region:
+                    type: string
                 required:
                 - directoryId
                 - logGroupName
+                - region
                 type: object
               providerConfigRef:
                 default:

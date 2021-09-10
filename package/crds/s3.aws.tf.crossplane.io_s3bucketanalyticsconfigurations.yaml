@@ -79,6 +79,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   storageClassAnalysis:
                     items:
                       properties:
@@ -120,6 +122,7 @@ spec:
                 required:
                 - bucket
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

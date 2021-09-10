@@ -123,6 +123,8 @@ spec:
                   refreshTokenValidity:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   supportedIdentityProviders:
                     items:
                       type: string
@@ -146,6 +148,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 - userPoolId
                 type: object
               providerConfigRef:

@@ -70,8 +70,11 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                 required:
                 - configuration
+                - region
                 type: object
               providerConfigRef:
                 default:

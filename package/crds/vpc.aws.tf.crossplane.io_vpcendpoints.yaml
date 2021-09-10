@@ -68,6 +68,8 @@ spec:
                     type: string
                   privateDnsEnabled:
                     type: boolean
+                  region:
+                    type: string
                   routeTableIds:
                     items:
                       type: string
@@ -95,6 +97,7 @@ spec:
                   vpcId:
                     type: string
                 required:
+                - region
                 - serviceName
                 - vpcId
                 type: object

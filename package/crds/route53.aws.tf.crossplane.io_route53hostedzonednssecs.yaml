@@ -66,10 +66,13 @@ spec:
                 properties:
                   hostedZoneId:
                     type: string
+                  region:
+                    type: string
                   signingStatus:
                     type: string
                 required:
                 - hostedZoneId
+                - region
                 type: object
               providerConfigRef:
                 default:

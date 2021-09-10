@@ -59,6 +59,8 @@ type NetworkInterfaceParameters struct {
 
 	PrivateIpsCount *int64 `json:"privateIpsCount,omitempty" tf:"private_ips_count"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
 	SourceDestCheck *bool `json:"sourceDestCheck,omitempty" tf:"source_dest_check"`

@@ -64,6 +64,8 @@ type GameliftFleetParameters struct {
 
 	NewGameSessionProtectionPolicy *string `json:"newGameSessionProtectionPolicy,omitempty" tf:"new_game_session_protection_policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceCreationLimitPolicy []ResourceCreationLimitPolicyParameters `json:"resourceCreationLimitPolicy,omitempty" tf:"resource_creation_limit_policy"`
 
 	RuntimeConfiguration []RuntimeConfigurationParameters `json:"runtimeConfiguration,omitempty" tf:"runtime_configuration"`

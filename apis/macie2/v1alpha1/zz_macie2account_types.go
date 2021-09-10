@@ -35,6 +35,8 @@ type Macie2AccountObservation struct {
 type Macie2AccountParameters struct {
 	FindingPublishingFrequency *string `json:"findingPublishingFrequency,omitempty" tf:"finding_publishing_frequency"`
 
+	Region string `json:"region" tf:"-"`
+
 	Status *string `json:"status,omitempty" tf:"status"`
 }
 

@@ -30,6 +30,8 @@ type Route53ResolverRuleAssociationObservation struct {
 type Route53ResolverRuleAssociationParameters struct {
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResolverRuleId string `json:"resolverRuleId" tf:"resolver_rule_id"`
 
 	VpcId string `json:"vpcId" tf:"vpc_id"`

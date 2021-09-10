@@ -30,6 +30,8 @@ type EcrRegistryPolicyObservation struct {
 
 type EcrRegistryPolicyParameters struct {
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // EcrRegistryPolicySpec defines the desired state of EcrRegistryPolicy

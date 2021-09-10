@@ -72,11 +72,14 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   topicArn:
                     type: string
                 required:
                 - groupNames
                 - notifications
+                - region
                 - topicArn
                 type: object
               providerConfigRef:

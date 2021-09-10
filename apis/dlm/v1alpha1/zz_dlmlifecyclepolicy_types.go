@@ -46,6 +46,8 @@ type DlmLifecyclePolicyParameters struct {
 
 	PolicyDetails []PolicyDetailsParameters `json:"policyDetails" tf:"policy_details"`
 
+	Region string `json:"region" tf:"-"`
+
 	State *string `json:"state,omitempty" tf:"state"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

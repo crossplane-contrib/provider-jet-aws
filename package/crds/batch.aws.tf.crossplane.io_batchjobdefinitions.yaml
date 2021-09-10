@@ -77,6 +77,8 @@ spec:
                     type: array
                   propagateTags:
                     type: boolean
+                  region:
+                    type: string
                   retryStrategy:
                     items:
                       properties:
@@ -120,6 +122,7 @@ spec:
                     type: string
                 required:
                 - name
+                - region
                 - type
                 type: object
               providerConfigRef:

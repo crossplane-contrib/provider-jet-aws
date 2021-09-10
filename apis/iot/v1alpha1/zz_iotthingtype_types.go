@@ -34,6 +34,8 @@ type IotThingTypeParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	Properties []PropertiesParameters `json:"properties,omitempty" tf:"properties"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type PropertiesObservation struct {

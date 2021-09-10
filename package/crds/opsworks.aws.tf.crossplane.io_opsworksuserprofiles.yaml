@@ -65,6 +65,8 @@ spec:
                 properties:
                   allowSelfManagement:
                     type: boolean
+                  region:
+                    type: string
                   sshPublicKey:
                     type: string
                   sshUsername:
@@ -72,6 +74,7 @@ spec:
                   userArn:
                     type: string
                 required:
+                - region
                 - sshUsername
                 - userArn
                 type: object

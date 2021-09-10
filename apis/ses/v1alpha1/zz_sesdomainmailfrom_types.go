@@ -33,6 +33,8 @@ type SesDomainMailFromParameters struct {
 	Domain string `json:"domain" tf:"domain"`
 
 	MailFromDomain string `json:"mailFromDomain" tf:"mail_from_domain"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SesDomainMailFromSpec defines the desired state of SesDomainMailFrom

@@ -35,6 +35,8 @@ type ServicecatalogPrincipalPortfolioAssociationParameters struct {
 	PrincipalArn string `json:"principalArn" tf:"principal_arn"`
 
 	PrincipalType *string `json:"principalType,omitempty" tf:"principal_type"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // ServicecatalogPrincipalPortfolioAssociationSpec defines the desired state of ServicecatalogPrincipalPortfolioAssociation

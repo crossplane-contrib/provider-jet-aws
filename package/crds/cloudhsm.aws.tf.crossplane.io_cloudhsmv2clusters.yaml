@@ -64,6 +64,8 @@ spec:
                 properties:
                   hsmType:
                     type: string
+                  region:
+                    type: string
                   sourceBackupIdentifier:
                     type: string
                   subnetIds:
@@ -80,6 +82,7 @@ spec:
                     type: object
                 required:
                 - hsmType
+                - region
                 - subnetIds
                 type: object
               providerConfigRef:

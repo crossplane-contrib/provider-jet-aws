@@ -258,6 +258,8 @@ type Kinesisanalyticsv2ApplicationParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RuntimeEnvironment string `json:"runtimeEnvironment" tf:"runtime_environment"`
 
 	ServiceExecutionRole string `json:"serviceExecutionRole" tf:"service_execution_role"`

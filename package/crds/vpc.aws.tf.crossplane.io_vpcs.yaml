@@ -76,6 +76,8 @@ spec:
                     type: boolean
                   instanceTenancy:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -86,6 +88,7 @@ spec:
                     type: object
                 required:
                 - cidrBlock
+                - region
                 type: object
               providerConfigRef:
                 default:

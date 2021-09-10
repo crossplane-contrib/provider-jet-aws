@@ -80,7 +80,7 @@ type OpsworksStackParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
-	Region string `json:"region" tf:"region"`
+	Region string `json:"region" tf:"-"`
 
 	ServiceRoleArn string `json:"serviceRoleArn" tf:"service_role_arn"`
 

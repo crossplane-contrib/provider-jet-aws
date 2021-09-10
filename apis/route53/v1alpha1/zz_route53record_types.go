@@ -83,6 +83,8 @@ type Route53RecordParameters struct {
 
 	Records []string `json:"records,omitempty" tf:"records"`
 
+	Region string `json:"region" tf:"-"`
+
 	SetIdentifier *string `json:"setIdentifier,omitempty" tf:"set_identifier"`
 
 	Ttl *int64 `json:"ttl,omitempty" tf:"ttl"`

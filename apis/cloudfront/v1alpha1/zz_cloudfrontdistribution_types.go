@@ -73,6 +73,8 @@ type CloudfrontDistributionParameters struct {
 
 	PriceClass *string `json:"priceClass,omitempty" tf:"price_class"`
 
+	Region string `json:"region" tf:"-"`
+
 	Restrictions []RestrictionsParameters `json:"restrictions" tf:"restrictions"`
 
 	RetainOnDelete *bool `json:"retainOnDelete,omitempty" tf:"retain_on_delete"`

@@ -53,6 +53,8 @@ type GlueClassifierParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	XmlClassifier []XmlClassifierParameters `json:"xmlClassifier,omitempty" tf:"xml_classifier"`
 }
 

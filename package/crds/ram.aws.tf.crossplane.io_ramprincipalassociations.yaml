@@ -66,10 +66,13 @@ spec:
                 properties:
                   principal:
                     type: string
+                  region:
+                    type: string
                   resourceShareArn:
                     type: string
                 required:
                 - principal
+                - region
                 - resourceShareArn
                 type: object
               providerConfigRef:

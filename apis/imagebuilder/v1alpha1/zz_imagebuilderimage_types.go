@@ -75,6 +75,8 @@ type ImagebuilderImageParameters struct {
 
 	InfrastructureConfigurationArn string `json:"infrastructureConfigurationArn" tf:"infrastructure_configuration_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

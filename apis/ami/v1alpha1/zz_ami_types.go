@@ -67,6 +67,8 @@ type AmiParameters struct {
 
 	RamdiskId *string `json:"ramdiskId,omitempty" tf:"ramdisk_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	RootDeviceName *string `json:"rootDeviceName,omitempty" tf:"root_device_name"`
 
 	SriovNetSupport *string `json:"sriovNetSupport,omitempty" tf:"sriov_net_support"`

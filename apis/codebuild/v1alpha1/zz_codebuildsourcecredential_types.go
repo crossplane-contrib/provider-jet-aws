@@ -31,6 +31,8 @@ type CodebuildSourceCredentialObservation struct {
 type CodebuildSourceCredentialParameters struct {
 	AuthType string `json:"authType" tf:"auth_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServerType string `json:"serverType" tf:"server_type"`
 
 	Token string `json:"token" tf:"token"`

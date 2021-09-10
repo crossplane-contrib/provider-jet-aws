@@ -71,6 +71,8 @@ type DocdbClusterInstanceParameters struct {
 
 	PromotionTier *int64 `json:"promotionTier,omitempty" tf:"promotion_tier"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

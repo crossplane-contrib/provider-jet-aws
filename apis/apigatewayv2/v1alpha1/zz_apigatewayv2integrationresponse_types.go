@@ -36,6 +36,8 @@ type Apigatewayv2IntegrationResponseParameters struct {
 
 	IntegrationResponseKey string `json:"integrationResponseKey" tf:"integration_response_key"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResponseTemplates map[string]string `json:"responseTemplates,omitempty" tf:"response_templates"`
 
 	TemplateSelectionExpression *string `json:"templateSelectionExpression,omitempty" tf:"template_selection_expression"`

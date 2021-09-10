@@ -66,6 +66,8 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                   sqlInjectionMatchTuple:
                     items:
                       properties:
@@ -89,6 +91,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

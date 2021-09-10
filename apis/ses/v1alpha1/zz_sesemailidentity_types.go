@@ -30,6 +30,8 @@ type SesEmailIdentityObservation struct {
 
 type SesEmailIdentityParameters struct {
 	Email string `json:"email" tf:"email"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SesEmailIdentitySpec defines the desired state of SesEmailIdentity

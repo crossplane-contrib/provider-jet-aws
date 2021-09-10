@@ -70,12 +70,15 @@ spec:
                     type: string
                   query:
                     type: string
+                  region:
+                    type: string
                   workgroup:
                     type: string
                 required:
                 - database
                 - name
                 - query
+                - region
                 type: object
               providerConfigRef:
                 default:

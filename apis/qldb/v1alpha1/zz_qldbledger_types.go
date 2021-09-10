@@ -35,6 +35,8 @@ type QldbLedgerParameters struct {
 
 	PermissionsMode string `json:"permissionsMode" tf:"permissions_mode"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

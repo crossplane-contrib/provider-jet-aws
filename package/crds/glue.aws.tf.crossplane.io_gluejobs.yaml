@@ -117,6 +117,8 @@ spec:
                   numberOfWorkers:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   roleArn:
                     type: string
                   securityConfiguration:
@@ -137,6 +139,7 @@ spec:
                 required:
                 - command
                 - name
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

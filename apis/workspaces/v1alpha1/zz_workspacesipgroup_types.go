@@ -41,6 +41,8 @@ type WorkspacesIpGroupParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Rules []RulesParameters `json:"rules,omitempty" tf:"rules"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

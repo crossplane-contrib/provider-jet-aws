@@ -35,6 +35,8 @@ type AmplifyBackendEnvironmentParameters struct {
 
 	EnvironmentName string `json:"environmentName" tf:"environment_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	StackName *string `json:"stackName,omitempty" tf:"stack_name"`
 }
 

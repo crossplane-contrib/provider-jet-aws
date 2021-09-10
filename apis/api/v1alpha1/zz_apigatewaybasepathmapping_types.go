@@ -34,6 +34,8 @@ type ApiGatewayBasePathMappingParameters struct {
 
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	StageName *string `json:"stageName,omitempty" tf:"stage_name"`
 }
 

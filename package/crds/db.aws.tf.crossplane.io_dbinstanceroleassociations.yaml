@@ -68,11 +68,14 @@ spec:
                     type: string
                   featureName:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                 required:
                 - dbInstanceIdentifier
                 - featureName
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

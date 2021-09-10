@@ -95,6 +95,8 @@ type EcsServiceParameters struct {
 
 	PropagateTags *string `json:"propagateTags,omitempty" tf:"propagate_tags"`
 
+	Region string `json:"region" tf:"-"`
+
 	SchedulingStrategy *string `json:"schedulingStrategy,omitempty" tf:"scheduling_strategy"`
 
 	ServiceRegistries []ServiceRegistriesParameters `json:"serviceRegistries,omitempty" tf:"service_registries"`

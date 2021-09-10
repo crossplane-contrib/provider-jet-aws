@@ -39,6 +39,8 @@ type DbEventSubscriptionParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnsTopic string `json:"snsTopic" tf:"sns_topic"`
 
 	SourceIds []string `json:"sourceIds,omitempty" tf:"source_ids"`

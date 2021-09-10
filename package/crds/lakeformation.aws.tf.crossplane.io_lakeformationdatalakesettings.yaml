@@ -92,10 +92,14 @@ spec:
                           type: string
                       type: object
                     type: array
+                  region:
+                    type: string
                   trustedResourceOwners:
                     items:
                       type: string
                     type: array
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

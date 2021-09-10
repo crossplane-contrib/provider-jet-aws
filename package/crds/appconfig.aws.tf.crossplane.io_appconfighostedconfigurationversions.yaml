@@ -74,11 +74,14 @@ spec:
                     type: string
                   description:
                     type: string
+                  region:
+                    type: string
                 required:
                 - applicationId
                 - configurationProfileId
                 - content
                 - contentType
+                - region
                 type: object
               providerConfigRef:
                 default:

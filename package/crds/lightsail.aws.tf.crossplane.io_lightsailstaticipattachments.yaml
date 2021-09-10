@@ -66,10 +66,13 @@ spec:
                 properties:
                   instanceName:
                     type: string
+                  region:
+                    type: string
                   staticIpName:
                     type: string
                 required:
                 - instanceName
+                - region
                 - staticIpName
                 type: object
               providerConfigRef:

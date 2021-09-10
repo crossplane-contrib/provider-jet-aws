@@ -64,11 +64,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   streamArn:
                     type: string
                   tableName:
                     type: string
                 required:
+                - region
                 - streamArn
                 - tableName
                 type: object

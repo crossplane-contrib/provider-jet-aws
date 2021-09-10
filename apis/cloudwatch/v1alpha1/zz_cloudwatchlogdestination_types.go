@@ -31,6 +31,8 @@ type CloudwatchLogDestinationObservation struct {
 type CloudwatchLogDestinationParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
 	TargetArn string `json:"targetArn" tf:"target_arn"`

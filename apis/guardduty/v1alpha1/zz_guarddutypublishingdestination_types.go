@@ -35,6 +35,8 @@ type GuarddutyPublishingDestinationParameters struct {
 	DetectorId string `json:"detectorId" tf:"detector_id"`
 
 	KmsKeyArn string `json:"kmsKeyArn" tf:"kms_key_arn"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // GuarddutyPublishingDestinationSpec defines the desired state of GuarddutyPublishingDestination

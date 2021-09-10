@@ -37,6 +37,8 @@ type IamUserLoginProfileParameters struct {
 
 	PgpKey string `json:"pgpKey" tf:"pgp_key"`
 
+	Region string `json:"region" tf:"-"`
+
 	User string `json:"user" tf:"user"`
 }
 

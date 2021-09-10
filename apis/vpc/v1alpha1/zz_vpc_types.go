@@ -59,6 +59,8 @@ type VpcParameters struct {
 
 	InstanceTenancy *string `json:"instanceTenancy,omitempty" tf:"instance_tenancy"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

@@ -72,6 +72,8 @@ spec:
                     type: string
                   networkInterfaceId:
                     type: string
+                  region:
+                    type: string
                   snapshotId:
                     type: string
                   sourceVolumeArn:
@@ -92,6 +94,7 @@ spec:
                 required:
                 - gatewayArn
                 - networkInterfaceId
+                - region
                 - targetName
                 - volumeSizeInBytes
                 type: object

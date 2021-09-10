@@ -68,6 +68,8 @@ spec:
                     type: string
                   domainId:
                     type: string
+                  region:
+                    type: string
                   resourceSpec:
                     items:
                       properties:
@@ -91,6 +93,7 @@ spec:
                 - appName
                 - appType
                 - domainId
+                - region
                 - userProfileName
                 type: object
               providerConfigRef:

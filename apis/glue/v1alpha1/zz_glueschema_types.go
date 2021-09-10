@@ -43,6 +43,8 @@ type GlueSchemaParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	Region string `json:"region" tf:"-"`
+
 	RegistryArn *string `json:"registryArn,omitempty" tf:"registry_arn"`
 
 	SchemaDefinition string `json:"schemaDefinition" tf:"schema_definition"`

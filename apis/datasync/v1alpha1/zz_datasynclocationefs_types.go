@@ -35,6 +35,8 @@ type DatasyncLocationEfsParameters struct {
 
 	EfsFileSystemArn string `json:"efsFileSystemArn" tf:"efs_file_system_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	Subdirectory *string `json:"subdirectory,omitempty" tf:"subdirectory"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

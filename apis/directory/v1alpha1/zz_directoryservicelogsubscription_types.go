@@ -31,6 +31,8 @@ type DirectoryServiceLogSubscriptionParameters struct {
 	DirectoryId string `json:"directoryId" tf:"directory_id"`
 
 	LogGroupName string `json:"logGroupName" tf:"log_group_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // DirectoryServiceLogSubscriptionSpec defines the desired state of DirectoryServiceLogSubscription

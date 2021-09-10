@@ -42,6 +42,8 @@ type ApiGatewayAuthorizerParameters struct {
 
 	ProviderArns []string `json:"providerArns,omitempty" tf:"provider_arns"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestApiId string `json:"restApiId" tf:"rest_api_id"`
 
 	Type *string `json:"type,omitempty" tf:"type"`

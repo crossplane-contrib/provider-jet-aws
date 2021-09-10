@@ -32,6 +32,8 @@ type SecretsmanagerSecretPolicyParameters struct {
 
 	Policy string `json:"policy" tf:"policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecretArn string `json:"secretArn" tf:"secret_arn"`
 }
 

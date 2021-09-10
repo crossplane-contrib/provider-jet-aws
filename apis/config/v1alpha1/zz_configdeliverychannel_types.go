@@ -30,6 +30,8 @@ type ConfigDeliveryChannelObservation struct {
 type ConfigDeliveryChannelParameters struct {
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	S3BucketName string `json:"s3BucketName" tf:"s3_bucket_name"`
 
 	S3KeyPrefix *string `json:"s3KeyPrefix,omitempty" tf:"s3_key_prefix"`

@@ -66,6 +66,8 @@ spec:
                 properties:
                   bucket:
                     type: string
+                  region:
+                    type: string
                   rule:
                     items:
                       properties:
@@ -112,6 +114,7 @@ spec:
                     type: array
                 required:
                 - bucket
+                - region
                 - rule
                 type: object
               providerConfigRef:

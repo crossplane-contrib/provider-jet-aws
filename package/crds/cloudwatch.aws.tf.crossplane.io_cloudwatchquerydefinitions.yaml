@@ -72,9 +72,12 @@ spec:
                     type: string
                   queryString:
                     type: string
+                  region:
+                    type: string
                 required:
                 - name
                 - queryString
+                - region
                 type: object
               providerConfigRef:
                 default:

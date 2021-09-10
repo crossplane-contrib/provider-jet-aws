@@ -63,6 +63,8 @@ type FsxLustreFileSystemParameters struct {
 
 	PerUnitStorageThroughput *int64 `json:"perUnitStorageThroughput,omitempty" tf:"per_unit_storage_throughput"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
 	StorageCapacity int64 `json:"storageCapacity" tf:"storage_capacity"`

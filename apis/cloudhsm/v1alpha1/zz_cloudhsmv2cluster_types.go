@@ -39,6 +39,8 @@ type CloudhsmV2ClusterObservation struct {
 type CloudhsmV2ClusterParameters struct {
 	HsmType string `json:"hsmType" tf:"hsm_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	SourceBackupIdentifier *string `json:"sourceBackupIdentifier,omitempty" tf:"source_backup_identifier"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`

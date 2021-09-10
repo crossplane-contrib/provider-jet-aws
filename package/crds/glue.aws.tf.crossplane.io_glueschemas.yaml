@@ -68,6 +68,8 @@ spec:
                     type: string
                   description:
                     type: string
+                  region:
+                    type: string
                   registryArn:
                     type: string
                   schemaDefinition:
@@ -85,6 +87,7 @@ spec:
                 required:
                 - compatibility
                 - dataFormat
+                - region
                 - schemaDefinition
                 - schemaName
                 type: object

@@ -95,10 +95,13 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                 required:
                 - apiId
                 - authorizerType
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

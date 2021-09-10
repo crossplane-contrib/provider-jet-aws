@@ -65,6 +65,8 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                   s3Destination:
                     items:
                       properties:
@@ -85,6 +87,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 - s3Destination
                 type: object
               providerConfigRef:

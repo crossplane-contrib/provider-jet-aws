@@ -74,10 +74,13 @@ spec:
                     type: string
                   dxGatewayOwnerAccountId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - associatedGatewayId
                 - dxGatewayId
                 - dxGatewayOwnerAccountId
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -72,8 +72,12 @@ spec:
                     type: string
                   monthlySpendLimit:
                     type: string
+                  region:
+                    type: string
                   usageReportS3Bucket:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

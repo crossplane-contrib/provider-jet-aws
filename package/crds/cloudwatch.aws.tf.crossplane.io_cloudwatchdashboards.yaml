@@ -67,9 +67,12 @@ spec:
                     type: string
                   dashboardName:
                     type: string
+                  region:
+                    type: string
                 required:
                 - dashboardBody
                 - dashboardName
+                - region
                 type: object
               providerConfigRef:
                 default:

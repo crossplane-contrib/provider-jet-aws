@@ -77,6 +77,8 @@ spec:
                     type: string
                   refreshClosedReports:
                     type: boolean
+                  region:
+                    type: string
                   reportName:
                     type: string
                   reportVersioning:
@@ -93,6 +95,7 @@ spec:
                 - additionalSchemaElements
                 - compression
                 - format
+                - region
                 - reportName
                 - s3Bucket
                 - s3Region

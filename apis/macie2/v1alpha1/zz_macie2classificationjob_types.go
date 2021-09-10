@@ -114,6 +114,8 @@ type Macie2ClassificationJobParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	S3JobDefinition []S3JobDefinitionParameters `json:"s3JobDefinition" tf:"s3_job_definition"`
 
 	SamplingPercentage *int64 `json:"samplingPercentage,omitempty" tf:"sampling_percentage"`

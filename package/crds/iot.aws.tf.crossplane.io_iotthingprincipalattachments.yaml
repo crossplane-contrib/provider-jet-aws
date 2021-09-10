@@ -66,10 +66,13 @@ spec:
                 properties:
                   principal:
                     type: string
+                  region:
+                    type: string
                   thing:
                     type: string
                 required:
                 - principal
+                - region
                 - thing
                 type: object
               providerConfigRef:

@@ -41,6 +41,8 @@ type BatchJobDefinitionParameters struct {
 
 	PropagateTags *bool `json:"propagateTags,omitempty" tf:"propagate_tags"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetryStrategy []RetryStrategyParameters `json:"retryStrategy,omitempty" tf:"retry_strategy"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

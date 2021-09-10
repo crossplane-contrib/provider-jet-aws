@@ -75,6 +75,8 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                  region:
+                    type: string
                   targetDatabase:
                     items:
                       properties:
@@ -89,6 +91,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

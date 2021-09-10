@@ -81,6 +81,8 @@ spec:
                     type: array
                   protocol:
                     type: string
+                  region:
+                    type: string
                   securityGroupId:
                     type: string
                   self:
@@ -95,6 +97,7 @@ spec:
                 required:
                 - fromPort
                 - protocol
+                - region
                 - securityGroupId
                 - toPort
                 - type

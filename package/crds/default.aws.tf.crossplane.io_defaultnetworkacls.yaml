@@ -132,6 +132,8 @@ spec:
                       - toPort
                       type: object
                     type: array
+                  region:
+                    type: string
                   subnetIds:
                     items:
                       type: string
@@ -146,6 +148,7 @@ spec:
                     type: object
                 required:
                 - defaultNetworkAclId
+                - region
                 type: object
               providerConfigRef:
                 default:

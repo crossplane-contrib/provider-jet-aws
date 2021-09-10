@@ -32,6 +32,8 @@ type CloudwatchDashboardParameters struct {
 	DashboardBody string `json:"dashboardBody" tf:"dashboard_body"`
 
 	DashboardName string `json:"dashboardName" tf:"dashboard_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudwatchDashboardSpec defines the desired state of CloudwatchDashboard

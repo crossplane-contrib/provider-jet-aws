@@ -72,10 +72,13 @@ spec:
                     type: string
                   description:
                     type: string
+                  region:
+                    type: string
                   targetNetworkCidr:
                     type: string
                 required:
                 - clientVpnEndpointId
+                - region
                 - targetNetworkCidr
                 type: object
               providerConfigRef:

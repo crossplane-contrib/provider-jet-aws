@@ -67,12 +67,15 @@ spec:
                     type: string
                   description:
                     type: string
+                  region:
+                    type: string
                   triggers:
                     additionalProperties:
                       type: string
                     type: object
                 required:
                 - apiId
+                - region
                 type: object
               providerConfigRef:
                 default:

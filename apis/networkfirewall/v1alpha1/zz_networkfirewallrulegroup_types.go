@@ -126,6 +126,8 @@ type NetworkfirewallRuleGroupParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RuleGroup []RuleGroupParameters `json:"ruleGroup,omitempty" tf:"rule_group"`
 
 	Rules *string `json:"rules,omitempty" tf:"rules"`

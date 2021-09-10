@@ -46,6 +46,8 @@ type DatasyncLocationSmbParameters struct {
 
 	Password string `json:"password" tf:"password"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServerHostname string `json:"serverHostname" tf:"server_hostname"`
 
 	Subdirectory string `json:"subdirectory" tf:"subdirectory"`

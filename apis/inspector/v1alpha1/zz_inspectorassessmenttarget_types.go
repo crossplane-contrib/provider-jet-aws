@@ -31,6 +31,8 @@ type InspectorAssessmentTargetObservation struct {
 type InspectorAssessmentTargetParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceGroupArn *string `json:"resourceGroupArn,omitempty" tf:"resource_group_arn"`
 }
 

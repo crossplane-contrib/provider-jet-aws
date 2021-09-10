@@ -78,6 +78,8 @@ spec:
                           type: integer
                       type: object
                     type: array
+                  region:
+                    type: string
                   trafficRoutingConfig:
                     items:
                       properties:
@@ -109,6 +111,7 @@ spec:
                     type: array
                 required:
                 - deploymentConfigName
+                - region
                 type: object
               providerConfigRef:
                 default:

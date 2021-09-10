@@ -71,6 +71,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   ruleGroup:
                     items:
                       properties:
@@ -346,6 +348,7 @@ spec:
                 required:
                 - capacity
                 - name
+                - region
                 - type
                 type: object
               providerConfigRef:

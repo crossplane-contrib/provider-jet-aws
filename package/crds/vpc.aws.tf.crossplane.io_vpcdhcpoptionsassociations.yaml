@@ -66,10 +66,13 @@ spec:
                 properties:
                   dhcpOptionsId:
                     type: string
+                  region:
+                    type: string
                   vpcId:
                     type: string
                 required:
                 - dhcpOptionsId
+                - region
                 - vpcId
                 type: object
               providerConfigRef:

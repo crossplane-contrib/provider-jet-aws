@@ -84,6 +84,8 @@ spec:
                     type: string
                   ownerAccountId:
                     type: string
+                  region:
+                    type: string
                   vlan:
                     format: int64
                     type: integer
@@ -93,6 +95,7 @@ spec:
                 - connectionId
                 - name
                 - ownerAccountId
+                - region
                 - vlan
                 type: object
               providerConfigRef:

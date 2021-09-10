@@ -33,6 +33,8 @@ type DaxParameterGroupParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	Parameters []ParametersParameters `json:"parameters,omitempty" tf:"parameters"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type ParametersObservation struct {

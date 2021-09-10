@@ -41,6 +41,8 @@ type AppsyncResolverParameters struct {
 
 	PipelineConfig []PipelineConfigParameters `json:"pipelineConfig,omitempty" tf:"pipeline_config"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequestTemplate *string `json:"requestTemplate,omitempty" tf:"request_template"`
 
 	ResponseTemplate *string `json:"responseTemplate,omitempty" tf:"response_template"`

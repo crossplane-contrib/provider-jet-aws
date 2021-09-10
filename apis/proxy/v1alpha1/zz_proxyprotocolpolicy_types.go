@@ -31,6 +31,8 @@ type ProxyProtocolPolicyParameters struct {
 	InstancePorts []string `json:"instancePorts" tf:"instance_ports"`
 
 	LoadBalancer string `json:"loadBalancer" tf:"load_balancer"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // ProxyProtocolPolicySpec defines the desired state of ProxyProtocolPolicy

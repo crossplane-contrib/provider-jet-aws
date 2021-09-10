@@ -102,6 +102,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   routeSettings:
                     items:
                       properties:
@@ -137,6 +139,7 @@ spec:
                 required:
                 - apiId
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

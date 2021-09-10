@@ -69,6 +69,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   rule:
                     items:
                       properties:
@@ -5271,6 +5273,7 @@ spec:
                 required:
                 - capacity
                 - name
+                - region
                 - scope
                 - visibilityConfig
                 type: object

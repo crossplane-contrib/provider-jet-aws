@@ -65,9 +65,12 @@ spec:
                 properties:
                   keyId:
                     type: string
+                  region:
+                    type: string
                   type:
                     type: string
                 required:
+                - region
                 - type
                 type: object
               providerConfigRef:

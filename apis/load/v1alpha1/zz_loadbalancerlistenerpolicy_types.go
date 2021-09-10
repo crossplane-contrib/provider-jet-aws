@@ -33,6 +33,8 @@ type LoadBalancerListenerPolicyParameters struct {
 	LoadBalancerPort int64 `json:"loadBalancerPort" tf:"load_balancer_port"`
 
 	PolicyNames []string `json:"policyNames,omitempty" tf:"policy_names"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // LoadBalancerListenerPolicySpec defines the desired state of LoadBalancerListenerPolicy

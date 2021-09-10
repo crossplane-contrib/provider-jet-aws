@@ -85,6 +85,8 @@ spec:
                     type: string
                   mediumChangerType:
                     type: string
+                  region:
+                    type: string
                   smbActiveDirectorySettings:
                     items:
                       properties:
@@ -128,6 +130,7 @@ spec:
                 required:
                 - gatewayName
                 - gatewayTimezone
+                - region
                 type: object
               providerConfigRef:
                 default:

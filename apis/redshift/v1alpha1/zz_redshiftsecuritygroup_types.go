@@ -44,6 +44,8 @@ type RedshiftSecurityGroupParameters struct {
 	Ingress []IngressParameters `json:"ingress" tf:"ingress"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // RedshiftSecurityGroupSpec defines the desired state of RedshiftSecurityGroup

@@ -68,6 +68,8 @@ spec:
                     type: string
                   domainName:
                     type: string
+                  region:
+                    type: string
                   subDomain:
                     items:
                       properties:
@@ -85,6 +87,7 @@ spec:
                 required:
                 - appId
                 - domainName
+                - region
                 - subDomain
                 type: object
               providerConfigRef:

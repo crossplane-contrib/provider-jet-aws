@@ -41,6 +41,8 @@ type ServicecatalogConstraintParameters struct {
 
 	ProductId string `json:"productId" tf:"product_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	Type string `json:"type" tf:"type"`
 }
 

@@ -67,6 +67,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   users:
                     items:
                       type: string
@@ -74,6 +76,7 @@ spec:
                 required:
                 - group
                 - name
+                - region
                 - users
                 type: object
               providerConfigRef:

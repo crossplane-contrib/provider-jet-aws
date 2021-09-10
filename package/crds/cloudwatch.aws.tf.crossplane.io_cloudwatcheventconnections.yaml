@@ -200,10 +200,13 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                 required:
                 - authParameters
                 - authorizationType
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

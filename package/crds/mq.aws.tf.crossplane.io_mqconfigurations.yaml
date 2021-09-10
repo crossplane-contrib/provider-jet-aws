@@ -74,6 +74,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -87,6 +89,7 @@ spec:
                 - engineType
                 - engineVersion
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

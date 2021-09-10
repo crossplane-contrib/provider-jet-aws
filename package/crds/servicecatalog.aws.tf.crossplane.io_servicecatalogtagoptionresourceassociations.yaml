@@ -64,11 +64,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   resourceId:
                     type: string
                   tagOptionId:
                     type: string
                 required:
+                - region
                 - resourceId
                 - tagOptionId
                 type: object

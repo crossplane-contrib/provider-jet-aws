@@ -52,6 +52,8 @@ type LexSlotTypeParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ValueSelectionStrategy *string `json:"valueSelectionStrategy,omitempty" tf:"value_selection_strategy"`
 }
 

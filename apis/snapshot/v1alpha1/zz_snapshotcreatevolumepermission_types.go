@@ -30,6 +30,8 @@ type SnapshotCreateVolumePermissionObservation struct {
 type SnapshotCreateVolumePermissionParameters struct {
 	AccountId string `json:"accountId" tf:"account_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnapshotId string `json:"snapshotId" tf:"snapshot_id"`
 }
 

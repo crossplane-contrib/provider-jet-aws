@@ -64,6 +64,8 @@ type S3BucketNotificationParameters struct {
 
 	Queue []QueueParameters `json:"queue,omitempty" tf:"queue"`
 
+	Region string `json:"region" tf:"-"`
+
 	Topic []TopicParameters `json:"topic,omitempty" tf:"topic"`
 }
 

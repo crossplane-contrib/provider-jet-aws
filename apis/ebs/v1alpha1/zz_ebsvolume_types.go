@@ -41,6 +41,8 @@ type EbsVolumeParameters struct {
 
 	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	Size *int64 `json:"size,omitempty" tf:"size"`
 
 	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`

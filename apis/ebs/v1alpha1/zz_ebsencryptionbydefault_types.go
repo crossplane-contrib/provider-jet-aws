@@ -29,6 +29,8 @@ type EbsEncryptionByDefaultObservation struct {
 
 type EbsEncryptionByDefaultParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // EbsEncryptionByDefaultSpec defines the desired state of EbsEncryptionByDefault

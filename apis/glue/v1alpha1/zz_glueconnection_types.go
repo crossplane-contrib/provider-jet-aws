@@ -42,6 +42,8 @@ type GlueConnectionParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	PhysicalConnectionRequirements []PhysicalConnectionRequirementsParameters `json:"physicalConnectionRequirements,omitempty" tf:"physical_connection_requirements"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type PhysicalConnectionRequirementsObservation struct {

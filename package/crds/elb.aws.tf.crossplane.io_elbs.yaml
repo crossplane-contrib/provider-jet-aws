@@ -149,6 +149,8 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                   securityGroups:
                     items:
                       type: string
@@ -169,6 +171,7 @@ spec:
                     type: object
                 required:
                 - listener
+                - region
                 type: object
               providerConfigRef:
                 default:

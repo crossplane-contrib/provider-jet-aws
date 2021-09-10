@@ -44,6 +44,8 @@ type LbSslNegotiationPolicyParameters struct {
 	LoadBalancer string `json:"loadBalancer" tf:"load_balancer"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // LbSslNegotiationPolicySpec defines the desired state of LbSslNegotiationPolicy

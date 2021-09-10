@@ -36,6 +36,8 @@ type CodeartifactDomainPermissionsPolicyParameters struct {
 	PolicyDocument string `json:"policyDocument" tf:"policy_document"`
 
 	PolicyRevision *string `json:"policyRevision,omitempty" tf:"policy_revision"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CodeartifactDomainPermissionsPolicySpec defines the desired state of CodeartifactDomainPermissionsPolicy

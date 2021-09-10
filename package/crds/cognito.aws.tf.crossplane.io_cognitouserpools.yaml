@@ -210,6 +210,8 @@ spec:
                           type: integer
                       type: object
                     type: array
+                  region:
+                    type: string
                   schema:
                     items:
                       properties:
@@ -320,6 +322,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

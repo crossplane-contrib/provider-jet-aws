@@ -72,10 +72,13 @@ spec:
                     type: string
                   kmsKeyArn:
                     type: string
+                  region:
+                    type: string
                 required:
                 - destinationArn
                 - detectorId
                 - kmsKeyArn
+                - region
                 type: object
               providerConfigRef:
                 default:

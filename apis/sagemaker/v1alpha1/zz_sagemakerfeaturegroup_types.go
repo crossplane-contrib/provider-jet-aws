@@ -92,6 +92,8 @@ type SagemakerFeatureGroupParameters struct {
 
 	RecordIdentifierFeatureName string `json:"recordIdentifierFeatureName" tf:"record_identifier_feature_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

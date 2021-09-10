@@ -66,11 +66,14 @@ spec:
                 properties:
                   description:
                     type: string
+                  region:
+                    type: string
                   restApiId:
                     type: string
                   version:
                     type: string
                 required:
+                - region
                 - restApiId
                 - version
                 type: object

@@ -31,6 +31,8 @@ type CloudwatchLogResourcePolicyParameters struct {
 	PolicyDocument string `json:"policyDocument" tf:"policy_document"`
 
 	PolicyName string `json:"policyName" tf:"policy_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudwatchLogResourcePolicySpec defines the desired state of CloudwatchLogResourcePolicy

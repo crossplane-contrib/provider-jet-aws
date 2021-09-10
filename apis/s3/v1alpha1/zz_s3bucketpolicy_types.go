@@ -31,6 +31,8 @@ type S3BucketPolicyParameters struct {
 	Bucket string `json:"bucket" tf:"bucket"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // S3BucketPolicySpec defines the desired state of S3BucketPolicy

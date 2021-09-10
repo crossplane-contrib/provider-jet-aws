@@ -39,6 +39,8 @@ type ConfigOrganizationManagedRuleParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceIdScope *string `json:"resourceIdScope,omitempty" tf:"resource_id_scope"`
 
 	ResourceTypesScope []string `json:"resourceTypesScope,omitempty" tf:"resource_types_scope"`

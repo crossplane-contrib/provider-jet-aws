@@ -109,6 +109,8 @@ type AmiCopyParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SourceAmiId string `json:"sourceAmiId" tf:"source_ami_id"`
 
 	SourceAmiRegion string `json:"sourceAmiRegion" tf:"source_ami_region"`

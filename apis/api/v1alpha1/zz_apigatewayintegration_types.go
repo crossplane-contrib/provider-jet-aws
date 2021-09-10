@@ -46,6 +46,8 @@ type ApiGatewayIntegrationParameters struct {
 
 	PassthroughBehavior *string `json:"passthroughBehavior,omitempty" tf:"passthrough_behavior"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequestParameters map[string]string `json:"requestParameters,omitempty" tf:"request_parameters"`
 
 	RequestTemplates map[string]string `json:"requestTemplates,omitempty" tf:"request_templates"`

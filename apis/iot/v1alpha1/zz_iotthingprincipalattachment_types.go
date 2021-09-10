@@ -30,6 +30,8 @@ type IotThingPrincipalAttachmentObservation struct {
 type IotThingPrincipalAttachmentParameters struct {
 	Principal string `json:"principal" tf:"principal"`
 
+	Region string `json:"region" tf:"-"`
+
 	Thing string `json:"thing" tf:"thing"`
 }
 

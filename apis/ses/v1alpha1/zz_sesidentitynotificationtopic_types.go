@@ -34,6 +34,8 @@ type SesIdentityNotificationTopicParameters struct {
 
 	NotificationType string `json:"notificationType" tf:"notification_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
 }
 

@@ -72,6 +72,8 @@ type S3ControlBucketLifecycleConfigurationObservation struct {
 type S3ControlBucketLifecycleConfigurationParameters struct {
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	Region string `json:"region" tf:"-"`
+
 	Rule []RuleParameters `json:"rule" tf:"rule"`
 }
 

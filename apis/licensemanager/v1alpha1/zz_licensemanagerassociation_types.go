@@ -30,6 +30,8 @@ type LicensemanagerAssociationObservation struct {
 type LicensemanagerAssociationParameters struct {
 	LicenseConfigurationArn string `json:"licenseConfigurationArn" tf:"license_configuration_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 

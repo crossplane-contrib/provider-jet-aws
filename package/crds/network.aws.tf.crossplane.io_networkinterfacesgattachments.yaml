@@ -66,10 +66,13 @@ spec:
                 properties:
                   networkInterfaceId:
                     type: string
+                  region:
+                    type: string
                   securityGroupId:
                     type: string
                 required:
                 - networkInterfaceId
+                - region
                 - securityGroupId
                 type: object
               providerConfigRef:

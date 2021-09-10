@@ -36,6 +36,8 @@ type QuicksightGroupParameters struct {
 	GroupName string `json:"groupName" tf:"group_name"`
 
 	Namespace *string `json:"namespace,omitempty" tf:"namespace"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // QuicksightGroupSpec defines the desired state of QuicksightGroup

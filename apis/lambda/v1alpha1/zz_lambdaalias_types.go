@@ -39,6 +39,8 @@ type LambdaAliasParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoutingConfig []RoutingConfigParameters `json:"routingConfig,omitempty" tf:"routing_config"`
 }
 

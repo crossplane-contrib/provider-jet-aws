@@ -41,6 +41,8 @@ type IamAccessKeyObservation struct {
 type IamAccessKeyParameters struct {
 	PgpKey *string `json:"pgpKey,omitempty" tf:"pgp_key"`
 
+	Region string `json:"region" tf:"-"`
+
 	Status *string `json:"status,omitempty" tf:"status"`
 
 	User string `json:"user" tf:"user"`

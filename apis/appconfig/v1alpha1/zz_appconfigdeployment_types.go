@@ -43,6 +43,8 @@ type AppconfigDeploymentParameters struct {
 
 	EnvironmentId string `json:"environmentId" tf:"environment_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

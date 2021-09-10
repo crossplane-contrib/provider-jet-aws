@@ -31,6 +31,8 @@ type StoragegatewayTapePoolObservation struct {
 type StoragegatewayTapePoolParameters struct {
 	PoolName string `json:"poolName" tf:"pool_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetentionLockTimeInDays *int64 `json:"retentionLockTimeInDays,omitempty" tf:"retention_lock_time_in_days"`
 
 	RetentionLockType *string `json:"retentionLockType,omitempty" tf:"retention_lock_type"`

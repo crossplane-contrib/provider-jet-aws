@@ -88,6 +88,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -104,6 +106,7 @@ spec:
                 - authentication
                 - filter
                 - name
+                - region
                 - targetAction
                 - targetPipeline
                 type: object

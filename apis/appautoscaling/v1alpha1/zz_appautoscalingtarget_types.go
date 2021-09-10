@@ -32,6 +32,8 @@ type AppautoscalingTargetParameters struct {
 
 	MinCapacity int64 `json:"minCapacity" tf:"min_capacity"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceId string `json:"resourceId" tf:"resource_id"`
 
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`

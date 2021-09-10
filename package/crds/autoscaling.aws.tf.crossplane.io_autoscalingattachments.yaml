@@ -69,8 +69,11 @@ spec:
                     type: string
                   elb:
                     type: string
+                  region:
+                    type: string
                 required:
                 - autoscalingGroupName
+                - region
                 type: object
               providerConfigRef:
                 default:

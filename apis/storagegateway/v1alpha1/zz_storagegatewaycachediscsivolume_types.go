@@ -49,6 +49,8 @@ type StoragegatewayCachedIscsiVolumeParameters struct {
 
 	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
 
 	SourceVolumeArn *string `json:"sourceVolumeArn,omitempty" tf:"source_volume_arn"`

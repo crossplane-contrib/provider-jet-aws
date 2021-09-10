@@ -85,6 +85,8 @@ type DefaultSecurityGroupParameters struct {
 
 	Ingress []DefaultSecurityGroupIngressParameters `json:"ingress,omitempty" tf:"ingress"`
 
+	Region string `json:"region" tf:"-"`
+
 	RevokeRulesOnDelete *bool `json:"revokeRulesOnDelete,omitempty" tf:"revoke_rules_on_delete"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

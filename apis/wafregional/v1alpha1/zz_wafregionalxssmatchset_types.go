@@ -30,6 +30,8 @@ type WafregionalXssMatchSetObservation struct {
 type WafregionalXssMatchSetParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	XssMatchTuple []XssMatchTupleParameters `json:"xssMatchTuple,omitempty" tf:"xss_match_tuple"`
 }
 

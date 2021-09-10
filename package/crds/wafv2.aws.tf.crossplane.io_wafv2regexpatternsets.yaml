@@ -67,6 +67,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   regularExpression:
                     items:
                       properties:
@@ -88,6 +90,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - scope
                 type: object
               providerConfigRef:

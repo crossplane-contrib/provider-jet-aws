@@ -30,6 +30,8 @@ type LightsailDomainObservation struct {
 
 type LightsailDomainParameters struct {
 	DomainName string `json:"domainName" tf:"domain_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // LightsailDomainSpec defines the desired state of LightsailDomain

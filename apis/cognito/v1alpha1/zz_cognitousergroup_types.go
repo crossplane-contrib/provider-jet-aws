@@ -34,6 +34,8 @@ type CognitoUserGroupParameters struct {
 
 	Precedence *int64 `json:"precedence,omitempty" tf:"precedence"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 
 	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`

@@ -66,6 +66,8 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                   sizeConstraints:
                     items:
                       properties:
@@ -96,6 +98,7 @@ spec:
                     type: array
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

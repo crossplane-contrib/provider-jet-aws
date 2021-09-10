@@ -134,6 +134,8 @@ spec:
                     type: integer
                   name:
                     type: string
+                  region:
+                    type: string
                   rootPassword:
                     type: string
                   rootPasswordOnAllInstances:
@@ -155,6 +157,7 @@ spec:
                   useEbsOptimizedInstances:
                     type: boolean
                 required:
+                - region
                 - stackId
                 type: object
               providerConfigRef:

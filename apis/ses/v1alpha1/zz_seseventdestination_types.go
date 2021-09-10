@@ -61,6 +61,8 @@ type SesEventDestinationParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnsDestination []SnsDestinationParameters `json:"snsDestination,omitempty" tf:"sns_destination"`
 }
 

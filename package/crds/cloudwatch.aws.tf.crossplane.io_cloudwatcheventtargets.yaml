@@ -208,6 +208,8 @@ spec:
                       - database
                       type: object
                     type: array
+                  region:
+                    type: string
                   retryPolicy:
                     items:
                       properties:
@@ -248,6 +250,7 @@ spec:
                     type: string
                 required:
                 - arn
+                - region
                 - rule
                 type: object
               providerConfigRef:

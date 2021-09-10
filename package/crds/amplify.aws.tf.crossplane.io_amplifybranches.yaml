@@ -92,6 +92,8 @@ spec:
                     type: string
                   pullRequestEnvironmentName:
                     type: string
+                  region:
+                    type: string
                   stage:
                     type: string
                   tags:
@@ -107,6 +109,7 @@ spec:
                 required:
                 - appId
                 - branchName
+                - region
                 type: object
               providerConfigRef:
                 default:

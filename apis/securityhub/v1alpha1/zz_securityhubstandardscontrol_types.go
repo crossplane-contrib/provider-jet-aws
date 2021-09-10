@@ -45,6 +45,8 @@ type SecurityhubStandardsControlParameters struct {
 
 	DisabledReason *string `json:"disabledReason,omitempty" tf:"disabled_reason"`
 
+	Region string `json:"region" tf:"-"`
+
 	StandardsControlArn string `json:"standardsControlArn" tf:"standards_control_arn"`
 }
 

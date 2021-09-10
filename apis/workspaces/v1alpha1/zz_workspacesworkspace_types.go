@@ -52,6 +52,8 @@ type WorkspacesWorkspaceParameters struct {
 
 	DirectoryId string `json:"directoryId" tf:"directory_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	RootVolumeEncryptionEnabled *bool `json:"rootVolumeEncryptionEnabled,omitempty" tf:"root_volume_encryption_enabled"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

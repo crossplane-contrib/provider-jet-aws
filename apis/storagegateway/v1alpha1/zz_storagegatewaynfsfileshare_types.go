@@ -79,6 +79,8 @@ type StoragegatewayNfsFileShareParameters struct {
 
 	ReadOnly *bool `json:"readOnly,omitempty" tf:"read_only"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequesterPays *bool `json:"requesterPays,omitempty" tf:"requester_pays"`
 
 	RoleArn string `json:"roleArn" tf:"role_arn"`

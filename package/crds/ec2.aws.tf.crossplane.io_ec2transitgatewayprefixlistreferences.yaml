@@ -68,12 +68,15 @@ spec:
                     type: boolean
                   prefixListId:
                     type: string
+                  region:
+                    type: string
                   transitGatewayAttachmentId:
                     type: string
                   transitGatewayRouteTableId:
                     type: string
                 required:
                 - prefixListId
+                - region
                 - transitGatewayRouteTableId
                 type: object
               providerConfigRef:

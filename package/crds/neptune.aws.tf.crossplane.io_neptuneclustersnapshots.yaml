@@ -67,9 +67,12 @@ spec:
                     type: string
                   dbClusterSnapshotIdentifier:
                     type: string
+                  region:
+                    type: string
                 required:
                 - dbClusterIdentifier
                 - dbClusterSnapshotIdentifier
+                - region
                 type: object
               providerConfigRef:
                 default:

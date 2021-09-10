@@ -35,6 +35,8 @@ type KmsAliasParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	TargetKeyId string `json:"targetKeyId" tf:"target_key_id"`
 }
 

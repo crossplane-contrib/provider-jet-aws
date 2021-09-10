@@ -130,6 +130,8 @@ spec:
                       - modelName
                       type: object
                     type: array
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -140,6 +142,7 @@ spec:
                     type: object
                 required:
                 - productionVariants
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -32,6 +32,8 @@ type IamGroupMembershipParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Users []string `json:"users" tf:"users"`
 }
 

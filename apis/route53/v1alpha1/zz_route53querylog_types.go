@@ -30,6 +30,8 @@ type Route53QueryLogObservation struct {
 type Route53QueryLogParameters struct {
 	CloudwatchLogGroupArn string `json:"cloudwatchLogGroupArn" tf:"cloudwatch_log_group_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	ZoneId string `json:"zoneId" tf:"zone_id"`
 }
 

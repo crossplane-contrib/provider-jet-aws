@@ -30,6 +30,8 @@ type SesDomainIdentityVerificationObservation struct {
 
 type SesDomainIdentityVerificationParameters struct {
 	Domain string `json:"domain" tf:"domain"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SesDomainIdentityVerificationSpec defines the desired state of SesDomainIdentityVerification

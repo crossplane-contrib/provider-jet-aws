@@ -64,8 +64,11 @@ spec:
                 properties:
                   keyArn:
                     type: string
+                  region:
+                    type: string
                 required:
                 - keyArn
+                - region
                 type: object
               providerConfigRef:
                 default:

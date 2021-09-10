@@ -67,8 +67,11 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                  region:
+                    type: string
                 required:
                 - globalSettings
+                - region
                 type: object
               providerConfigRef:
                 default:

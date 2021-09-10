@@ -66,10 +66,13 @@ spec:
                 properties:
                   policyArn:
                     type: string
+                  region:
+                    type: string
                   role:
                     type: string
                 required:
                 - policyArn
+                - region
                 - role
                 type: object
               providerConfigRef:

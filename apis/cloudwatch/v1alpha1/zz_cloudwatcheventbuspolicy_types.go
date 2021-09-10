@@ -31,6 +31,8 @@ type CloudwatchEventBusPolicyParameters struct {
 	EventBusName *string `json:"eventBusName,omitempty" tf:"event_bus_name"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudwatchEventBusPolicySpec defines the desired state of CloudwatchEventBusPolicy

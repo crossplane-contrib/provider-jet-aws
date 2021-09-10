@@ -51,6 +51,8 @@ type GlueSecurityConfigurationParameters struct {
 	EncryptionConfiguration []EncryptionConfigurationParameters `json:"encryptionConfiguration" tf:"encryption_configuration"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type JobBookmarksEncryptionObservation struct {

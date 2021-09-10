@@ -68,6 +68,8 @@ spec:
                     type: string
                   parentId:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -79,6 +81,7 @@ spec:
                 required:
                 - name
                 - parentId
+                - region
                 type: object
               providerConfigRef:
                 default:

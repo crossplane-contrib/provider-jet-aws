@@ -71,6 +71,8 @@ spec:
                   packetLength:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   sessionNumber:
                     format: int64
                     type: integer
@@ -91,6 +93,7 @@ spec:
                     type: integer
                 required:
                 - networkInterfaceId
+                - region
                 - sessionNumber
                 - trafficMirrorFilterId
                 - trafficMirrorTargetId

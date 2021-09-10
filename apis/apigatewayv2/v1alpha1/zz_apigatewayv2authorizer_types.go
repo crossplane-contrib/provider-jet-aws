@@ -47,6 +47,8 @@ type Apigatewayv2AuthorizerParameters struct {
 	JwtConfiguration []JwtConfigurationParameters `json:"jwtConfiguration,omitempty" tf:"jwt_configuration"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type JwtConfigurationObservation struct {

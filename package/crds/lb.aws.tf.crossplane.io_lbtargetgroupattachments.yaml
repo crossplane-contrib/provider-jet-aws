@@ -69,11 +69,14 @@ spec:
                   port:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   targetGroupArn:
                     type: string
                   targetId:
                     type: string
                 required:
+                - region
                 - targetGroupArn
                 - targetId
                 type: object

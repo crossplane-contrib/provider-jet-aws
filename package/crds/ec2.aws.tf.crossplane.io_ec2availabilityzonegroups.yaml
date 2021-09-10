@@ -68,9 +68,12 @@ spec:
                     type: string
                   optInStatus:
                     type: string
+                  region:
+                    type: string
                 required:
                 - groupName
                 - optInStatus
+                - region
                 type: object
               providerConfigRef:
                 default:

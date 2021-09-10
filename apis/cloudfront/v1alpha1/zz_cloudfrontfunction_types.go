@@ -41,6 +41,8 @@ type CloudfrontFunctionParameters struct {
 
 	Publish *bool `json:"publish,omitempty" tf:"publish"`
 
+	Region string `json:"region" tf:"-"`
+
 	Runtime string `json:"runtime" tf:"runtime"`
 }
 

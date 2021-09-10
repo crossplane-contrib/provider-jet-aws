@@ -37,6 +37,8 @@ type MskConfigurationParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ServerProperties string `json:"serverProperties" tf:"server_properties"`
 }
 

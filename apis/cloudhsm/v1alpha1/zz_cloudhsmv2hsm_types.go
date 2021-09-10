@@ -39,6 +39,8 @@ type CloudhsmV2HsmParameters struct {
 
 	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
 }
 

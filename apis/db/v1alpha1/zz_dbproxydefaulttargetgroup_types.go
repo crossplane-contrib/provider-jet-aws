@@ -49,6 +49,8 @@ type DbProxyDefaultTargetGroupParameters struct {
 	ConnectionPoolConfig []ConnectionPoolConfigParameters `json:"connectionPoolConfig,omitempty" tf:"connection_pool_config"`
 
 	DbProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // DbProxyDefaultTargetGroupSpec defines the desired state of DbProxyDefaultTargetGroup

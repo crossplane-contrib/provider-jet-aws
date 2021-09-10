@@ -71,6 +71,8 @@ spec:
                     type: string
                   parentId:
                     type: string
+                  region:
+                    type: string
                   roleName:
                     type: string
                   tags:
@@ -84,6 +86,7 @@ spec:
                 required:
                 - email
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -237,6 +237,8 @@ spec:
                     type: string
                   protectFromScaleIn:
                     type: boolean
+                  region:
+                    type: string
                   serviceLinkedRoleArn:
                     type: string
                   suspendedProcesses:
@@ -297,6 +299,7 @@ spec:
                 required:
                 - maxSize
                 - minSize
+                - region
                 type: object
               providerConfigRef:
                 default:

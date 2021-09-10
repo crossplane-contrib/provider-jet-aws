@@ -74,6 +74,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   snapshotWithoutReboot:
                     type: boolean
                   sourceInstanceId:
@@ -88,6 +90,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - sourceInstanceId
                 type: object
               providerConfigRef:

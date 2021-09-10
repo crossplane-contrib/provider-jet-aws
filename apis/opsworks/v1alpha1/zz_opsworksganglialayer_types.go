@@ -84,6 +84,8 @@ type OpsworksGangliaLayerParameters struct {
 
 	Password string `json:"password" tf:"password"`
 
+	Region string `json:"region" tf:"-"`
+
 	StackId string `json:"stackId" tf:"stack_id"`
 
 	SystemPackages []string `json:"systemPackages,omitempty" tf:"system_packages"`

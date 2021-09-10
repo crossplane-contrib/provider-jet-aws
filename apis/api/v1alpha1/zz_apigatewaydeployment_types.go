@@ -35,6 +35,8 @@ type ApiGatewayDeploymentObservation struct {
 type ApiGatewayDeploymentParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestApiId string `json:"restApiId" tf:"rest_api_id"`
 
 	StageDescription *string `json:"stageDescription,omitempty" tf:"stage_description"`

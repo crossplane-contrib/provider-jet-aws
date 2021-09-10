@@ -31,6 +31,8 @@ type RedshiftSnapshotCopyGrantObservation struct {
 type RedshiftSnapshotCopyGrantParameters struct {
 	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnapshotCopyGrantName string `json:"snapshotCopyGrantName" tf:"snapshot_copy_grant_name"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

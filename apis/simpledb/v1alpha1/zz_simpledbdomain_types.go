@@ -29,6 +29,8 @@ type SimpledbDomainObservation struct {
 
 type SimpledbDomainParameters struct {
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SimpledbDomainSpec defines the desired state of SimpledbDomain

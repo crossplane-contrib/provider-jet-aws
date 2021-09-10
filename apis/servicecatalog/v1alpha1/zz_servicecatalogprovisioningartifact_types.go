@@ -43,6 +43,8 @@ type ServicecatalogProvisioningArtifactParameters struct {
 
 	ProductId string `json:"productId" tf:"product_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	TemplatePhysicalId *string `json:"templatePhysicalId,omitempty" tf:"template_physical_id"`
 
 	TemplateUrl *string `json:"templateUrl,omitempty" tf:"template_url"`

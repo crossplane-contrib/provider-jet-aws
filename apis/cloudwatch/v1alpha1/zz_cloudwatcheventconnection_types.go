@@ -89,6 +89,8 @@ type CloudwatchEventConnectionParameters struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 
 	Name string `json:"name" tf:"name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type HeaderObservation struct {

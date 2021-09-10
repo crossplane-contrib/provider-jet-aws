@@ -94,6 +94,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -107,6 +109,7 @@ spec:
                 required:
                 - exportConfig
                 - name
+                - region
                 - type
                 type: object
               providerConfigRef:

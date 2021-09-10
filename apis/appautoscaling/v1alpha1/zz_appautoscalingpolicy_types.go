@@ -33,6 +33,8 @@ type AppautoscalingPolicyParameters struct {
 
 	PolicyType *string `json:"policyType,omitempty" tf:"policy_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceId string `json:"resourceId" tf:"resource_id"`
 
 	ScalableDimension string `json:"scalableDimension" tf:"scalable_dimension"`

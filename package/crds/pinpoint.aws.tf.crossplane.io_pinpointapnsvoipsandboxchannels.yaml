@@ -76,6 +76,8 @@ spec:
                     type: boolean
                   privateKey:
                     type: string
+                  region:
+                    type: string
                   teamId:
                     type: string
                   tokenKey:
@@ -84,6 +86,7 @@ spec:
                     type: string
                 required:
                 - applicationId
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -39,6 +39,8 @@ type NeptuneEventSubscriptionParameters struct {
 
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
 
 	SourceIds []string `json:"sourceIds,omitempty" tf:"source_ids"`

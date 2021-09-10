@@ -66,8 +66,11 @@ spec:
                 properties:
                   enabled:
                     type: boolean
+                  region:
+                    type: string
                 required:
                 - enabled
+                - region
                 type: object
               providerConfigRef:
                 default:

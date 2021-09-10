@@ -142,6 +142,8 @@ spec:
                     type: string
                   passengerVersion:
                     type: string
+                  region:
+                    type: string
                   rubyVersion:
                     type: string
                   rubygemsVersion:
@@ -163,6 +165,7 @@ spec:
                   useEbsOptimizedInstances:
                     type: boolean
                 required:
+                - region
                 - stackId
                 type: object
               providerConfigRef:

@@ -157,10 +157,13 @@ spec:
                           type: array
                       type: object
                     type: array
+                  region:
+                    type: string
                   resourceArn:
                     type: string
                 required:
                 - logDestinationConfigs
+                - region
                 - resourceArn
                 type: object
               providerConfigRef:

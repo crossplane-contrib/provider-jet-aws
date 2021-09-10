@@ -80,6 +80,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                   rootAccess:
@@ -104,6 +106,7 @@ spec:
                 required:
                 - instanceType
                 - name
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

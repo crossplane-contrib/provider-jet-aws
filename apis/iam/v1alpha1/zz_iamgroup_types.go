@@ -34,6 +34,8 @@ type IamGroupParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	Path *string `json:"path,omitempty" tf:"path"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // IamGroupSpec defines the desired state of IamGroup

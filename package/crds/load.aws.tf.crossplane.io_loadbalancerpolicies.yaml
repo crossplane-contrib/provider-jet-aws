@@ -78,10 +78,13 @@ spec:
                     type: string
                   policyTypeName:
                     type: string
+                  region:
+                    type: string
                 required:
                 - loadBalancerName
                 - policyName
                 - policyTypeName
+                - region
                 type: object
               providerConfigRef:
                 default:

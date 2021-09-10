@@ -103,6 +103,8 @@ type AmiFromInstanceParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnapshotWithoutReboot *bool `json:"snapshotWithoutReboot,omitempty" tf:"snapshot_without_reboot"`
 
 	SourceInstanceId string `json:"sourceInstanceId" tf:"source_instance_id"`

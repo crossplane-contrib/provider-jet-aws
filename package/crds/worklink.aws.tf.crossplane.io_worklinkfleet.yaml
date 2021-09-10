@@ -103,8 +103,11 @@ spec:
                     type: array
                   optimizeForEndUserLocation:
                     type: boolean
+                  region:
+                    type: string
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

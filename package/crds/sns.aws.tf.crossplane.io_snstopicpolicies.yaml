@@ -66,9 +66,12 @@ spec:
                     type: string
                   policy:
                     type: string
+                  region:
+                    type: string
                 required:
                 - arn
                 - policy
+                - region
                 type: object
               providerConfigRef:
                 default:

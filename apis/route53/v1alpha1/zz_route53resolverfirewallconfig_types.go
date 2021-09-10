@@ -31,6 +31,8 @@ type Route53ResolverFirewallConfigObservation struct {
 type Route53ResolverFirewallConfigParameters struct {
 	FirewallFailOpen *string `json:"firewallFailOpen,omitempty" tf:"firewall_fail_open"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceId string `json:"resourceId" tf:"resource_id"`
 }
 

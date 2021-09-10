@@ -72,10 +72,13 @@ spec:
                     type: string
                   ignorePublicAcls:
                     type: boolean
+                  region:
+                    type: string
                   restrictPublicBuckets:
                     type: boolean
                 required:
                 - bucket
+                - region
                 type: object
               providerConfigRef:
                 default:

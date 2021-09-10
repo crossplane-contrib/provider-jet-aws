@@ -51,6 +51,8 @@ type LambdaLayerVersionParameters struct {
 
 	LicenseInfo *string `json:"licenseInfo,omitempty" tf:"license_info"`
 
+	Region string `json:"region" tf:"-"`
+
 	S3Bucket *string `json:"s3Bucket,omitempty" tf:"s3_bucket"`
 
 	S3Key *string `json:"s3Key,omitempty" tf:"s3_key"`

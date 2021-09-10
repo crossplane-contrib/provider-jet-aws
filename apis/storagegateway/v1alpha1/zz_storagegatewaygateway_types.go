@@ -84,6 +84,8 @@ type StoragegatewayGatewayParameters struct {
 
 	MediumChangerType *string `json:"mediumChangerType,omitempty" tf:"medium_changer_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	SmbActiveDirectorySettings []SmbActiveDirectorySettingsParameters `json:"smbActiveDirectorySettings,omitempty" tf:"smb_active_directory_settings"`
 
 	SmbFileShareVisibility *bool `json:"smbFileShareVisibility,omitempty" tf:"smb_file_share_visibility"`

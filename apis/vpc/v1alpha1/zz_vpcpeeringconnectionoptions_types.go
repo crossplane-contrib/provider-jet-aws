@@ -41,6 +41,8 @@ type VpcPeeringConnectionOptionsObservation struct {
 type VpcPeeringConnectionOptionsParameters struct {
 	Accepter []VpcPeeringConnectionOptionsAccepterParameters `json:"accepter,omitempty" tf:"accepter"`
 
+	Region string `json:"region" tf:"-"`
+
 	Requester []VpcPeeringConnectionOptionsRequesterParameters `json:"requester,omitempty" tf:"requester"`
 
 	VpcPeeringConnectionId string `json:"vpcPeeringConnectionId" tf:"vpc_peering_connection_id"`

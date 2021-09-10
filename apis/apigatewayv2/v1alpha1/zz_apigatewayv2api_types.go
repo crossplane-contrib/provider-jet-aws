@@ -51,6 +51,8 @@ type Apigatewayv2ApiParameters struct {
 
 	ProtocolType string `json:"protocolType" tf:"protocol_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	RouteKey *string `json:"routeKey,omitempty" tf:"route_key"`
 
 	RouteSelectionExpression *string `json:"routeSelectionExpression,omitempty" tf:"route_selection_expression"`

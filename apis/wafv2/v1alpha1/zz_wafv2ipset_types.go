@@ -39,6 +39,8 @@ type Wafv2IpSetParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Scope string `json:"scope" tf:"scope"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

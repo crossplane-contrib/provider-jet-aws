@@ -68,6 +68,8 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                   subnetIds:
                     items:
                       type: string
@@ -81,6 +83,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - subnetIds
                 type: object
               providerConfigRef:

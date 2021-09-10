@@ -67,12 +67,15 @@ spec:
                     type: string
                   enabled:
                     type: boolean
+                  region:
+                    type: string
                   senderId:
                     type: string
                   shortCode:
                     type: string
                 required:
                 - applicationId
+                - region
                 type: object
               providerConfigRef:
                 default:

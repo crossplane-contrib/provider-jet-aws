@@ -33,6 +33,8 @@ type Ec2TransitGatewayPrefixListReferenceParameters struct {
 
 	PrefixListId string `json:"prefixListId" tf:"prefix_list_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id"`
 
 	TransitGatewayRouteTableId string `json:"transitGatewayRouteTableId" tf:"transit_gateway_route_table_id"`

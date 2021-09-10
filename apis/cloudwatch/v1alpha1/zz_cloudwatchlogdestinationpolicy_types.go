@@ -31,6 +31,8 @@ type CloudwatchLogDestinationPolicyParameters struct {
 	AccessPolicy string `json:"accessPolicy" tf:"access_policy"`
 
 	DestinationName string `json:"destinationName" tf:"destination_name"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // CloudwatchLogDestinationPolicySpec defines the desired state of CloudwatchLogDestinationPolicy

@@ -69,6 +69,8 @@ spec:
                   minCapacity:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   resourceId:
                     type: string
                   roleArn:
@@ -80,6 +82,7 @@ spec:
                 required:
                 - maxCapacity
                 - minCapacity
+                - region
                 - resourceId
                 - scalableDimension
                 - serviceNamespace

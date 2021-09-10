@@ -65,6 +65,10 @@ spec:
                 properties:
                   alias:
                     type: string
+                  region:
+                    type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

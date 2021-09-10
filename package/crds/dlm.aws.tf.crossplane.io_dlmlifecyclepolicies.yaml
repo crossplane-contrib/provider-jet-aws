@@ -127,6 +127,8 @@ spec:
                       - targetTags
                       type: object
                     type: array
+                  region:
+                    type: string
                   state:
                     type: string
                   tags:
@@ -141,6 +143,7 @@ spec:
                 - description
                 - executionRoleArn
                 - policyDetails
+                - region
                 type: object
               providerConfigRef:
                 default:

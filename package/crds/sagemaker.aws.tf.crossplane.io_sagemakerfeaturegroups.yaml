@@ -125,6 +125,8 @@ spec:
                     type: array
                   recordIdentifierFeatureName:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                   tags:
@@ -140,6 +142,7 @@ spec:
                 - featureDefinition
                 - featureGroupName
                 - recordIdentifierFeatureName
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

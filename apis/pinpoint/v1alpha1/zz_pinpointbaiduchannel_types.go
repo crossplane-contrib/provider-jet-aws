@@ -34,6 +34,8 @@ type PinpointBaiduChannelParameters struct {
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	Region string `json:"region" tf:"-"`
+
 	SecretKey string `json:"secretKey" tf:"secret_key"`
 }
 

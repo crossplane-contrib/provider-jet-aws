@@ -76,6 +76,8 @@ spec:
                     type: string
                   operationName:
                     type: string
+                  region:
+                    type: string
                   requestModels:
                     additionalProperties:
                       type: string
@@ -93,6 +95,7 @@ spec:
                 required:
                 - authorization
                 - httpMethod
+                - region
                 - resourceId
                 - restApiId
                 type: object

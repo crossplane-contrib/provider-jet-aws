@@ -39,6 +39,8 @@ type ConfigConfigRuleParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Scope []ScopeParameters `json:"scope,omitempty" tf:"scope"`
 
 	Source []SourceParameters `json:"source" tf:"source"`

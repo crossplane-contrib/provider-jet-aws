@@ -93,6 +93,8 @@ spec:
                     type: string
                   preferredSubnetId:
                     type: string
+                  region:
+                    type: string
                   securityGroupIds:
                     items:
                       type: string
@@ -146,6 +148,7 @@ spec:
                   weeklyMaintenanceStartTime:
                     type: string
                 required:
+                - region
                 - storageCapacity
                 - subnetIds
                 - throughputCapacity

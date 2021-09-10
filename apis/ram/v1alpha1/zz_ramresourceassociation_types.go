@@ -28,6 +28,8 @@ type RamResourceAssociationObservation struct {
 }
 
 type RamResourceAssociationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 
 	ResourceShareArn string `json:"resourceShareArn" tf:"resource_share_arn"`

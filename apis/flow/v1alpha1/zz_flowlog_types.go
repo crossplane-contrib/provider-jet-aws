@@ -43,6 +43,8 @@ type FlowLogParameters struct {
 
 	MaxAggregationInterval *int64 `json:"maxAggregationInterval,omitempty" tf:"max_aggregation_interval"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

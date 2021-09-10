@@ -66,8 +66,11 @@ spec:
                 properties:
                   masterId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - masterId
+                - region
                 type: object
               providerConfigRef:
                 default:

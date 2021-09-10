@@ -52,6 +52,8 @@ type ElasticacheGlobalReplicationGroupParameters struct {
 	GlobalReplicationGroupIdSuffix string `json:"globalReplicationGroupIdSuffix" tf:"global_replication_group_id_suffix"`
 
 	PrimaryReplicationGroupId string `json:"primaryReplicationGroupId" tf:"primary_replication_group_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // ElasticacheGlobalReplicationGroupSpec defines the desired state of ElasticacheGlobalReplicationGroup

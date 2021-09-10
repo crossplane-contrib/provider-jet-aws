@@ -30,6 +30,8 @@ type XrayEncryptionConfigObservation struct {
 type XrayEncryptionConfigParameters struct {
 	KeyId *string `json:"keyId,omitempty" tf:"key_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	Type string `json:"type" tf:"type"`
 }
 

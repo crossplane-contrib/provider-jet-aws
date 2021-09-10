@@ -39,6 +39,8 @@ type IamInstanceProfileParameters struct {
 
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	Region string `json:"region" tf:"-"`
+
 	Role *string `json:"role,omitempty" tf:"role"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

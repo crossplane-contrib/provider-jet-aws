@@ -75,6 +75,8 @@ type CodepipelineParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
 	Stage []StageParameters `json:"stage" tf:"stage"`

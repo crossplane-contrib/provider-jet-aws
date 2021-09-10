@@ -36,6 +36,8 @@ type AthenaNamedQueryParameters struct {
 
 	Query string `json:"query" tf:"query"`
 
+	Region string `json:"region" tf:"-"`
+
 	Workgroup *string `json:"workgroup,omitempty" tf:"workgroup"`
 }
 

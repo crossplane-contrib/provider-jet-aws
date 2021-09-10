@@ -31,6 +31,8 @@ type MediaStoreContainerPolicyParameters struct {
 	ContainerName string `json:"containerName" tf:"container_name"`
 
 	Policy string `json:"policy" tf:"policy"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // MediaStoreContainerPolicySpec defines the desired state of MediaStoreContainerPolicy

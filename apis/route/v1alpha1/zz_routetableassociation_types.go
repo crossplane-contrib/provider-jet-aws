@@ -30,6 +30,8 @@ type RouteTableAssociationObservation struct {
 type RouteTableAssociationParameters struct {
 	GatewayId *string `json:"gatewayId,omitempty" tf:"gateway_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
 
 	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`

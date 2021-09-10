@@ -39,6 +39,8 @@ type CurReportDefinitionParameters struct {
 
 	RefreshClosedReports *bool `json:"refreshClosedReports,omitempty" tf:"refresh_closed_reports"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReportName string `json:"reportName" tf:"report_name"`
 
 	ReportVersioning *string `json:"reportVersioning,omitempty" tf:"report_versioning"`

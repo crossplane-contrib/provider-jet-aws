@@ -72,6 +72,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   requestMappingTemplate:
                     type: string
                   responseMappingTemplate:
@@ -80,6 +82,7 @@ spec:
                 - apiId
                 - dataSource
                 - name
+                - region
                 - requestMappingTemplate
                 - responseMappingTemplate
                 type: object

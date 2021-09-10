@@ -74,6 +74,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   storageDescriptor:
                     items:
                       properties:
@@ -161,6 +163,7 @@ spec:
                 required:
                 - databaseName
                 - partitionValues
+                - region
                 - tableName
                 type: object
               providerConfigRef:

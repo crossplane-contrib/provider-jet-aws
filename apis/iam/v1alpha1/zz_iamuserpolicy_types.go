@@ -34,6 +34,8 @@ type IamUserPolicyParameters struct {
 
 	Policy string `json:"policy" tf:"policy"`
 
+	Region string `json:"region" tf:"-"`
+
 	User string `json:"user" tf:"user"`
 }
 

@@ -68,6 +68,8 @@ spec:
                     type: string
                   imageName:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                   tags:
@@ -80,6 +82,7 @@ spec:
                     type: object
                 required:
                 - imageName
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

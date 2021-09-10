@@ -78,6 +78,8 @@ type ElasticacheClusterParameters struct {
 
 	PreferredAvailabilityZones []string `json:"preferredAvailabilityZones,omitempty" tf:"preferred_availability_zones"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReplicationGroupId *string `json:"replicationGroupId,omitempty" tf:"replication_group_id"`
 
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`

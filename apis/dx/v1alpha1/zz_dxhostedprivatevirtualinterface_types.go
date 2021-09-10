@@ -53,6 +53,8 @@ type DxHostedPrivateVirtualInterfaceParameters struct {
 
 	OwnerAccountId string `json:"ownerAccountId" tf:"owner_account_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	Vlan int64 `json:"vlan" tf:"vlan"`
 }
 

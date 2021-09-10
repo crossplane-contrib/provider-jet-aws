@@ -82,6 +82,8 @@ spec:
                     type: string
                   networkInterfaceId:
                     type: string
+                  region:
+                    type: string
                   routeTableId:
                     type: string
                   transitGatewayId:
@@ -91,6 +93,7 @@ spec:
                   vpcPeeringConnectionId:
                     type: string
                 required:
+                - region
                 - routeTableId
                 type: object
               providerConfigRef:

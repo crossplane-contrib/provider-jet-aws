@@ -64,11 +64,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   transitGatewayAttachmentId:
                     type: string
                   transitGatewayRouteTableId:
                     type: string
                 required:
+                - region
                 - transitGatewayAttachmentId
                 - transitGatewayRouteTableId
                 type: object

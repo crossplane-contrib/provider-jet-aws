@@ -337,6 +337,8 @@ type IotTopicRuleParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Republish []IotTopicRuleRepublishParameters `json:"republish,omitempty" tf:"republish"`
 
 	S3 []IotTopicRuleS3Parameters `json:"s3,omitempty" tf:"s3"`

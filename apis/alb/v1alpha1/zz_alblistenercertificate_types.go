@@ -31,6 +31,8 @@ type AlbListenerCertificateParameters struct {
 	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
 
 	ListenerArn string `json:"listenerArn" tf:"listener_arn"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // AlbListenerCertificateSpec defines the desired state of AlbListenerCertificate

@@ -68,9 +68,12 @@ spec:
                     type: string
                   policy:
                     type: string
+                  region:
+                    type: string
                 required:
                 - containerName
                 - policy
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -66,6 +66,8 @@ spec:
                     type: string
                   publicKey:
                     type: string
+                  region:
+                    type: string
                   status:
                     type: string
                   username:
@@ -73,6 +75,7 @@ spec:
                 required:
                 - encoding
                 - publicKey
+                - region
                 - username
                 type: object
               providerConfigRef:

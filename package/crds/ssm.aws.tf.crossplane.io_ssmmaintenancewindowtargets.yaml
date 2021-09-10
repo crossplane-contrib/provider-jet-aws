@@ -70,6 +70,8 @@ spec:
                     type: string
                   ownerInformation:
                     type: string
+                  region:
+                    type: string
                   resourceType:
                     type: string
                   targets:
@@ -89,6 +91,7 @@ spec:
                   windowId:
                     type: string
                 required:
+                - region
                 - resourceType
                 - targets
                 - windowId

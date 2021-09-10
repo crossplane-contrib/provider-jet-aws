@@ -68,10 +68,13 @@ spec:
                     type: boolean
                   key:
                     type: string
+                  region:
+                    type: string
                   value:
                     type: string
                 required:
                 - key
+                - region
                 - value
                 type: object
               providerConfigRef:

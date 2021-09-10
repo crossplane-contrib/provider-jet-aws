@@ -122,6 +122,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   rule:
                     items:
                       properties:
@@ -26055,6 +26057,7 @@ spec:
                 required:
                 - defaultAction
                 - name
+                - region
                 - scope
                 - visibilityConfig
                 type: object

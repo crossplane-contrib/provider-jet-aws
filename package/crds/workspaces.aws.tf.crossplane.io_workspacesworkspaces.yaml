@@ -67,6 +67,8 @@ spec:
                     type: string
                   directoryId:
                     type: string
+                  region:
+                    type: string
                   rootVolumeEncryptionEnabled:
                     type: boolean
                   tags:
@@ -104,6 +106,7 @@ spec:
                 required:
                 - bundleId
                 - directoryId
+                - region
                 - userName
                 type: object
               providerConfigRef:

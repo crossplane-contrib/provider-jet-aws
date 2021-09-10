@@ -48,6 +48,8 @@ type ConfigOrganizationConformancePackParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	TemplateBody *string `json:"templateBody,omitempty" tf:"template_body"`
 
 	TemplateS3Uri *string `json:"templateS3Uri,omitempty" tf:"template_s3_uri"`

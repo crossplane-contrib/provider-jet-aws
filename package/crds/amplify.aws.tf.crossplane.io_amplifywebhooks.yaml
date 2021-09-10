@@ -68,9 +68,12 @@ spec:
                     type: string
                   description:
                     type: string
+                  region:
+                    type: string
                 required:
                 - appId
                 - branchName
+                - region
                 type: object
               providerConfigRef:
                 default:

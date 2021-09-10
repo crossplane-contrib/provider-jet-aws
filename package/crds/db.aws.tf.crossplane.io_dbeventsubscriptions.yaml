@@ -73,6 +73,8 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                   snsTopic:
                     type: string
                   sourceIds:
@@ -90,6 +92,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - snsTopic
                 type: object
               providerConfigRef:

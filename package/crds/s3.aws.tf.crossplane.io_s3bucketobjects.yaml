@@ -100,6 +100,8 @@ spec:
                     type: string
                   objectLockRetainUntilDate:
                     type: string
+                  region:
+                    type: string
                   serverSideEncryption:
                     type: string
                   source:
@@ -121,6 +123,7 @@ spec:
                 required:
                 - bucket
                 - key
+                - region
                 type: object
               providerConfigRef:
                 default:

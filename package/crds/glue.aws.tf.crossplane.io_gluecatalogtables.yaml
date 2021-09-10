@@ -103,6 +103,8 @@ spec:
                       - name
                       type: object
                     type: array
+                  region:
+                    type: string
                   retention:
                     format: int64
                     type: integer
@@ -239,6 +241,7 @@ spec:
                 required:
                 - databaseName
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

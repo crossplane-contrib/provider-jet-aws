@@ -35,6 +35,8 @@ type Ec2TransitGatewayVpcAttachmentParameters struct {
 
 	Ipv6Support *string `json:"ipv6Support,omitempty" tf:"ipv6_support"`
 
+	Region string `json:"region" tf:"-"`
+
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

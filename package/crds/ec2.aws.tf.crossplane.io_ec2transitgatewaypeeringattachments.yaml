@@ -70,6 +70,8 @@ spec:
                     type: string
                   peerTransitGatewayId:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -83,6 +85,7 @@ spec:
                 required:
                 - peerRegion
                 - peerTransitGatewayId
+                - region
                 - transitGatewayId
                 type: object
               providerConfigRef:

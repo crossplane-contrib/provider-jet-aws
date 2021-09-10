@@ -35,6 +35,8 @@ type CodedeployDeploymentConfigParameters struct {
 
 	MinimumHealthyHosts []MinimumHealthyHostsParameters `json:"minimumHealthyHosts,omitempty" tf:"minimum_healthy_hosts"`
 
+	Region string `json:"region" tf:"-"`
+
 	TrafficRoutingConfig []TrafficRoutingConfigParameters `json:"trafficRoutingConfig,omitempty" tf:"traffic_routing_config"`
 }
 

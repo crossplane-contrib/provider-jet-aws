@@ -68,6 +68,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   route:
                     items:
                       properties:
@@ -105,6 +107,7 @@ spec:
                     type: object
                 required:
                 - defaultRouteTableId
+                - region
                 type: object
               providerConfigRef:
                 default:

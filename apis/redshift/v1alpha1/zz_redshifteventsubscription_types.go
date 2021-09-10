@@ -39,6 +39,8 @@ type RedshiftEventSubscriptionParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Severity *string `json:"severity,omitempty" tf:"severity"`
 
 	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`

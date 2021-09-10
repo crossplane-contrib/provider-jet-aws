@@ -82,9 +82,12 @@ spec:
                       - realtimeMetricsSubscriptionConfig
                       type: object
                     type: array
+                  region:
+                    type: string
                 required:
                 - distributionId
                 - monitoringSubscription
+                - region
                 type: object
               providerConfigRef:
                 default:

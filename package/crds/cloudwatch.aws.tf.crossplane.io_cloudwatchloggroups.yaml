@@ -69,6 +69,8 @@ spec:
                     type: string
                   namePrefix:
                     type: string
+                  region:
+                    type: string
                   retentionInDays:
                     format: int64
                     type: integer
@@ -80,6 +82,8 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -138,6 +138,8 @@ spec:
                     type: integer
                   name:
                     type: string
+                  region:
+                    type: string
                   stackId:
                     type: string
                   statsEnabled:
@@ -163,6 +165,7 @@ spec:
                   useEbsOptimizedInstances:
                     type: boolean
                 required:
+                - region
                 - stackId
                 - statsPassword
                 type: object

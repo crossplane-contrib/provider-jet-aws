@@ -29,6 +29,8 @@ type MainRouteTableAssociationObservation struct {
 }
 
 type MainRouteTableAssociationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
 
 	VpcId string `json:"vpcId" tf:"vpc_id"`

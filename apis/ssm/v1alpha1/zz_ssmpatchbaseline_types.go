@@ -89,6 +89,8 @@ type SsmPatchBaselineParameters struct {
 
 	OperatingSystem *string `json:"operatingSystem,omitempty" tf:"operating_system"`
 
+	Region string `json:"region" tf:"-"`
+
 	RejectedPatches []string `json:"rejectedPatches,omitempty" tf:"rejected_patches"`
 
 	RejectedPatchesAction *string `json:"rejectedPatchesAction,omitempty" tf:"rejected_patches_action"`

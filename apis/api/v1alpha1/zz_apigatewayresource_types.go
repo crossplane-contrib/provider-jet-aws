@@ -33,6 +33,8 @@ type ApiGatewayResourceParameters struct {
 
 	PathPart string `json:"pathPart" tf:"path_part"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestApiId string `json:"restApiId" tf:"rest_api_id"`
 }
 

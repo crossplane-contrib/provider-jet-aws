@@ -66,10 +66,13 @@ spec:
                 properties:
                   clusterIdentifier:
                     type: string
+                  region:
+                    type: string
                   scheduleIdentifier:
                     type: string
                 required:
                 - clusterIdentifier
+                - region
                 - scheduleIdentifier
                 type: object
               providerConfigRef:

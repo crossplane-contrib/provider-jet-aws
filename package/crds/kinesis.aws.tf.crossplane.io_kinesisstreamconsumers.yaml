@@ -65,10 +65,13 @@ spec:
                 properties:
                   name:
                     type: string
+                  region:
+                    type: string
                   streamArn:
                     type: string
                 required:
                 - name
+                - region
                 - streamArn
                 type: object
               providerConfigRef:

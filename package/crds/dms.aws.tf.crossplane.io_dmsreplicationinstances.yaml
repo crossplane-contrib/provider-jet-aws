@@ -84,6 +84,8 @@ spec:
                     type: string
                   publiclyAccessible:
                     type: boolean
+                  region:
+                    type: string
                   replicationInstanceClass:
                     type: string
                   replicationInstanceId:
@@ -103,6 +105,7 @@ spec:
                       type: string
                     type: array
                 required:
+                - region
                 - replicationInstanceClass
                 - replicationInstanceId
                 type: object

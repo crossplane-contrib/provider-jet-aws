@@ -66,9 +66,12 @@ spec:
                     type: string
                   instance:
                     type: string
+                  region:
+                    type: string
                 required:
                 - elb
                 - instance
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -147,6 +147,8 @@ spec:
                     type: number
                   processBehavior:
                     type: string
+                  region:
+                    type: string
                   voiceId:
                     type: string
                 required:
@@ -154,6 +156,7 @@ spec:
                 - childDirected
                 - intent
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

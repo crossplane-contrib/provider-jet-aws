@@ -36,6 +36,8 @@ type Apigatewayv2ModelParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Schema string `json:"schema" tf:"schema"`
 }
 

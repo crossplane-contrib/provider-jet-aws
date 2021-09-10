@@ -69,6 +69,8 @@ spec:
                     type: string
                   platformId:
                     type: string
+                  region:
+                    type: string
                   signatureValidityPeriod:
                     items:
                       properties:
@@ -92,6 +94,7 @@ spec:
                     type: object
                 required:
                 - platformId
+                - region
                 type: object
               providerConfigRef:
                 default:

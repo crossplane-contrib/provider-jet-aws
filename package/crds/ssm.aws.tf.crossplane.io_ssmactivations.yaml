@@ -70,6 +70,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   registrationLimit:
                     format: int64
                     type: integer
@@ -83,6 +85,7 @@ spec:
                     type: object
                 required:
                 - iamRole
+                - region
                 type: object
               providerConfigRef:
                 default:

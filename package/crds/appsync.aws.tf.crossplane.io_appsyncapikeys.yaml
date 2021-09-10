@@ -68,8 +68,11 @@ spec:
                     type: string
                   expires:
                     type: string
+                  region:
+                    type: string
                 required:
                 - apiId
+                - region
                 type: object
               providerConfigRef:
                 default:

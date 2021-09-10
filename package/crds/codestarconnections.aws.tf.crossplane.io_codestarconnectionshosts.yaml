@@ -70,6 +70,8 @@ spec:
                     type: string
                   providerType:
                     type: string
+                  region:
+                    type: string
                   vpcConfiguration:
                     items:
                       properties:
@@ -95,6 +97,7 @@ spec:
                 - name
                 - providerEndpoint
                 - providerType
+                - region
                 type: object
               providerConfigRef:
                 default:

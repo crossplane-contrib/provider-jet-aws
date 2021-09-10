@@ -41,6 +41,8 @@ type AlbListenerParameters struct {
 
 	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
 
+	Region string `json:"region" tf:"-"`
+
 	SslPolicy *string `json:"sslPolicy,omitempty" tf:"ssl_policy"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

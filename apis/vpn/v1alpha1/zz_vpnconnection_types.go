@@ -91,6 +91,8 @@ type VpnConnectionParameters struct {
 
 	LocalIpv6NetworkCidr *string `json:"localIpv6NetworkCidr,omitempty" tf:"local_ipv6_network_cidr"`
 
+	Region string `json:"region" tf:"-"`
+
 	RemoteIpv4NetworkCidr *string `json:"remoteIpv4NetworkCidr,omitempty" tf:"remote_ipv4_network_cidr"`
 
 	RemoteIpv6NetworkCidr *string `json:"remoteIpv6NetworkCidr,omitempty" tf:"remote_ipv6_network_cidr"`

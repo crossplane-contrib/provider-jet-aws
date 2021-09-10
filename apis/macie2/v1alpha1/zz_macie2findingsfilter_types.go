@@ -69,6 +69,8 @@ type Macie2FindingsFilterParameters struct {
 
 	Position *int64 `json:"position,omitempty" tf:"position"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

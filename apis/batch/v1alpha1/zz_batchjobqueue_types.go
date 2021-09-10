@@ -35,6 +35,8 @@ type BatchJobQueueParameters struct {
 
 	Priority int64 `json:"priority" tf:"priority"`
 
+	Region string `json:"region" tf:"-"`
+
 	State string `json:"state" tf:"state"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

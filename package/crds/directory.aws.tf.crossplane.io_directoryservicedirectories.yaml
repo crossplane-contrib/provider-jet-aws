@@ -98,6 +98,8 @@ spec:
                     type: string
                   password:
                     type: string
+                  region:
+                    type: string
                   shortName:
                     type: string
                   size:
@@ -129,6 +131,7 @@ spec:
                 required:
                 - name
                 - password
+                - region
                 type: object
               providerConfigRef:
                 default:

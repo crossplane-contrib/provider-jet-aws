@@ -31,6 +31,8 @@ type WafregionalRegexPatternSetParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	RegexPatternStrings []string `json:"regexPatternStrings,omitempty" tf:"regex_pattern_strings"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // WafregionalRegexPatternSetSpec defines the desired state of WafregionalRegexPatternSet

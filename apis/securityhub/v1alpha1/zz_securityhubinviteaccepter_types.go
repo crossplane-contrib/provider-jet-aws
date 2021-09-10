@@ -30,6 +30,8 @@ type SecurityhubInviteAccepterObservation struct {
 
 type SecurityhubInviteAccepterParameters struct {
 	MasterId string `json:"masterId" tf:"master_id"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // SecurityhubInviteAccepterSpec defines the desired state of SecurityhubInviteAccepter

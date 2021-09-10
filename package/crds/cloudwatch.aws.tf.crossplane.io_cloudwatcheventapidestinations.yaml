@@ -77,11 +77,14 @@ spec:
                     type: integer
                   name:
                     type: string
+                  region:
+                    type: string
                 required:
                 - connectionArn
                 - httpMethod
                 - invocationEndpoint
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

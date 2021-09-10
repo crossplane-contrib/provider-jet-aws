@@ -109,6 +109,8 @@ spec:
                     type: string
                   readOnly:
                     type: boolean
+                  region:
+                    type: string
                   requesterPays:
                     type: boolean
                   roleArn:
@@ -127,6 +129,7 @@ spec:
                 - clientList
                 - gatewayArn
                 - locationArn
+                - region
                 - roleArn
                 type: object
               providerConfigRef:

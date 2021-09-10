@@ -70,8 +70,11 @@ spec:
                     type: string
                   gatewayArn:
                     type: string
+                  region:
+                    type: string
                 required:
                 - gatewayArn
+                - region
                 type: object
               providerConfigRef:
                 default:

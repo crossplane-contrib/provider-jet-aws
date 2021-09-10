@@ -6308,6 +6308,8 @@ type Wafv2RuleGroupParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Rule []RuleParameters `json:"rule,omitempty" tf:"rule"`
 
 	Scope string `json:"scope" tf:"scope"`

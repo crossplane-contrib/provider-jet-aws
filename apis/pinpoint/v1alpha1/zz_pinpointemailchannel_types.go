@@ -39,6 +39,8 @@ type PinpointEmailChannelParameters struct {
 
 	Identity string `json:"identity" tf:"identity"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 }
 

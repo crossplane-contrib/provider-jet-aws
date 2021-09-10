@@ -74,12 +74,15 @@ spec:
                     type: boolean
                   globalClusterIdentifier:
                     type: string
+                  region:
+                    type: string
                   sourceDbClusterIdentifier:
                     type: string
                   storageEncrypted:
                     type: boolean
                 required:
                 - globalClusterIdentifier
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -86,12 +86,15 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   templateBody:
                     type: string
                   templateS3Uri:
                     type: string
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

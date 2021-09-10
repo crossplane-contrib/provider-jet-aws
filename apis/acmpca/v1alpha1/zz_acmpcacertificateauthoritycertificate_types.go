@@ -33,6 +33,8 @@ type AcmpcaCertificateAuthorityCertificateParameters struct {
 	CertificateAuthorityArn string `json:"certificateAuthorityArn" tf:"certificate_authority_arn"`
 
 	CertificateChain *string `json:"certificateChain,omitempty" tf:"certificate_chain"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // AcmpcaCertificateAuthorityCertificateSpec defines the desired state of AcmpcaCertificateAuthorityCertificate

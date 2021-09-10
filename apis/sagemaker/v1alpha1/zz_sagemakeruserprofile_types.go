@@ -53,6 +53,8 @@ type SagemakerUserProfileObservation struct {
 type SagemakerUserProfileParameters struct {
 	DomainId string `json:"domainId" tf:"domain_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	SingleSignOnUserIdentifier *string `json:"singleSignOnUserIdentifier,omitempty" tf:"single_sign_on_user_identifier"`
 
 	SingleSignOnUserValue *string `json:"singleSignOnUserValue,omitempty" tf:"single_sign_on_user_value"`

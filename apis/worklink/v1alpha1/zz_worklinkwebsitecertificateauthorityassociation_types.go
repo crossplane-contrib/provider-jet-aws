@@ -34,6 +34,8 @@ type WorklinkWebsiteCertificateAuthorityAssociationParameters struct {
 	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 
 	FleetArn string `json:"fleetArn" tf:"fleet_arn"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // WorklinkWebsiteCertificateAuthorityAssociationSpec defines the desired state of WorklinkWebsiteCertificateAuthorityAssociation

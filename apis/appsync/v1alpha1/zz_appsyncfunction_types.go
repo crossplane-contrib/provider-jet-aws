@@ -41,6 +41,8 @@ type AppsyncFunctionParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequestMappingTemplate string `json:"requestMappingTemplate" tf:"request_mapping_template"`
 
 	ResponseMappingTemplate string `json:"responseMappingTemplate" tf:"response_mapping_template"`

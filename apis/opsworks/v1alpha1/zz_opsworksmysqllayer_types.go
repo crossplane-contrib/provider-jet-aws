@@ -82,6 +82,8 @@ type OpsworksMysqlLayerParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RootPassword *string `json:"rootPassword,omitempty" tf:"root_password"`
 
 	RootPasswordOnAllInstances *bool `json:"rootPasswordOnAllInstances,omitempty" tf:"root_password_on_all_instances"`

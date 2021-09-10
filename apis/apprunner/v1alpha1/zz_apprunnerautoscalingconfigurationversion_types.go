@@ -43,6 +43,8 @@ type ApprunnerAutoScalingConfigurationVersionParameters struct {
 
 	MinSize *int64 `json:"minSize,omitempty" tf:"min_size"`
 
+	Region string `json:"region" tf:"-"`
+
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`

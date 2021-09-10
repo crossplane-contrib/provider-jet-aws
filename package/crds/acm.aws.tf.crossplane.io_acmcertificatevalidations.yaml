@@ -66,12 +66,15 @@ spec:
                 properties:
                   certificateArn:
                     type: string
+                  region:
+                    type: string
                   validationRecordFqdns:
                     items:
                       type: string
                     type: array
                 required:
                 - certificateArn
+                - region
                 type: object
               providerConfigRef:
                 default:

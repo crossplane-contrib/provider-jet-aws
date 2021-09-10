@@ -102,6 +102,8 @@ spec:
                           type: string
                       type: object
                     type: array
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -117,6 +119,7 @@ spec:
                 required:
                 - description
                 - memberDefinition
+                - region
                 - workforceName
                 - workteamName
                 type: object

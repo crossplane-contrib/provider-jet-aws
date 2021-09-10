@@ -37,6 +37,8 @@ type SsoadminPermissionSetParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RelayState *string `json:"relayState,omitempty" tf:"relay_state"`
 
 	SessionDuration *string `json:"sessionDuration,omitempty" tf:"session_duration"`

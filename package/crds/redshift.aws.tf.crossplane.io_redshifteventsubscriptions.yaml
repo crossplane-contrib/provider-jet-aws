@@ -72,6 +72,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   severity:
                     type: string
                   snsTopicArn:
@@ -92,6 +94,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - snsTopicArn
                 type: object
               providerConfigRef:

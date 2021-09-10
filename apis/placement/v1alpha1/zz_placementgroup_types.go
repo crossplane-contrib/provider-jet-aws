@@ -33,6 +33,8 @@ type PlacementGroupObservation struct {
 type PlacementGroupParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Strategy string `json:"strategy" tf:"strategy"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

@@ -66,6 +66,8 @@ type SecretsmanagerSecretParameters struct {
 
 	RecoveryWindowInDays *int64 `json:"recoveryWindowInDays,omitempty" tf:"recovery_window_in_days"`
 
+	Region string `json:"region" tf:"-"`
+
 	Replica []ReplicaParameters `json:"replica,omitempty" tf:"replica"`
 
 	RotationLambdaArn *string `json:"rotationLambdaArn,omitempty" tf:"rotation_lambda_arn"`

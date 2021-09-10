@@ -97,6 +97,8 @@ spec:
                     type: integer
                   publiclyAccessible:
                     type: boolean
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -108,6 +110,7 @@ spec:
                 required:
                 - clusterIdentifier
                 - instanceClass
+                - region
                 type: object
               providerConfigRef:
                 default:

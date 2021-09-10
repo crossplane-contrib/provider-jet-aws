@@ -75,6 +75,8 @@ spec:
                     type: string
                   platform:
                     type: string
+                  region:
+                    type: string
                   supportedOsVersions:
                     items:
                       type: string
@@ -94,6 +96,7 @@ spec:
                 required:
                 - name
                 - platform
+                - region
                 - version
                 type: object
               providerConfigRef:

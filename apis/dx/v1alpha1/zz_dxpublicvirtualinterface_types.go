@@ -47,6 +47,8 @@ type DxPublicVirtualInterfaceParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RouteFilterPrefixes []string `json:"routeFilterPrefixes" tf:"route_filter_prefixes"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

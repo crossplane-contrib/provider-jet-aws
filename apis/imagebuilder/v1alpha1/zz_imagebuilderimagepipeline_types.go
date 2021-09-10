@@ -62,6 +62,8 @@ type ImagebuilderImagePipelineParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Schedule []ScheduleParameters `json:"schedule,omitempty" tf:"schedule"`
 
 	Status *string `json:"status,omitempty" tf:"status"`

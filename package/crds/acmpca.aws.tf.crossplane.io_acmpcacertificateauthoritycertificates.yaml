@@ -70,9 +70,12 @@ spec:
                     type: string
                   certificateChain:
                     type: string
+                  region:
+                    type: string
                 required:
                 - certificate
                 - certificateAuthorityArn
+                - region
                 type: object
               providerConfigRef:
                 default:

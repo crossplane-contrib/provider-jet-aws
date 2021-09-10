@@ -105,6 +105,8 @@ spec:
                   rank:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -119,6 +121,7 @@ spec:
                 - findingCriteria
                 - name
                 - rank
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -75,10 +75,13 @@ spec:
                     type: string
                   proposalId:
                     type: string
+                  region:
+                    type: string
                   vpnGatewayId:
                     type: string
                 required:
                 - dxGatewayId
+                - region
                 type: object
               providerConfigRef:
                 default:

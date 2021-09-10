@@ -66,9 +66,12 @@ spec:
                 properties:
                   firewallFailOpen:
                     type: string
+                  region:
+                    type: string
                   resourceId:
                     type: string
                 required:
+                - region
                 - resourceId
                 type: object
               providerConfigRef:

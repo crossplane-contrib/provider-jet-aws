@@ -87,6 +87,8 @@ spec:
                     type: string
                   policyUrl:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -104,6 +106,7 @@ spec:
                     type: integer
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

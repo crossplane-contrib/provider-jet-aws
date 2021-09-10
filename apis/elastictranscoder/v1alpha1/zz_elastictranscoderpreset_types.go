@@ -67,6 +67,8 @@ type ElastictranscoderPresetParameters struct {
 
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	Thumbnails []ThumbnailsParameters `json:"thumbnails,omitempty" tf:"thumbnails"`
 
 	Type *string `json:"type,omitempty" tf:"type"`

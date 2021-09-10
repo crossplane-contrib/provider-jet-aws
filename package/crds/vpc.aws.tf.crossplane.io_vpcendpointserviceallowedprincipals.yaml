@@ -66,10 +66,13 @@ spec:
                 properties:
                   principalArn:
                     type: string
+                  region:
+                    type: string
                   vpcEndpointServiceId:
                     type: string
                 required:
                 - principalArn
+                - region
                 - vpcEndpointServiceId
                 type: object
               providerConfigRef:

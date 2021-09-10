@@ -231,6 +231,8 @@ spec:
                     type: array
                   policy:
                     type: string
+                  region:
+                    type: string
                   replicationConfiguration:
                     items:
                       properties:
@@ -372,6 +374,8 @@ spec:
                     type: string
                   websiteEndpoint:
                     type: string
+                required:
+                - region
                 type: object
               providerConfigRef:
                 default:
@@ -426,12 +430,9 @@ spec:
                     type: string
                   bucketRegionalDomainName:
                     type: string
-                  region:
-                    type: string
                 required:
                 - bucketDomainName
                 - bucketRegionalDomainName
-                - region
                 type: object
               conditions:
                 description: Conditions of the resource.

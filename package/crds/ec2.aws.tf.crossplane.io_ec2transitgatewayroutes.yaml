@@ -67,12 +67,15 @@ spec:
                     type: boolean
                   destinationCidrBlock:
                     type: string
+                  region:
+                    type: string
                   transitGatewayAttachmentId:
                     type: string
                   transitGatewayRouteTableId:
                     type: string
                 required:
                 - destinationCidrBlock
+                - region
                 - transitGatewayRouteTableId
                 type: object
               providerConfigRef:

@@ -88,9 +88,12 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                 required:
                 - definition
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

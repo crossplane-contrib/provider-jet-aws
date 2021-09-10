@@ -65,10 +65,13 @@ spec:
                 properties:
                   arn:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                 required:
                 - arn
+                - region
                 type: object
               providerConfigRef:
                 default:

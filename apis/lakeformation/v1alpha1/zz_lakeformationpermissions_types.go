@@ -60,6 +60,8 @@ type LakeformationPermissionsParameters struct {
 
 	Principal string `json:"principal" tf:"principal"`
 
+	Region string `json:"region" tf:"-"`
+
 	Table []TableParameters `json:"table,omitempty" tf:"table"`
 
 	TableWithColumns []TableWithColumnsParameters `json:"tableWithColumns,omitempty" tf:"table_with_columns"`

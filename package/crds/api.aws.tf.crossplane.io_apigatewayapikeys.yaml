@@ -68,6 +68,8 @@ spec:
                     type: boolean
                   name:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -80,6 +82,7 @@ spec:
                     type: string
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

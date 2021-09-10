@@ -70,10 +70,13 @@ spec:
                     type: string
                   permissionSetArn:
                     type: string
+                  region:
+                    type: string
                 required:
                 - instanceArn
                 - managedPolicyArn
                 - permissionSetArn
+                - region
                 type: object
               providerConfigRef:
                 default:

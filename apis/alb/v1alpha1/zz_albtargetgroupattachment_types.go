@@ -32,6 +32,8 @@ type AlbTargetGroupAttachmentParameters struct {
 
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	Region string `json:"region" tf:"-"`
+
 	TargetGroupArn string `json:"targetGroupArn" tf:"target_group_arn"`
 
 	TargetId string `json:"targetId" tf:"target_id"`

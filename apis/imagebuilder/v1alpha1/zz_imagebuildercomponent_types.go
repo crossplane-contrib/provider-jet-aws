@@ -49,6 +49,8 @@ type ImagebuilderComponentParameters struct {
 
 	Platform string `json:"platform" tf:"platform"`
 
+	Region string `json:"region" tf:"-"`
+
 	SupportedOsVersions []string `json:"supportedOsVersions,omitempty" tf:"supported_os_versions"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

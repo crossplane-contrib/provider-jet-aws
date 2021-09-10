@@ -30,6 +30,8 @@ type VpcDhcpOptionsAssociationObservation struct {
 type VpcDhcpOptionsAssociationParameters struct {
 	DhcpOptionsId string `json:"dhcpOptionsId" tf:"dhcp_options_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	VpcId string `json:"vpcId" tf:"vpc_id"`
 }
 

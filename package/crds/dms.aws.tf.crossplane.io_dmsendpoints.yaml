@@ -138,6 +138,8 @@ spec:
                   port:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   s3Settings:
                     items:
                       properties:
@@ -179,6 +181,7 @@ spec:
                 - endpointId
                 - endpointType
                 - engineName
+                - region
                 type: object
               providerConfigRef:
                 default:

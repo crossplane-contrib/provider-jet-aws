@@ -30,6 +30,8 @@ type ServicecatalogBudgetResourceAssociationObservation struct {
 type ServicecatalogBudgetResourceAssociationParameters struct {
 	BudgetName string `json:"budgetName" tf:"budget_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	ResourceId string `json:"resourceId" tf:"resource_id"`
 }
 

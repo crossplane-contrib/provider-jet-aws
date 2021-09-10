@@ -110,6 +110,8 @@ type MwaaEnvironmentParameters struct {
 
 	PluginsS3Path *string `json:"pluginsS3Path,omitempty" tf:"plugins_s3_path"`
 
+	Region string `json:"region" tf:"-"`
+
 	RequirementsS3ObjectVersion *string `json:"requirementsS3ObjectVersion,omitempty" tf:"requirements_s3_object_version"`
 
 	RequirementsS3Path *string `json:"requirementsS3Path,omitempty" tf:"requirements_s3_path"`

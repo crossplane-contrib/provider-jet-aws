@@ -36,6 +36,8 @@ type CloudwatchEventPermissionParameters struct {
 
 	Principal string `json:"principal" tf:"principal"`
 
+	Region string `json:"region" tf:"-"`
+
 	StatementId string `json:"statementId" tf:"statement_id"`
 }
 

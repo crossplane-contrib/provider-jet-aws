@@ -29,6 +29,8 @@ type SecretsmanagerSecretRotationObservation struct {
 }
 
 type SecretsmanagerSecretRotationParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	RotationLambdaArn string `json:"rotationLambdaArn" tf:"rotation_lambda_arn"`
 
 	RotationRules []SecretsmanagerSecretRotationRotationRulesParameters `json:"rotationRules" tf:"rotation_rules"`

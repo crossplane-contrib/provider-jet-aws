@@ -29,6 +29,8 @@ type ServicecatalogOrganizationsAccessObservation struct {
 
 type ServicecatalogOrganizationsAccessParameters struct {
 	Enabled bool `json:"enabled" tf:"enabled"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // ServicecatalogOrganizationsAccessSpec defines the desired state of ServicecatalogOrganizationsAccess

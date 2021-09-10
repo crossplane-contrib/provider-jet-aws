@@ -67,6 +67,8 @@ spec:
                     type: string
                   description:
                     type: string
+                  region:
+                    type: string
                   repositoryName:
                     type: string
                   tags:
@@ -78,6 +80,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - repositoryName
                 type: object
               providerConfigRef:

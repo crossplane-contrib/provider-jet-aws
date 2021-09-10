@@ -29,6 +29,8 @@ type BackupGlobalSettingsObservation struct {
 
 type BackupGlobalSettingsParameters struct {
 	GlobalSettings map[string]string `json:"globalSettings" tf:"global_settings"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // BackupGlobalSettingsSpec defines the desired state of BackupGlobalSettings

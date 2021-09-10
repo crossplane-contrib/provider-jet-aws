@@ -68,6 +68,8 @@ spec:
                     type: string
                   pricingPlan:
                     type: string
+                  region:
+                    type: string
                   reservationPlanSettings:
                     items:
                       properties:
@@ -96,6 +98,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

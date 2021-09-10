@@ -75,6 +75,8 @@ spec:
                     type: boolean
                   outpostArn:
                     type: string
+                  region:
+                    type: string
                   size:
                     format: int64
                     type: integer
@@ -95,6 +97,7 @@ spec:
                     type: string
                 required:
                 - availabilityZone
+                - region
                 type: object
               providerConfigRef:
                 default:

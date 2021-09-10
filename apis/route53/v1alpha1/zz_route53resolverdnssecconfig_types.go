@@ -35,6 +35,8 @@ type Route53ResolverDnssecConfigObservation struct {
 }
 
 type Route53ResolverDnssecConfigParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ResourceId string `json:"resourceId" tf:"resource_id"`
 }
 

@@ -36,6 +36,8 @@ type SsoadminAccountAssignmentParameters struct {
 
 	PrincipalType string `json:"principalType" tf:"principal_type"`
 
+	Region string `json:"region" tf:"-"`
+
 	TargetId string `json:"targetId" tf:"target_id"`
 
 	TargetType *string `json:"targetType,omitempty" tf:"target_type"`

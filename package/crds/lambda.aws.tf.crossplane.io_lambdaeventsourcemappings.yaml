@@ -109,6 +109,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   selfManagedEventSource:
                     items:
                       properties:
@@ -145,6 +147,7 @@ spec:
                     type: integer
                 required:
                 - functionName
+                - region
                 type: object
               providerConfigRef:
                 default:

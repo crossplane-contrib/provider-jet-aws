@@ -66,8 +66,11 @@ spec:
                 properties:
                   productArn:
                     type: string
+                  region:
+                    type: string
                 required:
                 - productArn
+                - region
                 type: object
               providerConfigRef:
                 default:

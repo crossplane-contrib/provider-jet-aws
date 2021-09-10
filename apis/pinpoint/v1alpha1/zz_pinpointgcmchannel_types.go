@@ -33,6 +33,8 @@ type PinpointGcmChannelParameters struct {
 	ApplicationId string `json:"applicationId" tf:"application_id"`
 
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // PinpointGcmChannelSpec defines the desired state of PinpointGcmChannel

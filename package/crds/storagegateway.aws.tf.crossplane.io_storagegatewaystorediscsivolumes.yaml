@@ -76,6 +76,8 @@ spec:
                     type: string
                   preserveExistingData:
                     type: boolean
+                  region:
+                    type: string
                   snapshotId:
                     type: string
                   tags:
@@ -93,6 +95,7 @@ spec:
                 - gatewayArn
                 - networkInterfaceId
                 - preserveExistingData
+                - region
                 - targetName
                 type: object
               providerConfigRef:

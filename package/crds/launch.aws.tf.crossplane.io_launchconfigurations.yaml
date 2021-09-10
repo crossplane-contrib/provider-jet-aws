@@ -135,6 +135,8 @@ spec:
                     type: string
                   placementTenancy:
                     type: string
+                  region:
+                    type: string
                   rootBlockDevice:
                     items:
                       properties:
@@ -174,6 +176,7 @@ spec:
                 required:
                 - imageId
                 - instanceType
+                - region
                 type: object
               providerConfigRef:
                 default:

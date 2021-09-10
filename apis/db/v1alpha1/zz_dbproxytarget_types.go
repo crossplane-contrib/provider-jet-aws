@@ -45,6 +45,8 @@ type DbProxyTargetParameters struct {
 
 	DbProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	TargetGroupName string `json:"targetGroupName" tf:"target_group_name"`
 }
 

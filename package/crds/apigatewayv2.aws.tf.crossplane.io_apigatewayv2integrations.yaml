@@ -88,6 +88,8 @@ spec:
                     type: string
                   payloadFormatVersion:
                     type: string
+                  region:
+                    type: string
                   requestParameters:
                     additionalProperties:
                       type: string
@@ -125,6 +127,7 @@ spec:
                 required:
                 - apiId
                 - integrationType
+                - region
                 type: object
               providerConfigRef:
                 default:

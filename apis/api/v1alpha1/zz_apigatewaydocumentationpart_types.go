@@ -32,6 +32,8 @@ type ApiGatewayDocumentationPartParameters struct {
 
 	Properties string `json:"properties" tf:"properties"`
 
+	Region string `json:"region" tf:"-"`
+
 	RestApiId string `json:"restApiId" tf:"rest_api_id"`
 }
 

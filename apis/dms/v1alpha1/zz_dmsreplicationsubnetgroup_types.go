@@ -31,6 +31,8 @@ type DmsReplicationSubnetGroupObservation struct {
 }
 
 type DmsReplicationSubnetGroupParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	ReplicationSubnetGroupDescription string `json:"replicationSubnetGroupDescription" tf:"replication_subnet_group_description"`
 
 	ReplicationSubnetGroupId string `json:"replicationSubnetGroupId" tf:"replication_subnet_group_id"`

@@ -67,9 +67,12 @@ spec:
                     type: string
                   imageId:
                     type: string
+                  region:
+                    type: string
                 required:
                 - accountId
                 - imageId
+                - region
                 type: object
               providerConfigRef:
                 default:

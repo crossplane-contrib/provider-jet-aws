@@ -96,8 +96,11 @@ spec:
                       - encryptionAtRest
                       type: object
                     type: array
+                  region:
+                    type: string
                 required:
                 - dataCatalogEncryptionSettings
+                - region
                 type: object
               providerConfigRef:
                 default:

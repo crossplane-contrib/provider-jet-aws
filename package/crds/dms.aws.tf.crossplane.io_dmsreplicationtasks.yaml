@@ -67,6 +67,8 @@ spec:
                     type: string
                   migrationType:
                     type: string
+                  region:
+                    type: string
                   replicationInstanceArn:
                     type: string
                   replicationTaskId:
@@ -89,6 +91,7 @@ spec:
                     type: string
                 required:
                 - migrationType
+                - region
                 - replicationInstanceArn
                 - replicationTaskId
                 - sourceEndpointArn

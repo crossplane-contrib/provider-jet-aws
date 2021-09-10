@@ -68,9 +68,12 @@ spec:
                     type: string
                   mailFromDomain:
                     type: string
+                  region:
+                    type: string
                 required:
                 - domain
                 - mailFromDomain
+                - region
                 type: object
               providerConfigRef:
                 default:

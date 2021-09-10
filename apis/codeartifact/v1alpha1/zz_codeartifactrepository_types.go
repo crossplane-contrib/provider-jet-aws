@@ -39,6 +39,8 @@ type CodeartifactRepositoryParameters struct {
 
 	ExternalConnections []ExternalConnectionsParameters `json:"externalConnections,omitempty" tf:"external_connections"`
 
+	Region string `json:"region" tf:"-"`
+
 	Repository string `json:"repository" tf:"repository"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

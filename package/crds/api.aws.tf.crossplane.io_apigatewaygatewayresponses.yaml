@@ -64,6 +64,8 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   responseParameters:
                     additionalProperties:
                       type: string
@@ -79,6 +81,7 @@ spec:
                   statusCode:
                     type: string
                 required:
+                - region
                 - responseType
                 - restApiId
                 type: object

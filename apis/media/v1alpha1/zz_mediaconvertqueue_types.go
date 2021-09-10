@@ -35,6 +35,8 @@ type MediaConvertQueueParameters struct {
 
 	PricingPlan *string `json:"pricingPlan,omitempty" tf:"pricing_plan"`
 
+	Region string `json:"region" tf:"-"`
+
 	ReservationPlanSettings []ReservationPlanSettingsParameters `json:"reservationPlanSettings,omitempty" tf:"reservation_plan_settings"`
 
 	Status *string `json:"status,omitempty" tf:"status"`

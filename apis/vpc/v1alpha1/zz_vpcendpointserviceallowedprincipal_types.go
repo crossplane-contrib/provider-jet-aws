@@ -30,6 +30,8 @@ type VpcEndpointServiceAllowedPrincipalObservation struct {
 type VpcEndpointServiceAllowedPrincipalParameters struct {
 	PrincipalArn string `json:"principalArn" tf:"principal_arn"`
 
+	Region string `json:"region" tf:"-"`
+
 	VpcEndpointServiceId string `json:"vpcEndpointServiceId" tf:"vpc_endpoint_service_id"`
 }
 

@@ -64,11 +64,14 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  region:
+                    type: string
                   resolverQueryLogConfigId:
                     type: string
                   resourceId:
                     type: string
                 required:
+                - region
                 - resolverQueryLogConfigId
                 - resourceId
                 type: object

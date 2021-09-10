@@ -104,6 +104,8 @@ spec:
                       - queueArn
                       type: object
                     type: array
+                  region:
+                    type: string
                   topic:
                     items:
                       properties:
@@ -126,6 +128,7 @@ spec:
                     type: array
                 required:
                 - bucket
+                - region
                 type: object
               providerConfigRef:
                 default:

@@ -58,6 +58,8 @@ type S3AccessPointParameters struct {
 
 	PublicAccessBlockConfiguration []PublicAccessBlockConfigurationParameters `json:"publicAccessBlockConfiguration,omitempty" tf:"public_access_block_configuration"`
 
+	Region string `json:"region" tf:"-"`
+
 	VpcConfiguration []VpcConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
 }
 

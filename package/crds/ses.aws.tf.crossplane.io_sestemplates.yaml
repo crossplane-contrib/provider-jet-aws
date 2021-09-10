@@ -66,12 +66,15 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   subject:
                     type: string
                   text:
                     type: string
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

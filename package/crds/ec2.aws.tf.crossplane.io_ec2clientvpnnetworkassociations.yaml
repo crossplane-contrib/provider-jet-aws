@@ -66,6 +66,8 @@ spec:
                 properties:
                   clientVpnEndpointId:
                     type: string
+                  region:
+                    type: string
                   securityGroups:
                     items:
                       type: string
@@ -74,6 +76,7 @@ spec:
                     type: string
                 required:
                 - clientVpnEndpointId
+                - region
                 - subnetId
                 type: object
               providerConfigRef:

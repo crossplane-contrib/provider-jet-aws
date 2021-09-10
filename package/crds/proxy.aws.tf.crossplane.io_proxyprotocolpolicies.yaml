@@ -69,9 +69,12 @@ spec:
                     type: array
                   loadBalancer:
                     type: string
+                  region:
+                    type: string
                 required:
                 - instancePorts
                 - loadBalancer
+                - region
                 type: object
               providerConfigRef:
                 default:

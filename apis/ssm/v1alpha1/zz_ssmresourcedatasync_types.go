@@ -45,6 +45,8 @@ type SsmResourceDataSyncObservation struct {
 type SsmResourceDataSyncParameters struct {
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	S3Destination []S3DestinationParameters `json:"s3Destination" tf:"s3_destination"`
 }
 

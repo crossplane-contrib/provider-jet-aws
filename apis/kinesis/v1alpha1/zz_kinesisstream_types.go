@@ -38,6 +38,8 @@ type KinesisStreamParameters struct {
 
 	Name string `json:"name" tf:"name"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetentionPeriod *int64 `json:"retentionPeriod,omitempty" tf:"retention_period"`
 
 	ShardCount int64 `json:"shardCount" tf:"shard_count"`

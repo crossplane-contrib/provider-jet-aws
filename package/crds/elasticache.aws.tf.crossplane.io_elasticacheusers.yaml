@@ -74,6 +74,8 @@ spec:
                     items:
                       type: string
                     type: array
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -89,6 +91,7 @@ spec:
                 required:
                 - accessString
                 - engine
+                - region
                 - userId
                 - userName
                 type: object

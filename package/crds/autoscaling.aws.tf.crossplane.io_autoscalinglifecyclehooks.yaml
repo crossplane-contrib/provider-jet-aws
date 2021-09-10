@@ -79,12 +79,15 @@ spec:
                     type: string
                   notificationTargetArn:
                     type: string
+                  region:
+                    type: string
                   roleArn:
                     type: string
                 required:
                 - autoscalingGroupName
                 - lifecycleTransition
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

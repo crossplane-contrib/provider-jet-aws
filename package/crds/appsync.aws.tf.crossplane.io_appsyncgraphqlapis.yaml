@@ -136,6 +136,8 @@ spec:
                       - issuer
                       type: object
                     type: array
+                  region:
+                    type: string
                   schema:
                     type: string
                   tags:
@@ -167,6 +169,7 @@ spec:
                 required:
                 - authenticationType
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

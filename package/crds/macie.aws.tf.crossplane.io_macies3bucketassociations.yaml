@@ -79,8 +79,11 @@ spec:
                     type: string
                   prefix:
                     type: string
+                  region:
+                    type: string
                 required:
                 - bucketName
+                - region
                 type: object
               providerConfigRef:
                 default:

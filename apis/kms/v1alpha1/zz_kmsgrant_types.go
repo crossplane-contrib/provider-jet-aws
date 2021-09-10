@@ -52,6 +52,8 @@ type KmsGrantParameters struct {
 
 	Operations []string `json:"operations" tf:"operations"`
 
+	Region string `json:"region" tf:"-"`
+
 	RetireOnDelete *bool `json:"retireOnDelete,omitempty" tf:"retire_on_delete"`
 
 	RetiringPrincipal *string `json:"retiringPrincipal,omitempty" tf:"retiring_principal"`

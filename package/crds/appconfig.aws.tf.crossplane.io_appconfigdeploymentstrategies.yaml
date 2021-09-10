@@ -78,6 +78,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  region:
+                    type: string
                   replicateTo:
                     type: string
                   tags:
@@ -92,6 +94,7 @@ spec:
                 - deploymentDurationInMinutes
                 - growthFactor
                 - name
+                - region
                 - replicateTo
                 type: object
               providerConfigRef:

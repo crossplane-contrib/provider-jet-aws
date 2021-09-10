@@ -68,8 +68,11 @@ spec:
                     type: string
                   policy:
                     type: string
+                  region:
+                    type: string
                 required:
                 - policy
+                - region
                 type: object
               providerConfigRef:
                 default:

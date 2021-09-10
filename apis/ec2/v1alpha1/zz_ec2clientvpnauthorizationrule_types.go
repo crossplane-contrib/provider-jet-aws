@@ -36,6 +36,8 @@ type Ec2ClientVpnAuthorizationRuleParameters struct {
 
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	Region string `json:"region" tf:"-"`
+
 	TargetNetworkCidr string `json:"targetNetworkCidr" tf:"target_network_cidr"`
 }
 

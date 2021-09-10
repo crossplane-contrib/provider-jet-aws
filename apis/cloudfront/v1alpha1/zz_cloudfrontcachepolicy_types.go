@@ -41,6 +41,8 @@ type CloudfrontCachePolicyParameters struct {
 	Name string `json:"name" tf:"name"`
 
 	ParametersInCacheKeyAndForwardedToOrigin []ParametersInCacheKeyAndForwardedToOriginParameters `json:"parametersInCacheKeyAndForwardedToOrigin,omitempty" tf:"parameters_in_cache_key_and_forwarded_to_origin"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 type CookiesConfigObservation struct {

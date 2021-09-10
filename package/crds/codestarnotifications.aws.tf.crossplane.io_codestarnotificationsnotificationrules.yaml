@@ -72,6 +72,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   resource:
                     type: string
                   status:
@@ -99,6 +101,7 @@ spec:
                 - detailType
                 - eventTypeIds
                 - name
+                - region
                 - resource
                 type: object
               providerConfigRef:

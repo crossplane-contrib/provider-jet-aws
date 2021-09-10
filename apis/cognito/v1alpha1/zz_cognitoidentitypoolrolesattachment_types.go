@@ -30,6 +30,8 @@ type CognitoIdentityPoolRolesAttachmentObservation struct {
 type CognitoIdentityPoolRolesAttachmentParameters struct {
 	IdentityPoolId string `json:"identityPoolId" tf:"identity_pool_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	RoleMapping []RoleMappingParameters `json:"roleMapping,omitempty" tf:"role_mapping"`
 
 	Roles map[string]string `json:"roles" tf:"roles"`

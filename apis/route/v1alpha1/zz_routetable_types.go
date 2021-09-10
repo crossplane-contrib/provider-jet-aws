@@ -33,6 +33,8 @@ type RouteTableObservation struct {
 type RouteTableParameters struct {
 	PropagatingVgws []string `json:"propagatingVgws,omitempty" tf:"propagating_vgws"`
 
+	Region string `json:"region" tf:"-"`
+
 	Route []RouteTableRouteParameters `json:"route,omitempty" tf:"route"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

@@ -28,6 +28,8 @@ type VpnGatewayAttachmentObservation struct {
 }
 
 type VpnGatewayAttachmentParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	VpcId string `json:"vpcId" tf:"vpc_id"`
 
 	VpnGatewayId string `json:"vpnGatewayId" tf:"vpn_gateway_id"`

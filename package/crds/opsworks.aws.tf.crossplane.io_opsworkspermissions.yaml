@@ -69,11 +69,14 @@ spec:
                     type: boolean
                   level:
                     type: string
+                  region:
+                    type: string
                   stackId:
                     type: string
                   userArn:
                     type: string
                 required:
+                - region
                 - userArn
                 type: object
               providerConfigRef:

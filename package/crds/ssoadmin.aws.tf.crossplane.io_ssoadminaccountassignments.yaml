@@ -72,6 +72,8 @@ spec:
                     type: string
                   principalType:
                     type: string
+                  region:
+                    type: string
                   targetId:
                     type: string
                   targetType:
@@ -81,6 +83,7 @@ spec:
                 - permissionSetArn
                 - principalId
                 - principalType
+                - region
                 - targetId
                 type: object
               providerConfigRef:

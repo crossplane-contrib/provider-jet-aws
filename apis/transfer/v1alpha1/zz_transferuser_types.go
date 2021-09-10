@@ -59,6 +59,8 @@ type TransferUserParameters struct {
 
 	PosixProfile []PosixProfileParameters `json:"posixProfile,omitempty" tf:"posix_profile"`
 
+	Region string `json:"region" tf:"-"`
+
 	Role string `json:"role" tf:"role"`
 
 	ServerId string `json:"serverId" tf:"server_id"`

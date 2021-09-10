@@ -71,11 +71,14 @@ spec:
                     type: string
                   publish:
                     type: boolean
+                  region:
+                    type: string
                   runtime:
                     type: string
                 required:
                 - code
                 - name
+                - region
                 - runtime
                 type: object
               providerConfigRef:

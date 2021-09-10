@@ -78,6 +78,8 @@ spec:
                     type: integer
                   recurrence:
                     type: string
+                  region:
+                    type: string
                   scheduledActionName:
                     type: string
                   startTime:
@@ -86,6 +88,7 @@ spec:
                     type: string
                 required:
                 - autoscalingGroupName
+                - region
                 - scheduledActionName
                 type: object
               providerConfigRef:

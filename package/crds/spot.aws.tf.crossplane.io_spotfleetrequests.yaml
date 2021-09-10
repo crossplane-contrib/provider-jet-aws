@@ -229,6 +229,8 @@ spec:
                   onDemandTargetCapacity:
                     format: int64
                     type: integer
+                  region:
+                    type: string
                   replaceUnhealthyInstances:
                     type: boolean
                   spotMaintenanceStrategies:
@@ -270,6 +272,7 @@ spec:
                     type: boolean
                 required:
                 - iamFleetRole
+                - region
                 - targetCapacity
                 type: object
               providerConfigRef:

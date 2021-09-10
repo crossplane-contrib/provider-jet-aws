@@ -78,6 +78,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   rule:
                     items:
                       properties:
@@ -145,6 +147,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 - rule
                 type: object
               providerConfigRef:

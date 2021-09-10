@@ -145,6 +145,8 @@ spec:
                     type: string
                   publicIp:
                     type: string
+                  region:
+                    type: string
                   registeredBy:
                     type: string
                   reportedAgentVersion:
@@ -198,6 +200,7 @@ spec:
                     type: string
                 required:
                 - layerIds
+                - region
                 - stackId
                 type: object
               providerConfigRef:

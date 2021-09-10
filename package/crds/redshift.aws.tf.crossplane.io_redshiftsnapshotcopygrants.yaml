@@ -66,6 +66,8 @@ spec:
                 properties:
                   kmsKeyId:
                     type: string
+                  region:
+                    type: string
                   snapshotCopyGrantName:
                     type: string
                   tags:
@@ -77,6 +79,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - region
                 - snapshotCopyGrantName
                 type: object
               providerConfigRef:

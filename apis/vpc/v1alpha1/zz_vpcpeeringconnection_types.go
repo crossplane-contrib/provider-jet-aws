@@ -61,6 +61,8 @@ type VpcPeeringConnectionParameters struct {
 
 	PeerVpcId string `json:"peerVpcId" tf:"peer_vpc_id"`
 
+	Region string `json:"region" tf:"-"`
+
 	Requester []RequesterParameters `json:"requester,omitempty" tf:"requester"`
 
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`

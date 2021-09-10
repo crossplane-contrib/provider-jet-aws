@@ -66,9 +66,12 @@ spec:
                     type: string
                   patchGroup:
                     type: string
+                  region:
+                    type: string
                 required:
                 - baselineId
                 - patchGroup
+                - region
                 type: object
               providerConfigRef:
                 default:

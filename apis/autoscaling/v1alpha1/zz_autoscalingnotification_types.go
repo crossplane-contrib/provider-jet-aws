@@ -32,6 +32,8 @@ type AutoscalingNotificationParameters struct {
 
 	Notifications []string `json:"notifications" tf:"notifications"`
 
+	Region string `json:"region" tf:"-"`
+
 	TopicArn string `json:"topicArn" tf:"topic_arn"`
 }
 

@@ -120,6 +120,8 @@ spec:
                     type: string
                   operatingSystem:
                     type: string
+                  region:
+                    type: string
                   rejectedPatches:
                     items:
                       type: string
@@ -153,6 +155,7 @@ spec:
                     type: object
                 required:
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:

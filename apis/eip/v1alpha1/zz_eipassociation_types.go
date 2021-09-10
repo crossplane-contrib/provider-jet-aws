@@ -39,6 +39,8 @@ type EipAssociationParameters struct {
 	PrivateIpAddress *string `json:"privateIpAddress,omitempty" tf:"private_ip_address"`
 
 	PublicIp *string `json:"publicIp,omitempty" tf:"public_ip"`
+
+	Region string `json:"region" tf:"-"`
 }
 
 // EipAssociationSpec defines the desired state of EipAssociation

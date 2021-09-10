@@ -29,6 +29,8 @@ type SesActiveReceiptRuleSetObservation struct {
 }
 
 type SesActiveReceiptRuleSetParameters struct {
+	Region string `json:"region" tf:"-"`
+
 	RuleSetName string `json:"ruleSetName" tf:"rule_set_name"`
 }
 

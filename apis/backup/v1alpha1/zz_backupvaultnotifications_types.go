@@ -33,6 +33,8 @@ type BackupVaultNotificationsParameters struct {
 
 	BackupVaultName string `json:"backupVaultName" tf:"backup_vault_name"`
 
+	Region string `json:"region" tf:"-"`
+
 	SnsTopicArn string `json:"snsTopicArn" tf:"sns_topic_arn"`
 }
 

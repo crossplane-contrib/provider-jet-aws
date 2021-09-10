@@ -136,6 +136,8 @@ spec:
                     type: string
                   nodejsVersion:
                     type: string
+                  region:
+                    type: string
                   stackId:
                     type: string
                   systemPackages:
@@ -153,6 +155,7 @@ spec:
                   useEbsOptimizedInstances:
                     type: boolean
                 required:
+                - region
                 - stackId
                 type: object
               providerConfigRef:

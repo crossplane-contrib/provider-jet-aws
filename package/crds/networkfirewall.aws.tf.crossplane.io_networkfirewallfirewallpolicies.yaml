@@ -139,6 +139,8 @@ spec:
                     type: array
                   name:
                     type: string
+                  region:
+                    type: string
                   tags:
                     additionalProperties:
                       type: string
@@ -150,6 +152,7 @@ spec:
                 required:
                 - firewallPolicy
                 - name
+                - region
                 type: object
               providerConfigRef:
                 default:
