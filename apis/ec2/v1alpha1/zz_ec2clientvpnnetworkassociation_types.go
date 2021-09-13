@@ -25,11 +25,11 @@ import (
 )
 
 type Ec2ClientVpnNetworkAssociationObservation struct {
-	AssociationID string `json:"associationId" tf:"association_id"`
+	AssociationID string `json:"associationId,omitempty" tf:"association_id"`
 
-	Status string `json:"status" tf:"status"`
+	Status string `json:"status,omitempty" tf:"status"`
 
-	VpcID string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId,omitempty" tf:"vpc_id"`
 }
 
 type Ec2ClientVpnNetworkAssociationParameters struct {

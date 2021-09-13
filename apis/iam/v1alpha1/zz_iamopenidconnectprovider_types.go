@@ -25,7 +25,7 @@ import (
 )
 
 type IamOpenidConnectProviderObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 }
 
 type IamOpenidConnectProviderParameters struct {

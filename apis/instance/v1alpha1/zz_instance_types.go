@@ -55,7 +55,7 @@ type CreditSpecificationParameters struct {
 }
 
 type EbsBlockDeviceObservation struct {
-	VolumeID string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeId,omitempty" tf:"volume_id"`
 }
 
 type EbsBlockDeviceParameters struct {
@@ -116,21 +116,21 @@ type EphemeralBlockDeviceParameters struct {
 }
 
 type InstanceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	InstanceState string `json:"instanceState" tf:"instance_state"`
+	InstanceState string `json:"instanceState,omitempty" tf:"instance_state"`
 
-	OutpostArn string `json:"outpostArn" tf:"outpost_arn"`
+	OutpostArn string `json:"outpostArn,omitempty" tf:"outpost_arn"`
 
-	PasswordData string `json:"passwordData" tf:"password_data"`
+	PasswordData string `json:"passwordData,omitempty" tf:"password_data"`
 
-	PrimaryNetworkInterfaceID string `json:"primaryNetworkInterfaceId" tf:"primary_network_interface_id"`
+	PrimaryNetworkInterfaceID string `json:"primaryNetworkInterfaceId,omitempty" tf:"primary_network_interface_id"`
 
-	PrivateDNS string `json:"privateDns" tf:"private_dns"`
+	PrivateDNS string `json:"privateDns,omitempty" tf:"private_dns"`
 
-	PublicDNS string `json:"publicDns" tf:"public_dns"`
+	PublicDNS string `json:"publicDns,omitempty" tf:"public_dns"`
 
-	PublicIP string `json:"publicIp" tf:"public_ip"`
+	PublicIP string `json:"publicIp,omitempty" tf:"public_ip"`
 }
 
 type InstanceParameters struct {
@@ -304,9 +304,9 @@ type NetworkInterfaceParameters struct {
 }
 
 type RootBlockDeviceObservation struct {
-	DeviceName string `json:"deviceName" tf:"device_name"`
+	DeviceName string `json:"deviceName,omitempty" tf:"device_name"`
 
-	VolumeID string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeId,omitempty" tf:"volume_id"`
 }
 
 type RootBlockDeviceParameters struct {

@@ -229,23 +229,14 @@ spec:
                             properties:
                               name:
                                 type: string
-                            required:
-                            - name
                             type: object
                           type: array
                         remoteAccessSecurityGroupId:
                           type: string
-                      required:
-                      - autoscalingGroups
-                      - remoteAccessSecurityGroupId
                       type: object
                     type: array
                   status:
                     type: string
-                required:
-                - arn
-                - resources
-                - status
                 type: object
               conditions:
                 description: Conditions of the resource.

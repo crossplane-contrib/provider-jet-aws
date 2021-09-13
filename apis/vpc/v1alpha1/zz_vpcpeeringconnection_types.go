@@ -55,7 +55,7 @@ type RequesterParameters struct {
 }
 
 type VpcPeeringConnectionObservation struct {
-	AcceptStatus string `json:"acceptStatus" tf:"accept_status"`
+	AcceptStatus string `json:"acceptStatus,omitempty" tf:"accept_status"`
 }
 
 type VpcPeeringConnectionParameters struct {

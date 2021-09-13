@@ -160,16 +160,6 @@ spec:
                     type: string
                   publicIp:
                     type: string
-                required:
-                - allocationId
-                - associationId
-                - carrierIp
-                - customerOwnedIp
-                - domain
-                - privateDns
-                - privateIp
-                - publicDns
-                - publicIp
                 type: object
               conditions:
                 description: Conditions of the resource.

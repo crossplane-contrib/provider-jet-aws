@@ -25,11 +25,11 @@ import (
 )
 
 type SubnetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	IPv6CidrBlockAssociationID string `json:"ipv6CidrBlockAssociationId" tf:"ipv6_cidr_block_association_id"`
+	IPv6CidrBlockAssociationID string `json:"ipv6CidrBlockAssociationId,omitempty" tf:"ipv6_cidr_block_association_id"`
 
-	OwnerID string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
 }
 
 type SubnetParameters struct {

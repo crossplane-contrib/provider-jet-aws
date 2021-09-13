@@ -197,8 +197,6 @@ spec:
                       properties:
                         data:
                           type: string
-                      required:
-                      - data
                       type: object
                     type: array
                   createdAt:
@@ -213,26 +211,14 @@ spec:
                             properties:
                               issuer:
                                 type: string
-                            required:
-                            - issuer
                             type: object
                           type: array
-                      required:
-                      - oidc
                       type: object
                     type: array
                   platformVersion:
                     type: string
                   status:
                     type: string
-                required:
-                - arn
-                - certificateAuthority
-                - createdAt
-                - endpoint
-                - identity
-                - platformVersion
-                - status
                 type: object
               conditions:
                 description: Conditions of the resource.

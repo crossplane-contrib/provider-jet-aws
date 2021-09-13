@@ -25,20 +25,20 @@ import (
 )
 
 type GlobalClusterMembersObservation struct {
-	DBClusterArn string `json:"dbClusterArn" tf:"db_cluster_arn"`
+	DBClusterArn string `json:"dbClusterArn,omitempty" tf:"db_cluster_arn"`
 
-	IsWriter bool `json:"isWriter" tf:"is_writer"`
+	IsWriter bool `json:"isWriter,omitempty" tf:"is_writer"`
 }
 
 type GlobalClusterMembersParameters struct {
 }
 
 type RdsGlobalClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	GlobalClusterMembers []GlobalClusterMembersObservation `json:"globalClusterMembers" tf:"global_cluster_members"`
+	GlobalClusterMembers []GlobalClusterMembersObservation `json:"globalClusterMembers,omitempty" tf:"global_cluster_members"`
 
-	GlobalClusterResourceID string `json:"globalClusterResourceId" tf:"global_cluster_resource_id"`
+	GlobalClusterResourceID string `json:"globalClusterResourceId,omitempty" tf:"global_cluster_resource_id"`
 }
 
 type RdsGlobalClusterParameters struct {

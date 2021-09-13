@@ -25,21 +25,21 @@ import (
 )
 
 type DefaultSubnetObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	AssignIPv6AddressOnCreation bool `json:"assignIpv6AddressOnCreation" tf:"assign_ipv6_address_on_creation"`
+	AssignIPv6AddressOnCreation bool `json:"assignIpv6AddressOnCreation,omitempty" tf:"assign_ipv6_address_on_creation"`
 
-	AvailabilityZoneID string `json:"availabilityZoneId" tf:"availability_zone_id"`
+	AvailabilityZoneID string `json:"availabilityZoneId,omitempty" tf:"availability_zone_id"`
 
-	CidrBlock string `json:"cidrBlock" tf:"cidr_block"`
+	CidrBlock string `json:"cidrBlock,omitempty" tf:"cidr_block"`
 
-	IPv6CidrBlock string `json:"ipv6CidrBlock" tf:"ipv6_cidr_block"`
+	IPv6CidrBlock string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
 
-	IPv6CidrBlockAssociationID string `json:"ipv6CidrBlockAssociationId" tf:"ipv6_cidr_block_association_id"`
+	IPv6CidrBlockAssociationID string `json:"ipv6CidrBlockAssociationId,omitempty" tf:"ipv6_cidr_block_association_id"`
 
-	OwnerID string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
 
-	VpcID string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId,omitempty" tf:"vpc_id"`
 }
 
 type DefaultSubnetParameters struct {

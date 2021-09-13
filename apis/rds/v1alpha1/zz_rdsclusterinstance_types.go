@@ -25,21 +25,21 @@ import (
 )
 
 type RdsClusterInstanceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	DbiResourceID string `json:"dbiResourceId" tf:"dbi_resource_id"`
+	DbiResourceID string `json:"dbiResourceId,omitempty" tf:"dbi_resource_id"`
 
-	Endpoint string `json:"endpoint" tf:"endpoint"`
+	Endpoint string `json:"endpoint,omitempty" tf:"endpoint"`
 
-	EngineVersionActual string `json:"engineVersionActual" tf:"engine_version_actual"`
+	EngineVersionActual string `json:"engineVersionActual,omitempty" tf:"engine_version_actual"`
 
-	KmsKeyID string `json:"kmsKeyId" tf:"kms_key_id"`
+	KmsKeyID string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
-	Port int64 `json:"port" tf:"port"`
+	Port int64 `json:"port,omitempty" tf:"port"`
 
-	StorageEncrypted bool `json:"storageEncrypted" tf:"storage_encrypted"`
+	StorageEncrypted bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted"`
 
-	Writer bool `json:"writer" tf:"writer"`
+	Writer bool `json:"writer,omitempty" tf:"writer"`
 }
 
 type RdsClusterInstanceParameters struct {

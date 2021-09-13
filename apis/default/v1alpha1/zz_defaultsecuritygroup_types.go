@@ -91,13 +91,13 @@ type DefaultSecurityGroupIngressParameters struct {
 }
 
 type DefaultSecurityGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	Description string `json:"description" tf:"description"`
+	Description string `json:"description,omitempty" tf:"description"`
 
-	Name string `json:"name" tf:"name"`
+	Name string `json:"name,omitempty" tf:"name"`
 
-	OwnerID string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
 }
 
 type DefaultSecurityGroupParameters struct {

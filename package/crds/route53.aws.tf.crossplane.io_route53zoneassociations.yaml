@@ -130,8 +130,6 @@ spec:
                 properties:
                   owningAccount:
                     type: string
-                required:
-                - owningAccount
                 type: object
               conditions:
                 description: Conditions of the resource.

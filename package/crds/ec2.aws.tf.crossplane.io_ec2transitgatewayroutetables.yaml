@@ -138,10 +138,6 @@ spec:
                     type: boolean
                   defaultPropagationRouteTable:
                     type: boolean
-                required:
-                - arn
-                - defaultAssociationRouteTable
-                - defaultPropagationRouteTable
                 type: object
               conditions:
                 description: Conditions of the resource.

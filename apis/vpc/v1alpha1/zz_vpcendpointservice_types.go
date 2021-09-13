@@ -25,34 +25,34 @@ import (
 )
 
 type PrivateDNSNameConfigurationObservation struct {
-	Name string `json:"name" tf:"name"`
+	Name string `json:"name,omitempty" tf:"name"`
 
-	State string `json:"state" tf:"state"`
+	State string `json:"state,omitempty" tf:"state"`
 
-	Type string `json:"type" tf:"type"`
+	Type string `json:"type,omitempty" tf:"type"`
 
-	Value string `json:"value" tf:"value"`
+	Value string `json:"value,omitempty" tf:"value"`
 }
 
 type PrivateDNSNameConfigurationParameters struct {
 }
 
 type VpcEndpointServiceObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	AvailabilityZones []string `json:"availabilityZones" tf:"availability_zones"`
+	AvailabilityZones []string `json:"availabilityZones,omitempty" tf:"availability_zones"`
 
-	BaseEndpointDNSNames []string `json:"baseEndpointDnsNames" tf:"base_endpoint_dns_names"`
+	BaseEndpointDNSNames []string `json:"baseEndpointDnsNames,omitempty" tf:"base_endpoint_dns_names"`
 
-	ManagesVpcEndpoints bool `json:"managesVpcEndpoints" tf:"manages_vpc_endpoints"`
+	ManagesVpcEndpoints bool `json:"managesVpcEndpoints,omitempty" tf:"manages_vpc_endpoints"`
 
-	PrivateDNSNameConfiguration []PrivateDNSNameConfigurationObservation `json:"privateDnsNameConfiguration" tf:"private_dns_name_configuration"`
+	PrivateDNSNameConfiguration []PrivateDNSNameConfigurationObservation `json:"privateDnsNameConfiguration,omitempty" tf:"private_dns_name_configuration"`
 
-	ServiceName string `json:"serviceName" tf:"service_name"`
+	ServiceName string `json:"serviceName,omitempty" tf:"service_name"`
 
-	ServiceType string `json:"serviceType" tf:"service_type"`
+	ServiceType string `json:"serviceType,omitempty" tf:"service_type"`
 
-	State string `json:"state" tf:"state"`
+	State string `json:"state,omitempty" tf:"state"`
 }
 
 type VpcEndpointServiceParameters struct {

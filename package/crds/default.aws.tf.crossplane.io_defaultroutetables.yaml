@@ -166,10 +166,6 @@ spec:
                     type: string
                   vpcId:
                     type: string
-                required:
-                - arn
-                - ownerId
-                - vpcId
                 type: object
               conditions:
                 description: Conditions of the resource.

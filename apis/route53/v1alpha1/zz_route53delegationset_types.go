@@ -25,7 +25,7 @@ import (
 )
 
 type Route53DelegationSetObservation struct {
-	NameServers []string `json:"nameServers" tf:"name_servers"`
+	NameServers []string `json:"nameServers,omitempty" tf:"name_servers"`
 }
 
 type Route53DelegationSetParameters struct {

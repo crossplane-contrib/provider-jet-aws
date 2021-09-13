@@ -128,8 +128,6 @@ spec:
                 properties:
                   ownerId:
                     type: string
-                required:
-                - ownerId
                 type: object
               conditions:
                 description: Conditions of the resource.

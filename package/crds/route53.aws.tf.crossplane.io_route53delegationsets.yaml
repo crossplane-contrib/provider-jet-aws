@@ -126,8 +126,6 @@ spec:
                     items:
                       type: string
                     type: array
-                required:
-                - nameServers
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -153,10 +153,6 @@ spec:
                     type: string
                   state:
                     type: string
-                required:
-                - instanceOwnerId
-                - origin
-                - state
                 type: object
               conditions:
                 description: Conditions of the resource.

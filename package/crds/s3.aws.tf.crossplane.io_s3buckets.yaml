@@ -432,9 +432,6 @@ spec:
                     type: string
                   bucketRegionalDomainName:
                     type: string
-                required:
-                - bucketDomainName
-                - bucketRegionalDomainName
                 type: object
               conditions:
                 description: Conditions of the resource.

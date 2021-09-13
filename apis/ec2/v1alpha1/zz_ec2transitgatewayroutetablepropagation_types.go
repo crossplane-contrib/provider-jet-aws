@@ -25,9 +25,9 @@ import (
 )
 
 type Ec2TransitGatewayRouteTablePropagationObservation struct {
-	ResourceID string `json:"resourceId" tf:"resource_id"`
+	ResourceID string `json:"resourceId,omitempty" tf:"resource_id"`
 
-	ResourceType string `json:"resourceType" tf:"resource_type"`
+	ResourceType string `json:"resourceType,omitempty" tf:"resource_type"`
 }
 
 type Ec2TransitGatewayRouteTablePropagationParameters struct {

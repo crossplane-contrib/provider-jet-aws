@@ -133,8 +133,6 @@ spec:
                 properties:
                   prefixListOwnerId:
                     type: string
-                required:
-                - prefixListOwnerId
                 type: object
               conditions:
                 description: Conditions of the resource.

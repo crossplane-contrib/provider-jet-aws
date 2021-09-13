@@ -25,26 +25,26 @@ import (
 )
 
 type CertificateAuthorityObservation struct {
-	Data string `json:"data" tf:"data"`
+	Data string `json:"data,omitempty" tf:"data"`
 }
 
 type CertificateAuthorityParameters struct {
 }
 
 type EksClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	CertificateAuthority []CertificateAuthorityObservation `json:"certificateAuthority" tf:"certificate_authority"`
+	CertificateAuthority []CertificateAuthorityObservation `json:"certificateAuthority,omitempty" tf:"certificate_authority"`
 
-	CreatedAt string `json:"createdAt" tf:"created_at"`
+	CreatedAt string `json:"createdAt,omitempty" tf:"created_at"`
 
-	Endpoint string `json:"endpoint" tf:"endpoint"`
+	Endpoint string `json:"endpoint,omitempty" tf:"endpoint"`
 
-	Identity []IdentityObservation `json:"identity" tf:"identity"`
+	Identity []IdentityObservation `json:"identity,omitempty" tf:"identity"`
 
-	PlatformVersion string `json:"platformVersion" tf:"platform_version"`
+	PlatformVersion string `json:"platformVersion,omitempty" tf:"platform_version"`
 
-	Status string `json:"status" tf:"status"`
+	Status string `json:"status,omitempty" tf:"status"`
 }
 
 type EksClusterParameters struct {
@@ -95,7 +95,7 @@ type EncryptionConfigParameters struct {
 }
 
 type IdentityObservation struct {
-	Oidc []OidcObservation `json:"oidc" tf:"oidc"`
+	Oidc []OidcObservation `json:"oidc,omitempty" tf:"oidc"`
 }
 
 type IdentityParameters struct {
@@ -111,7 +111,7 @@ type KubernetesNetworkConfigParameters struct {
 }
 
 type OidcObservation struct {
-	Issuer string `json:"issuer" tf:"issuer"`
+	Issuer string `json:"issuer,omitempty" tf:"issuer"`
 }
 
 type OidcParameters struct {
@@ -127,9 +127,9 @@ type ProviderParameters struct {
 }
 
 type VpcConfigObservation struct {
-	ClusterSecurityGroupID string `json:"clusterSecurityGroupId" tf:"cluster_security_group_id"`
+	ClusterSecurityGroupID string `json:"clusterSecurityGroupId,omitempty" tf:"cluster_security_group_id"`
 
-	VpcID string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId,omitempty" tf:"vpc_id"`
 }
 
 type VpcConfigParameters struct {

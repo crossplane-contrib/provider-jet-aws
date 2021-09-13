@@ -25,19 +25,19 @@ import (
 )
 
 type Ec2TransitGatewayVpcAttachmentAccepterObservation struct {
-	ApplianceModeSupport string `json:"applianceModeSupport" tf:"appliance_mode_support"`
+	ApplianceModeSupport string `json:"applianceModeSupport,omitempty" tf:"appliance_mode_support"`
 
-	DNSSupport string `json:"dnsSupport" tf:"dns_support"`
+	DNSSupport string `json:"dnsSupport,omitempty" tf:"dns_support"`
 
-	IPv6Support string `json:"ipv6Support" tf:"ipv6_support"`
+	IPv6Support string `json:"ipv6Support,omitempty" tf:"ipv6_support"`
 
-	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
+	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 
-	TransitGatewayID string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	TransitGatewayID string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id"`
 
-	VpcID string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId,omitempty" tf:"vpc_id"`
 
-	VpcOwnerID string `json:"vpcOwnerId" tf:"vpc_owner_id"`
+	VpcOwnerID string `json:"vpcOwnerId,omitempty" tf:"vpc_owner_id"`
 }
 
 type Ec2TransitGatewayVpcAttachmentAccepterParameters struct {

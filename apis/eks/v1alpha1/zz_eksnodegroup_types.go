@@ -25,18 +25,18 @@ import (
 )
 
 type AutoscalingGroupsObservation struct {
-	Name string `json:"name" tf:"name"`
+	Name string `json:"name,omitempty" tf:"name"`
 }
 
 type AutoscalingGroupsParameters struct {
 }
 
 type EksNodeGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	Resources []ResourcesObservation `json:"resources" tf:"resources"`
+	Resources []ResourcesObservation `json:"resources,omitempty" tf:"resources"`
 
-	Status string `json:"status" tf:"status"`
+	Status string `json:"status,omitempty" tf:"status"`
 }
 
 type EksNodeGroupParameters struct {
@@ -132,9 +132,9 @@ type RemoteAccessParameters struct {
 }
 
 type ResourcesObservation struct {
-	AutoscalingGroups []AutoscalingGroupsObservation `json:"autoscalingGroups" tf:"autoscaling_groups"`
+	AutoscalingGroups []AutoscalingGroupsObservation `json:"autoscalingGroups,omitempty" tf:"autoscaling_groups"`
 
-	RemoteAccessSecurityGroupID string `json:"remoteAccessSecurityGroupId" tf:"remote_access_security_group_id"`
+	RemoteAccessSecurityGroupID string `json:"remoteAccessSecurityGroupId,omitempty" tf:"remote_access_security_group_id"`
 }
 
 type ResourcesParameters struct {

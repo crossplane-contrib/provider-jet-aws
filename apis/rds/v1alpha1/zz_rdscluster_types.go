@@ -25,17 +25,17 @@ import (
 )
 
 type RdsClusterObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	ClusterResourceID string `json:"clusterResourceId" tf:"cluster_resource_id"`
+	ClusterResourceID string `json:"clusterResourceId,omitempty" tf:"cluster_resource_id"`
 
-	Endpoint string `json:"endpoint" tf:"endpoint"`
+	Endpoint string `json:"endpoint,omitempty" tf:"endpoint"`
 
-	EngineVersionActual string `json:"engineVersionActual" tf:"engine_version_actual"`
+	EngineVersionActual string `json:"engineVersionActual,omitempty" tf:"engine_version_actual"`
 
-	HostedZoneID string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id"`
 
-	ReaderEndpoint string `json:"readerEndpoint" tf:"reader_endpoint"`
+	ReaderEndpoint string `json:"readerEndpoint,omitempty" tf:"reader_endpoint"`
 }
 
 type RdsClusterParameters struct {

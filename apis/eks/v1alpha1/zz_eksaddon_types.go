@@ -25,11 +25,11 @@ import (
 )
 
 type EksAddonObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	CreatedAt string `json:"createdAt" tf:"created_at"`
+	CreatedAt string `json:"createdAt,omitempty" tf:"created_at"`
 
-	ModifiedAt string `json:"modifiedAt" tf:"modified_at"`
+	ModifiedAt string `json:"modifiedAt,omitempty" tf:"modified_at"`
 }
 
 type EksAddonParameters struct {

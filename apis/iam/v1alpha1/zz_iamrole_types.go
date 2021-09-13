@@ -25,11 +25,11 @@ import (
 )
 
 type IamRoleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	CreateDate string `json:"createDate" tf:"create_date"`
+	CreateDate string `json:"createDate,omitempty" tf:"create_date"`
 
-	UniqueID string `json:"uniqueId" tf:"unique_id"`
+	UniqueID string `json:"uniqueId,omitempty" tf:"unique_id"`
 }
 
 type IamRoleParameters struct {

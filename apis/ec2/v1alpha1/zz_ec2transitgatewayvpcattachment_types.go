@@ -25,7 +25,7 @@ import (
 )
 
 type Ec2TransitGatewayVpcAttachmentObservation struct {
-	VpcOwnerID string `json:"vpcOwnerId" tf:"vpc_owner_id"`
+	VpcOwnerID string `json:"vpcOwnerId,omitempty" tf:"vpc_owner_id"`
 }
 
 type Ec2TransitGatewayVpcAttachmentParameters struct {

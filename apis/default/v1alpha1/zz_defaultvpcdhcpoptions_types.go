@@ -25,13 +25,13 @@ import (
 )
 
 type DefaultVpcDhcpOptionsObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	DomainName string `json:"domainName" tf:"domain_name"`
+	DomainName string `json:"domainName,omitempty" tf:"domain_name"`
 
-	DomainNameServers string `json:"domainNameServers" tf:"domain_name_servers"`
+	DomainNameServers string `json:"domainNameServers,omitempty" tf:"domain_name_servers"`
 
-	NtpServers string `json:"ntpServers" tf:"ntp_servers"`
+	NtpServers string `json:"ntpServers,omitempty" tf:"ntp_servers"`
 }
 
 type DefaultVpcDhcpOptionsParameters struct {

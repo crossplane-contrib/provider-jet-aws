@@ -25,9 +25,9 @@ import (
 )
 
 type Ec2ClientVpnRouteObservation struct {
-	Origin string `json:"origin" tf:"origin"`
+	Origin string `json:"origin,omitempty" tf:"origin"`
 
-	Type string `json:"type" tf:"type"`
+	Type string `json:"type,omitempty" tf:"type"`
 }
 
 type Ec2ClientVpnRouteParameters struct {

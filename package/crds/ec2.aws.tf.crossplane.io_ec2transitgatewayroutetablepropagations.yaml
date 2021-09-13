@@ -131,9 +131,6 @@ spec:
                     type: string
                   resourceType:
                     type: string
-                required:
-                - resourceId
-                - resourceType
                 type: object
               conditions:
                 description: Conditions of the resource.

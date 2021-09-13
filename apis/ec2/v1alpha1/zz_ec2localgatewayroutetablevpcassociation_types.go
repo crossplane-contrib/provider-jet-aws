@@ -25,7 +25,7 @@ import (
 )
 
 type Ec2LocalGatewayRouteTableVpcAssociationObservation struct {
-	LocalGatewayID string `json:"localGatewayId" tf:"local_gateway_id"`
+	LocalGatewayID string `json:"localGatewayId,omitempty" tf:"local_gateway_id"`
 }
 
 type Ec2LocalGatewayRouteTableVpcAssociationParameters struct {

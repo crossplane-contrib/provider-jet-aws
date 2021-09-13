@@ -141,9 +141,6 @@ spec:
                     type: string
                   policyId:
                     type: string
-                required:
-                - arn
-                - policyId
                 type: object
               conditions:
                 description: Conditions of the resource.

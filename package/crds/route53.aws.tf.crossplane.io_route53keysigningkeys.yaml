@@ -155,17 +155,6 @@ spec:
                   signingAlgorithmType:
                     format: int64
                     type: integer
-                required:
-                - digestAlgorithmMnemonic
-                - digestAlgorithmType
-                - digestValue
-                - dnskeyRecord
-                - dsRecord
-                - flag
-                - keyTag
-                - publicKey
-                - signingAlgorithmMnemonic
-                - signingAlgorithmType
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -136,9 +136,6 @@ spec:
                     type: string
                   validUntil:
                     type: string
-                required:
-                - arn
-                - validUntil
                 type: object
               conditions:
                 description: Conditions of the resource.

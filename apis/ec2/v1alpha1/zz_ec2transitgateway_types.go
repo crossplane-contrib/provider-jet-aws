@@ -25,13 +25,13 @@ import (
 )
 
 type Ec2TransitGatewayObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	AssociationDefaultRouteTableID string `json:"associationDefaultRouteTableId" tf:"association_default_route_table_id"`
+	AssociationDefaultRouteTableID string `json:"associationDefaultRouteTableId,omitempty" tf:"association_default_route_table_id"`
 
-	OwnerID string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
 
-	PropagationDefaultRouteTableID string `json:"propagationDefaultRouteTableId" tf:"propagation_default_route_table_id"`
+	PropagationDefaultRouteTableID string `json:"propagationDefaultRouteTableId,omitempty" tf:"propagation_default_route_table_id"`
 }
 
 type Ec2TransitGatewayParameters struct {

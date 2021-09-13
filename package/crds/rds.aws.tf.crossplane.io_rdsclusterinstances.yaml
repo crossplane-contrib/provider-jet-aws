@@ -190,15 +190,6 @@ spec:
                     type: boolean
                   writer:
                     type: boolean
-                required:
-                - arn
-                - dbiResourceId
-                - endpoint
-                - engineVersionActual
-                - kmsKeyId
-                - port
-                - storageEncrypted
-                - writer
                 type: object
               conditions:
                 description: Conditions of the resource.

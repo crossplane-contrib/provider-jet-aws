@@ -214,11 +214,6 @@ spec:
                     type: string
                   ownerId:
                     type: string
-                required:
-                - arn
-                - description
-                - name
-                - ownerId
                 type: object
               conditions:
                 description: Conditions of the resource.

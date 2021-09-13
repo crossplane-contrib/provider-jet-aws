@@ -25,23 +25,23 @@ import (
 )
 
 type EipObservation struct {
-	AllocationID string `json:"allocationId" tf:"allocation_id"`
+	AllocationID string `json:"allocationId,omitempty" tf:"allocation_id"`
 
-	AssociationID string `json:"associationId" tf:"association_id"`
+	AssociationID string `json:"associationId,omitempty" tf:"association_id"`
 
-	CarrierIP string `json:"carrierIp" tf:"carrier_ip"`
+	CarrierIP string `json:"carrierIp,omitempty" tf:"carrier_ip"`
 
-	CustomerOwnedIP string `json:"customerOwnedIp" tf:"customer_owned_ip"`
+	CustomerOwnedIP string `json:"customerOwnedIp,omitempty" tf:"customer_owned_ip"`
 
-	Domain string `json:"domain" tf:"domain"`
+	Domain string `json:"domain,omitempty" tf:"domain"`
 
-	PrivateDNS string `json:"privateDns" tf:"private_dns"`
+	PrivateDNS string `json:"privateDns,omitempty" tf:"private_dns"`
 
-	PrivateIP string `json:"privateIp" tf:"private_ip"`
+	PrivateIP string `json:"privateIp,omitempty" tf:"private_ip"`
 
-	PublicDNS string `json:"publicDns" tf:"public_dns"`
+	PublicDNS string `json:"publicDns,omitempty" tf:"public_dns"`
 
-	PublicIP string `json:"publicIp" tf:"public_ip"`
+	PublicIP string `json:"publicIp,omitempty" tf:"public_ip"`
 }
 
 type EipParameters struct {

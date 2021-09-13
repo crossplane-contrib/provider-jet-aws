@@ -132,11 +132,6 @@ spec:
                     type: string
                   validationStatus:
                     type: string
-                required:
-                - arn
-                - id
-                - ownerId
-                - validationStatus
                 type: object
               conditions:
                 description: Conditions of the resource.

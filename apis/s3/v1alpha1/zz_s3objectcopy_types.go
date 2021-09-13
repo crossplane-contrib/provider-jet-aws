@@ -46,17 +46,17 @@ type S3ObjectCopyGrantParameters struct {
 }
 
 type S3ObjectCopyObservation struct {
-	Etag string `json:"etag" tf:"etag"`
+	Etag string `json:"etag,omitempty" tf:"etag"`
 
-	Expiration string `json:"expiration" tf:"expiration"`
+	Expiration string `json:"expiration,omitempty" tf:"expiration"`
 
-	LastModified string `json:"lastModified" tf:"last_modified"`
+	LastModified string `json:"lastModified,omitempty" tf:"last_modified"`
 
-	RequestCharged bool `json:"requestCharged" tf:"request_charged"`
+	RequestCharged bool `json:"requestCharged,omitempty" tf:"request_charged"`
 
-	SourceVersionID string `json:"sourceVersionId" tf:"source_version_id"`
+	SourceVersionID string `json:"sourceVersionId,omitempty" tf:"source_version_id"`
 
-	VersionID string `json:"versionId" tf:"version_id"`
+	VersionID string `json:"versionId,omitempty" tf:"version_id"`
 }
 
 type S3ObjectCopyParameters struct {

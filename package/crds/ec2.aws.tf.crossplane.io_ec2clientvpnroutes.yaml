@@ -133,9 +133,6 @@ spec:
                     type: string
                   type:
                     type: string
-                required:
-                - origin
-                - type
                 type: object
               conditions:
                 description: Conditions of the resource.

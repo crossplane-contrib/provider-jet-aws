@@ -73,7 +73,7 @@ type LatencyRoutingPolicyParameters struct {
 }
 
 type Route53RecordObservation struct {
-	Fqdn string `json:"fqdn" tf:"fqdn"`
+	Fqdn string `json:"fqdn,omitempty" tf:"fqdn"`
 }
 
 type Route53RecordParameters struct {

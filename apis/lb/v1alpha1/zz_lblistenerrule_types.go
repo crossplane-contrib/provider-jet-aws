@@ -253,7 +253,7 @@ type HostHeaderParameters struct {
 }
 
 type LbListenerRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 }
 
 type LbListenerRuleParameters struct {

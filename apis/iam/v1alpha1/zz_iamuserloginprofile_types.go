@@ -25,9 +25,9 @@ import (
 )
 
 type IamUserLoginProfileObservation struct {
-	EncryptedPassword string `json:"encryptedPassword" tf:"encrypted_password"`
+	EncryptedPassword string `json:"encryptedPassword,omitempty" tf:"encrypted_password"`
 
-	KeyFingerprint string `json:"keyFingerprint" tf:"key_fingerprint"`
+	KeyFingerprint string `json:"keyFingerprint,omitempty" tf:"key_fingerprint"`
 }
 
 type IamUserLoginProfileParameters struct {

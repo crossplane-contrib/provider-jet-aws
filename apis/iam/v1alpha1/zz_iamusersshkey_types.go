@@ -25,9 +25,9 @@ import (
 )
 
 type IamUserSshKeyObservation struct {
-	Fingerprint string `json:"fingerprint" tf:"fingerprint"`
+	Fingerprint string `json:"fingerprint,omitempty" tf:"fingerprint"`
 
-	SSHPublicKeyID string `json:"sshPublicKeyId" tf:"ssh_public_key_id"`
+	SSHPublicKeyID string `json:"sshPublicKeyId,omitempty" tf:"ssh_public_key_id"`
 }
 
 type IamUserSshKeyParameters struct {

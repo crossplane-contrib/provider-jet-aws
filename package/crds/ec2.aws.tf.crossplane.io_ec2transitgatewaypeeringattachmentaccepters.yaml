@@ -140,11 +140,6 @@ spec:
                     type: string
                   transitGatewayId:
                     type: string
-                required:
-                - peerAccountId
-                - peerRegion
-                - peerTransitGatewayId
-                - transitGatewayId
                 type: object
               conditions:
                 description: Conditions of the resource.

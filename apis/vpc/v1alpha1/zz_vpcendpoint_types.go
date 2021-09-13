@@ -25,30 +25,30 @@ import (
 )
 
 type DNSEntryObservation struct {
-	DNSName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName,omitempty" tf:"dns_name"`
 
-	HostedZoneID string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id"`
 }
 
 type DNSEntryParameters struct {
 }
 
 type VpcEndpointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	CidrBlocks []string `json:"cidrBlocks" tf:"cidr_blocks"`
+	CidrBlocks []string `json:"cidrBlocks,omitempty" tf:"cidr_blocks"`
 
-	DNSEntry []DNSEntryObservation `json:"dnsEntry" tf:"dns_entry"`
+	DNSEntry []DNSEntryObservation `json:"dnsEntry,omitempty" tf:"dns_entry"`
 
-	NetworkInterfaceIds []string `json:"networkInterfaceIds" tf:"network_interface_ids"`
+	NetworkInterfaceIds []string `json:"networkInterfaceIds,omitempty" tf:"network_interface_ids"`
 
-	OwnerID string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
 
-	PrefixListID string `json:"prefixListId" tf:"prefix_list_id"`
+	PrefixListID string `json:"prefixListId,omitempty" tf:"prefix_list_id"`
 
-	RequesterManaged bool `json:"requesterManaged" tf:"requester_managed"`
+	RequesterManaged bool `json:"requesterManaged,omitempty" tf:"requester_managed"`
 
-	State string `json:"state" tf:"state"`
+	State string `json:"state,omitempty" tf:"state"`
 }
 
 type VpcEndpointParameters struct {

@@ -155,9 +155,6 @@ spec:
                     type: string
                   hostVpcId:
                     type: string
-                required:
-                - arn
-                - hostVpcId
                 type: object
               conditions:
                 description: Conditions of the resource.

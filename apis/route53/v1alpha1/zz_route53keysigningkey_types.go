@@ -25,25 +25,25 @@ import (
 )
 
 type Route53KeySigningKeyObservation struct {
-	DigestAlgorithmMnemonic string `json:"digestAlgorithmMnemonic" tf:"digest_algorithm_mnemonic"`
+	DigestAlgorithmMnemonic string `json:"digestAlgorithmMnemonic,omitempty" tf:"digest_algorithm_mnemonic"`
 
-	DigestAlgorithmType int64 `json:"digestAlgorithmType" tf:"digest_algorithm_type"`
+	DigestAlgorithmType int64 `json:"digestAlgorithmType,omitempty" tf:"digest_algorithm_type"`
 
-	DigestValue string `json:"digestValue" tf:"digest_value"`
+	DigestValue string `json:"digestValue,omitempty" tf:"digest_value"`
 
-	DnskeyRecord string `json:"dnskeyRecord" tf:"dnskey_record"`
+	DnskeyRecord string `json:"dnskeyRecord,omitempty" tf:"dnskey_record"`
 
-	DsRecord string `json:"dsRecord" tf:"ds_record"`
+	DsRecord string `json:"dsRecord,omitempty" tf:"ds_record"`
 
-	Flag int64 `json:"flag" tf:"flag"`
+	Flag int64 `json:"flag,omitempty" tf:"flag"`
 
-	KeyTag int64 `json:"keyTag" tf:"key_tag"`
+	KeyTag int64 `json:"keyTag,omitempty" tf:"key_tag"`
 
-	PublicKey string `json:"publicKey" tf:"public_key"`
+	PublicKey string `json:"publicKey,omitempty" tf:"public_key"`
 
-	SigningAlgorithmMnemonic string `json:"signingAlgorithmMnemonic" tf:"signing_algorithm_mnemonic"`
+	SigningAlgorithmMnemonic string `json:"signingAlgorithmMnemonic,omitempty" tf:"signing_algorithm_mnemonic"`
 
-	SigningAlgorithmType int64 `json:"signingAlgorithmType" tf:"signing_algorithm_type"`
+	SigningAlgorithmType int64 `json:"signingAlgorithmType,omitempty" tf:"signing_algorithm_type"`
 }
 
 type Route53KeySigningKeyParameters struct {

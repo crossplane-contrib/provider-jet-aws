@@ -25,17 +25,17 @@ import (
 )
 
 type IamAccessKeyObservation struct {
-	CreateDate string `json:"createDate" tf:"create_date"`
+	CreateDate string `json:"createDate,omitempty" tf:"create_date"`
 
-	EncryptedSecret string `json:"encryptedSecret" tf:"encrypted_secret"`
+	EncryptedSecret string `json:"encryptedSecret,omitempty" tf:"encrypted_secret"`
 
-	EncryptedSesSMTPPasswordV4 string `json:"encryptedSesSmtpPasswordV4" tf:"encrypted_ses_smtp_password_v4"`
+	EncryptedSesSMTPPasswordV4 string `json:"encryptedSesSmtpPasswordV4,omitempty" tf:"encrypted_ses_smtp_password_v4"`
 
-	KeyFingerprint string `json:"keyFingerprint" tf:"key_fingerprint"`
+	KeyFingerprint string `json:"keyFingerprint,omitempty" tf:"key_fingerprint"`
 
-	Secret string `json:"secret" tf:"secret"`
+	Secret string `json:"secret,omitempty" tf:"secret"`
 
-	SesSMTPPasswordV4 string `json:"sesSmtpPasswordV4" tf:"ses_smtp_password_v4"`
+	SesSMTPPasswordV4 string `json:"sesSmtpPasswordV4,omitempty" tf:"ses_smtp_password_v4"`
 }
 
 type IamAccessKeyParameters struct {

@@ -134,9 +134,6 @@ spec:
                     type: string
                   keyFingerprint:
                     type: string
-                required:
-                - encryptedPassword
-                - keyFingerprint
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -25,11 +25,11 @@ import (
 )
 
 type RouteObservation struct {
-	InstanceOwnerID string `json:"instanceOwnerId" tf:"instance_owner_id"`
+	InstanceOwnerID string `json:"instanceOwnerId,omitempty" tf:"instance_owner_id"`
 
-	Origin string `json:"origin" tf:"origin"`
+	Origin string `json:"origin,omitempty" tf:"origin"`
 
-	State string `json:"state" tf:"state"`
+	State string `json:"state,omitempty" tf:"state"`
 }
 
 type RouteParameters struct {

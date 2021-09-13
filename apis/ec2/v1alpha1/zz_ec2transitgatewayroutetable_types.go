@@ -25,11 +25,11 @@ import (
 )
 
 type Ec2TransitGatewayRouteTableObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	DefaultAssociationRouteTable bool `json:"defaultAssociationRouteTable" tf:"default_association_route_table"`
+	DefaultAssociationRouteTable bool `json:"defaultAssociationRouteTable,omitempty" tf:"default_association_route_table"`
 
-	DefaultPropagationRouteTable bool `json:"defaultPropagationRouteTable" tf:"default_propagation_route_table"`
+	DefaultPropagationRouteTable bool `json:"defaultPropagationRouteTable,omitempty" tf:"default_propagation_route_table"`
 }
 
 type Ec2TransitGatewayRouteTableParameters struct {

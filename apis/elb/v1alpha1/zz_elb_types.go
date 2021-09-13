@@ -43,13 +43,13 @@ type AccessLogsParameters struct {
 }
 
 type ElbObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	DNSName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName,omitempty" tf:"dns_name"`
 
-	SourceSecurityGroupID string `json:"sourceSecurityGroupId" tf:"source_security_group_id"`
+	SourceSecurityGroupID string `json:"sourceSecurityGroupId,omitempty" tf:"source_security_group_id"`
 
-	ZoneID string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneId,omitempty" tf:"zone_id"`
 }
 
 type ElbParameters struct {
