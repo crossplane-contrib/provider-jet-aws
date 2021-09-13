@@ -137,9 +137,6 @@ spec:
                     type: string
                   state:
                     type: string
-                required:
-                - notificationType
-                - state
                 type: object
               conditions:
                 description: Conditions of the resource.

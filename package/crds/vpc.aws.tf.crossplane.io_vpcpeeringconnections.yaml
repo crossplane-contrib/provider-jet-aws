@@ -164,8 +164,6 @@ spec:
                 properties:
                   acceptStatus:
                     type: string
-                required:
-                - acceptStatus
                 type: object
               conditions:
                 description: Conditions of the resource.

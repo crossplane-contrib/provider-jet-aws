@@ -157,9 +157,6 @@ spec:
                     type: string
                   status:
                     type: string
-                required:
-                - arn
-                - status
                 type: object
               conditions:
                 description: Conditions of the resource.

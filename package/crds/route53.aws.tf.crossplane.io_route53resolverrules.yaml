@@ -155,10 +155,6 @@ spec:
                     type: string
                   shareStatus:
                     type: string
-                required:
-                - arn
-                - ownerId
-                - shareStatus
                 type: object
               conditions:
                 description: Conditions of the resource.

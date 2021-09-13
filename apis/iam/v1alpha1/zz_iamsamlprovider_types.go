@@ -25,9 +25,9 @@ import (
 )
 
 type IamSamlProviderObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	ValidUntil string `json:"validUntil" tf:"valid_until"`
+	ValidUntil string `json:"validUntil,omitempty" tf:"valid_until"`
 }
 
 type IamSamlProviderParameters struct {

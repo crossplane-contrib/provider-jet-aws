@@ -25,9 +25,9 @@ import (
 )
 
 type EksFargateProfileObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	Status string `json:"status" tf:"status"`
+	Status string `json:"status,omitempty" tf:"status"`
 }
 
 type EksFargateProfileParameters struct {

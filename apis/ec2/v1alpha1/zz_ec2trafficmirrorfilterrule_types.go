@@ -37,7 +37,7 @@ type DestinationPortRangeParameters struct {
 }
 
 type Ec2TrafficMirrorFilterRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 }
 
 type Ec2TrafficMirrorFilterRuleParameters struct {

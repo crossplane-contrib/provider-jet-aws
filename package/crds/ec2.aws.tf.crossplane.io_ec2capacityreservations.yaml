@@ -159,9 +159,6 @@ spec:
                     type: string
                   ownerId:
                     type: string
-                required:
-                - arn
-                - ownerId
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -180,10 +180,6 @@ spec:
                     type: string
                   status:
                     type: string
-                required:
-                - arn
-                - dnsName
-                - status
                 type: object
               conditions:
                 description: Conditions of the resource.

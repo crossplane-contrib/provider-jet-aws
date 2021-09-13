@@ -25,7 +25,7 @@ import (
 )
 
 type Route53ResolverFirewallRuleGroupAssociationObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 }
 
 type Route53ResolverFirewallRuleGroupAssociationParameters struct {

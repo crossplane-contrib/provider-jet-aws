@@ -144,10 +144,6 @@ spec:
                     type: string
                   modifiedAt:
                     type: string
-                required:
-                - arn
-                - createdAt
-                - modifiedAt
                 type: object
               conditions:
                 description: Conditions of the resource.

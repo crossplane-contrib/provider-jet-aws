@@ -137,8 +137,6 @@ spec:
                 properties:
                   localGatewayId:
                     type: string
-                required:
-                - localGatewayId
                 type: object
               conditions:
                 description: Conditions of the resource.

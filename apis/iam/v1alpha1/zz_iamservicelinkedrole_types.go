@@ -25,15 +25,15 @@ import (
 )
 
 type IamServiceLinkedRoleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	CreateDate string `json:"createDate" tf:"create_date"`
+	CreateDate string `json:"createDate,omitempty" tf:"create_date"`
 
-	Name string `json:"name" tf:"name"`
+	Name string `json:"name,omitempty" tf:"name"`
 
-	Path string `json:"path" tf:"path"`
+	Path string `json:"path,omitempty" tf:"path"`
 
-	UniqueID string `json:"uniqueId" tf:"unique_id"`
+	UniqueID string `json:"uniqueId,omitempty" tf:"unique_id"`
 }
 
 type IamServiceLinkedRoleParameters struct {

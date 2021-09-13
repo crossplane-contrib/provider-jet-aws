@@ -202,9 +202,6 @@ spec:
                     type: string
                   arnSuffix:
                     type: string
-                required:
-                - arn
-                - arnSuffix
                 type: object
               conditions:
                 description: Conditions of the resource.

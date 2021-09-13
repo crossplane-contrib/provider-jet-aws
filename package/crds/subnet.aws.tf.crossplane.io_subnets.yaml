@@ -154,10 +154,6 @@ spec:
                     type: string
                   ownerId:
                     type: string
-                required:
-                - arn
-                - ipv6CidrBlockAssociationId
-                - ownerId
                 type: object
               conditions:
                 description: Conditions of the resource.

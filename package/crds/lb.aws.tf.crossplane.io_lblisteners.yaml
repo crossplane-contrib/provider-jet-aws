@@ -285,8 +285,6 @@ spec:
                 properties:
                   arn:
                     type: string
-                required:
-                - arn
                 type: object
               conditions:
                 description: Conditions of the resource.

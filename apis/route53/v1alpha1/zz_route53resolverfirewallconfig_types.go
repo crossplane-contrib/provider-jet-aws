@@ -25,7 +25,7 @@ import (
 )
 
 type Route53ResolverFirewallConfigObservation struct {
-	OwnerID string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
 }
 
 type Route53ResolverFirewallConfigParameters struct {

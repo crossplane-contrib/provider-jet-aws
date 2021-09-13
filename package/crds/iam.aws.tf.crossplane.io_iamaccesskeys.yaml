@@ -137,13 +137,6 @@ spec:
                     type: string
                   sesSmtpPasswordV4:
                     type: string
-                required:
-                - createDate
-                - encryptedSecret
-                - encryptedSesSmtpPasswordV4
-                - keyFingerprint
-                - secret
-                - sesSmtpPasswordV4
                 type: object
               conditions:
                 description: Conditions of the resource.

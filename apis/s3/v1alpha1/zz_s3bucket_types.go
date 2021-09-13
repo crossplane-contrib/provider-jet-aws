@@ -277,9 +277,9 @@ type RulesParameters struct {
 }
 
 type S3BucketObservation struct {
-	BucketDomainName string `json:"bucketDomainName" tf:"bucket_domain_name"`
+	BucketDomainName string `json:"bucketDomainName,omitempty" tf:"bucket_domain_name"`
 
-	BucketRegionalDomainName string `json:"bucketRegionalDomainName" tf:"bucket_regional_domain_name"`
+	BucketRegionalDomainName string `json:"bucketRegionalDomainName,omitempty" tf:"bucket_regional_domain_name"`
 }
 
 type S3BucketParameters struct {

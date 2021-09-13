@@ -25,9 +25,9 @@ import (
 )
 
 type Route53ZoneObservation struct {
-	NameServers []string `json:"nameServers" tf:"name_servers"`
+	NameServers []string `json:"nameServers,omitempty" tf:"name_servers"`
 
-	ZoneID string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneId,omitempty" tf:"zone_id"`
 }
 
 type Route53ZoneParameters struct {

@@ -158,19 +158,6 @@ spec:
                     type: string
                   ownerId:
                     type: string
-                required:
-                - arn
-                - assignGeneratedIpv6CidrBlock
-                - cidrBlock
-                - defaultNetworkAclId
-                - defaultRouteTableId
-                - defaultSecurityGroupId
-                - dhcpOptionsId
-                - instanceTenancy
-                - ipv6AssociationId
-                - ipv6CidrBlock
-                - mainRouteTableId
-                - ownerId
                 type: object
               conditions:
                 description: Conditions of the resource.

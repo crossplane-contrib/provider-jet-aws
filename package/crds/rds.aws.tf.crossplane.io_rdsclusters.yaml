@@ -272,13 +272,6 @@ spec:
                     type: string
                   readerEndpoint:
                     type: string
-                required:
-                - arn
-                - clusterResourceId
-                - endpoint
-                - engineVersionActual
-                - hostedZoneId
-                - readerEndpoint
                 type: object
               conditions:
                 description: Conditions of the resource.

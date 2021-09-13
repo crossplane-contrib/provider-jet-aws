@@ -25,11 +25,11 @@ import (
 )
 
 type IamServerCertificateObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	Expiration string `json:"expiration" tf:"expiration"`
+	Expiration string `json:"expiration,omitempty" tf:"expiration"`
 
-	UploadDate string `json:"uploadDate" tf:"upload_date"`
+	UploadDate string `json:"uploadDate,omitempty" tf:"upload_date"`
 }
 
 type IamServerCertificateParameters struct {

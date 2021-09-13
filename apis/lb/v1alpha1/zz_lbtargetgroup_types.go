@@ -58,9 +58,9 @@ type HealthCheckParameters struct {
 }
 
 type LbTargetGroupObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	ArnSuffix string `json:"arnSuffix" tf:"arn_suffix"`
+	ArnSuffix string `json:"arnSuffix,omitempty" tf:"arn_suffix"`
 }
 
 type LbTargetGroupParameters struct {

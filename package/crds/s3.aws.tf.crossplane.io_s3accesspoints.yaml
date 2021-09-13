@@ -158,11 +158,6 @@ spec:
                     type: boolean
                   networkOrigin:
                     type: string
-                required:
-                - arn
-                - domainName
-                - hasPublicAccessPolicy
-                - networkOrigin
                 type: object
               conditions:
                 description: Conditions of the resource.

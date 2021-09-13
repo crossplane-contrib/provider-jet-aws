@@ -198,8 +198,6 @@ spec:
                 properties:
                   fqdn:
                     type: string
-                required:
-                - fqdn
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -25,7 +25,7 @@ import (
 )
 
 type Route53ZoneAssociationObservation struct {
-	OwningAccount string `json:"owningAccount" tf:"owning_account"`
+	OwningAccount string `json:"owningAccount,omitempty" tf:"owning_account"`
 }
 
 type Route53ZoneAssociationParameters struct {

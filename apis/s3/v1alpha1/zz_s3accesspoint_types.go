@@ -43,13 +43,13 @@ type PublicAccessBlockConfigurationParameters struct {
 }
 
 type S3AccessPointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	DomainName string `json:"domainName" tf:"domain_name"`
+	DomainName string `json:"domainName,omitempty" tf:"domain_name"`
 
-	HasPublicAccessPolicy bool `json:"hasPublicAccessPolicy" tf:"has_public_access_policy"`
+	HasPublicAccessPolicy bool `json:"hasPublicAccessPolicy,omitempty" tf:"has_public_access_policy"`
 
-	NetworkOrigin string `json:"networkOrigin" tf:"network_origin"`
+	NetworkOrigin string `json:"networkOrigin,omitempty" tf:"network_origin"`
 }
 
 type S3AccessPointParameters struct {

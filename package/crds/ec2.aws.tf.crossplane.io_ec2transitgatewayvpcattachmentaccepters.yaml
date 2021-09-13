@@ -152,14 +152,6 @@ spec:
                     type: string
                   vpcOwnerId:
                     type: string
-                required:
-                - applianceModeSupport
-                - dnsSupport
-                - ipv6Support
-                - subnetIds
-                - transitGatewayId
-                - vpcId
-                - vpcOwnerId
                 type: object
               conditions:
                 description: Conditions of the resource.

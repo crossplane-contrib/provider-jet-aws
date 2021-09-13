@@ -348,15 +348,6 @@ spec:
                     type: string
                   publicIp:
                     type: string
-                required:
-                - arn
-                - instanceState
-                - outpostArn
-                - passwordData
-                - primaryNetworkInterfaceId
-                - privateDns
-                - publicDns
-                - publicIp
                 type: object
               conditions:
                 description: Conditions of the resource.

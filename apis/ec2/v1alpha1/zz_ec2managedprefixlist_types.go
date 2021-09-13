@@ -25,11 +25,11 @@ import (
 )
 
 type Ec2ManagedPrefixListObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	OwnerID string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
 
-	Version int64 `json:"version" tf:"version"`
+	Version int64 `json:"version,omitempty" tf:"version"`
 }
 
 type Ec2ManagedPrefixListParameters struct {

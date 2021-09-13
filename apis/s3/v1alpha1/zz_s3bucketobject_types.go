@@ -25,7 +25,7 @@ import (
 )
 
 type S3BucketObjectObservation struct {
-	VersionID string `json:"versionId" tf:"version_id"`
+	VersionID string `json:"versionId,omitempty" tf:"version_id"`
 }
 
 type S3BucketObjectParameters struct {

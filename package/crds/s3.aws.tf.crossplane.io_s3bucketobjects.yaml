@@ -178,8 +178,6 @@ spec:
                 properties:
                   versionId:
                     type: string
-                required:
-                - versionId
                 type: object
               conditions:
                 description: Conditions of the resource.

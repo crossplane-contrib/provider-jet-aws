@@ -25,7 +25,7 @@ import (
 )
 
 type MainRouteTableAssociationObservation struct {
-	OriginalRouteTableID string `json:"originalRouteTableId" tf:"original_route_table_id"`
+	OriginalRouteTableID string `json:"originalRouteTableId,omitempty" tf:"original_route_table_id"`
 }
 
 type MainRouteTableAssociationParameters struct {

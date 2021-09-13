@@ -127,9 +127,6 @@ spec:
                     type: string
                   uniqueId:
                     type: string
-                required:
-                - arn
-                - uniqueId
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -25,9 +25,9 @@ import (
 )
 
 type RdsClusterEndpointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	Endpoint string `json:"endpoint" tf:"endpoint"`
+	Endpoint string `json:"endpoint,omitempty" tf:"endpoint"`
 }
 
 type RdsClusterEndpointParameters struct {

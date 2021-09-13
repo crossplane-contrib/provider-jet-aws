@@ -165,9 +165,6 @@ spec:
                           type: string
                         hostedZoneId:
                           type: string
-                      required:
-                      - dnsName
-                      - hostedZoneId
                       type: object
                     type: array
                   networkInterfaceIds:
@@ -182,15 +179,6 @@ spec:
                     type: boolean
                   state:
                     type: string
-                required:
-                - arn
-                - cidrBlocks
-                - dnsEntry
-                - networkInterfaceIds
-                - ownerId
-                - prefixListId
-                - requesterManaged
-                - state
                 type: object
               conditions:
                 description: Conditions of the resource.

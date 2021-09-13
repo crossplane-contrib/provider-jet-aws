@@ -152,8 +152,6 @@ spec:
                 properties:
                   vpcOwnerId:
                     type: string
-                required:
-                - vpcOwnerId
                 type: object
               conditions:
                 description: Conditions of the resource.

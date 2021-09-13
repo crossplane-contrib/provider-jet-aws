@@ -25,7 +25,7 @@ import (
 )
 
 type IPAddressObservation struct {
-	IPID string `json:"ipId" tf:"ip_id"`
+	IPID string `json:"ipId,omitempty" tf:"ip_id"`
 }
 
 type IPAddressParameters struct {
@@ -38,9 +38,9 @@ type IPAddressParameters struct {
 }
 
 type Route53ResolverEndpointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	HostVpcID string `json:"hostVpcId" tf:"host_vpc_id"`
+	HostVpcID string `json:"hostVpcId,omitempty" tf:"host_vpc_id"`
 }
 
 type Route53ResolverEndpointParameters struct {

@@ -133,9 +133,6 @@ spec:
                     type: string
                   sshPublicKeyId:
                     type: string
-                required:
-                - fingerprint
-                - sshPublicKeyId
                 type: object
               conditions:
                 description: Conditions of the resource.

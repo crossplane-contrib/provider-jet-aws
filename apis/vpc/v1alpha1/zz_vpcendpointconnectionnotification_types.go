@@ -25,9 +25,9 @@ import (
 )
 
 type VpcEndpointConnectionNotificationObservation struct {
-	NotificationType string `json:"notificationType" tf:"notification_type"`
+	NotificationType string `json:"notificationType,omitempty" tf:"notification_type"`
 
-	State string `json:"state" tf:"state"`
+	State string `json:"state,omitempty" tf:"state"`
 }
 
 type VpcEndpointConnectionNotificationParameters struct {

@@ -151,7 +151,7 @@ type ForwardParameters struct {
 }
 
 type LbListenerObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 }
 
 type LbListenerParameters struct {

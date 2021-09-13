@@ -152,9 +152,6 @@ spec:
                     type: array
                   zoneId:
                     type: string
-                required:
-                - nameServers
-                - zoneId
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -25,29 +25,29 @@ import (
 )
 
 type DefaultVpcObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	AssignGeneratedIPv6CidrBlock bool `json:"assignGeneratedIpv6CidrBlock" tf:"assign_generated_ipv6_cidr_block"`
+	AssignGeneratedIPv6CidrBlock bool `json:"assignGeneratedIpv6CidrBlock,omitempty" tf:"assign_generated_ipv6_cidr_block"`
 
-	CidrBlock string `json:"cidrBlock" tf:"cidr_block"`
+	CidrBlock string `json:"cidrBlock,omitempty" tf:"cidr_block"`
 
-	DefaultNetworkACLID string `json:"defaultNetworkAclId" tf:"default_network_acl_id"`
+	DefaultNetworkACLID string `json:"defaultNetworkAclId,omitempty" tf:"default_network_acl_id"`
 
-	DefaultRouteTableID string `json:"defaultRouteTableId" tf:"default_route_table_id"`
+	DefaultRouteTableID string `json:"defaultRouteTableId,omitempty" tf:"default_route_table_id"`
 
-	DefaultSecurityGroupID string `json:"defaultSecurityGroupId" tf:"default_security_group_id"`
+	DefaultSecurityGroupID string `json:"defaultSecurityGroupId,omitempty" tf:"default_security_group_id"`
 
-	DhcpOptionsID string `json:"dhcpOptionsId" tf:"dhcp_options_id"`
+	DhcpOptionsID string `json:"dhcpOptionsId,omitempty" tf:"dhcp_options_id"`
 
-	IPv6AssociationID string `json:"ipv6AssociationId" tf:"ipv6_association_id"`
+	IPv6AssociationID string `json:"ipv6AssociationId,omitempty" tf:"ipv6_association_id"`
 
-	IPv6CidrBlock string `json:"ipv6CidrBlock" tf:"ipv6_cidr_block"`
+	IPv6CidrBlock string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
 
-	InstanceTenancy string `json:"instanceTenancy" tf:"instance_tenancy"`
+	InstanceTenancy string `json:"instanceTenancy,omitempty" tf:"instance_tenancy"`
 
-	MainRouteTableID string `json:"mainRouteTableId" tf:"main_route_table_id"`
+	MainRouteTableID string `json:"mainRouteTableId,omitempty" tf:"main_route_table_id"`
 
-	OwnerID string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
 }
 
 type DefaultVpcParameters struct {

@@ -144,17 +144,10 @@ spec:
                           type: string
                         isWriter:
                           type: boolean
-                      required:
-                      - dbClusterArn
-                      - isWriter
                       type: object
                     type: array
                   globalClusterResourceId:
                     type: string
-                required:
-                - arn
-                - globalClusterMembers
-                - globalClusterResourceId
                 type: object
               conditions:
                 description: Conditions of the resource.

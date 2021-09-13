@@ -25,7 +25,7 @@ import (
 )
 
 type Ec2TransitGatewayPrefixListReferenceObservation struct {
-	PrefixListOwnerID string `json:"prefixListOwnerId" tf:"prefix_list_owner_id"`
+	PrefixListOwnerID string `json:"prefixListOwnerId,omitempty" tf:"prefix_list_owner_id"`
 }
 
 type Ec2TransitGatewayPrefixListReferenceParameters struct {

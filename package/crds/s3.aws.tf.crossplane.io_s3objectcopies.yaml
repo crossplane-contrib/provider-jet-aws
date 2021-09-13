@@ -235,13 +235,6 @@ spec:
                     type: string
                   versionId:
                     type: string
-                required:
-                - etag
-                - expiration
-                - lastModified
-                - requestCharged
-                - sourceVersionId
-                - versionId
                 type: object
               conditions:
                 description: Conditions of the resource.

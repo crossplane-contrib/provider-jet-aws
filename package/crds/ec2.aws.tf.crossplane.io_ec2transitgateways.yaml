@@ -149,11 +149,6 @@ spec:
                     type: string
                   propagationDefaultRouteTableId:
                     type: string
-                required:
-                - arn
-                - associationDefaultRouteTableId
-                - ownerId
-                - propagationDefaultRouteTableId
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -144,11 +144,6 @@ spec:
                     type: string
                   ntpServers:
                     type: string
-                required:
-                - arn
-                - domainName
-                - domainNameServers
-                - ntpServers
                 type: object
               conditions:
                 description: Conditions of the resource.

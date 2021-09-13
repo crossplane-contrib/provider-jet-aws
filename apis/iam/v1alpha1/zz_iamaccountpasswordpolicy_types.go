@@ -25,7 +25,7 @@ import (
 )
 
 type IamAccountPasswordPolicyObservation struct {
-	ExpirePasswords bool `json:"expirePasswords" tf:"expire_passwords"`
+	ExpirePasswords bool `json:"expirePasswords,omitempty" tf:"expire_passwords"`
 }
 
 type IamAccountPasswordPolicyParameters struct {

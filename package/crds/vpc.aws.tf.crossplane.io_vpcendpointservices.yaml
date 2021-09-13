@@ -167,11 +167,6 @@ spec:
                           type: string
                         value:
                           type: string
-                      required:
-                      - name
-                      - state
-                      - type
-                      - value
                       type: object
                     type: array
                   serviceName:
@@ -180,15 +175,6 @@ spec:
                     type: string
                   state:
                     type: string
-                required:
-                - arn
-                - availabilityZones
-                - baseEndpointDnsNames
-                - managesVpcEndpoints
-                - privateDnsNameConfiguration
-                - serviceName
-                - serviceType
-                - state
                 type: object
               conditions:
                 description: Conditions of the resource.

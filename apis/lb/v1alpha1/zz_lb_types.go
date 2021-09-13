@@ -40,15 +40,15 @@ type AccessLogsParameters struct {
 }
 
 type LbObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	ArnSuffix string `json:"arnSuffix" tf:"arn_suffix"`
+	ArnSuffix string `json:"arnSuffix,omitempty" tf:"arn_suffix"`
 
-	DNSName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName,omitempty" tf:"dns_name"`
 
-	VpcID string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId,omitempty" tf:"vpc_id"`
 
-	ZoneID string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneId,omitempty" tf:"zone_id"`
 }
 
 type LbParameters struct {
@@ -111,7 +111,7 @@ type LbParameters struct {
 }
 
 type SubnetMappingObservation struct {
-	OutpostID string `json:"outpostId" tf:"outpost_id"`
+	OutpostID string `json:"outpostId,omitempty" tf:"outpost_id"`
 }
 
 type SubnetMappingParameters struct {

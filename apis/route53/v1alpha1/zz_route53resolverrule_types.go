@@ -25,11 +25,11 @@ import (
 )
 
 type Route53ResolverRuleObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	OwnerID string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
 
-	ShareStatus string `json:"shareStatus" tf:"share_status"`
+	ShareStatus string `json:"shareStatus,omitempty" tf:"share_status"`
 }
 
 type Route53ResolverRuleParameters struct {

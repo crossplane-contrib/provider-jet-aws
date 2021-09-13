@@ -25,9 +25,9 @@ import (
 )
 
 type IamUserObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	UniqueID string `json:"uniqueId" tf:"unique_id"`
+	UniqueID string `json:"uniqueId,omitempty" tf:"unique_id"`
 }
 
 type IamUserParameters struct {

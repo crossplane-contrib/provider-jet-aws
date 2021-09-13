@@ -232,11 +232,6 @@ spec:
                     type: string
                   zoneId:
                     type: string
-                required:
-                - arn
-                - dnsName
-                - sourceSecurityGroupId
-                - zoneId
                 type: object
               conditions:
                 description: Conditions of the resource.

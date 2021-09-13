@@ -148,9 +148,6 @@ spec:
                     type: string
                   endpoint:
                     type: string
-                required:
-                - arn
-                - endpoint
                 type: object
               conditions:
                 description: Conditions of the resource.

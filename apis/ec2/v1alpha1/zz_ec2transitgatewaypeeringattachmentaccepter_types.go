@@ -25,13 +25,13 @@ import (
 )
 
 type Ec2TransitGatewayPeeringAttachmentAccepterObservation struct {
-	PeerAccountID string `json:"peerAccountId" tf:"peer_account_id"`
+	PeerAccountID string `json:"peerAccountId,omitempty" tf:"peer_account_id"`
 
-	PeerRegion string `json:"peerRegion" tf:"peer_region"`
+	PeerRegion string `json:"peerRegion,omitempty" tf:"peer_region"`
 
-	PeerTransitGatewayID string `json:"peerTransitGatewayId" tf:"peer_transit_gateway_id"`
+	PeerTransitGatewayID string `json:"peerTransitGatewayId,omitempty" tf:"peer_transit_gateway_id"`
 
-	TransitGatewayID string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	TransitGatewayID string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id"`
 }
 
 type Ec2TransitGatewayPeeringAttachmentAccepterParameters struct {

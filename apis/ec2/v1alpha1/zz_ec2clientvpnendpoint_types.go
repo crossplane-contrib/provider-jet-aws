@@ -58,11 +58,11 @@ type ConnectionLogOptionsParameters struct {
 }
 
 type Ec2ClientVpnEndpointObservation struct {
-	Arn string `json:"arn" tf:"arn"`
+	Arn string `json:"arn,omitempty" tf:"arn"`
 
-	DNSName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName,omitempty" tf:"dns_name"`
 
-	Status string `json:"status" tf:"status"`
+	Status string `json:"status,omitempty" tf:"status"`
 }
 
 type Ec2ClientVpnEndpointParameters struct {
