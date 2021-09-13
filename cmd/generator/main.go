@@ -45,6 +45,9 @@ var (
 	// available at this path
 	providerConfigBuilderPath = filepath.Join(modulePath, "internal", "clients")
 )
+
+// These resources cannot be generated because of their suffixes colliding with
+// kubebuilder-accepted type suffixes.
 var skipList = map[string]struct{}{
 	"aws_config_configuration_recorder_status": {},
 	"aws_vpc_peering_connection_accepter":      {},
@@ -54,6 +57,24 @@ var skipList = map[string]struct{}{
 	"aws_shield_protection_group":              {},
 	"aws_route53_resolver_firewall_rule_group": {},
 	"aws_kinesis_analytics_application":        {},
+}
+
+var techPreviewIncludedGroups = map[string]struct{}{
+	"vpc":      {},
+	"rds":      {},
+	"eks":      {},
+	"ec2":      {},
+	"s3":       {},
+	"iam":      {},
+	"default":  {},
+	"eip":      {},
+	"elb":      {},
+	"instance": {},
+	"lb":       {},
+	"main":     {},
+	"route":    {},
+	"route53":  {},
+	"subnet":   {},
 }
 
 func main() { // nolint:gocyclo
@@ -93,6 +114,9 @@ func main() { // nolint:gocyclo
 	}
 
 	for group, resources := range groups {
+		if _, ok := techPreviewIncludedGroups[group]; !ok {
+			continue
+		}
 		version := "v1alpha1"
 		versionGen := pipeline.NewVersionGenerator(wd, modulePath, strings.ToLower(group)+groupSuffix, version)
 
