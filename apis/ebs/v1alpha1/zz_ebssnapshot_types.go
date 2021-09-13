@@ -27,29 +27,37 @@ import (
 type EbsSnapshotObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DataEncryptionKeyId string `json:"dataEncryptionKeyId" tf:"data_encryption_key_id"`
+	DataEncryptionKeyID string `json:"dataEncryptionKeyId" tf:"data_encryption_key_id"`
 
 	Encrypted bool `json:"encrypted" tf:"encrypted"`
 
-	KmsKeyId string `json:"kmsKeyId" tf:"kms_key_id"`
+	KmsKeyID string `json:"kmsKeyId" tf:"kms_key_id"`
 
 	OwnerAlias string `json:"ownerAlias" tf:"owner_alias"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
 	VolumeSize int64 `json:"volumeSize" tf:"volume_size"`
 }
 
 type EbsSnapshotParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	// +kubebuilder:validation:Required
+	VolumeID string `json:"volumeId" tf:"volume_id"`
 }
 
 // EbsSnapshotSpec defines the desired state of EbsSnapshot

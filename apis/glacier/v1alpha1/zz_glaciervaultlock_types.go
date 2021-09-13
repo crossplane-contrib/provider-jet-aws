@@ -28,14 +28,22 @@ type GlacierVaultLockObservation struct {
 }
 
 type GlacierVaultLockParameters struct {
+
+	// +kubebuilder:validation:Required
 	CompleteLock bool `json:"completeLock" tf:"complete_lock"`
 
+	// +kubebuilder:validation:Optional
 	IgnoreDeletionError *bool `json:"ignoreDeletionError,omitempty" tf:"ignore_deletion_error"`
 
+	// +kubebuilder:validation:Required
 	Policy string `json:"policy" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	VaultName string `json:"vaultName" tf:"vault_name"`
 }
 

@@ -27,30 +27,41 @@ import (
 type AmplifyDomainAssociationObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	CertificateVerificationDnsRecord string `json:"certificateVerificationDnsRecord" tf:"certificate_verification_dns_record"`
+	CertificateVerificationDNSRecord string `json:"certificateVerificationDnsRecord" tf:"certificate_verification_dns_record"`
 }
 
 type AmplifyDomainAssociationParameters struct {
-	AppId string `json:"appId" tf:"app_id"`
 
+	// +kubebuilder:validation:Required
+	AppID string `json:"appId" tf:"app_id"`
+
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SubDomain []SubDomainParameters `json:"subDomain" tf:"sub_domain"`
 
+	// +kubebuilder:validation:Optional
 	WaitForVerification *bool `json:"waitForVerification,omitempty" tf:"wait_for_verification"`
 }
 
 type SubDomainObservation struct {
-	DnsRecord string `json:"dnsRecord" tf:"dns_record"`
+	DNSRecord string `json:"dnsRecord" tf:"dns_record"`
 
 	Verified bool `json:"verified" tf:"verified"`
 }
 
 type SubDomainParameters struct {
+
+	// +kubebuilder:validation:Required
 	BranchName string `json:"branchName" tf:"branch_name"`
 
+	// +kubebuilder:validation:Required
 	Prefix string `json:"prefix" tf:"prefix"`
 }
 

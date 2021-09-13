@@ -28,26 +28,37 @@ type DatasourcesObservation struct {
 }
 
 type DatasourcesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	S3Logs []S3LogsParameters `json:"s3Logs,omitempty" tf:"s3_logs"`
 }
 
 type GuarddutyDetectorObservation struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountId" tf:"account_id"`
 
 	Arn string `json:"arn" tf:"arn"`
 }
 
 type GuarddutyDetectorParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Datasources []DatasourcesParameters `json:"datasources,omitempty" tf:"datasources"`
 
+	// +kubebuilder:validation:Optional
 	Enable *bool `json:"enable,omitempty" tf:"enable"`
 
+	// +kubebuilder:validation:Optional
 	FindingPublishingFrequency *string `json:"findingPublishingFrequency,omitempty" tf:"finding_publishing_frequency"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -55,6 +66,8 @@ type S3LogsObservation struct {
 }
 
 type S3LogsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Enable bool `json:"enable" tf:"enable"`
 }
 

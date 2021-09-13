@@ -29,74 +29,112 @@ type AutoscalingGroupObservation struct {
 }
 
 type AutoscalingGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AvailabilityZones []string `json:"availabilityZones,omitempty" tf:"availability_zones"`
 
+	// +kubebuilder:validation:Optional
 	CapacityRebalance *bool `json:"capacityRebalance,omitempty" tf:"capacity_rebalance"`
 
+	// +kubebuilder:validation:Optional
 	DefaultCooldown *int64 `json:"defaultCooldown,omitempty" tf:"default_cooldown"`
 
+	// +kubebuilder:validation:Optional
 	DesiredCapacity *int64 `json:"desiredCapacity,omitempty" tf:"desired_capacity"`
 
+	// +kubebuilder:validation:Optional
 	EnabledMetrics []string `json:"enabledMetrics,omitempty" tf:"enabled_metrics"`
 
+	// +kubebuilder:validation:Optional
 	ForceDelete *bool `json:"forceDelete,omitempty" tf:"force_delete"`
 
+	// +kubebuilder:validation:Optional
 	ForceDeleteWarmPool *bool `json:"forceDeleteWarmPool,omitempty" tf:"force_delete_warm_pool"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheckGracePeriod *int64 `json:"healthCheckGracePeriod,omitempty" tf:"health_check_grace_period"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheckType *string `json:"healthCheckType,omitempty" tf:"health_check_type"`
 
+	// +kubebuilder:validation:Optional
 	InitialLifecycleHook []InitialLifecycleHookParameters `json:"initialLifecycleHook,omitempty" tf:"initial_lifecycle_hook"`
 
+	// +kubebuilder:validation:Optional
 	InstanceRefresh []InstanceRefreshParameters `json:"instanceRefresh,omitempty" tf:"instance_refresh"`
 
+	// +kubebuilder:validation:Optional
 	LaunchConfiguration *string `json:"launchConfiguration,omitempty" tf:"launch_configuration"`
 
+	// +kubebuilder:validation:Optional
 	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate,omitempty" tf:"launch_template"`
 
+	// +kubebuilder:validation:Optional
 	LoadBalancers []string `json:"loadBalancers,omitempty" tf:"load_balancers"`
 
+	// +kubebuilder:validation:Optional
 	MaxInstanceLifetime *int64 `json:"maxInstanceLifetime,omitempty" tf:"max_instance_lifetime"`
 
+	// +kubebuilder:validation:Required
 	MaxSize int64 `json:"maxSize" tf:"max_size"`
 
+	// +kubebuilder:validation:Optional
 	MetricsGranularity *string `json:"metricsGranularity,omitempty" tf:"metrics_granularity"`
 
+	// +kubebuilder:validation:Optional
 	MinElbCapacity *int64 `json:"minElbCapacity,omitempty" tf:"min_elb_capacity"`
 
+	// +kubebuilder:validation:Required
 	MinSize int64 `json:"minSize" tf:"min_size"`
 
+	// +kubebuilder:validation:Optional
 	MixedInstancesPolicy []MixedInstancesPolicyParameters `json:"mixedInstancesPolicy,omitempty" tf:"mixed_instances_policy"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	PlacementGroup *string `json:"placementGroup,omitempty" tf:"placement_group"`
 
+	// +kubebuilder:validation:Optional
 	ProtectFromScaleIn *bool `json:"protectFromScaleIn,omitempty" tf:"protect_from_scale_in"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ServiceLinkedRoleArn *string `json:"serviceLinkedRoleArn,omitempty" tf:"service_linked_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	SuspendedProcesses []string `json:"suspendedProcesses,omitempty" tf:"suspended_processes"`
 
+	// +kubebuilder:validation:Optional
 	Tag []TagParameters `json:"tag,omitempty" tf:"tag"`
 
+	// +kubebuilder:validation:Optional
 	Tags []map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TargetGroupArns []string `json:"targetGroupArns,omitempty" tf:"target_group_arns"`
 
+	// +kubebuilder:validation:Optional
 	TerminationPolicies []string `json:"terminationPolicies,omitempty" tf:"termination_policies"`
 
+	// +kubebuilder:validation:Optional
 	VpcZoneIdentifier []string `json:"vpcZoneIdentifier,omitempty" tf:"vpc_zone_identifier"`
 
+	// +kubebuilder:validation:Optional
 	WaitForCapacityTimeout *string `json:"waitForCapacityTimeout,omitempty" tf:"wait_for_capacity_timeout"`
 
+	// +kubebuilder:validation:Optional
 	WaitForElbCapacity *int64 `json:"waitForElbCapacity,omitempty" tf:"wait_for_elb_capacity"`
 
+	// +kubebuilder:validation:Optional
 	WarmPool []WarmPoolParameters `json:"warmPool,omitempty" tf:"warm_pool"`
 }
 
@@ -104,18 +142,26 @@ type InitialLifecycleHookObservation struct {
 }
 
 type InitialLifecycleHookParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DefaultResult *string `json:"defaultResult,omitempty" tf:"default_result"`
 
+	// +kubebuilder:validation:Optional
 	HeartbeatTimeout *int64 `json:"heartbeatTimeout,omitempty" tf:"heartbeat_timeout"`
 
+	// +kubebuilder:validation:Required
 	LifecycleTransition string `json:"lifecycleTransition" tf:"lifecycle_transition"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NotificationMetadata *string `json:"notificationMetadata,omitempty" tf:"notification_metadata"`
 
+	// +kubebuilder:validation:Optional
 	NotificationTargetArn *string `json:"notificationTargetArn,omitempty" tf:"notification_target_arn"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 }
 
@@ -123,10 +169,14 @@ type InstanceRefreshObservation struct {
 }
 
 type InstanceRefreshParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Preferences []PreferencesParameters `json:"preferences,omitempty" tf:"preferences"`
 
+	// +kubebuilder:validation:Required
 	Strategy string `json:"strategy" tf:"strategy"`
 
+	// +kubebuilder:validation:Optional
 	Triggers []string `json:"triggers,omitempty" tf:"triggers"`
 }
 
@@ -134,16 +184,23 @@ type InstancesDistributionObservation struct {
 }
 
 type InstancesDistributionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	OnDemandAllocationStrategy *string `json:"onDemandAllocationStrategy,omitempty" tf:"on_demand_allocation_strategy"`
 
+	// +kubebuilder:validation:Optional
 	OnDemandBaseCapacity *int64 `json:"onDemandBaseCapacity,omitempty" tf:"on_demand_base_capacity"`
 
+	// +kubebuilder:validation:Optional
 	OnDemandPercentageAboveBaseCapacity *int64 `json:"onDemandPercentageAboveBaseCapacity,omitempty" tf:"on_demand_percentage_above_base_capacity"`
 
+	// +kubebuilder:validation:Optional
 	SpotAllocationStrategy *string `json:"spotAllocationStrategy,omitempty" tf:"spot_allocation_strategy"`
 
+	// +kubebuilder:validation:Optional
 	SpotInstancePools *int64 `json:"spotInstancePools,omitempty" tf:"spot_instance_pools"`
 
+	// +kubebuilder:validation:Optional
 	SpotMaxPrice *string `json:"spotMaxPrice,omitempty" tf:"spot_max_price"`
 }
 
@@ -151,10 +208,14 @@ type LaunchTemplateObservation struct {
 }
 
 type LaunchTemplateParameters struct {
-	Id *string `json:"id,omitempty" tf:"id"`
 
+	// +kubebuilder:validation:Optional
+	ID *string `json:"id,omitempty" tf:"id"`
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version"`
 }
 
@@ -162,10 +223,14 @@ type LaunchTemplateSpecificationObservation struct {
 }
 
 type LaunchTemplateSpecificationParameters struct {
-	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
 
+	// +kubebuilder:validation:Optional
+	LaunchTemplateID *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+
+	// +kubebuilder:validation:Optional
 	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
 
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version"`
 }
 
@@ -173,8 +238,11 @@ type MixedInstancesPolicyLaunchTemplateObservation struct {
 }
 
 type MixedInstancesPolicyLaunchTemplateParameters struct {
+
+	// +kubebuilder:validation:Required
 	LaunchTemplateSpecification []LaunchTemplateSpecificationParameters `json:"launchTemplateSpecification" tf:"launch_template_specification"`
 
+	// +kubebuilder:validation:Optional
 	Override []OverrideParameters `json:"override,omitempty" tf:"override"`
 }
 
@@ -182,8 +250,11 @@ type MixedInstancesPolicyObservation struct {
 }
 
 type MixedInstancesPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InstancesDistribution []InstancesDistributionParameters `json:"instancesDistribution,omitempty" tf:"instances_distribution"`
 
+	// +kubebuilder:validation:Required
 	LaunchTemplate []MixedInstancesPolicyLaunchTemplateParameters `json:"launchTemplate" tf:"launch_template"`
 }
 
@@ -191,10 +262,14 @@ type OverrideLaunchTemplateSpecificationObservation struct {
 }
 
 type OverrideLaunchTemplateSpecificationParameters struct {
-	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
 
+	// +kubebuilder:validation:Optional
+	LaunchTemplateID *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+
+	// +kubebuilder:validation:Optional
 	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
 
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version"`
 }
 
@@ -202,10 +277,14 @@ type OverrideObservation struct {
 }
 
 type OverrideParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	LaunchTemplateSpecification []OverrideLaunchTemplateSpecificationParameters `json:"launchTemplateSpecification,omitempty" tf:"launch_template_specification"`
 
+	// +kubebuilder:validation:Optional
 	WeightedCapacity *string `json:"weightedCapacity,omitempty" tf:"weighted_capacity"`
 }
 
@@ -213,8 +292,11 @@ type PreferencesObservation struct {
 }
 
 type PreferencesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InstanceWarmup *string `json:"instanceWarmup,omitempty" tf:"instance_warmup"`
 
+	// +kubebuilder:validation:Optional
 	MinHealthyPercentage *int64 `json:"minHealthyPercentage,omitempty" tf:"min_healthy_percentage"`
 }
 
@@ -222,10 +304,14 @@ type TagObservation struct {
 }
 
 type TagParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	PropagateAtLaunch bool `json:"propagateAtLaunch" tf:"propagate_at_launch"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -233,10 +319,14 @@ type WarmPoolObservation struct {
 }
 
 type WarmPoolParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MaxGroupPreparedCapacity *int64 `json:"maxGroupPreparedCapacity,omitempty" tf:"max_group_prepared_capacity"`
 
+	// +kubebuilder:validation:Optional
 	MinSize *int64 `json:"minSize,omitempty" tf:"min_size"`
 
+	// +kubebuilder:validation:Optional
 	PoolState *string `json:"poolState,omitempty" tf:"pool_state"`
 }
 

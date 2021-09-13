@@ -29,26 +29,40 @@ type ConfigOrganizationManagedRuleObservation struct {
 }
 
 type ConfigOrganizationManagedRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	ExcludedAccounts []string `json:"excludedAccounts,omitempty" tf:"excluded_accounts"`
 
+	// +kubebuilder:validation:Optional
 	InputParameters *string `json:"inputParameters,omitempty" tf:"input_parameters"`
 
+	// +kubebuilder:validation:Optional
 	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency,omitempty" tf:"maximum_execution_frequency"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceIdScope *string `json:"resourceIdScope,omitempty" tf:"resource_id_scope"`
+	// +kubebuilder:validation:Optional
+	ResourceIDScope *string `json:"resourceIdScope,omitempty" tf:"resource_id_scope"`
 
+	// +kubebuilder:validation:Optional
 	ResourceTypesScope []string `json:"resourceTypesScope,omitempty" tf:"resource_types_scope"`
 
+	// +kubebuilder:validation:Required
 	RuleIdentifier string `json:"ruleIdentifier" tf:"rule_identifier"`
 
+	// +kubebuilder:validation:Optional
 	TagKeyScope *string `json:"tagKeyScope,omitempty" tf:"tag_key_scope"`
 
+	// +kubebuilder:validation:Optional
 	TagValueScope *string `json:"tagValueScope,omitempty" tf:"tag_value_scope"`
 }
 

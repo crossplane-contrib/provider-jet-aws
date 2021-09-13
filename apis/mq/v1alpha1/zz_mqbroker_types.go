@@ -28,8 +28,11 @@ type ConfigurationObservation struct {
 }
 
 type ConfigurationParameters struct {
-	Id *string `json:"id,omitempty" tf:"id"`
 
+	// +kubebuilder:validation:Optional
+	ID *string `json:"id,omitempty" tf:"id"`
+
+	// +kubebuilder:validation:Optional
 	Revision *int64 `json:"revision,omitempty" tf:"revision"`
 }
 
@@ -37,17 +40,20 @@ type EncryptionOptionsObservation struct {
 }
 
 type EncryptionOptionsParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+
+	// +kubebuilder:validation:Optional
 	UseAwsOwnedKey *bool `json:"useAwsOwnedKey,omitempty" tf:"use_aws_owned_key"`
 }
 
 type InstancesObservation struct {
-	ConsoleUrl string `json:"consoleUrl" tf:"console_url"`
+	ConsoleURL string `json:"consoleUrl" tf:"console_url"`
 
 	Endpoints []string `json:"endpoints" tf:"endpoints"`
 
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 }
 
 type InstancesParameters struct {
@@ -57,26 +63,38 @@ type LdapServerMetadataObservation struct {
 }
 
 type LdapServerMetadataParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Hosts []string `json:"hosts,omitempty" tf:"hosts"`
 
+	// +kubebuilder:validation:Optional
 	RoleBase *string `json:"roleBase,omitempty" tf:"role_base"`
 
+	// +kubebuilder:validation:Optional
 	RoleName *string `json:"roleName,omitempty" tf:"role_name"`
 
+	// +kubebuilder:validation:Optional
 	RoleSearchMatching *string `json:"roleSearchMatching,omitempty" tf:"role_search_matching"`
 
+	// +kubebuilder:validation:Optional
 	RoleSearchSubtree *bool `json:"roleSearchSubtree,omitempty" tf:"role_search_subtree"`
 
+	// +kubebuilder:validation:Optional
 	ServiceAccountPassword *string `json:"serviceAccountPassword,omitempty" tf:"service_account_password"`
 
+	// +kubebuilder:validation:Optional
 	ServiceAccountUsername *string `json:"serviceAccountUsername,omitempty" tf:"service_account_username"`
 
+	// +kubebuilder:validation:Optional
 	UserBase *string `json:"userBase,omitempty" tf:"user_base"`
 
+	// +kubebuilder:validation:Optional
 	UserRoleName *string `json:"userRoleName,omitempty" tf:"user_role_name"`
 
+	// +kubebuilder:validation:Optional
 	UserSearchMatching *string `json:"userSearchMatching,omitempty" tf:"user_search_matching"`
 
+	// +kubebuilder:validation:Optional
 	UserSearchSubtree *bool `json:"userSearchSubtree,omitempty" tf:"user_search_subtree"`
 }
 
@@ -84,8 +102,11 @@ type LogsObservation struct {
 }
 
 type LogsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Audit *string `json:"audit,omitempty" tf:"audit"`
 
+	// +kubebuilder:validation:Optional
 	General *bool `json:"general,omitempty" tf:"general"`
 }
 
@@ -93,10 +114,14 @@ type MaintenanceWindowStartTimeObservation struct {
 }
 
 type MaintenanceWindowStartTimeParameters struct {
+
+	// +kubebuilder:validation:Required
 	DayOfWeek string `json:"dayOfWeek" tf:"day_of_week"`
 
+	// +kubebuilder:validation:Required
 	TimeOfDay string `json:"timeOfDay" tf:"time_of_day"`
 
+	// +kubebuilder:validation:Required
 	TimeZone string `json:"timeZone" tf:"time_zone"`
 }
 
@@ -107,46 +132,70 @@ type MqBrokerObservation struct {
 }
 
 type MqBrokerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately"`
 
+	// +kubebuilder:validation:Optional
 	AuthenticationStrategy *string `json:"authenticationStrategy,omitempty" tf:"authentication_strategy"`
 
+	// +kubebuilder:validation:Optional
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade,omitempty" tf:"auto_minor_version_upgrade"`
 
+	// +kubebuilder:validation:Required
 	BrokerName string `json:"brokerName" tf:"broker_name"`
 
+	// +kubebuilder:validation:Optional
 	Configuration []ConfigurationParameters `json:"configuration,omitempty" tf:"configuration"`
 
+	// +kubebuilder:validation:Optional
 	DeploymentMode *string `json:"deploymentMode,omitempty" tf:"deployment_mode"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionOptions []EncryptionOptionsParameters `json:"encryptionOptions,omitempty" tf:"encryption_options"`
 
+	// +kubebuilder:validation:Required
 	EngineType string `json:"engineType" tf:"engine_type"`
 
+	// +kubebuilder:validation:Required
 	EngineVersion string `json:"engineVersion" tf:"engine_version"`
 
+	// +kubebuilder:validation:Required
 	HostInstanceType string `json:"hostInstanceType" tf:"host_instance_type"`
 
+	// +kubebuilder:validation:Optional
 	LdapServerMetadata []LdapServerMetadataParameters `json:"ldapServerMetadata,omitempty" tf:"ldap_server_metadata"`
 
+	// +kubebuilder:validation:Optional
 	Logs []LogsParameters `json:"logs,omitempty" tf:"logs"`
 
+	// +kubebuilder:validation:Optional
 	MaintenanceWindowStartTime []MaintenanceWindowStartTimeParameters `json:"maintenanceWindowStartTime,omitempty" tf:"maintenance_window_start_time"`
 
+	// +kubebuilder:validation:Optional
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
+	// +kubebuilder:validation:Optional
 	StorageType *string `json:"storageType,omitempty" tf:"storage_type"`
 
+	// +kubebuilder:validation:Optional
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	User []UserParameters `json:"user" tf:"user"`
 }
 
@@ -154,12 +203,17 @@ type UserObservation struct {
 }
 
 type UserParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ConsoleAccess *bool `json:"consoleAccess,omitempty" tf:"console_access"`
 
+	// +kubebuilder:validation:Optional
 	Groups []string `json:"groups,omitempty" tf:"groups"`
 
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// +kubebuilder:validation:Required
 	Username string `json:"username" tf:"username"`
 }
 

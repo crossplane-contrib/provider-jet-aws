@@ -35,18 +35,28 @@ type ApprunnerAutoScalingConfigurationVersionObservation struct {
 }
 
 type ApprunnerAutoScalingConfigurationVersionParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutoScalingConfigurationName string `json:"autoScalingConfigurationName" tf:"auto_scaling_configuration_name"`
 
+	// +kubebuilder:validation:Optional
 	MaxConcurrency *int64 `json:"maxConcurrency,omitempty" tf:"max_concurrency"`
 
+	// +kubebuilder:validation:Optional
 	MaxSize *int64 `json:"maxSize,omitempty" tf:"max_size"`
 
+	// +kubebuilder:validation:Optional
 	MinSize *int64 `json:"minSize,omitempty" tf:"min_size"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

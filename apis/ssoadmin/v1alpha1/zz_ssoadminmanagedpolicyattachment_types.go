@@ -29,12 +29,19 @@ type SsoadminManagedPolicyAttachmentObservation struct {
 }
 
 type SsoadminManagedPolicyAttachmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	InstanceArn string `json:"instanceArn" tf:"instance_arn"`
 
+	// +kubebuilder:validation:Required
 	ManagedPolicyArn string `json:"managedPolicyArn" tf:"managed_policy_arn"`
 
+	// +kubebuilder:validation:Required
 	PermissionSetArn string `json:"permissionSetArn" tf:"permission_set_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

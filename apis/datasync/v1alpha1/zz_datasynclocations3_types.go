@@ -27,24 +27,35 @@ import (
 type DatasyncLocationS3Observation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type DatasyncLocationS3Parameters struct {
+
+	// +kubebuilder:validation:Optional
 	AgentArns []string `json:"agentArns,omitempty" tf:"agent_arns"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	S3BucketArn string `json:"s3BucketArn" tf:"s3_bucket_arn"`
 
+	// +kubebuilder:validation:Required
 	S3Config []S3ConfigParameters `json:"s3Config" tf:"s3_config"`
 
+	// +kubebuilder:validation:Optional
 	S3StorageClass *string `json:"s3StorageClass,omitempty" tf:"s3_storage_class"`
 
+	// +kubebuilder:validation:Required
 	Subdirectory string `json:"subdirectory" tf:"subdirectory"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -52,6 +63,8 @@ type S3ConfigObservation struct {
 }
 
 type S3ConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketAccessRoleArn string `json:"bucketAccessRoleArn" tf:"bucket_access_role_arn"`
 }
 

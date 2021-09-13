@@ -28,14 +28,22 @@ type ApiGatewayRequestValidatorObservation struct {
 }
 
 type ApiGatewayRequestValidatorParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Optional
 	ValidateRequestBody *bool `json:"validateRequestBody,omitempty" tf:"validate_request_body"`
 
+	// +kubebuilder:validation:Optional
 	ValidateRequestParameters *bool `json:"validateRequestParameters,omitempty" tf:"validate_request_parameters"`
 }
 

@@ -27,25 +27,35 @@ import (
 type DxBgpPeerObservation struct {
 	AwsDevice string `json:"awsDevice" tf:"aws_device"`
 
-	BgpPeerId string `json:"bgpPeerId" tf:"bgp_peer_id"`
+	BgpPeerID string `json:"bgpPeerId" tf:"bgp_peer_id"`
 
 	BgpStatus string `json:"bgpStatus" tf:"bgp_status"`
 }
 
 type DxBgpPeerParameters struct {
+
+	// +kubebuilder:validation:Required
 	AddressFamily string `json:"addressFamily" tf:"address_family"`
 
+	// +kubebuilder:validation:Optional
 	AmazonAddress *string `json:"amazonAddress,omitempty" tf:"amazon_address"`
 
+	// +kubebuilder:validation:Required
 	BgpAsn int64 `json:"bgpAsn" tf:"bgp_asn"`
 
+	// +kubebuilder:validation:Optional
 	BgpAuthKey *string `json:"bgpAuthKey,omitempty" tf:"bgp_auth_key"`
 
+	// +kubebuilder:validation:Optional
 	CustomerAddress *string `json:"customerAddress,omitempty" tf:"customer_address"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	VirtualInterfaceId string `json:"virtualInterfaceId" tf:"virtual_interface_id"`
+	// +kubebuilder:validation:Required
+	VirtualInterfaceID string `json:"virtualInterfaceId" tf:"virtual_interface_id"`
 }
 
 // DxBgpPeerSpec defines the desired state of DxBgpPeer

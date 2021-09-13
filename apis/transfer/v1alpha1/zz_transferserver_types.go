@@ -28,15 +28,21 @@ type EndpointDetailsObservation struct {
 }
 
 type EndpointDetailsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AddressAllocationIds []string `json:"addressAllocationIds,omitempty" tf:"address_allocation_ids"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Optional
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 
-	VpcEndpointId *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
+	// +kubebuilder:validation:Optional
+	VpcEndpointID *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
 
-	VpcId *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	// +kubebuilder:validation:Optional
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
 }
 
 type TransferServerObservation struct {
@@ -48,35 +54,53 @@ type TransferServerObservation struct {
 }
 
 type TransferServerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Certificate *string `json:"certificate,omitempty" tf:"certificate"`
 
+	// +kubebuilder:validation:Optional
 	Domain *string `json:"domain,omitempty" tf:"domain"`
 
+	// +kubebuilder:validation:Optional
 	EndpointDetails []EndpointDetailsParameters `json:"endpointDetails,omitempty" tf:"endpoint_details"`
 
+	// +kubebuilder:validation:Optional
 	EndpointType *string `json:"endpointType,omitempty" tf:"endpoint_type"`
 
+	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	// +kubebuilder:validation:Optional
 	HostKey *string `json:"hostKey,omitempty" tf:"host_key"`
 
+	// +kubebuilder:validation:Optional
 	IdentityProviderType *string `json:"identityProviderType,omitempty" tf:"identity_provider_type"`
 
+	// +kubebuilder:validation:Optional
 	InvocationRole *string `json:"invocationRole,omitempty" tf:"invocation_role"`
 
+	// +kubebuilder:validation:Optional
 	LoggingRole *string `json:"loggingRole,omitempty" tf:"logging_role"`
 
+	// +kubebuilder:validation:Optional
 	Protocols []string `json:"protocols,omitempty" tf:"protocols"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityPolicyName *string `json:"securityPolicyName,omitempty" tf:"security_policy_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Url *string `json:"url,omitempty" tf:"url"`
+	// +kubebuilder:validation:Optional
+	URL *string `json:"url,omitempty" tf:"url"`
 }
 
 // TransferServerSpec defines the desired state of TransferServer

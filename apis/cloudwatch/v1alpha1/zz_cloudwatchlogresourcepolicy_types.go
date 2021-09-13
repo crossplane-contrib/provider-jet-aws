@@ -28,10 +28,16 @@ type CloudwatchLogResourcePolicyObservation struct {
 }
 
 type CloudwatchLogResourcePolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	PolicyDocument string `json:"policyDocument" tf:"policy_document"`
 
+	// +kubebuilder:validation:Required
 	PolicyName string `json:"policyName" tf:"policy_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

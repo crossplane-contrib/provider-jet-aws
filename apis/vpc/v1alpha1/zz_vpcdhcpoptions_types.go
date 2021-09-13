@@ -27,24 +27,35 @@ import (
 type VpcDhcpOptionsObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 }
 
 type VpcDhcpOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DomainName *string `json:"domainName,omitempty" tf:"domain_name"`
 
+	// +kubebuilder:validation:Optional
 	DomainNameServers []string `json:"domainNameServers,omitempty" tf:"domain_name_servers"`
 
+	// +kubebuilder:validation:Optional
 	NetbiosNameServers []string `json:"netbiosNameServers,omitempty" tf:"netbios_name_servers"`
 
+	// +kubebuilder:validation:Optional
 	NetbiosNodeType *string `json:"netbiosNodeType,omitempty" tf:"netbios_node_type"`
 
+	// +kubebuilder:validation:Optional
 	NtpServers []string `json:"ntpServers,omitempty" tf:"ntp_servers"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

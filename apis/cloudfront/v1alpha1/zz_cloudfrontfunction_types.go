@@ -33,16 +33,25 @@ type CloudfrontFunctionObservation struct {
 }
 
 type CloudfrontFunctionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Code string `json:"code" tf:"code"`
 
+	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Publish *bool `json:"publish,omitempty" tf:"publish"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Runtime string `json:"runtime" tf:"runtime"`
 }
 

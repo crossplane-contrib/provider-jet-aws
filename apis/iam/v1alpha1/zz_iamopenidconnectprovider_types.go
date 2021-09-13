@@ -29,17 +29,26 @@ type IamOpenidConnectProviderObservation struct {
 }
 
 type IamOpenidConnectProviderParameters struct {
-	ClientIdList []string `json:"clientIdList" tf:"client_id_list"`
 
+	// +kubebuilder:validation:Required
+	ClientIDList []string `json:"clientIdList" tf:"client_id_list"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	ThumbprintList []string `json:"thumbprintList" tf:"thumbprint_list"`
 
-	Url string `json:"url" tf:"url"`
+	// +kubebuilder:validation:Required
+	URL string `json:"url" tf:"url"`
 }
 
 // IamOpenidConnectProviderSpec defines the desired state of IamOpenidConnectProvider

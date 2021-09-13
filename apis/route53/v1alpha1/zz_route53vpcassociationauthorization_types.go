@@ -28,13 +28,20 @@ type Route53VpcAssociationAuthorizationObservation struct {
 }
 
 type Route53VpcAssociationAuthorizationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 
+	// +kubebuilder:validation:Optional
 	VpcRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	// +kubebuilder:validation:Required
+	ZoneID string `json:"zoneId" tf:"zone_id"`
 }
 
 // Route53VpcAssociationAuthorizationSpec defines the desired state of Route53VpcAssociationAuthorization

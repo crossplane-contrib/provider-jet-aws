@@ -24,13 +24,13 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type DnsEntryObservation struct {
-	DnsName string `json:"dnsName" tf:"dns_name"`
+type DNSEntryObservation struct {
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneId" tf:"hosted_zone_id"`
 }
 
-type DnsEntryParameters struct {
+type DNSEntryParameters struct {
 }
 
 type VpcEndpointObservation struct {
@@ -38,13 +38,13 @@ type VpcEndpointObservation struct {
 
 	CidrBlocks []string `json:"cidrBlocks" tf:"cidr_blocks"`
 
-	DnsEntry []DnsEntryObservation `json:"dnsEntry" tf:"dns_entry"`
+	DNSEntry []DNSEntryObservation `json:"dnsEntry" tf:"dns_entry"`
 
 	NetworkInterfaceIds []string `json:"networkInterfaceIds" tf:"network_interface_ids"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
-	PrefixListId string `json:"prefixListId" tf:"prefix_list_id"`
+	PrefixListID string `json:"prefixListId" tf:"prefix_list_id"`
 
 	RequesterManaged bool `json:"requesterManaged" tf:"requester_managed"`
 
@@ -52,29 +52,44 @@ type VpcEndpointObservation struct {
 }
 
 type VpcEndpointParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AutoAccept *bool `json:"autoAccept,omitempty" tf:"auto_accept"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
-	PrivateDnsEnabled *bool `json:"privateDnsEnabled,omitempty" tf:"private_dns_enabled"`
+	// +kubebuilder:validation:Optional
+	PrivateDNSEnabled *bool `json:"privateDnsEnabled,omitempty" tf:"private_dns_enabled"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RouteTableIds []string `json:"routeTableIds,omitempty" tf:"route_table_ids"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	ServiceName string `json:"serviceName" tf:"service_name"`
 
+	// +kubebuilder:validation:Optional
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VpcEndpointType *string `json:"vpcEndpointType,omitempty" tf:"vpc_endpoint_type"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // VpcEndpointSpec defines the desired state of VpcEndpoint

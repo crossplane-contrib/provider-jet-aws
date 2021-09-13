@@ -28,14 +28,20 @@ type ConnectionPoolConfigObservation struct {
 }
 
 type ConnectionPoolConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ConnectionBorrowTimeout *int64 `json:"connectionBorrowTimeout,omitempty" tf:"connection_borrow_timeout"`
 
+	// +kubebuilder:validation:Optional
 	InitQuery *string `json:"initQuery,omitempty" tf:"init_query"`
 
+	// +kubebuilder:validation:Optional
 	MaxConnectionsPercent *int64 `json:"maxConnectionsPercent,omitempty" tf:"max_connections_percent"`
 
+	// +kubebuilder:validation:Optional
 	MaxIdleConnectionsPercent *int64 `json:"maxIdleConnectionsPercent,omitempty" tf:"max_idle_connections_percent"`
 
+	// +kubebuilder:validation:Optional
 	SessionPinningFilters []string `json:"sessionPinningFilters,omitempty" tf:"session_pinning_filters"`
 }
 
@@ -46,10 +52,16 @@ type DbProxyDefaultTargetGroupObservation struct {
 }
 
 type DbProxyDefaultTargetGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ConnectionPoolConfig []ConnectionPoolConfigParameters `json:"connectionPoolConfig,omitempty" tf:"connection_pool_config"`
 
-	DbProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
+	// +kubebuilder:validation:Required
+	DBProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

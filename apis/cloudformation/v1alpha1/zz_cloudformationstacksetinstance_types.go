@@ -25,18 +25,26 @@ import (
 )
 
 type CloudformationStackSetInstanceObservation struct {
-	StackId string `json:"stackId" tf:"stack_id"`
+	StackID string `json:"stackId" tf:"stack_id"`
 }
 
 type CloudformationStackSetInstanceParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
 
+	// +kubebuilder:validation:Optional
+	AccountID *string `json:"accountId,omitempty" tf:"account_id"`
+
+	// +kubebuilder:validation:Optional
 	ParameterOverrides map[string]string `json:"parameterOverrides,omitempty" tf:"parameter_overrides"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RetainStack *bool `json:"retainStack,omitempty" tf:"retain_stack"`
 
+	// +kubebuilder:validation:Required
 	StackSetName string `json:"stackSetName" tf:"stack_set_name"`
 }
 

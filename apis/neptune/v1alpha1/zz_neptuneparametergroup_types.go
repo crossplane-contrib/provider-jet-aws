@@ -32,26 +32,40 @@ type NeptuneParameterGroupParameterObservation struct {
 }
 
 type NeptuneParameterGroupParameterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplyMethod *string `json:"applyMethod,omitempty" tf:"apply_method"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
 type NeptuneParameterGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Family string `json:"family" tf:"family"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameter []NeptuneParameterGroupParameterParameters `json:"parameter,omitempty" tf:"parameter"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

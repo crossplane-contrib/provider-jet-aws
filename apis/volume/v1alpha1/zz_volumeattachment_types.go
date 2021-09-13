@@ -28,17 +28,26 @@ type VolumeAttachmentObservation struct {
 }
 
 type VolumeAttachmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeviceName string `json:"deviceName" tf:"device_name"`
 
+	// +kubebuilder:validation:Optional
 	ForceDetach *bool `json:"forceDetach,omitempty" tf:"force_detach"`
 
-	InstanceId string `json:"instanceId" tf:"instance_id"`
+	// +kubebuilder:validation:Required
+	InstanceID string `json:"instanceId" tf:"instance_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SkipDestroy *bool `json:"skipDestroy,omitempty" tf:"skip_destroy"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	// +kubebuilder:validation:Required
+	VolumeID string `json:"volumeId" tf:"volume_id"`
 }
 
 // VolumeAttachmentSpec defines the desired state of VolumeAttachment

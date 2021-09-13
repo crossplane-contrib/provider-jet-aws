@@ -28,11 +28,17 @@ type VpcDhcpOptionsAssociationObservation struct {
 }
 
 type VpcDhcpOptionsAssociationParameters struct {
-	DhcpOptionsId string `json:"dhcpOptionsId" tf:"dhcp_options_id"`
 
+	// +kubebuilder:validation:Required
+	DhcpOptionsID string `json:"dhcpOptionsId" tf:"dhcp_options_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // VpcDhcpOptionsAssociationSpec defines the desired state of VpcDhcpOptionsAssociation

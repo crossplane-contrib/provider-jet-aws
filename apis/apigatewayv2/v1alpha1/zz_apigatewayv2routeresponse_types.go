@@ -28,16 +28,25 @@ type Apigatewayv2RouteResponseObservation struct {
 }
 
 type Apigatewayv2RouteResponseParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Optional
 	ModelSelectionExpression *string `json:"modelSelectionExpression,omitempty" tf:"model_selection_expression"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ResponseModels map[string]string `json:"responseModels,omitempty" tf:"response_models"`
 
-	RouteId string `json:"routeId" tf:"route_id"`
+	// +kubebuilder:validation:Required
+	RouteID string `json:"routeId" tf:"route_id"`
 
+	// +kubebuilder:validation:Required
 	RouteResponseKey string `json:"routeResponseKey" tf:"route_response_key"`
 }
 

@@ -33,22 +33,34 @@ type IamServerCertificateObservation struct {
 }
 
 type IamServerCertificateParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateBody string `json:"certificateBody" tf:"certificate_body"`
 
+	// +kubebuilder:validation:Optional
 	CertificateChain *string `json:"certificateChain,omitempty" tf:"certificate_chain"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Required
 	PrivateKey string `json:"privateKey" tf:"private_key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

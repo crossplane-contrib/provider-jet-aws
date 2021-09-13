@@ -27,26 +27,38 @@ import (
 type LicensemanagerLicenseConfigurationObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	OwnerAccountId string `json:"ownerAccountId" tf:"owner_account_id"`
+	OwnerAccountID string `json:"ownerAccountId" tf:"owner_account_id"`
 }
 
 type LicensemanagerLicenseConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	LicenseCount *int64 `json:"licenseCount,omitempty" tf:"license_count"`
 
+	// +kubebuilder:validation:Optional
 	LicenseCountHardLimit *bool `json:"licenseCountHardLimit,omitempty" tf:"license_count_hard_limit"`
 
+	// +kubebuilder:validation:Required
 	LicenseCountingType string `json:"licenseCountingType" tf:"license_counting_type"`
 
+	// +kubebuilder:validation:Optional
 	LicenseRules []string `json:"licenseRules,omitempty" tf:"license_rules"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

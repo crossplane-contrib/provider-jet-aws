@@ -687,8 +687,8 @@ func (in *DmsReplicationInstanceParameters) DeepCopyInto(out *DmsReplicationInst
 		*out = new(bool)
 		**out = **in
 	}
-	if in.ReplicationSubnetGroupId != nil {
-		in, out := &in.ReplicationSubnetGroupId, &out.ReplicationSubnetGroupId
+	if in.ReplicationSubnetGroupID != nil {
+		in, out := &in.ReplicationSubnetGroupID, &out.ReplicationSubnetGroupID
 		*out = new(string)
 		**out = **in
 	}
@@ -1204,8 +1204,8 @@ func (in *MongodbSettingsParameters) DeepCopyInto(out *MongodbSettingsParameters
 		*out = new(string)
 		**out = **in
 	}
-	if in.ExtractDocId != nil {
-		in, out := &in.ExtractDocId, &out.ExtractDocId
+	if in.ExtractDocID != nil {
+		in, out := &in.ExtractDocID, &out.ExtractDocID
 		*out = new(string)
 		**out = **in
 	}

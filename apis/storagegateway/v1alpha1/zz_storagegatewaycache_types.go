@@ -28,10 +28,16 @@ type StoragegatewayCacheObservation struct {
 }
 
 type StoragegatewayCacheParameters struct {
-	DiskId string `json:"diskId" tf:"disk_id"`
 
+	// +kubebuilder:validation:Required
+	DiskID string `json:"diskId" tf:"disk_id"`
+
+	// +kubebuilder:validation:Required
 	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

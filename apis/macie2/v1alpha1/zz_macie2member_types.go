@@ -25,13 +25,13 @@ import (
 )
 
 type Macie2MemberObservation struct {
-	AdministratorAccountId string `json:"administratorAccountId" tf:"administrator_account_id"`
+	AdministratorAccountID string `json:"administratorAccountId" tf:"administrator_account_id"`
 
 	Arn string `json:"arn" tf:"arn"`
 
 	InvitedAt string `json:"invitedAt" tf:"invited_at"`
 
-	MasterAccountId string `json:"masterAccountId" tf:"master_account_id"`
+	MasterAccountID string `json:"masterAccountId" tf:"master_account_id"`
 
 	RelationshipStatus string `json:"relationshipStatus" tf:"relationship_status"`
 
@@ -39,22 +39,34 @@ type Macie2MemberObservation struct {
 }
 
 type Macie2MemberParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
 
+	// +kubebuilder:validation:Required
+	AccountID string `json:"accountId" tf:"account_id"`
+
+	// +kubebuilder:validation:Required
 	Email string `json:"email" tf:"email"`
 
+	// +kubebuilder:validation:Optional
 	InvitationDisableEmailNotification *string `json:"invitationDisableEmailNotification,omitempty" tf:"invitation_disable_email_notification"`
 
+	// +kubebuilder:validation:Optional
 	InvitationMessage *string `json:"invitationMessage,omitempty" tf:"invitation_message"`
 
+	// +kubebuilder:validation:Optional
 	Invite *bool `json:"invite,omitempty" tf:"invite"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

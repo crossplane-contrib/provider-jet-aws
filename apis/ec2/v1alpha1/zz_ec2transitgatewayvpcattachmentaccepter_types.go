@@ -27,30 +27,39 @@ import (
 type Ec2TransitGatewayVpcAttachmentAccepterObservation struct {
 	ApplianceModeSupport string `json:"applianceModeSupport" tf:"appliance_mode_support"`
 
-	DnsSupport string `json:"dnsSupport" tf:"dns_support"`
+	DNSSupport string `json:"dnsSupport" tf:"dns_support"`
 
-	Ipv6Support string `json:"ipv6Support" tf:"ipv6_support"`
+	IPv6Support string `json:"ipv6Support" tf:"ipv6_support"`
 
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	TransitGatewayId string `json:"transitGatewayId" tf:"transit_gateway_id"`
+	TransitGatewayID string `json:"transitGatewayId" tf:"transit_gateway_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 
-	VpcOwnerId string `json:"vpcOwnerId" tf:"vpc_owner_id"`
+	VpcOwnerID string `json:"vpcOwnerId" tf:"vpc_owner_id"`
 }
 
 type Ec2TransitGatewayVpcAttachmentAccepterParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TransitGatewayAttachmentId string `json:"transitGatewayAttachmentId" tf:"transit_gateway_attachment_id"`
+	// +kubebuilder:validation:Required
+	TransitGatewayAttachmentID string `json:"transitGatewayAttachmentId" tf:"transit_gateway_attachment_id"`
 
+	// +kubebuilder:validation:Optional
 	TransitGatewayDefaultRouteTableAssociation *bool `json:"transitGatewayDefaultRouteTableAssociation,omitempty" tf:"transit_gateway_default_route_table_association"`
 
+	// +kubebuilder:validation:Optional
 	TransitGatewayDefaultRouteTablePropagation *bool `json:"transitGatewayDefaultRouteTablePropagation,omitempty" tf:"transit_gateway_default_route_table_propagation"`
 }
 

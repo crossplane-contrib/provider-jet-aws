@@ -28,10 +28,14 @@ type AdditionalAuthenticationProviderObservation struct {
 }
 
 type AdditionalAuthenticationProviderParameters struct {
+
+	// +kubebuilder:validation:Required
 	AuthenticationType string `json:"authenticationType" tf:"authentication_type"`
 
+	// +kubebuilder:validation:Optional
 	OpenidConnectConfig []OpenidConnectConfigParameters `json:"openidConnectConfig,omitempty" tf:"openid_connect_config"`
 
+	// +kubebuilder:validation:Optional
 	UserPoolConfig []UserPoolConfigParameters `json:"userPoolConfig,omitempty" tf:"user_pool_config"`
 }
 
@@ -45,36 +49,55 @@ type AppsyncGraphqlApiOpenidConnectConfigObservation struct {
 }
 
 type AppsyncGraphqlApiOpenidConnectConfigParameters struct {
-	AuthTtl *int64 `json:"authTtl,omitempty" tf:"auth_ttl"`
 
-	ClientId *string `json:"clientId,omitempty" tf:"client_id"`
+	// +kubebuilder:validation:Optional
+	AuthTTL *int64 `json:"authTtl,omitempty" tf:"auth_ttl"`
 
-	IatTtl *int64 `json:"iatTtl,omitempty" tf:"iat_ttl"`
+	// +kubebuilder:validation:Optional
+	ClientID *string `json:"clientId,omitempty" tf:"client_id"`
 
+	// +kubebuilder:validation:Optional
+	IatTTL *int64 `json:"iatTtl,omitempty" tf:"iat_ttl"`
+
+	// +kubebuilder:validation:Required
 	Issuer string `json:"issuer" tf:"issuer"`
 }
 
 type AppsyncGraphqlApiParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AdditionalAuthenticationProvider []AdditionalAuthenticationProviderParameters `json:"additionalAuthenticationProvider,omitempty" tf:"additional_authentication_provider"`
 
+	// +kubebuilder:validation:Required
 	AuthenticationType string `json:"authenticationType" tf:"authentication_type"`
 
+	// +kubebuilder:validation:Optional
 	LogConfig []LogConfigParameters `json:"logConfig,omitempty" tf:"log_config"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	OpenidConnectConfig []AppsyncGraphqlApiOpenidConnectConfigParameters `json:"openidConnectConfig,omitempty" tf:"openid_connect_config"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Schema *string `json:"schema,omitempty" tf:"schema"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	UserPoolConfig []AppsyncGraphqlApiUserPoolConfigParameters `json:"userPoolConfig,omitempty" tf:"user_pool_config"`
 
+	// +kubebuilder:validation:Optional
 	XrayEnabled *bool `json:"xrayEnabled,omitempty" tf:"xray_enabled"`
 }
 
@@ -82,23 +105,32 @@ type AppsyncGraphqlApiUserPoolConfigObservation struct {
 }
 
 type AppsyncGraphqlApiUserPoolConfigParameters struct {
-	AppIdClientRegex *string `json:"appIdClientRegex,omitempty" tf:"app_id_client_regex"`
 
+	// +kubebuilder:validation:Optional
+	AppIDClientRegex *string `json:"appIdClientRegex,omitempty" tf:"app_id_client_regex"`
+
+	// +kubebuilder:validation:Optional
 	AwsRegion *string `json:"awsRegion,omitempty" tf:"aws_region"`
 
+	// +kubebuilder:validation:Required
 	DefaultAction string `json:"defaultAction" tf:"default_action"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	// +kubebuilder:validation:Required
+	UserPoolID string `json:"userPoolId" tf:"user_pool_id"`
 }
 
 type LogConfigObservation struct {
 }
 
 type LogConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	CloudwatchLogsRoleArn string `json:"cloudwatchLogsRoleArn" tf:"cloudwatch_logs_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	ExcludeVerboseContent *bool `json:"excludeVerboseContent,omitempty" tf:"exclude_verbose_content"`
 
+	// +kubebuilder:validation:Required
 	FieldLogLevel string `json:"fieldLogLevel" tf:"field_log_level"`
 }
 
@@ -106,12 +138,17 @@ type OpenidConnectConfigObservation struct {
 }
 
 type OpenidConnectConfigParameters struct {
-	AuthTtl *int64 `json:"authTtl,omitempty" tf:"auth_ttl"`
 
-	ClientId *string `json:"clientId,omitempty" tf:"client_id"`
+	// +kubebuilder:validation:Optional
+	AuthTTL *int64 `json:"authTtl,omitempty" tf:"auth_ttl"`
 
-	IatTtl *int64 `json:"iatTtl,omitempty" tf:"iat_ttl"`
+	// +kubebuilder:validation:Optional
+	ClientID *string `json:"clientId,omitempty" tf:"client_id"`
 
+	// +kubebuilder:validation:Optional
+	IatTTL *int64 `json:"iatTtl,omitempty" tf:"iat_ttl"`
+
+	// +kubebuilder:validation:Required
 	Issuer string `json:"issuer" tf:"issuer"`
 }
 
@@ -119,11 +156,15 @@ type UserPoolConfigObservation struct {
 }
 
 type UserPoolConfigParameters struct {
-	AppIdClientRegex *string `json:"appIdClientRegex,omitempty" tf:"app_id_client_regex"`
 
+	// +kubebuilder:validation:Optional
+	AppIDClientRegex *string `json:"appIdClientRegex,omitempty" tf:"app_id_client_regex"`
+
+	// +kubebuilder:validation:Optional
 	AwsRegion *string `json:"awsRegion,omitempty" tf:"aws_region"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	// +kubebuilder:validation:Required
+	UserPoolID string `json:"userPoolId" tf:"user_pool_id"`
 }
 
 // AppsyncGraphqlApiSpec defines the desired state of AppsyncGraphqlApi

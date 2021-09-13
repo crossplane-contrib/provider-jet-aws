@@ -28,14 +28,22 @@ type Apigatewayv2ApiMappingObservation struct {
 }
 
 type Apigatewayv2ApiMappingParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
-	ApiMappingKey *string `json:"apiMappingKey,omitempty" tf:"api_mapping_key"`
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Optional
+	APIMappingKey *string `json:"apiMappingKey,omitempty" tf:"api_mapping_key"`
+
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Stage string `json:"stage" tf:"stage"`
 }
 

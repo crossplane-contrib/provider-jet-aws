@@ -31,22 +31,34 @@ type AppconfigDeploymentObservation struct {
 }
 
 type AppconfigDeploymentParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
-	ConfigurationProfileId string `json:"configurationProfileId" tf:"configuration_profile_id"`
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Required
+	ConfigurationProfileID string `json:"configurationProfileId" tf:"configuration_profile_id"`
+
+	// +kubebuilder:validation:Required
 	ConfigurationVersion string `json:"configurationVersion" tf:"configuration_version"`
 
-	DeploymentStrategyId string `json:"deploymentStrategyId" tf:"deployment_strategy_id"`
+	// +kubebuilder:validation:Required
+	DeploymentStrategyID string `json:"deploymentStrategyId" tf:"deployment_strategy_id"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	EnvironmentId string `json:"environmentId" tf:"environment_id"`
+	// +kubebuilder:validation:Required
+	EnvironmentID string `json:"environmentId" tf:"environment_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

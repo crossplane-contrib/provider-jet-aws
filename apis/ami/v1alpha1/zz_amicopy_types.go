@@ -33,7 +33,7 @@ type AmiCopyEbsBlockDeviceObservation struct {
 
 	Iops int64 `json:"iops" tf:"iops"`
 
-	SnapshotId string `json:"snapshotId" tf:"snapshot_id"`
+	SnapshotID string `json:"snapshotId" tf:"snapshot_id"`
 
 	Throughput int64 `json:"throughput" tf:"throughput"`
 
@@ -69,11 +69,11 @@ type AmiCopyObservation struct {
 
 	ImageType string `json:"imageType" tf:"image_type"`
 
-	KernelId string `json:"kernelId" tf:"kernel_id"`
+	KernelID string `json:"kernelId" tf:"kernel_id"`
 
 	ManageEbsSnapshots bool `json:"manageEbsSnapshots" tf:"manage_ebs_snapshots"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
 	Platform string `json:"platform" tf:"platform"`
 
@@ -81,11 +81,11 @@ type AmiCopyObservation struct {
 
 	Public bool `json:"public" tf:"public"`
 
-	RamdiskId string `json:"ramdiskId" tf:"ramdisk_id"`
+	RamdiskID string `json:"ramdiskId" tf:"ramdisk_id"`
 
 	RootDeviceName string `json:"rootDeviceName" tf:"root_device_name"`
 
-	RootSnapshotId string `json:"rootSnapshotId" tf:"root_snapshot_id"`
+	RootSnapshotID string `json:"rootSnapshotId" tf:"root_snapshot_id"`
 
 	SriovNetSupport string `json:"sriovNetSupport" tf:"sriov_net_support"`
 
@@ -95,28 +95,43 @@ type AmiCopyObservation struct {
 }
 
 type AmiCopyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DestinationOutpostArn *string `json:"destinationOutpostArn,omitempty" tf:"destination_outpost_arn"`
 
+	// +kubebuilder:validation:Optional
 	EbsBlockDevice []AmiCopyEbsBlockDeviceParameters `json:"ebsBlockDevice,omitempty" tf:"ebs_block_device"`
 
+	// +kubebuilder:validation:Optional
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
+	// +kubebuilder:validation:Optional
 	EphemeralBlockDevice []AmiCopyEphemeralBlockDeviceParameters `json:"ephemeralBlockDevice,omitempty" tf:"ephemeral_block_device"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SourceAmiId string `json:"sourceAmiId" tf:"source_ami_id"`
+	// +kubebuilder:validation:Required
+	SourceAmiID string `json:"sourceAmiId" tf:"source_ami_id"`
 
+	// +kubebuilder:validation:Required
 	SourceAmiRegion string `json:"sourceAmiRegion" tf:"source_ami_region"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

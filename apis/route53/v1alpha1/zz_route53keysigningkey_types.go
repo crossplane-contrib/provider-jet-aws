@@ -47,14 +47,22 @@ type Route53KeySigningKeyObservation struct {
 }
 
 type Route53KeySigningKeyParameters struct {
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
 
+	// +kubebuilder:validation:Required
+	HostedZoneID string `json:"hostedZoneId" tf:"hosted_zone_id"`
+
+	// +kubebuilder:validation:Required
 	KeyManagementServiceArn string `json:"keyManagementServiceArn" tf:"key_management_service_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 }
 

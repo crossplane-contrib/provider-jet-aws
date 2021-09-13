@@ -29,26 +29,38 @@ type DatasyncLocationFsxWindowsFileSystemObservation struct {
 
 	CreationTime string `json:"creationTime" tf:"creation_time"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type DatasyncLocationFsxWindowsFileSystemParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Domain *string `json:"domain,omitempty" tf:"domain"`
 
+	// +kubebuilder:validation:Required
 	FsxFilesystemArn string `json:"fsxFilesystemArn" tf:"fsx_filesystem_arn"`
 
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SecurityGroupArns []string `json:"securityGroupArns" tf:"security_group_arns"`
 
+	// +kubebuilder:validation:Optional
 	Subdirectory *string `json:"subdirectory,omitempty" tf:"subdirectory"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	User string `json:"user" tf:"user"`
 }
 

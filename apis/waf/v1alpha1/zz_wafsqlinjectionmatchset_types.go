@@ -24,21 +24,27 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type SqlInjectionMatchTuplesFieldToMatchObservation struct {
+type SQLInjectionMatchTuplesFieldToMatchObservation struct {
 }
 
-type SqlInjectionMatchTuplesFieldToMatchParameters struct {
+type SQLInjectionMatchTuplesFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Data *string `json:"data,omitempty" tf:"data"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type SqlInjectionMatchTuplesObservation struct {
+type SQLInjectionMatchTuplesObservation struct {
 }
 
-type SqlInjectionMatchTuplesParameters struct {
-	FieldToMatch []SqlInjectionMatchTuplesFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
+type SQLInjectionMatchTuplesParameters struct {
 
+	// +kubebuilder:validation:Required
+	FieldToMatch []SQLInjectionMatchTuplesFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
 	TextTransformation string `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -46,11 +52,17 @@ type WafSqlInjectionMatchSetObservation struct {
 }
 
 type WafSqlInjectionMatchSetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SqlInjectionMatchTuples []SqlInjectionMatchTuplesParameters `json:"sqlInjectionMatchTuples,omitempty" tf:"sql_injection_match_tuples"`
+	// +kubebuilder:validation:Optional
+	SQLInjectionMatchTuples []SQLInjectionMatchTuplesParameters `json:"sqlInjectionMatchTuples,omitempty" tf:"sql_injection_match_tuples"`
 }
 
 // WafSqlInjectionMatchSetSpec defines the desired state of WafSqlInjectionMatchSet

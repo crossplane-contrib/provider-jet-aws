@@ -27,24 +27,35 @@ import (
 type Route53ZoneObservation struct {
 	NameServers []string `json:"nameServers" tf:"name_servers"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneId" tf:"zone_id"`
 }
 
 type Route53ZoneParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
-	DelegationSetId *string `json:"delegationSetId,omitempty" tf:"delegation_set_id"`
+	// +kubebuilder:validation:Optional
+	DelegationSetID *string `json:"delegationSetId,omitempty" tf:"delegation_set_id"`
 
+	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Vpc []VpcParameters `json:"vpc,omitempty" tf:"vpc"`
 }
 
@@ -52,8 +63,11 @@ type VpcObservation struct {
 }
 
 type VpcParameters struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
 
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
+
+	// +kubebuilder:validation:Optional
 	VpcRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region"`
 }
 

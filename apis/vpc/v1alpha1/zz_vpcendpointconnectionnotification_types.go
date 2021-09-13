@@ -31,15 +31,23 @@ type VpcEndpointConnectionNotificationObservation struct {
 }
 
 type VpcEndpointConnectionNotificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ConnectionEvents []string `json:"connectionEvents" tf:"connection_events"`
 
+	// +kubebuilder:validation:Required
 	ConnectionNotificationArn string `json:"connectionNotificationArn" tf:"connection_notification_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	VpcEndpointId *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
+	// +kubebuilder:validation:Optional
+	VpcEndpointID *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
 
-	VpcEndpointServiceId *string `json:"vpcEndpointServiceId,omitempty" tf:"vpc_endpoint_service_id"`
+	// +kubebuilder:validation:Optional
+	VpcEndpointServiceID *string `json:"vpcEndpointServiceId,omitempty" tf:"vpc_endpoint_service_id"`
 }
 
 // VpcEndpointConnectionNotificationSpec defines the desired state of VpcEndpointConnectionNotification

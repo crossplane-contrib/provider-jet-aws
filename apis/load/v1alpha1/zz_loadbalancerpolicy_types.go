@@ -28,14 +28,22 @@ type LoadBalancerPolicyObservation struct {
 }
 
 type LoadBalancerPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	LoadBalancerName string `json:"loadBalancerName" tf:"load_balancer_name"`
 
+	// +kubebuilder:validation:Optional
 	PolicyAttribute []PolicyAttributeParameters `json:"policyAttribute,omitempty" tf:"policy_attribute"`
 
+	// +kubebuilder:validation:Required
 	PolicyName string `json:"policyName" tf:"policy_name"`
 
+	// +kubebuilder:validation:Required
 	PolicyTypeName string `json:"policyTypeName" tf:"policy_type_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -43,8 +51,11 @@ type PolicyAttributeObservation struct {
 }
 
 type PolicyAttributeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 

@@ -27,29 +27,42 @@ import (
 type Ec2TrafficMirrorSessionObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 }
 
 type Ec2TrafficMirrorSessionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	// +kubebuilder:validation:Required
+	NetworkInterfaceID string `json:"networkInterfaceId" tf:"network_interface_id"`
 
+	// +kubebuilder:validation:Optional
 	PacketLength *int64 `json:"packetLength,omitempty" tf:"packet_length"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SessionNumber int64 `json:"sessionNumber" tf:"session_number"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	TrafficMirrorFilterId string `json:"trafficMirrorFilterId" tf:"traffic_mirror_filter_id"`
+	// +kubebuilder:validation:Required
+	TrafficMirrorFilterID string `json:"trafficMirrorFilterId" tf:"traffic_mirror_filter_id"`
 
-	TrafficMirrorTargetId string `json:"trafficMirrorTargetId" tf:"traffic_mirror_target_id"`
+	// +kubebuilder:validation:Required
+	TrafficMirrorTargetID string `json:"trafficMirrorTargetId" tf:"traffic_mirror_target_id"`
 
-	VirtualNetworkId *int64 `json:"virtualNetworkId,omitempty" tf:"virtual_network_id"`
+	// +kubebuilder:validation:Optional
+	VirtualNetworkID *int64 `json:"virtualNetworkId,omitempty" tf:"virtual_network_id"`
 }
 
 // Ec2TrafficMirrorSessionSpec defines the desired state of Ec2TrafficMirrorSession

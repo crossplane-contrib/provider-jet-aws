@@ -28,16 +28,23 @@ type EbsBlockDeviceObservation struct {
 }
 
 type EbsBlockDeviceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteOnTermination *bool `json:"deleteOnTermination,omitempty" tf:"delete_on_termination"`
 
+	// +kubebuilder:validation:Required
 	DeviceName string `json:"deviceName" tf:"device_name"`
 
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	// +kubebuilder:validation:Optional
+	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
 
+	// +kubebuilder:validation:Optional
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 
+	// +kubebuilder:validation:Optional
 	VolumeType *string `json:"volumeType,omitempty" tf:"volume_type"`
 }
 
@@ -45,104 +52,155 @@ type EphemeralBlockDeviceObservation struct {
 }
 
 type EphemeralBlockDeviceParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeviceName string `json:"deviceName" tf:"device_name"`
 
+	// +kubebuilder:validation:Required
 	VirtualName string `json:"virtualName" tf:"virtual_name"`
 }
 
 type OpsworksInstanceObservation struct {
-	Ec2InstanceId string `json:"ec2InstanceId" tf:"ec2_instance_id"`
+	Ec2InstanceID string `json:"ec2InstanceId" tf:"ec2_instance_id"`
 }
 
 type OpsworksInstanceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AgentVersion *string `json:"agentVersion,omitempty" tf:"agent_version"`
 
-	AmiId *string `json:"amiId,omitempty" tf:"ami_id"`
+	// +kubebuilder:validation:Optional
+	AmiID *string `json:"amiId,omitempty" tf:"ami_id"`
 
+	// +kubebuilder:validation:Optional
 	Architecture *string `json:"architecture,omitempty" tf:"architecture"`
 
+	// +kubebuilder:validation:Optional
 	AutoScalingType *string `json:"autoScalingType,omitempty" tf:"auto_scaling_type"`
 
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
+	// +kubebuilder:validation:Optional
 	CreatedAt *string `json:"createdAt,omitempty" tf:"created_at"`
 
+	// +kubebuilder:validation:Optional
 	DeleteEbs *bool `json:"deleteEbs,omitempty" tf:"delete_ebs"`
 
+	// +kubebuilder:validation:Optional
 	DeleteEip *bool `json:"deleteEip,omitempty" tf:"delete_eip"`
 
+	// +kubebuilder:validation:Optional
 	EbsBlockDevice []EbsBlockDeviceParameters `json:"ebsBlockDevice,omitempty" tf:"ebs_block_device"`
 
+	// +kubebuilder:validation:Optional
 	EbsOptimized *bool `json:"ebsOptimized,omitempty" tf:"ebs_optimized"`
 
+	// +kubebuilder:validation:Optional
 	EcsClusterArn *string `json:"ecsClusterArn,omitempty" tf:"ecs_cluster_arn"`
 
-	ElasticIp *string `json:"elasticIp,omitempty" tf:"elastic_ip"`
+	// +kubebuilder:validation:Optional
+	ElasticIP *string `json:"elasticIp,omitempty" tf:"elastic_ip"`
 
+	// +kubebuilder:validation:Optional
 	EphemeralBlockDevice []EphemeralBlockDeviceParameters `json:"ephemeralBlockDevice,omitempty" tf:"ephemeral_block_device"`
 
+	// +kubebuilder:validation:Optional
 	Hostname *string `json:"hostname,omitempty" tf:"hostname"`
 
+	// +kubebuilder:validation:Optional
 	InfrastructureClass *string `json:"infrastructureClass,omitempty" tf:"infrastructure_class"`
 
+	// +kubebuilder:validation:Optional
 	InstallUpdatesOnBoot *bool `json:"installUpdatesOnBoot,omitempty" tf:"install_updates_on_boot"`
 
+	// +kubebuilder:validation:Optional
 	InstanceProfileArn *string `json:"instanceProfileArn,omitempty" tf:"instance_profile_arn"`
 
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
-	LastServiceErrorId *string `json:"lastServiceErrorId,omitempty" tf:"last_service_error_id"`
+	// +kubebuilder:validation:Optional
+	LastServiceErrorID *string `json:"lastServiceErrorId,omitempty" tf:"last_service_error_id"`
 
+	// +kubebuilder:validation:Required
 	LayerIds []string `json:"layerIds" tf:"layer_ids"`
 
+	// +kubebuilder:validation:Optional
 	Os *string `json:"os,omitempty" tf:"os"`
 
+	// +kubebuilder:validation:Optional
 	Platform *string `json:"platform,omitempty" tf:"platform"`
 
-	PrivateDns *string `json:"privateDns,omitempty" tf:"private_dns"`
+	// +kubebuilder:validation:Optional
+	PrivateDNS *string `json:"privateDns,omitempty" tf:"private_dns"`
 
-	PrivateIp *string `json:"privateIp,omitempty" tf:"private_ip"`
+	// +kubebuilder:validation:Optional
+	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip"`
 
-	PublicDns *string `json:"publicDns,omitempty" tf:"public_dns"`
+	// +kubebuilder:validation:Optional
+	PublicDNS *string `json:"publicDns,omitempty" tf:"public_dns"`
 
-	PublicIp *string `json:"publicIp,omitempty" tf:"public_ip"`
+	// +kubebuilder:validation:Optional
+	PublicIP *string `json:"publicIp,omitempty" tf:"public_ip"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RegisteredBy *string `json:"registeredBy,omitempty" tf:"registered_by"`
 
+	// +kubebuilder:validation:Optional
 	ReportedAgentVersion *string `json:"reportedAgentVersion,omitempty" tf:"reported_agent_version"`
 
+	// +kubebuilder:validation:Optional
 	ReportedOsFamily *string `json:"reportedOsFamily,omitempty" tf:"reported_os_family"`
 
+	// +kubebuilder:validation:Optional
 	ReportedOsName *string `json:"reportedOsName,omitempty" tf:"reported_os_name"`
 
+	// +kubebuilder:validation:Optional
 	ReportedOsVersion *string `json:"reportedOsVersion,omitempty" tf:"reported_os_version"`
 
+	// +kubebuilder:validation:Optional
 	RootBlockDevice []RootBlockDeviceParameters `json:"rootBlockDevice,omitempty" tf:"root_block_device"`
 
+	// +kubebuilder:validation:Optional
 	RootDeviceType *string `json:"rootDeviceType,omitempty" tf:"root_device_type"`
 
-	RootDeviceVolumeId *string `json:"rootDeviceVolumeId,omitempty" tf:"root_device_volume_id"`
+	// +kubebuilder:validation:Optional
+	RootDeviceVolumeID *string `json:"rootDeviceVolumeId,omitempty" tf:"root_device_volume_id"`
 
+	// +kubebuilder:validation:Optional
+	SSHHostDsaKeyFingerprint *string `json:"sshHostDsaKeyFingerprint,omitempty" tf:"ssh_host_dsa_key_fingerprint"`
+
+	// +kubebuilder:validation:Optional
+	SSHHostRsaKeyFingerprint *string `json:"sshHostRsaKeyFingerprint,omitempty" tf:"ssh_host_rsa_key_fingerprint"`
+
+	// +kubebuilder:validation:Optional
+	SSHKeyName *string `json:"sshKeyName,omitempty" tf:"ssh_key_name"`
+
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
-	SshHostDsaKeyFingerprint *string `json:"sshHostDsaKeyFingerprint,omitempty" tf:"ssh_host_dsa_key_fingerprint"`
+	// +kubebuilder:validation:Required
+	StackID string `json:"stackId" tf:"stack_id"`
 
-	SshHostRsaKeyFingerprint *string `json:"sshHostRsaKeyFingerprint,omitempty" tf:"ssh_host_rsa_key_fingerprint"`
-
-	SshKeyName *string `json:"sshKeyName,omitempty" tf:"ssh_key_name"`
-
-	StackId string `json:"stackId" tf:"stack_id"`
-
+	// +kubebuilder:validation:Optional
 	State *string `json:"state,omitempty" tf:"state"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	Tenancy *string `json:"tenancy,omitempty" tf:"tenancy"`
 
+	// +kubebuilder:validation:Optional
 	VirtualizationType *string `json:"virtualizationType,omitempty" tf:"virtualization_type"`
 }
 
@@ -150,12 +208,17 @@ type RootBlockDeviceObservation struct {
 }
 
 type RootBlockDeviceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteOnTermination *bool `json:"deleteOnTermination,omitempty" tf:"delete_on_termination"`
 
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
+	// +kubebuilder:validation:Optional
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 
+	// +kubebuilder:validation:Optional
 	VolumeType *string `json:"volumeType,omitempty" tf:"volume_type"`
 }
 

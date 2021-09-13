@@ -27,18 +27,25 @@ import (
 type IotThingObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DefaultClientId string `json:"defaultClientId" tf:"default_client_id"`
+	DefaultClientID string `json:"defaultClientId" tf:"default_client_id"`
 
 	Version int64 `json:"version" tf:"version"`
 }
 
 type IotThingParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Attributes map[string]string `json:"attributes,omitempty" tf:"attributes"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ThingTypeName *string `json:"thingTypeName,omitempty" tf:"thing_type_name"`
 }
 

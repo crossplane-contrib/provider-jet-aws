@@ -65,6 +65,7 @@ spec:
               forProvider:
                 properties:
                   logDestinationConfigs:
+                    description: AWS Kinesis Firehose Delivery Stream ARNs
                     items:
                       type: string
                     type: array
@@ -115,6 +116,7 @@ spec:
                       type: object
                     type: array
                   redactedFields:
+                    description: Parts of the request to exclude from logs
                     items:
                       properties:
                         allQueryArguments:
@@ -158,8 +160,11 @@ spec:
                       type: object
                     type: array
                   region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
                     type: string
                   resourceArn:
+                    description: AWS WebACL ARN
                     type: string
                 required:
                 - logDestinationConfigs

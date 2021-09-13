@@ -28,8 +28,11 @@ type ApiGatewayRestApiEndpointConfigurationObservation struct {
 }
 
 type ApiGatewayRestApiEndpointConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Types []string `json:"types" tf:"types"`
 
+	// +kubebuilder:validation:Optional
 	VpcEndpointIds []string `json:"vpcEndpointIds,omitempty" tf:"vpc_endpoint_ids"`
 }
 
@@ -40,34 +43,50 @@ type ApiGatewayRestApiObservation struct {
 
 	ExecutionArn string `json:"executionArn" tf:"execution_arn"`
 
-	RootResourceId string `json:"rootResourceId" tf:"root_resource_id"`
+	RootResourceID string `json:"rootResourceId" tf:"root_resource_id"`
 }
 
 type ApiGatewayRestApiParameters struct {
-	ApiKeySource *string `json:"apiKeySource,omitempty" tf:"api_key_source"`
 
+	// +kubebuilder:validation:Optional
+	APIKeySource *string `json:"apiKeySource,omitempty" tf:"api_key_source"`
+
+	// +kubebuilder:validation:Optional
 	BinaryMediaTypes []string `json:"binaryMediaTypes,omitempty" tf:"binary_media_types"`
 
+	// +kubebuilder:validation:Optional
 	Body *string `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint,omitempty" tf:"disable_execute_api_endpoint"`
+	// +kubebuilder:validation:Optional
+	DisableExecuteAPIEndpoint *bool `json:"disableExecuteApiEndpoint,omitempty" tf:"disable_execute_api_endpoint"`
 
+	// +kubebuilder:validation:Optional
 	EndpointConfiguration []ApiGatewayRestApiEndpointConfigurationParameters `json:"endpointConfiguration,omitempty" tf:"endpoint_configuration"`
 
+	// +kubebuilder:validation:Optional
 	MinimumCompressionSize *int64 `json:"minimumCompressionSize,omitempty" tf:"minimum_compression_size"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

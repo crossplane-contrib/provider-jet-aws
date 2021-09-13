@@ -27,26 +27,38 @@ import (
 type AppconfigConfigurationProfileObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	ConfigurationProfileId string `json:"configurationProfileId" tf:"configuration_profile_id"`
+	ConfigurationProfileID string `json:"configurationProfileId" tf:"configuration_profile_id"`
 }
 
 type AppconfigConfigurationProfileParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	LocationUri string `json:"locationUri" tf:"location_uri"`
+	// +kubebuilder:validation:Required
+	LocationURI string `json:"locationUri" tf:"location_uri"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RetrievalRoleArn *string `json:"retrievalRoleArn,omitempty" tf:"retrieval_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Validator []ValidatorParameters `json:"validator,omitempty" tf:"validator"`
 }
 
@@ -54,8 +66,11 @@ type ValidatorObservation struct {
 }
 
 type ValidatorParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Content *string `json:"content,omitempty" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

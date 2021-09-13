@@ -28,10 +28,16 @@ type Ec2AvailabilityZoneGroupObservation struct {
 }
 
 type Ec2AvailabilityZoneGroupParameters struct {
+
+	// +kubebuilder:validation:Required
 	GroupName string `json:"groupName" tf:"group_name"`
 
+	// +kubebuilder:validation:Required
 	OptInStatus string `json:"optInStatus" tf:"opt_in_status"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

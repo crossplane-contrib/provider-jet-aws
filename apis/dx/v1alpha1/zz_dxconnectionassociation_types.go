@@ -28,10 +28,16 @@ type DxConnectionAssociationObservation struct {
 }
 
 type DxConnectionAssociationParameters struct {
-	ConnectionId string `json:"connectionId" tf:"connection_id"`
 
-	LagId string `json:"lagId" tf:"lag_id"`
+	// +kubebuilder:validation:Required
+	ConnectionID string `json:"connectionId" tf:"connection_id"`
 
+	// +kubebuilder:validation:Required
+	LagID string `json:"lagId" tf:"lag_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

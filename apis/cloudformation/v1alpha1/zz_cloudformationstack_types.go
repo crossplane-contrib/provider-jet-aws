@@ -29,34 +29,52 @@ type CloudformationStackObservation struct {
 }
 
 type CloudformationStackParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Capabilities []string `json:"capabilities,omitempty" tf:"capabilities"`
 
+	// +kubebuilder:validation:Optional
 	DisableRollback *bool `json:"disableRollback,omitempty" tf:"disable_rollback"`
 
+	// +kubebuilder:validation:Optional
 	IamRoleArn *string `json:"iamRoleArn,omitempty" tf:"iam_role_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NotificationArns []string `json:"notificationArns,omitempty" tf:"notification_arns"`
 
+	// +kubebuilder:validation:Optional
 	OnFailure *string `json:"onFailure,omitempty" tf:"on_failure"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	PolicyBody *string `json:"policyBody,omitempty" tf:"policy_body"`
 
-	PolicyUrl *string `json:"policyUrl,omitempty" tf:"policy_url"`
+	// +kubebuilder:validation:Optional
+	PolicyURL *string `json:"policyUrl,omitempty" tf:"policy_url"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TemplateBody *string `json:"templateBody,omitempty" tf:"template_body"`
 
-	TemplateUrl *string `json:"templateUrl,omitempty" tf:"template_url"`
+	// +kubebuilder:validation:Optional
+	TemplateURL *string `json:"templateUrl,omitempty" tf:"template_url"`
 
+	// +kubebuilder:validation:Optional
 	TimeoutInMinutes *int64 `json:"timeoutInMinutes,omitempty" tf:"timeout_in_minutes"`
 }
 

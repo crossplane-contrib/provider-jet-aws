@@ -28,12 +28,17 @@ type EmrInstanceGroupEbsConfigObservation struct {
 }
 
 type EmrInstanceGroupEbsConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	VolumesPerInstance *int64 `json:"volumesPerInstance,omitempty" tf:"volumes_per_instance"`
 }
 
@@ -44,24 +49,37 @@ type EmrInstanceGroupObservation struct {
 }
 
 type EmrInstanceGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AutoscalingPolicy *string `json:"autoscalingPolicy,omitempty" tf:"autoscaling_policy"`
 
+	// +kubebuilder:validation:Optional
 	BidPrice *string `json:"bidPrice,omitempty" tf:"bid_price"`
 
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
+	// +kubebuilder:validation:Required
+	ClusterID string `json:"clusterId" tf:"cluster_id"`
 
-	ConfigurationsJson *string `json:"configurationsJson,omitempty" tf:"configurations_json"`
+	// +kubebuilder:validation:Optional
+	ConfigurationsJSON *string `json:"configurationsJson,omitempty" tf:"configurations_json"`
 
+	// +kubebuilder:validation:Optional
 	EbsConfig []EmrInstanceGroupEbsConfigParameters `json:"ebsConfig,omitempty" tf:"ebs_config"`
 
+	// +kubebuilder:validation:Optional
 	EbsOptimized *bool `json:"ebsOptimized,omitempty" tf:"ebs_optimized"`
 
+	// +kubebuilder:validation:Optional
 	InstanceCount *int64 `json:"instanceCount,omitempty" tf:"instance_count"`
 
+	// +kubebuilder:validation:Required
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

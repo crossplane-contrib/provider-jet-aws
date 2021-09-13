@@ -27,18 +27,25 @@ import (
 type ApprunnerCustomDomainAssociationObservation struct {
 	CertificateValidationRecords []CertificateValidationRecordsObservation `json:"certificateValidationRecords" tf:"certificate_validation_records"`
 
-	DnsTarget string `json:"dnsTarget" tf:"dns_target"`
+	DNSTarget string `json:"dnsTarget" tf:"dns_target"`
 
 	Status string `json:"status" tf:"status"`
 }
 
 type ApprunnerCustomDomainAssociationParameters struct {
+
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// +kubebuilder:validation:Optional
 	EnableWwwSubdomain *bool `json:"enableWwwSubdomain,omitempty" tf:"enable_www_subdomain"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServiceArn string `json:"serviceArn" tf:"service_arn"`
 }
 

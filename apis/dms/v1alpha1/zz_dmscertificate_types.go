@@ -29,16 +29,25 @@ type DmsCertificateObservation struct {
 }
 
 type DmsCertificateParameters struct {
-	CertificateId string `json:"certificateId" tf:"certificate_id"`
 
+	// +kubebuilder:validation:Required
+	CertificateID string `json:"certificateId" tf:"certificate_id"`
+
+	// +kubebuilder:validation:Optional
 	CertificatePem *string `json:"certificatePem,omitempty" tf:"certificate_pem"`
 
+	// +kubebuilder:validation:Optional
 	CertificateWallet *string `json:"certificateWallet,omitempty" tf:"certificate_wallet"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

@@ -28,34 +28,49 @@ type DatasyncLocationSmbMountOptionsObservation struct {
 }
 
 type DatasyncLocationSmbMountOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version"`
 }
 
 type DatasyncLocationSmbObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Uri string `json:"uri" tf:"uri"`
+	URI string `json:"uri" tf:"uri"`
 }
 
 type DatasyncLocationSmbParameters struct {
+
+	// +kubebuilder:validation:Required
 	AgentArns []string `json:"agentArns" tf:"agent_arns"`
 
+	// +kubebuilder:validation:Optional
 	Domain *string `json:"domain,omitempty" tf:"domain"`
 
+	// +kubebuilder:validation:Optional
 	MountOptions []DatasyncLocationSmbMountOptionsParameters `json:"mountOptions,omitempty" tf:"mount_options"`
 
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServerHostname string `json:"serverHostname" tf:"server_hostname"`
 
+	// +kubebuilder:validation:Required
 	Subdirectory string `json:"subdirectory" tf:"subdirectory"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	User string `json:"user" tf:"user"`
 }
 

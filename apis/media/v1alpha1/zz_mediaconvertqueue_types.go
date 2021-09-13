@@ -29,20 +29,31 @@ type MediaConvertQueueObservation struct {
 }
 
 type MediaConvertQueueParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PricingPlan *string `json:"pricingPlan,omitempty" tf:"pricing_plan"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ReservationPlanSettings []ReservationPlanSettingsParameters `json:"reservationPlanSettings,omitempty" tf:"reservation_plan_settings"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -50,10 +61,14 @@ type ReservationPlanSettingsObservation struct {
 }
 
 type ReservationPlanSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Commitment string `json:"commitment" tf:"commitment"`
 
+	// +kubebuilder:validation:Required
 	RenewalType string `json:"renewalType" tf:"renewal_type"`
 
+	// +kubebuilder:validation:Required
 	ReservedSlots int64 `json:"reservedSlots" tf:"reserved_slots"`
 }
 

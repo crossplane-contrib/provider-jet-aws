@@ -28,10 +28,16 @@ type Route53HostedZoneDnssecObservation struct {
 }
 
 type Route53HostedZoneDnssecParameters struct {
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
 
+	// +kubebuilder:validation:Required
+	HostedZoneID string `json:"hostedZoneId" tf:"hosted_zone_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SigningStatus *string `json:"signingStatus,omitempty" tf:"signing_status"`
 }
 

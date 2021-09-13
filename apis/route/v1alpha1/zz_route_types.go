@@ -25,7 +25,7 @@ import (
 )
 
 type RouteObservation struct {
-	InstanceOwnerId string `json:"instanceOwnerId" tf:"instance_owner_id"`
+	InstanceOwnerID string `json:"instanceOwnerId" tf:"instance_owner_id"`
 
 	Origin string `json:"origin" tf:"origin"`
 
@@ -33,35 +33,53 @@ type RouteObservation struct {
 }
 
 type RouteParameters struct {
-	CarrierGatewayId *string `json:"carrierGatewayId,omitempty" tf:"carrier_gateway_id"`
 
+	// +kubebuilder:validation:Optional
+	CarrierGatewayID *string `json:"carrierGatewayId,omitempty" tf:"carrier_gateway_id"`
+
+	// +kubebuilder:validation:Optional
 	DestinationCidrBlock *string `json:"destinationCidrBlock,omitempty" tf:"destination_cidr_block"`
 
-	DestinationIpv6CidrBlock *string `json:"destinationIpv6CidrBlock,omitempty" tf:"destination_ipv6_cidr_block"`
+	// +kubebuilder:validation:Optional
+	DestinationIPv6CidrBlock *string `json:"destinationIpv6CidrBlock,omitempty" tf:"destination_ipv6_cidr_block"`
 
-	DestinationPrefixListId *string `json:"destinationPrefixListId,omitempty" tf:"destination_prefix_list_id"`
+	// +kubebuilder:validation:Optional
+	DestinationPrefixListID *string `json:"destinationPrefixListId,omitempty" tf:"destination_prefix_list_id"`
 
-	EgressOnlyGatewayId *string `json:"egressOnlyGatewayId,omitempty" tf:"egress_only_gateway_id"`
+	// +kubebuilder:validation:Optional
+	EgressOnlyGatewayID *string `json:"egressOnlyGatewayId,omitempty" tf:"egress_only_gateway_id"`
 
-	GatewayId *string `json:"gatewayId,omitempty" tf:"gateway_id"`
+	// +kubebuilder:validation:Optional
+	GatewayID *string `json:"gatewayId,omitempty" tf:"gateway_id"`
 
-	InstanceId *string `json:"instanceId,omitempty" tf:"instance_id"`
+	// +kubebuilder:validation:Optional
+	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id"`
 
-	LocalGatewayId *string `json:"localGatewayId,omitempty" tf:"local_gateway_id"`
+	// +kubebuilder:validation:Optional
+	LocalGatewayID *string `json:"localGatewayId,omitempty" tf:"local_gateway_id"`
 
-	NatGatewayId *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id"`
+	// +kubebuilder:validation:Optional
+	NatGatewayID *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id"`
 
-	NetworkInterfaceId *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id"`
+	// +kubebuilder:validation:Optional
+	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
+	// +kubebuilder:validation:Required
+	RouteTableID string `json:"routeTableId" tf:"route_table_id"`
 
-	TransitGatewayId *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id"`
+	// +kubebuilder:validation:Optional
+	TransitGatewayID *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id"`
 
-	VpcEndpointId *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
+	// +kubebuilder:validation:Optional
+	VpcEndpointID *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
 
-	VpcPeeringConnectionId *string `json:"vpcPeeringConnectionId,omitempty" tf:"vpc_peering_connection_id"`
+	// +kubebuilder:validation:Optional
+	VpcPeeringConnectionID *string `json:"vpcPeeringConnectionId,omitempty" tf:"vpc_peering_connection_id"`
 }
 
 // RouteSpec defines the desired state of Route

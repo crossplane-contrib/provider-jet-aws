@@ -31,8 +31,13 @@ type PrometheusWorkspaceObservation struct {
 }
 
 type PrometheusWorkspaceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Alias *string `json:"alias,omitempty" tf:"alias"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

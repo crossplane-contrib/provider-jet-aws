@@ -28,10 +28,14 @@ type AddHeaderActionObservation struct {
 }
 
 type AddHeaderActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	HeaderName string `json:"headerName" tf:"header_name"`
 
+	// +kubebuilder:validation:Required
 	HeaderValue string `json:"headerValue" tf:"header_value"`
 
+	// +kubebuilder:validation:Required
 	Position int64 `json:"position" tf:"position"`
 }
 
@@ -39,16 +43,23 @@ type BounceActionObservation struct {
 }
 
 type BounceActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Message string `json:"message" tf:"message"`
 
+	// +kubebuilder:validation:Required
 	Position int64 `json:"position" tf:"position"`
 
+	// +kubebuilder:validation:Required
+	SMTPReplyCode string `json:"smtpReplyCode" tf:"smtp_reply_code"`
+
+	// +kubebuilder:validation:Required
 	Sender string `json:"sender" tf:"sender"`
 
-	SmtpReplyCode string `json:"smtpReplyCode" tf:"smtp_reply_code"`
-
+	// +kubebuilder:validation:Optional
 	StatusCode *string `json:"statusCode,omitempty" tf:"status_code"`
 
+	// +kubebuilder:validation:Optional
 	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
 }
 
@@ -56,12 +67,17 @@ type LambdaActionObservation struct {
 }
 
 type LambdaActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	FunctionArn string `json:"functionArn" tf:"function_arn"`
 
+	// +kubebuilder:validation:Optional
 	InvocationType *string `json:"invocationType,omitempty" tf:"invocation_type"`
 
+	// +kubebuilder:validation:Required
 	Position int64 `json:"position" tf:"position"`
 
+	// +kubebuilder:validation:Optional
 	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
 }
 
@@ -69,14 +85,20 @@ type S3ActionObservation struct {
 }
 
 type S3ActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketName string `json:"bucketName" tf:"bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	ObjectKeyPrefix *string `json:"objectKeyPrefix,omitempty" tf:"object_key_prefix"`
 
+	// +kubebuilder:validation:Required
 	Position int64 `json:"position" tf:"position"`
 
+	// +kubebuilder:validation:Optional
 	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
 }
 
@@ -85,34 +107,52 @@ type SesReceiptRuleObservation struct {
 }
 
 type SesReceiptRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AddHeaderAction []AddHeaderActionParameters `json:"addHeaderAction,omitempty" tf:"add_header_action"`
 
+	// +kubebuilder:validation:Optional
 	After *string `json:"after,omitempty" tf:"after"`
 
+	// +kubebuilder:validation:Optional
 	BounceAction []BounceActionParameters `json:"bounceAction,omitempty" tf:"bounce_action"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LambdaAction []LambdaActionParameters `json:"lambdaAction,omitempty" tf:"lambda_action"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Recipients []string `json:"recipients,omitempty" tf:"recipients"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RuleSetName string `json:"ruleSetName" tf:"rule_set_name"`
 
+	// +kubebuilder:validation:Optional
 	S3Action []S3ActionParameters `json:"s3Action,omitempty" tf:"s3_action"`
 
+	// +kubebuilder:validation:Optional
 	ScanEnabled *bool `json:"scanEnabled,omitempty" tf:"scan_enabled"`
 
+	// +kubebuilder:validation:Optional
 	SnsAction []SnsActionParameters `json:"snsAction,omitempty" tf:"sns_action"`
 
+	// +kubebuilder:validation:Optional
 	StopAction []StopActionParameters `json:"stopAction,omitempty" tf:"stop_action"`
 
-	TlsPolicy *string `json:"tlsPolicy,omitempty" tf:"tls_policy"`
+	// +kubebuilder:validation:Optional
+	TLSPolicy *string `json:"tlsPolicy,omitempty" tf:"tls_policy"`
 
+	// +kubebuilder:validation:Optional
 	WorkmailAction []WorkmailActionParameters `json:"workmailAction,omitempty" tf:"workmail_action"`
 }
 
@@ -120,10 +160,14 @@ type SnsActionObservation struct {
 }
 
 type SnsActionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Encoding *string `json:"encoding,omitempty" tf:"encoding"`
 
+	// +kubebuilder:validation:Required
 	Position int64 `json:"position" tf:"position"`
 
+	// +kubebuilder:validation:Required
 	TopicArn string `json:"topicArn" tf:"topic_arn"`
 }
 
@@ -131,10 +175,14 @@ type StopActionObservation struct {
 }
 
 type StopActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Position int64 `json:"position" tf:"position"`
 
+	// +kubebuilder:validation:Required
 	Scope string `json:"scope" tf:"scope"`
 
+	// +kubebuilder:validation:Optional
 	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
 }
 
@@ -142,10 +190,14 @@ type WorkmailActionObservation struct {
 }
 
 type WorkmailActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	OrganizationArn string `json:"organizationArn" tf:"organization_arn"`
 
+	// +kubebuilder:validation:Required
 	Position int64 `json:"position" tf:"position"`
 
+	// +kubebuilder:validation:Optional
 	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
 }
 

@@ -43,20 +43,31 @@ type AcmpcaCertificateAuthorityObservation struct {
 }
 
 type AcmpcaCertificateAuthorityParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateAuthorityConfiguration []CertificateAuthorityConfigurationParameters `json:"certificateAuthorityConfiguration" tf:"certificate_authority_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	PermanentDeletionTimeInDays *int64 `json:"permanentDeletionTimeInDays,omitempty" tf:"permanent_deletion_time_in_days"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RevocationConfiguration []RevocationConfigurationParameters `json:"revocationConfiguration,omitempty" tf:"revocation_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -64,10 +75,14 @@ type CertificateAuthorityConfigurationObservation struct {
 }
 
 type CertificateAuthorityConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	KeyAlgorithm string `json:"keyAlgorithm" tf:"key_algorithm"`
 
+	// +kubebuilder:validation:Required
 	SigningAlgorithm string `json:"signingAlgorithm" tf:"signing_algorithm"`
 
+	// +kubebuilder:validation:Required
 	Subject []SubjectParameters `json:"subject" tf:"subject"`
 }
 
@@ -75,21 +90,29 @@ type CrlConfigurationObservation struct {
 }
 
 type CrlConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomCname *string `json:"customCname,omitempty" tf:"custom_cname"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Required
 	ExpirationInDays int64 `json:"expirationInDays" tf:"expiration_in_days"`
 
+	// +kubebuilder:validation:Optional
 	S3BucketName *string `json:"s3BucketName,omitempty" tf:"s3_bucket_name"`
 
-	S3ObjectAcl *string `json:"s3ObjectAcl,omitempty" tf:"s3_object_acl"`
+	// +kubebuilder:validation:Optional
+	S3ObjectACL *string `json:"s3ObjectAcl,omitempty" tf:"s3_object_acl"`
 }
 
 type RevocationConfigurationObservation struct {
 }
 
 type RevocationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CrlConfiguration []CrlConfigurationParameters `json:"crlConfiguration,omitempty" tf:"crl_configuration"`
 }
 
@@ -97,30 +120,44 @@ type SubjectObservation struct {
 }
 
 type SubjectParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CommonName *string `json:"commonName,omitempty" tf:"common_name"`
 
+	// +kubebuilder:validation:Optional
 	Country *string `json:"country,omitempty" tf:"country"`
 
+	// +kubebuilder:validation:Optional
 	DistinguishedNameQualifier *string `json:"distinguishedNameQualifier,omitempty" tf:"distinguished_name_qualifier"`
 
+	// +kubebuilder:validation:Optional
 	GenerationQualifier *string `json:"generationQualifier,omitempty" tf:"generation_qualifier"`
 
+	// +kubebuilder:validation:Optional
 	GivenName *string `json:"givenName,omitempty" tf:"given_name"`
 
+	// +kubebuilder:validation:Optional
 	Initials *string `json:"initials,omitempty" tf:"initials"`
 
+	// +kubebuilder:validation:Optional
 	Locality *string `json:"locality,omitempty" tf:"locality"`
 
+	// +kubebuilder:validation:Optional
 	Organization *string `json:"organization,omitempty" tf:"organization"`
 
+	// +kubebuilder:validation:Optional
 	OrganizationalUnit *string `json:"organizationalUnit,omitempty" tf:"organizational_unit"`
 
+	// +kubebuilder:validation:Optional
 	Pseudonym *string `json:"pseudonym,omitempty" tf:"pseudonym"`
 
+	// +kubebuilder:validation:Optional
 	State *string `json:"state,omitempty" tf:"state"`
 
+	// +kubebuilder:validation:Optional
 	Surname *string `json:"surname,omitempty" tf:"surname"`
 
+	// +kubebuilder:validation:Optional
 	Title *string `json:"title,omitempty" tf:"title"`
 }
 

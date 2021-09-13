@@ -37,43 +37,65 @@ type AmplifyBranchObservation struct {
 }
 
 type AmplifyBranchParameters struct {
-	AppId string `json:"appId" tf:"app_id"`
 
+	// +kubebuilder:validation:Required
+	AppID string `json:"appId" tf:"app_id"`
+
+	// +kubebuilder:validation:Optional
 	BackendEnvironmentArn *string `json:"backendEnvironmentArn,omitempty" tf:"backend_environment_arn"`
 
+	// +kubebuilder:validation:Optional
 	BasicAuthCredentials *string `json:"basicAuthCredentials,omitempty" tf:"basic_auth_credentials"`
 
+	// +kubebuilder:validation:Required
 	BranchName string `json:"branchName" tf:"branch_name"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 
+	// +kubebuilder:validation:Optional
 	EnableAutoBuild *bool `json:"enableAutoBuild,omitempty" tf:"enable_auto_build"`
 
+	// +kubebuilder:validation:Optional
 	EnableBasicAuth *bool `json:"enableBasicAuth,omitempty" tf:"enable_basic_auth"`
 
+	// +kubebuilder:validation:Optional
 	EnableNotification *bool `json:"enableNotification,omitempty" tf:"enable_notification"`
 
+	// +kubebuilder:validation:Optional
 	EnablePerformanceMode *bool `json:"enablePerformanceMode,omitempty" tf:"enable_performance_mode"`
 
+	// +kubebuilder:validation:Optional
 	EnablePullRequestPreview *bool `json:"enablePullRequestPreview,omitempty" tf:"enable_pull_request_preview"`
 
+	// +kubebuilder:validation:Optional
 	EnvironmentVariables map[string]string `json:"environmentVariables,omitempty" tf:"environment_variables"`
 
+	// +kubebuilder:validation:Optional
 	Framework *string `json:"framework,omitempty" tf:"framework"`
 
+	// +kubebuilder:validation:Optional
 	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName,omitempty" tf:"pull_request_environment_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Stage *string `json:"stage,omitempty" tf:"stage"`
 
+	// +kubebuilder:validation:Optional
+	TTL *string `json:"ttl,omitempty" tf:"ttl"`
+
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
-
-	Ttl *string `json:"ttl,omitempty" tf:"ttl"`
 }
 
 // AmplifyBranchSpec defines the desired state of AmplifyBranch

@@ -28,16 +28,25 @@ type ConfigDeliveryChannelObservation struct {
 }
 
 type ConfigDeliveryChannelParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	S3BucketName string `json:"s3BucketName" tf:"s3_bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	S3KeyPrefix *string `json:"s3KeyPrefix,omitempty" tf:"s3_key_prefix"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotDeliveryProperties []SnapshotDeliveryPropertiesParameters `json:"snapshotDeliveryProperties,omitempty" tf:"snapshot_delivery_properties"`
 
+	// +kubebuilder:validation:Optional
 	SnsTopicArn *string `json:"snsTopicArn,omitempty" tf:"sns_topic_arn"`
 }
 
@@ -45,6 +54,8 @@ type SnapshotDeliveryPropertiesObservation struct {
 }
 
 type SnapshotDeliveryPropertiesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeliveryFrequency *string `json:"deliveryFrequency,omitempty" tf:"delivery_frequency"`
 }
 

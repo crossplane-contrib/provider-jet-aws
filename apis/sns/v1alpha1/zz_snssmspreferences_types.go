@@ -28,18 +28,28 @@ type SnsSmsPreferencesObservation struct {
 }
 
 type SnsSmsPreferencesParameters struct {
-	DefaultSenderId *string `json:"defaultSenderId,omitempty" tf:"default_sender_id"`
 
+	// +kubebuilder:validation:Optional
+	DefaultSenderID *string `json:"defaultSenderId,omitempty" tf:"default_sender_id"`
+
+	// +kubebuilder:validation:Optional
 	DefaultSmsType *string `json:"defaultSmsType,omitempty" tf:"default_sms_type"`
 
+	// +kubebuilder:validation:Optional
 	DeliveryStatusIamRoleArn *string `json:"deliveryStatusIamRoleArn,omitempty" tf:"delivery_status_iam_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	DeliveryStatusSuccessSamplingRate *string `json:"deliveryStatusSuccessSamplingRate,omitempty" tf:"delivery_status_success_sampling_rate"`
 
+	// +kubebuilder:validation:Optional
 	MonthlySpendLimit *string `json:"monthlySpendLimit,omitempty" tf:"monthly_spend_limit"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	UsageReportS3Bucket *string `json:"usageReportS3Bucket,omitempty" tf:"usage_report_s3_bucket"`
 }
 

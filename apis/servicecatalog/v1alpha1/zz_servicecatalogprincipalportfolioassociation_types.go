@@ -28,14 +28,22 @@ type ServicecatalogPrincipalPortfolioAssociationObservation struct {
 }
 
 type ServicecatalogPrincipalPortfolioAssociationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
-	PortfolioId string `json:"portfolioId" tf:"portfolio_id"`
+	// +kubebuilder:validation:Required
+	PortfolioID string `json:"portfolioId" tf:"portfolio_id"`
 
+	// +kubebuilder:validation:Required
 	PrincipalArn string `json:"principalArn" tf:"principal_arn"`
 
+	// +kubebuilder:validation:Optional
 	PrincipalType *string `json:"principalType,omitempty" tf:"principal_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

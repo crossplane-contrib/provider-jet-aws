@@ -29,14 +29,22 @@ type SesTemplateObservation struct {
 }
 
 type SesTemplateParameters struct {
-	Html *string `json:"html,omitempty" tf:"html"`
 
+	// +kubebuilder:validation:Optional
+	HTML *string `json:"html,omitempty" tf:"html"`
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Subject *string `json:"subject,omitempty" tf:"subject"`
 
+	// +kubebuilder:validation:Optional
 	Text *string `json:"text,omitempty" tf:"text"`
 }
 

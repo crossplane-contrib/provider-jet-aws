@@ -28,10 +28,16 @@ type SqsQueuePolicyObservation struct {
 }
 
 type SqsQueuePolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Policy string `json:"policy" tf:"policy"`
 
-	QueueUrl string `json:"queueUrl" tf:"queue_url"`
+	// +kubebuilder:validation:Required
+	QueueURL string `json:"queueUrl" tf:"queue_url"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

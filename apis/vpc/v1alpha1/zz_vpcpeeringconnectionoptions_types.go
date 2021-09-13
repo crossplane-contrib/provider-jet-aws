@@ -28,10 +28,14 @@ type VpcPeeringConnectionOptionsAccepterObservation struct {
 }
 
 type VpcPeeringConnectionOptionsAccepterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc"`
 
-	AllowRemoteVpcDnsResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
+	// +kubebuilder:validation:Optional
+	AllowRemoteVpcDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
 
+	// +kubebuilder:validation:Optional
 	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
 }
 
@@ -39,23 +43,34 @@ type VpcPeeringConnectionOptionsObservation struct {
 }
 
 type VpcPeeringConnectionOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Accepter []VpcPeeringConnectionOptionsAccepterParameters `json:"accepter,omitempty" tf:"accepter"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Requester []VpcPeeringConnectionOptionsRequesterParameters `json:"requester,omitempty" tf:"requester"`
 
-	VpcPeeringConnectionId string `json:"vpcPeeringConnectionId" tf:"vpc_peering_connection_id"`
+	// +kubebuilder:validation:Required
+	VpcPeeringConnectionID string `json:"vpcPeeringConnectionId" tf:"vpc_peering_connection_id"`
 }
 
 type VpcPeeringConnectionOptionsRequesterObservation struct {
 }
 
 type VpcPeeringConnectionOptionsRequesterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc"`
 
-	AllowRemoteVpcDnsResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
+	// +kubebuilder:validation:Optional
+	AllowRemoteVpcDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
 
+	// +kubebuilder:validation:Optional
 	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
 }
 

@@ -25,16 +25,23 @@ import (
 )
 
 type WorklinkWebsiteCertificateAuthorityAssociationObservation struct {
-	WebsiteCaId string `json:"websiteCaId" tf:"website_ca_id"`
+	WebsiteCaID string `json:"websiteCaId" tf:"website_ca_id"`
 }
 
 type WorklinkWebsiteCertificateAuthorityAssociationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Certificate string `json:"certificate" tf:"certificate"`
 
+	// +kubebuilder:validation:Optional
 	DisplayName *string `json:"displayName,omitempty" tf:"display_name"`
 
+	// +kubebuilder:validation:Required
 	FleetArn string `json:"fleetArn" tf:"fleet_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

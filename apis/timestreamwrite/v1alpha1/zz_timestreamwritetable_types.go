@@ -28,8 +28,11 @@ type RetentionPropertiesObservation struct {
 }
 
 type RetentionPropertiesParameters struct {
+
+	// +kubebuilder:validation:Required
 	MagneticStoreRetentionPeriodInDays int64 `json:"magneticStoreRetentionPeriodInDays" tf:"magnetic_store_retention_period_in_days"`
 
+	// +kubebuilder:validation:Required
 	MemoryStoreRetentionPeriodInHours int64 `json:"memoryStoreRetentionPeriodInHours" tf:"memory_store_retention_period_in_hours"`
 }
 
@@ -38,16 +41,25 @@ type TimestreamwriteTableObservation struct {
 }
 
 type TimestreamwriteTableParameters struct {
+
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RetentionProperties []RetentionPropertiesParameters `json:"retentionProperties,omitempty" tf:"retention_properties"`
 
+	// +kubebuilder:validation:Required
 	TableName string `json:"tableName" tf:"table_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

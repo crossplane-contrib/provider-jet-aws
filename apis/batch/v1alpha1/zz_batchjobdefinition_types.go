@@ -31,26 +31,40 @@ type BatchJobDefinitionObservation struct {
 }
 
 type BatchJobDefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ContainerProperties *string `json:"containerProperties,omitempty" tf:"container_properties"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	PlatformCapabilities []string `json:"platformCapabilities,omitempty" tf:"platform_capabilities"`
 
+	// +kubebuilder:validation:Optional
 	PropagateTags *bool `json:"propagateTags,omitempty" tf:"propagate_tags"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RetryStrategy []RetryStrategyParameters `json:"retryStrategy,omitempty" tf:"retry_strategy"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Timeout []TimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -58,12 +72,17 @@ type EvaluateOnExitObservation struct {
 }
 
 type EvaluateOnExitParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action string `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Optional
 	OnExitCode *string `json:"onExitCode,omitempty" tf:"on_exit_code"`
 
+	// +kubebuilder:validation:Optional
 	OnReason *string `json:"onReason,omitempty" tf:"on_reason"`
 
+	// +kubebuilder:validation:Optional
 	OnStatusReason *string `json:"onStatusReason,omitempty" tf:"on_status_reason"`
 }
 
@@ -71,8 +90,11 @@ type RetryStrategyObservation struct {
 }
 
 type RetryStrategyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Attempts *int64 `json:"attempts,omitempty" tf:"attempts"`
 
+	// +kubebuilder:validation:Optional
 	EvaluateOnExit []EvaluateOnExitParameters `json:"evaluateOnExit,omitempty" tf:"evaluate_on_exit"`
 }
 
@@ -80,6 +102,8 @@ type TimeoutObservation struct {
 }
 
 type TimeoutParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AttemptDurationSeconds *int64 `json:"attemptDurationSeconds,omitempty" tf:"attempt_duration_seconds"`
 }
 

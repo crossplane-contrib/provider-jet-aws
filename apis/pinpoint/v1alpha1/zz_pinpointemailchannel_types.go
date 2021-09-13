@@ -29,18 +29,28 @@ type PinpointEmailChannelObservation struct {
 }
 
 type PinpointEmailChannelParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
+
+	// +kubebuilder:validation:Optional
 	ConfigurationSet *string `json:"configurationSet,omitempty" tf:"configuration_set"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Required
 	FromAddress string `json:"fromAddress" tf:"from_address"`
 
+	// +kubebuilder:validation:Required
 	Identity string `json:"identity" tf:"identity"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 }
 

@@ -28,14 +28,20 @@ type S3DestinationObservation struct {
 }
 
 type S3DestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	BucketName string `json:"bucketName" tf:"bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"region"`
 
+	// +kubebuilder:validation:Optional
 	SyncFormat *string `json:"syncFormat,omitempty" tf:"sync_format"`
 }
 
@@ -43,10 +49,16 @@ type SsmResourceDataSyncObservation struct {
 }
 
 type SsmResourceDataSyncParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	S3Destination []S3DestinationParameters `json:"s3Destination" tf:"s3_destination"`
 }
 

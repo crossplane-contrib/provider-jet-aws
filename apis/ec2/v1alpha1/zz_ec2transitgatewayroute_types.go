@@ -28,15 +28,23 @@ type Ec2TransitGatewayRouteObservation struct {
 }
 
 type Ec2TransitGatewayRouteParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Blackhole *bool `json:"blackhole,omitempty" tf:"blackhole"`
 
+	// +kubebuilder:validation:Required
 	DestinationCidrBlock string `json:"destinationCidrBlock" tf:"destination_cidr_block"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id"`
+	// +kubebuilder:validation:Optional
+	TransitGatewayAttachmentID *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id"`
 
-	TransitGatewayRouteTableId string `json:"transitGatewayRouteTableId" tf:"transit_gateway_route_table_id"`
+	// +kubebuilder:validation:Required
+	TransitGatewayRouteTableID string `json:"transitGatewayRouteTableId" tf:"transit_gateway_route_table_id"`
 }
 
 // Ec2TransitGatewayRouteSpec defines the desired state of Ec2TransitGatewayRoute

@@ -28,12 +28,19 @@ type RdsClusterRoleAssociationObservation struct {
 }
 
 type RdsClusterRoleAssociationParameters struct {
-	DbClusterIdentifier string `json:"dbClusterIdentifier" tf:"db_cluster_identifier"`
 
+	// +kubebuilder:validation:Required
+	DBClusterIdentifier string `json:"dbClusterIdentifier" tf:"db_cluster_identifier"`
+
+	// +kubebuilder:validation:Required
 	FeatureName string `json:"featureName" tf:"feature_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 }
 

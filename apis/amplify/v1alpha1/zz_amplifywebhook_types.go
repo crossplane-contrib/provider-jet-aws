@@ -27,16 +27,23 @@ import (
 type AmplifyWebhookObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 }
 
 type AmplifyWebhookParameters struct {
-	AppId string `json:"appId" tf:"app_id"`
 
+	// +kubebuilder:validation:Required
+	AppID string `json:"appId" tf:"app_id"`
+
+	// +kubebuilder:validation:Required
 	BranchName string `json:"branchName" tf:"branch_name"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

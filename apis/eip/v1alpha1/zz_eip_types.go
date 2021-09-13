@@ -25,46 +25,60 @@ import (
 )
 
 type EipObservation struct {
-	AllocationId string `json:"allocationId" tf:"allocation_id"`
+	AllocationID string `json:"allocationId" tf:"allocation_id"`
 
-	AssociationId string `json:"associationId" tf:"association_id"`
+	AssociationID string `json:"associationId" tf:"association_id"`
 
-	CarrierIp string `json:"carrierIp" tf:"carrier_ip"`
+	CarrierIP string `json:"carrierIp" tf:"carrier_ip"`
 
-	CustomerOwnedIp string `json:"customerOwnedIp" tf:"customer_owned_ip"`
+	CustomerOwnedIP string `json:"customerOwnedIp" tf:"customer_owned_ip"`
 
 	Domain string `json:"domain" tf:"domain"`
 
-	PrivateDns string `json:"privateDns" tf:"private_dns"`
+	PrivateDNS string `json:"privateDns" tf:"private_dns"`
 
-	PrivateIp string `json:"privateIp" tf:"private_ip"`
+	PrivateIP string `json:"privateIp" tf:"private_ip"`
 
-	PublicDns string `json:"publicDns" tf:"public_dns"`
+	PublicDNS string `json:"publicDns" tf:"public_dns"`
 
-	PublicIp string `json:"publicIp" tf:"public_ip"`
+	PublicIP string `json:"publicIp" tf:"public_ip"`
 }
 
 type EipParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Address *string `json:"address,omitempty" tf:"address"`
 
-	AssociateWithPrivateIp *string `json:"associateWithPrivateIp,omitempty" tf:"associate_with_private_ip"`
+	// +kubebuilder:validation:Optional
+	AssociateWithPrivateIP *string `json:"associateWithPrivateIp,omitempty" tf:"associate_with_private_ip"`
 
-	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
+	// +kubebuilder:validation:Optional
+	CustomerOwnedIPv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
 
+	// +kubebuilder:validation:Optional
 	Instance *string `json:"instance,omitempty" tf:"instance"`
 
+	// +kubebuilder:validation:Optional
 	NetworkBorderGroup *string `json:"networkBorderGroup,omitempty" tf:"network_border_group"`
 
+	// +kubebuilder:validation:Optional
 	NetworkInterface *string `json:"networkInterface,omitempty" tf:"network_interface"`
 
-	PublicIpv4Pool *string `json:"publicIpv4Pool,omitempty" tf:"public_ipv4_pool"`
+	// +kubebuilder:validation:Optional
+	PublicIPv4Pool *string `json:"publicIpv4Pool,omitempty" tf:"public_ipv4_pool"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Vpc *bool `json:"vpc,omitempty" tf:"vpc"`
 }
 

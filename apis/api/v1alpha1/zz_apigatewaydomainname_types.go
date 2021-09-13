@@ -31,40 +31,57 @@ type ApiGatewayDomainNameObservation struct {
 
 	CloudfrontDomainName string `json:"cloudfrontDomainName" tf:"cloudfront_domain_name"`
 
-	CloudfrontZoneId string `json:"cloudfrontZoneId" tf:"cloudfront_zone_id"`
+	CloudfrontZoneID string `json:"cloudfrontZoneId" tf:"cloudfront_zone_id"`
 
 	RegionalDomainName string `json:"regionalDomainName" tf:"regional_domain_name"`
 
-	RegionalZoneId string `json:"regionalZoneId" tf:"regional_zone_id"`
+	RegionalZoneID string `json:"regionalZoneId" tf:"regional_zone_id"`
 }
 
 type ApiGatewayDomainNameParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn"`
 
+	// +kubebuilder:validation:Optional
 	CertificateBody *string `json:"certificateBody,omitempty" tf:"certificate_body"`
 
+	// +kubebuilder:validation:Optional
 	CertificateChain *string `json:"certificateChain,omitempty" tf:"certificate_chain"`
 
+	// +kubebuilder:validation:Optional
 	CertificateName *string `json:"certificateName,omitempty" tf:"certificate_name"`
 
+	// +kubebuilder:validation:Optional
 	CertificatePrivateKey *string `json:"certificatePrivateKey,omitempty" tf:"certificate_private_key"`
 
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// +kubebuilder:validation:Optional
 	EndpointConfiguration []EndpointConfigurationParameters `json:"endpointConfiguration,omitempty" tf:"endpoint_configuration"`
 
-	MutualTlsAuthentication []MutualTlsAuthenticationParameters `json:"mutualTlsAuthentication,omitempty" tf:"mutual_tls_authentication"`
+	// +kubebuilder:validation:Optional
+	MutualTLSAuthentication []MutualTLSAuthenticationParameters `json:"mutualTlsAuthentication,omitempty" tf:"mutual_tls_authentication"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RegionalCertificateArn *string `json:"regionalCertificateArn,omitempty" tf:"regional_certificate_arn"`
 
+	// +kubebuilder:validation:Optional
 	RegionalCertificateName *string `json:"regionalCertificateName,omitempty" tf:"regional_certificate_name"`
 
+	// +kubebuilder:validation:Optional
 	SecurityPolicy *string `json:"securityPolicy,omitempty" tf:"security_policy"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -72,15 +89,20 @@ type EndpointConfigurationObservation struct {
 }
 
 type EndpointConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Types []string `json:"types" tf:"types"`
 }
 
-type MutualTlsAuthenticationObservation struct {
+type MutualTLSAuthenticationObservation struct {
 }
 
-type MutualTlsAuthenticationParameters struct {
-	TruststoreUri string `json:"truststoreUri" tf:"truststore_uri"`
+type MutualTLSAuthenticationParameters struct {
 
+	// +kubebuilder:validation:Required
+	TruststoreURI string `json:"truststoreUri" tf:"truststore_uri"`
+
+	// +kubebuilder:validation:Optional
 	TruststoreVersion *string `json:"truststoreVersion,omitempty" tf:"truststore_version"`
 }
 

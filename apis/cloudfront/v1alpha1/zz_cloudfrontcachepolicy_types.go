@@ -28,20 +28,31 @@ type CloudfrontCachePolicyObservation struct {
 }
 
 type CloudfrontCachePolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
-	DefaultTtl *int64 `json:"defaultTtl,omitempty" tf:"default_ttl"`
+	// +kubebuilder:validation:Optional
+	DefaultTTL *int64 `json:"defaultTtl,omitempty" tf:"default_ttl"`
 
+	// +kubebuilder:validation:Optional
 	Etag *string `json:"etag,omitempty" tf:"etag"`
 
-	MaxTtl *int64 `json:"maxTtl,omitempty" tf:"max_ttl"`
+	// +kubebuilder:validation:Optional
+	MaxTTL *int64 `json:"maxTtl,omitempty" tf:"max_ttl"`
 
-	MinTtl *int64 `json:"minTtl,omitempty" tf:"min_ttl"`
+	// +kubebuilder:validation:Optional
+	MinTTL *int64 `json:"minTtl,omitempty" tf:"min_ttl"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	ParametersInCacheKeyAndForwardedToOrigin []ParametersInCacheKeyAndForwardedToOriginParameters `json:"parametersInCacheKeyAndForwardedToOrigin,omitempty" tf:"parameters_in_cache_key_and_forwarded_to_origin"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -49,8 +60,11 @@ type CookiesConfigObservation struct {
 }
 
 type CookiesConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	CookieBehavior string `json:"cookieBehavior" tf:"cookie_behavior"`
 
+	// +kubebuilder:validation:Optional
 	Cookies []CookiesParameters `json:"cookies,omitempty" tf:"cookies"`
 }
 
@@ -58,6 +72,8 @@ type CookiesObservation struct {
 }
 
 type CookiesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Items []string `json:"items,omitempty" tf:"items"`
 }
 
@@ -65,8 +81,11 @@ type HeadersConfigObservation struct {
 }
 
 type HeadersConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	HeaderBehavior *string `json:"headerBehavior,omitempty" tf:"header_behavior"`
 
+	// +kubebuilder:validation:Optional
 	Headers []HeadersParameters `json:"headers,omitempty" tf:"headers"`
 }
 
@@ -74,6 +93,8 @@ type HeadersObservation struct {
 }
 
 type HeadersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Items []string `json:"items,omitempty" tf:"items"`
 }
 
@@ -81,14 +102,20 @@ type ParametersInCacheKeyAndForwardedToOriginObservation struct {
 }
 
 type ParametersInCacheKeyAndForwardedToOriginParameters struct {
+
+	// +kubebuilder:validation:Required
 	CookiesConfig []CookiesConfigParameters `json:"cookiesConfig" tf:"cookies_config"`
 
+	// +kubebuilder:validation:Optional
 	EnableAcceptEncodingBrotli *bool `json:"enableAcceptEncodingBrotli,omitempty" tf:"enable_accept_encoding_brotli"`
 
+	// +kubebuilder:validation:Optional
 	EnableAcceptEncodingGzip *bool `json:"enableAcceptEncodingGzip,omitempty" tf:"enable_accept_encoding_gzip"`
 
+	// +kubebuilder:validation:Required
 	HeadersConfig []HeadersConfigParameters `json:"headersConfig" tf:"headers_config"`
 
+	// +kubebuilder:validation:Required
 	QueryStringsConfig []QueryStringsConfigParameters `json:"queryStringsConfig" tf:"query_strings_config"`
 }
 
@@ -96,8 +123,11 @@ type QueryStringsConfigObservation struct {
 }
 
 type QueryStringsConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	QueryStringBehavior string `json:"queryStringBehavior" tf:"query_string_behavior"`
 
+	// +kubebuilder:validation:Optional
 	QueryStrings []QueryStringsParameters `json:"queryStrings,omitempty" tf:"query_strings"`
 }
 
@@ -105,6 +135,8 @@ type QueryStringsObservation struct {
 }
 
 type QueryStringsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Items []string `json:"items,omitempty" tf:"items"`
 }
 

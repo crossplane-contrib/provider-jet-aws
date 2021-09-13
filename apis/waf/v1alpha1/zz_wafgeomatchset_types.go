@@ -28,8 +28,11 @@ type GeoMatchConstraintObservation struct {
 }
 
 type GeoMatchConstraintParameters struct {
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -38,10 +41,16 @@ type WafGeoMatchSetObservation struct {
 }
 
 type WafGeoMatchSetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	GeoMatchConstraint []GeoMatchConstraintParameters `json:"geoMatchConstraint,omitempty" tf:"geo_match_constraint"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

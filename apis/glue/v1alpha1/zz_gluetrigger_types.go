@@ -28,6 +28,8 @@ type ActionsNotificationPropertyObservation struct {
 }
 
 type ActionsNotificationPropertyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	NotifyDelayAfter *int64 `json:"notifyDelayAfter,omitempty" tf:"notify_delay_after"`
 }
 
@@ -35,16 +37,23 @@ type ActionsObservation struct {
 }
 
 type ActionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Arguments map[string]string `json:"arguments,omitempty" tf:"arguments"`
 
+	// +kubebuilder:validation:Optional
 	CrawlerName *string `json:"crawlerName,omitempty" tf:"crawler_name"`
 
+	// +kubebuilder:validation:Optional
 	JobName *string `json:"jobName,omitempty" tf:"job_name"`
 
+	// +kubebuilder:validation:Optional
 	NotificationProperty []ActionsNotificationPropertyParameters `json:"notificationProperty,omitempty" tf:"notification_property"`
 
+	// +kubebuilder:validation:Optional
 	SecurityConfiguration *string `json:"securityConfiguration,omitempty" tf:"security_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Timeout *int64 `json:"timeout,omitempty" tf:"timeout"`
 }
 
@@ -52,14 +61,20 @@ type ConditionsObservation struct {
 }
 
 type ConditionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CrawlState *string `json:"crawlState,omitempty" tf:"crawl_state"`
 
+	// +kubebuilder:validation:Optional
 	CrawlerName *string `json:"crawlerName,omitempty" tf:"crawler_name"`
 
+	// +kubebuilder:validation:Optional
 	JobName *string `json:"jobName,omitempty" tf:"job_name"`
 
+	// +kubebuilder:validation:Optional
 	LogicalOperator *string `json:"logicalOperator,omitempty" tf:"logical_operator"`
 
+	// +kubebuilder:validation:Optional
 	State *string `json:"state,omitempty" tf:"state"`
 }
 
@@ -70,26 +85,40 @@ type GlueTriggerObservation struct {
 }
 
 type GlueTriggerParameters struct {
+
+	// +kubebuilder:validation:Required
 	Actions []ActionsParameters `json:"actions" tf:"actions"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Predicate []PredicateParameters `json:"predicate,omitempty" tf:"predicate"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Schedule *string `json:"schedule,omitempty" tf:"schedule"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	WorkflowName *string `json:"workflowName,omitempty" tf:"workflow_name"`
 }
 
@@ -97,8 +126,11 @@ type PredicateObservation struct {
 }
 
 type PredicateParameters struct {
+
+	// +kubebuilder:validation:Required
 	Conditions []ConditionsParameters `json:"conditions" tf:"conditions"`
 
+	// +kubebuilder:validation:Optional
 	Logical *string `json:"logical,omitempty" tf:"logical"`
 }
 

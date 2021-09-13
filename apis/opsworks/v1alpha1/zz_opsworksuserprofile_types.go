@@ -28,14 +28,22 @@ type OpsworksUserProfileObservation struct {
 }
 
 type OpsworksUserProfileParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowSelfManagement *bool `json:"allowSelfManagement,omitempty" tf:"allow_self_management"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SshPublicKey *string `json:"sshPublicKey,omitempty" tf:"ssh_public_key"`
+	// +kubebuilder:validation:Optional
+	SSHPublicKey *string `json:"sshPublicKey,omitempty" tf:"ssh_public_key"`
 
-	SshUsername string `json:"sshUsername" tf:"ssh_username"`
+	// +kubebuilder:validation:Required
+	SSHUsername string `json:"sshUsername" tf:"ssh_username"`
 
+	// +kubebuilder:validation:Required
 	UserArn string `json:"userArn" tf:"user_arn"`
 }
 

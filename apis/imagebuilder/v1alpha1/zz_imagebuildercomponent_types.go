@@ -37,28 +37,43 @@ type ImagebuilderComponentObservation struct {
 }
 
 type ImagebuilderComponentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ChangeDescription *string `json:"changeDescription,omitempty" tf:"change_description"`
 
+	// +kubebuilder:validation:Optional
 	Data *string `json:"data,omitempty" tf:"data"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Platform string `json:"platform" tf:"platform"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SupportedOsVersions []string `json:"supportedOsVersions,omitempty" tf:"supported_os_versions"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Uri *string `json:"uri,omitempty" tf:"uri"`
+	// +kubebuilder:validation:Optional
+	URI *string `json:"uri,omitempty" tf:"uri"`
 
+	// +kubebuilder:validation:Required
 	Version string `json:"version" tf:"version"`
 }
 

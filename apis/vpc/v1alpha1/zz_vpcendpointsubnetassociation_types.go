@@ -28,11 +28,17 @@ type VpcEndpointSubnetAssociationObservation struct {
 }
 
 type VpcEndpointSubnetAssociationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	// +kubebuilder:validation:Required
+	SubnetID string `json:"subnetId" tf:"subnet_id"`
 
-	VpcEndpointId string `json:"vpcEndpointId" tf:"vpc_endpoint_id"`
+	// +kubebuilder:validation:Required
+	VpcEndpointID string `json:"vpcEndpointId" tf:"vpc_endpoint_id"`
 }
 
 // VpcEndpointSubnetAssociationSpec defines the desired state of VpcEndpointSubnetAssociation

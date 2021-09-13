@@ -28,8 +28,11 @@ type ImagebuilderImagePipelineImageTestsConfigurationObservation struct {
 }
 
 type ImagebuilderImagePipelineImageTestsConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ImageTestsEnabled *bool `json:"imageTestsEnabled,omitempty" tf:"image_tests_enabled"`
 
+	// +kubebuilder:validation:Optional
 	TimeoutMinutes *int64 `json:"timeoutMinutes,omitempty" tf:"timeout_minutes"`
 }
 
@@ -48,28 +51,43 @@ type ImagebuilderImagePipelineObservation struct {
 }
 
 type ImagebuilderImagePipelineParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DistributionConfigurationArn *string `json:"distributionConfigurationArn,omitempty" tf:"distribution_configuration_arn"`
 
+	// +kubebuilder:validation:Optional
 	EnhancedImageMetadataEnabled *bool `json:"enhancedImageMetadataEnabled,omitempty" tf:"enhanced_image_metadata_enabled"`
 
+	// +kubebuilder:validation:Required
 	ImageRecipeArn string `json:"imageRecipeArn" tf:"image_recipe_arn"`
 
+	// +kubebuilder:validation:Optional
 	ImageTestsConfiguration []ImagebuilderImagePipelineImageTestsConfigurationParameters `json:"imageTestsConfiguration,omitempty" tf:"image_tests_configuration"`
 
+	// +kubebuilder:validation:Required
 	InfrastructureConfigurationArn string `json:"infrastructureConfigurationArn" tf:"infrastructure_configuration_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Schedule []ScheduleParameters `json:"schedule,omitempty" tf:"schedule"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -77,8 +95,11 @@ type ScheduleObservation struct {
 }
 
 type ScheduleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	PipelineExecutionStartCondition *string `json:"pipelineExecutionStartCondition,omitempty" tf:"pipeline_execution_start_condition"`
 
+	// +kubebuilder:validation:Required
 	ScheduleExpression string `json:"scheduleExpression" tf:"schedule_expression"`
 }
 

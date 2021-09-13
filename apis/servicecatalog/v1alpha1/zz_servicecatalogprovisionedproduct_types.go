@@ -28,10 +28,14 @@ type ProvisioningParametersObservation struct {
 }
 
 type ProvisioningParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	UsePreviousValue *bool `json:"usePreviousValue,omitempty" tf:"use_previous_value"`
 
+	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value"`
 }
 
@@ -42,11 +46,11 @@ type ServicecatalogProvisionedProductObservation struct {
 
 	CreatedTime string `json:"createdTime" tf:"created_time"`
 
-	LastProvisioningRecordId string `json:"lastProvisioningRecordId" tf:"last_provisioning_record_id"`
+	LastProvisioningRecordID string `json:"lastProvisioningRecordId" tf:"last_provisioning_record_id"`
 
-	LastRecordId string `json:"lastRecordId" tf:"last_record_id"`
+	LastRecordID string `json:"lastRecordId" tf:"last_record_id"`
 
-	LastSuccessfulProvisioningRecordId string `json:"lastSuccessfulProvisioningRecordId" tf:"last_successful_provisioning_record_id"`
+	LastSuccessfulProvisioningRecordID string `json:"lastSuccessfulProvisioningRecordId" tf:"last_successful_provisioning_record_id"`
 
 	LaunchRoleArn string `json:"launchRoleArn" tf:"launch_role_arn"`
 
@@ -58,36 +62,55 @@ type ServicecatalogProvisionedProductObservation struct {
 }
 
 type ServicecatalogProvisionedProductParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
+	// +kubebuilder:validation:Optional
 	IgnoreErrors *bool `json:"ignoreErrors,omitempty" tf:"ignore_errors"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NotificationArns []string `json:"notificationArns,omitempty" tf:"notification_arns"`
 
-	PathId *string `json:"pathId,omitempty" tf:"path_id"`
+	// +kubebuilder:validation:Optional
+	PathID *string `json:"pathId,omitempty" tf:"path_id"`
 
+	// +kubebuilder:validation:Optional
 	PathName *string `json:"pathName,omitempty" tf:"path_name"`
 
-	ProductId *string `json:"productId,omitempty" tf:"product_id"`
+	// +kubebuilder:validation:Optional
+	ProductID *string `json:"productId,omitempty" tf:"product_id"`
 
+	// +kubebuilder:validation:Optional
 	ProductName *string `json:"productName,omitempty" tf:"product_name"`
 
-	ProvisioningArtifactId *string `json:"provisioningArtifactId,omitempty" tf:"provisioning_artifact_id"`
+	// +kubebuilder:validation:Optional
+	ProvisioningArtifactID *string `json:"provisioningArtifactId,omitempty" tf:"provisioning_artifact_id"`
 
+	// +kubebuilder:validation:Optional
 	ProvisioningArtifactName *string `json:"provisioningArtifactName,omitempty" tf:"provisioning_artifact_name"`
 
+	// +kubebuilder:validation:Optional
 	ProvisioningParameters []ProvisioningParametersParameters `json:"provisioningParameters,omitempty" tf:"provisioning_parameters"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RetainPhysicalResources *bool `json:"retainPhysicalResources,omitempty" tf:"retain_physical_resources"`
 
+	// +kubebuilder:validation:Optional
 	StackSetProvisioningPreferences []StackSetProvisioningPreferencesParameters `json:"stackSetProvisioningPreferences,omitempty" tf:"stack_set_provisioning_preferences"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -95,16 +118,23 @@ type StackSetProvisioningPreferencesObservation struct {
 }
 
 type StackSetProvisioningPreferencesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Accounts []string `json:"accounts,omitempty" tf:"accounts"`
 
+	// +kubebuilder:validation:Optional
 	FailureToleranceCount *int64 `json:"failureToleranceCount,omitempty" tf:"failure_tolerance_count"`
 
+	// +kubebuilder:validation:Optional
 	FailureTolerancePercentage *int64 `json:"failureTolerancePercentage,omitempty" tf:"failure_tolerance_percentage"`
 
+	// +kubebuilder:validation:Optional
 	MaxConcurrencyCount *int64 `json:"maxConcurrencyCount,omitempty" tf:"max_concurrency_count"`
 
+	// +kubebuilder:validation:Optional
 	MaxConcurrencyPercentage *int64 `json:"maxConcurrencyPercentage,omitempty" tf:"max_concurrency_percentage"`
 
+	// +kubebuilder:validation:Optional
 	Regions []string `json:"regions,omitempty" tf:"regions"`
 }
 

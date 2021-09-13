@@ -28,14 +28,22 @@ type AthenaDatabaseObservation struct {
 }
 
 type AthenaDatabaseParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionConfiguration []EncryptionConfigurationParameters `json:"encryptionConfiguration,omitempty" tf:"encryption_configuration"`
 
+	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -43,8 +51,11 @@ type EncryptionConfigurationObservation struct {
 }
 
 type EncryptionConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	EncryptionOption string `json:"encryptionOption" tf:"encryption_option"`
 
+	// +kubebuilder:validation:Optional
 	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key"`
 }
 

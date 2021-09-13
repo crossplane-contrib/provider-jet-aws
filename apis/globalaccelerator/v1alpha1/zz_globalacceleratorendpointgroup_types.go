@@ -28,10 +28,14 @@ type EndpointConfigurationObservation struct {
 }
 
 type EndpointConfigurationParameters struct {
-	ClientIpPreservationEnabled *bool `json:"clientIpPreservationEnabled,omitempty" tf:"client_ip_preservation_enabled"`
 
-	EndpointId *string `json:"endpointId,omitempty" tf:"endpoint_id"`
+	// +kubebuilder:validation:Optional
+	ClientIPPreservationEnabled *bool `json:"clientIpPreservationEnabled,omitempty" tf:"client_ip_preservation_enabled"`
 
+	// +kubebuilder:validation:Optional
+	EndpointID *string `json:"endpointId,omitempty" tf:"endpoint_id"`
+
+	// +kubebuilder:validation:Optional
 	Weight *int64 `json:"weight,omitempty" tf:"weight"`
 }
 
@@ -40,26 +44,40 @@ type GlobalacceleratorEndpointGroupObservation struct {
 }
 
 type GlobalacceleratorEndpointGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EndpointConfiguration []EndpointConfigurationParameters `json:"endpointConfiguration,omitempty" tf:"endpoint_configuration"`
 
+	// +kubebuilder:validation:Optional
 	EndpointGroupRegion *string `json:"endpointGroupRegion,omitempty" tf:"endpoint_group_region"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheckIntervalSeconds *int64 `json:"healthCheckIntervalSeconds,omitempty" tf:"health_check_interval_seconds"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheckPath *string `json:"healthCheckPath,omitempty" tf:"health_check_path"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheckPort *int64 `json:"healthCheckPort,omitempty" tf:"health_check_port"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheckProtocol *string `json:"healthCheckProtocol,omitempty" tf:"health_check_protocol"`
 
+	// +kubebuilder:validation:Required
 	ListenerArn string `json:"listenerArn" tf:"listener_arn"`
 
+	// +kubebuilder:validation:Optional
 	PortOverride []PortOverrideParameters `json:"portOverride,omitempty" tf:"port_override"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ThresholdCount *int64 `json:"thresholdCount,omitempty" tf:"threshold_count"`
 
+	// +kubebuilder:validation:Optional
 	TrafficDialPercentage *float64 `json:"trafficDialPercentage,omitempty" tf:"traffic_dial_percentage"`
 }
 
@@ -67,8 +85,11 @@ type PortOverrideObservation struct {
 }
 
 type PortOverrideParameters struct {
+
+	// +kubebuilder:validation:Required
 	EndpointPort int64 `json:"endpointPort" tf:"endpoint_port"`
 
+	// +kubebuilder:validation:Required
 	ListenerPort int64 `json:"listenerPort" tf:"listener_port"`
 }
 

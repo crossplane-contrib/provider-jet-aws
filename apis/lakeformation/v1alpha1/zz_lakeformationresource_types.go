@@ -29,10 +29,16 @@ type LakeformationResourceObservation struct {
 }
 
 type LakeformationResourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	Arn string `json:"arn" tf:"arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 }
 

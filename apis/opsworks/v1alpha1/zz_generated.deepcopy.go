@@ -52,13 +52,13 @@ func (in *AppSourceParameters) DeepCopyInto(out *AppSourceParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.SshKey != nil {
-		in, out := &in.SshKey, &out.SshKey
+	if in.SSHKey != nil {
+		in, out := &in.SSHKey, &out.SSHKey
 		*out = new(string)
 		**out = **in
 	}
-	if in.Url != nil {
-		in, out := &in.Url, &out.Url
+	if in.URL != nil {
+		in, out := &in.URL, &out.URL
 		*out = new(string)
 		**out = **in
 	}
@@ -107,8 +107,8 @@ func (in *CustomCookbooksSourceParameters) DeepCopyInto(out *CustomCookbooksSour
 		*out = new(string)
 		**out = **in
 	}
-	if in.SshKey != nil {
-		in, out := &in.SshKey, &out.SshKey
+	if in.SSHKey != nil {
+		in, out := &in.SSHKey, &out.SSHKey
 		*out = new(string)
 		**out = **in
 	}
@@ -157,8 +157,8 @@ func (in *EbsBlockDeviceParameters) DeepCopyInto(out *EbsBlockDeviceParameters) 
 		*out = new(int64)
 		**out = **in
 	}
-	if in.SnapshotId != nil {
-		in, out := &in.SnapshotId, &out.SnapshotId
+	if in.SnapshotID != nil {
+		in, out := &in.SnapshotID, &out.SnapshotID
 		*out = new(string)
 		**out = **in
 	}
@@ -605,8 +605,8 @@ func (in *OpsworksCustomLayerParameters) DeepCopyInto(out *OpsworksCustomLayerPa
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -884,8 +884,8 @@ func (in *OpsworksGangliaLayerParameters) DeepCopyInto(out *OpsworksGangliaLayer
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -960,8 +960,8 @@ func (in *OpsworksGangliaLayerParameters) DeepCopyInto(out *OpsworksGangliaLayer
 			(*out)[key] = val
 		}
 	}
-	if in.Url != nil {
-		in, out := &in.Url, &out.Url
+	if in.URL != nil {
+		in, out := &in.URL, &out.URL
 		*out = new(string)
 		**out = **in
 	}
@@ -1178,8 +1178,8 @@ func (in *OpsworksHaproxyLayerParameters) DeepCopyInto(out *OpsworksHaproxyLayer
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -1225,8 +1225,8 @@ func (in *OpsworksHaproxyLayerParameters) DeepCopyInto(out *OpsworksHaproxyLayer
 		*out = new(string)
 		**out = **in
 	}
-	if in.HealthcheckUrl != nil {
-		in, out := &in.HealthcheckUrl, &out.HealthcheckUrl
+	if in.HealthcheckURL != nil {
+		in, out := &in.HealthcheckURL, &out.HealthcheckURL
 		*out = new(string)
 		**out = **in
 	}
@@ -1250,8 +1250,8 @@ func (in *OpsworksHaproxyLayerParameters) DeepCopyInto(out *OpsworksHaproxyLayer
 		*out = new(bool)
 		**out = **in
 	}
-	if in.StatsUrl != nil {
-		in, out := &in.StatsUrl, &out.StatsUrl
+	if in.StatsURL != nil {
+		in, out := &in.StatsURL, &out.StatsURL
 		*out = new(string)
 		**out = **in
 	}
@@ -1412,8 +1412,8 @@ func (in *OpsworksInstanceParameters) DeepCopyInto(out *OpsworksInstanceParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.AmiId != nil {
-		in, out := &in.AmiId, &out.AmiId
+	if in.AmiID != nil {
+		in, out := &in.AmiID, &out.AmiID
 		*out = new(string)
 		**out = **in
 	}
@@ -1464,8 +1464,8 @@ func (in *OpsworksInstanceParameters) DeepCopyInto(out *OpsworksInstanceParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.ElasticIp != nil {
-		in, out := &in.ElasticIp, &out.ElasticIp
+	if in.ElasticIP != nil {
+		in, out := &in.ElasticIP, &out.ElasticIP
 		*out = new(string)
 		**out = **in
 	}
@@ -1499,8 +1499,8 @@ func (in *OpsworksInstanceParameters) DeepCopyInto(out *OpsworksInstanceParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.LastServiceErrorId != nil {
-		in, out := &in.LastServiceErrorId, &out.LastServiceErrorId
+	if in.LastServiceErrorID != nil {
+		in, out := &in.LastServiceErrorID, &out.LastServiceErrorID
 		*out = new(string)
 		**out = **in
 	}
@@ -1519,23 +1519,23 @@ func (in *OpsworksInstanceParameters) DeepCopyInto(out *OpsworksInstanceParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.PrivateDns != nil {
-		in, out := &in.PrivateDns, &out.PrivateDns
+	if in.PrivateDNS != nil {
+		in, out := &in.PrivateDNS, &out.PrivateDNS
 		*out = new(string)
 		**out = **in
 	}
-	if in.PrivateIp != nil {
-		in, out := &in.PrivateIp, &out.PrivateIp
+	if in.PrivateIP != nil {
+		in, out := &in.PrivateIP, &out.PrivateIP
 		*out = new(string)
 		**out = **in
 	}
-	if in.PublicDns != nil {
-		in, out := &in.PublicDns, &out.PublicDns
+	if in.PublicDNS != nil {
+		in, out := &in.PublicDNS, &out.PublicDNS
 		*out = new(string)
 		**out = **in
 	}
-	if in.PublicIp != nil {
-		in, out := &in.PublicIp, &out.PublicIp
+	if in.PublicIP != nil {
+		in, out := &in.PublicIP, &out.PublicIP
 		*out = new(string)
 		**out = **in
 	}
@@ -1576,8 +1576,23 @@ func (in *OpsworksInstanceParameters) DeepCopyInto(out *OpsworksInstanceParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.RootDeviceVolumeId != nil {
-		in, out := &in.RootDeviceVolumeId, &out.RootDeviceVolumeId
+	if in.RootDeviceVolumeID != nil {
+		in, out := &in.RootDeviceVolumeID, &out.RootDeviceVolumeID
+		*out = new(string)
+		**out = **in
+	}
+	if in.SSHHostDsaKeyFingerprint != nil {
+		in, out := &in.SSHHostDsaKeyFingerprint, &out.SSHHostDsaKeyFingerprint
+		*out = new(string)
+		**out = **in
+	}
+	if in.SSHHostRsaKeyFingerprint != nil {
+		in, out := &in.SSHHostRsaKeyFingerprint, &out.SSHHostRsaKeyFingerprint
+		*out = new(string)
+		**out = **in
+	}
+	if in.SSHKeyName != nil {
+		in, out := &in.SSHKeyName, &out.SSHKeyName
 		*out = new(string)
 		**out = **in
 	}
@@ -1585,21 +1600,6 @@ func (in *OpsworksInstanceParameters) DeepCopyInto(out *OpsworksInstanceParamete
 		in, out := &in.SecurityGroupIds, &out.SecurityGroupIds
 		*out = make([]string, len(*in))
 		copy(*out, *in)
-	}
-	if in.SshHostDsaKeyFingerprint != nil {
-		in, out := &in.SshHostDsaKeyFingerprint, &out.SshHostDsaKeyFingerprint
-		*out = new(string)
-		**out = **in
-	}
-	if in.SshHostRsaKeyFingerprint != nil {
-		in, out := &in.SshHostRsaKeyFingerprint, &out.SshHostRsaKeyFingerprint
-		*out = new(string)
-		**out = **in
-	}
-	if in.SshKeyName != nil {
-		in, out := &in.SshKeyName, &out.SshKeyName
-		*out = new(string)
-		**out = **in
 	}
 	if in.State != nil {
 		in, out := &in.State, &out.State
@@ -1611,8 +1611,8 @@ func (in *OpsworksInstanceParameters) DeepCopyInto(out *OpsworksInstanceParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.SubnetId != nil {
-		in, out := &in.SubnetId, &out.SubnetId
+	if in.SubnetID != nil {
+		in, out := &in.SubnetID, &out.SubnetID
 		*out = new(string)
 		**out = **in
 	}
@@ -1839,8 +1839,8 @@ func (in *OpsworksJavaAppLayerParameters) DeepCopyInto(out *OpsworksJavaAppLayer
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -2143,8 +2143,8 @@ func (in *OpsworksMemcachedLayerParameters) DeepCopyInto(out *OpsworksMemcachedL
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -2427,8 +2427,8 @@ func (in *OpsworksMysqlLayerParameters) DeepCopyInto(out *OpsworksMysqlLayerPara
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -2721,8 +2721,8 @@ func (in *OpsworksNodejsAppLayerParameters) DeepCopyInto(out *OpsworksNodejsAppL
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -2930,8 +2930,8 @@ func (in *OpsworksPermissionObservation) DeepCopy() *OpsworksPermissionObservati
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *OpsworksPermissionParameters) DeepCopyInto(out *OpsworksPermissionParameters) {
 	*out = *in
-	if in.AllowSsh != nil {
-		in, out := &in.AllowSsh, &out.AllowSsh
+	if in.AllowSSH != nil {
+		in, out := &in.AllowSSH, &out.AllowSSH
 		*out = new(bool)
 		**out = **in
 	}
@@ -2945,8 +2945,8 @@ func (in *OpsworksPermissionParameters) DeepCopyInto(out *OpsworksPermissionPara
 		*out = new(string)
 		**out = **in
 	}
-	if in.StackId != nil {
-		in, out := &in.StackId, &out.StackId
+	if in.StackID != nil {
+		in, out := &in.StackID, &out.StackID
 		*out = new(string)
 		**out = **in
 	}
@@ -3153,8 +3153,8 @@ func (in *OpsworksPhpAppLayerParameters) DeepCopyInto(out *OpsworksPhpAppLayerPa
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -3447,8 +3447,8 @@ func (in *OpsworksRailsAppLayerParameters) DeepCopyInto(out *OpsworksRailsAppLay
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -3826,8 +3826,8 @@ func (in *OpsworksStackParameters) DeepCopyInto(out *OpsworksStackParameters) {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -3846,13 +3846,13 @@ func (in *OpsworksStackParameters) DeepCopyInto(out *OpsworksStackParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.DefaultSshKeyName != nil {
-		in, out := &in.DefaultSshKeyName, &out.DefaultSshKeyName
+	if in.DefaultSSHKeyName != nil {
+		in, out := &in.DefaultSSHKeyName, &out.DefaultSSHKeyName
 		*out = new(string)
 		**out = **in
 	}
-	if in.DefaultSubnetId != nil {
-		in, out := &in.DefaultSubnetId, &out.DefaultSubnetId
+	if in.DefaultSubnetID != nil {
+		in, out := &in.DefaultSubnetID, &out.DefaultSubnetID
 		*out = new(string)
 		**out = **in
 	}
@@ -3890,8 +3890,8 @@ func (in *OpsworksStackParameters) DeepCopyInto(out *OpsworksStackParameters) {
 		*out = new(bool)
 		**out = **in
 	}
-	if in.VpcId != nil {
-		in, out := &in.VpcId, &out.VpcId
+	if in.VpcID != nil {
+		in, out := &in.VpcID, &out.VpcID
 		*out = new(string)
 		**out = **in
 	}
@@ -4098,8 +4098,8 @@ func (in *OpsworksStaticWebLayerParameters) DeepCopyInto(out *OpsworksStaticWebL
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomJson != nil {
-		in, out := &in.CustomJson, &out.CustomJson
+	if in.CustomJSON != nil {
+		in, out := &in.CustomJSON, &out.CustomJSON
 		*out = new(string)
 		**out = **in
 	}
@@ -4307,8 +4307,8 @@ func (in *OpsworksUserProfileParameters) DeepCopyInto(out *OpsworksUserProfilePa
 		*out = new(bool)
 		**out = **in
 	}
-	if in.SshPublicKey != nil {
-		in, out := &in.SshPublicKey, &out.SshPublicKey
+	if in.SSHPublicKey != nil {
+		in, out := &in.SSHPublicKey, &out.SSHPublicKey
 		*out = new(string)
 		**out = **in
 	}

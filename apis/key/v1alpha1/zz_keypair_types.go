@@ -29,20 +29,29 @@ type KeyPairObservation struct {
 
 	Fingerprint string `json:"fingerprint" tf:"fingerprint"`
 
-	KeyPairId string `json:"keyPairId" tf:"key_pair_id"`
+	KeyPairID string `json:"keyPairId" tf:"key_pair_id"`
 }
 
 type KeyPairParameters struct {
+
+	// +kubebuilder:validation:Optional
 	KeyName *string `json:"keyName,omitempty" tf:"key_name"`
 
+	// +kubebuilder:validation:Optional
 	KeyNamePrefix *string `json:"keyNamePrefix,omitempty" tf:"key_name_prefix"`
 
+	// +kubebuilder:validation:Required
 	PublicKey string `json:"publicKey" tf:"public_key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

@@ -28,12 +28,19 @@ type StoragegatewayUploadBufferObservation struct {
 }
 
 type StoragegatewayUploadBufferParameters struct {
-	DiskId *string `json:"diskId,omitempty" tf:"disk_id"`
 
+	// +kubebuilder:validation:Optional
+	DiskID *string `json:"diskId,omitempty" tf:"disk_id"`
+
+	// +kubebuilder:validation:Optional
 	DiskPath *string `json:"diskPath,omitempty" tf:"disk_path"`
 
+	// +kubebuilder:validation:Required
 	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

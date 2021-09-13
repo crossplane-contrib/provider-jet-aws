@@ -54,8 +54,8 @@ func (in *AmiDistributionConfigurationParameters) DeepCopyInto(out *AmiDistribut
 		*out = new(string)
 		**out = **in
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -275,13 +275,13 @@ func (in *EbsParameters) DeepCopyInto(out *EbsParameters) {
 		*out = new(int64)
 		**out = **in
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}
-	if in.SnapshotId != nil {
-		in, out := &in.SnapshotId, &out.SnapshotId
+	if in.SnapshotID != nil {
+		in, out := &in.SnapshotID, &out.SnapshotID
 		*out = new(string)
 		**out = **in
 	}
@@ -439,8 +439,8 @@ func (in *ImagebuilderComponentParameters) DeepCopyInto(out *ImagebuilderCompone
 		*out = new(string)
 		**out = **in
 	}
-	if in.KmsKeyId != nil {
-		in, out := &in.KmsKeyId, &out.KmsKeyId
+	if in.KmsKeyID != nil {
+		in, out := &in.KmsKeyID, &out.KmsKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -463,8 +463,8 @@ func (in *ImagebuilderComponentParameters) DeepCopyInto(out *ImagebuilderCompone
 			(*out)[key] = val
 		}
 	}
-	if in.Uri != nil {
-		in, out := &in.Uri, &out.Uri
+	if in.URI != nil {
+		in, out := &in.URI, &out.URI
 		*out = new(string)
 		**out = **in
 	}
@@ -1310,8 +1310,8 @@ func (in *ImagebuilderInfrastructureConfigurationParameters) DeepCopyInto(out *I
 		*out = new(string)
 		**out = **in
 	}
-	if in.SubnetId != nil {
-		in, out := &in.SubnetId, &out.SubnetId
+	if in.SubnetID != nil {
+		in, out := &in.SubnetID, &out.SubnetID
 		*out = new(string)
 		**out = **in
 	}

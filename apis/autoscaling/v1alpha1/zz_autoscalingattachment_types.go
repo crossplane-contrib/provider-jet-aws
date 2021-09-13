@@ -28,12 +28,19 @@ type AutoscalingAttachmentObservation struct {
 }
 
 type AutoscalingAttachmentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AlbTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn"`
 
+	// +kubebuilder:validation:Required
 	AutoscalingGroupName string `json:"autoscalingGroupName" tf:"autoscaling_group_name"`
 
+	// +kubebuilder:validation:Optional
 	Elb *string `json:"elb,omitempty" tf:"elb"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

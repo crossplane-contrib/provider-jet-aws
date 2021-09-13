@@ -28,16 +28,25 @@ type OpsworksPermissionObservation struct {
 }
 
 type OpsworksPermissionParameters struct {
-	AllowSsh *bool `json:"allowSsh,omitempty" tf:"allow_ssh"`
 
+	// +kubebuilder:validation:Optional
+	AllowSSH *bool `json:"allowSsh,omitempty" tf:"allow_ssh"`
+
+	// +kubebuilder:validation:Optional
 	AllowSudo *bool `json:"allowSudo,omitempty" tf:"allow_sudo"`
 
+	// +kubebuilder:validation:Optional
 	Level *string `json:"level,omitempty" tf:"level"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	StackId *string `json:"stackId,omitempty" tf:"stack_id"`
+	// +kubebuilder:validation:Optional
+	StackID *string `json:"stackId,omitempty" tf:"stack_id"`
 
+	// +kubebuilder:validation:Required
 	UserArn string `json:"userArn" tf:"user_arn"`
 }
 

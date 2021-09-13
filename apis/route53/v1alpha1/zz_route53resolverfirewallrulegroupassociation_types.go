@@ -29,21 +29,32 @@ type Route53ResolverFirewallRuleGroupAssociationObservation struct {
 }
 
 type Route53ResolverFirewallRuleGroupAssociationParameters struct {
-	FirewallRuleGroupId string `json:"firewallRuleGroupId" tf:"firewall_rule_group_id"`
 
+	// +kubebuilder:validation:Required
+	FirewallRuleGroupID string `json:"firewallRuleGroupId" tf:"firewall_rule_group_id"`
+
+	// +kubebuilder:validation:Optional
 	MutationProtection *string `json:"mutationProtection,omitempty" tf:"mutation_protection"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // Route53ResolverFirewallRuleGroupAssociationSpec defines the desired state of Route53ResolverFirewallRuleGroupAssociation

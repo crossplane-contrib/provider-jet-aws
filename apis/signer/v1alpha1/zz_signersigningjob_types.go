@@ -28,6 +28,8 @@ type DestinationObservation struct {
 }
 
 type DestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	S3 []S3Parameters `json:"s3" tf:"s3"`
 }
 
@@ -46,8 +48,11 @@ type S3Observation struct {
 }
 
 type S3Parameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 }
 
@@ -72,7 +77,7 @@ type SignerSigningJobObservation struct {
 
 	CreatedAt string `json:"createdAt" tf:"created_at"`
 
-	JobId string `json:"jobId" tf:"job_id"`
+	JobID string `json:"jobId" tf:"job_id"`
 
 	JobInvoker string `json:"jobInvoker" tf:"job_invoker"`
 
@@ -80,7 +85,7 @@ type SignerSigningJobObservation struct {
 
 	PlatformDisplayName string `json:"platformDisplayName" tf:"platform_display_name"`
 
-	PlatformId string `json:"platformId" tf:"platform_id"`
+	PlatformID string `json:"platformId" tf:"platform_id"`
 
 	ProfileVersion string `json:"profileVersion" tf:"profile_version"`
 
@@ -98,14 +103,22 @@ type SignerSigningJobObservation struct {
 }
 
 type SignerSigningJobParameters struct {
+
+	// +kubebuilder:validation:Required
 	Destination []DestinationParameters `json:"destination" tf:"destination"`
 
+	// +kubebuilder:validation:Optional
 	IgnoreSigningJobFailure *bool `json:"ignoreSigningJobFailure,omitempty" tf:"ignore_signing_job_failure"`
 
+	// +kubebuilder:validation:Required
 	ProfileName string `json:"profileName" tf:"profile_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Source []SourceParameters `json:"source" tf:"source"`
 }
 
@@ -113,6 +126,8 @@ type SourceObservation struct {
 }
 
 type SourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	S3 []SourceS3Parameters `json:"s3" tf:"s3"`
 }
 
@@ -120,10 +135,14 @@ type SourceS3Observation struct {
 }
 
 type SourceS3Parameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Version string `json:"version" tf:"version"`
 }
 

@@ -31,14 +31,20 @@ type AutomationParametersParameterObservation struct {
 }
 
 type AutomationParametersParameterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 
 type AutomationParametersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DocumentVersion *string `json:"documentVersion,omitempty" tf:"document_version"`
 
+	// +kubebuilder:validation:Optional
 	Parameter []AutomationParametersParameterParameters `json:"parameter,omitempty" tf:"parameter"`
 }
 
@@ -46,8 +52,11 @@ type CloudwatchConfigObservation struct {
 }
 
 type CloudwatchConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchLogGroupName *string `json:"cloudwatchLogGroupName,omitempty" tf:"cloudwatch_log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchOutputEnabled *bool `json:"cloudwatchOutputEnabled,omitempty" tf:"cloudwatch_output_enabled"`
 }
 
@@ -55,10 +64,14 @@ type LambdaParametersObservation struct {
 }
 
 type LambdaParametersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ClientContext *string `json:"clientContext,omitempty" tf:"client_context"`
 
+	// +kubebuilder:validation:Optional
 	Payload *string `json:"payload,omitempty" tf:"payload"`
 
+	// +kubebuilder:validation:Optional
 	Qualifier *string `json:"qualifier,omitempty" tf:"qualifier"`
 }
 
@@ -66,10 +79,14 @@ type NotificationConfigObservation struct {
 }
 
 type NotificationConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	NotificationArn *string `json:"notificationArn,omitempty" tf:"notification_arn"`
 
+	// +kubebuilder:validation:Optional
 	NotificationEvents []string `json:"notificationEvents,omitempty" tf:"notification_events"`
 
+	// +kubebuilder:validation:Optional
 	NotificationType *string `json:"notificationType,omitempty" tf:"notification_type"`
 }
 
@@ -80,32 +97,47 @@ type RunCommandParametersParameterObservation struct {
 }
 
 type RunCommandParametersParameterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 
 type RunCommandParametersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchConfig []CloudwatchConfigParameters `json:"cloudwatchConfig,omitempty" tf:"cloudwatch_config"`
 
+	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
+	// +kubebuilder:validation:Optional
 	DocumentHash *string `json:"documentHash,omitempty" tf:"document_hash"`
 
+	// +kubebuilder:validation:Optional
 	DocumentHashType *string `json:"documentHashType,omitempty" tf:"document_hash_type"`
 
+	// +kubebuilder:validation:Optional
 	DocumentVersion *string `json:"documentVersion,omitempty" tf:"document_version"`
 
+	// +kubebuilder:validation:Optional
 	NotificationConfig []NotificationConfigParameters `json:"notificationConfig,omitempty" tf:"notification_config"`
 
+	// +kubebuilder:validation:Optional
 	OutputS3Bucket *string `json:"outputS3Bucket,omitempty" tf:"output_s3_bucket"`
 
+	// +kubebuilder:validation:Optional
 	OutputS3KeyPrefix *string `json:"outputS3KeyPrefix,omitempty" tf:"output_s3_key_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Parameter []RunCommandParametersParameterParameters `json:"parameter,omitempty" tf:"parameter"`
 
+	// +kubebuilder:validation:Optional
 	ServiceRoleArn *string `json:"serviceRoleArn,omitempty" tf:"service_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	TimeoutSeconds *int64 `json:"timeoutSeconds,omitempty" tf:"timeout_seconds"`
 }
 
@@ -113,37 +145,55 @@ type SsmMaintenanceWindowTaskObservation struct {
 }
 
 type SsmMaintenanceWindowTaskParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	MaxConcurrency string `json:"maxConcurrency" tf:"max_concurrency"`
 
+	// +kubebuilder:validation:Required
 	MaxErrors string `json:"maxErrors" tf:"max_errors"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Priority *int64 `json:"priority,omitempty" tf:"priority"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ServiceRoleArn *string `json:"serviceRoleArn,omitempty" tf:"service_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Targets []SsmMaintenanceWindowTaskTargetsParameters `json:"targets,omitempty" tf:"targets"`
 
+	// +kubebuilder:validation:Required
 	TaskArn string `json:"taskArn" tf:"task_arn"`
 
+	// +kubebuilder:validation:Optional
 	TaskInvocationParameters []TaskInvocationParametersParameters `json:"taskInvocationParameters,omitempty" tf:"task_invocation_parameters"`
 
+	// +kubebuilder:validation:Required
 	TaskType string `json:"taskType" tf:"task_type"`
 
-	WindowId string `json:"windowId" tf:"window_id"`
+	// +kubebuilder:validation:Required
+	WindowID string `json:"windowId" tf:"window_id"`
 }
 
 type SsmMaintenanceWindowTaskTargetsObservation struct {
 }
 
 type SsmMaintenanceWindowTaskTargetsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 
@@ -151,8 +201,11 @@ type StepFunctionsParametersObservation struct {
 }
 
 type StepFunctionsParametersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Input *string `json:"input,omitempty" tf:"input"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 }
 
@@ -160,12 +213,17 @@ type TaskInvocationParametersObservation struct {
 }
 
 type TaskInvocationParametersParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AutomationParameters []AutomationParametersParameters `json:"automationParameters,omitempty" tf:"automation_parameters"`
 
+	// +kubebuilder:validation:Optional
 	LambdaParameters []LambdaParametersParameters `json:"lambdaParameters,omitempty" tf:"lambda_parameters"`
 
+	// +kubebuilder:validation:Optional
 	RunCommandParameters []RunCommandParametersParameters `json:"runCommandParameters,omitempty" tf:"run_command_parameters"`
 
+	// +kubebuilder:validation:Optional
 	StepFunctionsParameters []StepFunctionsParametersParameters `json:"stepFunctionsParameters,omitempty" tf:"step_functions_parameters"`
 }
 

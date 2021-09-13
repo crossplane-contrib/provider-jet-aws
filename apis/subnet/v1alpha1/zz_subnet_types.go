@@ -27,37 +27,53 @@ import (
 type SubnetObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	Ipv6CidrBlockAssociationId string `json:"ipv6CidrBlockAssociationId" tf:"ipv6_cidr_block_association_id"`
+	IPv6CidrBlockAssociationID string `json:"ipv6CidrBlockAssociationId" tf:"ipv6_cidr_block_association_id"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 }
 
 type SubnetParameters struct {
-	AssignIpv6AddressOnCreation *bool `json:"assignIpv6AddressOnCreation,omitempty" tf:"assign_ipv6_address_on_creation"`
 
+	// +kubebuilder:validation:Optional
+	AssignIPv6AddressOnCreation *bool `json:"assignIpv6AddressOnCreation,omitempty" tf:"assign_ipv6_address_on_creation"`
+
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
-	AvailabilityZoneId *string `json:"availabilityZoneId,omitempty" tf:"availability_zone_id"`
+	// +kubebuilder:validation:Optional
+	AvailabilityZoneID *string `json:"availabilityZoneId,omitempty" tf:"availability_zone_id"`
 
+	// +kubebuilder:validation:Required
 	CidrBlock string `json:"cidrBlock" tf:"cidr_block"`
 
-	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
+	// +kubebuilder:validation:Optional
+	CustomerOwnedIPv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
 
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+	// +kubebuilder:validation:Optional
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
 
-	MapCustomerOwnedIpOnLaunch *bool `json:"mapCustomerOwnedIpOnLaunch,omitempty" tf:"map_customer_owned_ip_on_launch"`
+	// +kubebuilder:validation:Optional
+	MapCustomerOwnedIPOnLaunch *bool `json:"mapCustomerOwnedIpOnLaunch,omitempty" tf:"map_customer_owned_ip_on_launch"`
 
-	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch,omitempty" tf:"map_public_ip_on_launch"`
+	// +kubebuilder:validation:Optional
+	MapPublicIPOnLaunch *bool `json:"mapPublicIpOnLaunch,omitempty" tf:"map_public_ip_on_launch"`
 
+	// +kubebuilder:validation:Optional
 	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // SubnetSpec defines the desired state of Subnet

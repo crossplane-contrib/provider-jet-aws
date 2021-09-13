@@ -29,25 +29,38 @@ type DatasyncAgentObservation struct {
 }
 
 type DatasyncAgentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ActivationKey *string `json:"activationKey,omitempty" tf:"activation_key"`
 
-	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
+	// +kubebuilder:validation:Optional
+	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PrivateLinkEndpoint *string `json:"privateLinkEndpoint,omitempty" tf:"private_link_endpoint"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupArns []string `json:"securityGroupArns,omitempty" tf:"security_group_arns"`
 
+	// +kubebuilder:validation:Optional
 	SubnetArns []string `json:"subnetArns,omitempty" tf:"subnet_arns"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcEndpointId *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
+	// +kubebuilder:validation:Optional
+	VpcEndpointID *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id"`
 }
 
 // DatasyncAgentSpec defines the desired state of DatasyncAgent

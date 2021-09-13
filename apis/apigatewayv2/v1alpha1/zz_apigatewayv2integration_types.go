@@ -29,58 +29,85 @@ type Apigatewayv2IntegrationObservation struct {
 }
 
 type Apigatewayv2IntegrationParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
-	ConnectionId *string `json:"connectionId,omitempty" tf:"connection_id"`
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Optional
+	ConnectionID *string `json:"connectionId,omitempty" tf:"connection_id"`
+
+	// +kubebuilder:validation:Optional
 	ConnectionType *string `json:"connectionType,omitempty" tf:"connection_type"`
 
+	// +kubebuilder:validation:Optional
 	ContentHandlingStrategy *string `json:"contentHandlingStrategy,omitempty" tf:"content_handling_strategy"`
 
+	// +kubebuilder:validation:Optional
 	CredentialsArn *string `json:"credentialsArn,omitempty" tf:"credentials_arn"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	IntegrationMethod *string `json:"integrationMethod,omitempty" tf:"integration_method"`
 
+	// +kubebuilder:validation:Optional
 	IntegrationSubtype *string `json:"integrationSubtype,omitempty" tf:"integration_subtype"`
 
+	// +kubebuilder:validation:Required
 	IntegrationType string `json:"integrationType" tf:"integration_type"`
 
-	IntegrationUri *string `json:"integrationUri,omitempty" tf:"integration_uri"`
+	// +kubebuilder:validation:Optional
+	IntegrationURI *string `json:"integrationUri,omitempty" tf:"integration_uri"`
 
+	// +kubebuilder:validation:Optional
 	PassthroughBehavior *string `json:"passthroughBehavior,omitempty" tf:"passthrough_behavior"`
 
+	// +kubebuilder:validation:Optional
 	PayloadFormatVersion *string `json:"payloadFormatVersion,omitempty" tf:"payload_format_version"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RequestParameters map[string]string `json:"requestParameters,omitempty" tf:"request_parameters"`
 
+	// +kubebuilder:validation:Optional
 	RequestTemplates map[string]string `json:"requestTemplates,omitempty" tf:"request_templates"`
 
+	// +kubebuilder:validation:Optional
 	ResponseParameters []ResponseParametersParameters `json:"responseParameters,omitempty" tf:"response_parameters"`
 
+	// +kubebuilder:validation:Optional
+	TLSConfig []TLSConfigParameters `json:"tlsConfig,omitempty" tf:"tls_config"`
+
+	// +kubebuilder:validation:Optional
 	TemplateSelectionExpression *string `json:"templateSelectionExpression,omitempty" tf:"template_selection_expression"`
 
+	// +kubebuilder:validation:Optional
 	TimeoutMilliseconds *int64 `json:"timeoutMilliseconds,omitempty" tf:"timeout_milliseconds"`
-
-	TlsConfig []TlsConfigParameters `json:"tlsConfig,omitempty" tf:"tls_config"`
 }
 
 type ResponseParametersObservation struct {
 }
 
 type ResponseParametersParameters struct {
+
+	// +kubebuilder:validation:Required
 	Mappings map[string]string `json:"mappings" tf:"mappings"`
 
+	// +kubebuilder:validation:Required
 	StatusCode string `json:"statusCode" tf:"status_code"`
 }
 
-type TlsConfigObservation struct {
+type TLSConfigObservation struct {
 }
 
-type TlsConfigParameters struct {
+type TLSConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ServerNameToVerify *string `json:"serverNameToVerify,omitempty" tf:"server_name_to_verify"`
 }
 

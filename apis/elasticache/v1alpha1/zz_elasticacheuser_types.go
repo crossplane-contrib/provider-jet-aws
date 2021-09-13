@@ -28,24 +28,37 @@ type ElasticacheUserObservation struct {
 }
 
 type ElasticacheUserParameters struct {
+
+	// +kubebuilder:validation:Required
 	AccessString string `json:"accessString" tf:"access_string"`
 
+	// +kubebuilder:validation:Optional
 	Arn *string `json:"arn,omitempty" tf:"arn"`
 
+	// +kubebuilder:validation:Required
 	Engine string `json:"engine" tf:"engine"`
 
+	// +kubebuilder:validation:Optional
 	NoPasswordRequired *bool `json:"noPasswordRequired,omitempty" tf:"no_password_required"`
 
+	// +kubebuilder:validation:Optional
 	Passwords []string `json:"passwords,omitempty" tf:"passwords"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	UserId string `json:"userId" tf:"user_id"`
+	// +kubebuilder:validation:Required
+	UserID string `json:"userId" tf:"user_id"`
 
+	// +kubebuilder:validation:Required
 	UserName string `json:"userName" tf:"user_name"`
 }
 

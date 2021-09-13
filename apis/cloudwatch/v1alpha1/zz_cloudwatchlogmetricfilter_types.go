@@ -28,14 +28,22 @@ type CloudwatchLogMetricFilterObservation struct {
 }
 
 type CloudwatchLogMetricFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	LogGroupName string `json:"logGroupName" tf:"log_group_name"`
 
+	// +kubebuilder:validation:Required
 	MetricTransformation []MetricTransformationParameters `json:"metricTransformation" tf:"metric_transformation"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Pattern string `json:"pattern" tf:"pattern"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -43,16 +51,23 @@ type MetricTransformationObservation struct {
 }
 
 type MetricTransformationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DefaultValue *string `json:"defaultValue,omitempty" tf:"default_value"`
 
+	// +kubebuilder:validation:Optional
 	Dimensions map[string]string `json:"dimensions,omitempty" tf:"dimensions"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 
+	// +kubebuilder:validation:Optional
 	Unit *string `json:"unit,omitempty" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

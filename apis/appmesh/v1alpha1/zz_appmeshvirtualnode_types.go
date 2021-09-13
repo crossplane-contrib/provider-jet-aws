@@ -35,18 +35,28 @@ type AppmeshVirtualNodeObservation struct {
 }
 
 type AppmeshVirtualNodeParameters struct {
+
+	// +kubebuilder:validation:Required
 	MeshName string `json:"meshName" tf:"mesh_name"`
 
+	// +kubebuilder:validation:Optional
 	MeshOwner *string `json:"meshOwner,omitempty" tf:"mesh_owner"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Spec []AppmeshVirtualNodeSpecParameters `json:"spec" tf:"spec"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -54,14 +64,20 @@ type AppmeshVirtualNodeSpecObservation struct {
 }
 
 type AppmeshVirtualNodeSpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Backend []BackendParameters `json:"backend,omitempty" tf:"backend"`
 
+	// +kubebuilder:validation:Optional
 	BackendDefaults []SpecBackendDefaultsParameters `json:"backendDefaults,omitempty" tf:"backend_defaults"`
 
+	// +kubebuilder:validation:Optional
 	Listener []SpecListenerParameters `json:"listener,omitempty" tf:"listener"`
 
+	// +kubebuilder:validation:Optional
 	Logging []SpecLoggingParameters `json:"logging,omitempty" tf:"logging"`
 
+	// +kubebuilder:validation:Optional
 	ServiceDiscovery []ServiceDiscoveryParameters `json:"serviceDiscovery,omitempty" tf:"service_discovery"`
 }
 
@@ -69,10 +85,14 @@ type AwsCloudMapObservation struct {
 }
 
 type AwsCloudMapParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Attributes map[string]string `json:"attributes,omitempty" tf:"attributes"`
 
+	// +kubebuilder:validation:Required
 	NamespaceName string `json:"namespaceName" tf:"namespace_name"`
 
+	// +kubebuilder:validation:Required
 	ServiceName string `json:"serviceName" tf:"service_name"`
 }
 
@@ -80,44 +100,59 @@ type BackendDefaultsClientPolicyObservation struct {
 }
 
 type BackendDefaultsClientPolicyParameters struct {
-	Tls []BackendDefaultsClientPolicyTlsParameters `json:"tls,omitempty" tf:"tls"`
+
+	// +kubebuilder:validation:Optional
+	TLS []BackendDefaultsClientPolicyTLSParameters `json:"tls,omitempty" tf:"tls"`
 }
 
-type BackendDefaultsClientPolicyTlsCertificateObservation struct {
+type BackendDefaultsClientPolicyTLSCertificateObservation struct {
 }
 
-type BackendDefaultsClientPolicyTlsCertificateParameters struct {
-	File []ClientPolicyTlsCertificateFileParameters `json:"file,omitempty" tf:"file"`
+type BackendDefaultsClientPolicyTLSCertificateParameters struct {
 
-	Sds []ClientPolicyTlsCertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
+	// +kubebuilder:validation:Optional
+	File []ClientPolicyTLSCertificateFileParameters `json:"file,omitempty" tf:"file"`
+
+	// +kubebuilder:validation:Optional
+	Sds []ClientPolicyTLSCertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
 }
 
-type BackendDefaultsClientPolicyTlsObservation struct {
+type BackendDefaultsClientPolicyTLSObservation struct {
 }
 
-type BackendDefaultsClientPolicyTlsParameters struct {
-	Certificate []BackendDefaultsClientPolicyTlsCertificateParameters `json:"certificate,omitempty" tf:"certificate"`
+type BackendDefaultsClientPolicyTLSParameters struct {
 
+	// +kubebuilder:validation:Optional
+	Certificate []BackendDefaultsClientPolicyTLSCertificateParameters `json:"certificate,omitempty" tf:"certificate"`
+
+	// +kubebuilder:validation:Optional
 	Enforce *bool `json:"enforce,omitempty" tf:"enforce"`
 
+	// +kubebuilder:validation:Optional
 	Ports []int64 `json:"ports,omitempty" tf:"ports"`
 
-	Validation []BackendDefaultsClientPolicyTlsValidationParameters `json:"validation" tf:"validation"`
+	// +kubebuilder:validation:Required
+	Validation []BackendDefaultsClientPolicyTLSValidationParameters `json:"validation" tf:"validation"`
 }
 
-type BackendDefaultsClientPolicyTlsValidationObservation struct {
+type BackendDefaultsClientPolicyTLSValidationObservation struct {
 }
 
-type BackendDefaultsClientPolicyTlsValidationParameters struct {
-	SubjectAlternativeNames []ClientPolicyTlsValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
+type BackendDefaultsClientPolicyTLSValidationParameters struct {
 
-	Trust []ClientPolicyTlsValidationTrustParameters `json:"trust" tf:"trust"`
+	// +kubebuilder:validation:Optional
+	SubjectAlternativeNames []ClientPolicyTLSValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
+
+	// +kubebuilder:validation:Required
+	Trust []ClientPolicyTLSValidationTrustParameters `json:"trust" tf:"trust"`
 }
 
 type BackendObservation struct {
 }
 
 type BackendParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualService []BackendVirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
 }
 
@@ -125,8 +160,11 @@ type BackendVirtualServiceObservation struct {
 }
 
 type BackendVirtualServiceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ClientPolicy []VirtualServiceClientPolicyParameters `json:"clientPolicy,omitempty" tf:"client_policy"`
 
+	// +kubebuilder:validation:Required
 	VirtualServiceName string `json:"virtualServiceName" tf:"virtual_service_name"`
 }
 
@@ -134,94 +172,125 @@ type BaseEjectionDurationObservation struct {
 }
 
 type BaseEjectionDurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
-type ClientPolicyTlsCertificateFileObservation struct {
+type ClientPolicyTLSCertificateFileObservation struct {
 }
 
-type ClientPolicyTlsCertificateFileParameters struct {
+type ClientPolicyTLSCertificateFileParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
 
+	// +kubebuilder:validation:Required
 	PrivateKey string `json:"privateKey" tf:"private_key"`
 }
 
-type ClientPolicyTlsCertificateObservation struct {
+type ClientPolicyTLSCertificateObservation struct {
 }
 
-type ClientPolicyTlsCertificateParameters struct {
-	File []TlsCertificateFileParameters `json:"file,omitempty" tf:"file"`
+type ClientPolicyTLSCertificateParameters struct {
 
-	Sds []TlsCertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
+	// +kubebuilder:validation:Optional
+	File []TLSCertificateFileParameters `json:"file,omitempty" tf:"file"`
+
+	// +kubebuilder:validation:Optional
+	Sds []TLSCertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
 }
 
-type ClientPolicyTlsCertificateSdsObservation struct {
+type ClientPolicyTLSCertificateSdsObservation struct {
 }
 
-type ClientPolicyTlsCertificateSdsParameters struct {
+type ClientPolicyTLSCertificateSdsParameters struct {
+
+	// +kubebuilder:validation:Required
 	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
-type ClientPolicyTlsObservation struct {
+type ClientPolicyTLSObservation struct {
 }
 
-type ClientPolicyTlsParameters struct {
-	Certificate []ClientPolicyTlsCertificateParameters `json:"certificate,omitempty" tf:"certificate"`
+type ClientPolicyTLSParameters struct {
 
+	// +kubebuilder:validation:Optional
+	Certificate []ClientPolicyTLSCertificateParameters `json:"certificate,omitempty" tf:"certificate"`
+
+	// +kubebuilder:validation:Optional
 	Enforce *bool `json:"enforce,omitempty" tf:"enforce"`
 
+	// +kubebuilder:validation:Optional
 	Ports []int64 `json:"ports,omitempty" tf:"ports"`
 
-	Validation []ClientPolicyTlsValidationParameters `json:"validation" tf:"validation"`
+	// +kubebuilder:validation:Required
+	Validation []ClientPolicyTLSValidationParameters `json:"validation" tf:"validation"`
 }
 
-type ClientPolicyTlsValidationObservation struct {
+type ClientPolicyTLSValidationObservation struct {
 }
 
-type ClientPolicyTlsValidationParameters struct {
-	SubjectAlternativeNames []TlsValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
+type ClientPolicyTLSValidationParameters struct {
 
-	Trust []TlsValidationTrustParameters `json:"trust" tf:"trust"`
+	// +kubebuilder:validation:Optional
+	SubjectAlternativeNames []TLSValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
+
+	// +kubebuilder:validation:Required
+	Trust []TLSValidationTrustParameters `json:"trust" tf:"trust"`
 }
 
-type ClientPolicyTlsValidationSubjectAlternativeNamesMatchObservation struct {
+type ClientPolicyTLSValidationSubjectAlternativeNamesMatchObservation struct {
 }
 
-type ClientPolicyTlsValidationSubjectAlternativeNamesMatchParameters struct {
+type ClientPolicyTLSValidationSubjectAlternativeNamesMatchParameters struct {
+
+	// +kubebuilder:validation:Required
 	Exact []string `json:"exact" tf:"exact"`
 }
 
-type ClientPolicyTlsValidationSubjectAlternativeNamesObservation struct {
+type ClientPolicyTLSValidationSubjectAlternativeNamesObservation struct {
 }
 
-type ClientPolicyTlsValidationSubjectAlternativeNamesParameters struct {
-	Match []ClientPolicyTlsValidationSubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
+type ClientPolicyTLSValidationSubjectAlternativeNamesParameters struct {
+
+	// +kubebuilder:validation:Required
+	Match []ClientPolicyTLSValidationSubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
 }
 
-type ClientPolicyTlsValidationTrustFileObservation struct {
+type ClientPolicyTLSValidationTrustFileObservation struct {
 }
 
-type ClientPolicyTlsValidationTrustFileParameters struct {
+type ClientPolicyTLSValidationTrustFileParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
 }
 
-type ClientPolicyTlsValidationTrustObservation struct {
+type ClientPolicyTLSValidationTrustObservation struct {
 }
 
-type ClientPolicyTlsValidationTrustParameters struct {
+type ClientPolicyTLSValidationTrustParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Acm []ValidationTrustAcmParameters `json:"acm,omitempty" tf:"acm"`
 
-	File []ClientPolicyTlsValidationTrustFileParameters `json:"file,omitempty" tf:"file"`
+	// +kubebuilder:validation:Optional
+	File []ClientPolicyTLSValidationTrustFileParameters `json:"file,omitempty" tf:"file"`
 
-	Sds []ClientPolicyTlsValidationTrustSdsParameters `json:"sds,omitempty" tf:"sds"`
+	// +kubebuilder:validation:Optional
+	Sds []ClientPolicyTLSValidationTrustSdsParameters `json:"sds,omitempty" tf:"sds"`
 }
 
-type ClientPolicyTlsValidationTrustSdsObservation struct {
+type ClientPolicyTLSValidationTrustSdsObservation struct {
 }
 
-type ClientPolicyTlsValidationTrustSdsParameters struct {
+type ClientPolicyTLSValidationTrustSdsParameters struct {
+
+	// +kubebuilder:validation:Required
 	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
@@ -229,29 +298,38 @@ type ConnectionPoolGrpcObservation struct {
 }
 
 type ConnectionPoolGrpcParameters struct {
+
+	// +kubebuilder:validation:Required
 	MaxRequests int64 `json:"maxRequests" tf:"max_requests"`
+}
+
+type ConnectionPoolHTTPObservation struct {
+}
+
+type ConnectionPoolHTTPParameters struct {
+
+	// +kubebuilder:validation:Required
+	MaxConnections int64 `json:"maxConnections" tf:"max_connections"`
+
+	// +kubebuilder:validation:Optional
+	MaxPendingRequests *int64 `json:"maxPendingRequests,omitempty" tf:"max_pending_requests"`
 }
 
 type ConnectionPoolHttp2Observation struct {
 }
 
 type ConnectionPoolHttp2Parameters struct {
+
+	// +kubebuilder:validation:Required
 	MaxRequests int64 `json:"maxRequests" tf:"max_requests"`
 }
 
-type ConnectionPoolHttpObservation struct {
+type DNSObservation struct {
 }
 
-type ConnectionPoolHttpParameters struct {
-	MaxConnections int64 `json:"maxConnections" tf:"max_connections"`
+type DNSParameters struct {
 
-	MaxPendingRequests *int64 `json:"maxPendingRequests,omitempty" tf:"max_pending_requests"`
-}
-
-type DnsObservation struct {
-}
-
-type DnsParameters struct {
+	// +kubebuilder:validation:Required
 	Hostname string `json:"hostname" tf:"hostname"`
 }
 
@@ -259,8 +337,11 @@ type GrpcIdleObservation struct {
 }
 
 type GrpcIdleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -268,8 +349,35 @@ type GrpcPerRequestObservation struct {
 }
 
 type GrpcPerRequestParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
+	Value int64 `json:"value" tf:"value"`
+}
+
+type HTTPIdleObservation struct {
+}
+
+type HTTPIdleParameters struct {
+
+	// +kubebuilder:validation:Required
+	Unit string `json:"unit" tf:"unit"`
+
+	// +kubebuilder:validation:Required
+	Value int64 `json:"value" tf:"value"`
+}
+
+type HTTPPerRequestObservation struct {
+}
+
+type HTTPPerRequestParameters struct {
+
+	// +kubebuilder:validation:Required
+	Unit string `json:"unit" tf:"unit"`
+
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -277,8 +385,11 @@ type Http2IdleObservation struct {
 }
 
 type Http2IdleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -286,26 +397,11 @@ type Http2PerRequestObservation struct {
 }
 
 type Http2PerRequestParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
-	Value int64 `json:"value" tf:"value"`
-}
-
-type HttpIdleObservation struct {
-}
-
-type HttpIdleParameters struct {
-	Unit string `json:"unit" tf:"unit"`
-
-	Value int64 `json:"value" tf:"value"`
-}
-
-type HttpPerRequestObservation struct {
-}
-
-type HttpPerRequestParameters struct {
-	Unit string `json:"unit" tf:"unit"`
-
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -313,8 +409,11 @@ type IntervalObservation struct {
 }
 
 type IntervalParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
@@ -322,31 +421,44 @@ type ListenerConnectionPoolObservation struct {
 }
 
 type ListenerConnectionPoolParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Grpc []ConnectionPoolGrpcParameters `json:"grpc,omitempty" tf:"grpc"`
 
-	Http []ConnectionPoolHttpParameters `json:"http,omitempty" tf:"http"`
+	// +kubebuilder:validation:Optional
+	HTTP []ConnectionPoolHTTPParameters `json:"http,omitempty" tf:"http"`
 
+	// +kubebuilder:validation:Optional
 	Http2 []ConnectionPoolHttp2Parameters `json:"http2,omitempty" tf:"http2"`
 
-	Tcp []TcpParameters `json:"tcp,omitempty" tf:"tcp"`
+	// +kubebuilder:validation:Optional
+	TCP []TCPParameters `json:"tcp,omitempty" tf:"tcp"`
 }
 
 type ListenerHealthCheckObservation struct {
 }
 
 type ListenerHealthCheckParameters struct {
+
+	// +kubebuilder:validation:Required
 	HealthyThreshold int64 `json:"healthyThreshold" tf:"healthy_threshold"`
 
+	// +kubebuilder:validation:Required
 	IntervalMillis int64 `json:"intervalMillis" tf:"interval_millis"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// +kubebuilder:validation:Required
 	TimeoutMillis int64 `json:"timeoutMillis" tf:"timeout_millis"`
 
+	// +kubebuilder:validation:Required
 	UnhealthyThreshold int64 `json:"unhealthyThreshold" tf:"unhealthy_threshold"`
 }
 
@@ -354,101 +466,134 @@ type ListenerPortMappingObservation struct {
 }
 
 type ListenerPortMappingParameters struct {
+
+	// +kubebuilder:validation:Required
 	Port int64 `json:"port" tf:"port"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
+}
+
+type ListenerTLSCertificateFileObservation struct {
+}
+
+type ListenerTLSCertificateFileParameters struct {
+
+	// +kubebuilder:validation:Required
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+
+	// +kubebuilder:validation:Required
+	PrivateKey string `json:"privateKey" tf:"private_key"`
+}
+
+type ListenerTLSCertificateObservation struct {
+}
+
+type ListenerTLSCertificateParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Acm []TLSCertificateAcmParameters `json:"acm,omitempty" tf:"acm"`
+
+	// +kubebuilder:validation:Optional
+	File []ListenerTLSCertificateFileParameters `json:"file,omitempty" tf:"file"`
+
+	// +kubebuilder:validation:Optional
+	Sds []ListenerTLSCertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type ListenerTLSCertificateSdsObservation struct {
+}
+
+type ListenerTLSCertificateSdsParameters struct {
+
+	// +kubebuilder:validation:Required
+	SecretName string `json:"secretName" tf:"secret_name"`
+}
+
+type ListenerTLSValidationObservation struct {
+}
+
+type ListenerTLSValidationParameters struct {
+
+	// +kubebuilder:validation:Optional
+	SubjectAlternativeNames []ListenerTLSValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
+
+	// +kubebuilder:validation:Required
+	Trust []ListenerTLSValidationTrustParameters `json:"trust" tf:"trust"`
+}
+
+type ListenerTLSValidationSubjectAlternativeNamesMatchObservation struct {
+}
+
+type ListenerTLSValidationSubjectAlternativeNamesMatchParameters struct {
+
+	// +kubebuilder:validation:Required
+	Exact []string `json:"exact" tf:"exact"`
+}
+
+type ListenerTLSValidationSubjectAlternativeNamesObservation struct {
+}
+
+type ListenerTLSValidationSubjectAlternativeNamesParameters struct {
+
+	// +kubebuilder:validation:Required
+	Match []ListenerTLSValidationSubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
+}
+
+type ListenerTLSValidationTrustFileObservation struct {
+}
+
+type ListenerTLSValidationTrustFileParameters struct {
+
+	// +kubebuilder:validation:Required
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+}
+
+type ListenerTLSValidationTrustObservation struct {
+}
+
+type ListenerTLSValidationTrustParameters struct {
+
+	// +kubebuilder:validation:Optional
+	File []ListenerTLSValidationTrustFileParameters `json:"file,omitempty" tf:"file"`
+
+	// +kubebuilder:validation:Optional
+	Sds []ListenerTLSValidationTrustSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type ListenerTLSValidationTrustSdsObservation struct {
+}
+
+type ListenerTLSValidationTrustSdsParameters struct {
+
+	// +kubebuilder:validation:Required
+	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
 type ListenerTimeoutObservation struct {
 }
 
 type ListenerTimeoutParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Grpc []TimeoutGrpcParameters `json:"grpc,omitempty" tf:"grpc"`
 
-	Http []TimeoutHttpParameters `json:"http,omitempty" tf:"http"`
+	// +kubebuilder:validation:Optional
+	HTTP []TimeoutHTTPParameters `json:"http,omitempty" tf:"http"`
 
+	// +kubebuilder:validation:Optional
 	Http2 []TimeoutHttp2Parameters `json:"http2,omitempty" tf:"http2"`
 
-	Tcp []TimeoutTcpParameters `json:"tcp,omitempty" tf:"tcp"`
-}
-
-type ListenerTlsCertificateFileObservation struct {
-}
-
-type ListenerTlsCertificateFileParameters struct {
-	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
-
-	PrivateKey string `json:"privateKey" tf:"private_key"`
-}
-
-type ListenerTlsCertificateObservation struct {
-}
-
-type ListenerTlsCertificateParameters struct {
-	Acm []TlsCertificateAcmParameters `json:"acm,omitempty" tf:"acm"`
-
-	File []ListenerTlsCertificateFileParameters `json:"file,omitempty" tf:"file"`
-
-	Sds []ListenerTlsCertificateSdsParameters `json:"sds,omitempty" tf:"sds"`
-}
-
-type ListenerTlsCertificateSdsObservation struct {
-}
-
-type ListenerTlsCertificateSdsParameters struct {
-	SecretName string `json:"secretName" tf:"secret_name"`
-}
-
-type ListenerTlsValidationObservation struct {
-}
-
-type ListenerTlsValidationParameters struct {
-	SubjectAlternativeNames []ListenerTlsValidationSubjectAlternativeNamesParameters `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
-
-	Trust []ListenerTlsValidationTrustParameters `json:"trust" tf:"trust"`
-}
-
-type ListenerTlsValidationSubjectAlternativeNamesMatchObservation struct {
-}
-
-type ListenerTlsValidationSubjectAlternativeNamesMatchParameters struct {
-	Exact []string `json:"exact" tf:"exact"`
-}
-
-type ListenerTlsValidationSubjectAlternativeNamesObservation struct {
-}
-
-type ListenerTlsValidationSubjectAlternativeNamesParameters struct {
-	Match []ListenerTlsValidationSubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
-}
-
-type ListenerTlsValidationTrustFileObservation struct {
-}
-
-type ListenerTlsValidationTrustFileParameters struct {
-	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
-}
-
-type ListenerTlsValidationTrustObservation struct {
-}
-
-type ListenerTlsValidationTrustParameters struct {
-	File []ListenerTlsValidationTrustFileParameters `json:"file,omitempty" tf:"file"`
-
-	Sds []ListenerTlsValidationTrustSdsParameters `json:"sds,omitempty" tf:"sds"`
-}
-
-type ListenerTlsValidationTrustSdsObservation struct {
-}
-
-type ListenerTlsValidationTrustSdsParameters struct {
-	SecretName string `json:"secretName" tf:"secret_name"`
+	// +kubebuilder:validation:Optional
+	TCP []TimeoutTCPParameters `json:"tcp,omitempty" tf:"tcp"`
 }
 
 type LoggingAccessLogFileObservation struct {
 }
 
 type LoggingAccessLogFileParameters struct {
+
+	// +kubebuilder:validation:Required
 	Path string `json:"path" tf:"path"`
 }
 
@@ -456,6 +601,8 @@ type LoggingAccessLogObservation struct {
 }
 
 type LoggingAccessLogParameters struct {
+
+	// +kubebuilder:validation:Optional
 	File []LoggingAccessLogFileParameters `json:"file,omitempty" tf:"file"`
 }
 
@@ -463,12 +610,17 @@ type OutlierDetectionObservation struct {
 }
 
 type OutlierDetectionParameters struct {
+
+	// +kubebuilder:validation:Required
 	BaseEjectionDuration []BaseEjectionDurationParameters `json:"baseEjectionDuration" tf:"base_ejection_duration"`
 
+	// +kubebuilder:validation:Required
 	Interval []IntervalParameters `json:"interval" tf:"interval"`
 
+	// +kubebuilder:validation:Required
 	MaxEjectionPercent int64 `json:"maxEjectionPercent" tf:"max_ejection_percent"`
 
+	// +kubebuilder:validation:Required
 	MaxServerErrors int64 `json:"maxServerErrors" tf:"max_server_errors"`
 }
 
@@ -476,15 +628,20 @@ type ServiceDiscoveryObservation struct {
 }
 
 type ServiceDiscoveryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AwsCloudMap []AwsCloudMapParameters `json:"awsCloudMap,omitempty" tf:"aws_cloud_map"`
 
-	Dns []DnsParameters `json:"dns,omitempty" tf:"dns"`
+	// +kubebuilder:validation:Optional
+	DNS []DNSParameters `json:"dns,omitempty" tf:"dns"`
 }
 
 type SpecBackendDefaultsObservation struct {
 }
 
 type SpecBackendDefaultsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ClientPolicy []BackendDefaultsClientPolicyParameters `json:"clientPolicy,omitempty" tf:"client_policy"`
 }
 
@@ -492,153 +649,203 @@ type SpecListenerObservation struct {
 }
 
 type SpecListenerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ConnectionPool []ListenerConnectionPoolParameters `json:"connectionPool,omitempty" tf:"connection_pool"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheck []ListenerHealthCheckParameters `json:"healthCheck,omitempty" tf:"health_check"`
 
+	// +kubebuilder:validation:Optional
 	OutlierDetection []OutlierDetectionParameters `json:"outlierDetection,omitempty" tf:"outlier_detection"`
 
+	// +kubebuilder:validation:Required
 	PortMapping []ListenerPortMappingParameters `json:"portMapping" tf:"port_mapping"`
 
+	// +kubebuilder:validation:Optional
+	TLS []SpecListenerTLSParameters `json:"tls,omitempty" tf:"tls"`
+
+	// +kubebuilder:validation:Optional
 	Timeout []ListenerTimeoutParameters `json:"timeout,omitempty" tf:"timeout"`
-
-	Tls []SpecListenerTlsParameters `json:"tls,omitempty" tf:"tls"`
 }
 
-type SpecListenerTlsObservation struct {
+type SpecListenerTLSObservation struct {
 }
 
-type SpecListenerTlsParameters struct {
-	Certificate []ListenerTlsCertificateParameters `json:"certificate" tf:"certificate"`
+type SpecListenerTLSParameters struct {
 
+	// +kubebuilder:validation:Required
+	Certificate []ListenerTLSCertificateParameters `json:"certificate" tf:"certificate"`
+
+	// +kubebuilder:validation:Required
 	Mode string `json:"mode" tf:"mode"`
 
-	Validation []ListenerTlsValidationParameters `json:"validation,omitempty" tf:"validation"`
+	// +kubebuilder:validation:Optional
+	Validation []ListenerTLSValidationParameters `json:"validation,omitempty" tf:"validation"`
 }
 
 type SpecLoggingObservation struct {
 }
 
 type SpecLoggingParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessLog []LoggingAccessLogParameters `json:"accessLog,omitempty" tf:"access_log"`
 }
 
-type TcpIdleObservation struct {
+type TCPIdleObservation struct {
 }
 
-type TcpIdleParameters struct {
+type TCPIdleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Unit string `json:"unit" tf:"unit"`
 
+	// +kubebuilder:validation:Required
 	Value int64 `json:"value" tf:"value"`
 }
 
-type TcpObservation struct {
+type TCPObservation struct {
 }
 
-type TcpParameters struct {
+type TCPParameters struct {
+
+	// +kubebuilder:validation:Required
 	MaxConnections int64 `json:"maxConnections" tf:"max_connections"`
+}
+
+type TLSCertificateAcmObservation struct {
+}
+
+type TLSCertificateAcmParameters struct {
+
+	// +kubebuilder:validation:Required
+	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
+}
+
+type TLSCertificateFileObservation struct {
+}
+
+type TLSCertificateFileParameters struct {
+
+	// +kubebuilder:validation:Required
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+
+	// +kubebuilder:validation:Required
+	PrivateKey string `json:"privateKey" tf:"private_key"`
+}
+
+type TLSCertificateSdsObservation struct {
+}
+
+type TLSCertificateSdsParameters struct {
+
+	// +kubebuilder:validation:Required
+	SecretName string `json:"secretName" tf:"secret_name"`
+}
+
+type TLSValidationSubjectAlternativeNamesMatchObservation struct {
+}
+
+type TLSValidationSubjectAlternativeNamesMatchParameters struct {
+
+	// +kubebuilder:validation:Required
+	Exact []string `json:"exact" tf:"exact"`
+}
+
+type TLSValidationSubjectAlternativeNamesObservation struct {
+}
+
+type TLSValidationSubjectAlternativeNamesParameters struct {
+
+	// +kubebuilder:validation:Required
+	Match []TLSValidationSubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
+}
+
+type TLSValidationTrustFileObservation struct {
+}
+
+type TLSValidationTrustFileParameters struct {
+
+	// +kubebuilder:validation:Required
+	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
+}
+
+type TLSValidationTrustObservation struct {
+}
+
+type TLSValidationTrustParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Acm []TrustAcmParameters `json:"acm,omitempty" tf:"acm"`
+
+	// +kubebuilder:validation:Optional
+	File []TLSValidationTrustFileParameters `json:"file,omitempty" tf:"file"`
+
+	// +kubebuilder:validation:Optional
+	Sds []TLSValidationTrustSdsParameters `json:"sds,omitempty" tf:"sds"`
+}
+
+type TLSValidationTrustSdsObservation struct {
+}
+
+type TLSValidationTrustSdsParameters struct {
+
+	// +kubebuilder:validation:Required
+	SecretName string `json:"secretName" tf:"secret_name"`
 }
 
 type TimeoutGrpcObservation struct {
 }
 
 type TimeoutGrpcParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Idle []GrpcIdleParameters `json:"idle,omitempty" tf:"idle"`
 
+	// +kubebuilder:validation:Optional
 	PerRequest []GrpcPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
+}
+
+type TimeoutHTTPObservation struct {
+}
+
+type TimeoutHTTPParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Idle []HTTPIdleParameters `json:"idle,omitempty" tf:"idle"`
+
+	// +kubebuilder:validation:Optional
+	PerRequest []HTTPPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
 }
 
 type TimeoutHttp2Observation struct {
 }
 
 type TimeoutHttp2Parameters struct {
+
+	// +kubebuilder:validation:Optional
 	Idle []Http2IdleParameters `json:"idle,omitempty" tf:"idle"`
 
+	// +kubebuilder:validation:Optional
 	PerRequest []Http2PerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
 }
 
-type TimeoutHttpObservation struct {
+type TimeoutTCPObservation struct {
 }
 
-type TimeoutHttpParameters struct {
-	Idle []HttpIdleParameters `json:"idle,omitempty" tf:"idle"`
+type TimeoutTCPParameters struct {
 
-	PerRequest []HttpPerRequestParameters `json:"perRequest,omitempty" tf:"per_request"`
-}
-
-type TimeoutTcpObservation struct {
-}
-
-type TimeoutTcpParameters struct {
-	Idle []TcpIdleParameters `json:"idle,omitempty" tf:"idle"`
-}
-
-type TlsCertificateAcmObservation struct {
-}
-
-type TlsCertificateAcmParameters struct {
-	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
-}
-
-type TlsCertificateFileObservation struct {
-}
-
-type TlsCertificateFileParameters struct {
-	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
-
-	PrivateKey string `json:"privateKey" tf:"private_key"`
-}
-
-type TlsCertificateSdsObservation struct {
-}
-
-type TlsCertificateSdsParameters struct {
-	SecretName string `json:"secretName" tf:"secret_name"`
-}
-
-type TlsValidationSubjectAlternativeNamesMatchObservation struct {
-}
-
-type TlsValidationSubjectAlternativeNamesMatchParameters struct {
-	Exact []string `json:"exact" tf:"exact"`
-}
-
-type TlsValidationSubjectAlternativeNamesObservation struct {
-}
-
-type TlsValidationSubjectAlternativeNamesParameters struct {
-	Match []TlsValidationSubjectAlternativeNamesMatchParameters `json:"match" tf:"match"`
-}
-
-type TlsValidationTrustFileObservation struct {
-}
-
-type TlsValidationTrustFileParameters struct {
-	CertificateChain string `json:"certificateChain" tf:"certificate_chain"`
-}
-
-type TlsValidationTrustObservation struct {
-}
-
-type TlsValidationTrustParameters struct {
-	Acm []TrustAcmParameters `json:"acm,omitempty" tf:"acm"`
-
-	File []TlsValidationTrustFileParameters `json:"file,omitempty" tf:"file"`
-
-	Sds []TlsValidationTrustSdsParameters `json:"sds,omitempty" tf:"sds"`
-}
-
-type TlsValidationTrustSdsObservation struct {
-}
-
-type TlsValidationTrustSdsParameters struct {
-	SecretName string `json:"secretName" tf:"secret_name"`
+	// +kubebuilder:validation:Optional
+	Idle []TCPIdleParameters `json:"idle,omitempty" tf:"idle"`
 }
 
 type TrustAcmObservation struct {
 }
 
 type TrustAcmParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateAuthorityArns []string `json:"certificateAuthorityArns" tf:"certificate_authority_arns"`
 }
 
@@ -646,6 +853,8 @@ type ValidationTrustAcmObservation struct {
 }
 
 type ValidationTrustAcmParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateAuthorityArns []string `json:"certificateAuthorityArns" tf:"certificate_authority_arns"`
 }
 
@@ -653,7 +862,9 @@ type VirtualServiceClientPolicyObservation struct {
 }
 
 type VirtualServiceClientPolicyParameters struct {
-	Tls []ClientPolicyTlsParameters `json:"tls,omitempty" tf:"tls"`
+
+	// +kubebuilder:validation:Optional
+	TLS []ClientPolicyTLSParameters `json:"tls,omitempty" tf:"tls"`
 }
 
 // AppmeshVirtualNodeSpec defines the desired state of AppmeshVirtualNode

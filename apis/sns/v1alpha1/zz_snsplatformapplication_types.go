@@ -29,28 +29,43 @@ type SnsPlatformApplicationObservation struct {
 }
 
 type SnsPlatformApplicationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EventDeliveryFailureTopicArn *string `json:"eventDeliveryFailureTopicArn,omitempty" tf:"event_delivery_failure_topic_arn"`
 
+	// +kubebuilder:validation:Optional
 	EventEndpointCreatedTopicArn *string `json:"eventEndpointCreatedTopicArn,omitempty" tf:"event_endpoint_created_topic_arn"`
 
+	// +kubebuilder:validation:Optional
 	EventEndpointDeletedTopicArn *string `json:"eventEndpointDeletedTopicArn,omitempty" tf:"event_endpoint_deleted_topic_arn"`
 
+	// +kubebuilder:validation:Optional
 	EventEndpointUpdatedTopicArn *string `json:"eventEndpointUpdatedTopicArn,omitempty" tf:"event_endpoint_updated_topic_arn"`
 
+	// +kubebuilder:validation:Optional
 	FailureFeedbackRoleArn *string `json:"failureFeedbackRoleArn,omitempty" tf:"failure_feedback_role_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Platform string `json:"platform" tf:"platform"`
 
+	// +kubebuilder:validation:Required
 	PlatformCredential string `json:"platformCredential" tf:"platform_credential"`
 
+	// +kubebuilder:validation:Optional
 	PlatformPrincipal *string `json:"platformPrincipal,omitempty" tf:"platform_principal"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SuccessFeedbackRoleArn *string `json:"successFeedbackRoleArn,omitempty" tf:"success_feedback_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	SuccessFeedbackSampleRate *string `json:"successFeedbackSampleRate,omitempty" tf:"success_feedback_sample_rate"`
 }
 

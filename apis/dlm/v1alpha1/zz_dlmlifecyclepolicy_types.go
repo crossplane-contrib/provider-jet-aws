@@ -28,10 +28,14 @@ type CreateRuleObservation struct {
 }
 
 type CreateRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Interval int64 `json:"interval" tf:"interval"`
 
+	// +kubebuilder:validation:Optional
 	IntervalUnit *string `json:"intervalUnit,omitempty" tf:"interval_unit"`
 
+	// +kubebuilder:validation:Optional
 	Times []string `json:"times,omitempty" tf:"times"`
 }
 
@@ -40,18 +44,28 @@ type DlmLifecyclePolicyObservation struct {
 }
 
 type DlmLifecyclePolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Description string `json:"description" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
 
+	// +kubebuilder:validation:Required
 	PolicyDetails []PolicyDetailsParameters `json:"policyDetails" tf:"policy_details"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	State *string `json:"state,omitempty" tf:"state"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -59,10 +73,14 @@ type PolicyDetailsObservation struct {
 }
 
 type PolicyDetailsParameters struct {
+
+	// +kubebuilder:validation:Required
 	ResourceTypes []string `json:"resourceTypes" tf:"resource_types"`
 
+	// +kubebuilder:validation:Required
 	Schedule []ScheduleParameters `json:"schedule" tf:"schedule"`
 
+	// +kubebuilder:validation:Required
 	TargetTags map[string]string `json:"targetTags" tf:"target_tags"`
 }
 
@@ -70,6 +88,8 @@ type RetainRuleObservation struct {
 }
 
 type RetainRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Count int64 `json:"count" tf:"count"`
 }
 
@@ -77,14 +97,20 @@ type ScheduleObservation struct {
 }
 
 type ScheduleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CopyTags *bool `json:"copyTags,omitempty" tf:"copy_tags"`
 
+	// +kubebuilder:validation:Required
 	CreateRule []CreateRuleParameters `json:"createRule" tf:"create_rule"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	RetainRule []RetainRuleParameters `json:"retainRule" tf:"retain_rule"`
 
+	// +kubebuilder:validation:Optional
 	TagsToAdd map[string]string `json:"tagsToAdd,omitempty" tf:"tags_to_add"`
 }
 

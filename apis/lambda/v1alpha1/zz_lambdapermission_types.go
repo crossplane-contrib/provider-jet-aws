@@ -28,25 +28,38 @@ type LambdaPermissionObservation struct {
 }
 
 type LambdaPermissionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action string `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Optional
 	EventSourceToken *string `json:"eventSourceToken,omitempty" tf:"event_source_token"`
 
+	// +kubebuilder:validation:Required
 	FunctionName string `json:"functionName" tf:"function_name"`
 
+	// +kubebuilder:validation:Required
 	Principal string `json:"principal" tf:"principal"`
 
+	// +kubebuilder:validation:Optional
 	Qualifier *string `json:"qualifier,omitempty" tf:"qualifier"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SourceAccount *string `json:"sourceAccount,omitempty" tf:"source_account"`
 
+	// +kubebuilder:validation:Optional
 	SourceArn *string `json:"sourceArn,omitempty" tf:"source_arn"`
 
-	StatementId *string `json:"statementId,omitempty" tf:"statement_id"`
+	// +kubebuilder:validation:Optional
+	StatementID *string `json:"statementId,omitempty" tf:"statement_id"`
 
-	StatementIdPrefix *string `json:"statementIdPrefix,omitempty" tf:"statement_id_prefix"`
+	// +kubebuilder:validation:Optional
+	StatementIDPrefix *string `json:"statementIdPrefix,omitempty" tf:"statement_id_prefix"`
 }
 
 // LambdaPermissionSpec defines the desired state of LambdaPermission

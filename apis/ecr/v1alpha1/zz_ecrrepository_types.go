@@ -27,24 +27,34 @@ import (
 type EcrRepositoryObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	RegistryId string `json:"registryId" tf:"registry_id"`
+	RegistryID string `json:"registryId" tf:"registry_id"`
 
-	RepositoryUrl string `json:"repositoryUrl" tf:"repository_url"`
+	RepositoryURL string `json:"repositoryUrl" tf:"repository_url"`
 }
 
 type EcrRepositoryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EncryptionConfiguration []EncryptionConfigurationParameters `json:"encryptionConfiguration,omitempty" tf:"encryption_configuration"`
 
+	// +kubebuilder:validation:Optional
 	ImageScanningConfiguration []ImageScanningConfigurationParameters `json:"imageScanningConfiguration,omitempty" tf:"image_scanning_configuration"`
 
+	// +kubebuilder:validation:Optional
 	ImageTagMutability *string `json:"imageTagMutability,omitempty" tf:"image_tag_mutability"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -52,8 +62,11 @@ type EncryptionConfigurationObservation struct {
 }
 
 type EncryptionConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EncryptionType *string `json:"encryptionType,omitempty" tf:"encryption_type"`
 
+	// +kubebuilder:validation:Optional
 	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key"`
 }
 
@@ -61,6 +74,8 @@ type ImageScanningConfigurationObservation struct {
 }
 
 type ImageScanningConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ScanOnPush bool `json:"scanOnPush" tf:"scan_on_push"`
 }
 

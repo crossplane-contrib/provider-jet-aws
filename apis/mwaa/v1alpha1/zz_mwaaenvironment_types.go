@@ -29,8 +29,11 @@ type DagProcessingLogsObservation struct {
 }
 
 type DagProcessingLogsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogLevel *string `json:"logLevel,omitempty" tf:"log_level"`
 }
 
@@ -58,14 +61,20 @@ type LoggingConfigurationObservation struct {
 }
 
 type LoggingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DagProcessingLogs []DagProcessingLogsParameters `json:"dagProcessingLogs,omitempty" tf:"dag_processing_logs"`
 
+	// +kubebuilder:validation:Optional
 	SchedulerLogs []SchedulerLogsParameters `json:"schedulerLogs,omitempty" tf:"scheduler_logs"`
 
+	// +kubebuilder:validation:Optional
 	TaskLogs []TaskLogsParameters `json:"taskLogs,omitempty" tf:"task_logs"`
 
+	// +kubebuilder:validation:Optional
 	WebserverLogs []WebserverLogsParameters `json:"webserverLogs,omitempty" tf:"webserver_logs"`
 
+	// +kubebuilder:validation:Optional
 	WorkerLogs []WorkerLogsParameters `json:"workerLogs,omitempty" tf:"worker_logs"`
 }
 
@@ -80,50 +89,74 @@ type MwaaEnvironmentObservation struct {
 
 	Status string `json:"status" tf:"status"`
 
-	WebserverUrl string `json:"webserverUrl" tf:"webserver_url"`
+	WebserverURL string `json:"webserverUrl" tf:"webserver_url"`
 }
 
 type MwaaEnvironmentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AirflowConfigurationOptions map[string]string `json:"airflowConfigurationOptions,omitempty" tf:"airflow_configuration_options"`
 
+	// +kubebuilder:validation:Optional
 	AirflowVersion *string `json:"airflowVersion,omitempty" tf:"airflow_version"`
 
+	// +kubebuilder:validation:Required
 	DagS3Path string `json:"dagS3Path" tf:"dag_s3_path"`
 
+	// +kubebuilder:validation:Optional
 	EnvironmentClass *string `json:"environmentClass,omitempty" tf:"environment_class"`
 
+	// +kubebuilder:validation:Required
 	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key"`
 
+	// +kubebuilder:validation:Optional
 	LoggingConfiguration []LoggingConfigurationParameters `json:"loggingConfiguration,omitempty" tf:"logging_configuration"`
 
+	// +kubebuilder:validation:Optional
 	MaxWorkers *int64 `json:"maxWorkers,omitempty" tf:"max_workers"`
 
+	// +kubebuilder:validation:Optional
 	MinWorkers *int64 `json:"minWorkers,omitempty" tf:"min_workers"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	NetworkConfiguration []NetworkConfigurationParameters `json:"networkConfiguration" tf:"network_configuration"`
 
+	// +kubebuilder:validation:Optional
 	PluginsS3ObjectVersion *string `json:"pluginsS3ObjectVersion,omitempty" tf:"plugins_s3_object_version"`
 
+	// +kubebuilder:validation:Optional
 	PluginsS3Path *string `json:"pluginsS3Path,omitempty" tf:"plugins_s3_path"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RequirementsS3ObjectVersion *string `json:"requirementsS3ObjectVersion,omitempty" tf:"requirements_s3_object_version"`
 
+	// +kubebuilder:validation:Optional
 	RequirementsS3Path *string `json:"requirementsS3Path,omitempty" tf:"requirements_s3_path"`
 
+	// +kubebuilder:validation:Required
 	SourceBucketArn string `json:"sourceBucketArn" tf:"source_bucket_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	WebserverAccessMode *string `json:"webserverAccessMode,omitempty" tf:"webserver_access_mode"`
 
+	// +kubebuilder:validation:Optional
 	WeeklyMaintenanceWindowStart *string `json:"weeklyMaintenanceWindowStart,omitempty" tf:"weekly_maintenance_window_start"`
 }
 
@@ -131,8 +164,11 @@ type NetworkConfigurationObservation struct {
 }
 
 type NetworkConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 }
 
@@ -141,8 +177,11 @@ type SchedulerLogsObservation struct {
 }
 
 type SchedulerLogsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogLevel *string `json:"logLevel,omitempty" tf:"log_level"`
 }
 
@@ -151,8 +190,11 @@ type TaskLogsObservation struct {
 }
 
 type TaskLogsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogLevel *string `json:"logLevel,omitempty" tf:"log_level"`
 }
 
@@ -161,8 +203,11 @@ type WebserverLogsObservation struct {
 }
 
 type WebserverLogsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogLevel *string `json:"logLevel,omitempty" tf:"log_level"`
 }
 
@@ -171,8 +216,11 @@ type WorkerLogsObservation struct {
 }
 
 type WorkerLogsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	LogLevel *string `json:"logLevel,omitempty" tf:"log_level"`
 }
 

@@ -28,8 +28,11 @@ type ExcludeMapObservation struct {
 }
 
 type ExcludeMapParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Account []string `json:"account,omitempty" tf:"account"`
 
+	// +kubebuilder:validation:Optional
 	Orgunit []string `json:"orgunit,omitempty" tf:"orgunit"`
 }
 
@@ -40,26 +43,40 @@ type FmsPolicyObservation struct {
 }
 
 type FmsPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteAllPolicyResources *bool `json:"deleteAllPolicyResources,omitempty" tf:"delete_all_policy_resources"`
 
+	// +kubebuilder:validation:Optional
 	ExcludeMap []ExcludeMapParameters `json:"excludeMap,omitempty" tf:"exclude_map"`
 
+	// +kubebuilder:validation:Required
 	ExcludeResourceTags bool `json:"excludeResourceTags" tf:"exclude_resource_tags"`
 
+	// +kubebuilder:validation:Optional
 	IncludeMap []IncludeMapParameters `json:"includeMap,omitempty" tf:"include_map"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RemediationEnabled *bool `json:"remediationEnabled,omitempty" tf:"remediation_enabled"`
 
+	// +kubebuilder:validation:Optional
 	ResourceTags map[string]string `json:"resourceTags,omitempty" tf:"resource_tags"`
 
+	// +kubebuilder:validation:Optional
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type"`
 
+	// +kubebuilder:validation:Optional
 	ResourceTypeList []string `json:"resourceTypeList,omitempty" tf:"resource_type_list"`
 
+	// +kubebuilder:validation:Required
 	SecurityServicePolicyData []SecurityServicePolicyDataParameters `json:"securityServicePolicyData" tf:"security_service_policy_data"`
 }
 
@@ -67,8 +84,11 @@ type IncludeMapObservation struct {
 }
 
 type IncludeMapParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Account []string `json:"account,omitempty" tf:"account"`
 
+	// +kubebuilder:validation:Optional
 	Orgunit []string `json:"orgunit,omitempty" tf:"orgunit"`
 }
 
@@ -76,8 +96,11 @@ type SecurityServicePolicyDataObservation struct {
 }
 
 type SecurityServicePolicyDataParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ManagedServiceData *string `json:"managedServiceData,omitempty" tf:"managed_service_data"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

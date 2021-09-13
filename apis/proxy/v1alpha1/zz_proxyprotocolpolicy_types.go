@@ -28,10 +28,16 @@ type ProxyProtocolPolicyObservation struct {
 }
 
 type ProxyProtocolPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	InstancePorts []string `json:"instancePorts" tf:"instance_ports"`
 
+	// +kubebuilder:validation:Required
 	LoadBalancer string `json:"loadBalancer" tf:"load_balancer"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

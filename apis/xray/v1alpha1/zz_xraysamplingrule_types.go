@@ -29,34 +29,52 @@ type XraySamplingRuleObservation struct {
 }
 
 type XraySamplingRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Attributes map[string]string `json:"attributes,omitempty" tf:"attributes"`
 
+	// +kubebuilder:validation:Required
 	FixedRate float64 `json:"fixedRate" tf:"fixed_rate"`
 
+	// +kubebuilder:validation:Required
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
+
+	// +kubebuilder:validation:Required
 	Host string `json:"host" tf:"host"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
-
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ReservoirSize int64 `json:"reservoirSize" tf:"reservoir_size"`
 
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 
+	// +kubebuilder:validation:Optional
 	RuleName *string `json:"ruleName,omitempty" tf:"rule_name"`
 
+	// +kubebuilder:validation:Required
 	ServiceName string `json:"serviceName" tf:"service_name"`
 
+	// +kubebuilder:validation:Required
 	ServiceType string `json:"serviceType" tf:"service_type"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	UrlPath string `json:"urlPath" tf:"url_path"`
+	// +kubebuilder:validation:Required
+	URLPath string `json:"urlPath" tf:"url_path"`
 
+	// +kubebuilder:validation:Required
 	Version int64 `json:"version" tf:"version"`
 }
 

@@ -31,20 +31,31 @@ type NeptuneClusterEndpointObservation struct {
 }
 
 type NeptuneClusterEndpointParameters struct {
+
+	// +kubebuilder:validation:Required
 	ClusterEndpointIdentifier string `json:"clusterEndpointIdentifier" tf:"cluster_endpoint_identifier"`
 
+	// +kubebuilder:validation:Required
 	ClusterIdentifier string `json:"clusterIdentifier" tf:"cluster_identifier"`
 
+	// +kubebuilder:validation:Required
 	EndpointType string `json:"endpointType" tf:"endpoint_type"`
 
+	// +kubebuilder:validation:Optional
 	ExcludedMembers []string `json:"excludedMembers,omitempty" tf:"excluded_members"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	StaticMembers []string `json:"staticMembers,omitempty" tf:"static_members"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

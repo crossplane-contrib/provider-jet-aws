@@ -27,24 +27,35 @@ import (
 type AppsyncFunctionObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	FunctionId string `json:"functionId" tf:"function_id"`
+	FunctionID string `json:"functionId" tf:"function_id"`
 }
 
 type AppsyncFunctionParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Required
 	DataSource string `json:"dataSource" tf:"data_source"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	FunctionVersion *string `json:"functionVersion,omitempty" tf:"function_version"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RequestMappingTemplate string `json:"requestMappingTemplate" tf:"request_mapping_template"`
 
+	// +kubebuilder:validation:Required
 	ResponseMappingTemplate string `json:"responseMappingTemplate" tf:"response_mapping_template"`
 }
 

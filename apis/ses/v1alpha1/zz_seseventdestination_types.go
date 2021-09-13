@@ -28,10 +28,14 @@ type CloudwatchDestinationObservation struct {
 }
 
 type CloudwatchDestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	DefaultValue string `json:"defaultValue" tf:"default_value"`
 
+	// +kubebuilder:validation:Required
 	DimensionName string `json:"dimensionName" tf:"dimension_name"`
 
+	// +kubebuilder:validation:Required
 	ValueSource string `json:"valueSource" tf:"value_source"`
 }
 
@@ -39,8 +43,11 @@ type KinesisDestinationObservation struct {
 }
 
 type KinesisDestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	StreamArn string `json:"streamArn" tf:"stream_arn"`
 }
 
@@ -49,20 +56,31 @@ type SesEventDestinationObservation struct {
 }
 
 type SesEventDestinationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchDestination []CloudwatchDestinationParameters `json:"cloudwatchDestination,omitempty" tf:"cloudwatch_destination"`
 
+	// +kubebuilder:validation:Required
 	ConfigurationSetName string `json:"configurationSetName" tf:"configuration_set_name"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	KinesisDestination []KinesisDestinationParameters `json:"kinesisDestination,omitempty" tf:"kinesis_destination"`
 
+	// +kubebuilder:validation:Required
 	MatchingTypes []string `json:"matchingTypes" tf:"matching_types"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SnsDestination []SnsDestinationParameters `json:"snsDestination,omitempty" tf:"sns_destination"`
 }
 
@@ -70,6 +88,8 @@ type SnsDestinationObservation struct {
 }
 
 type SnsDestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	TopicArn string `json:"topicArn" tf:"topic_arn"`
 }
 

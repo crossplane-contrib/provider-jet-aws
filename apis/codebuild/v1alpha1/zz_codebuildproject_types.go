@@ -28,22 +28,32 @@ type ArtifactsObservation struct {
 }
 
 type ArtifactsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ArtifactIdentifier *string `json:"artifactIdentifier,omitempty" tf:"artifact_identifier"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionDisabled *bool `json:"encryptionDisabled,omitempty" tf:"encryption_disabled"`
 
+	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamespaceType *string `json:"namespaceType,omitempty" tf:"namespace_type"`
 
+	// +kubebuilder:validation:Optional
 	OverrideArtifactName *bool `json:"overrideArtifactName,omitempty" tf:"override_artifact_name"`
 
+	// +kubebuilder:validation:Optional
 	Packaging *string `json:"packaging,omitempty" tf:"packaging"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -51,8 +61,11 @@ type AuthObservation struct {
 }
 
 type AuthParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Resource *string `json:"resource,omitempty" tf:"resource"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -60,12 +73,17 @@ type BuildBatchConfigObservation struct {
 }
 
 type BuildBatchConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CombineArtifacts *bool `json:"combineArtifacts,omitempty" tf:"combine_artifacts"`
 
+	// +kubebuilder:validation:Optional
 	Restrictions []RestrictionsParameters `json:"restrictions,omitempty" tf:"restrictions"`
 
+	// +kubebuilder:validation:Required
 	ServiceRole string `json:"serviceRole" tf:"service_role"`
 
+	// +kubebuilder:validation:Optional
 	TimeoutInMins *int64 `json:"timeoutInMins,omitempty" tf:"timeout_in_mins"`
 }
 
@@ -73,19 +91,26 @@ type BuildStatusConfigObservation struct {
 }
 
 type BuildStatusConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Context *string `json:"context,omitempty" tf:"context"`
 
-	TargetUrl *string `json:"targetUrl,omitempty" tf:"target_url"`
+	// +kubebuilder:validation:Optional
+	TargetURL *string `json:"targetUrl,omitempty" tf:"target_url"`
 }
 
 type CacheObservation struct {
 }
 
 type CacheParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	Modes []string `json:"modes,omitempty" tf:"modes"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -93,62 +118,91 @@ type CloudwatchLogsObservation struct {
 }
 
 type CloudwatchLogsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	GroupName *string `json:"groupName,omitempty" tf:"group_name"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
+	// +kubebuilder:validation:Optional
 	StreamName *string `json:"streamName,omitempty" tf:"stream_name"`
 }
 
 type CodebuildProjectObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	BadgeUrl string `json:"badgeUrl" tf:"badge_url"`
+	BadgeURL string `json:"badgeUrl" tf:"badge_url"`
 }
 
 type CodebuildProjectParameters struct {
+
+	// +kubebuilder:validation:Required
 	Artifacts []ArtifactsParameters `json:"artifacts" tf:"artifacts"`
 
+	// +kubebuilder:validation:Optional
 	BadgeEnabled *bool `json:"badgeEnabled,omitempty" tf:"badge_enabled"`
 
+	// +kubebuilder:validation:Optional
 	BuildBatchConfig []BuildBatchConfigParameters `json:"buildBatchConfig,omitempty" tf:"build_batch_config"`
 
+	// +kubebuilder:validation:Optional
 	BuildTimeout *int64 `json:"buildTimeout,omitempty" tf:"build_timeout"`
 
+	// +kubebuilder:validation:Optional
 	Cache []CacheParameters `json:"cache,omitempty" tf:"cache"`
 
+	// +kubebuilder:validation:Optional
 	ConcurrentBuildLimit *int64 `json:"concurrentBuildLimit,omitempty" tf:"concurrent_build_limit"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionKey *string `json:"encryptionKey,omitempty" tf:"encryption_key"`
 
+	// +kubebuilder:validation:Required
 	Environment []EnvironmentParameters `json:"environment" tf:"environment"`
 
+	// +kubebuilder:validation:Optional
 	FileSystemLocations []FileSystemLocationsParameters `json:"fileSystemLocations,omitempty" tf:"file_system_locations"`
 
+	// +kubebuilder:validation:Optional
 	LogsConfig []LogsConfigParameters `json:"logsConfig,omitempty" tf:"logs_config"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	QueuedTimeout *int64 `json:"queuedTimeout,omitempty" tf:"queued_timeout"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecondaryArtifacts []SecondaryArtifactsParameters `json:"secondaryArtifacts,omitempty" tf:"secondary_artifacts"`
 
+	// +kubebuilder:validation:Optional
 	SecondarySources []SecondarySourcesParameters `json:"secondarySources,omitempty" tf:"secondary_sources"`
 
+	// +kubebuilder:validation:Required
 	ServiceRole string `json:"serviceRole" tf:"service_role"`
 
+	// +kubebuilder:validation:Required
 	Source []SourceParameters `json:"source" tf:"source"`
 
+	// +kubebuilder:validation:Optional
 	SourceVersion *string `json:"sourceVersion,omitempty" tf:"source_version"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 }
 
@@ -156,20 +210,29 @@ type EnvironmentObservation struct {
 }
 
 type EnvironmentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Certificate *string `json:"certificate,omitempty" tf:"certificate"`
 
+	// +kubebuilder:validation:Required
 	ComputeType string `json:"computeType" tf:"compute_type"`
 
+	// +kubebuilder:validation:Optional
 	EnvironmentVariable []EnvironmentVariableParameters `json:"environmentVariable,omitempty" tf:"environment_variable"`
 
+	// +kubebuilder:validation:Required
 	Image string `json:"image" tf:"image"`
 
+	// +kubebuilder:validation:Optional
 	ImagePullCredentialsType *string `json:"imagePullCredentialsType,omitempty" tf:"image_pull_credentials_type"`
 
+	// +kubebuilder:validation:Optional
 	PrivilegedMode *bool `json:"privilegedMode,omitempty" tf:"privileged_mode"`
 
+	// +kubebuilder:validation:Optional
 	RegistryCredential []RegistryCredentialParameters `json:"registryCredential,omitempty" tf:"registry_credential"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -177,10 +240,14 @@ type EnvironmentVariableObservation struct {
 }
 
 type EnvironmentVariableParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -188,14 +255,20 @@ type FileSystemLocationsObservation struct {
 }
 
 type FileSystemLocationsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Identifier *string `json:"identifier,omitempty" tf:"identifier"`
 
+	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	MountOptions *string `json:"mountOptions,omitempty" tf:"mount_options"`
 
+	// +kubebuilder:validation:Optional
 	MountPoint *string `json:"mountPoint,omitempty" tf:"mount_point"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -203,6 +276,8 @@ type GitSubmodulesConfigObservation struct {
 }
 
 type GitSubmodulesConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FetchSubmodules bool `json:"fetchSubmodules" tf:"fetch_submodules"`
 }
 
@@ -210,8 +285,11 @@ type LogsConfigObservation struct {
 }
 
 type LogsConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchLogs []CloudwatchLogsParameters `json:"cloudwatchLogs,omitempty" tf:"cloudwatch_logs"`
 
+	// +kubebuilder:validation:Optional
 	S3Logs []S3LogsParameters `json:"s3Logs,omitempty" tf:"s3_logs"`
 }
 
@@ -219,8 +297,11 @@ type RegistryCredentialObservation struct {
 }
 
 type RegistryCredentialParameters struct {
+
+	// +kubebuilder:validation:Required
 	Credential string `json:"credential" tf:"credential"`
 
+	// +kubebuilder:validation:Required
 	CredentialProvider string `json:"credentialProvider" tf:"credential_provider"`
 }
 
@@ -228,8 +309,11 @@ type RestrictionsObservation struct {
 }
 
 type RestrictionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ComputeTypesAllowed []string `json:"computeTypesAllowed,omitempty" tf:"compute_types_allowed"`
 
+	// +kubebuilder:validation:Optional
 	MaximumBuildsAllowed *int64 `json:"maximumBuildsAllowed,omitempty" tf:"maximum_builds_allowed"`
 }
 
@@ -237,10 +321,14 @@ type S3LogsObservation struct {
 }
 
 type S3LogsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EncryptionDisabled *bool `json:"encryptionDisabled,omitempty" tf:"encryption_disabled"`
 
+	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 }
 
@@ -248,22 +336,32 @@ type SecondaryArtifactsObservation struct {
 }
 
 type SecondaryArtifactsParameters struct {
+
+	// +kubebuilder:validation:Required
 	ArtifactIdentifier string `json:"artifactIdentifier" tf:"artifact_identifier"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionDisabled *bool `json:"encryptionDisabled,omitempty" tf:"encryption_disabled"`
 
+	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamespaceType *string `json:"namespaceType,omitempty" tf:"namespace_type"`
 
+	// +kubebuilder:validation:Optional
 	OverrideArtifactName *bool `json:"overrideArtifactName,omitempty" tf:"override_artifact_name"`
 
+	// +kubebuilder:validation:Optional
 	Packaging *string `json:"packaging,omitempty" tf:"packaging"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -271,24 +369,35 @@ type SecondarySourcesObservation struct {
 }
 
 type SecondarySourcesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Auth []AuthParameters `json:"auth,omitempty" tf:"auth"`
 
+	// +kubebuilder:validation:Optional
 	BuildStatusConfig []BuildStatusConfigParameters `json:"buildStatusConfig,omitempty" tf:"build_status_config"`
 
+	// +kubebuilder:validation:Optional
 	Buildspec *string `json:"buildspec,omitempty" tf:"buildspec"`
 
+	// +kubebuilder:validation:Optional
 	GitCloneDepth *int64 `json:"gitCloneDepth,omitempty" tf:"git_clone_depth"`
 
+	// +kubebuilder:validation:Optional
 	GitSubmodulesConfig []GitSubmodulesConfigParameters `json:"gitSubmodulesConfig,omitempty" tf:"git_submodules_config"`
 
+	// +kubebuilder:validation:Optional
 	InsecureSsl *bool `json:"insecureSsl,omitempty" tf:"insecure_ssl"`
 
+	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	ReportBuildStatus *bool `json:"reportBuildStatus,omitempty" tf:"report_build_status"`
 
+	// +kubebuilder:validation:Required
 	SourceIdentifier string `json:"sourceIdentifier" tf:"source_identifier"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -296,8 +405,11 @@ type SourceAuthObservation struct {
 }
 
 type SourceAuthParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Resource *string `json:"resource,omitempty" tf:"resource"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -305,15 +417,20 @@ type SourceBuildStatusConfigObservation struct {
 }
 
 type SourceBuildStatusConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Context *string `json:"context,omitempty" tf:"context"`
 
-	TargetUrl *string `json:"targetUrl,omitempty" tf:"target_url"`
+	// +kubebuilder:validation:Optional
+	TargetURL *string `json:"targetUrl,omitempty" tf:"target_url"`
 }
 
 type SourceGitSubmodulesConfigObservation struct {
 }
 
 type SourceGitSubmodulesConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	FetchSubmodules bool `json:"fetchSubmodules" tf:"fetch_submodules"`
 }
 
@@ -321,22 +438,32 @@ type SourceObservation struct {
 }
 
 type SourceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Auth []SourceAuthParameters `json:"auth,omitempty" tf:"auth"`
 
+	// +kubebuilder:validation:Optional
 	BuildStatusConfig []SourceBuildStatusConfigParameters `json:"buildStatusConfig,omitempty" tf:"build_status_config"`
 
+	// +kubebuilder:validation:Optional
 	Buildspec *string `json:"buildspec,omitempty" tf:"buildspec"`
 
+	// +kubebuilder:validation:Optional
 	GitCloneDepth *int64 `json:"gitCloneDepth,omitempty" tf:"git_clone_depth"`
 
+	// +kubebuilder:validation:Optional
 	GitSubmodulesConfig []SourceGitSubmodulesConfigParameters `json:"gitSubmodulesConfig,omitempty" tf:"git_submodules_config"`
 
+	// +kubebuilder:validation:Optional
 	InsecureSsl *bool `json:"insecureSsl,omitempty" tf:"insecure_ssl"`
 
+	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	ReportBuildStatus *bool `json:"reportBuildStatus,omitempty" tf:"report_build_status"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -344,11 +471,15 @@ type VpcConfigObservation struct {
 }
 
 type VpcConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	Subnets []string `json:"subnets" tf:"subnets"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // CodebuildProjectSpec defines the desired state of CodebuildProject

@@ -28,15 +28,20 @@ type CaptureContentTypeHeaderObservation struct {
 }
 
 type CaptureContentTypeHeaderParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CsvContentTypes []string `json:"csvContentTypes,omitempty" tf:"csv_content_types"`
 
-	JsonContentTypes []string `json:"jsonContentTypes,omitempty" tf:"json_content_types"`
+	// +kubebuilder:validation:Optional
+	JSONContentTypes []string `json:"jsonContentTypes,omitempty" tf:"json_content_types"`
 }
 
 type CaptureOptionsObservation struct {
 }
 
 type CaptureOptionsParameters struct {
+
+	// +kubebuilder:validation:Required
 	CaptureMode string `json:"captureMode" tf:"capture_mode"`
 }
 
@@ -44,33 +49,47 @@ type DataCaptureConfigObservation struct {
 }
 
 type DataCaptureConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CaptureContentTypeHeader []CaptureContentTypeHeaderParameters `json:"captureContentTypeHeader,omitempty" tf:"capture_content_type_header"`
 
+	// +kubebuilder:validation:Required
 	CaptureOptions []CaptureOptionsParameters `json:"captureOptions" tf:"capture_options"`
 
-	DestinationS3Uri string `json:"destinationS3Uri" tf:"destination_s3_uri"`
+	// +kubebuilder:validation:Required
+	DestinationS3URI string `json:"destinationS3Uri" tf:"destination_s3_uri"`
 
+	// +kubebuilder:validation:Optional
 	EnableCapture *bool `json:"enableCapture,omitempty" tf:"enable_capture"`
 
+	// +kubebuilder:validation:Required
 	InitialSamplingPercentage int64 `json:"initialSamplingPercentage" tf:"initial_sampling_percentage"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 }
 
 type ProductionVariantsObservation struct {
 }
 
 type ProductionVariantsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AcceleratorType *string `json:"acceleratorType,omitempty" tf:"accelerator_type"`
 
+	// +kubebuilder:validation:Required
 	InitialInstanceCount int64 `json:"initialInstanceCount" tf:"initial_instance_count"`
 
+	// +kubebuilder:validation:Optional
 	InitialVariantWeight *float64 `json:"initialVariantWeight,omitempty" tf:"initial_variant_weight"`
 
+	// +kubebuilder:validation:Required
 	InstanceType string `json:"instanceType" tf:"instance_type"`
 
+	// +kubebuilder:validation:Required
 	ModelName string `json:"modelName" tf:"model_name"`
 
+	// +kubebuilder:validation:Optional
 	VariantName *string `json:"variantName,omitempty" tf:"variant_name"`
 }
 
@@ -79,18 +98,28 @@ type SagemakerEndpointConfigurationObservation struct {
 }
 
 type SagemakerEndpointConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DataCaptureConfig []DataCaptureConfigParameters `json:"dataCaptureConfig,omitempty" tf:"data_capture_config"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	ProductionVariants []ProductionVariantsParameters `json:"productionVariants" tf:"production_variants"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

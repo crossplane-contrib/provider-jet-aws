@@ -27,42 +27,55 @@ import (
 type VpcObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DefaultNetworkAclId string `json:"defaultNetworkAclId" tf:"default_network_acl_id"`
+	DefaultNetworkACLID string `json:"defaultNetworkAclId" tf:"default_network_acl_id"`
 
-	DefaultRouteTableId string `json:"defaultRouteTableId" tf:"default_route_table_id"`
+	DefaultRouteTableID string `json:"defaultRouteTableId" tf:"default_route_table_id"`
 
-	DefaultSecurityGroupId string `json:"defaultSecurityGroupId" tf:"default_security_group_id"`
+	DefaultSecurityGroupID string `json:"defaultSecurityGroupId" tf:"default_security_group_id"`
 
-	DhcpOptionsId string `json:"dhcpOptionsId" tf:"dhcp_options_id"`
+	DhcpOptionsID string `json:"dhcpOptionsId" tf:"dhcp_options_id"`
 
-	Ipv6AssociationId string `json:"ipv6AssociationId" tf:"ipv6_association_id"`
+	IPv6AssociationID string `json:"ipv6AssociationId" tf:"ipv6_association_id"`
 
-	Ipv6CidrBlock string `json:"ipv6CidrBlock" tf:"ipv6_cidr_block"`
+	IPv6CidrBlock string `json:"ipv6CidrBlock" tf:"ipv6_cidr_block"`
 
-	MainRouteTableId string `json:"mainRouteTableId" tf:"main_route_table_id"`
+	MainRouteTableID string `json:"mainRouteTableId" tf:"main_route_table_id"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 }
 
 type VpcParameters struct {
-	AssignGeneratedIpv6CidrBlock *bool `json:"assignGeneratedIpv6CidrBlock,omitempty" tf:"assign_generated_ipv6_cidr_block"`
 
+	// +kubebuilder:validation:Optional
+	AssignGeneratedIPv6CidrBlock *bool `json:"assignGeneratedIpv6CidrBlock,omitempty" tf:"assign_generated_ipv6_cidr_block"`
+
+	// +kubebuilder:validation:Required
 	CidrBlock string `json:"cidrBlock" tf:"cidr_block"`
 
+	// +kubebuilder:validation:Optional
 	EnableClassiclink *bool `json:"enableClassiclink,omitempty" tf:"enable_classiclink"`
 
-	EnableClassiclinkDnsSupport *bool `json:"enableClassiclinkDnsSupport,omitempty" tf:"enable_classiclink_dns_support"`
+	// +kubebuilder:validation:Optional
+	EnableClassiclinkDNSSupport *bool `json:"enableClassiclinkDnsSupport,omitempty" tf:"enable_classiclink_dns_support"`
 
-	EnableDnsHostnames *bool `json:"enableDnsHostnames,omitempty" tf:"enable_dns_hostnames"`
+	// +kubebuilder:validation:Optional
+	EnableDNSHostnames *bool `json:"enableDnsHostnames,omitempty" tf:"enable_dns_hostnames"`
 
-	EnableDnsSupport *bool `json:"enableDnsSupport,omitempty" tf:"enable_dns_support"`
+	// +kubebuilder:validation:Optional
+	EnableDNSSupport *bool `json:"enableDnsSupport,omitempty" tf:"enable_dns_support"`
 
+	// +kubebuilder:validation:Optional
 	InstanceTenancy *string `json:"instanceTenancy,omitempty" tf:"instance_tenancy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

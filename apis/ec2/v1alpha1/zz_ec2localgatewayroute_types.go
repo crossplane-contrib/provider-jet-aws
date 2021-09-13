@@ -28,12 +28,19 @@ type Ec2LocalGatewayRouteObservation struct {
 }
 
 type Ec2LocalGatewayRouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationCidrBlock string `json:"destinationCidrBlock" tf:"destination_cidr_block"`
 
-	LocalGatewayRouteTableId string `json:"localGatewayRouteTableId" tf:"local_gateway_route_table_id"`
+	// +kubebuilder:validation:Required
+	LocalGatewayRouteTableID string `json:"localGatewayRouteTableId" tf:"local_gateway_route_table_id"`
 
-	LocalGatewayVirtualInterfaceGroupId string `json:"localGatewayVirtualInterfaceGroupId" tf:"local_gateway_virtual_interface_group_id"`
+	// +kubebuilder:validation:Required
+	LocalGatewayVirtualInterfaceGroupID string `json:"localGatewayVirtualInterfaceGroupId" tf:"local_gateway_virtual_interface_group_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

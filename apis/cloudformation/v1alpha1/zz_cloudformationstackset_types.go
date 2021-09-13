@@ -28,43 +28,62 @@ type AutoDeploymentObservation struct {
 }
 
 type AutoDeploymentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	RetainStacksOnAccountRemoval *bool `json:"retainStacksOnAccountRemoval,omitempty" tf:"retain_stacks_on_account_removal"`
 }
 
 type CloudformationStackSetObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	StackSetId string `json:"stackSetId" tf:"stack_set_id"`
+	StackSetID string `json:"stackSetId" tf:"stack_set_id"`
 }
 
 type CloudformationStackSetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AdministrationRoleArn *string `json:"administrationRoleArn,omitempty" tf:"administration_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	AutoDeployment []AutoDeploymentParameters `json:"autoDeployment,omitempty" tf:"auto_deployment"`
 
+	// +kubebuilder:validation:Optional
 	Capabilities []string `json:"capabilities,omitempty" tf:"capabilities"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	ExecutionRoleName *string `json:"executionRoleName,omitempty" tf:"execution_role_name"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	PermissionModel *string `json:"permissionModel,omitempty" tf:"permission_model"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TemplateBody *string `json:"templateBody,omitempty" tf:"template_body"`
 
-	TemplateUrl *string `json:"templateUrl,omitempty" tf:"template_url"`
+	// +kubebuilder:validation:Optional
+	TemplateURL *string `json:"templateUrl,omitempty" tf:"template_url"`
 }
 
 // CloudformationStackSetSpec defines the desired state of CloudformationStackSet

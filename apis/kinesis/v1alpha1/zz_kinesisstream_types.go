@@ -28,26 +28,40 @@ type KinesisStreamObservation struct {
 }
 
 type KinesisStreamParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Arn *string `json:"arn,omitempty" tf:"arn"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionType *string `json:"encryptionType,omitempty" tf:"encryption_type"`
 
+	// +kubebuilder:validation:Optional
 	EnforceConsumerDeletion *bool `json:"enforceConsumerDeletion,omitempty" tf:"enforce_consumer_deletion"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RetentionPeriod *int64 `json:"retentionPeriod,omitempty" tf:"retention_period"`
 
+	// +kubebuilder:validation:Required
 	ShardCount int64 `json:"shardCount" tf:"shard_count"`
 
+	// +kubebuilder:validation:Optional
 	ShardLevelMetrics []string `json:"shardLevelMetrics,omitempty" tf:"shard_level_metrics"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

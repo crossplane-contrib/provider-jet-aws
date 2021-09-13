@@ -29,28 +29,40 @@ type WafXssMatchSetObservation struct {
 }
 
 type WafXssMatchSetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	XssMatchTuples []XssMatchTuplesParameters `json:"xssMatchTuples,omitempty" tf:"xss_match_tuples"`
+	// +kubebuilder:validation:Optional
+	XSSMatchTuples []XSSMatchTuplesParameters `json:"xssMatchTuples,omitempty" tf:"xss_match_tuples"`
 }
 
-type XssMatchTuplesFieldToMatchObservation struct {
+type XSSMatchTuplesFieldToMatchObservation struct {
 }
 
-type XssMatchTuplesFieldToMatchParameters struct {
+type XSSMatchTuplesFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Data *string `json:"data,omitempty" tf:"data"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
-type XssMatchTuplesObservation struct {
+type XSSMatchTuplesObservation struct {
 }
 
-type XssMatchTuplesParameters struct {
-	FieldToMatch []XssMatchTuplesFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
+type XSSMatchTuplesParameters struct {
 
+	// +kubebuilder:validation:Required
+	FieldToMatch []XSSMatchTuplesFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
+
+	// +kubebuilder:validation:Required
 	TextTransformation string `json:"textTransformation" tf:"text_transformation"`
 }
 

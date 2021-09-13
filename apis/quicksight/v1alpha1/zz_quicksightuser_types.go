@@ -29,22 +29,34 @@ type QuicksightUserObservation struct {
 }
 
 type QuicksightUserParameters struct {
-	AwsAccountId *string `json:"awsAccountId,omitempty" tf:"aws_account_id"`
 
+	// +kubebuilder:validation:Optional
+	AwsAccountID *string `json:"awsAccountId,omitempty" tf:"aws_account_id"`
+
+	// +kubebuilder:validation:Required
 	Email string `json:"email" tf:"email"`
 
+	// +kubebuilder:validation:Optional
 	IamArn *string `json:"iamArn,omitempty" tf:"iam_arn"`
 
+	// +kubebuilder:validation:Required
 	IdentityType string `json:"identityType" tf:"identity_type"`
 
+	// +kubebuilder:validation:Optional
 	Namespace *string `json:"namespace,omitempty" tf:"namespace"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SessionName *string `json:"sessionName,omitempty" tf:"session_name"`
 
+	// +kubebuilder:validation:Optional
 	UserName *string `json:"userName,omitempty" tf:"user_name"`
 
+	// +kubebuilder:validation:Required
 	UserRole string `json:"userRole" tf:"user_role"`
 }
 

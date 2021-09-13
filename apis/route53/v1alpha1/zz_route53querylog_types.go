@@ -28,11 +28,17 @@ type Route53QueryLogObservation struct {
 }
 
 type Route53QueryLogParameters struct {
+
+	// +kubebuilder:validation:Required
 	CloudwatchLogGroupArn string `json:"cloudwatchLogGroupArn" tf:"cloudwatch_log_group_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	// +kubebuilder:validation:Required
+	ZoneID string `json:"zoneId" tf:"zone_id"`
 }
 
 // Route53QueryLogSpec defines the desired state of Route53QueryLog

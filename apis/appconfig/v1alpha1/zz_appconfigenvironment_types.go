@@ -27,24 +27,34 @@ import (
 type AppconfigEnvironmentObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	EnvironmentId string `json:"environmentId" tf:"environment_id"`
+	EnvironmentID string `json:"environmentId" tf:"environment_id"`
 
 	State string `json:"state" tf:"state"`
 }
 
 type AppconfigEnvironmentParameters struct {
-	ApplicationId string `json:"applicationId" tf:"application_id"`
 
+	// +kubebuilder:validation:Required
+	ApplicationID string `json:"applicationId" tf:"application_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Monitor []MonitorParameters `json:"monitor,omitempty" tf:"monitor"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -52,8 +62,11 @@ type MonitorObservation struct {
 }
 
 type MonitorParameters struct {
+
+	// +kubebuilder:validation:Required
 	AlarmArn string `json:"alarmArn" tf:"alarm_arn"`
 
+	// +kubebuilder:validation:Optional
 	AlarmRoleArn *string `json:"alarmRoleArn,omitempty" tf:"alarm_role_arn"`
 }
 

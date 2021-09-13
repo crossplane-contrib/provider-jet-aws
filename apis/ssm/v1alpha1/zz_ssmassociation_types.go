@@ -28,42 +28,62 @@ type OutputLocationObservation struct {
 }
 
 type OutputLocationParameters struct {
+
+	// +kubebuilder:validation:Required
 	S3BucketName string `json:"s3BucketName" tf:"s3_bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	S3KeyPrefix *string `json:"s3KeyPrefix,omitempty" tf:"s3_key_prefix"`
 }
 
 type SsmAssociationObservation struct {
-	AssociationId string `json:"associationId" tf:"association_id"`
+	AssociationID string `json:"associationId" tf:"association_id"`
 }
 
 type SsmAssociationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplyOnlyAtCronInterval *bool `json:"applyOnlyAtCronInterval,omitempty" tf:"apply_only_at_cron_interval"`
 
+	// +kubebuilder:validation:Optional
 	AssociationName *string `json:"associationName,omitempty" tf:"association_name"`
 
+	// +kubebuilder:validation:Optional
 	AutomationTargetParameterName *string `json:"automationTargetParameterName,omitempty" tf:"automation_target_parameter_name"`
 
+	// +kubebuilder:validation:Optional
 	ComplianceSeverity *string `json:"complianceSeverity,omitempty" tf:"compliance_severity"`
 
+	// +kubebuilder:validation:Optional
 	DocumentVersion *string `json:"documentVersion,omitempty" tf:"document_version"`
 
-	InstanceId *string `json:"instanceId,omitempty" tf:"instance_id"`
+	// +kubebuilder:validation:Optional
+	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id"`
 
+	// +kubebuilder:validation:Optional
 	MaxConcurrency *string `json:"maxConcurrency,omitempty" tf:"max_concurrency"`
 
+	// +kubebuilder:validation:Optional
 	MaxErrors *string `json:"maxErrors,omitempty" tf:"max_errors"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	OutputLocation []OutputLocationParameters `json:"outputLocation,omitempty" tf:"output_location"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ScheduleExpression *string `json:"scheduleExpression,omitempty" tf:"schedule_expression"`
 
+	// +kubebuilder:validation:Optional
 	Targets []TargetsParameters `json:"targets,omitempty" tf:"targets"`
 }
 
@@ -71,8 +91,11 @@ type TargetsObservation struct {
 }
 
 type TargetsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 

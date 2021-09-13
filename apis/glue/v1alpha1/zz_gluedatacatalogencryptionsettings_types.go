@@ -28,8 +28,11 @@ type ConnectionPasswordEncryptionObservation struct {
 }
 
 type ConnectionPasswordEncryptionParameters struct {
-	AwsKmsKeyId *string `json:"awsKmsKeyId,omitempty" tf:"aws_kms_key_id"`
 
+	// +kubebuilder:validation:Optional
+	AwsKmsKeyID *string `json:"awsKmsKeyId,omitempty" tf:"aws_kms_key_id"`
+
+	// +kubebuilder:validation:Required
 	ReturnConnectionPasswordEncrypted bool `json:"returnConnectionPasswordEncrypted" tf:"return_connection_password_encrypted"`
 }
 
@@ -37,8 +40,11 @@ type DataCatalogEncryptionSettingsObservation struct {
 }
 
 type DataCatalogEncryptionSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	ConnectionPasswordEncryption []ConnectionPasswordEncryptionParameters `json:"connectionPasswordEncryption" tf:"connection_password_encryption"`
 
+	// +kubebuilder:validation:Required
 	EncryptionAtRest []EncryptionAtRestParameters `json:"encryptionAtRest" tf:"encryption_at_rest"`
 }
 
@@ -46,19 +52,28 @@ type EncryptionAtRestObservation struct {
 }
 
 type EncryptionAtRestParameters struct {
+
+	// +kubebuilder:validation:Required
 	CatalogEncryptionMode string `json:"catalogEncryptionMode" tf:"catalog_encryption_mode"`
 
-	SseAwsKmsKeyId *string `json:"sseAwsKmsKeyId,omitempty" tf:"sse_aws_kms_key_id"`
+	// +kubebuilder:validation:Optional
+	SseAwsKmsKeyID *string `json:"sseAwsKmsKeyId,omitempty" tf:"sse_aws_kms_key_id"`
 }
 
 type GlueDataCatalogEncryptionSettingsObservation struct {
 }
 
 type GlueDataCatalogEncryptionSettingsParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Required
 	DataCatalogEncryptionSettings []DataCatalogEncryptionSettingsParameters `json:"dataCatalogEncryptionSettings" tf:"data_catalog_encryption_settings"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

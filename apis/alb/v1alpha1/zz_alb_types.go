@@ -28,10 +28,14 @@ type AccessLogsObservation struct {
 }
 
 type AccessLogsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 }
 
@@ -40,63 +44,89 @@ type AlbObservation struct {
 
 	ArnSuffix string `json:"arnSuffix" tf:"arn_suffix"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 
-	ZoneId string `json:"zoneId" tf:"zone_id"`
+	ZoneID string `json:"zoneId" tf:"zone_id"`
 }
 
 type AlbParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessLogs []AccessLogsParameters `json:"accessLogs,omitempty" tf:"access_logs"`
 
-	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
+	// +kubebuilder:validation:Optional
+	CustomerOwnedIPv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
 
+	// +kubebuilder:validation:Optional
 	DropInvalidHeaderFields *bool `json:"dropInvalidHeaderFields,omitempty" tf:"drop_invalid_header_fields"`
 
+	// +kubebuilder:validation:Optional
 	EnableCrossZoneLoadBalancing *bool `json:"enableCrossZoneLoadBalancing,omitempty" tf:"enable_cross_zone_load_balancing"`
 
+	// +kubebuilder:validation:Optional
 	EnableDeletionProtection *bool `json:"enableDeletionProtection,omitempty" tf:"enable_deletion_protection"`
 
+	// +kubebuilder:validation:Optional
 	EnableHttp2 *bool `json:"enableHttp2,omitempty" tf:"enable_http2"`
 
+	// +kubebuilder:validation:Optional
+	IPAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type"`
+
+	// +kubebuilder:validation:Optional
 	IdleTimeout *int64 `json:"idleTimeout,omitempty" tf:"idle_timeout"`
 
+	// +kubebuilder:validation:Optional
 	Internal *bool `json:"internal,omitempty" tf:"internal"`
 
-	IpAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type"`
-
+	// +kubebuilder:validation:Optional
 	LoadBalancerType *string `json:"loadBalancerType,omitempty" tf:"load_balancer_type"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
+	// +kubebuilder:validation:Optional
 	SubnetMapping []SubnetMappingParameters `json:"subnetMapping,omitempty" tf:"subnet_mapping"`
 
+	// +kubebuilder:validation:Optional
 	Subnets []string `json:"subnets,omitempty" tf:"subnets"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type SubnetMappingObservation struct {
-	OutpostId string `json:"outpostId" tf:"outpost_id"`
+	OutpostID string `json:"outpostId" tf:"outpost_id"`
 }
 
 type SubnetMappingParameters struct {
-	AllocationId *string `json:"allocationId,omitempty" tf:"allocation_id"`
 
-	Ipv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address"`
+	// +kubebuilder:validation:Optional
+	AllocationID *string `json:"allocationId,omitempty" tf:"allocation_id"`
 
-	PrivateIpv4Address *string `json:"privateIpv4Address,omitempty" tf:"private_ipv4_address"`
+	// +kubebuilder:validation:Optional
+	IPv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	PrivateIPv4Address *string `json:"privateIpv4Address,omitempty" tf:"private_ipv4_address"`
+
+	// +kubebuilder:validation:Required
+	SubnetID string `json:"subnetId" tf:"subnet_id"`
 }
 
 // AlbSpec defines the desired state of Alb

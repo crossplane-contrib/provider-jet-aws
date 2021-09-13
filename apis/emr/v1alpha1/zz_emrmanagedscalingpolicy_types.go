@@ -28,14 +28,20 @@ type ComputeLimitsObservation struct {
 }
 
 type ComputeLimitsParameters struct {
+
+	// +kubebuilder:validation:Required
 	MaximumCapacityUnits int64 `json:"maximumCapacityUnits" tf:"maximum_capacity_units"`
 
+	// +kubebuilder:validation:Optional
 	MaximumCoreCapacityUnits *int64 `json:"maximumCoreCapacityUnits,omitempty" tf:"maximum_core_capacity_units"`
 
+	// +kubebuilder:validation:Optional
 	MaximumOndemandCapacityUnits *int64 `json:"maximumOndemandCapacityUnits,omitempty" tf:"maximum_ondemand_capacity_units"`
 
+	// +kubebuilder:validation:Required
 	MinimumCapacityUnits int64 `json:"minimumCapacityUnits" tf:"minimum_capacity_units"`
 
+	// +kubebuilder:validation:Required
 	UnitType string `json:"unitType" tf:"unit_type"`
 }
 
@@ -43,10 +49,16 @@ type EmrManagedScalingPolicyObservation struct {
 }
 
 type EmrManagedScalingPolicyParameters struct {
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
 
+	// +kubebuilder:validation:Required
+	ClusterID string `json:"clusterId" tf:"cluster_id"`
+
+	// +kubebuilder:validation:Required
 	ComputeLimits []ComputeLimitsParameters `json:"computeLimits" tf:"compute_limits"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

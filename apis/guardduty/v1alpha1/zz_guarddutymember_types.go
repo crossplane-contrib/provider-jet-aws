@@ -29,18 +29,28 @@ type GuarddutyMemberObservation struct {
 }
 
 type GuarddutyMemberParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
 
-	DetectorId string `json:"detectorId" tf:"detector_id"`
+	// +kubebuilder:validation:Required
+	AccountID string `json:"accountId" tf:"account_id"`
 
+	// +kubebuilder:validation:Required
+	DetectorID string `json:"detectorId" tf:"detector_id"`
+
+	// +kubebuilder:validation:Optional
 	DisableEmailNotification *bool `json:"disableEmailNotification,omitempty" tf:"disable_email_notification"`
 
+	// +kubebuilder:validation:Required
 	Email string `json:"email" tf:"email"`
 
+	// +kubebuilder:validation:Optional
 	InvitationMessage *string `json:"invitationMessage,omitempty" tf:"invitation_message"`
 
+	// +kubebuilder:validation:Optional
 	Invite *bool `json:"invite,omitempty" tf:"invite"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

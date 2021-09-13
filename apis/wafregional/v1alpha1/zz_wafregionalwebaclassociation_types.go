@@ -28,11 +28,17 @@ type WafregionalWebAclAssociationObservation struct {
 }
 
 type WafregionalWebAclAssociationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 
-	WebAclId string `json:"webAclId" tf:"web_acl_id"`
+	// +kubebuilder:validation:Required
+	WebACLID string `json:"webAclId" tf:"web_acl_id"`
 }
 
 // WafregionalWebAclAssociationSpec defines the desired state of WafregionalWebAclAssociation

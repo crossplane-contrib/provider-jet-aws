@@ -29,32 +29,49 @@ type BudgetsBudgetObservation struct {
 }
 
 type BudgetsBudgetParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
 
+	// +kubebuilder:validation:Optional
+	AccountID *string `json:"accountId,omitempty" tf:"account_id"`
+
+	// +kubebuilder:validation:Required
 	BudgetType string `json:"budgetType" tf:"budget_type"`
 
+	// +kubebuilder:validation:Optional
 	CostFilter []CostFilterParameters `json:"costFilter,omitempty" tf:"cost_filter"`
 
+	// +kubebuilder:validation:Optional
 	CostFilters map[string]string `json:"costFilters,omitempty" tf:"cost_filters"`
 
+	// +kubebuilder:validation:Optional
 	CostTypes []CostTypesParameters `json:"costTypes,omitempty" tf:"cost_types"`
 
+	// +kubebuilder:validation:Required
 	LimitAmount string `json:"limitAmount" tf:"limit_amount"`
 
+	// +kubebuilder:validation:Required
 	LimitUnit string `json:"limitUnit" tf:"limit_unit"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Notification []NotificationParameters `json:"notification,omitempty" tf:"notification"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	TimePeriodEnd *string `json:"timePeriodEnd,omitempty" tf:"time_period_end"`
 
+	// +kubebuilder:validation:Optional
 	TimePeriodStart *string `json:"timePeriodStart,omitempty" tf:"time_period_start"`
 
+	// +kubebuilder:validation:Required
 	TimeUnit string `json:"timeUnit" tf:"time_unit"`
 }
 
@@ -62,8 +79,11 @@ type CostFilterObservation struct {
 }
 
 type CostFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 
@@ -71,26 +91,38 @@ type CostTypesObservation struct {
 }
 
 type CostTypesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	IncludeCredit *bool `json:"includeCredit,omitempty" tf:"include_credit"`
 
+	// +kubebuilder:validation:Optional
 	IncludeDiscount *bool `json:"includeDiscount,omitempty" tf:"include_discount"`
 
+	// +kubebuilder:validation:Optional
 	IncludeOtherSubscription *bool `json:"includeOtherSubscription,omitempty" tf:"include_other_subscription"`
 
+	// +kubebuilder:validation:Optional
 	IncludeRecurring *bool `json:"includeRecurring,omitempty" tf:"include_recurring"`
 
+	// +kubebuilder:validation:Optional
 	IncludeRefund *bool `json:"includeRefund,omitempty" tf:"include_refund"`
 
+	// +kubebuilder:validation:Optional
 	IncludeSubscription *bool `json:"includeSubscription,omitempty" tf:"include_subscription"`
 
+	// +kubebuilder:validation:Optional
 	IncludeSupport *bool `json:"includeSupport,omitempty" tf:"include_support"`
 
+	// +kubebuilder:validation:Optional
 	IncludeTax *bool `json:"includeTax,omitempty" tf:"include_tax"`
 
+	// +kubebuilder:validation:Optional
 	IncludeUpfront *bool `json:"includeUpfront,omitempty" tf:"include_upfront"`
 
+	// +kubebuilder:validation:Optional
 	UseAmortized *bool `json:"useAmortized,omitempty" tf:"use_amortized"`
 
+	// +kubebuilder:validation:Optional
 	UseBlended *bool `json:"useBlended,omitempty" tf:"use_blended"`
 }
 
@@ -98,16 +130,23 @@ type NotificationObservation struct {
 }
 
 type NotificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Required
 	NotificationType string `json:"notificationType" tf:"notification_type"`
 
+	// +kubebuilder:validation:Optional
 	SubscriberEmailAddresses []string `json:"subscriberEmailAddresses,omitempty" tf:"subscriber_email_addresses"`
 
+	// +kubebuilder:validation:Optional
 	SubscriberSnsTopicArns []string `json:"subscriberSnsTopicArns,omitempty" tf:"subscriber_sns_topic_arns"`
 
+	// +kubebuilder:validation:Required
 	Threshold float64 `json:"threshold" tf:"threshold"`
 
+	// +kubebuilder:validation:Required
 	ThresholdType string `json:"thresholdType" tf:"threshold_type"`
 }
 

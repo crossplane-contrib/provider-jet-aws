@@ -33,28 +33,43 @@ type DxPublicVirtualInterfaceObservation struct {
 }
 
 type DxPublicVirtualInterfaceParameters struct {
+
+	// +kubebuilder:validation:Required
 	AddressFamily string `json:"addressFamily" tf:"address_family"`
 
+	// +kubebuilder:validation:Optional
 	AmazonAddress *string `json:"amazonAddress,omitempty" tf:"amazon_address"`
 
+	// +kubebuilder:validation:Required
 	BgpAsn int64 `json:"bgpAsn" tf:"bgp_asn"`
 
+	// +kubebuilder:validation:Optional
 	BgpAuthKey *string `json:"bgpAuthKey,omitempty" tf:"bgp_auth_key"`
 
-	ConnectionId string `json:"connectionId" tf:"connection_id"`
+	// +kubebuilder:validation:Required
+	ConnectionID string `json:"connectionId" tf:"connection_id"`
 
+	// +kubebuilder:validation:Optional
 	CustomerAddress *string `json:"customerAddress,omitempty" tf:"customer_address"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RouteFilterPrefixes []string `json:"routeFilterPrefixes" tf:"route_filter_prefixes"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Vlan int64 `json:"vlan" tf:"vlan"`
 }
 

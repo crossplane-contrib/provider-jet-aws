@@ -29,14 +29,22 @@ type CloudfrontRealtimeLogConfigObservation struct {
 }
 
 type CloudfrontRealtimeLogConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	Endpoint []EndpointParameters `json:"endpoint" tf:"endpoint"`
 
+	// +kubebuilder:validation:Required
 	Fields []string `json:"fields" tf:"fields"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SamplingRate int64 `json:"samplingRate" tf:"sampling_rate"`
 }
 
@@ -44,8 +52,11 @@ type EndpointObservation struct {
 }
 
 type EndpointParameters struct {
+
+	// +kubebuilder:validation:Required
 	KinesisStreamConfig []KinesisStreamConfigParameters `json:"kinesisStreamConfig" tf:"kinesis_stream_config"`
 
+	// +kubebuilder:validation:Required
 	StreamType string `json:"streamType" tf:"stream_type"`
 }
 
@@ -53,8 +64,11 @@ type KinesisStreamConfigObservation struct {
 }
 
 type KinesisStreamConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Required
 	StreamArn string `json:"streamArn" tf:"stream_arn"`
 }
 

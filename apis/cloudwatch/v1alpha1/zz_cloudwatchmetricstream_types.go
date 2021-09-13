@@ -35,24 +35,37 @@ type CloudwatchMetricStreamObservation struct {
 }
 
 type CloudwatchMetricStreamParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ExcludeFilter []ExcludeFilterParameters `json:"excludeFilter,omitempty" tf:"exclude_filter"`
 
+	// +kubebuilder:validation:Required
 	FirehoseArn string `json:"firehoseArn" tf:"firehose_arn"`
 
+	// +kubebuilder:validation:Optional
 	IncludeFilter []IncludeFilterParameters `json:"includeFilter,omitempty" tf:"include_filter"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// +kubebuilder:validation:Required
 	OutputFormat string `json:"outputFormat" tf:"output_format"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -60,6 +73,8 @@ type ExcludeFilterObservation struct {
 }
 
 type ExcludeFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 }
 
@@ -67,6 +82,8 @@ type IncludeFilterObservation struct {
 }
 
 type IncludeFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 }
 

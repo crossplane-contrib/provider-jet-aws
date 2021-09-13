@@ -28,27 +28,40 @@ type SsmMaintenanceWindowTargetObservation struct {
 }
 
 type SsmMaintenanceWindowTargetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	OwnerInformation *string `json:"ownerInformation,omitempty" tf:"owner_information"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ResourceType string `json:"resourceType" tf:"resource_type"`
 
+	// +kubebuilder:validation:Required
 	Targets []SsmMaintenanceWindowTargetTargetsParameters `json:"targets" tf:"targets"`
 
-	WindowId string `json:"windowId" tf:"window_id"`
+	// +kubebuilder:validation:Required
+	WindowID string `json:"windowId" tf:"window_id"`
 }
 
 type SsmMaintenanceWindowTargetTargetsObservation struct {
 }
 
 type SsmMaintenanceWindowTargetTargetsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 

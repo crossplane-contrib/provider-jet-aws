@@ -25,60 +25,89 @@ import (
 )
 
 type S3BucketObjectObservation struct {
-	VersionId string `json:"versionId" tf:"version_id"`
+	VersionID string `json:"versionId" tf:"version_id"`
 }
 
 type S3BucketObjectParameters struct {
-	Acl *string `json:"acl,omitempty" tf:"acl"`
 
+	// +kubebuilder:validation:Optional
+	ACL *string `json:"acl,omitempty" tf:"acl"`
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	BucketKeyEnabled *bool `json:"bucketKeyEnabled,omitempty" tf:"bucket_key_enabled"`
 
+	// +kubebuilder:validation:Optional
 	CacheControl *string `json:"cacheControl,omitempty" tf:"cache_control"`
 
+	// +kubebuilder:validation:Optional
 	Content *string `json:"content,omitempty" tf:"content"`
 
+	// +kubebuilder:validation:Optional
 	ContentBase64 *string `json:"contentBase64,omitempty" tf:"content_base64"`
 
+	// +kubebuilder:validation:Optional
 	ContentDisposition *string `json:"contentDisposition,omitempty" tf:"content_disposition"`
 
+	// +kubebuilder:validation:Optional
 	ContentEncoding *string `json:"contentEncoding,omitempty" tf:"content_encoding"`
 
+	// +kubebuilder:validation:Optional
 	ContentLanguage *string `json:"contentLanguage,omitempty" tf:"content_language"`
 
+	// +kubebuilder:validation:Optional
 	ContentType *string `json:"contentType,omitempty" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	Etag *string `json:"etag,omitempty" tf:"etag"`
 
+	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	Metadata map[string]string `json:"metadata,omitempty" tf:"metadata"`
 
+	// +kubebuilder:validation:Optional
 	ObjectLockLegalHoldStatus *string `json:"objectLockLegalHoldStatus,omitempty" tf:"object_lock_legal_hold_status"`
 
+	// +kubebuilder:validation:Optional
 	ObjectLockMode *string `json:"objectLockMode,omitempty" tf:"object_lock_mode"`
 
+	// +kubebuilder:validation:Optional
 	ObjectLockRetainUntilDate *string `json:"objectLockRetainUntilDate,omitempty" tf:"object_lock_retain_until_date"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ServerSideEncryption *string `json:"serverSideEncryption,omitempty" tf:"server_side_encryption"`
 
+	// +kubebuilder:validation:Optional
 	Source *string `json:"source,omitempty" tf:"source"`
 
+	// +kubebuilder:validation:Optional
 	SourceHash *string `json:"sourceHash,omitempty" tf:"source_hash"`
 
+	// +kubebuilder:validation:Optional
 	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	WebsiteRedirect *string `json:"websiteRedirect,omitempty" tf:"website_redirect"`
 }
 

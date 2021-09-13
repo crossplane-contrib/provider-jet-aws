@@ -29,24 +29,37 @@ type AppsyncResolverObservation struct {
 }
 
 type AppsyncResolverParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Optional
 	CachingConfig []CachingConfigParameters `json:"cachingConfig,omitempty" tf:"caching_config"`
 
+	// +kubebuilder:validation:Optional
 	DataSource *string `json:"dataSource,omitempty" tf:"data_source"`
 
+	// +kubebuilder:validation:Required
 	Field string `json:"field" tf:"field"`
 
+	// +kubebuilder:validation:Optional
 	Kind *string `json:"kind,omitempty" tf:"kind"`
 
+	// +kubebuilder:validation:Optional
 	PipelineConfig []PipelineConfigParameters `json:"pipelineConfig,omitempty" tf:"pipeline_config"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RequestTemplate *string `json:"requestTemplate,omitempty" tf:"request_template"`
 
+	// +kubebuilder:validation:Optional
 	ResponseTemplate *string `json:"responseTemplate,omitempty" tf:"response_template"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -54,15 +67,20 @@ type CachingConfigObservation struct {
 }
 
 type CachingConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CachingKeys []string `json:"cachingKeys,omitempty" tf:"caching_keys"`
 
-	Ttl *int64 `json:"ttl,omitempty" tf:"ttl"`
+	// +kubebuilder:validation:Optional
+	TTL *int64 `json:"ttl,omitempty" tf:"ttl"`
 }
 
 type PipelineConfigObservation struct {
 }
 
 type PipelineConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Functions []string `json:"functions,omitempty" tf:"functions"`
 }
 

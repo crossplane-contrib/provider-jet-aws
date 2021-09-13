@@ -27,32 +27,45 @@ import (
 type Ec2TransitGatewayObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	AssociationDefaultRouteTableId string `json:"associationDefaultRouteTableId" tf:"association_default_route_table_id"`
+	AssociationDefaultRouteTableID string `json:"associationDefaultRouteTableId" tf:"association_default_route_table_id"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
-	PropagationDefaultRouteTableId string `json:"propagationDefaultRouteTableId" tf:"propagation_default_route_table_id"`
+	PropagationDefaultRouteTableID string `json:"propagationDefaultRouteTableId" tf:"propagation_default_route_table_id"`
 }
 
 type Ec2TransitGatewayParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AmazonSideAsn *int64 `json:"amazonSideAsn,omitempty" tf:"amazon_side_asn"`
 
+	// +kubebuilder:validation:Optional
 	AutoAcceptSharedAttachments *string `json:"autoAcceptSharedAttachments,omitempty" tf:"auto_accept_shared_attachments"`
 
+	// +kubebuilder:validation:Optional
+	DNSSupport *string `json:"dnsSupport,omitempty" tf:"dns_support"`
+
+	// +kubebuilder:validation:Optional
 	DefaultRouteTableAssociation *string `json:"defaultRouteTableAssociation,omitempty" tf:"default_route_table_association"`
 
+	// +kubebuilder:validation:Optional
 	DefaultRouteTablePropagation *string `json:"defaultRouteTablePropagation,omitempty" tf:"default_route_table_propagation"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DnsSupport *string `json:"dnsSupport,omitempty" tf:"dns_support"`
-
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VpnEcmpSupport *string `json:"vpnEcmpSupport,omitempty" tf:"vpn_ecmp_support"`
 }
 

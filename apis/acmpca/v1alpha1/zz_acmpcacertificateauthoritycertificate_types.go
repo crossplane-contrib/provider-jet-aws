@@ -28,12 +28,19 @@ type AcmpcaCertificateAuthorityCertificateObservation struct {
 }
 
 type AcmpcaCertificateAuthorityCertificateParameters struct {
+
+	// +kubebuilder:validation:Required
 	Certificate string `json:"certificate" tf:"certificate"`
 
+	// +kubebuilder:validation:Required
 	CertificateAuthorityArn string `json:"certificateAuthorityArn" tf:"certificate_authority_arn"`
 
+	// +kubebuilder:validation:Optional
 	CertificateChain *string `json:"certificateChain,omitempty" tf:"certificate_chain"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

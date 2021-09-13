@@ -28,14 +28,22 @@ type ApiGatewayBasePathMappingObservation struct {
 }
 
 type ApiGatewayBasePathMappingParameters struct {
-	ApiId string `json:"apiId" tf:"api_id"`
 
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Optional
 	BasePath *string `json:"basePath,omitempty" tf:"base_path"`
 
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	StageName *string `json:"stageName,omitempty" tf:"stage_name"`
 }
 

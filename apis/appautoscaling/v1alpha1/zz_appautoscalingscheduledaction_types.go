@@ -29,24 +29,37 @@ type AppautoscalingScheduledActionObservation struct {
 }
 
 type AppautoscalingScheduledActionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EndTime *string `json:"endTime,omitempty" tf:"end_time"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
+	// +kubebuilder:validation:Required
 	ScalableDimension string `json:"scalableDimension" tf:"scalable_dimension"`
 
+	// +kubebuilder:validation:Required
 	ScalableTargetAction []ScalableTargetActionParameters `json:"scalableTargetAction" tf:"scalable_target_action"`
 
+	// +kubebuilder:validation:Required
 	Schedule string `json:"schedule" tf:"schedule"`
 
+	// +kubebuilder:validation:Required
 	ServiceNamespace string `json:"serviceNamespace" tf:"service_namespace"`
 
+	// +kubebuilder:validation:Optional
 	StartTime *string `json:"startTime,omitempty" tf:"start_time"`
 
+	// +kubebuilder:validation:Optional
 	Timezone *string `json:"timezone,omitempty" tf:"timezone"`
 }
 
@@ -54,8 +67,11 @@ type ScalableTargetActionObservation struct {
 }
 
 type ScalableTargetActionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MaxCapacity *string `json:"maxCapacity,omitempty" tf:"max_capacity"`
 
+	// +kubebuilder:validation:Optional
 	MinCapacity *string `json:"minCapacity,omitempty" tf:"min_capacity"`
 }
 

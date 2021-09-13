@@ -28,15 +28,23 @@ type OpsworksRdsDbInstanceObservation struct {
 }
 
 type OpsworksRdsDbInstanceParameters struct {
-	DbPassword string `json:"dbPassword" tf:"db_password"`
 
-	DbUser string `json:"dbUser" tf:"db_user"`
+	// +kubebuilder:validation:Required
+	DBPassword string `json:"dbPassword" tf:"db_password"`
 
-	RdsDbInstanceArn string `json:"rdsDbInstanceArn" tf:"rds_db_instance_arn"`
+	// +kubebuilder:validation:Required
+	DBUser string `json:"dbUser" tf:"db_user"`
 
+	// +kubebuilder:validation:Required
+	RdsDBInstanceArn string `json:"rdsDbInstanceArn" tf:"rds_db_instance_arn"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	StackId string `json:"stackId" tf:"stack_id"`
+	// +kubebuilder:validation:Required
+	StackID string `json:"stackId" tf:"stack_id"`
 }
 
 // OpsworksRdsDbInstanceSpec defines the desired state of OpsworksRdsDbInstance

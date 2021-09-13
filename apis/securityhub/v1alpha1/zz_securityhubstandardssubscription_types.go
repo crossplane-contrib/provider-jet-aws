@@ -28,8 +28,13 @@ type SecurityhubStandardsSubscriptionObservation struct {
 }
 
 type SecurityhubStandardsSubscriptionParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	StandardsArn string `json:"standardsArn" tf:"standards_arn"`
 }
 

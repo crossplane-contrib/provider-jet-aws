@@ -28,12 +28,17 @@ type AudioCodecOptionsObservation struct {
 }
 
 type AudioCodecOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BitDepth *string `json:"bitDepth,omitempty" tf:"bit_depth"`
 
+	// +kubebuilder:validation:Optional
 	BitOrder *string `json:"bitOrder,omitempty" tf:"bit_order"`
 
+	// +kubebuilder:validation:Optional
 	Profile *string `json:"profile,omitempty" tf:"profile"`
 
+	// +kubebuilder:validation:Optional
 	Signed *string `json:"signed,omitempty" tf:"signed"`
 }
 
@@ -41,14 +46,20 @@ type AudioObservation struct {
 }
 
 type AudioParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AudioPackingMode *string `json:"audioPackingMode,omitempty" tf:"audio_packing_mode"`
 
+	// +kubebuilder:validation:Optional
 	BitRate *string `json:"bitRate,omitempty" tf:"bit_rate"`
 
+	// +kubebuilder:validation:Optional
 	Channels *string `json:"channels,omitempty" tf:"channels"`
 
+	// +kubebuilder:validation:Optional
 	Codec *string `json:"codec,omitempty" tf:"codec"`
 
+	// +kubebuilder:validation:Optional
 	SampleRate *string `json:"sampleRate,omitempty" tf:"sample_rate"`
 }
 
@@ -57,26 +68,40 @@ type ElastictranscoderPresetObservation struct {
 }
 
 type ElastictranscoderPresetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Audio []AudioParameters `json:"audio,omitempty" tf:"audio"`
 
+	// +kubebuilder:validation:Optional
 	AudioCodecOptions []AudioCodecOptionsParameters `json:"audioCodecOptions,omitempty" tf:"audio_codec_options"`
 
+	// +kubebuilder:validation:Required
 	Container string `json:"container" tf:"container"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Thumbnails []ThumbnailsParameters `json:"thumbnails,omitempty" tf:"thumbnails"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	Video []VideoParameters `json:"video,omitempty" tf:"video"`
 
+	// +kubebuilder:validation:Optional
 	VideoCodecOptions map[string]string `json:"videoCodecOptions,omitempty" tf:"video_codec_options"`
 
+	// +kubebuilder:validation:Optional
 	VideoWatermarks []VideoWatermarksParameters `json:"videoWatermarks,omitempty" tf:"video_watermarks"`
 }
 
@@ -84,20 +109,29 @@ type ThumbnailsObservation struct {
 }
 
 type ThumbnailsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AspectRatio *string `json:"aspectRatio,omitempty" tf:"aspect_ratio"`
 
+	// +kubebuilder:validation:Optional
 	Format *string `json:"format,omitempty" tf:"format"`
 
+	// +kubebuilder:validation:Optional
 	Interval *string `json:"interval,omitempty" tf:"interval"`
 
+	// +kubebuilder:validation:Optional
 	MaxHeight *string `json:"maxHeight,omitempty" tf:"max_height"`
 
+	// +kubebuilder:validation:Optional
 	MaxWidth *string `json:"maxWidth,omitempty" tf:"max_width"`
 
+	// +kubebuilder:validation:Optional
 	PaddingPolicy *string `json:"paddingPolicy,omitempty" tf:"padding_policy"`
 
+	// +kubebuilder:validation:Optional
 	Resolution *string `json:"resolution,omitempty" tf:"resolution"`
 
+	// +kubebuilder:validation:Optional
 	SizingPolicy *string `json:"sizingPolicy,omitempty" tf:"sizing_policy"`
 }
 
@@ -105,30 +139,44 @@ type VideoObservation struct {
 }
 
 type VideoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AspectRatio *string `json:"aspectRatio,omitempty" tf:"aspect_ratio"`
 
+	// +kubebuilder:validation:Optional
 	BitRate *string `json:"bitRate,omitempty" tf:"bit_rate"`
 
+	// +kubebuilder:validation:Optional
 	Codec *string `json:"codec,omitempty" tf:"codec"`
 
+	// +kubebuilder:validation:Optional
 	DisplayAspectRatio *string `json:"displayAspectRatio,omitempty" tf:"display_aspect_ratio"`
 
+	// +kubebuilder:validation:Optional
 	FixedGop *string `json:"fixedGop,omitempty" tf:"fixed_gop"`
 
+	// +kubebuilder:validation:Optional
 	FrameRate *string `json:"frameRate,omitempty" tf:"frame_rate"`
 
+	// +kubebuilder:validation:Optional
 	KeyframesMaxDist *string `json:"keyframesMaxDist,omitempty" tf:"keyframes_max_dist"`
 
+	// +kubebuilder:validation:Optional
 	MaxFrameRate *string `json:"maxFrameRate,omitempty" tf:"max_frame_rate"`
 
+	// +kubebuilder:validation:Optional
 	MaxHeight *string `json:"maxHeight,omitempty" tf:"max_height"`
 
+	// +kubebuilder:validation:Optional
 	MaxWidth *string `json:"maxWidth,omitempty" tf:"max_width"`
 
+	// +kubebuilder:validation:Optional
 	PaddingPolicy *string `json:"paddingPolicy,omitempty" tf:"padding_policy"`
 
+	// +kubebuilder:validation:Optional
 	Resolution *string `json:"resolution,omitempty" tf:"resolution"`
 
+	// +kubebuilder:validation:Optional
 	SizingPolicy *string `json:"sizingPolicy,omitempty" tf:"sizing_policy"`
 }
 
@@ -136,24 +184,35 @@ type VideoWatermarksObservation struct {
 }
 
 type VideoWatermarksParameters struct {
+
+	// +kubebuilder:validation:Optional
 	HorizontalAlign *string `json:"horizontalAlign,omitempty" tf:"horizontal_align"`
 
+	// +kubebuilder:validation:Optional
 	HorizontalOffset *string `json:"horizontalOffset,omitempty" tf:"horizontal_offset"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	// +kubebuilder:validation:Optional
+	ID *string `json:"id,omitempty" tf:"id"`
 
+	// +kubebuilder:validation:Optional
 	MaxHeight *string `json:"maxHeight,omitempty" tf:"max_height"`
 
+	// +kubebuilder:validation:Optional
 	MaxWidth *string `json:"maxWidth,omitempty" tf:"max_width"`
 
+	// +kubebuilder:validation:Optional
 	Opacity *string `json:"opacity,omitempty" tf:"opacity"`
 
+	// +kubebuilder:validation:Optional
 	SizingPolicy *string `json:"sizingPolicy,omitempty" tf:"sizing_policy"`
 
+	// +kubebuilder:validation:Optional
 	Target *string `json:"target,omitempty" tf:"target"`
 
+	// +kubebuilder:validation:Optional
 	VerticalAlign *string `json:"verticalAlign,omitempty" tf:"vertical_align"`
 
+	// +kubebuilder:validation:Optional
 	VerticalOffset *string `json:"verticalOffset,omitempty" tf:"vertical_offset"`
 }
 

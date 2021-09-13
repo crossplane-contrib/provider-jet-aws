@@ -29,18 +29,28 @@ type CustomerGatewayObservation struct {
 }
 
 type CustomerGatewayParameters struct {
+
+	// +kubebuilder:validation:Required
 	BgpAsn string `json:"bgpAsn" tf:"bgp_asn"`
 
+	// +kubebuilder:validation:Optional
 	DeviceName *string `json:"deviceName,omitempty" tf:"device_name"`
 
-	IpAddress string `json:"ipAddress" tf:"ip_address"`
+	// +kubebuilder:validation:Required
+	IPAddress string `json:"ipAddress" tf:"ip_address"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

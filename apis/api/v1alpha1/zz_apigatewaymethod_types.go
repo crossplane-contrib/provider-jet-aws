@@ -28,29 +28,44 @@ type ApiGatewayMethodObservation struct {
 }
 
 type ApiGatewayMethodParameters struct {
-	ApiKeyRequired *bool `json:"apiKeyRequired,omitempty" tf:"api_key_required"`
 
+	// +kubebuilder:validation:Optional
+	APIKeyRequired *bool `json:"apiKeyRequired,omitempty" tf:"api_key_required"`
+
+	// +kubebuilder:validation:Required
 	Authorization string `json:"authorization" tf:"authorization"`
 
+	// +kubebuilder:validation:Optional
 	AuthorizationScopes []string `json:"authorizationScopes,omitempty" tf:"authorization_scopes"`
 
-	AuthorizerId *string `json:"authorizerId,omitempty" tf:"authorizer_id"`
+	// +kubebuilder:validation:Optional
+	AuthorizerID *string `json:"authorizerId,omitempty" tf:"authorizer_id"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	// +kubebuilder:validation:Required
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
+	// +kubebuilder:validation:Optional
 	OperationName *string `json:"operationName,omitempty" tf:"operation_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RequestModels map[string]string `json:"requestModels,omitempty" tf:"request_models"`
 
+	// +kubebuilder:validation:Optional
 	RequestParameters map[string]bool `json:"requestParameters,omitempty" tf:"request_parameters"`
 
-	RequestValidatorId *string `json:"requestValidatorId,omitempty" tf:"request_validator_id"`
+	// +kubebuilder:validation:Optional
+	RequestValidatorID *string `json:"requestValidatorId,omitempty" tf:"request_validator_id"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 }
 
 // ApiGatewayMethodSpec defines the desired state of ApiGatewayMethod

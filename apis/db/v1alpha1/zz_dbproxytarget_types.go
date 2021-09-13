@@ -29,24 +29,32 @@ type DbProxyTargetObservation struct {
 
 	Port int64 `json:"port" tf:"port"`
 
-	RdsResourceId string `json:"rdsResourceId" tf:"rds_resource_id"`
+	RdsResourceID string `json:"rdsResourceId" tf:"rds_resource_id"`
 
 	TargetArn string `json:"targetArn" tf:"target_arn"`
 
-	TrackedClusterId string `json:"trackedClusterId" tf:"tracked_cluster_id"`
+	TrackedClusterID string `json:"trackedClusterId" tf:"tracked_cluster_id"`
 
 	Type string `json:"type" tf:"type"`
 }
 
 type DbProxyTargetParameters struct {
-	DbClusterIdentifier *string `json:"dbClusterIdentifier,omitempty" tf:"db_cluster_identifier"`
 
-	DbInstanceIdentifier *string `json:"dbInstanceIdentifier,omitempty" tf:"db_instance_identifier"`
+	// +kubebuilder:validation:Optional
+	DBClusterIdentifier *string `json:"dbClusterIdentifier,omitempty" tf:"db_cluster_identifier"`
 
-	DbProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
+	// +kubebuilder:validation:Optional
+	DBInstanceIdentifier *string `json:"dbInstanceIdentifier,omitempty" tf:"db_instance_identifier"`
 
+	// +kubebuilder:validation:Required
+	DBProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	TargetGroupName string `json:"targetGroupName" tf:"target_group_name"`
 }
 

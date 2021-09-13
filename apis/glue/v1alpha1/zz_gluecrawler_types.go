@@ -28,8 +28,11 @@ type CatalogTargetObservation struct {
 }
 
 type CatalogTargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// +kubebuilder:validation:Required
 	Tables []string `json:"tables" tf:"tables"`
 }
 
@@ -37,10 +40,14 @@ type DynamodbTargetObservation struct {
 }
 
 type DynamodbTargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Path string `json:"path" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	ScanAll *bool `json:"scanAll,omitempty" tf:"scan_all"`
 
+	// +kubebuilder:validation:Optional
 	ScanRate *float64 `json:"scanRate,omitempty" tf:"scan_rate"`
 }
 
@@ -49,44 +56,67 @@ type GlueCrawlerObservation struct {
 }
 
 type GlueCrawlerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CatalogTarget []CatalogTargetParameters `json:"catalogTarget,omitempty" tf:"catalog_target"`
 
+	// +kubebuilder:validation:Optional
 	Classifiers []string `json:"classifiers,omitempty" tf:"classifiers"`
 
+	// +kubebuilder:validation:Optional
 	Configuration *string `json:"configuration,omitempty" tf:"configuration"`
 
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DynamodbTarget []DynamodbTargetParameters `json:"dynamodbTarget,omitempty" tf:"dynamodb_target"`
 
+	// +kubebuilder:validation:Optional
 	JdbcTarget []JdbcTargetParameters `json:"jdbcTarget,omitempty" tf:"jdbc_target"`
 
+	// +kubebuilder:validation:Optional
 	LineageConfiguration []LineageConfigurationParameters `json:"lineageConfiguration,omitempty" tf:"lineage_configuration"`
 
+	// +kubebuilder:validation:Optional
 	MongodbTarget []MongodbTargetParameters `json:"mongodbTarget,omitempty" tf:"mongodb_target"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	RecrawlPolicy []RecrawlPolicyParameters `json:"recrawlPolicy,omitempty" tf:"recrawl_policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Role string `json:"role" tf:"role"`
 
+	// +kubebuilder:validation:Optional
 	S3Target []S3TargetParameters `json:"s3Target,omitempty" tf:"s3_target"`
 
+	// +kubebuilder:validation:Optional
 	Schedule *string `json:"schedule,omitempty" tf:"schedule"`
 
+	// +kubebuilder:validation:Optional
 	SchemaChangePolicy []SchemaChangePolicyParameters `json:"schemaChangePolicy,omitempty" tf:"schema_change_policy"`
 
+	// +kubebuilder:validation:Optional
 	SecurityConfiguration *string `json:"securityConfiguration,omitempty" tf:"security_configuration"`
 
+	// +kubebuilder:validation:Optional
 	TablePrefix *string `json:"tablePrefix,omitempty" tf:"table_prefix"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -94,10 +124,14 @@ type JdbcTargetObservation struct {
 }
 
 type JdbcTargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	ConnectionName string `json:"connectionName" tf:"connection_name"`
 
+	// +kubebuilder:validation:Optional
 	Exclusions []string `json:"exclusions,omitempty" tf:"exclusions"`
 
+	// +kubebuilder:validation:Required
 	Path string `json:"path" tf:"path"`
 }
 
@@ -105,6 +139,8 @@ type LineageConfigurationObservation struct {
 }
 
 type LineageConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CrawlerLineageSettings *string `json:"crawlerLineageSettings,omitempty" tf:"crawler_lineage_settings"`
 }
 
@@ -112,10 +148,14 @@ type MongodbTargetObservation struct {
 }
 
 type MongodbTargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	ConnectionName string `json:"connectionName" tf:"connection_name"`
 
+	// +kubebuilder:validation:Required
 	Path string `json:"path" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	ScanAll *bool `json:"scanAll,omitempty" tf:"scan_all"`
 }
 
@@ -123,6 +163,8 @@ type RecrawlPolicyObservation struct {
 }
 
 type RecrawlPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	RecrawlBehavior *string `json:"recrawlBehavior,omitempty" tf:"recrawl_behavior"`
 }
 
@@ -130,12 +172,17 @@ type S3TargetObservation struct {
 }
 
 type S3TargetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ConnectionName *string `json:"connectionName,omitempty" tf:"connection_name"`
 
+	// +kubebuilder:validation:Optional
 	Exclusions []string `json:"exclusions,omitempty" tf:"exclusions"`
 
+	// +kubebuilder:validation:Required
 	Path string `json:"path" tf:"path"`
 
+	// +kubebuilder:validation:Optional
 	SampleSize *int64 `json:"sampleSize,omitempty" tf:"sample_size"`
 }
 
@@ -143,8 +190,11 @@ type SchemaChangePolicyObservation struct {
 }
 
 type SchemaChangePolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteBehavior *string `json:"deleteBehavior,omitempty" tf:"delete_behavior"`
 
+	// +kubebuilder:validation:Optional
 	UpdateBehavior *string `json:"updateBehavior,omitempty" tf:"update_behavior"`
 }
 

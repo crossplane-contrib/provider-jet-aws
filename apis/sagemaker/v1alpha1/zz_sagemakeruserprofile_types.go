@@ -28,8 +28,11 @@ type JupyterServerAppSettingsDefaultResourceSpecObservation struct {
 }
 
 type JupyterServerAppSettingsDefaultResourceSpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
 }
 
@@ -37,34 +40,49 @@ type KernelGatewayAppSettingsCustomImageObservation struct {
 }
 
 type KernelGatewayAppSettingsCustomImageParameters struct {
+
+	// +kubebuilder:validation:Required
 	AppImageConfigName string `json:"appImageConfigName" tf:"app_image_config_name"`
 
+	// +kubebuilder:validation:Required
 	ImageName string `json:"imageName" tf:"image_name"`
 
+	// +kubebuilder:validation:Optional
 	ImageVersionNumber *int64 `json:"imageVersionNumber,omitempty" tf:"image_version_number"`
 }
 
 type SagemakerUserProfileObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	HomeEfsFileSystemUid string `json:"homeEfsFileSystemUid" tf:"home_efs_file_system_uid"`
+	HomeEfsFileSystemUID string `json:"homeEfsFileSystemUid" tf:"home_efs_file_system_uid"`
 }
 
 type SagemakerUserProfileParameters struct {
-	DomainId string `json:"domainId" tf:"domain_id"`
 
+	// +kubebuilder:validation:Required
+	DomainID string `json:"domainId" tf:"domain_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SingleSignOnUserIdentifier *string `json:"singleSignOnUserIdentifier,omitempty" tf:"single_sign_on_user_identifier"`
 
+	// +kubebuilder:validation:Optional
 	SingleSignOnUserValue *string `json:"singleSignOnUserValue,omitempty" tf:"single_sign_on_user_value"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	UserProfileName string `json:"userProfileName" tf:"user_profile_name"`
 
+	// +kubebuilder:validation:Optional
 	UserSettings []UserSettingsParameters `json:"userSettings,omitempty" tf:"user_settings"`
 }
 
@@ -72,6 +90,8 @@ type UserSettingsJupyterServerAppSettingsObservation struct {
 }
 
 type UserSettingsJupyterServerAppSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	DefaultResourceSpec []JupyterServerAppSettingsDefaultResourceSpecParameters `json:"defaultResourceSpec" tf:"default_resource_spec"`
 }
 
@@ -79,8 +99,11 @@ type UserSettingsKernelGatewayAppSettingsDefaultResourceSpecObservation struct {
 }
 
 type UserSettingsKernelGatewayAppSettingsDefaultResourceSpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
 }
 
@@ -88,8 +111,11 @@ type UserSettingsKernelGatewayAppSettingsObservation struct {
 }
 
 type UserSettingsKernelGatewayAppSettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomImage []KernelGatewayAppSettingsCustomImageParameters `json:"customImage,omitempty" tf:"custom_image"`
 
+	// +kubebuilder:validation:Required
 	DefaultResourceSpec []UserSettingsKernelGatewayAppSettingsDefaultResourceSpecParameters `json:"defaultResourceSpec" tf:"default_resource_spec"`
 }
 
@@ -97,16 +123,23 @@ type UserSettingsObservation struct {
 }
 
 type UserSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	ExecutionRole string `json:"executionRole" tf:"execution_role"`
 
+	// +kubebuilder:validation:Optional
 	JupyterServerAppSettings []UserSettingsJupyterServerAppSettingsParameters `json:"jupyterServerAppSettings,omitempty" tf:"jupyter_server_app_settings"`
 
+	// +kubebuilder:validation:Optional
 	KernelGatewayAppSettings []UserSettingsKernelGatewayAppSettingsParameters `json:"kernelGatewayAppSettings,omitempty" tf:"kernel_gateway_app_settings"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
+	// +kubebuilder:validation:Optional
 	SharingSettings []UserSettingsSharingSettingsParameters `json:"sharingSettings,omitempty" tf:"sharing_settings"`
 
+	// +kubebuilder:validation:Optional
 	TensorBoardAppSettings []UserSettingsTensorBoardAppSettingsParameters `json:"tensorBoardAppSettings,omitempty" tf:"tensor_board_app_settings"`
 }
 
@@ -114,10 +147,14 @@ type UserSettingsSharingSettingsObservation struct {
 }
 
 type UserSettingsSharingSettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	NotebookOutputOption *string `json:"notebookOutputOption,omitempty" tf:"notebook_output_option"`
 
-	S3KmsKeyId *string `json:"s3KmsKeyId,omitempty" tf:"s3_kms_key_id"`
+	// +kubebuilder:validation:Optional
+	S3KmsKeyID *string `json:"s3KmsKeyId,omitempty" tf:"s3_kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	S3OutputPath *string `json:"s3OutputPath,omitempty" tf:"s3_output_path"`
 }
 
@@ -125,8 +162,11 @@ type UserSettingsTensorBoardAppSettingsDefaultResourceSpecObservation struct {
 }
 
 type UserSettingsTensorBoardAppSettingsDefaultResourceSpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	SagemakerImageArn *string `json:"sagemakerImageArn,omitempty" tf:"sagemaker_image_arn"`
 }
 
@@ -134,6 +174,8 @@ type UserSettingsTensorBoardAppSettingsObservation struct {
 }
 
 type UserSettingsTensorBoardAppSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	DefaultResourceSpec []UserSettingsTensorBoardAppSettingsDefaultResourceSpecParameters `json:"defaultResourceSpec" tf:"default_resource_spec"`
 }
 

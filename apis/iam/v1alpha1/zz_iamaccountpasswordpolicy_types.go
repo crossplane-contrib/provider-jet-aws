@@ -29,24 +29,37 @@ type IamAccountPasswordPolicyObservation struct {
 }
 
 type IamAccountPasswordPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowUsersToChangePassword *bool `json:"allowUsersToChangePassword,omitempty" tf:"allow_users_to_change_password"`
 
+	// +kubebuilder:validation:Optional
 	HardExpiry *bool `json:"hardExpiry,omitempty" tf:"hard_expiry"`
 
+	// +kubebuilder:validation:Optional
 	MaxPasswordAge *int64 `json:"maxPasswordAge,omitempty" tf:"max_password_age"`
 
+	// +kubebuilder:validation:Optional
 	MinimumPasswordLength *int64 `json:"minimumPasswordLength,omitempty" tf:"minimum_password_length"`
 
+	// +kubebuilder:validation:Optional
 	PasswordReusePrevention *int64 `json:"passwordReusePrevention,omitempty" tf:"password_reuse_prevention"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RequireLowercaseCharacters *bool `json:"requireLowercaseCharacters,omitempty" tf:"require_lowercase_characters"`
 
+	// +kubebuilder:validation:Optional
 	RequireNumbers *bool `json:"requireNumbers,omitempty" tf:"require_numbers"`
 
+	// +kubebuilder:validation:Optional
 	RequireSymbols *bool `json:"requireSymbols,omitempty" tf:"require_symbols"`
 
+	// +kubebuilder:validation:Optional
 	RequireUppercaseCharacters *bool `json:"requireUppercaseCharacters,omitempty" tf:"require_uppercase_characters"`
 }
 

@@ -28,8 +28,11 @@ type CognitoConfigObservation struct {
 }
 
 type CognitoConfigParameters struct {
-	ClientId string `json:"clientId" tf:"client_id"`
 
+	// +kubebuilder:validation:Required
+	ClientID string `json:"clientId" tf:"client_id"`
+
+	// +kubebuilder:validation:Required
 	UserPool string `json:"userPool" tf:"user_pool"`
 }
 
@@ -37,20 +40,29 @@ type OidcConfigObservation struct {
 }
 
 type OidcConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	AuthorizationEndpoint string `json:"authorizationEndpoint" tf:"authorization_endpoint"`
 
-	ClientId string `json:"clientId" tf:"client_id"`
+	// +kubebuilder:validation:Required
+	ClientID string `json:"clientId" tf:"client_id"`
 
+	// +kubebuilder:validation:Required
 	ClientSecret string `json:"clientSecret" tf:"client_secret"`
 
+	// +kubebuilder:validation:Required
 	Issuer string `json:"issuer" tf:"issuer"`
 
-	JwksUri string `json:"jwksUri" tf:"jwks_uri"`
+	// +kubebuilder:validation:Required
+	JwksURI string `json:"jwksUri" tf:"jwks_uri"`
 
+	// +kubebuilder:validation:Required
 	LogoutEndpoint string `json:"logoutEndpoint" tf:"logout_endpoint"`
 
+	// +kubebuilder:validation:Required
 	TokenEndpoint string `json:"tokenEndpoint" tf:"token_endpoint"`
 
+	// +kubebuilder:validation:Required
 	UserInfoEndpoint string `json:"userInfoEndpoint" tf:"user_info_endpoint"`
 }
 
@@ -61,21 +73,31 @@ type SagemakerWorkforceObservation struct {
 }
 
 type SagemakerWorkforceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CognitoConfig []CognitoConfigParameters `json:"cognitoConfig,omitempty" tf:"cognito_config"`
 
+	// +kubebuilder:validation:Optional
 	OidcConfig []OidcConfigParameters `json:"oidcConfig,omitempty" tf:"oidc_config"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SourceIpConfig []SourceIpConfigParameters `json:"sourceIpConfig,omitempty" tf:"source_ip_config"`
+	// +kubebuilder:validation:Optional
+	SourceIPConfig []SourceIPConfigParameters `json:"sourceIpConfig,omitempty" tf:"source_ip_config"`
 
+	// +kubebuilder:validation:Required
 	WorkforceName string `json:"workforceName" tf:"workforce_name"`
 }
 
-type SourceIpConfigObservation struct {
+type SourceIPConfigObservation struct {
 }
 
-type SourceIpConfigParameters struct {
+type SourceIPConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	Cidrs []string `json:"cidrs" tf:"cidrs"`
 }
 

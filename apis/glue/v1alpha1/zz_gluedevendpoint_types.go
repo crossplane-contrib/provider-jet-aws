@@ -37,7 +37,7 @@ type GlueDevEndpointObservation struct {
 
 	Status string `json:"status" tf:"status"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 
 	YarnEndpointAddress string `json:"yarnEndpointAddress" tf:"yarn_endpoint_address"`
 
@@ -45,38 +45,58 @@ type GlueDevEndpointObservation struct {
 }
 
 type GlueDevEndpointParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Arguments map[string]string `json:"arguments,omitempty" tf:"arguments"`
 
+	// +kubebuilder:validation:Optional
 	ExtraJarsS3Path *string `json:"extraJarsS3Path,omitempty" tf:"extra_jars_s3_path"`
 
+	// +kubebuilder:validation:Optional
 	ExtraPythonLibsS3Path *string `json:"extraPythonLibsS3Path,omitempty" tf:"extra_python_libs_s3_path"`
 
+	// +kubebuilder:validation:Optional
 	GlueVersion *string `json:"glueVersion,omitempty" tf:"glue_version"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NumberOfNodes *int64 `json:"numberOfNodes,omitempty" tf:"number_of_nodes"`
 
+	// +kubebuilder:validation:Optional
 	NumberOfWorkers *int64 `json:"numberOfWorkers,omitempty" tf:"number_of_workers"`
 
+	// +kubebuilder:validation:Optional
 	PublicKey *string `json:"publicKey,omitempty" tf:"public_key"`
 
+	// +kubebuilder:validation:Optional
 	PublicKeys []string `json:"publicKeys,omitempty" tf:"public_keys"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	SecurityConfiguration *string `json:"securityConfiguration,omitempty" tf:"security_configuration"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	WorkerType *string `json:"workerType,omitempty" tf:"worker_type"`
 }
 

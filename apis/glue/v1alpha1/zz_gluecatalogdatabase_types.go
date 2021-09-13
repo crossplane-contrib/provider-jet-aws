@@ -29,18 +29,28 @@ type GlueCatalogDatabaseObservation struct {
 }
 
 type GlueCatalogDatabaseParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	LocationUri *string `json:"locationUri,omitempty" tf:"location_uri"`
+	// +kubebuilder:validation:Optional
+	LocationURI *string `json:"locationUri,omitempty" tf:"location_uri"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	TargetDatabase []TargetDatabaseParameters `json:"targetDatabase,omitempty" tf:"target_database"`
 }
 
@@ -48,8 +58,11 @@ type TargetDatabaseObservation struct {
 }
 
 type TargetDatabaseParameters struct {
-	CatalogId string `json:"catalogId" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Required
+	CatalogID string `json:"catalogId" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 }
 

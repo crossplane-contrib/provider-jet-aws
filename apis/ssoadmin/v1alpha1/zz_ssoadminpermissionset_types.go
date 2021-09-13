@@ -31,20 +31,31 @@ type SsoadminPermissionSetObservation struct {
 }
 
 type SsoadminPermissionSetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	InstanceArn string `json:"instanceArn" tf:"instance_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RelayState *string `json:"relayState,omitempty" tf:"relay_state"`
 
+	// +kubebuilder:validation:Optional
 	SessionDuration *string `json:"sessionDuration,omitempty" tf:"session_duration"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

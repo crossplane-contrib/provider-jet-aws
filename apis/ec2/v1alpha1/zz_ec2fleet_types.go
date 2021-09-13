@@ -28,6 +28,8 @@ type CapacityRebalanceObservation struct {
 }
 
 type CapacityRebalanceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ReplacementStrategy *string `json:"replacementStrategy,omitempty" tf:"replacement_strategy"`
 }
 
@@ -35,28 +37,43 @@ type Ec2FleetObservation struct {
 }
 
 type Ec2FleetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ExcessCapacityTerminationPolicy *string `json:"excessCapacityTerminationPolicy,omitempty" tf:"excess_capacity_termination_policy"`
 
+	// +kubebuilder:validation:Required
 	LaunchTemplateConfig []LaunchTemplateConfigParameters `json:"launchTemplateConfig" tf:"launch_template_config"`
 
+	// +kubebuilder:validation:Optional
 	OnDemandOptions []OnDemandOptionsParameters `json:"onDemandOptions,omitempty" tf:"on_demand_options"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ReplaceUnhealthyInstances *bool `json:"replaceUnhealthyInstances,omitempty" tf:"replace_unhealthy_instances"`
 
+	// +kubebuilder:validation:Optional
 	SpotOptions []SpotOptionsParameters `json:"spotOptions,omitempty" tf:"spot_options"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	TargetCapacitySpecification []TargetCapacitySpecificationParameters `json:"targetCapacitySpecification" tf:"target_capacity_specification"`
 
+	// +kubebuilder:validation:Optional
 	TerminateInstances *bool `json:"terminateInstances,omitempty" tf:"terminate_instances"`
 
+	// +kubebuilder:validation:Optional
 	TerminateInstancesWithExpiration *bool `json:"terminateInstancesWithExpiration,omitempty" tf:"terminate_instances_with_expiration"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -64,8 +81,11 @@ type LaunchTemplateConfigObservation struct {
 }
 
 type LaunchTemplateConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	LaunchTemplateSpecification []LaunchTemplateSpecificationParameters `json:"launchTemplateSpecification" tf:"launch_template_specification"`
 
+	// +kubebuilder:validation:Optional
 	Override []OverrideParameters `json:"override,omitempty" tf:"override"`
 }
 
@@ -73,10 +93,14 @@ type LaunchTemplateSpecificationObservation struct {
 }
 
 type LaunchTemplateSpecificationParameters struct {
-	LaunchTemplateId *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
 
+	// +kubebuilder:validation:Optional
+	LaunchTemplateID *string `json:"launchTemplateId,omitempty" tf:"launch_template_id"`
+
+	// +kubebuilder:validation:Optional
 	LaunchTemplateName *string `json:"launchTemplateName,omitempty" tf:"launch_template_name"`
 
+	// +kubebuilder:validation:Required
 	Version string `json:"version" tf:"version"`
 }
 
@@ -84,6 +108,8 @@ type MaintenanceStrategiesObservation struct {
 }
 
 type MaintenanceStrategiesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CapacityRebalance []CapacityRebalanceParameters `json:"capacityRebalance,omitempty" tf:"capacity_rebalance"`
 }
 
@@ -91,6 +117,8 @@ type OnDemandOptionsObservation struct {
 }
 
 type OnDemandOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllocationStrategy *string `json:"allocationStrategy,omitempty" tf:"allocation_strategy"`
 }
 
@@ -98,16 +126,23 @@ type OverrideObservation struct {
 }
 
 type OverrideParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	MaxPrice *string `json:"maxPrice,omitempty" tf:"max_price"`
 
+	// +kubebuilder:validation:Optional
 	Priority *float64 `json:"priority,omitempty" tf:"priority"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	WeightedCapacity *float64 `json:"weightedCapacity,omitempty" tf:"weighted_capacity"`
 }
 
@@ -115,12 +150,17 @@ type SpotOptionsObservation struct {
 }
 
 type SpotOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllocationStrategy *string `json:"allocationStrategy,omitempty" tf:"allocation_strategy"`
 
+	// +kubebuilder:validation:Optional
 	InstanceInterruptionBehavior *string `json:"instanceInterruptionBehavior,omitempty" tf:"instance_interruption_behavior"`
 
+	// +kubebuilder:validation:Optional
 	InstancePoolsToUseCount *int64 `json:"instancePoolsToUseCount,omitempty" tf:"instance_pools_to_use_count"`
 
+	// +kubebuilder:validation:Optional
 	MaintenanceStrategies []MaintenanceStrategiesParameters `json:"maintenanceStrategies,omitempty" tf:"maintenance_strategies"`
 }
 
@@ -128,12 +168,17 @@ type TargetCapacitySpecificationObservation struct {
 }
 
 type TargetCapacitySpecificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	DefaultTargetCapacityType string `json:"defaultTargetCapacityType" tf:"default_target_capacity_type"`
 
+	// +kubebuilder:validation:Optional
 	OnDemandTargetCapacity *int64 `json:"onDemandTargetCapacity,omitempty" tf:"on_demand_target_capacity"`
 
+	// +kubebuilder:validation:Optional
 	SpotTargetCapacity *int64 `json:"spotTargetCapacity,omitempty" tf:"spot_target_capacity"`
 
+	// +kubebuilder:validation:Required
 	TotalTargetCapacity int64 `json:"totalTargetCapacity" tf:"total_target_capacity"`
 }
 

@@ -28,6 +28,8 @@ type DestinationConfigOnFailureObservation struct {
 }
 
 type DestinationConfigOnFailureParameters struct {
+
+	// +kubebuilder:validation:Required
 	Destination string `json:"destination" tf:"destination"`
 }
 
@@ -35,8 +37,11 @@ type LambdaFunctionEventInvokeConfigDestinationConfigObservation struct {
 }
 
 type LambdaFunctionEventInvokeConfigDestinationConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	OnFailure []DestinationConfigOnFailureParameters `json:"onFailure,omitempty" tf:"on_failure"`
 
+	// +kubebuilder:validation:Optional
 	OnSuccess []OnSuccessParameters `json:"onSuccess,omitempty" tf:"on_success"`
 }
 
@@ -44,16 +49,25 @@ type LambdaFunctionEventInvokeConfigObservation struct {
 }
 
 type LambdaFunctionEventInvokeConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DestinationConfig []LambdaFunctionEventInvokeConfigDestinationConfigParameters `json:"destinationConfig,omitempty" tf:"destination_config"`
 
+	// +kubebuilder:validation:Required
 	FunctionName string `json:"functionName" tf:"function_name"`
 
+	// +kubebuilder:validation:Optional
 	MaximumEventAgeInSeconds *int64 `json:"maximumEventAgeInSeconds,omitempty" tf:"maximum_event_age_in_seconds"`
 
+	// +kubebuilder:validation:Optional
 	MaximumRetryAttempts *int64 `json:"maximumRetryAttempts,omitempty" tf:"maximum_retry_attempts"`
 
+	// +kubebuilder:validation:Optional
 	Qualifier *string `json:"qualifier,omitempty" tf:"qualifier"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -61,6 +75,8 @@ type OnSuccessObservation struct {
 }
 
 type OnSuccessParameters struct {
+
+	// +kubebuilder:validation:Required
 	Destination string `json:"destination" tf:"destination"`
 }
 

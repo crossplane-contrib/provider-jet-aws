@@ -28,68 +28,95 @@ type AuditLogConfigurationObservation struct {
 }
 
 type AuditLogConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuditLogDestination *string `json:"auditLogDestination,omitempty" tf:"audit_log_destination"`
 
+	// +kubebuilder:validation:Optional
 	FileAccessAuditLogLevel *string `json:"fileAccessAuditLogLevel,omitempty" tf:"file_access_audit_log_level"`
 
+	// +kubebuilder:validation:Optional
 	FileShareAccessAuditLogLevel *string `json:"fileShareAccessAuditLogLevel,omitempty" tf:"file_share_access_audit_log_level"`
 }
 
 type FsxWindowsFileSystemObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
 	NetworkInterfaceIds []string `json:"networkInterfaceIds" tf:"network_interface_ids"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
-	PreferredFileServerIp string `json:"preferredFileServerIp" tf:"preferred_file_server_ip"`
+	PreferredFileServerIP string `json:"preferredFileServerIp" tf:"preferred_file_server_ip"`
 
 	RemoteAdministrationEndpoint string `json:"remoteAdministrationEndpoint" tf:"remote_administration_endpoint"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type FsxWindowsFileSystemParameters struct {
-	ActiveDirectoryId *string `json:"activeDirectoryId,omitempty" tf:"active_directory_id"`
 
+	// +kubebuilder:validation:Optional
+	ActiveDirectoryID *string `json:"activeDirectoryId,omitempty" tf:"active_directory_id"`
+
+	// +kubebuilder:validation:Optional
 	Aliases []string `json:"aliases,omitempty" tf:"aliases"`
 
+	// +kubebuilder:validation:Optional
 	AuditLogConfiguration []AuditLogConfigurationParameters `json:"auditLogConfiguration,omitempty" tf:"audit_log_configuration"`
 
+	// +kubebuilder:validation:Optional
 	AutomaticBackupRetentionDays *int64 `json:"automaticBackupRetentionDays,omitempty" tf:"automatic_backup_retention_days"`
 
+	// +kubebuilder:validation:Optional
 	CopyTagsToBackups *bool `json:"copyTagsToBackups,omitempty" tf:"copy_tags_to_backups"`
 
+	// +kubebuilder:validation:Optional
 	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime,omitempty" tf:"daily_automatic_backup_start_time"`
 
+	// +kubebuilder:validation:Optional
 	DeploymentType *string `json:"deploymentType,omitempty" tf:"deployment_type"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
-	PreferredSubnetId *string `json:"preferredSubnetId,omitempty" tf:"preferred_subnet_id"`
+	// +kubebuilder:validation:Optional
+	PreferredSubnetID *string `json:"preferredSubnetId,omitempty" tf:"preferred_subnet_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Optional
 	SelfManagedActiveDirectory []SelfManagedActiveDirectoryParameters `json:"selfManagedActiveDirectory,omitempty" tf:"self_managed_active_directory"`
 
+	// +kubebuilder:validation:Optional
 	SkipFinalBackup *bool `json:"skipFinalBackup,omitempty" tf:"skip_final_backup"`
 
+	// +kubebuilder:validation:Required
 	StorageCapacity int64 `json:"storageCapacity" tf:"storage_capacity"`
 
+	// +kubebuilder:validation:Optional
 	StorageType *string `json:"storageType,omitempty" tf:"storage_type"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	ThroughputCapacity int64 `json:"throughputCapacity" tf:"throughput_capacity"`
 
+	// +kubebuilder:validation:Optional
 	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime,omitempty" tf:"weekly_maintenance_start_time"`
 }
 
@@ -97,16 +124,23 @@ type SelfManagedActiveDirectoryObservation struct {
 }
 
 type SelfManagedActiveDirectoryParameters struct {
-	DnsIps []string `json:"dnsIps" tf:"dns_ips"`
 
+	// +kubebuilder:validation:Required
+	DNSIps []string `json:"dnsIps" tf:"dns_ips"`
+
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// +kubebuilder:validation:Optional
 	FileSystemAdministratorsGroup *string `json:"fileSystemAdministratorsGroup,omitempty" tf:"file_system_administrators_group"`
 
+	// +kubebuilder:validation:Optional
 	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName,omitempty" tf:"organizational_unit_distinguished_name"`
 
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// +kubebuilder:validation:Required
 	Username string `json:"username" tf:"username"`
 }
 

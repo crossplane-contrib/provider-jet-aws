@@ -28,8 +28,13 @@ type BackupRegionSettingsObservation struct {
 }
 
 type BackupRegionSettingsParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ResourceTypeOptInPreference map[string]bool `json:"resourceTypeOptInPreference" tf:"resource_type_opt_in_preference"`
 }
 

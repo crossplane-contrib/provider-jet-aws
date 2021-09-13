@@ -31,22 +31,34 @@ type MqConfigurationObservation struct {
 }
 
 type MqConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuthenticationStrategy *string `json:"authenticationStrategy,omitempty" tf:"authentication_strategy"`
 
+	// +kubebuilder:validation:Required
 	Data string `json:"data" tf:"data"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	EngineType string `json:"engineType" tf:"engine_type"`
 
+	// +kubebuilder:validation:Required
 	EngineVersion string `json:"engineVersion" tf:"engine_version"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

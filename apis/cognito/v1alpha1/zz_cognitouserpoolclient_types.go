@@ -28,14 +28,20 @@ type AnalyticsConfigurationObservation struct {
 }
 
 type AnalyticsConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplicationArn *string `json:"applicationArn,omitempty" tf:"application_arn"`
 
-	ApplicationId *string `json:"applicationId,omitempty" tf:"application_id"`
+	// +kubebuilder:validation:Optional
+	ApplicationID *string `json:"applicationId,omitempty" tf:"application_id"`
 
-	ExternalId *string `json:"externalId,omitempty" tf:"external_id"`
+	// +kubebuilder:validation:Optional
+	ExternalID *string `json:"externalId,omitempty" tf:"external_id"`
 
+	// +kubebuilder:validation:Optional
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	UserDataShared *bool `json:"userDataShared,omitempty" tf:"user_data_shared"`
 }
 
@@ -44,46 +50,70 @@ type CognitoUserPoolClientObservation struct {
 }
 
 type CognitoUserPoolClientParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessTokenValidity *int64 `json:"accessTokenValidity,omitempty" tf:"access_token_validity"`
 
+	// +kubebuilder:validation:Optional
 	AllowedOauthFlows []string `json:"allowedOauthFlows,omitempty" tf:"allowed_oauth_flows"`
 
+	// +kubebuilder:validation:Optional
 	AllowedOauthFlowsUserPoolClient *bool `json:"allowedOauthFlowsUserPoolClient,omitempty" tf:"allowed_oauth_flows_user_pool_client"`
 
+	// +kubebuilder:validation:Optional
 	AllowedOauthScopes []string `json:"allowedOauthScopes,omitempty" tf:"allowed_oauth_scopes"`
 
+	// +kubebuilder:validation:Optional
 	AnalyticsConfiguration []AnalyticsConfigurationParameters `json:"analyticsConfiguration,omitempty" tf:"analytics_configuration"`
 
+	// +kubebuilder:validation:Optional
 	CallbackUrls []string `json:"callbackUrls,omitempty" tf:"callback_urls"`
 
-	DefaultRedirectUri *string `json:"defaultRedirectUri,omitempty" tf:"default_redirect_uri"`
+	// +kubebuilder:validation:Optional
+	DefaultRedirectURI *string `json:"defaultRedirectUri,omitempty" tf:"default_redirect_uri"`
 
+	// +kubebuilder:validation:Optional
 	EnableTokenRevocation *bool `json:"enableTokenRevocation,omitempty" tf:"enable_token_revocation"`
 
+	// +kubebuilder:validation:Optional
 	ExplicitAuthFlows []string `json:"explicitAuthFlows,omitempty" tf:"explicit_auth_flows"`
 
+	// +kubebuilder:validation:Optional
 	GenerateSecret *bool `json:"generateSecret,omitempty" tf:"generate_secret"`
 
-	IdTokenValidity *int64 `json:"idTokenValidity,omitempty" tf:"id_token_validity"`
+	// +kubebuilder:validation:Optional
+	IDTokenValidity *int64 `json:"idTokenValidity,omitempty" tf:"id_token_validity"`
 
+	// +kubebuilder:validation:Optional
 	LogoutUrls []string `json:"logoutUrls,omitempty" tf:"logout_urls"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PreventUserExistenceErrors *string `json:"preventUserExistenceErrors,omitempty" tf:"prevent_user_existence_errors"`
 
+	// +kubebuilder:validation:Optional
 	ReadAttributes []string `json:"readAttributes,omitempty" tf:"read_attributes"`
 
+	// +kubebuilder:validation:Optional
 	RefreshTokenValidity *int64 `json:"refreshTokenValidity,omitempty" tf:"refresh_token_validity"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SupportedIdentityProviders []string `json:"supportedIdentityProviders,omitempty" tf:"supported_identity_providers"`
 
+	// +kubebuilder:validation:Optional
 	TokenValidityUnits []TokenValidityUnitsParameters `json:"tokenValidityUnits,omitempty" tf:"token_validity_units"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	// +kubebuilder:validation:Required
+	UserPoolID string `json:"userPoolId" tf:"user_pool_id"`
 
+	// +kubebuilder:validation:Optional
 	WriteAttributes []string `json:"writeAttributes,omitempty" tf:"write_attributes"`
 }
 
@@ -91,10 +121,14 @@ type TokenValidityUnitsObservation struct {
 }
 
 type TokenValidityUnitsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessToken *string `json:"accessToken,omitempty" tf:"access_token"`
 
-	IdToken *string `json:"idToken,omitempty" tf:"id_token"`
+	// +kubebuilder:validation:Optional
+	IDToken *string `json:"idToken,omitempty" tf:"id_token"`
 
+	// +kubebuilder:validation:Optional
 	RefreshToken *string `json:"refreshToken,omitempty" tf:"refresh_token"`
 }
 

@@ -25,16 +25,22 @@ import (
 )
 
 type Kinesisanalyticsv2ApplicationSnapshotObservation struct {
-	ApplicationVersionId int64 `json:"applicationVersionId" tf:"application_version_id"`
+	ApplicationVersionID int64 `json:"applicationVersionId" tf:"application_version_id"`
 
 	SnapshotCreationTimestamp string `json:"snapshotCreationTimestamp" tf:"snapshot_creation_timestamp"`
 }
 
 type Kinesisanalyticsv2ApplicationSnapshotParameters struct {
+
+	// +kubebuilder:validation:Required
 	ApplicationName string `json:"applicationName" tf:"application_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	SnapshotName string `json:"snapshotName" tf:"snapshot_name"`
 }
 

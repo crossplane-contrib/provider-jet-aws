@@ -28,23 +28,32 @@ type ContainerObservation struct {
 }
 
 type ContainerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ContainerHostname *string `json:"containerHostname,omitempty" tf:"container_hostname"`
 
+	// +kubebuilder:validation:Optional
 	Environment map[string]string `json:"environment,omitempty" tf:"environment"`
 
+	// +kubebuilder:validation:Required
 	Image string `json:"image" tf:"image"`
 
+	// +kubebuilder:validation:Optional
 	ImageConfig []ImageConfigParameters `json:"imageConfig,omitempty" tf:"image_config"`
 
+	// +kubebuilder:validation:Optional
 	Mode *string `json:"mode,omitempty" tf:"mode"`
 
-	ModelDataUrl *string `json:"modelDataUrl,omitempty" tf:"model_data_url"`
+	// +kubebuilder:validation:Optional
+	ModelDataURL *string `json:"modelDataUrl,omitempty" tf:"model_data_url"`
 }
 
 type ImageConfigObservation struct {
 }
 
 type ImageConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	RepositoryAccessMode string `json:"repositoryAccessMode" tf:"repository_access_mode"`
 }
 
@@ -52,6 +61,8 @@ type InferenceExecutionConfigObservation struct {
 }
 
 type InferenceExecutionConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	Mode string `json:"mode" tf:"mode"`
 }
 
@@ -59,6 +70,8 @@ type PrimaryContainerImageConfigObservation struct {
 }
 
 type PrimaryContainerImageConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	RepositoryAccessMode string `json:"repositoryAccessMode" tf:"repository_access_mode"`
 }
 
@@ -66,17 +79,24 @@ type PrimaryContainerObservation struct {
 }
 
 type PrimaryContainerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ContainerHostname *string `json:"containerHostname,omitempty" tf:"container_hostname"`
 
+	// +kubebuilder:validation:Optional
 	Environment map[string]string `json:"environment,omitempty" tf:"environment"`
 
+	// +kubebuilder:validation:Required
 	Image string `json:"image" tf:"image"`
 
+	// +kubebuilder:validation:Optional
 	ImageConfig []PrimaryContainerImageConfigParameters `json:"imageConfig,omitempty" tf:"image_config"`
 
+	// +kubebuilder:validation:Optional
 	Mode *string `json:"mode,omitempty" tf:"mode"`
 
-	ModelDataUrl *string `json:"modelDataUrl,omitempty" tf:"model_data_url"`
+	// +kubebuilder:validation:Optional
+	ModelDataURL *string `json:"modelDataUrl,omitempty" tf:"model_data_url"`
 }
 
 type SagemakerModelObservation struct {
@@ -84,24 +104,37 @@ type SagemakerModelObservation struct {
 }
 
 type SagemakerModelParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Container []ContainerParameters `json:"container,omitempty" tf:"container"`
 
+	// +kubebuilder:validation:Optional
 	EnableNetworkIsolation *bool `json:"enableNetworkIsolation,omitempty" tf:"enable_network_isolation"`
 
+	// +kubebuilder:validation:Required
 	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	InferenceExecutionConfig []InferenceExecutionConfigParameters `json:"inferenceExecutionConfig,omitempty" tf:"inference_execution_config"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PrimaryContainer []PrimaryContainerParameters `json:"primaryContainer,omitempty" tf:"primary_container"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 }
 
@@ -109,8 +142,11 @@ type VpcConfigObservation struct {
 }
 
 type VpcConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	Subnets []string `json:"subnets" tf:"subnets"`
 }
 

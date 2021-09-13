@@ -41,10 +41,16 @@ type OrganizationsDelegatedAdministratorObservation struct {
 }
 
 type OrganizationsDelegatedAdministratorParameters struct {
-	AccountId string `json:"accountId" tf:"account_id"`
 
+	// +kubebuilder:validation:Required
+	AccountID string `json:"accountId" tf:"account_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServicePrincipal string `json:"servicePrincipal" tf:"service_principal"`
 }
 

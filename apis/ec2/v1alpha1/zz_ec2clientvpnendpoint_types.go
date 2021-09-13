@@ -28,12 +28,17 @@ type AuthenticationOptionsObservation struct {
 }
 
 type AuthenticationOptionsParameters struct {
-	ActiveDirectoryId *string `json:"activeDirectoryId,omitempty" tf:"active_directory_id"`
 
+	// +kubebuilder:validation:Optional
+	ActiveDirectoryID *string `json:"activeDirectoryId,omitempty" tf:"active_directory_id"`
+
+	// +kubebuilder:validation:Optional
 	RootCertificateChainArn *string `json:"rootCertificateChainArn,omitempty" tf:"root_certificate_chain_arn"`
 
+	// +kubebuilder:validation:Optional
 	SamlProviderArn *string `json:"samlProviderArn,omitempty" tf:"saml_provider_arn"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -41,42 +46,60 @@ type ConnectionLogOptionsObservation struct {
 }
 
 type ConnectionLogOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudwatchLogGroup *string `json:"cloudwatchLogGroup,omitempty" tf:"cloudwatch_log_group"`
 
+	// +kubebuilder:validation:Optional
 	CloudwatchLogStream *string `json:"cloudwatchLogStream,omitempty" tf:"cloudwatch_log_stream"`
 
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 }
 
 type Ec2ClientVpnEndpointObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 
 	Status string `json:"status" tf:"status"`
 }
 
 type Ec2ClientVpnEndpointParameters struct {
+
+	// +kubebuilder:validation:Required
 	AuthenticationOptions []AuthenticationOptionsParameters `json:"authenticationOptions" tf:"authentication_options"`
 
+	// +kubebuilder:validation:Required
 	ClientCidrBlock string `json:"clientCidrBlock" tf:"client_cidr_block"`
 
+	// +kubebuilder:validation:Required
 	ConnectionLogOptions []ConnectionLogOptionsParameters `json:"connectionLogOptions" tf:"connection_log_options"`
 
+	// +kubebuilder:validation:Optional
+	DNSServers []string `json:"dnsServers,omitempty" tf:"dns_servers"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DnsServers []string `json:"dnsServers,omitempty" tf:"dns_servers"`
-
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServerCertificateArn string `json:"serverCertificateArn" tf:"server_certificate_arn"`
 
+	// +kubebuilder:validation:Optional
 	SplitTunnel *bool `json:"splitTunnel,omitempty" tf:"split_tunnel"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TransportProtocol *string `json:"transportProtocol,omitempty" tf:"transport_protocol"`
 }
 

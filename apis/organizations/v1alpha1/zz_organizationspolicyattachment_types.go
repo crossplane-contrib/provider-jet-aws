@@ -28,11 +28,17 @@ type OrganizationsPolicyAttachmentObservation struct {
 }
 
 type OrganizationsPolicyAttachmentParameters struct {
-	PolicyId string `json:"policyId" tf:"policy_id"`
 
+	// +kubebuilder:validation:Required
+	PolicyID string `json:"policyId" tf:"policy_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	TargetId string `json:"targetId" tf:"target_id"`
+	// +kubebuilder:validation:Required
+	TargetID string `json:"targetId" tf:"target_id"`
 }
 
 // OrganizationsPolicyAttachmentSpec defines the desired state of OrganizationsPolicyAttachment

@@ -28,8 +28,11 @@ type ConversationLogsObservation struct {
 }
 
 type ConversationLogsParameters struct {
+
+	// +kubebuilder:validation:Required
 	IamRoleArn string `json:"iamRoleArn" tf:"iam_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	LogSettings []LogSettingsParameters `json:"logSettings,omitempty" tf:"log_settings"`
 }
 
@@ -44,16 +47,25 @@ type LexBotAliasObservation struct {
 }
 
 type LexBotAliasParameters struct {
+
+	// +kubebuilder:validation:Required
 	BotName string `json:"botName" tf:"bot_name"`
 
+	// +kubebuilder:validation:Required
 	BotVersion string `json:"botVersion" tf:"bot_version"`
 
+	// +kubebuilder:validation:Optional
 	ConversationLogs []ConversationLogsParameters `json:"conversationLogs,omitempty" tf:"conversation_logs"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -62,12 +74,17 @@ type LogSettingsObservation struct {
 }
 
 type LogSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Destination string `json:"destination" tf:"destination"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Required
 	LogType string `json:"logType" tf:"log_type"`
 
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 

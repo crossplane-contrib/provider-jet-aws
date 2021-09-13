@@ -35,26 +35,40 @@ type AcmCertificateObservation struct {
 }
 
 type AcmCertificateParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CertificateAuthorityArn *string `json:"certificateAuthorityArn,omitempty" tf:"certificate_authority_arn"`
 
+	// +kubebuilder:validation:Optional
 	CertificateBody *string `json:"certificateBody,omitempty" tf:"certificate_body"`
 
+	// +kubebuilder:validation:Optional
 	CertificateChain *string `json:"certificateChain,omitempty" tf:"certificate_chain"`
 
+	// +kubebuilder:validation:Optional
 	DomainName *string `json:"domainName,omitempty" tf:"domain_name"`
 
+	// +kubebuilder:validation:Optional
 	Options []OptionsParameters `json:"options,omitempty" tf:"options"`
 
+	// +kubebuilder:validation:Optional
 	PrivateKey *string `json:"privateKey,omitempty" tf:"private_key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SubjectAlternativeNames []string `json:"subjectAlternativeNames,omitempty" tf:"subject_alternative_names"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	ValidationMethod *string `json:"validationMethod,omitempty" tf:"validation_method"`
 }
 
@@ -75,6 +89,8 @@ type OptionsObservation struct {
 }
 
 type OptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CertificateTransparencyLoggingPreference *string `json:"certificateTransparencyLoggingPreference,omitempty" tf:"certificate_transparency_logging_preference"`
 }
 

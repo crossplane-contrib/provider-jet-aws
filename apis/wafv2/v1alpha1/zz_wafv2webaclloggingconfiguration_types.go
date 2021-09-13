@@ -28,6 +28,8 @@ type ActionConditionObservation struct {
 }
 
 type ActionConditionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action string `json:"action" tf:"action"`
 }
 
@@ -35,8 +37,11 @@ type ConditionObservation struct {
 }
 
 type ConditionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ActionCondition []ActionConditionParameters `json:"actionCondition,omitempty" tf:"action_condition"`
 
+	// +kubebuilder:validation:Optional
 	LabelNameCondition []LabelNameConditionParameters `json:"labelNameCondition,omitempty" tf:"label_name_condition"`
 }
 
@@ -44,10 +49,14 @@ type FilterObservation struct {
 }
 
 type FilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Behavior string `json:"behavior" tf:"behavior"`
 
+	// +kubebuilder:validation:Required
 	Condition []ConditionParameters `json:"condition" tf:"condition"`
 
+	// +kubebuilder:validation:Required
 	Requirement string `json:"requirement" tf:"requirement"`
 }
 
@@ -55,6 +64,8 @@ type LabelNameConditionObservation struct {
 }
 
 type LabelNameConditionParameters struct {
+
+	// +kubebuilder:validation:Required
 	LabelName string `json:"labelName" tf:"label_name"`
 }
 
@@ -62,8 +73,11 @@ type LoggingFilterObservation struct {
 }
 
 type LoggingFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	DefaultBehavior string `json:"defaultBehavior" tf:"default_behavior"`
 
+	// +kubebuilder:validation:Required
 	Filter []FilterParameters `json:"filter" tf:"filter"`
 }
 
@@ -89,19 +103,27 @@ type RedactedFieldsObservation struct {
 }
 
 type RedactedFieldsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllQueryArguments []RedactedFieldsAllQueryArgumentsParameters `json:"allQueryArguments,omitempty" tf:"all_query_arguments"`
 
+	// +kubebuilder:validation:Optional
 	Body []RedactedFieldsBodyParameters `json:"body,omitempty" tf:"body"`
 
+	// +kubebuilder:validation:Optional
 	Method []RedactedFieldsMethodParameters `json:"method,omitempty" tf:"method"`
 
+	// +kubebuilder:validation:Optional
 	QueryString []RedactedFieldsQueryStringParameters `json:"queryString,omitempty" tf:"query_string"`
 
+	// +kubebuilder:validation:Optional
 	SingleHeader []RedactedFieldsSingleHeaderParameters `json:"singleHeader,omitempty" tf:"single_header"`
 
+	// +kubebuilder:validation:Optional
 	SingleQueryArgument []RedactedFieldsSingleQueryArgumentParameters `json:"singleQueryArgument,omitempty" tf:"single_query_argument"`
 
-	UriPath []RedactedFieldsUriPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
+	// +kubebuilder:validation:Optional
+	URIPath []RedactedFieldsURIPathParameters `json:"uriPath,omitempty" tf:"uri_path"`
 }
 
 type RedactedFieldsQueryStringObservation struct {
@@ -114,6 +136,8 @@ type RedactedFieldsSingleHeaderObservation struct {
 }
 
 type RedactedFieldsSingleHeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
@@ -121,27 +145,40 @@ type RedactedFieldsSingleQueryArgumentObservation struct {
 }
 
 type RedactedFieldsSingleQueryArgumentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 
-type RedactedFieldsUriPathObservation struct {
+type RedactedFieldsURIPathObservation struct {
 }
 
-type RedactedFieldsUriPathParameters struct {
+type RedactedFieldsURIPathParameters struct {
 }
 
 type Wafv2WebAclLoggingConfigurationObservation struct {
 }
 
 type Wafv2WebAclLoggingConfigurationParameters struct {
+
+	// AWS Kinesis Firehose Delivery Stream ARNs
+	// +kubebuilder:validation:Required
 	LogDestinationConfigs []string `json:"logDestinationConfigs" tf:"log_destination_configs"`
 
+	// +kubebuilder:validation:Optional
 	LoggingFilter []LoggingFilterParameters `json:"loggingFilter,omitempty" tf:"logging_filter"`
 
+	// Parts of the request to exclude from logs
+	// +kubebuilder:validation:Optional
 	RedactedFields []RedactedFieldsParameters `json:"redactedFields,omitempty" tf:"redacted_fields"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// AWS WebACL ARN
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 

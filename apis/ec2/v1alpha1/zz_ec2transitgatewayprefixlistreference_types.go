@@ -25,19 +25,27 @@ import (
 )
 
 type Ec2TransitGatewayPrefixListReferenceObservation struct {
-	PrefixListOwnerId string `json:"prefixListOwnerId" tf:"prefix_list_owner_id"`
+	PrefixListOwnerID string `json:"prefixListOwnerId" tf:"prefix_list_owner_id"`
 }
 
 type Ec2TransitGatewayPrefixListReferenceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Blackhole *bool `json:"blackhole,omitempty" tf:"blackhole"`
 
-	PrefixListId string `json:"prefixListId" tf:"prefix_list_id"`
+	// +kubebuilder:validation:Required
+	PrefixListID string `json:"prefixListId" tf:"prefix_list_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id"`
+	// +kubebuilder:validation:Optional
+	TransitGatewayAttachmentID *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id"`
 
-	TransitGatewayRouteTableId string `json:"transitGatewayRouteTableId" tf:"transit_gateway_route_table_id"`
+	// +kubebuilder:validation:Required
+	TransitGatewayRouteTableID string `json:"transitGatewayRouteTableId" tf:"transit_gateway_route_table_id"`
 }
 
 // Ec2TransitGatewayPrefixListReferenceSpec defines the desired state of Ec2TransitGatewayPrefixListReference

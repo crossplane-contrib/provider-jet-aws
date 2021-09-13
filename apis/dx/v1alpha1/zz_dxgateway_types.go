@@ -25,14 +25,20 @@ import (
 )
 
 type DxGatewayObservation struct {
-	OwnerAccountId string `json:"ownerAccountId" tf:"owner_account_id"`
+	OwnerAccountID string `json:"ownerAccountId" tf:"owner_account_id"`
 }
 
 type DxGatewayParameters struct {
+
+	// +kubebuilder:validation:Required
 	AmazonSideAsn string `json:"amazonSideAsn" tf:"amazon_side_asn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

@@ -28,8 +28,11 @@ type ApplicationSourceObservation struct {
 }
 
 type ApplicationSourceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudformationStackArn *string `json:"cloudformationStackArn,omitempty" tf:"cloudformation_stack_arn"`
 
+	// +kubebuilder:validation:Optional
 	TagFilter []TagFilterParameters `json:"tagFilter,omitempty" tf:"tag_filter"`
 }
 
@@ -38,12 +41,19 @@ type AutoscalingplansScalingPlanObservation struct {
 }
 
 type AutoscalingplansScalingPlanParameters struct {
+
+	// +kubebuilder:validation:Required
 	ApplicationSource []ApplicationSourceParameters `json:"applicationSource" tf:"application_source"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ScalingInstruction []ScalingInstructionParameters `json:"scalingInstruction" tf:"scaling_instruction"`
 }
 
@@ -51,14 +61,20 @@ type CustomizedLoadMetricSpecificationObservation struct {
 }
 
 type CustomizedLoadMetricSpecificationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Dimensions map[string]string `json:"dimensions,omitempty" tf:"dimensions"`
 
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 
+	// +kubebuilder:validation:Required
 	Statistic string `json:"statistic" tf:"statistic"`
 
+	// +kubebuilder:validation:Optional
 	Unit *string `json:"unit,omitempty" tf:"unit"`
 }
 
@@ -66,14 +82,20 @@ type CustomizedScalingMetricSpecificationObservation struct {
 }
 
 type CustomizedScalingMetricSpecificationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Dimensions map[string]string `json:"dimensions,omitempty" tf:"dimensions"`
 
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 
+	// +kubebuilder:validation:Required
 	Statistic string `json:"statistic" tf:"statistic"`
 
+	// +kubebuilder:validation:Optional
 	Unit *string `json:"unit,omitempty" tf:"unit"`
 }
 
@@ -81,8 +103,11 @@ type PredefinedLoadMetricSpecificationObservation struct {
 }
 
 type PredefinedLoadMetricSpecificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	PredefinedLoadMetricType string `json:"predefinedLoadMetricType" tf:"predefined_load_metric_type"`
 
+	// +kubebuilder:validation:Optional
 	ResourceLabel *string `json:"resourceLabel,omitempty" tf:"resource_label"`
 }
 
@@ -90,8 +115,11 @@ type PredefinedScalingMetricSpecificationObservation struct {
 }
 
 type PredefinedScalingMetricSpecificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	PredefinedScalingMetricType string `json:"predefinedScalingMetricType" tf:"predefined_scaling_metric_type"`
 
+	// +kubebuilder:validation:Optional
 	ResourceLabel *string `json:"resourceLabel,omitempty" tf:"resource_label"`
 }
 
@@ -99,32 +127,47 @@ type ScalingInstructionObservation struct {
 }
 
 type ScalingInstructionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomizedLoadMetricSpecification []CustomizedLoadMetricSpecificationParameters `json:"customizedLoadMetricSpecification,omitempty" tf:"customized_load_metric_specification"`
 
+	// +kubebuilder:validation:Optional
 	DisableDynamicScaling *bool `json:"disableDynamicScaling,omitempty" tf:"disable_dynamic_scaling"`
 
+	// +kubebuilder:validation:Required
 	MaxCapacity int64 `json:"maxCapacity" tf:"max_capacity"`
 
+	// +kubebuilder:validation:Required
 	MinCapacity int64 `json:"minCapacity" tf:"min_capacity"`
 
+	// +kubebuilder:validation:Optional
 	PredefinedLoadMetricSpecification []PredefinedLoadMetricSpecificationParameters `json:"predefinedLoadMetricSpecification,omitempty" tf:"predefined_load_metric_specification"`
 
+	// +kubebuilder:validation:Optional
 	PredictiveScalingMaxCapacityBehavior *string `json:"predictiveScalingMaxCapacityBehavior,omitempty" tf:"predictive_scaling_max_capacity_behavior"`
 
+	// +kubebuilder:validation:Optional
 	PredictiveScalingMaxCapacityBuffer *int64 `json:"predictiveScalingMaxCapacityBuffer,omitempty" tf:"predictive_scaling_max_capacity_buffer"`
 
+	// +kubebuilder:validation:Optional
 	PredictiveScalingMode *string `json:"predictiveScalingMode,omitempty" tf:"predictive_scaling_mode"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
+	// +kubebuilder:validation:Required
 	ScalableDimension string `json:"scalableDimension" tf:"scalable_dimension"`
 
+	// +kubebuilder:validation:Optional
 	ScalingPolicyUpdateBehavior *string `json:"scalingPolicyUpdateBehavior,omitempty" tf:"scaling_policy_update_behavior"`
 
+	// +kubebuilder:validation:Optional
 	ScheduledActionBufferTime *int64 `json:"scheduledActionBufferTime,omitempty" tf:"scheduled_action_buffer_time"`
 
+	// +kubebuilder:validation:Required
 	ServiceNamespace string `json:"serviceNamespace" tf:"service_namespace"`
 
+	// +kubebuilder:validation:Required
 	TargetTrackingConfiguration []TargetTrackingConfigurationParameters `json:"targetTrackingConfiguration" tf:"target_tracking_configuration"`
 }
 
@@ -132,8 +175,11 @@ type TagFilterObservation struct {
 }
 
 type TagFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Optional
 	Values []string `json:"values,omitempty" tf:"values"`
 }
 
@@ -141,18 +187,26 @@ type TargetTrackingConfigurationObservation struct {
 }
 
 type TargetTrackingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomizedScalingMetricSpecification []CustomizedScalingMetricSpecificationParameters `json:"customizedScalingMetricSpecification,omitempty" tf:"customized_scaling_metric_specification"`
 
+	// +kubebuilder:validation:Optional
 	DisableScaleIn *bool `json:"disableScaleIn,omitempty" tf:"disable_scale_in"`
 
+	// +kubebuilder:validation:Optional
 	EstimatedInstanceWarmup *int64 `json:"estimatedInstanceWarmup,omitempty" tf:"estimated_instance_warmup"`
 
+	// +kubebuilder:validation:Optional
 	PredefinedScalingMetricSpecification []PredefinedScalingMetricSpecificationParameters `json:"predefinedScalingMetricSpecification,omitempty" tf:"predefined_scaling_metric_specification"`
 
+	// +kubebuilder:validation:Optional
 	ScaleInCooldown *int64 `json:"scaleInCooldown,omitempty" tf:"scale_in_cooldown"`
 
+	// +kubebuilder:validation:Optional
 	ScaleOutCooldown *int64 `json:"scaleOutCooldown,omitempty" tf:"scale_out_cooldown"`
 
+	// +kubebuilder:validation:Required
 	TargetValue float64 `json:"targetValue" tf:"target_value"`
 }
 

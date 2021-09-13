@@ -29,52 +29,79 @@ type CloudwatchMetricAlarmObservation struct {
 }
 
 type CloudwatchMetricAlarmParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ActionsEnabled *bool `json:"actionsEnabled,omitempty" tf:"actions_enabled"`
 
+	// +kubebuilder:validation:Optional
 	AlarmActions []string `json:"alarmActions,omitempty" tf:"alarm_actions"`
 
+	// +kubebuilder:validation:Optional
 	AlarmDescription *string `json:"alarmDescription,omitempty" tf:"alarm_description"`
 
+	// +kubebuilder:validation:Required
 	AlarmName string `json:"alarmName" tf:"alarm_name"`
 
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Optional
 	DatapointsToAlarm *int64 `json:"datapointsToAlarm,omitempty" tf:"datapoints_to_alarm"`
 
+	// +kubebuilder:validation:Optional
 	Dimensions map[string]string `json:"dimensions,omitempty" tf:"dimensions"`
 
+	// +kubebuilder:validation:Optional
 	EvaluateLowSampleCountPercentiles *string `json:"evaluateLowSampleCountPercentiles,omitempty" tf:"evaluate_low_sample_count_percentiles"`
 
+	// +kubebuilder:validation:Required
 	EvaluationPeriods int64 `json:"evaluationPeriods" tf:"evaluation_periods"`
 
+	// +kubebuilder:validation:Optional
 	ExtendedStatistic *string `json:"extendedStatistic,omitempty" tf:"extended_statistic"`
 
+	// +kubebuilder:validation:Optional
 	InsufficientDataActions []string `json:"insufficientDataActions,omitempty" tf:"insufficient_data_actions"`
 
+	// +kubebuilder:validation:Optional
 	MetricName *string `json:"metricName,omitempty" tf:"metric_name"`
 
+	// +kubebuilder:validation:Optional
 	MetricQuery []MetricQueryParameters `json:"metricQuery,omitempty" tf:"metric_query"`
 
+	// +kubebuilder:validation:Optional
 	Namespace *string `json:"namespace,omitempty" tf:"namespace"`
 
+	// +kubebuilder:validation:Optional
 	OkActions []string `json:"okActions,omitempty" tf:"ok_actions"`
 
+	// +kubebuilder:validation:Optional
 	Period *int64 `json:"period,omitempty" tf:"period"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Statistic *string `json:"statistic,omitempty" tf:"statistic"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	Threshold *float64 `json:"threshold,omitempty" tf:"threshold"`
 
-	ThresholdMetricId *string `json:"thresholdMetricId,omitempty" tf:"threshold_metric_id"`
+	// +kubebuilder:validation:Optional
+	ThresholdMetricID *string `json:"thresholdMetricId,omitempty" tf:"threshold_metric_id"`
 
+	// +kubebuilder:validation:Optional
 	TreatMissingData *string `json:"treatMissingData,omitempty" tf:"treat_missing_data"`
 
+	// +kubebuilder:validation:Optional
 	Unit *string `json:"unit,omitempty" tf:"unit"`
 }
 
@@ -82,16 +109,23 @@ type MetricObservation struct {
 }
 
 type MetricParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Dimensions map[string]string `json:"dimensions,omitempty" tf:"dimensions"`
 
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Optional
 	Namespace *string `json:"namespace,omitempty" tf:"namespace"`
 
+	// +kubebuilder:validation:Required
 	Period int64 `json:"period" tf:"period"`
 
+	// +kubebuilder:validation:Required
 	Stat string `json:"stat" tf:"stat"`
 
+	// +kubebuilder:validation:Optional
 	Unit *string `json:"unit,omitempty" tf:"unit"`
 }
 
@@ -99,14 +133,20 @@ type MetricQueryObservation struct {
 }
 
 type MetricQueryParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Expression *string `json:"expression,omitempty" tf:"expression"`
 
-	Id string `json:"id" tf:"id"`
+	// +kubebuilder:validation:Required
+	ID string `json:"id" tf:"id"`
 
+	// +kubebuilder:validation:Optional
 	Label *string `json:"label,omitempty" tf:"label"`
 
+	// +kubebuilder:validation:Optional
 	Metric []MetricParameters `json:"metric,omitempty" tf:"metric"`
 
+	// +kubebuilder:validation:Optional
 	ReturnData *bool `json:"returnData,omitempty" tf:"return_data"`
 }
 

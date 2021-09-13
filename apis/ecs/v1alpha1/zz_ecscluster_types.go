@@ -28,6 +28,8 @@ type ConfigurationObservation struct {
 }
 
 type ConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ExecuteCommandConfiguration []ExecuteCommandConfigurationParameters `json:"executeCommandConfiguration,omitempty" tf:"execute_command_configuration"`
 }
 
@@ -35,10 +37,14 @@ type DefaultCapacityProviderStrategyObservation struct {
 }
 
 type DefaultCapacityProviderStrategyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Base *int64 `json:"base,omitempty" tf:"base"`
 
+	// +kubebuilder:validation:Required
 	CapacityProvider string `json:"capacityProvider" tf:"capacity_provider"`
 
+	// +kubebuilder:validation:Optional
 	Weight *int64 `json:"weight,omitempty" tf:"weight"`
 }
 
@@ -47,20 +53,31 @@ type EcsClusterObservation struct {
 }
 
 type EcsClusterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CapacityProviders []string `json:"capacityProviders,omitempty" tf:"capacity_providers"`
 
+	// +kubebuilder:validation:Optional
 	Configuration []ConfigurationParameters `json:"configuration,omitempty" tf:"configuration"`
 
+	// +kubebuilder:validation:Optional
 	DefaultCapacityProviderStrategy []DefaultCapacityProviderStrategyParameters `json:"defaultCapacityProviderStrategy,omitempty" tf:"default_capacity_provider_strategy"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Setting []SettingParameters `json:"setting,omitempty" tf:"setting"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -68,10 +85,14 @@ type ExecuteCommandConfigurationObservation struct {
 }
 
 type ExecuteCommandConfigurationParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+
+	// +kubebuilder:validation:Optional
 	LogConfiguration []LogConfigurationParameters `json:"logConfiguration,omitempty" tf:"log_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Logging *string `json:"logging,omitempty" tf:"logging"`
 }
 
@@ -79,14 +100,20 @@ type LogConfigurationObservation struct {
 }
 
 type LogConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CloudWatchEncryptionEnabled *bool `json:"cloudWatchEncryptionEnabled,omitempty" tf:"cloud_watch_encryption_enabled"`
 
+	// +kubebuilder:validation:Optional
 	CloudWatchLogGroupName *string `json:"cloudWatchLogGroupName,omitempty" tf:"cloud_watch_log_group_name"`
 
+	// +kubebuilder:validation:Optional
 	S3BucketEncryptionEnabled *bool `json:"s3BucketEncryptionEnabled,omitempty" tf:"s3_bucket_encryption_enabled"`
 
+	// +kubebuilder:validation:Optional
 	S3BucketName *string `json:"s3BucketName,omitempty" tf:"s3_bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	S3KeyPrefix *string `json:"s3KeyPrefix,omitempty" tf:"s3_key_prefix"`
 }
 
@@ -94,8 +121,11 @@ type SettingObservation struct {
 }
 
 type SettingParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

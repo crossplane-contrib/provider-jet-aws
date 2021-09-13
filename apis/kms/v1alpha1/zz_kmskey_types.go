@@ -27,30 +27,44 @@ import (
 type KmsKeyObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	KeyId string `json:"keyId" tf:"key_id"`
+	KeyID string `json:"keyId" tf:"key_id"`
 }
 
 type KmsKeyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BypassPolicyLockoutSafetyCheck *bool `json:"bypassPolicyLockoutSafetyCheck,omitempty" tf:"bypass_policy_lockout_safety_check"`
 
+	// +kubebuilder:validation:Optional
 	CustomerMasterKeySpec *string `json:"customerMasterKeySpec,omitempty" tf:"customer_master_key_spec"`
 
+	// +kubebuilder:validation:Optional
 	DeletionWindowInDays *int64 `json:"deletionWindowInDays,omitempty" tf:"deletion_window_in_days"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	EnableKeyRotation *bool `json:"enableKeyRotation,omitempty" tf:"enable_key_rotation"`
 
+	// +kubebuilder:validation:Optional
 	IsEnabled *bool `json:"isEnabled,omitempty" tf:"is_enabled"`
 
+	// +kubebuilder:validation:Optional
 	KeyUsage *string `json:"keyUsage,omitempty" tf:"key_usage"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

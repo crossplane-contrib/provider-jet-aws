@@ -25,9 +25,9 @@ import (
 )
 
 type AttachmentObservation struct {
-	EndpointId string `json:"endpointId" tf:"endpoint_id"`
+	EndpointID string `json:"endpointId" tf:"endpoint_id"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	SubnetID string `json:"subnetId" tf:"subnet_id"`
 }
 
 type AttachmentParameters struct {
@@ -49,34 +49,50 @@ type NetworkfirewallFirewallObservation struct {
 }
 
 type NetworkfirewallFirewallParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteProtection *bool `json:"deleteProtection,omitempty" tf:"delete_protection"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	FirewallPolicyArn string `json:"firewallPolicyArn" tf:"firewall_policy_arn"`
 
+	// +kubebuilder:validation:Optional
 	FirewallPolicyChangeProtection *bool `json:"firewallPolicyChangeProtection,omitempty" tf:"firewall_policy_change_protection"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SubnetChangeProtection *bool `json:"subnetChangeProtection,omitempty" tf:"subnet_change_protection"`
 
+	// +kubebuilder:validation:Required
 	SubnetMapping []SubnetMappingParameters `json:"subnetMapping" tf:"subnet_mapping"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type SubnetMappingObservation struct {
 }
 
 type SubnetMappingParameters struct {
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+
+	// +kubebuilder:validation:Required
+	SubnetID string `json:"subnetId" tf:"subnet_id"`
 }
 
 type SyncStatesObservation struct {

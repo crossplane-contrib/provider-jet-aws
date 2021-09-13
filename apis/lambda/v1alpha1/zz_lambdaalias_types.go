@@ -31,16 +31,25 @@ type LambdaAliasObservation struct {
 }
 
 type LambdaAliasParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	FunctionName string `json:"functionName" tf:"function_name"`
 
+	// +kubebuilder:validation:Required
 	FunctionVersion string `json:"functionVersion" tf:"function_version"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoutingConfig []RoutingConfigParameters `json:"routingConfig,omitempty" tf:"routing_config"`
 }
 
@@ -48,6 +57,8 @@ type RoutingConfigObservation struct {
 }
 
 type RoutingConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AdditionalVersionWeights map[string]float64 `json:"additionalVersionWeights,omitempty" tf:"additional_version_weights"`
 }
 

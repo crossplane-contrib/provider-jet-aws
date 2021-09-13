@@ -29,10 +29,16 @@ type WafRegexPatternSetObservation struct {
 }
 
 type WafRegexPatternSetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	RegexPatternStrings []string `json:"regexPatternStrings,omitempty" tf:"regex_pattern_strings"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

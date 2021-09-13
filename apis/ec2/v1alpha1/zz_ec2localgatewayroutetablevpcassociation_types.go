@@ -25,19 +25,27 @@ import (
 )
 
 type Ec2LocalGatewayRouteTableVpcAssociationObservation struct {
-	LocalGatewayId string `json:"localGatewayId" tf:"local_gateway_id"`
+	LocalGatewayID string `json:"localGatewayId" tf:"local_gateway_id"`
 }
 
 type Ec2LocalGatewayRouteTableVpcAssociationParameters struct {
-	LocalGatewayRouteTableId string `json:"localGatewayRouteTableId" tf:"local_gateway_route_table_id"`
 
+	// +kubebuilder:validation:Required
+	LocalGatewayRouteTableID string `json:"localGatewayRouteTableId" tf:"local_gateway_route_table_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // Ec2LocalGatewayRouteTableVpcAssociationSpec defines the desired state of Ec2LocalGatewayRouteTableVpcAssociation

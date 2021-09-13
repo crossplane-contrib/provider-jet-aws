@@ -28,6 +28,8 @@ type AbortIncompleteMultipartUploadObservation struct {
 }
 
 type AbortIncompleteMultipartUploadParameters struct {
+
+	// +kubebuilder:validation:Required
 	DaysAfterInitiation int64 `json:"daysAfterInitiation" tf:"days_after_initiation"`
 }
 
@@ -35,10 +37,14 @@ type ExpirationObservation struct {
 }
 
 type ExpirationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Date *string `json:"date,omitempty" tf:"date"`
 
+	// +kubebuilder:validation:Optional
 	Days *int64 `json:"days,omitempty" tf:"days"`
 
+	// +kubebuilder:validation:Optional
 	ExpiredObjectDeleteMarker *bool `json:"expiredObjectDeleteMarker,omitempty" tf:"expired_object_delete_marker"`
 }
 
@@ -46,8 +52,11 @@ type FilterObservation struct {
 }
 
 type FilterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 }
 
@@ -55,14 +64,20 @@ type RuleObservation struct {
 }
 
 type RuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AbortIncompleteMultipartUpload []AbortIncompleteMultipartUploadParameters `json:"abortIncompleteMultipartUpload,omitempty" tf:"abort_incomplete_multipart_upload"`
 
+	// +kubebuilder:validation:Optional
 	Expiration []ExpirationParameters `json:"expiration,omitempty" tf:"expiration"`
 
+	// +kubebuilder:validation:Optional
 	Filter []FilterParameters `json:"filter,omitempty" tf:"filter"`
 
-	Id string `json:"id" tf:"id"`
+	// +kubebuilder:validation:Required
+	ID string `json:"id" tf:"id"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 }
 
@@ -70,10 +85,16 @@ type S3ControlBucketLifecycleConfigurationObservation struct {
 }
 
 type S3ControlBucketLifecycleConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Rule []RuleParameters `json:"rule" tf:"rule"`
 }
 

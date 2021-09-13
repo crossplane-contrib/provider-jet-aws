@@ -28,14 +28,20 @@ type LambdaFunctionObservation struct {
 }
 
 type LambdaFunctionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Events []string `json:"events" tf:"events"`
 
+	// +kubebuilder:validation:Optional
 	FilterPrefix *string `json:"filterPrefix,omitempty" tf:"filter_prefix"`
 
+	// +kubebuilder:validation:Optional
 	FilterSuffix *string `json:"filterSuffix,omitempty" tf:"filter_suffix"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	// +kubebuilder:validation:Optional
+	ID *string `json:"id,omitempty" tf:"id"`
 
+	// +kubebuilder:validation:Optional
 	LambdaFunctionArn *string `json:"lambdaFunctionArn,omitempty" tf:"lambda_function_arn"`
 }
 
@@ -43,14 +49,20 @@ type QueueObservation struct {
 }
 
 type QueueParameters struct {
+
+	// +kubebuilder:validation:Required
 	Events []string `json:"events" tf:"events"`
 
+	// +kubebuilder:validation:Optional
 	FilterPrefix *string `json:"filterPrefix,omitempty" tf:"filter_prefix"`
 
+	// +kubebuilder:validation:Optional
 	FilterSuffix *string `json:"filterSuffix,omitempty" tf:"filter_suffix"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	// +kubebuilder:validation:Optional
+	ID *string `json:"id,omitempty" tf:"id"`
 
+	// +kubebuilder:validation:Required
 	QueueArn string `json:"queueArn" tf:"queue_arn"`
 }
 
@@ -58,14 +70,22 @@ type S3BucketNotificationObservation struct {
 }
 
 type S3BucketNotificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	LambdaFunction []LambdaFunctionParameters `json:"lambdaFunction,omitempty" tf:"lambda_function"`
 
+	// +kubebuilder:validation:Optional
 	Queue []QueueParameters `json:"queue,omitempty" tf:"queue"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Topic []TopicParameters `json:"topic,omitempty" tf:"topic"`
 }
 
@@ -73,14 +93,20 @@ type TopicObservation struct {
 }
 
 type TopicParameters struct {
+
+	// +kubebuilder:validation:Required
 	Events []string `json:"events" tf:"events"`
 
+	// +kubebuilder:validation:Optional
 	FilterPrefix *string `json:"filterPrefix,omitempty" tf:"filter_prefix"`
 
+	// +kubebuilder:validation:Optional
 	FilterSuffix *string `json:"filterSuffix,omitempty" tf:"filter_suffix"`
 
-	Id *string `json:"id,omitempty" tf:"id"`
+	// +kubebuilder:validation:Optional
+	ID *string `json:"id,omitempty" tf:"id"`
 
+	// +kubebuilder:validation:Required
 	TopicArn string `json:"topicArn" tf:"topic_arn"`
 }
 

@@ -25,24 +25,33 @@ import (
 )
 
 type NatGatewayObservation struct {
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceId" tf:"network_interface_id"`
 
-	PrivateIp string `json:"privateIp" tf:"private_ip"`
+	PrivateIP string `json:"privateIp" tf:"private_ip"`
 
-	PublicIp string `json:"publicIp" tf:"public_ip"`
+	PublicIP string `json:"publicIp" tf:"public_ip"`
 }
 
 type NatGatewayParameters struct {
-	AllocationId *string `json:"allocationId,omitempty" tf:"allocation_id"`
 
+	// +kubebuilder:validation:Optional
+	AllocationID *string `json:"allocationId,omitempty" tf:"allocation_id"`
+
+	// +kubebuilder:validation:Optional
 	ConnectivityType *string `json:"connectivityType,omitempty" tf:"connectivity_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	// +kubebuilder:validation:Required
+	SubnetID string `json:"subnetId" tf:"subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

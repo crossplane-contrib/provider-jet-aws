@@ -25,7 +25,7 @@ import (
 )
 
 type NetworkInterfacesObservation struct {
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	NetworkInterfaceID string `json:"networkInterfaceId" tf:"network_interface_id"`
 }
 
 type NetworkInterfacesParameters struct {
@@ -42,13 +42,20 @@ type S3OutpostsEndpointObservation struct {
 }
 
 type S3OutpostsEndpointParameters struct {
-	OutpostId string `json:"outpostId" tf:"outpost_id"`
 
+	// +kubebuilder:validation:Required
+	OutpostID string `json:"outpostId" tf:"outpost_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	// +kubebuilder:validation:Required
+	SecurityGroupID string `json:"securityGroupId" tf:"security_group_id"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	// +kubebuilder:validation:Required
+	SubnetID string `json:"subnetId" tf:"subnet_id"`
 }
 
 // S3OutpostsEndpointSpec defines the desired state of S3OutpostsEndpoint

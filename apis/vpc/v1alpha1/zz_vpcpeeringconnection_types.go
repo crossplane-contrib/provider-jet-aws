@@ -28,10 +28,14 @@ type AccepterObservation struct {
 }
 
 type AccepterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc"`
 
-	AllowRemoteVpcDnsResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
+	// +kubebuilder:validation:Optional
+	AllowRemoteVpcDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
 
+	// +kubebuilder:validation:Optional
 	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
 }
 
@@ -39,10 +43,14 @@ type RequesterObservation struct {
 }
 
 type RequesterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc"`
 
-	AllowRemoteVpcDnsResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
+	// +kubebuilder:validation:Optional
+	AllowRemoteVpcDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution"`
 
+	// +kubebuilder:validation:Optional
 	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link"`
 }
 
@@ -51,25 +59,38 @@ type VpcPeeringConnectionObservation struct {
 }
 
 type VpcPeeringConnectionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Accepter []AccepterParameters `json:"accepter,omitempty" tf:"accepter"`
 
+	// +kubebuilder:validation:Optional
 	AutoAccept *bool `json:"autoAccept,omitempty" tf:"auto_accept"`
 
-	PeerOwnerId *string `json:"peerOwnerId,omitempty" tf:"peer_owner_id"`
+	// +kubebuilder:validation:Optional
+	PeerOwnerID *string `json:"peerOwnerId,omitempty" tf:"peer_owner_id"`
 
+	// +kubebuilder:validation:Optional
 	PeerRegion *string `json:"peerRegion,omitempty" tf:"peer_region"`
 
-	PeerVpcId string `json:"peerVpcId" tf:"peer_vpc_id"`
+	// +kubebuilder:validation:Required
+	PeerVpcID string `json:"peerVpcId" tf:"peer_vpc_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Requester []RequesterParameters `json:"requester,omitempty" tf:"requester"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // VpcPeeringConnectionSpec defines the desired state of VpcPeeringConnection

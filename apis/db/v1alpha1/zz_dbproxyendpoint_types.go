@@ -31,24 +31,35 @@ type DbProxyEndpointObservation struct {
 
 	IsDefault bool `json:"isDefault" tf:"is_default"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type DbProxyEndpointParameters struct {
-	DbProxyEndpointName string `json:"dbProxyEndpointName" tf:"db_proxy_endpoint_name"`
 
-	DbProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
+	// +kubebuilder:validation:Required
+	DBProxyEndpointName string `json:"dbProxyEndpointName" tf:"db_proxy_endpoint_name"`
 
+	// +kubebuilder:validation:Required
+	DBProxyName string `json:"dbProxyName" tf:"db_proxy_name"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TargetRole *string `json:"targetRole,omitempty" tf:"target_role"`
 
+	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	VpcSubnetIds []string `json:"vpcSubnetIds" tf:"vpc_subnet_ids"`
 }
 

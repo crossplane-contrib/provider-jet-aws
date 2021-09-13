@@ -31,14 +31,22 @@ type CodestarconnectionsHostObservation struct {
 }
 
 type CodestarconnectionsHostParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	ProviderEndpoint string `json:"providerEndpoint" tf:"provider_endpoint"`
 
+	// +kubebuilder:validation:Required
 	ProviderType string `json:"providerType" tf:"provider_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	VpcConfiguration []VpcConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
 }
 
@@ -46,13 +54,18 @@ type VpcConfigurationObservation struct {
 }
 
 type VpcConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	SecurityGroupIds []string `json:"securityGroupIds" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Required
 	SubnetIds []string `json:"subnetIds" tf:"subnet_ids"`
 
-	TlsCertificate *string `json:"tlsCertificate,omitempty" tf:"tls_certificate"`
+	// +kubebuilder:validation:Optional
+	TLSCertificate *string `json:"tlsCertificate,omitempty" tf:"tls_certificate"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // CodestarconnectionsHostSpec defines the desired state of CodestarconnectionsHost

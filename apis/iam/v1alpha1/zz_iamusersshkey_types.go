@@ -27,18 +27,26 @@ import (
 type IamUserSshKeyObservation struct {
 	Fingerprint string `json:"fingerprint" tf:"fingerprint"`
 
-	SshPublicKeyId string `json:"sshPublicKeyId" tf:"ssh_public_key_id"`
+	SSHPublicKeyID string `json:"sshPublicKeyId" tf:"ssh_public_key_id"`
 }
 
 type IamUserSshKeyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Encoding string `json:"encoding" tf:"encoding"`
 
+	// +kubebuilder:validation:Required
 	PublicKey string `json:"publicKey" tf:"public_key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
+	// +kubebuilder:validation:Required
 	Username string `json:"username" tf:"username"`
 }
 

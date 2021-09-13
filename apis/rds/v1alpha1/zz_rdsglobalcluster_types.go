@@ -25,7 +25,7 @@ import (
 )
 
 type GlobalClusterMembersObservation struct {
-	DbClusterArn string `json:"dbClusterArn" tf:"db_cluster_arn"`
+	DBClusterArn string `json:"dbClusterArn" tf:"db_cluster_arn"`
 
 	IsWriter bool `json:"isWriter" tf:"is_writer"`
 }
@@ -38,26 +38,38 @@ type RdsGlobalClusterObservation struct {
 
 	GlobalClusterMembers []GlobalClusterMembersObservation `json:"globalClusterMembers" tf:"global_cluster_members"`
 
-	GlobalClusterResourceId string `json:"globalClusterResourceId" tf:"global_cluster_resource_id"`
+	GlobalClusterResourceID string `json:"globalClusterResourceId" tf:"global_cluster_resource_id"`
 }
 
 type RdsGlobalClusterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DatabaseName *string `json:"databaseName,omitempty" tf:"database_name"`
 
+	// +kubebuilder:validation:Optional
 	DeletionProtection *bool `json:"deletionProtection,omitempty" tf:"deletion_protection"`
 
+	// +kubebuilder:validation:Optional
 	Engine *string `json:"engine,omitempty" tf:"engine"`
 
+	// +kubebuilder:validation:Optional
 	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version"`
 
+	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	// +kubebuilder:validation:Required
 	GlobalClusterIdentifier string `json:"globalClusterIdentifier" tf:"global_cluster_identifier"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier,omitempty" tf:"source_db_cluster_identifier"`
+	// +kubebuilder:validation:Optional
+	SourceDBClusterIdentifier *string `json:"sourceDbClusterIdentifier,omitempty" tf:"source_db_cluster_identifier"`
 
+	// +kubebuilder:validation:Optional
 	StorageEncrypted *bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted"`
 }
 

@@ -31,18 +31,28 @@ type ServicecatalogConstraintObservation struct {
 }
 
 type ServicecatalogConstraintParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Parameters string `json:"parameters" tf:"parameters"`
 
-	PortfolioId string `json:"portfolioId" tf:"portfolio_id"`
+	// +kubebuilder:validation:Required
+	PortfolioID string `json:"portfolioId" tf:"portfolio_id"`
 
-	ProductId string `json:"productId" tf:"product_id"`
+	// +kubebuilder:validation:Required
+	ProductID string `json:"productId" tf:"product_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

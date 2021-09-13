@@ -28,11 +28,17 @@ type Route53ResolverQueryLogConfigAssociationObservation struct {
 }
 
 type Route53ResolverQueryLogConfigAssociationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResolverQueryLogConfigId string `json:"resolverQueryLogConfigId" tf:"resolver_query_log_config_id"`
+	// +kubebuilder:validation:Required
+	ResolverQueryLogConfigID string `json:"resolverQueryLogConfigId" tf:"resolver_query_log_config_id"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 }
 
 // Route53ResolverQueryLogConfigAssociationSpec defines the desired state of Route53ResolverQueryLogConfigAssociation

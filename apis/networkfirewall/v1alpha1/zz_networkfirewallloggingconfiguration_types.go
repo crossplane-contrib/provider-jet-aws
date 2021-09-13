@@ -28,10 +28,14 @@ type LogDestinationConfigObservation struct {
 }
 
 type LogDestinationConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	LogDestination map[string]string `json:"logDestination" tf:"log_destination"`
 
+	// +kubebuilder:validation:Required
 	LogDestinationType string `json:"logDestinationType" tf:"log_destination_type"`
 
+	// +kubebuilder:validation:Required
 	LogType string `json:"logType" tf:"log_type"`
 }
 
@@ -39,6 +43,8 @@ type LoggingConfigurationObservation struct {
 }
 
 type LoggingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	LogDestinationConfig []LogDestinationConfigParameters `json:"logDestinationConfig" tf:"log_destination_config"`
 }
 
@@ -46,10 +52,16 @@ type NetworkfirewallLoggingConfigurationObservation struct {
 }
 
 type NetworkfirewallLoggingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	FirewallArn string `json:"firewallArn" tf:"firewall_arn"`
 
+	// +kubebuilder:validation:Required
 	LoggingConfiguration []LoggingConfigurationParameters `json:"loggingConfiguration" tf:"logging_configuration"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

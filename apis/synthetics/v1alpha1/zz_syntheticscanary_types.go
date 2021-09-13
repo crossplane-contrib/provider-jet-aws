@@ -28,10 +28,14 @@ type RunConfigObservation struct {
 }
 
 type RunConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ActiveTracing *bool `json:"activeTracing,omitempty" tf:"active_tracing"`
 
+	// +kubebuilder:validation:Optional
 	MemoryInMb *int64 `json:"memoryInMb,omitempty" tf:"memory_in_mb"`
 
+	// +kubebuilder:validation:Optional
 	TimeoutInSeconds *int64 `json:"timeoutInSeconds,omitempty" tf:"timeout_in_seconds"`
 }
 
@@ -39,8 +43,11 @@ type ScheduleObservation struct {
 }
 
 type ScheduleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DurationInSeconds *int64 `json:"durationInSeconds,omitempty" tf:"duration_in_seconds"`
 
+	// +kubebuilder:validation:Required
 	Expression string `json:"expression" tf:"expression"`
 }
 
@@ -57,40 +64,61 @@ type SyntheticsCanaryObservation struct {
 }
 
 type SyntheticsCanaryParameters struct {
+
+	// +kubebuilder:validation:Required
 	ArtifactS3Location string `json:"artifactS3Location" tf:"artifact_s3_location"`
 
+	// +kubebuilder:validation:Required
 	ExecutionRoleArn string `json:"executionRoleArn" tf:"execution_role_arn"`
 
+	// +kubebuilder:validation:Optional
 	FailureRetentionPeriod *int64 `json:"failureRetentionPeriod,omitempty" tf:"failure_retention_period"`
 
+	// +kubebuilder:validation:Required
 	Handler string `json:"handler" tf:"handler"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RunConfig []RunConfigParameters `json:"runConfig,omitempty" tf:"run_config"`
 
+	// +kubebuilder:validation:Required
 	RuntimeVersion string `json:"runtimeVersion" tf:"runtime_version"`
 
+	// +kubebuilder:validation:Optional
 	S3Bucket *string `json:"s3Bucket,omitempty" tf:"s3_bucket"`
 
+	// +kubebuilder:validation:Optional
 	S3Key *string `json:"s3Key,omitempty" tf:"s3_key"`
 
+	// +kubebuilder:validation:Optional
 	S3Version *string `json:"s3Version,omitempty" tf:"s3_version"`
 
+	// +kubebuilder:validation:Required
 	Schedule []ScheduleParameters `json:"schedule" tf:"schedule"`
 
+	// +kubebuilder:validation:Optional
 	StartCanary *bool `json:"startCanary,omitempty" tf:"start_canary"`
 
+	// +kubebuilder:validation:Optional
 	SuccessRetentionPeriod *int64 `json:"successRetentionPeriod,omitempty" tf:"success_retention_period"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VpcConfig []VpcConfigParameters `json:"vpcConfig,omitempty" tf:"vpc_config"`
 
+	// +kubebuilder:validation:Optional
 	ZipFile *string `json:"zipFile,omitempty" tf:"zip_file"`
 }
 
@@ -108,12 +136,15 @@ type TimelineParameters struct {
 }
 
 type VpcConfigObservation struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type VpcConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Optional
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 }
 

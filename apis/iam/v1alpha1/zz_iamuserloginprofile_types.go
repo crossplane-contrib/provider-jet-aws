@@ -31,14 +31,22 @@ type IamUserLoginProfileObservation struct {
 }
 
 type IamUserLoginProfileParameters struct {
+
+	// +kubebuilder:validation:Optional
 	PasswordLength *int64 `json:"passwordLength,omitempty" tf:"password_length"`
 
+	// +kubebuilder:validation:Optional
 	PasswordResetRequired *bool `json:"passwordResetRequired,omitempty" tf:"password_reset_required"`
 
+	// +kubebuilder:validation:Required
 	PgpKey string `json:"pgpKey" tf:"pgp_key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	User string `json:"user" tf:"user"`
 }
 

@@ -29,12 +29,19 @@ type ServicecatalogTagOptionObservation struct {
 }
 
 type ServicecatalogTagOptionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Active *bool `json:"active,omitempty" tf:"active"`
 
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

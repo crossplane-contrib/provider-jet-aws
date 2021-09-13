@@ -28,14 +28,20 @@ type ApprovalRuleObservation struct {
 }
 
 type ApprovalRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApproveAfterDays *int64 `json:"approveAfterDays,omitempty" tf:"approve_after_days"`
 
+	// +kubebuilder:validation:Optional
 	ApproveUntilDate *string `json:"approveUntilDate,omitempty" tf:"approve_until_date"`
 
+	// +kubebuilder:validation:Optional
 	ComplianceLevel *string `json:"complianceLevel,omitempty" tf:"compliance_level"`
 
+	// +kubebuilder:validation:Optional
 	EnableNonSecurity *bool `json:"enableNonSecurity,omitempty" tf:"enable_non_security"`
 
+	// +kubebuilder:validation:Required
 	PatchFilter []PatchFilterParameters `json:"patchFilter" tf:"patch_filter"`
 }
 
@@ -43,8 +49,11 @@ type GlobalFilterObservation struct {
 }
 
 type GlobalFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 
@@ -52,8 +61,11 @@ type PatchFilterObservation struct {
 }
 
 type PatchFilterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Values []string `json:"values" tf:"values"`
 }
 
@@ -61,10 +73,14 @@ type SourceObservation struct {
 }
 
 type SourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	Configuration string `json:"configuration" tf:"configuration"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Products []string `json:"products" tf:"products"`
 }
 
@@ -73,32 +89,49 @@ type SsmPatchBaselineObservation struct {
 }
 
 type SsmPatchBaselineParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApprovalRule []ApprovalRuleParameters `json:"approvalRule,omitempty" tf:"approval_rule"`
 
+	// +kubebuilder:validation:Optional
 	ApprovedPatches []string `json:"approvedPatches,omitempty" tf:"approved_patches"`
 
+	// +kubebuilder:validation:Optional
 	ApprovedPatchesComplianceLevel *string `json:"approvedPatchesComplianceLevel,omitempty" tf:"approved_patches_compliance_level"`
 
+	// +kubebuilder:validation:Optional
 	ApprovedPatchesEnableNonSecurity *bool `json:"approvedPatchesEnableNonSecurity,omitempty" tf:"approved_patches_enable_non_security"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	GlobalFilter []GlobalFilterParameters `json:"globalFilter,omitempty" tf:"global_filter"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	OperatingSystem *string `json:"operatingSystem,omitempty" tf:"operating_system"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RejectedPatches []string `json:"rejectedPatches,omitempty" tf:"rejected_patches"`
 
+	// +kubebuilder:validation:Optional
 	RejectedPatchesAction *string `json:"rejectedPatchesAction,omitempty" tf:"rejected_patches_action"`
 
+	// +kubebuilder:validation:Optional
 	Source []SourceParameters `json:"source,omitempty" tf:"source"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

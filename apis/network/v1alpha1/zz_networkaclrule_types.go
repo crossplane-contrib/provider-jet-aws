@@ -28,28 +28,43 @@ type NetworkAclRuleObservation struct {
 }
 
 type NetworkAclRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block"`
 
+	// +kubebuilder:validation:Optional
 	Egress *bool `json:"egress,omitempty" tf:"egress"`
 
+	// +kubebuilder:validation:Optional
 	FromPort *int64 `json:"fromPort,omitempty" tf:"from_port"`
 
+	// +kubebuilder:validation:Optional
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+
+	// +kubebuilder:validation:Optional
 	IcmpCode *string `json:"icmpCode,omitempty" tf:"icmp_code"`
 
+	// +kubebuilder:validation:Optional
 	IcmpType *string `json:"icmpType,omitempty" tf:"icmp_type"`
 
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+	// +kubebuilder:validation:Required
+	NetworkACLID string `json:"networkAclId" tf:"network_acl_id"`
 
-	NetworkAclId string `json:"networkAclId" tf:"network_acl_id"`
-
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RuleAction string `json:"ruleAction" tf:"rule_action"`
 
+	// +kubebuilder:validation:Required
 	RuleNumber int64 `json:"ruleNumber" tf:"rule_number"`
 
+	// +kubebuilder:validation:Optional
 	ToPort *int64 `json:"toPort,omitempty" tf:"to_port"`
 }
 

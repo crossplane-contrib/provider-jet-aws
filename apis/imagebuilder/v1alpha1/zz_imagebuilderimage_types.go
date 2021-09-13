@@ -25,7 +25,7 @@ import (
 )
 
 type AmisObservation struct {
-	AccountId string `json:"accountId" tf:"account_id"`
+	AccountID string `json:"accountId" tf:"account_id"`
 
 	Description string `json:"description" tf:"description"`
 
@@ -43,8 +43,11 @@ type ImageTestsConfigurationObservation struct {
 }
 
 type ImageTestsConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ImageTestsEnabled *bool `json:"imageTestsEnabled,omitempty" tf:"image_tests_enabled"`
 
+	// +kubebuilder:validation:Optional
 	TimeoutMinutes *int64 `json:"timeoutMinutes,omitempty" tf:"timeout_minutes"`
 }
 
@@ -65,20 +68,31 @@ type ImagebuilderImageObservation struct {
 }
 
 type ImagebuilderImageParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DistributionConfigurationArn *string `json:"distributionConfigurationArn,omitempty" tf:"distribution_configuration_arn"`
 
+	// +kubebuilder:validation:Optional
 	EnhancedImageMetadataEnabled *bool `json:"enhancedImageMetadataEnabled,omitempty" tf:"enhanced_image_metadata_enabled"`
 
+	// +kubebuilder:validation:Required
 	ImageRecipeArn string `json:"imageRecipeArn" tf:"image_recipe_arn"`
 
+	// +kubebuilder:validation:Optional
 	ImageTestsConfiguration []ImageTestsConfigurationParameters `json:"imageTestsConfiguration,omitempty" tf:"image_tests_configuration"`
 
+	// +kubebuilder:validation:Required
 	InfrastructureConfigurationArn string `json:"infrastructureConfigurationArn" tf:"infrastructure_configuration_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

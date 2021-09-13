@@ -28,14 +28,20 @@ type SelfServicePermissionsObservation struct {
 }
 
 type SelfServicePermissionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ChangeComputeType *bool `json:"changeComputeType,omitempty" tf:"change_compute_type"`
 
+	// +kubebuilder:validation:Optional
 	IncreaseVolumeSize *bool `json:"increaseVolumeSize,omitempty" tf:"increase_volume_size"`
 
+	// +kubebuilder:validation:Optional
 	RebuildWorkspace *bool `json:"rebuildWorkspace,omitempty" tf:"rebuild_workspace"`
 
+	// +kubebuilder:validation:Optional
 	RestartWorkspace *bool `json:"restartWorkspace,omitempty" tf:"restart_workspace"`
 
+	// +kubebuilder:validation:Optional
 	SwitchRunningMode *bool `json:"switchRunningMode,omitempty" tf:"switch_running_mode"`
 }
 
@@ -43,20 +49,29 @@ type WorkspaceAccessPropertiesObservation struct {
 }
 
 type WorkspaceAccessPropertiesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeviceTypeAndroid *string `json:"deviceTypeAndroid,omitempty" tf:"device_type_android"`
 
+	// +kubebuilder:validation:Optional
 	DeviceTypeChromeos *string `json:"deviceTypeChromeos,omitempty" tf:"device_type_chromeos"`
 
+	// +kubebuilder:validation:Optional
 	DeviceTypeIos *string `json:"deviceTypeIos,omitempty" tf:"device_type_ios"`
 
+	// +kubebuilder:validation:Optional
 	DeviceTypeLinux *string `json:"deviceTypeLinux,omitempty" tf:"device_type_linux"`
 
+	// +kubebuilder:validation:Optional
 	DeviceTypeOsx *string `json:"deviceTypeOsx,omitempty" tf:"device_type_osx"`
 
+	// +kubebuilder:validation:Optional
 	DeviceTypeWeb *string `json:"deviceTypeWeb,omitempty" tf:"device_type_web"`
 
+	// +kubebuilder:validation:Optional
 	DeviceTypeWindows *string `json:"deviceTypeWindows,omitempty" tf:"device_type_windows"`
 
+	// +kubebuilder:validation:Optional
 	DeviceTypeZeroclient *string `json:"deviceTypeZeroclient,omitempty" tf:"device_type_zeroclient"`
 }
 
@@ -64,14 +79,20 @@ type WorkspaceCreationPropertiesObservation struct {
 }
 
 type WorkspaceCreationPropertiesParameters struct {
-	CustomSecurityGroupId *string `json:"customSecurityGroupId,omitempty" tf:"custom_security_group_id"`
 
+	// +kubebuilder:validation:Optional
+	CustomSecurityGroupID *string `json:"customSecurityGroupId,omitempty" tf:"custom_security_group_id"`
+
+	// +kubebuilder:validation:Optional
 	DefaultOu *string `json:"defaultOu,omitempty" tf:"default_ou"`
 
+	// +kubebuilder:validation:Optional
 	EnableInternetAccess *bool `json:"enableInternetAccess,omitempty" tf:"enable_internet_access"`
 
+	// +kubebuilder:validation:Optional
 	EnableMaintenanceMode *bool `json:"enableMaintenanceMode,omitempty" tf:"enable_maintenance_mode"`
 
+	// +kubebuilder:validation:Optional
 	UserEnabledAsLocalAdministrator *bool `json:"userEnabledAsLocalAdministrator,omitempty" tf:"user_enabled_as_local_administrator"`
 }
 
@@ -80,36 +101,48 @@ type WorkspacesDirectoryObservation struct {
 
 	CustomerUserName string `json:"customerUserName" tf:"customer_user_name"`
 
+	DNSIPAddresses []string `json:"dnsIpAddresses" tf:"dns_ip_addresses"`
+
 	DirectoryName string `json:"directoryName" tf:"directory_name"`
 
 	DirectoryType string `json:"directoryType" tf:"directory_type"`
 
-	DnsIpAddresses []string `json:"dnsIpAddresses" tf:"dns_ip_addresses"`
-
-	IamRoleId string `json:"iamRoleId" tf:"iam_role_id"`
+	IamRoleID string `json:"iamRoleId" tf:"iam_role_id"`
 
 	RegistrationCode string `json:"registrationCode" tf:"registration_code"`
 
-	WorkspaceSecurityGroupId string `json:"workspaceSecurityGroupId" tf:"workspace_security_group_id"`
+	WorkspaceSecurityGroupID string `json:"workspaceSecurityGroupId" tf:"workspace_security_group_id"`
 }
 
 type WorkspacesDirectoryParameters struct {
-	DirectoryId string `json:"directoryId" tf:"directory_id"`
 
-	IpGroupIds []string `json:"ipGroupIds,omitempty" tf:"ip_group_ids"`
+	// +kubebuilder:validation:Required
+	DirectoryID string `json:"directoryId" tf:"directory_id"`
 
+	// +kubebuilder:validation:Optional
+	IPGroupIds []string `json:"ipGroupIds,omitempty" tf:"ip_group_ids"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SelfServicePermissions []SelfServicePermissionsParameters `json:"selfServicePermissions,omitempty" tf:"self_service_permissions"`
 
+	// +kubebuilder:validation:Optional
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	WorkspaceAccessProperties []WorkspaceAccessPropertiesParameters `json:"workspaceAccessProperties,omitempty" tf:"workspace_access_properties"`
 
+	// +kubebuilder:validation:Optional
 	WorkspaceCreationProperties []WorkspaceCreationPropertiesParameters `json:"workspaceCreationProperties,omitempty" tf:"workspace_creation_properties"`
 }
 

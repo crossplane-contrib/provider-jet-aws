@@ -28,24 +28,33 @@ type AllowedPublishersObservation struct {
 }
 
 type AllowedPublishersParameters struct {
+
+	// +kubebuilder:validation:Required
 	SigningProfileVersionArns []string `json:"signingProfileVersionArns" tf:"signing_profile_version_arns"`
 }
 
 type LambdaCodeSigningConfigObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	ConfigId string `json:"configId" tf:"config_id"`
+	ConfigID string `json:"configId" tf:"config_id"`
 
 	LastModified string `json:"lastModified" tf:"last_modified"`
 }
 
 type LambdaCodeSigningConfigParameters struct {
+
+	// +kubebuilder:validation:Required
 	AllowedPublishers []AllowedPublishersParameters `json:"allowedPublishers" tf:"allowed_publishers"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Policies []PoliciesParameters `json:"policies,omitempty" tf:"policies"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -53,6 +62,8 @@ type PoliciesObservation struct {
 }
 
 type PoliciesParameters struct {
+
+	// +kubebuilder:validation:Required
 	UntrustedArtifactOnDeployment string `json:"untrustedArtifactOnDeployment" tf:"untrusted_artifact_on_deployment"`
 }
 

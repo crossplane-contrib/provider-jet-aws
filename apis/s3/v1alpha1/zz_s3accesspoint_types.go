@@ -28,12 +28,17 @@ type PublicAccessBlockConfigurationObservation struct {
 }
 
 type PublicAccessBlockConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BlockPublicAcls *bool `json:"blockPublicAcls,omitempty" tf:"block_public_acls"`
 
+	// +kubebuilder:validation:Optional
 	BlockPublicPolicy *bool `json:"blockPublicPolicy,omitempty" tf:"block_public_policy"`
 
+	// +kubebuilder:validation:Optional
 	IgnorePublicAcls *bool `json:"ignorePublicAcls,omitempty" tf:"ignore_public_acls"`
 
+	// +kubebuilder:validation:Optional
 	RestrictPublicBuckets *bool `json:"restrictPublicBuckets,omitempty" tf:"restrict_public_buckets"`
 }
 
@@ -48,18 +53,28 @@ type S3AccessPointObservation struct {
 }
 
 type S3AccessPointParameters struct {
-	AccountId *string `json:"accountId,omitempty" tf:"account_id"`
 
+	// +kubebuilder:validation:Optional
+	AccountID *string `json:"accountId,omitempty" tf:"account_id"`
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy"`
 
+	// +kubebuilder:validation:Optional
 	PublicAccessBlockConfiguration []PublicAccessBlockConfigurationParameters `json:"publicAccessBlockConfiguration,omitempty" tf:"public_access_block_configuration"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	VpcConfiguration []VpcConfigurationParameters `json:"vpcConfiguration,omitempty" tf:"vpc_configuration"`
 }
 
@@ -67,7 +82,9 @@ type VpcConfigurationObservation struct {
 }
 
 type VpcConfigurationParameters struct {
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // S3AccessPointSpec defines the desired state of S3AccessPoint

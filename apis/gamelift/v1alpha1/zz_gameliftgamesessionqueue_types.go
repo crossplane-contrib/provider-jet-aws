@@ -29,18 +29,28 @@ type GameliftGameSessionQueueObservation struct {
 }
 
 type GameliftGameSessionQueueParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Destinations []string `json:"destinations,omitempty" tf:"destinations"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PlayerLatencyPolicy []PlayerLatencyPolicyParameters `json:"playerLatencyPolicy,omitempty" tf:"player_latency_policy"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TimeoutInSeconds *int64 `json:"timeoutInSeconds,omitempty" tf:"timeout_in_seconds"`
 }
 
@@ -48,8 +58,11 @@ type PlayerLatencyPolicyObservation struct {
 }
 
 type PlayerLatencyPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	MaximumIndividualPlayerLatencyMilliseconds int64 `json:"maximumIndividualPlayerLatencyMilliseconds" tf:"maximum_individual_player_latency_milliseconds"`
 
+	// +kubebuilder:validation:Optional
 	PolicyDurationSeconds *int64 `json:"policyDurationSeconds,omitempty" tf:"policy_duration_seconds"`
 }
 

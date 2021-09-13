@@ -28,14 +28,22 @@ type GuarddutyPublishingDestinationObservation struct {
 }
 
 type GuarddutyPublishingDestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
 
+	// +kubebuilder:validation:Optional
 	DestinationType *string `json:"destinationType,omitempty" tf:"destination_type"`
 
-	DetectorId string `json:"detectorId" tf:"detector_id"`
+	// +kubebuilder:validation:Required
+	DetectorID string `json:"detectorId" tf:"detector_id"`
 
+	// +kubebuilder:validation:Required
 	KmsKeyArn string `json:"kmsKeyArn" tf:"kms_key_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

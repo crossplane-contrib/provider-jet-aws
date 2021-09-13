@@ -28,23 +28,34 @@ type IngressObservation struct {
 }
 
 type IngressParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Cidr *string `json:"cidr,omitempty" tf:"cidr"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupName *string `json:"securityGroupName,omitempty" tf:"security_group_name"`
 
-	SecurityGroupOwnerId *string `json:"securityGroupOwnerId,omitempty" tf:"security_group_owner_id"`
+	// +kubebuilder:validation:Optional
+	SecurityGroupOwnerID *string `json:"securityGroupOwnerId,omitempty" tf:"security_group_owner_id"`
 }
 
 type RedshiftSecurityGroupObservation struct {
 }
 
 type RedshiftSecurityGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Ingress []IngressParameters `json:"ingress" tf:"ingress"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

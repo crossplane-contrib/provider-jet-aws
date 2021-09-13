@@ -28,10 +28,16 @@ type GuarddutyInviteAccepterObservation struct {
 }
 
 type GuarddutyInviteAccepterParameters struct {
-	DetectorId string `json:"detectorId" tf:"detector_id"`
 
-	MasterAccountId string `json:"masterAccountId" tf:"master_account_id"`
+	// +kubebuilder:validation:Required
+	DetectorID string `json:"detectorId" tf:"detector_id"`
 
+	// +kubebuilder:validation:Required
+	MasterAccountID string `json:"masterAccountId" tf:"master_account_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

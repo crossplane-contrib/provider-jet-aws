@@ -28,16 +28,23 @@ type AmiDistributionConfigurationObservation struct {
 }
 
 type AmiDistributionConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AmiTags map[string]string `json:"amiTags,omitempty" tf:"ami_tags"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	LaunchPermission []LaunchPermissionParameters `json:"launchPermission,omitempty" tf:"launch_permission"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	TargetAccountIds []string `json:"targetAccountIds,omitempty" tf:"target_account_ids"`
 }
 
@@ -45,10 +52,14 @@ type DistributionObservation struct {
 }
 
 type DistributionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AmiDistributionConfiguration []AmiDistributionConfigurationParameters `json:"amiDistributionConfiguration,omitempty" tf:"ami_distribution_configuration"`
 
+	// +kubebuilder:validation:Optional
 	LicenseConfigurationArns []string `json:"licenseConfigurationArns,omitempty" tf:"license_configuration_arns"`
 
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"region"`
 }
 
@@ -61,16 +72,25 @@ type ImagebuilderDistributionConfigurationObservation struct {
 }
 
 type ImagebuilderDistributionConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Distribution []DistributionParameters `json:"distribution" tf:"distribution"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -78,8 +98,11 @@ type LaunchPermissionObservation struct {
 }
 
 type LaunchPermissionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	UserGroups []string `json:"userGroups,omitempty" tf:"user_groups"`
 
+	// +kubebuilder:validation:Optional
 	UserIds []string `json:"userIds,omitempty" tf:"user_ids"`
 }
 

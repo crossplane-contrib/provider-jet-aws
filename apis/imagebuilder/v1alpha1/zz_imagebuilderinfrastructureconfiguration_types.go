@@ -33,32 +33,49 @@ type ImagebuilderInfrastructureConfigurationObservation struct {
 }
 
 type ImagebuilderInfrastructureConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	InstanceProfileName string `json:"instanceProfileName" tf:"instance_profile_name"`
 
+	// +kubebuilder:validation:Optional
 	InstanceTypes []string `json:"instanceTypes,omitempty" tf:"instance_types"`
 
+	// +kubebuilder:validation:Optional
 	KeyPair *string `json:"keyPair,omitempty" tf:"key_pair"`
 
+	// +kubebuilder:validation:Optional
 	Logging []LoggingParameters `json:"logging,omitempty" tf:"logging"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ResourceTags map[string]string `json:"resourceTags,omitempty" tf:"resource_tags"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Optional
 	SnsTopicArn *string `json:"snsTopicArn,omitempty" tf:"sns_topic_arn"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TerminateInstanceOnFailure *bool `json:"terminateInstanceOnFailure,omitempty" tf:"terminate_instance_on_failure"`
 }
 
@@ -66,6 +83,8 @@ type LoggingObservation struct {
 }
 
 type LoggingParameters struct {
+
+	// +kubebuilder:validation:Required
 	S3Logs []S3LogsParameters `json:"s3Logs" tf:"s3_logs"`
 }
 
@@ -73,8 +92,11 @@ type S3LogsObservation struct {
 }
 
 type S3LogsParameters struct {
+
+	// +kubebuilder:validation:Required
 	S3BucketName string `json:"s3BucketName" tf:"s3_bucket_name"`
 
+	// +kubebuilder:validation:Optional
 	S3KeyPrefix *string `json:"s3KeyPrefix,omitempty" tf:"s3_key_prefix"`
 }
 

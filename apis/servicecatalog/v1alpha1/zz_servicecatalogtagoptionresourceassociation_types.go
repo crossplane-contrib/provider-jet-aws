@@ -35,11 +35,17 @@ type ServicecatalogTagOptionResourceAssociationObservation struct {
 }
 
 type ServicecatalogTagOptionResourceAssociationParameters struct {
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
-	TagOptionId string `json:"tagOptionId" tf:"tag_option_id"`
+	// +kubebuilder:validation:Required
+	TagOptionID string `json:"tagOptionId" tf:"tag_option_id"`
 }
 
 // ServicecatalogTagOptionResourceAssociationSpec defines the desired state of ServicecatalogTagOptionResourceAssociation

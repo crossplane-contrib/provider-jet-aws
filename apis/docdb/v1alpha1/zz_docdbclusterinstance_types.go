@@ -27,15 +27,15 @@ import (
 type DocdbClusterInstanceObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DbSubnetGroupName string `json:"dbSubnetGroupName" tf:"db_subnet_group_name"`
+	DBSubnetGroupName string `json:"dbSubnetGroupName" tf:"db_subnet_group_name"`
 
-	DbiResourceId string `json:"dbiResourceId" tf:"dbi_resource_id"`
+	DbiResourceID string `json:"dbiResourceId" tf:"dbi_resource_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
 	EngineVersion string `json:"engineVersion" tf:"engine_version"`
 
-	KmsKeyId string `json:"kmsKeyId" tf:"kms_key_id"`
+	KmsKeyID string `json:"kmsKeyId" tf:"kms_key_id"`
 
 	Port int64 `json:"port" tf:"port"`
 
@@ -49,32 +49,49 @@ type DocdbClusterInstanceObservation struct {
 }
 
 type DocdbClusterInstanceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately"`
 
+	// +kubebuilder:validation:Optional
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade,omitempty" tf:"auto_minor_version_upgrade"`
 
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
+	// +kubebuilder:validation:Optional
 	CaCertIdentifier *string `json:"caCertIdentifier,omitempty" tf:"ca_cert_identifier"`
 
+	// +kubebuilder:validation:Required
 	ClusterIdentifier string `json:"clusterIdentifier" tf:"cluster_identifier"`
 
+	// +kubebuilder:validation:Optional
 	Engine *string `json:"engine,omitempty" tf:"engine"`
 
+	// +kubebuilder:validation:Optional
 	Identifier *string `json:"identifier,omitempty" tf:"identifier"`
 
+	// +kubebuilder:validation:Optional
 	IdentifierPrefix *string `json:"identifierPrefix,omitempty" tf:"identifier_prefix"`
 
+	// +kubebuilder:validation:Required
 	InstanceClass string `json:"instanceClass" tf:"instance_class"`
 
+	// +kubebuilder:validation:Optional
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow,omitempty" tf:"preferred_maintenance_window"`
 
+	// +kubebuilder:validation:Optional
 	PromotionTier *int64 `json:"promotionTier,omitempty" tf:"promotion_tier"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

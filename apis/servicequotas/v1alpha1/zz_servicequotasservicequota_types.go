@@ -33,7 +33,7 @@ type ServicequotasServiceQuotaObservation struct {
 
 	QuotaName string `json:"quotaName" tf:"quota_name"`
 
-	RequestId string `json:"requestId" tf:"request_id"`
+	RequestID string `json:"requestId" tf:"request_id"`
 
 	RequestStatus string `json:"requestStatus" tf:"request_status"`
 
@@ -41,12 +41,19 @@ type ServicequotasServiceQuotaObservation struct {
 }
 
 type ServicequotasServiceQuotaParameters struct {
+
+	// +kubebuilder:validation:Required
 	QuotaCode string `json:"quotaCode" tf:"quota_code"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ServiceCode string `json:"serviceCode" tf:"service_code"`
 
+	// +kubebuilder:validation:Required
 	Value float64 `json:"value" tf:"value"`
 }
 

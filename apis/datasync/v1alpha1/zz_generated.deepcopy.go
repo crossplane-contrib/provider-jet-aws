@@ -106,8 +106,8 @@ func (in *DatasyncAgentParameters) DeepCopyInto(out *DatasyncAgentParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.IpAddress != nil {
-		in, out := &in.IpAddress, &out.IpAddress
+	if in.IPAddress != nil {
+		in, out := &in.IPAddress, &out.IPAddress
 		*out = new(string)
 		**out = **in
 	}
@@ -145,8 +145,8 @@ func (in *DatasyncAgentParameters) DeepCopyInto(out *DatasyncAgentParameters) {
 			(*out)[key] = val
 		}
 	}
-	if in.VpcEndpointId != nil {
-		in, out := &in.VpcEndpointId, &out.VpcEndpointId
+	if in.VpcEndpointID != nil {
+		in, out := &in.VpcEndpointID, &out.VpcEndpointID
 		*out = new(string)
 		**out = **in
 	}
@@ -1328,8 +1328,8 @@ func (in *OptionsParameters) DeepCopyInto(out *OptionsParameters) {
 		*out = new(int64)
 		**out = **in
 	}
-	if in.Gid != nil {
-		in, out := &in.Gid, &out.Gid
+	if in.GID != nil {
+		in, out := &in.GID, &out.GID
 		*out = new(string)
 		**out = **in
 	}
@@ -1373,8 +1373,8 @@ func (in *OptionsParameters) DeepCopyInto(out *OptionsParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Uid != nil {
-		in, out := &in.Uid, &out.Uid
+	if in.UID != nil {
+		in, out := &in.UID, &out.UID
 		*out = new(string)
 		**out = **in
 	}

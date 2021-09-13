@@ -28,14 +28,22 @@ type GlobalacceleratorListenerObservation struct {
 }
 
 type GlobalacceleratorListenerParameters struct {
+
+	// +kubebuilder:validation:Required
 	AcceleratorArn string `json:"acceleratorArn" tf:"accelerator_arn"`
 
+	// +kubebuilder:validation:Optional
 	ClientAffinity *string `json:"clientAffinity,omitempty" tf:"client_affinity"`
 
+	// +kubebuilder:validation:Required
 	PortRange []PortRangeParameters `json:"portRange" tf:"port_range"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -43,8 +51,11 @@ type PortRangeObservation struct {
 }
 
 type PortRangeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FromPort *int64 `json:"fromPort,omitempty" tf:"from_port"`
 
+	// +kubebuilder:validation:Optional
 	ToPort *int64 `json:"toPort,omitempty" tf:"to_port"`
 }
 

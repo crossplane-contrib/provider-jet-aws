@@ -25,23 +25,31 @@ import (
 )
 
 type CloudhsmV2HsmObservation struct {
-	HsmEniId string `json:"hsmEniId" tf:"hsm_eni_id"`
+	HsmEniID string `json:"hsmEniId" tf:"hsm_eni_id"`
 
-	HsmId string `json:"hsmId" tf:"hsm_id"`
+	HsmID string `json:"hsmId" tf:"hsm_id"`
 
 	HsmState string `json:"hsmState" tf:"hsm_state"`
 }
 
 type CloudhsmV2HsmParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
-	ClusterId string `json:"clusterId" tf:"cluster_id"`
+	// +kubebuilder:validation:Required
+	ClusterID string `json:"clusterId" tf:"cluster_id"`
 
-	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
+	// +kubebuilder:validation:Optional
+	IPAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 }
 
 // CloudhsmV2HsmSpec defines the desired state of CloudhsmV2Hsm

@@ -28,13 +28,20 @@ type Route53ResolverRuleAssociationObservation struct {
 }
 
 type Route53ResolverRuleAssociationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResolverRuleId string `json:"resolverRuleId" tf:"resolver_rule_id"`
+	// +kubebuilder:validation:Required
+	ResolverRuleID string `json:"resolverRuleId" tf:"resolver_rule_id"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	// +kubebuilder:validation:Required
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 // Route53ResolverRuleAssociationSpec defines the desired state of Route53ResolverRuleAssociation

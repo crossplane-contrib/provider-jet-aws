@@ -29,24 +29,37 @@ type AppconfigDeploymentStrategyObservation struct {
 }
 
 type AppconfigDeploymentStrategyParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeploymentDurationInMinutes int64 `json:"deploymentDurationInMinutes" tf:"deployment_duration_in_minutes"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	FinalBakeTimeInMinutes *int64 `json:"finalBakeTimeInMinutes,omitempty" tf:"final_bake_time_in_minutes"`
 
+	// +kubebuilder:validation:Required
 	GrowthFactor float64 `json:"growthFactor" tf:"growth_factor"`
 
+	// +kubebuilder:validation:Optional
 	GrowthType *string `json:"growthType,omitempty" tf:"growth_type"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ReplicateTo string `json:"replicateTo" tf:"replicate_to"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

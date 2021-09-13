@@ -28,6 +28,8 @@ type ActionDefinitionPublishMetricActionObservation struct {
 }
 
 type ActionDefinitionPublishMetricActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Dimension []PublishMetricActionDimensionParameters `json:"dimension" tf:"dimension"`
 }
 
@@ -35,6 +37,8 @@ type CustomActionActionDefinitionObservation struct {
 }
 
 type CustomActionActionDefinitionParameters struct {
+
+	// +kubebuilder:validation:Required
 	PublishMetricAction []ActionDefinitionPublishMetricActionParameters `json:"publishMetricAction" tf:"publish_metric_action"`
 }
 
@@ -42,8 +46,11 @@ type CustomActionObservation struct {
 }
 
 type CustomActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	ActionDefinition []CustomActionActionDefinitionParameters `json:"actionDefinition" tf:"action_definition"`
 
+	// +kubebuilder:validation:Required
 	ActionName string `json:"actionName" tf:"action_name"`
 }
 
@@ -51,6 +58,8 @@ type DestinationObservation struct {
 }
 
 type DestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	AddressDefinition string `json:"addressDefinition" tf:"address_definition"`
 }
 
@@ -58,8 +67,11 @@ type DestinationPortObservation struct {
 }
 
 type DestinationPortParameters struct {
+
+	// +kubebuilder:validation:Required
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
+	// +kubebuilder:validation:Optional
 	ToPort *int64 `json:"toPort,omitempty" tf:"to_port"`
 }
 
@@ -67,32 +79,44 @@ type HeaderObservation struct {
 }
 
 type HeaderParameters struct {
+
+	// +kubebuilder:validation:Required
 	Destination string `json:"destination" tf:"destination"`
 
+	// +kubebuilder:validation:Required
 	DestinationPort string `json:"destinationPort" tf:"destination_port"`
 
+	// +kubebuilder:validation:Required
 	Direction string `json:"direction" tf:"direction"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// +kubebuilder:validation:Required
 	Source string `json:"source" tf:"source"`
 
+	// +kubebuilder:validation:Required
 	SourcePort string `json:"sourcePort" tf:"source_port"`
 }
 
-type IpSetObservation struct {
+type IPSetObservation struct {
 }
 
-type IpSetParameters struct {
+type IPSetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Definition []string `json:"definition" tf:"definition"`
 }
 
-type IpSetsObservation struct {
+type IPSetsObservation struct {
 }
 
-type IpSetsParameters struct {
-	IpSet []IpSetParameters `json:"ipSet" tf:"ip_set"`
+type IPSetsParameters struct {
 
+	// +kubebuilder:validation:Required
+	IPSet []IPSetParameters `json:"ipSet" tf:"ip_set"`
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 }
 
@@ -100,17 +124,24 @@ type MatchAttributesObservation struct {
 }
 
 type MatchAttributesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Destination []DestinationParameters `json:"destination,omitempty" tf:"destination"`
 
+	// +kubebuilder:validation:Optional
 	DestinationPort []DestinationPortParameters `json:"destinationPort,omitempty" tf:"destination_port"`
 
+	// +kubebuilder:validation:Optional
 	Protocols []int64 `json:"protocols,omitempty" tf:"protocols"`
 
+	// +kubebuilder:validation:Optional
 	Source []SourceParameters `json:"source,omitempty" tf:"source"`
 
+	// +kubebuilder:validation:Optional
 	SourcePort []SourcePortParameters `json:"sourcePort,omitempty" tf:"source_port"`
 
-	TcpFlag []TcpFlagParameters `json:"tcpFlag,omitempty" tf:"tcp_flag"`
+	// +kubebuilder:validation:Optional
+	TCPFlag []TCPFlagParameters `json:"tcpFlag,omitempty" tf:"tcp_flag"`
 }
 
 type NetworkfirewallRuleGroupObservation struct {
@@ -120,22 +151,34 @@ type NetworkfirewallRuleGroupObservation struct {
 }
 
 type NetworkfirewallRuleGroupParameters struct {
+
+	// +kubebuilder:validation:Required
 	Capacity int64 `json:"capacity" tf:"capacity"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RuleGroup []RuleGroupParameters `json:"ruleGroup,omitempty" tf:"rule_group"`
 
+	// +kubebuilder:validation:Optional
 	Rules *string `json:"rules,omitempty" tf:"rules"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -143,6 +186,8 @@ type PortSetObservation struct {
 }
 
 type PortSetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Definition []string `json:"definition" tf:"definition"`
 }
 
@@ -150,8 +195,11 @@ type PortSetsObservation struct {
 }
 
 type PortSetsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	PortSet []PortSetParameters `json:"portSet" tf:"port_set"`
 }
 
@@ -159,6 +207,8 @@ type PublishMetricActionDimensionObservation struct {
 }
 
 type PublishMetricActionDimensionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -166,8 +216,11 @@ type RuleDefinitionObservation struct {
 }
 
 type RuleDefinitionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Actions []string `json:"actions" tf:"actions"`
 
+	// +kubebuilder:validation:Required
 	MatchAttributes []MatchAttributesParameters `json:"matchAttributes" tf:"match_attributes"`
 }
 
@@ -175,8 +228,11 @@ type RuleGroupObservation struct {
 }
 
 type RuleGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	RuleVariables []RuleVariablesParameters `json:"ruleVariables,omitempty" tf:"rule_variables"`
 
+	// +kubebuilder:validation:Required
 	RulesSource []RulesSourceParameters `json:"rulesSource" tf:"rules_source"`
 }
 
@@ -184,8 +240,11 @@ type RuleOptionObservation struct {
 }
 
 type RuleOptionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Keyword string `json:"keyword" tf:"keyword"`
 
+	// +kubebuilder:validation:Optional
 	Settings []string `json:"settings,omitempty" tf:"settings"`
 }
 
@@ -193,8 +252,11 @@ type RuleVariablesObservation struct {
 }
 
 type RuleVariablesParameters struct {
-	IpSets []IpSetsParameters `json:"ipSets,omitempty" tf:"ip_sets"`
 
+	// +kubebuilder:validation:Optional
+	IPSets []IPSetsParameters `json:"ipSets,omitempty" tf:"ip_sets"`
+
+	// +kubebuilder:validation:Optional
 	PortSets []PortSetsParameters `json:"portSets,omitempty" tf:"port_sets"`
 }
 
@@ -202,10 +264,14 @@ type RulesSourceListObservation struct {
 }
 
 type RulesSourceListParameters struct {
+
+	// +kubebuilder:validation:Required
 	GeneratedRulesType string `json:"generatedRulesType" tf:"generated_rules_type"`
 
+	// +kubebuilder:validation:Required
 	TargetTypes []string `json:"targetTypes" tf:"target_types"`
 
+	// +kubebuilder:validation:Required
 	Targets []string `json:"targets" tf:"targets"`
 }
 
@@ -213,12 +279,17 @@ type RulesSourceObservation struct {
 }
 
 type RulesSourceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	RulesSourceList []RulesSourceListParameters `json:"rulesSourceList,omitempty" tf:"rules_source_list"`
 
+	// +kubebuilder:validation:Optional
 	RulesString *string `json:"rulesString,omitempty" tf:"rules_string"`
 
+	// +kubebuilder:validation:Optional
 	StatefulRule []StatefulRuleParameters `json:"statefulRule,omitempty" tf:"stateful_rule"`
 
+	// +kubebuilder:validation:Optional
 	StatelessRulesAndCustomActions []StatelessRulesAndCustomActionsParameters `json:"statelessRulesAndCustomActions,omitempty" tf:"stateless_rules_and_custom_actions"`
 }
 
@@ -226,6 +297,8 @@ type SourceObservation struct {
 }
 
 type SourceParameters struct {
+
+	// +kubebuilder:validation:Required
 	AddressDefinition string `json:"addressDefinition" tf:"address_definition"`
 }
 
@@ -233,8 +306,11 @@ type SourcePortObservation struct {
 }
 
 type SourcePortParameters struct {
+
+	// +kubebuilder:validation:Required
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
+	// +kubebuilder:validation:Optional
 	ToPort *int64 `json:"toPort,omitempty" tf:"to_port"`
 }
 
@@ -242,10 +318,14 @@ type StatefulRuleObservation struct {
 }
 
 type StatefulRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action string `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Required
 	Header []HeaderParameters `json:"header" tf:"header"`
 
+	// +kubebuilder:validation:Required
 	RuleOption []RuleOptionParameters `json:"ruleOption" tf:"rule_option"`
 }
 
@@ -253,8 +333,11 @@ type StatelessRuleObservation struct {
 }
 
 type StatelessRuleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Priority int64 `json:"priority" tf:"priority"`
 
+	// +kubebuilder:validation:Required
 	RuleDefinition []RuleDefinitionParameters `json:"ruleDefinition" tf:"rule_definition"`
 }
 
@@ -262,17 +345,23 @@ type StatelessRulesAndCustomActionsObservation struct {
 }
 
 type StatelessRulesAndCustomActionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomAction []CustomActionParameters `json:"customAction,omitempty" tf:"custom_action"`
 
+	// +kubebuilder:validation:Required
 	StatelessRule []StatelessRuleParameters `json:"statelessRule" tf:"stateless_rule"`
 }
 
-type TcpFlagObservation struct {
+type TCPFlagObservation struct {
 }
 
-type TcpFlagParameters struct {
+type TCPFlagParameters struct {
+
+	// +kubebuilder:validation:Required
 	Flags []string `json:"flags" tf:"flags"`
 
+	// +kubebuilder:validation:Optional
 	Masks []string `json:"masks,omitempty" tf:"masks"`
 }
 

@@ -28,10 +28,16 @@ type LbListenerCertificateObservation struct {
 }
 
 type LbListenerCertificateParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
 
+	// +kubebuilder:validation:Required
 	ListenerArn string `json:"listenerArn" tf:"listener_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

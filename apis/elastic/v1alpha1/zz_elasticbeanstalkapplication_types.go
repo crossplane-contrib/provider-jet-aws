@@ -28,12 +28,17 @@ type AppversionLifecycleObservation struct {
 }
 
 type AppversionLifecycleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteSourceFromS3 *bool `json:"deleteSourceFromS3,omitempty" tf:"delete_source_from_s3"`
 
+	// +kubebuilder:validation:Optional
 	MaxAgeInDays *int64 `json:"maxAgeInDays,omitempty" tf:"max_age_in_days"`
 
+	// +kubebuilder:validation:Optional
 	MaxCount *int64 `json:"maxCount,omitempty" tf:"max_count"`
 
+	// +kubebuilder:validation:Required
 	ServiceRole string `json:"serviceRole" tf:"service_role"`
 }
 
@@ -42,16 +47,25 @@ type ElasticBeanstalkApplicationObservation struct {
 }
 
 type ElasticBeanstalkApplicationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AppversionLifecycle []AppversionLifecycleParameters `json:"appversionLifecycle,omitempty" tf:"appversion_lifecycle"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

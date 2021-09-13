@@ -27,25 +27,35 @@ import (
 type DxGatewayAssociationObservation struct {
 	AssociatedGatewayType string `json:"associatedGatewayType" tf:"associated_gateway_type"`
 
-	DxGatewayAssociationId string `json:"dxGatewayAssociationId" tf:"dx_gateway_association_id"`
+	DxGatewayAssociationID string `json:"dxGatewayAssociationId" tf:"dx_gateway_association_id"`
 
-	DxGatewayOwnerAccountId string `json:"dxGatewayOwnerAccountId" tf:"dx_gateway_owner_account_id"`
+	DxGatewayOwnerAccountID string `json:"dxGatewayOwnerAccountId" tf:"dx_gateway_owner_account_id"`
 }
 
 type DxGatewayAssociationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowedPrefixes []string `json:"allowedPrefixes,omitempty" tf:"allowed_prefixes"`
 
-	AssociatedGatewayId *string `json:"associatedGatewayId,omitempty" tf:"associated_gateway_id"`
+	// +kubebuilder:validation:Optional
+	AssociatedGatewayID *string `json:"associatedGatewayId,omitempty" tf:"associated_gateway_id"`
 
-	AssociatedGatewayOwnerAccountId *string `json:"associatedGatewayOwnerAccountId,omitempty" tf:"associated_gateway_owner_account_id"`
+	// +kubebuilder:validation:Optional
+	AssociatedGatewayOwnerAccountID *string `json:"associatedGatewayOwnerAccountId,omitempty" tf:"associated_gateway_owner_account_id"`
 
-	DxGatewayId string `json:"dxGatewayId" tf:"dx_gateway_id"`
+	// +kubebuilder:validation:Required
+	DxGatewayID string `json:"dxGatewayId" tf:"dx_gateway_id"`
 
-	ProposalId *string `json:"proposalId,omitempty" tf:"proposal_id"`
+	// +kubebuilder:validation:Optional
+	ProposalID *string `json:"proposalId,omitempty" tf:"proposal_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	VpnGatewayId *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
+	// +kubebuilder:validation:Optional
+	VpnGatewayID *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id"`
 }
 
 // DxGatewayAssociationSpec defines the desired state of DxGatewayAssociation

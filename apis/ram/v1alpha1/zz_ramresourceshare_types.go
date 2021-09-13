@@ -29,14 +29,22 @@ type RamResourceShareObservation struct {
 }
 
 type RamResourceShareParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowExternalPrincipals *bool `json:"allowExternalPrincipals,omitempty" tf:"allow_external_principals"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

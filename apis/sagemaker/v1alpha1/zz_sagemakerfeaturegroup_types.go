@@ -28,10 +28,14 @@ type DataCatalogConfigObservation struct {
 }
 
 type DataCatalogConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Catalog *string `json:"catalog,omitempty" tf:"catalog"`
 
+	// +kubebuilder:validation:Optional
 	Database *string `json:"database,omitempty" tf:"database"`
 
+	// +kubebuilder:validation:Optional
 	TableName *string `json:"tableName,omitempty" tf:"table_name"`
 }
 
@@ -39,8 +43,11 @@ type FeatureDefinitionObservation struct {
 }
 
 type FeatureDefinitionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FeatureName *string `json:"featureName,omitempty" tf:"feature_name"`
 
+	// +kubebuilder:validation:Optional
 	FeatureType *string `json:"featureType,omitempty" tf:"feature_type"`
 }
 
@@ -48,10 +55,14 @@ type OfflineStoreConfigObservation struct {
 }
 
 type OfflineStoreConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DataCatalogConfig []DataCatalogConfigParameters `json:"dataCatalogConfig,omitempty" tf:"data_catalog_config"`
 
+	// +kubebuilder:validation:Optional
 	DisableGlueTableCreation *bool `json:"disableGlueTableCreation,omitempty" tf:"disable_glue_table_creation"`
 
+	// +kubebuilder:validation:Required
 	S3StorageConfig []S3StorageConfigParameters `json:"s3StorageConfig" tf:"s3_storage_config"`
 }
 
@@ -59,8 +70,11 @@ type OnlineStoreConfigObservation struct {
 }
 
 type OnlineStoreConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EnableOnlineStore *bool `json:"enableOnlineStore,omitempty" tf:"enable_online_store"`
 
+	// +kubebuilder:validation:Optional
 	SecurityConfig []SecurityConfigParameters `json:"securityConfig,omitempty" tf:"security_config"`
 }
 
@@ -68,9 +82,12 @@ type S3StorageConfigObservation struct {
 }
 
 type S3StorageConfigParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
-	S3Uri string `json:"s3Uri" tf:"s3_uri"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+
+	// +kubebuilder:validation:Required
+	S3URI string `json:"s3Uri" tf:"s3_uri"`
 }
 
 type SagemakerFeatureGroupObservation struct {
@@ -78,26 +95,40 @@ type SagemakerFeatureGroupObservation struct {
 }
 
 type SagemakerFeatureGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	EventTimeFeatureName string `json:"eventTimeFeatureName" tf:"event_time_feature_name"`
 
+	// +kubebuilder:validation:Required
 	FeatureDefinition []FeatureDefinitionParameters `json:"featureDefinition" tf:"feature_definition"`
 
+	// +kubebuilder:validation:Required
 	FeatureGroupName string `json:"featureGroupName" tf:"feature_group_name"`
 
+	// +kubebuilder:validation:Optional
 	OfflineStoreConfig []OfflineStoreConfigParameters `json:"offlineStoreConfig,omitempty" tf:"offline_store_config"`
 
+	// +kubebuilder:validation:Optional
 	OnlineStoreConfig []OnlineStoreConfigParameters `json:"onlineStoreConfig,omitempty" tf:"online_store_config"`
 
+	// +kubebuilder:validation:Required
 	RecordIdentifierFeatureName string `json:"recordIdentifierFeatureName" tf:"record_identifier_feature_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -105,7 +136,9 @@ type SecurityConfigObservation struct {
 }
 
 type SecurityConfigParameters struct {
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 }
 
 // SagemakerFeatureGroupSpec defines the desired state of SagemakerFeatureGroup

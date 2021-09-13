@@ -29,18 +29,28 @@ type InspectorAssessmentTemplateObservation struct {
 }
 
 type InspectorAssessmentTemplateParameters struct {
+
+	// +kubebuilder:validation:Required
 	Duration int64 `json:"duration" tf:"duration"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RulesPackageArns []string `json:"rulesPackageArns" tf:"rules_package_arns"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	TargetArn string `json:"targetArn" tf:"target_arn"`
 }
 

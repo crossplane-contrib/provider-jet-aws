@@ -28,90 +28,133 @@ type LoggingObservation struct {
 }
 
 type LoggingParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BucketName *string `json:"bucketName,omitempty" tf:"bucket_name"`
 
+	// +kubebuilder:validation:Required
 	Enable bool `json:"enable" tf:"enable"`
 
+	// +kubebuilder:validation:Optional
 	S3KeyPrefix *string `json:"s3KeyPrefix,omitempty" tf:"s3_key_prefix"`
 }
 
 type RedshiftClusterObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DnsName string `json:"dnsName" tf:"dns_name"`
+	DNSName string `json:"dnsName" tf:"dns_name"`
 }
 
 type RedshiftClusterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowVersionUpgrade *bool `json:"allowVersionUpgrade,omitempty" tf:"allow_version_upgrade"`
 
+	// +kubebuilder:validation:Optional
 	AutomatedSnapshotRetentionPeriod *int64 `json:"automatedSnapshotRetentionPeriod,omitempty" tf:"automated_snapshot_retention_period"`
 
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
 
+	// +kubebuilder:validation:Required
 	ClusterIdentifier string `json:"clusterIdentifier" tf:"cluster_identifier"`
 
+	// +kubebuilder:validation:Optional
 	ClusterParameterGroupName *string `json:"clusterParameterGroupName,omitempty" tf:"cluster_parameter_group_name"`
 
+	// +kubebuilder:validation:Optional
 	ClusterPublicKey *string `json:"clusterPublicKey,omitempty" tf:"cluster_public_key"`
 
+	// +kubebuilder:validation:Optional
 	ClusterRevisionNumber *string `json:"clusterRevisionNumber,omitempty" tf:"cluster_revision_number"`
 
+	// +kubebuilder:validation:Optional
 	ClusterSecurityGroups []string `json:"clusterSecurityGroups,omitempty" tf:"cluster_security_groups"`
 
+	// +kubebuilder:validation:Optional
 	ClusterSubnetGroupName *string `json:"clusterSubnetGroupName,omitempty" tf:"cluster_subnet_group_name"`
 
+	// +kubebuilder:validation:Optional
 	ClusterType *string `json:"clusterType,omitempty" tf:"cluster_type"`
 
+	// +kubebuilder:validation:Optional
 	ClusterVersion *string `json:"clusterVersion,omitempty" tf:"cluster_version"`
 
+	// +kubebuilder:validation:Optional
 	DatabaseName *string `json:"databaseName,omitempty" tf:"database_name"`
 
-	ElasticIp *string `json:"elasticIp,omitempty" tf:"elastic_ip"`
+	// +kubebuilder:validation:Optional
+	ElasticIP *string `json:"elasticIp,omitempty" tf:"elastic_ip"`
 
+	// +kubebuilder:validation:Optional
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
+	// +kubebuilder:validation:Optional
 	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint"`
 
+	// +kubebuilder:validation:Optional
 	EnhancedVpcRouting *bool `json:"enhancedVpcRouting,omitempty" tf:"enhanced_vpc_routing"`
 
+	// +kubebuilder:validation:Optional
 	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier"`
 
+	// +kubebuilder:validation:Optional
 	IamRoles []string `json:"iamRoles,omitempty" tf:"iam_roles"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
+	// +kubebuilder:validation:Optional
 	Logging []LoggingParameters `json:"logging,omitempty" tf:"logging"`
 
+	// +kubebuilder:validation:Optional
 	MasterPassword *string `json:"masterPassword,omitempty" tf:"master_password"`
 
+	// +kubebuilder:validation:Optional
 	MasterUsername *string `json:"masterUsername,omitempty" tf:"master_username"`
 
+	// +kubebuilder:validation:Required
 	NodeType string `json:"nodeType" tf:"node_type"`
 
+	// +kubebuilder:validation:Optional
 	NumberOfNodes *int64 `json:"numberOfNodes,omitempty" tf:"number_of_nodes"`
 
+	// +kubebuilder:validation:Optional
 	OwnerAccount *string `json:"ownerAccount,omitempty" tf:"owner_account"`
 
+	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port"`
 
+	// +kubebuilder:validation:Optional
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow,omitempty" tf:"preferred_maintenance_window"`
 
+	// +kubebuilder:validation:Optional
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotClusterIdentifier *string `json:"snapshotClusterIdentifier,omitempty" tf:"snapshot_cluster_identifier"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotCopy []SnapshotCopyParameters `json:"snapshotCopy,omitempty" tf:"snapshot_copy"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotIdentifier *string `json:"snapshotIdentifier,omitempty" tf:"snapshot_identifier"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIds []string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
 }
 
@@ -119,10 +162,14 @@ type SnapshotCopyObservation struct {
 }
 
 type SnapshotCopyParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationRegion string `json:"destinationRegion" tf:"destination_region"`
 
+	// +kubebuilder:validation:Optional
 	GrantName *string `json:"grantName,omitempty" tf:"grant_name"`
 
+	// +kubebuilder:validation:Optional
 	RetentionPeriod *int64 `json:"retentionPeriod,omitempty" tf:"retention_period"`
 }
 

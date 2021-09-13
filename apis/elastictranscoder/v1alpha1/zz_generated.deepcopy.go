@@ -895,8 +895,8 @@ func (in *VideoWatermarksParameters) DeepCopyInto(out *VideoWatermarksParameters
 		*out = new(string)
 		**out = **in
 	}
-	if in.Id != nil {
-		in, out := &in.Id, &out.Id
+	if in.ID != nil {
+		in, out := &in.ID, &out.ID
 		*out = new(string)
 		**out = **in
 	}

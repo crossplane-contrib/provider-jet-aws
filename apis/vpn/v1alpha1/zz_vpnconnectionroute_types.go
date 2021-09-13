@@ -28,11 +28,17 @@ type VpnConnectionRouteObservation struct {
 }
 
 type VpnConnectionRouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationCidrBlock string `json:"destinationCidrBlock" tf:"destination_cidr_block"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	VpnConnectionId string `json:"vpnConnectionId" tf:"vpn_connection_id"`
+	// +kubebuilder:validation:Required
+	VpnConnectionID string `json:"vpnConnectionId" tf:"vpn_connection_id"`
 }
 
 // VpnConnectionRouteSpec defines the desired state of VpnConnectionRoute

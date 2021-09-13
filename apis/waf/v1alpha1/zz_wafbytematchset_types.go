@@ -28,12 +28,17 @@ type ByteMatchTuplesObservation struct {
 }
 
 type ByteMatchTuplesParameters struct {
+
+	// +kubebuilder:validation:Required
 	FieldToMatch []FieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	PositionalConstraint string `json:"positionalConstraint" tf:"positional_constraint"`
 
+	// +kubebuilder:validation:Optional
 	TargetString *string `json:"targetString,omitempty" tf:"target_string"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation string `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -41,8 +46,11 @@ type FieldToMatchObservation struct {
 }
 
 type FieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Data *string `json:"data,omitempty" tf:"data"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -50,10 +58,16 @@ type WafByteMatchSetObservation struct {
 }
 
 type WafByteMatchSetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ByteMatchTuples []ByteMatchTuplesParameters `json:"byteMatchTuples,omitempty" tf:"byte_match_tuples"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

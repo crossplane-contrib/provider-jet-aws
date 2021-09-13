@@ -28,10 +28,16 @@ type DirectoryServiceLogSubscriptionObservation struct {
 }
 
 type DirectoryServiceLogSubscriptionParameters struct {
-	DirectoryId string `json:"directoryId" tf:"directory_id"`
 
+	// +kubebuilder:validation:Required
+	DirectoryID string `json:"directoryId" tf:"directory_id"`
+
+	// +kubebuilder:validation:Required
 	LogGroupName string `json:"logGroupName" tf:"log_group_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

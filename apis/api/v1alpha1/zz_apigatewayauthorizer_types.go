@@ -28,24 +28,37 @@ type ApiGatewayAuthorizerObservation struct {
 }
 
 type ApiGatewayAuthorizerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AuthorizerCredentials *string `json:"authorizerCredentials,omitempty" tf:"authorizer_credentials"`
 
-	AuthorizerResultTtlInSeconds *int64 `json:"authorizerResultTtlInSeconds,omitempty" tf:"authorizer_result_ttl_in_seconds"`
+	// +kubebuilder:validation:Optional
+	AuthorizerResultTTLInSeconds *int64 `json:"authorizerResultTtlInSeconds,omitempty" tf:"authorizer_result_ttl_in_seconds"`
 
-	AuthorizerUri *string `json:"authorizerUri,omitempty" tf:"authorizer_uri"`
+	// +kubebuilder:validation:Optional
+	AuthorizerURI *string `json:"authorizerUri,omitempty" tf:"authorizer_uri"`
 
+	// +kubebuilder:validation:Optional
 	IdentitySource *string `json:"identitySource,omitempty" tf:"identity_source"`
 
+	// +kubebuilder:validation:Optional
 	IdentityValidationExpression *string `json:"identityValidationExpression,omitempty" tf:"identity_validation_expression"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	ProviderArns []string `json:"providerArns,omitempty" tf:"provider_arns"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RestApiId string `json:"restApiId" tf:"rest_api_id"`
+	// +kubebuilder:validation:Required
+	RestAPIID string `json:"restApiId" tf:"rest_api_id"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 

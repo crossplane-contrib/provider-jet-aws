@@ -28,10 +28,16 @@ type IotThingPrincipalAttachmentObservation struct {
 }
 
 type IotThingPrincipalAttachmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	Principal string `json:"principal" tf:"principal"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Thing string `json:"thing" tf:"thing"`
 }
 

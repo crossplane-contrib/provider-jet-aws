@@ -28,10 +28,16 @@ type LicensemanagerAssociationObservation struct {
 }
 
 type LicensemanagerAssociationParameters struct {
+
+	// +kubebuilder:validation:Required
 	LicenseConfigurationArn string `json:"licenseConfigurationArn" tf:"license_configuration_arn"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	ResourceArn string `json:"resourceArn" tf:"resource_arn"`
 }
 

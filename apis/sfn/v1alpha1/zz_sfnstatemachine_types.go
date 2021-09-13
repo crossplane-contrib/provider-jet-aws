@@ -28,10 +28,14 @@ type LoggingConfigurationObservation struct {
 }
 
 type LoggingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	IncludeExecutionData *bool `json:"includeExecutionData,omitempty" tf:"include_execution_data"`
 
+	// +kubebuilder:validation:Optional
 	Level *string `json:"level,omitempty" tf:"level"`
 
+	// +kubebuilder:validation:Optional
 	LogDestination *string `json:"logDestination,omitempty" tf:"log_destination"`
 }
 
@@ -44,22 +48,34 @@ type SfnStateMachineObservation struct {
 }
 
 type SfnStateMachineParameters struct {
+
+	// +kubebuilder:validation:Required
 	Definition string `json:"definition" tf:"definition"`
 
+	// +kubebuilder:validation:Optional
 	LoggingConfiguration []LoggingConfigurationParameters `json:"loggingConfiguration,omitempty" tf:"logging_configuration"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	TracingConfiguration []TracingConfigurationParameters `json:"tracingConfiguration,omitempty" tf:"tracing_configuration"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -67,6 +83,8 @@ type TracingConfigurationObservation struct {
 }
 
 type TracingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 }
 

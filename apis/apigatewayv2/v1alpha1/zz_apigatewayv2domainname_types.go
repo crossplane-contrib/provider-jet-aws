@@ -25,45 +25,61 @@ import (
 )
 
 type Apigatewayv2DomainNameObservation struct {
-	ApiMappingSelectionExpression string `json:"apiMappingSelectionExpression" tf:"api_mapping_selection_expression"`
+	APIMappingSelectionExpression string `json:"apiMappingSelectionExpression" tf:"api_mapping_selection_expression"`
 
 	Arn string `json:"arn" tf:"arn"`
 }
 
 type Apigatewayv2DomainNameParameters struct {
+
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// +kubebuilder:validation:Required
 	DomainNameConfiguration []DomainNameConfigurationParameters `json:"domainNameConfiguration" tf:"domain_name_configuration"`
 
-	MutualTlsAuthentication []MutualTlsAuthenticationParameters `json:"mutualTlsAuthentication,omitempty" tf:"mutual_tls_authentication"`
+	// +kubebuilder:validation:Optional
+	MutualTLSAuthentication []MutualTLSAuthenticationParameters `json:"mutualTlsAuthentication,omitempty" tf:"mutual_tls_authentication"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type DomainNameConfigurationObservation struct {
-	HostedZoneId string `json:"hostedZoneId" tf:"hosted_zone_id"`
+	HostedZoneID string `json:"hostedZoneId" tf:"hosted_zone_id"`
 
 	TargetDomainName string `json:"targetDomainName" tf:"target_domain_name"`
 }
 
 type DomainNameConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	CertificateArn string `json:"certificateArn" tf:"certificate_arn"`
 
+	// +kubebuilder:validation:Required
 	EndpointType string `json:"endpointType" tf:"endpoint_type"`
 
+	// +kubebuilder:validation:Required
 	SecurityPolicy string `json:"securityPolicy" tf:"security_policy"`
 }
 
-type MutualTlsAuthenticationObservation struct {
+type MutualTLSAuthenticationObservation struct {
 }
 
-type MutualTlsAuthenticationParameters struct {
-	TruststoreUri string `json:"truststoreUri" tf:"truststore_uri"`
+type MutualTLSAuthenticationParameters struct {
 
+	// +kubebuilder:validation:Required
+	TruststoreURI string `json:"truststoreUri" tf:"truststore_uri"`
+
+	// +kubebuilder:validation:Optional
 	TruststoreVersion *string `json:"truststoreVersion,omitempty" tf:"truststore_version"`
 }
 

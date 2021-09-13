@@ -948,8 +948,8 @@ func (in *SsmAssociationParameters) DeepCopyInto(out *SsmAssociationParameters) 
 		*out = new(string)
 		**out = **in
 	}
-	if in.InstanceId != nil {
-		in, out := &in.InstanceId, &out.InstanceId
+	if in.InstanceID != nil {
+		in, out := &in.InstanceID, &out.InstanceID
 		*out = new(string)
 		**out = **in
 	}
@@ -1852,8 +1852,8 @@ func (in *SsmParameterParameters) DeepCopyInto(out *SsmParameterParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.KeyId != nil {
-		in, out := &in.KeyId, &out.KeyId
+	if in.KeyID != nil {
+		in, out := &in.KeyID, &out.KeyID
 		*out = new(string)
 		**out = **in
 	}

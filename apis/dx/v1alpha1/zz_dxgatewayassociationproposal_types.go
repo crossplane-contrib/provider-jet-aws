@@ -25,20 +25,28 @@ import (
 )
 
 type DxGatewayAssociationProposalObservation struct {
-	AssociatedGatewayOwnerAccountId string `json:"associatedGatewayOwnerAccountId" tf:"associated_gateway_owner_account_id"`
+	AssociatedGatewayOwnerAccountID string `json:"associatedGatewayOwnerAccountId" tf:"associated_gateway_owner_account_id"`
 
 	AssociatedGatewayType string `json:"associatedGatewayType" tf:"associated_gateway_type"`
 }
 
 type DxGatewayAssociationProposalParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AllowedPrefixes []string `json:"allowedPrefixes,omitempty" tf:"allowed_prefixes"`
 
-	AssociatedGatewayId string `json:"associatedGatewayId" tf:"associated_gateway_id"`
+	// +kubebuilder:validation:Required
+	AssociatedGatewayID string `json:"associatedGatewayId" tf:"associated_gateway_id"`
 
-	DxGatewayId string `json:"dxGatewayId" tf:"dx_gateway_id"`
+	// +kubebuilder:validation:Required
+	DxGatewayID string `json:"dxGatewayId" tf:"dx_gateway_id"`
 
-	DxGatewayOwnerAccountId string `json:"dxGatewayOwnerAccountId" tf:"dx_gateway_owner_account_id"`
+	// +kubebuilder:validation:Required
+	DxGatewayOwnerAccountID string `json:"dxGatewayOwnerAccountId" tf:"dx_gateway_owner_account_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

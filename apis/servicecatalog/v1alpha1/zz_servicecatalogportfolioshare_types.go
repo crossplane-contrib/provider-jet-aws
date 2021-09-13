@@ -29,18 +29,28 @@ type ServicecatalogPortfolioShareObservation struct {
 }
 
 type ServicecatalogPortfolioShareParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AcceptLanguage *string `json:"acceptLanguage,omitempty" tf:"accept_language"`
 
-	PortfolioId string `json:"portfolioId" tf:"portfolio_id"`
+	// +kubebuilder:validation:Required
+	PortfolioID string `json:"portfolioId" tf:"portfolio_id"`
 
-	PrincipalId string `json:"principalId" tf:"principal_id"`
+	// +kubebuilder:validation:Required
+	PrincipalID string `json:"principalId" tf:"principal_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ShareTagOptions *bool `json:"shareTagOptions,omitempty" tf:"share_tag_options"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Optional
 	WaitForAcceptance *bool `json:"waitForAcceptance,omitempty" tf:"wait_for_acceptance"`
 }
 

@@ -29,14 +29,22 @@ type CodeartifactDomainPermissionsPolicyObservation struct {
 }
 
 type CodeartifactDomainPermissionsPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Domain string `json:"domain" tf:"domain"`
 
+	// +kubebuilder:validation:Optional
 	DomainOwner *string `json:"domainOwner,omitempty" tf:"domain_owner"`
 
+	// +kubebuilder:validation:Required
 	PolicyDocument string `json:"policyDocument" tf:"policy_document"`
 
+	// +kubebuilder:validation:Optional
 	PolicyRevision *string `json:"policyRevision,omitempty" tf:"policy_revision"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

@@ -28,8 +28,11 @@ type SizeConstraintsFieldToMatchObservation struct {
 }
 
 type SizeConstraintsFieldToMatchParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Data *string `json:"data,omitempty" tf:"data"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -37,12 +40,17 @@ type SizeConstraintsObservation struct {
 }
 
 type SizeConstraintsParameters struct {
+
+	// +kubebuilder:validation:Required
 	ComparisonOperator string `json:"comparisonOperator" tf:"comparison_operator"`
 
+	// +kubebuilder:validation:Required
 	FieldToMatch []SizeConstraintsFieldToMatchParameters `json:"fieldToMatch" tf:"field_to_match"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Required
 	TextTransformation string `json:"textTransformation" tf:"text_transformation"`
 }
 
@@ -51,10 +59,16 @@ type WafSizeConstraintSetObservation struct {
 }
 
 type WafSizeConstraintSetParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SizeConstraints []SizeConstraintsParameters `json:"sizeConstraints,omitempty" tf:"size_constraints"`
 }
 

@@ -24,23 +24,30 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
-type DnsConfigObservation struct {
+type DNSConfigObservation struct {
 }
 
-type DnsConfigParameters struct {
-	DnsRecords []DnsRecordsParameters `json:"dnsRecords" tf:"dns_records"`
+type DNSConfigParameters struct {
 
-	NamespaceId string `json:"namespaceId" tf:"namespace_id"`
+	// +kubebuilder:validation:Required
+	DNSRecords []DNSRecordsParameters `json:"dnsRecords" tf:"dns_records"`
 
+	// +kubebuilder:validation:Required
+	NamespaceID string `json:"namespaceId" tf:"namespace_id"`
+
+	// +kubebuilder:validation:Optional
 	RoutingPolicy *string `json:"routingPolicy,omitempty" tf:"routing_policy"`
 }
 
-type DnsRecordsObservation struct {
+type DNSRecordsObservation struct {
 }
 
-type DnsRecordsParameters struct {
-	Ttl int64 `json:"ttl" tf:"ttl"`
+type DNSRecordsParameters struct {
 
+	// +kubebuilder:validation:Required
+	TTL int64 `json:"ttl" tf:"ttl"`
+
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -48,10 +55,14 @@ type HealthCheckConfigObservation struct {
 }
 
 type HealthCheckConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FailureThreshold *int64 `json:"failureThreshold,omitempty" tf:"failure_threshold"`
 
+	// +kubebuilder:validation:Optional
 	ResourcePath *string `json:"resourcePath,omitempty" tf:"resource_path"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -59,6 +70,8 @@ type HealthCheckCustomConfigObservation struct {
 }
 
 type HealthCheckCustomConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	FailureThreshold *int64 `json:"failureThreshold,omitempty" tf:"failure_threshold"`
 }
 
@@ -67,22 +80,34 @@ type ServiceDiscoveryServiceObservation struct {
 }
 
 type ServiceDiscoveryServiceParameters struct {
+
+	// +kubebuilder:validation:Optional
+	DNSConfig []DNSConfigParameters `json:"dnsConfig,omitempty" tf:"dns_config"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	DnsConfig []DnsConfigParameters `json:"dnsConfig,omitempty" tf:"dns_config"`
-
+	// +kubebuilder:validation:Optional
 	HealthCheckConfig []HealthCheckConfigParameters `json:"healthCheckConfig,omitempty" tf:"health_check_config"`
 
+	// +kubebuilder:validation:Optional
 	HealthCheckCustomConfig []HealthCheckCustomConfigParameters `json:"healthCheckCustomConfig,omitempty" tf:"health_check_custom_config"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
-	NamespaceId *string `json:"namespaceId,omitempty" tf:"namespace_id"`
+	// +kubebuilder:validation:Optional
+	NamespaceID *string `json:"namespaceId,omitempty" tf:"namespace_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

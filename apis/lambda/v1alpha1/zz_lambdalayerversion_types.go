@@ -41,24 +41,37 @@ type LambdaLayerVersionObservation struct {
 }
 
 type LambdaLayerVersionParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CompatibleRuntimes []string `json:"compatibleRuntimes,omitempty" tf:"compatible_runtimes"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	Filename *string `json:"filename,omitempty" tf:"filename"`
 
+	// +kubebuilder:validation:Required
 	LayerName string `json:"layerName" tf:"layer_name"`
 
+	// +kubebuilder:validation:Optional
 	LicenseInfo *string `json:"licenseInfo,omitempty" tf:"license_info"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	S3Bucket *string `json:"s3Bucket,omitempty" tf:"s3_bucket"`
 
+	// +kubebuilder:validation:Optional
 	S3Key *string `json:"s3Key,omitempty" tf:"s3_key"`
 
+	// +kubebuilder:validation:Optional
 	S3ObjectVersion *string `json:"s3ObjectVersion,omitempty" tf:"s3_object_version"`
 
+	// +kubebuilder:validation:Optional
 	SourceCodeHash *string `json:"sourceCodeHash,omitempty" tf:"source_code_hash"`
 }
 

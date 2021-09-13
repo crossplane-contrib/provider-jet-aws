@@ -31,13 +31,20 @@ type ApiGatewayUsagePlanKeyObservation struct {
 }
 
 type ApiGatewayUsagePlanKeyParameters struct {
-	KeyId string `json:"keyId" tf:"key_id"`
 
+	// +kubebuilder:validation:Required
+	KeyID string `json:"keyId" tf:"key_id"`
+
+	// +kubebuilder:validation:Required
 	KeyType string `json:"keyType" tf:"key_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	UsagePlanId string `json:"usagePlanId" tf:"usage_plan_id"`
+	// +kubebuilder:validation:Required
+	UsagePlanID string `json:"usagePlanId" tf:"usage_plan_id"`
 }
 
 // ApiGatewayUsagePlanKeySpec defines the desired state of ApiGatewayUsagePlanKey

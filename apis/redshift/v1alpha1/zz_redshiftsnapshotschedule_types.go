@@ -29,20 +29,31 @@ type RedshiftSnapshotScheduleObservation struct {
 }
 
 type RedshiftSnapshotScheduleParameters struct {
+
+	// +kubebuilder:validation:Required
 	Definitions []string `json:"definitions" tf:"definitions"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
+	// +kubebuilder:validation:Optional
 	Identifier *string `json:"identifier,omitempty" tf:"identifier"`
 
+	// +kubebuilder:validation:Optional
 	IdentifierPrefix *string `json:"identifierPrefix,omitempty" tf:"identifier_prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

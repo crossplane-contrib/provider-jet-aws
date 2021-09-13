@@ -31,15 +31,23 @@ type Ec2ClientVpnRouteObservation struct {
 }
 
 type Ec2ClientVpnRouteParameters struct {
-	ClientVpnEndpointId string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
 
+	// +kubebuilder:validation:Required
+	ClientVpnEndpointID string `json:"clientVpnEndpointId" tf:"client_vpn_endpoint_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	DestinationCidrBlock string `json:"destinationCidrBlock" tf:"destination_cidr_block"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	TargetVpcSubnetId string `json:"targetVpcSubnetId" tf:"target_vpc_subnet_id"`
+	// +kubebuilder:validation:Required
+	TargetVpcSubnetID string `json:"targetVpcSubnetId" tf:"target_vpc_subnet_id"`
 }
 
 // Ec2ClientVpnRouteSpec defines the desired state of Ec2ClientVpnRoute

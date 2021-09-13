@@ -28,12 +28,17 @@ type ColumnsObservation struct {
 }
 
 type ColumnsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -42,34 +47,52 @@ type GlueCatalogTableObservation struct {
 }
 
 type GlueCatalogTableParameters struct {
-	CatalogId *string `json:"catalogId,omitempty" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Optional
+	CatalogID *string `json:"catalogId,omitempty" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Owner *string `json:"owner,omitempty" tf:"owner"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	PartitionIndex []PartitionIndexParameters `json:"partitionIndex,omitempty" tf:"partition_index"`
 
+	// +kubebuilder:validation:Optional
 	PartitionKeys []PartitionKeysParameters `json:"partitionKeys,omitempty" tf:"partition_keys"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Retention *int64 `json:"retention,omitempty" tf:"retention"`
 
+	// +kubebuilder:validation:Optional
 	StorageDescriptor []StorageDescriptorParameters `json:"storageDescriptor,omitempty" tf:"storage_descriptor"`
 
+	// +kubebuilder:validation:Optional
 	TableType *string `json:"tableType,omitempty" tf:"table_type"`
 
+	// +kubebuilder:validation:Optional
 	TargetTable []TargetTableParameters `json:"targetTable,omitempty" tf:"target_table"`
 
+	// +kubebuilder:validation:Optional
 	ViewExpandedText *string `json:"viewExpandedText,omitempty" tf:"view_expanded_text"`
 
+	// +kubebuilder:validation:Optional
 	ViewOriginalText *string `json:"viewOriginalText,omitempty" tf:"view_original_text"`
 }
 
@@ -78,8 +101,11 @@ type PartitionIndexObservation struct {
 }
 
 type PartitionIndexParameters struct {
+
+	// +kubebuilder:validation:Required
 	IndexName string `json:"indexName" tf:"index_name"`
 
+	// +kubebuilder:validation:Required
 	Keys []string `json:"keys" tf:"keys"`
 }
 
@@ -87,21 +113,29 @@ type PartitionKeysObservation struct {
 }
 
 type PartitionKeysParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
-type SchemaIdObservation struct {
+type SchemaIDObservation struct {
 }
 
-type SchemaIdParameters struct {
+type SchemaIDParameters struct {
+
+	// +kubebuilder:validation:Optional
 	RegistryName *string `json:"registryName,omitempty" tf:"registry_name"`
 
+	// +kubebuilder:validation:Optional
 	SchemaArn *string `json:"schemaArn,omitempty" tf:"schema_arn"`
 
+	// +kubebuilder:validation:Optional
 	SchemaName *string `json:"schemaName,omitempty" tf:"schema_name"`
 }
 
@@ -109,10 +143,14 @@ type SchemaReferenceObservation struct {
 }
 
 type SchemaReferenceParameters struct {
-	SchemaId []SchemaIdParameters `json:"schemaId,omitempty" tf:"schema_id"`
 
-	SchemaVersionId *string `json:"schemaVersionId,omitempty" tf:"schema_version_id"`
+	// +kubebuilder:validation:Optional
+	SchemaID []SchemaIDParameters `json:"schemaId,omitempty" tf:"schema_id"`
 
+	// +kubebuilder:validation:Optional
+	SchemaVersionID *string `json:"schemaVersionId,omitempty" tf:"schema_version_id"`
+
+	// +kubebuilder:validation:Required
 	SchemaVersionNumber int64 `json:"schemaVersionNumber" tf:"schema_version_number"`
 }
 
@@ -120,10 +158,14 @@ type SerDeInfoObservation struct {
 }
 
 type SerDeInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	SerializationLibrary *string `json:"serializationLibrary,omitempty" tf:"serialization_library"`
 }
 
@@ -131,10 +173,14 @@ type SkewedInfoObservation struct {
 }
 
 type SkewedInfoParameters struct {
+
+	// +kubebuilder:validation:Optional
 	SkewedColumnNames []string `json:"skewedColumnNames,omitempty" tf:"skewed_column_names"`
 
+	// +kubebuilder:validation:Optional
 	SkewedColumnValueLocationMaps map[string]string `json:"skewedColumnValueLocationMaps,omitempty" tf:"skewed_column_value_location_maps"`
 
+	// +kubebuilder:validation:Optional
 	SkewedColumnValues []string `json:"skewedColumnValues,omitempty" tf:"skewed_column_values"`
 }
 
@@ -142,8 +188,11 @@ type SortColumnsObservation struct {
 }
 
 type SortColumnsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Column string `json:"column" tf:"column"`
 
+	// +kubebuilder:validation:Required
 	SortOrder int64 `json:"sortOrder" tf:"sort_order"`
 }
 
@@ -151,30 +200,44 @@ type StorageDescriptorObservation struct {
 }
 
 type StorageDescriptorParameters struct {
+
+	// +kubebuilder:validation:Optional
 	BucketColumns []string `json:"bucketColumns,omitempty" tf:"bucket_columns"`
 
+	// +kubebuilder:validation:Optional
 	Columns []ColumnsParameters `json:"columns,omitempty" tf:"columns"`
 
+	// +kubebuilder:validation:Optional
 	Compressed *bool `json:"compressed,omitempty" tf:"compressed"`
 
+	// +kubebuilder:validation:Optional
 	InputFormat *string `json:"inputFormat,omitempty" tf:"input_format"`
 
+	// +kubebuilder:validation:Optional
 	Location *string `json:"location,omitempty" tf:"location"`
 
+	// +kubebuilder:validation:Optional
 	NumberOfBuckets *int64 `json:"numberOfBuckets,omitempty" tf:"number_of_buckets"`
 
+	// +kubebuilder:validation:Optional
 	OutputFormat *string `json:"outputFormat,omitempty" tf:"output_format"`
 
+	// +kubebuilder:validation:Optional
 	Parameters map[string]string `json:"parameters,omitempty" tf:"parameters"`
 
+	// +kubebuilder:validation:Optional
 	SchemaReference []SchemaReferenceParameters `json:"schemaReference,omitempty" tf:"schema_reference"`
 
+	// +kubebuilder:validation:Optional
 	SerDeInfo []SerDeInfoParameters `json:"serDeInfo,omitempty" tf:"ser_de_info"`
 
+	// +kubebuilder:validation:Optional
 	SkewedInfo []SkewedInfoParameters `json:"skewedInfo,omitempty" tf:"skewed_info"`
 
+	// +kubebuilder:validation:Optional
 	SortColumns []SortColumnsParameters `json:"sortColumns,omitempty" tf:"sort_columns"`
 
+	// +kubebuilder:validation:Optional
 	StoredAsSubDirectories *bool `json:"storedAsSubDirectories,omitempty" tf:"stored_as_sub_directories"`
 }
 
@@ -182,10 +245,14 @@ type TargetTableObservation struct {
 }
 
 type TargetTableParameters struct {
-	CatalogId string `json:"catalogId" tf:"catalog_id"`
 
+	// +kubebuilder:validation:Required
+	CatalogID string `json:"catalogId" tf:"catalog_id"`
+
+	// +kubebuilder:validation:Required
 	DatabaseName string `json:"databaseName" tf:"database_name"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 }
 

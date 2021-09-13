@@ -57,13 +57,13 @@ func (in *EndpointDetailsParameters) DeepCopyInto(out *EndpointDetailsParameters
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	if in.VpcEndpointId != nil {
-		in, out := &in.VpcEndpointId, &out.VpcEndpointId
+	if in.VpcEndpointID != nil {
+		in, out := &in.VpcEndpointID, &out.VpcEndpointID
 		*out = new(string)
 		**out = **in
 	}
-	if in.VpcId != nil {
-		in, out := &in.VpcId, &out.VpcId
+	if in.VpcID != nil {
+		in, out := &in.VpcID, &out.VpcID
 		*out = new(string)
 		**out = **in
 	}
@@ -292,8 +292,8 @@ func (in *TransferServerParameters) DeepCopyInto(out *TransferServerParameters) 
 			(*out)[key] = val
 		}
 	}
-	if in.Url != nil {
-		in, out := &in.Url, &out.Url
+	if in.URL != nil {
+		in, out := &in.URL, &out.URL
 		*out = new(string)
 		**out = **in
 	}

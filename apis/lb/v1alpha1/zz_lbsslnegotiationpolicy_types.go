@@ -28,8 +28,11 @@ type AttributeObservation struct {
 }
 
 type AttributeParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -37,14 +40,22 @@ type LbSslNegotiationPolicyObservation struct {
 }
 
 type LbSslNegotiationPolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Attribute []AttributeParameters `json:"attribute,omitempty" tf:"attribute"`
 
+	// +kubebuilder:validation:Required
 	LbPort int64 `json:"lbPort" tf:"lb_port"`
 
+	// +kubebuilder:validation:Required
 	LoadBalancer string `json:"loadBalancer" tf:"load_balancer"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

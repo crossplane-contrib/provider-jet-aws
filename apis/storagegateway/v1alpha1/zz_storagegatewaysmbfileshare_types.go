@@ -28,71 +28,103 @@ type StoragegatewaySmbFileShareCacheAttributesObservation struct {
 }
 
 type StoragegatewaySmbFileShareCacheAttributesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CacheStaleTimeoutInSeconds *int64 `json:"cacheStaleTimeoutInSeconds,omitempty" tf:"cache_stale_timeout_in_seconds"`
 }
 
 type StoragegatewaySmbFileShareObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	FileshareId string `json:"fileshareId" tf:"fileshare_id"`
+	FileshareID string `json:"fileshareId" tf:"fileshare_id"`
 
 	Path string `json:"path" tf:"path"`
 }
 
 type StoragegatewaySmbFileShareParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessBasedEnumeration *bool `json:"accessBasedEnumeration,omitempty" tf:"access_based_enumeration"`
 
+	// +kubebuilder:validation:Optional
 	AdminUserList []string `json:"adminUserList,omitempty" tf:"admin_user_list"`
 
+	// +kubebuilder:validation:Optional
 	AuditDestinationArn *string `json:"auditDestinationArn,omitempty" tf:"audit_destination_arn"`
 
+	// +kubebuilder:validation:Optional
 	Authentication *string `json:"authentication,omitempty" tf:"authentication"`
 
+	// +kubebuilder:validation:Optional
 	BucketRegion *string `json:"bucketRegion,omitempty" tf:"bucket_region"`
 
+	// +kubebuilder:validation:Optional
 	CacheAttributes []StoragegatewaySmbFileShareCacheAttributesParameters `json:"cacheAttributes,omitempty" tf:"cache_attributes"`
 
+	// +kubebuilder:validation:Optional
 	CaseSensitivity *string `json:"caseSensitivity,omitempty" tf:"case_sensitivity"`
 
+	// +kubebuilder:validation:Optional
 	DefaultStorageClass *string `json:"defaultStorageClass,omitempty" tf:"default_storage_class"`
 
+	// +kubebuilder:validation:Optional
 	FileShareName *string `json:"fileShareName,omitempty" tf:"file_share_name"`
 
+	// +kubebuilder:validation:Required
 	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
 
+	// +kubebuilder:validation:Optional
 	GuessMimeTypeEnabled *bool `json:"guessMimeTypeEnabled,omitempty" tf:"guess_mime_type_enabled"`
 
+	// +kubebuilder:validation:Optional
 	InvalidUserList []string `json:"invalidUserList,omitempty" tf:"invalid_user_list"`
 
+	// +kubebuilder:validation:Optional
 	KmsEncrypted *bool `json:"kmsEncrypted,omitempty" tf:"kms_encrypted"`
 
+	// +kubebuilder:validation:Optional
 	KmsKeyArn *string `json:"kmsKeyArn,omitempty" tf:"kms_key_arn"`
 
+	// +kubebuilder:validation:Required
 	LocationArn string `json:"locationArn" tf:"location_arn"`
 
+	// +kubebuilder:validation:Optional
 	NotificationPolicy *string `json:"notificationPolicy,omitempty" tf:"notification_policy"`
 
-	ObjectAcl *string `json:"objectAcl,omitempty" tf:"object_acl"`
+	// +kubebuilder:validation:Optional
+	ObjectACL *string `json:"objectAcl,omitempty" tf:"object_acl"`
 
+	// +kubebuilder:validation:Optional
 	OplocksEnabled *bool `json:"oplocksEnabled,omitempty" tf:"oplocks_enabled"`
 
+	// +kubebuilder:validation:Optional
 	ReadOnly *bool `json:"readOnly,omitempty" tf:"read_only"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RequesterPays *bool `json:"requesterPays,omitempty" tf:"requester_pays"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
-	SmbAclEnabled *bool `json:"smbAclEnabled,omitempty" tf:"smb_acl_enabled"`
+	// +kubebuilder:validation:Optional
+	SmbACLEnabled *bool `json:"smbAclEnabled,omitempty" tf:"smb_acl_enabled"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	ValidUserList []string `json:"validUserList,omitempty" tf:"valid_user_list"`
 
-	VpcEndpointDnsName *string `json:"vpcEndpointDnsName,omitempty" tf:"vpc_endpoint_dns_name"`
+	// +kubebuilder:validation:Optional
+	VpcEndpointDNSName *string `json:"vpcEndpointDnsName,omitempty" tf:"vpc_endpoint_dns_name"`
 }
 
 // StoragegatewaySmbFileShareSpec defines the desired state of StoragegatewaySmbFileShare

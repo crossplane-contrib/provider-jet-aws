@@ -25,18 +25,25 @@ import (
 )
 
 type NetworkInterfaceAttachmentObservation struct {
-	AttachmentId string `json:"attachmentId" tf:"attachment_id"`
+	AttachmentID string `json:"attachmentId" tf:"attachment_id"`
 
 	Status string `json:"status" tf:"status"`
 }
 
 type NetworkInterfaceAttachmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeviceIndex int64 `json:"deviceIndex" tf:"device_index"`
 
-	InstanceId string `json:"instanceId" tf:"instance_id"`
+	// +kubebuilder:validation:Required
+	InstanceID string `json:"instanceId" tf:"instance_id"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	// +kubebuilder:validation:Required
+	NetworkInterfaceID string `json:"networkInterfaceId" tf:"network_interface_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

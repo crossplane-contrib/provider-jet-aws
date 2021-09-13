@@ -31,16 +31,25 @@ type GlacierVaultObservation struct {
 }
 
 type GlacierVaultParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessPolicy *string `json:"accessPolicy,omitempty" tf:"access_policy"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Notification []NotificationParameters `json:"notification,omitempty" tf:"notification"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -48,8 +57,11 @@ type NotificationObservation struct {
 }
 
 type NotificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Events []string `json:"events" tf:"events"`
 
+	// +kubebuilder:validation:Required
 	SnsTopic string `json:"snsTopic" tf:"sns_topic"`
 }
 

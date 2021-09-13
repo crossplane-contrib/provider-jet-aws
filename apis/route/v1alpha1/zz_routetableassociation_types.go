@@ -28,13 +28,20 @@ type RouteTableAssociationObservation struct {
 }
 
 type RouteTableAssociationParameters struct {
-	GatewayId *string `json:"gatewayId,omitempty" tf:"gateway_id"`
 
+	// +kubebuilder:validation:Optional
+	GatewayID *string `json:"gatewayId,omitempty" tf:"gateway_id"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	RouteTableId string `json:"routeTableId" tf:"route_table_id"`
+	// +kubebuilder:validation:Required
+	RouteTableID string `json:"routeTableId" tf:"route_table_id"`
 
-	SubnetId *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	// +kubebuilder:validation:Optional
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
 }
 
 // RouteTableAssociationSpec defines the desired state of RouteTableAssociation

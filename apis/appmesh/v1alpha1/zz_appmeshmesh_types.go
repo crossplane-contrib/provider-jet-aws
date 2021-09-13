@@ -37,14 +37,22 @@ type AppmeshMeshObservation struct {
 }
 
 type AppmeshMeshParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Spec []AppmeshMeshSpecParameters `json:"spec,omitempty" tf:"spec"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -52,6 +60,8 @@ type AppmeshMeshSpecObservation struct {
 }
 
 type AppmeshMeshSpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	EgressFilter []EgressFilterParameters `json:"egressFilter,omitempty" tf:"egress_filter"`
 }
 
@@ -59,6 +69,8 @@ type EgressFilterObservation struct {
 }
 
 type EgressFilterParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 

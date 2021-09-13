@@ -29,12 +29,19 @@ type EmrSecurityConfigurationObservation struct {
 }
 
 type EmrSecurityConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Configuration string `json:"configuration" tf:"configuration"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

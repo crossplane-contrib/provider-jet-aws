@@ -28,10 +28,16 @@ type ElasticsearchDomainSamlOptionsObservation struct {
 }
 
 type ElasticsearchDomainSamlOptionsParameters struct {
+
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SamlOptions []SamlOptionsParameters `json:"samlOptions,omitempty" tf:"saml_options"`
 }
 
@@ -39,8 +45,11 @@ type IdpObservation struct {
 }
 
 type IdpParameters struct {
-	EntityId string `json:"entityId" tf:"entity_id"`
 
+	// +kubebuilder:validation:Required
+	EntityID string `json:"entityId" tf:"entity_id"`
+
+	// +kubebuilder:validation:Required
 	MetadataContent string `json:"metadataContent" tf:"metadata_content"`
 }
 
@@ -48,18 +57,26 @@ type SamlOptionsObservation struct {
 }
 
 type SamlOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	Idp []IdpParameters `json:"idp,omitempty" tf:"idp"`
 
+	// +kubebuilder:validation:Optional
 	MasterBackendRole *string `json:"masterBackendRole,omitempty" tf:"master_backend_role"`
 
+	// +kubebuilder:validation:Optional
 	MasterUserName *string `json:"masterUserName,omitempty" tf:"master_user_name"`
 
+	// +kubebuilder:validation:Optional
 	RolesKey *string `json:"rolesKey,omitempty" tf:"roles_key"`
 
+	// +kubebuilder:validation:Optional
 	SessionTimeoutMinutes *int64 `json:"sessionTimeoutMinutes,omitempty" tf:"session_timeout_minutes"`
 
+	// +kubebuilder:validation:Optional
 	SubjectKey *string `json:"subjectKey,omitempty" tf:"subject_key"`
 }
 

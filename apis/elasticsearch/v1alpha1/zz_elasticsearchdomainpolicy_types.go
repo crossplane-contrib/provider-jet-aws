@@ -28,10 +28,16 @@ type ElasticsearchDomainPolicyObservation struct {
 }
 
 type ElasticsearchDomainPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	AccessPolicies string `json:"accessPolicies" tf:"access_policies"`
 
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

@@ -28,8 +28,11 @@ type AccessLogSettingsObservation struct {
 }
 
 type AccessLogSettingsParameters struct {
+
+	// +kubebuilder:validation:Required
 	DestinationArn string `json:"destinationArn" tf:"destination_arn"`
 
+	// +kubebuilder:validation:Required
 	Format string `json:"format" tf:"format"`
 }
 
@@ -38,34 +41,50 @@ type Apigatewayv2StageObservation struct {
 
 	ExecutionArn string `json:"executionArn" tf:"execution_arn"`
 
-	InvokeUrl string `json:"invokeUrl" tf:"invoke_url"`
+	InvokeURL string `json:"invokeUrl" tf:"invoke_url"`
 }
 
 type Apigatewayv2StageParameters struct {
+
+	// +kubebuilder:validation:Required
+	APIID string `json:"apiId" tf:"api_id"`
+
+	// +kubebuilder:validation:Optional
 	AccessLogSettings []AccessLogSettingsParameters `json:"accessLogSettings,omitempty" tf:"access_log_settings"`
 
-	ApiId string `json:"apiId" tf:"api_id"`
-
+	// +kubebuilder:validation:Optional
 	AutoDeploy *bool `json:"autoDeploy,omitempty" tf:"auto_deploy"`
 
-	ClientCertificateId *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id"`
+	// +kubebuilder:validation:Optional
+	ClientCertificateID *string `json:"clientCertificateId,omitempty" tf:"client_certificate_id"`
 
+	// +kubebuilder:validation:Optional
 	DefaultRouteSettings []DefaultRouteSettingsParameters `json:"defaultRouteSettings,omitempty" tf:"default_route_settings"`
 
-	DeploymentId *string `json:"deploymentId,omitempty" tf:"deployment_id"`
+	// +kubebuilder:validation:Optional
+	DeploymentID *string `json:"deploymentId,omitempty" tf:"deployment_id"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RouteSettings []RouteSettingsParameters `json:"routeSettings,omitempty" tf:"route_settings"`
 
+	// +kubebuilder:validation:Optional
 	StageVariables map[string]string `json:"stageVariables,omitempty" tf:"stage_variables"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -73,14 +92,20 @@ type DefaultRouteSettingsObservation struct {
 }
 
 type DefaultRouteSettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DataTraceEnabled *bool `json:"dataTraceEnabled,omitempty" tf:"data_trace_enabled"`
 
+	// +kubebuilder:validation:Optional
 	DetailedMetricsEnabled *bool `json:"detailedMetricsEnabled,omitempty" tf:"detailed_metrics_enabled"`
 
+	// +kubebuilder:validation:Optional
 	LoggingLevel *string `json:"loggingLevel,omitempty" tf:"logging_level"`
 
+	// +kubebuilder:validation:Optional
 	ThrottlingBurstLimit *int64 `json:"throttlingBurstLimit,omitempty" tf:"throttling_burst_limit"`
 
+	// +kubebuilder:validation:Optional
 	ThrottlingRateLimit *float64 `json:"throttlingRateLimit,omitempty" tf:"throttling_rate_limit"`
 }
 
@@ -88,16 +113,23 @@ type RouteSettingsObservation struct {
 }
 
 type RouteSettingsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DataTraceEnabled *bool `json:"dataTraceEnabled,omitempty" tf:"data_trace_enabled"`
 
+	// +kubebuilder:validation:Optional
 	DetailedMetricsEnabled *bool `json:"detailedMetricsEnabled,omitempty" tf:"detailed_metrics_enabled"`
 
+	// +kubebuilder:validation:Optional
 	LoggingLevel *string `json:"loggingLevel,omitempty" tf:"logging_level"`
 
+	// +kubebuilder:validation:Required
 	RouteKey string `json:"routeKey" tf:"route_key"`
 
+	// +kubebuilder:validation:Optional
 	ThrottlingBurstLimit *int64 `json:"throttlingBurstLimit,omitempty" tf:"throttling_burst_limit"`
 
+	// +kubebuilder:validation:Optional
 	ThrottlingRateLimit *float64 `json:"throttlingRateLimit,omitempty" tf:"throttling_rate_limit"`
 }
 

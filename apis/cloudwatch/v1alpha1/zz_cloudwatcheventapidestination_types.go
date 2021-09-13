@@ -29,18 +29,28 @@ type CloudwatchEventApiDestinationObservation struct {
 }
 
 type CloudwatchEventApiDestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ConnectionArn string `json:"connectionArn" tf:"connection_arn"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	HttpMethod string `json:"httpMethod" tf:"http_method"`
+	// +kubebuilder:validation:Required
+	HTTPMethod string `json:"httpMethod" tf:"http_method"`
 
+	// +kubebuilder:validation:Required
 	InvocationEndpoint string `json:"invocationEndpoint" tf:"invocation_endpoint"`
 
+	// +kubebuilder:validation:Optional
 	InvocationRateLimitPerSecond *int64 `json:"invocationRateLimitPerSecond,omitempty" tf:"invocation_rate_limit_per_second"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 

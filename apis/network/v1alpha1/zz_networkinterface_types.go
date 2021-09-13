@@ -25,12 +25,15 @@ import (
 )
 
 type AttachmentObservation struct {
-	AttachmentId string `json:"attachmentId" tf:"attachment_id"`
+	AttachmentID string `json:"attachmentId" tf:"attachment_id"`
 }
 
 type AttachmentParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeviceIndex int64 `json:"deviceIndex" tf:"device_index"`
 
+	// +kubebuilder:validation:Required
 	Instance string `json:"instance" tf:"instance"`
 }
 
@@ -39,36 +42,53 @@ type NetworkInterfaceObservation struct {
 
 	OutpostArn string `json:"outpostArn" tf:"outpost_arn"`
 
-	PrivateDnsName string `json:"privateDnsName" tf:"private_dns_name"`
+	PrivateDNSName string `json:"privateDnsName" tf:"private_dns_name"`
 }
 
 type NetworkInterfaceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Attachment []AttachmentParameters `json:"attachment,omitempty" tf:"attachment"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
+	IPv6AddressCount *int64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count"`
+
+	// +kubebuilder:validation:Optional
+	IPv6Addresses []string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses"`
+
+	// +kubebuilder:validation:Optional
 	InterfaceType *string `json:"interfaceType,omitempty" tf:"interface_type"`
 
-	Ipv6AddressCount *int64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count"`
+	// +kubebuilder:validation:Optional
+	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip"`
 
-	Ipv6Addresses []string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses"`
-
-	PrivateIp *string `json:"privateIp,omitempty" tf:"private_ip"`
-
+	// +kubebuilder:validation:Optional
 	PrivateIps []string `json:"privateIps,omitempty" tf:"private_ips"`
 
+	// +kubebuilder:validation:Optional
 	PrivateIpsCount *int64 `json:"privateIpsCount,omitempty" tf:"private_ips_count"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"securityGroups,omitempty" tf:"security_groups"`
 
+	// +kubebuilder:validation:Optional
 	SourceDestCheck *bool `json:"sourceDestCheck,omitempty" tf:"source_dest_check"`
 
-	SubnetId string `json:"subnetId" tf:"subnet_id"`
+	// +kubebuilder:validation:Required
+	SubnetID string `json:"subnetId" tf:"subnet_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

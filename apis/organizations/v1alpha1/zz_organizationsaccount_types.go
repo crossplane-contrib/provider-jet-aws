@@ -35,20 +35,31 @@ type OrganizationsAccountObservation struct {
 }
 
 type OrganizationsAccountParameters struct {
+
+	// +kubebuilder:validation:Required
 	Email string `json:"email" tf:"email"`
 
+	// +kubebuilder:validation:Optional
 	IamUserAccessToBilling *string `json:"iamUserAccessToBilling,omitempty" tf:"iam_user_access_to_billing"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
-	ParentId *string `json:"parentId,omitempty" tf:"parent_id"`
+	// +kubebuilder:validation:Optional
+	ParentID *string `json:"parentId,omitempty" tf:"parent_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RoleName *string `json:"roleName,omitempty" tf:"role_name"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

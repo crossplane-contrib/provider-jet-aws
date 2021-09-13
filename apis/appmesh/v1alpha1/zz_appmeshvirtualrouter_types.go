@@ -35,18 +35,28 @@ type AppmeshVirtualRouterObservation struct {
 }
 
 type AppmeshVirtualRouterParameters struct {
+
+	// +kubebuilder:validation:Required
 	MeshName string `json:"meshName" tf:"mesh_name"`
 
+	// +kubebuilder:validation:Optional
 	MeshOwner *string `json:"meshOwner,omitempty" tf:"mesh_owner"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Spec []AppmeshVirtualRouterSpecParameters `json:"spec" tf:"spec"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
@@ -54,6 +64,8 @@ type AppmeshVirtualRouterSpecListenerObservation struct {
 }
 
 type AppmeshVirtualRouterSpecListenerParameters struct {
+
+	// +kubebuilder:validation:Required
 	PortMapping []SpecListenerPortMappingParameters `json:"portMapping" tf:"port_mapping"`
 }
 
@@ -61,6 +73,8 @@ type AppmeshVirtualRouterSpecObservation struct {
 }
 
 type AppmeshVirtualRouterSpecParameters struct {
+
+	// +kubebuilder:validation:Required
 	Listener []AppmeshVirtualRouterSpecListenerParameters `json:"listener" tf:"listener"`
 }
 
@@ -68,8 +82,11 @@ type SpecListenerPortMappingObservation struct {
 }
 
 type SpecListenerPortMappingParameters struct {
+
+	// +kubebuilder:validation:Required
 	Port int64 `json:"port" tf:"port"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 }
 

@@ -28,16 +28,25 @@ type BackupSelectionObservation struct {
 }
 
 type BackupSelectionParameters struct {
+
+	// +kubebuilder:validation:Required
 	IamRoleArn string `json:"iamRoleArn" tf:"iam_role_arn"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
-	PlanId string `json:"planId" tf:"plan_id"`
+	// +kubebuilder:validation:Required
+	PlanID string `json:"planId" tf:"plan_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Resources []string `json:"resources,omitempty" tf:"resources"`
 
+	// +kubebuilder:validation:Optional
 	SelectionTag []SelectionTagParameters `json:"selectionTag,omitempty" tf:"selection_tag"`
 }
 
@@ -45,10 +54,14 @@ type SelectionTagObservation struct {
 }
 
 type SelectionTagParameters struct {
+
+	// +kubebuilder:validation:Required
 	Key string `json:"key" tf:"key"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 

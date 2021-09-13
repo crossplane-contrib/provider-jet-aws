@@ -28,6 +28,8 @@ type ActionObservation struct {
 }
 
 type ActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Target []TargetParameters `json:"target" tf:"target"`
 }
 
@@ -35,6 +37,8 @@ type ActionTargetObservation struct {
 }
 
 type ActionTargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualService []TargetVirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
 }
 
@@ -42,6 +46,8 @@ type ActionTargetVirtualServiceObservation struct {
 }
 
 type ActionTargetVirtualServiceParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualServiceName string `json:"virtualServiceName" tf:"virtual_service_name"`
 }
 
@@ -56,20 +62,31 @@ type AppmeshGatewayRouteObservation struct {
 }
 
 type AppmeshGatewayRouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	MeshName string `json:"meshName" tf:"mesh_name"`
 
+	// +kubebuilder:validation:Optional
 	MeshOwner *string `json:"meshOwner,omitempty" tf:"mesh_owner"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Required
 	Spec []SpecParameters `json:"spec" tf:"spec"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	VirtualGatewayName string `json:"virtualGatewayName" tf:"virtual_gateway_name"`
 }
 
@@ -77,15 +94,59 @@ type GrpcRouteObservation struct {
 }
 
 type GrpcRouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action []ActionParameters `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Required
 	Match []MatchParameters `json:"match" tf:"match"`
+}
+
+type HTTPRouteActionObservation struct {
+}
+
+type HTTPRouteActionParameters struct {
+
+	// +kubebuilder:validation:Required
+	Target []HTTPRouteActionTargetParameters `json:"target" tf:"target"`
+}
+
+type HTTPRouteActionTargetObservation struct {
+}
+
+type HTTPRouteActionTargetParameters struct {
+
+	// +kubebuilder:validation:Required
+	VirtualService []ActionTargetVirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
+}
+
+type HTTPRouteMatchObservation struct {
+}
+
+type HTTPRouteMatchParameters struct {
+
+	// +kubebuilder:validation:Required
+	Prefix string `json:"prefix" tf:"prefix"`
+}
+
+type HTTPRouteObservation struct {
+}
+
+type HTTPRouteParameters struct {
+
+	// +kubebuilder:validation:Required
+	Action []HTTPRouteActionParameters `json:"action" tf:"action"`
+
+	// +kubebuilder:validation:Required
+	Match []HTTPRouteMatchParameters `json:"match" tf:"match"`
 }
 
 type Http2RouteActionObservation struct {
 }
 
 type Http2RouteActionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Target []ActionTargetParameters `json:"target" tf:"target"`
 }
 
@@ -93,6 +154,8 @@ type Http2RouteMatchObservation struct {
 }
 
 type Http2RouteMatchParameters struct {
+
+	// +kubebuilder:validation:Required
 	Prefix string `json:"prefix" tf:"prefix"`
 }
 
@@ -100,45 +163,20 @@ type Http2RouteObservation struct {
 }
 
 type Http2RouteParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action []Http2RouteActionParameters `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Required
 	Match []Http2RouteMatchParameters `json:"match" tf:"match"`
-}
-
-type HttpRouteActionObservation struct {
-}
-
-type HttpRouteActionParameters struct {
-	Target []HttpRouteActionTargetParameters `json:"target" tf:"target"`
-}
-
-type HttpRouteActionTargetObservation struct {
-}
-
-type HttpRouteActionTargetParameters struct {
-	VirtualService []ActionTargetVirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
-}
-
-type HttpRouteMatchObservation struct {
-}
-
-type HttpRouteMatchParameters struct {
-	Prefix string `json:"prefix" tf:"prefix"`
-}
-
-type HttpRouteObservation struct {
-}
-
-type HttpRouteParameters struct {
-	Action []HttpRouteActionParameters `json:"action" tf:"action"`
-
-	Match []HttpRouteMatchParameters `json:"match" tf:"match"`
 }
 
 type MatchObservation struct {
 }
 
 type MatchParameters struct {
+
+	// +kubebuilder:validation:Required
 	ServiceName string `json:"serviceName" tf:"service_name"`
 }
 
@@ -146,17 +184,23 @@ type SpecObservation struct {
 }
 
 type SpecParameters struct {
+
+	// +kubebuilder:validation:Optional
 	GrpcRoute []GrpcRouteParameters `json:"grpcRoute,omitempty" tf:"grpc_route"`
 
-	Http2Route []Http2RouteParameters `json:"http2Route,omitempty" tf:"http2_route"`
+	// +kubebuilder:validation:Optional
+	HTTPRoute []HTTPRouteParameters `json:"httpRoute,omitempty" tf:"http_route"`
 
-	HttpRoute []HttpRouteParameters `json:"httpRoute,omitempty" tf:"http_route"`
+	// +kubebuilder:validation:Optional
+	Http2Route []Http2RouteParameters `json:"http2Route,omitempty" tf:"http2_route"`
 }
 
 type TargetObservation struct {
 }
 
 type TargetParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualService []VirtualServiceParameters `json:"virtualService" tf:"virtual_service"`
 }
 
@@ -164,6 +208,8 @@ type TargetVirtualServiceObservation struct {
 }
 
 type TargetVirtualServiceParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualServiceName string `json:"virtualServiceName" tf:"virtual_service_name"`
 }
 
@@ -171,6 +217,8 @@ type VirtualServiceObservation struct {
 }
 
 type VirtualServiceParameters struct {
+
+	// +kubebuilder:validation:Required
 	VirtualServiceName string `json:"virtualServiceName" tf:"virtual_service_name"`
 }
 

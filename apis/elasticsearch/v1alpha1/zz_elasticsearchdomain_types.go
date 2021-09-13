@@ -28,10 +28,14 @@ type AdvancedSecurityOptionsObservation struct {
 }
 
 type AdvancedSecurityOptionsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 
+	// +kubebuilder:validation:Optional
 	InternalUserDatabaseEnabled *bool `json:"internalUserDatabaseEnabled,omitempty" tf:"internal_user_database_enabled"`
 
+	// +kubebuilder:validation:Optional
 	MasterUserOptions []MasterUserOptionsParameters `json:"masterUserOptions,omitempty" tf:"master_user_options"`
 }
 
@@ -39,24 +43,35 @@ type ClusterConfigObservation struct {
 }
 
 type ClusterConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DedicatedMasterCount *int64 `json:"dedicatedMasterCount,omitempty" tf:"dedicated_master_count"`
 
+	// +kubebuilder:validation:Optional
 	DedicatedMasterEnabled *bool `json:"dedicatedMasterEnabled,omitempty" tf:"dedicated_master_enabled"`
 
+	// +kubebuilder:validation:Optional
 	DedicatedMasterType *string `json:"dedicatedMasterType,omitempty" tf:"dedicated_master_type"`
 
+	// +kubebuilder:validation:Optional
 	InstanceCount *int64 `json:"instanceCount,omitempty" tf:"instance_count"`
 
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type"`
 
+	// +kubebuilder:validation:Optional
 	WarmCount *int64 `json:"warmCount,omitempty" tf:"warm_count"`
 
+	// +kubebuilder:validation:Optional
 	WarmEnabled *bool `json:"warmEnabled,omitempty" tf:"warm_enabled"`
 
+	// +kubebuilder:validation:Optional
 	WarmType *string `json:"warmType,omitempty" tf:"warm_type"`
 
+	// +kubebuilder:validation:Optional
 	ZoneAwarenessConfig []ZoneAwarenessConfigParameters `json:"zoneAwarenessConfig,omitempty" tf:"zone_awareness_config"`
 
+	// +kubebuilder:validation:Optional
 	ZoneAwarenessEnabled *bool `json:"zoneAwarenessEnabled,omitempty" tf:"zone_awareness_enabled"`
 }
 
@@ -64,47 +79,63 @@ type CognitoOptionsObservation struct {
 }
 
 type CognitoOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
-	IdentityPoolId string `json:"identityPoolId" tf:"identity_pool_id"`
+	// +kubebuilder:validation:Required
+	IdentityPoolID string `json:"identityPoolId" tf:"identity_pool_id"`
 
+	// +kubebuilder:validation:Required
 	RoleArn string `json:"roleArn" tf:"role_arn"`
 
-	UserPoolId string `json:"userPoolId" tf:"user_pool_id"`
+	// +kubebuilder:validation:Required
+	UserPoolID string `json:"userPoolId" tf:"user_pool_id"`
 }
 
 type DomainEndpointOptionsObservation struct {
 }
 
 type DomainEndpointOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomEndpoint *string `json:"customEndpoint,omitempty" tf:"custom_endpoint"`
 
+	// +kubebuilder:validation:Optional
 	CustomEndpointCertificateArn *string `json:"customEndpointCertificateArn,omitempty" tf:"custom_endpoint_certificate_arn"`
 
+	// +kubebuilder:validation:Optional
 	CustomEndpointEnabled *bool `json:"customEndpointEnabled,omitempty" tf:"custom_endpoint_enabled"`
 
-	EnforceHttps *bool `json:"enforceHttps,omitempty" tf:"enforce_https"`
+	// +kubebuilder:validation:Optional
+	EnforceHTTPS *bool `json:"enforceHttps,omitempty" tf:"enforce_https"`
 
-	TlsSecurityPolicy *string `json:"tlsSecurityPolicy,omitempty" tf:"tls_security_policy"`
+	// +kubebuilder:validation:Optional
+	TLSSecurityPolicy *string `json:"tlsSecurityPolicy,omitempty" tf:"tls_security_policy"`
 }
 
 type EbsOptionsObservation struct {
 }
 
 type EbsOptionsParameters struct {
+
+	// +kubebuilder:validation:Required
 	EbsEnabled bool `json:"ebsEnabled" tf:"ebs_enabled"`
 
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
+	// +kubebuilder:validation:Optional
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 
+	// +kubebuilder:validation:Optional
 	VolumeType *string `json:"volumeType,omitempty" tf:"volume_type"`
 }
 
 type ElasticsearchDomainObservation struct {
 	Arn string `json:"arn" tf:"arn"`
 
-	DomainId string `json:"domainId" tf:"domain_id"`
+	DomainID string `json:"domainId" tf:"domain_id"`
 
 	Endpoint string `json:"endpoint" tf:"endpoint"`
 
@@ -112,38 +143,58 @@ type ElasticsearchDomainObservation struct {
 }
 
 type ElasticsearchDomainParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AccessPolicies *string `json:"accessPolicies,omitempty" tf:"access_policies"`
 
+	// +kubebuilder:validation:Optional
 	AdvancedOptions map[string]string `json:"advancedOptions,omitempty" tf:"advanced_options"`
 
+	// +kubebuilder:validation:Optional
 	AdvancedSecurityOptions []AdvancedSecurityOptionsParameters `json:"advancedSecurityOptions,omitempty" tf:"advanced_security_options"`
 
+	// +kubebuilder:validation:Optional
 	ClusterConfig []ClusterConfigParameters `json:"clusterConfig,omitempty" tf:"cluster_config"`
 
+	// +kubebuilder:validation:Optional
 	CognitoOptions []CognitoOptionsParameters `json:"cognitoOptions,omitempty" tf:"cognito_options"`
 
+	// +kubebuilder:validation:Optional
 	DomainEndpointOptions []DomainEndpointOptionsParameters `json:"domainEndpointOptions,omitempty" tf:"domain_endpoint_options"`
 
+	// +kubebuilder:validation:Required
 	DomainName string `json:"domainName" tf:"domain_name"`
 
+	// +kubebuilder:validation:Optional
 	EbsOptions []EbsOptionsParameters `json:"ebsOptions,omitempty" tf:"ebs_options"`
 
+	// +kubebuilder:validation:Optional
 	ElasticsearchVersion *string `json:"elasticsearchVersion,omitempty" tf:"elasticsearch_version"`
 
+	// +kubebuilder:validation:Optional
 	EncryptAtRest []EncryptAtRestParameters `json:"encryptAtRest,omitempty" tf:"encrypt_at_rest"`
 
+	// +kubebuilder:validation:Optional
 	LogPublishingOptions []LogPublishingOptionsParameters `json:"logPublishingOptions,omitempty" tf:"log_publishing_options"`
 
+	// +kubebuilder:validation:Optional
 	NodeToNodeEncryption []NodeToNodeEncryptionParameters `json:"nodeToNodeEncryption,omitempty" tf:"node_to_node_encryption"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	SnapshotOptions []SnapshotOptionsParameters `json:"snapshotOptions,omitempty" tf:"snapshot_options"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VpcOptions []VpcOptionsParameters `json:"vpcOptions,omitempty" tf:"vpc_options"`
 }
 
@@ -151,19 +202,26 @@ type EncryptAtRestObservation struct {
 }
 
 type EncryptAtRestParameters struct {
+
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 
-	KmsKeyId *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 }
 
 type LogPublishingOptionsObservation struct {
 }
 
 type LogPublishingOptionsParameters struct {
+
+	// +kubebuilder:validation:Required
 	CloudwatchLogGroupArn string `json:"cloudwatchLogGroupArn" tf:"cloudwatch_log_group_arn"`
 
+	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
 
+	// +kubebuilder:validation:Required
 	LogType string `json:"logType" tf:"log_type"`
 }
 
@@ -171,10 +229,14 @@ type MasterUserOptionsObservation struct {
 }
 
 type MasterUserOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MasterUserArn *string `json:"masterUserArn,omitempty" tf:"master_user_arn"`
 
+	// +kubebuilder:validation:Optional
 	MasterUserName *string `json:"masterUserName,omitempty" tf:"master_user_name"`
 
+	// +kubebuilder:validation:Optional
 	MasterUserPassword *string `json:"masterUserPassword,omitempty" tf:"master_user_password"`
 }
 
@@ -182,6 +244,8 @@ type NodeToNodeEncryptionObservation struct {
 }
 
 type NodeToNodeEncryptionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Enabled bool `json:"enabled" tf:"enabled"`
 }
 
@@ -189,18 +253,23 @@ type SnapshotOptionsObservation struct {
 }
 
 type SnapshotOptionsParameters struct {
+
+	// +kubebuilder:validation:Required
 	AutomatedSnapshotStartHour int64 `json:"automatedSnapshotStartHour" tf:"automated_snapshot_start_hour"`
 }
 
 type VpcOptionsObservation struct {
 	AvailabilityZones []string `json:"availabilityZones" tf:"availability_zones"`
 
-	VpcId string `json:"vpcId" tf:"vpc_id"`
+	VpcID string `json:"vpcId" tf:"vpc_id"`
 }
 
 type VpcOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
 
+	// +kubebuilder:validation:Optional
 	SubnetIds []string `json:"subnetIds,omitempty" tf:"subnet_ids"`
 }
 
@@ -208,6 +277,8 @@ type ZoneAwarenessConfigObservation struct {
 }
 
 type ZoneAwarenessConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AvailabilityZoneCount *int64 `json:"availabilityZoneCount,omitempty" tf:"availability_zone_count"`
 }
 

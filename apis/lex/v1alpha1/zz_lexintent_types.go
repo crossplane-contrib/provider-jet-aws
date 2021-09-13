@@ -28,19 +28,26 @@ type CodeHookObservation struct {
 }
 
 type CodeHookParameters struct {
+
+	// +kubebuilder:validation:Required
 	MessageVersion string `json:"messageVersion" tf:"message_version"`
 
-	Uri string `json:"uri" tf:"uri"`
+	// +kubebuilder:validation:Required
+	URI string `json:"uri" tf:"uri"`
 }
 
 type ConclusionStatementMessageObservation struct {
 }
 
 type ConclusionStatementMessageParameters struct {
+
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 
@@ -48,8 +55,11 @@ type ConclusionStatementObservation struct {
 }
 
 type ConclusionStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Message []ConclusionStatementMessageParameters `json:"message" tf:"message"`
 
+	// +kubebuilder:validation:Optional
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 
@@ -57,10 +67,14 @@ type ConfirmationPromptMessageObservation struct {
 }
 
 type ConfirmationPromptMessageParameters struct {
+
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 
@@ -68,10 +82,14 @@ type ConfirmationPromptObservation struct {
 }
 
 type ConfirmationPromptParameters struct {
+
+	// +kubebuilder:validation:Required
 	MaxAttempts int64 `json:"maxAttempts" tf:"max_attempts"`
 
+	// +kubebuilder:validation:Required
 	Message []ConfirmationPromptMessageParameters `json:"message" tf:"message"`
 
+	// +kubebuilder:validation:Optional
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 
@@ -79,17 +97,23 @@ type DialogCodeHookObservation struct {
 }
 
 type DialogCodeHookParameters struct {
+
+	// +kubebuilder:validation:Required
 	MessageVersion string `json:"messageVersion" tf:"message_version"`
 
-	Uri string `json:"uri" tf:"uri"`
+	// +kubebuilder:validation:Required
+	URI string `json:"uri" tf:"uri"`
 }
 
 type FollowUpPromptObservation struct {
 }
 
 type FollowUpPromptParameters struct {
+
+	// +kubebuilder:validation:Required
 	Prompt []PromptParameters `json:"prompt" tf:"prompt"`
 
+	// +kubebuilder:validation:Required
 	RejectionStatement []RejectionStatementParameters `json:"rejectionStatement" tf:"rejection_statement"`
 }
 
@@ -97,8 +121,11 @@ type FulfillmentActivityObservation struct {
 }
 
 type FulfillmentActivityParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CodeHook []CodeHookParameters `json:"codeHook,omitempty" tf:"code_hook"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -115,30 +142,46 @@ type LexIntentObservation struct {
 }
 
 type LexIntentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	ConclusionStatement []ConclusionStatementParameters `json:"conclusionStatement,omitempty" tf:"conclusion_statement"`
 
+	// +kubebuilder:validation:Optional
 	ConfirmationPrompt []ConfirmationPromptParameters `json:"confirmationPrompt,omitempty" tf:"confirmation_prompt"`
 
+	// +kubebuilder:validation:Optional
 	CreateVersion *bool `json:"createVersion,omitempty" tf:"create_version"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	DialogCodeHook []DialogCodeHookParameters `json:"dialogCodeHook,omitempty" tf:"dialog_code_hook"`
 
+	// +kubebuilder:validation:Optional
 	FollowUpPrompt []FollowUpPromptParameters `json:"followUpPrompt,omitempty" tf:"follow_up_prompt"`
 
+	// +kubebuilder:validation:Required
 	FulfillmentActivity []FulfillmentActivityParameters `json:"fulfillmentActivity" tf:"fulfillment_activity"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	ParentIntentSignature *string `json:"parentIntentSignature,omitempty" tf:"parent_intent_signature"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RejectionStatement []LexIntentRejectionStatementParameters `json:"rejectionStatement,omitempty" tf:"rejection_statement"`
 
+	// +kubebuilder:validation:Optional
 	SampleUtterances []string `json:"sampleUtterances,omitempty" tf:"sample_utterances"`
 
+	// +kubebuilder:validation:Optional
 	Slot []SlotParameters `json:"slot,omitempty" tf:"slot"`
 }
 
@@ -146,10 +189,14 @@ type LexIntentRejectionStatementMessageObservation struct {
 }
 
 type LexIntentRejectionStatementMessageParameters struct {
+
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 
@@ -157,8 +204,11 @@ type LexIntentRejectionStatementObservation struct {
 }
 
 type LexIntentRejectionStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Message []LexIntentRejectionStatementMessageParameters `json:"message" tf:"message"`
 
+	// +kubebuilder:validation:Optional
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 
@@ -166,10 +216,14 @@ type PromptMessageObservation struct {
 }
 
 type PromptMessageParameters struct {
+
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 
@@ -177,10 +231,14 @@ type PromptObservation struct {
 }
 
 type PromptParameters struct {
+
+	// +kubebuilder:validation:Required
 	MaxAttempts int64 `json:"maxAttempts" tf:"max_attempts"`
 
+	// +kubebuilder:validation:Required
 	Message []PromptMessageParameters `json:"message" tf:"message"`
 
+	// +kubebuilder:validation:Optional
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 
@@ -188,10 +246,14 @@ type RejectionStatementMessageObservation struct {
 }
 
 type RejectionStatementMessageParameters struct {
+
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 
@@ -199,8 +261,11 @@ type RejectionStatementObservation struct {
 }
 
 type RejectionStatementParameters struct {
+
+	// +kubebuilder:validation:Required
 	Message []RejectionStatementMessageParameters `json:"message" tf:"message"`
 
+	// +kubebuilder:validation:Optional
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 
@@ -208,22 +273,32 @@ type SlotObservation struct {
 }
 
 type SlotParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Priority *int64 `json:"priority,omitempty" tf:"priority"`
 
+	// +kubebuilder:validation:Optional
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 
+	// +kubebuilder:validation:Optional
 	SampleUtterances []string `json:"sampleUtterances,omitempty" tf:"sample_utterances"`
 
+	// +kubebuilder:validation:Required
 	SlotConstraint string `json:"slotConstraint" tf:"slot_constraint"`
 
+	// +kubebuilder:validation:Required
 	SlotType string `json:"slotType" tf:"slot_type"`
 
+	// +kubebuilder:validation:Optional
 	SlotTypeVersion *string `json:"slotTypeVersion,omitempty" tf:"slot_type_version"`
 
+	// +kubebuilder:validation:Optional
 	ValueElicitationPrompt []ValueElicitationPromptParameters `json:"valueElicitationPrompt,omitempty" tf:"value_elicitation_prompt"`
 }
 
@@ -231,10 +306,14 @@ type ValueElicitationPromptMessageObservation struct {
 }
 
 type ValueElicitationPromptMessageParameters struct {
+
+	// +kubebuilder:validation:Required
 	Content string `json:"content" tf:"content"`
 
+	// +kubebuilder:validation:Required
 	ContentType string `json:"contentType" tf:"content_type"`
 
+	// +kubebuilder:validation:Optional
 	GroupNumber *int64 `json:"groupNumber,omitempty" tf:"group_number"`
 }
 
@@ -242,10 +321,14 @@ type ValueElicitationPromptObservation struct {
 }
 
 type ValueElicitationPromptParameters struct {
+
+	// +kubebuilder:validation:Required
 	MaxAttempts int64 `json:"maxAttempts" tf:"max_attempts"`
 
+	// +kubebuilder:validation:Required
 	Message []ValueElicitationPromptMessageParameters `json:"message" tf:"message"`
 
+	// +kubebuilder:validation:Optional
 	ResponseCard *string `json:"responseCard,omitempty" tf:"response_card"`
 }
 

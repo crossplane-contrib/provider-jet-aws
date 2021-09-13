@@ -29,12 +29,19 @@ type IotThingTypeObservation struct {
 }
 
 type IotThingTypeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Deprecated *bool `json:"deprecated,omitempty" tf:"deprecated"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	Properties []PropertiesParameters `json:"properties,omitempty" tf:"properties"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
@@ -42,8 +49,11 @@ type PropertiesObservation struct {
 }
 
 type PropertiesParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	SearchableAttributes []string `json:"searchableAttributes,omitempty" tf:"searchable_attributes"`
 }
 

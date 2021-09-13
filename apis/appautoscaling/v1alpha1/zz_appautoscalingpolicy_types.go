@@ -29,20 +29,31 @@ type AppautoscalingPolicyObservation struct {
 }
 
 type AppautoscalingPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	PolicyType *string `json:"policyType,omitempty" tf:"policy_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	ResourceId string `json:"resourceId" tf:"resource_id"`
+	// +kubebuilder:validation:Required
+	ResourceID string `json:"resourceId" tf:"resource_id"`
 
+	// +kubebuilder:validation:Required
 	ScalableDimension string `json:"scalableDimension" tf:"scalable_dimension"`
 
+	// +kubebuilder:validation:Required
 	ServiceNamespace string `json:"serviceNamespace" tf:"service_namespace"`
 
+	// +kubebuilder:validation:Optional
 	StepScalingPolicyConfiguration []StepScalingPolicyConfigurationParameters `json:"stepScalingPolicyConfiguration,omitempty" tf:"step_scaling_policy_configuration"`
 
+	// +kubebuilder:validation:Optional
 	TargetTrackingScalingPolicyConfiguration []TargetTrackingScalingPolicyConfigurationParameters `json:"targetTrackingScalingPolicyConfiguration,omitempty" tf:"target_tracking_scaling_policy_configuration"`
 }
 
@@ -50,14 +61,20 @@ type CustomizedMetricSpecificationObservation struct {
 }
 
 type CustomizedMetricSpecificationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Dimensions []DimensionsParameters `json:"dimensions,omitempty" tf:"dimensions"`
 
+	// +kubebuilder:validation:Required
 	MetricName string `json:"metricName" tf:"metric_name"`
 
+	// +kubebuilder:validation:Required
 	Namespace string `json:"namespace" tf:"namespace"`
 
+	// +kubebuilder:validation:Required
 	Statistic string `json:"statistic" tf:"statistic"`
 
+	// +kubebuilder:validation:Optional
 	Unit *string `json:"unit,omitempty" tf:"unit"`
 }
 
@@ -65,8 +82,11 @@ type DimensionsObservation struct {
 }
 
 type DimensionsParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Value string `json:"value" tf:"value"`
 }
 
@@ -74,8 +94,11 @@ type PredefinedMetricSpecificationObservation struct {
 }
 
 type PredefinedMetricSpecificationParameters struct {
+
+	// +kubebuilder:validation:Required
 	PredefinedMetricType string `json:"predefinedMetricType" tf:"predefined_metric_type"`
 
+	// +kubebuilder:validation:Optional
 	ResourceLabel *string `json:"resourceLabel,omitempty" tf:"resource_label"`
 }
 
@@ -83,10 +106,14 @@ type StepAdjustmentObservation struct {
 }
 
 type StepAdjustmentParameters struct {
+
+	// +kubebuilder:validation:Optional
 	MetricIntervalLowerBound *string `json:"metricIntervalLowerBound,omitempty" tf:"metric_interval_lower_bound"`
 
+	// +kubebuilder:validation:Optional
 	MetricIntervalUpperBound *string `json:"metricIntervalUpperBound,omitempty" tf:"metric_interval_upper_bound"`
 
+	// +kubebuilder:validation:Required
 	ScalingAdjustment int64 `json:"scalingAdjustment" tf:"scaling_adjustment"`
 }
 
@@ -94,14 +121,20 @@ type StepScalingPolicyConfigurationObservation struct {
 }
 
 type StepScalingPolicyConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AdjustmentType *string `json:"adjustmentType,omitempty" tf:"adjustment_type"`
 
+	// +kubebuilder:validation:Optional
 	Cooldown *int64 `json:"cooldown,omitempty" tf:"cooldown"`
 
+	// +kubebuilder:validation:Optional
 	MetricAggregationType *string `json:"metricAggregationType,omitempty" tf:"metric_aggregation_type"`
 
+	// +kubebuilder:validation:Optional
 	MinAdjustmentMagnitude *int64 `json:"minAdjustmentMagnitude,omitempty" tf:"min_adjustment_magnitude"`
 
+	// +kubebuilder:validation:Optional
 	StepAdjustment []StepAdjustmentParameters `json:"stepAdjustment,omitempty" tf:"step_adjustment"`
 }
 
@@ -109,16 +142,23 @@ type TargetTrackingScalingPolicyConfigurationObservation struct {
 }
 
 type TargetTrackingScalingPolicyConfigurationParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CustomizedMetricSpecification []CustomizedMetricSpecificationParameters `json:"customizedMetricSpecification,omitempty" tf:"customized_metric_specification"`
 
+	// +kubebuilder:validation:Optional
 	DisableScaleIn *bool `json:"disableScaleIn,omitempty" tf:"disable_scale_in"`
 
+	// +kubebuilder:validation:Optional
 	PredefinedMetricSpecification []PredefinedMetricSpecificationParameters `json:"predefinedMetricSpecification,omitempty" tf:"predefined_metric_specification"`
 
+	// +kubebuilder:validation:Optional
 	ScaleInCooldown *int64 `json:"scaleInCooldown,omitempty" tf:"scale_in_cooldown"`
 
+	// +kubebuilder:validation:Optional
 	ScaleOutCooldown *int64 `json:"scaleOutCooldown,omitempty" tf:"scale_out_cooldown"`
 
+	// +kubebuilder:validation:Required
 	TargetValue float64 `json:"targetValue" tf:"target_value"`
 }
 

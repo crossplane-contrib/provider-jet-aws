@@ -28,19 +28,29 @@ type SignerSigningProfilePermissionObservation struct {
 }
 
 type SignerSigningProfilePermissionParameters struct {
+
+	// +kubebuilder:validation:Required
 	Action string `json:"action" tf:"action"`
 
+	// +kubebuilder:validation:Required
 	Principal string `json:"principal" tf:"principal"`
 
+	// +kubebuilder:validation:Required
 	ProfileName string `json:"profileName" tf:"profile_name"`
 
+	// +kubebuilder:validation:Optional
 	ProfileVersion *string `json:"profileVersion,omitempty" tf:"profile_version"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	StatementId *string `json:"statementId,omitempty" tf:"statement_id"`
+	// +kubebuilder:validation:Optional
+	StatementID *string `json:"statementId,omitempty" tf:"statement_id"`
 
-	StatementIdPrefix *string `json:"statementIdPrefix,omitempty" tf:"statement_id_prefix"`
+	// +kubebuilder:validation:Optional
+	StatementIDPrefix *string `json:"statementIdPrefix,omitempty" tf:"statement_id_prefix"`
 }
 
 // SignerSigningProfilePermissionSpec defines the desired state of SignerSigningProfilePermission

@@ -28,28 +28,44 @@ type SecurityGroupRuleObservation struct {
 }
 
 type SecurityGroupRuleParameters struct {
+
+	// +kubebuilder:validation:Optional
 	CidrBlocks []string `json:"cidrBlocks,omitempty" tf:"cidr_blocks"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Required
 	FromPort int64 `json:"fromPort" tf:"from_port"`
 
-	Ipv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
+	// +kubebuilder:validation:Optional
+	IPv6CidrBlocks []string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
 
+	// +kubebuilder:validation:Optional
 	PrefixListIds []string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
+	// +kubebuilder:validation:Required
 	Protocol string `json:"protocol" tf:"protocol"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SecurityGroupId string `json:"securityGroupId" tf:"security_group_id"`
+	// +kubebuilder:validation:Required
+	SecurityGroupID string `json:"securityGroupId" tf:"security_group_id"`
 
+	// +kubebuilder:validation:Optional
 	Self *bool `json:"self,omitempty" tf:"self"`
 
-	SourceSecurityGroupId *string `json:"sourceSecurityGroupId,omitempty" tf:"source_security_group_id"`
+	// +kubebuilder:validation:Optional
+	SourceSecurityGroupID *string `json:"sourceSecurityGroupId,omitempty" tf:"source_security_group_id"`
 
+	// +kubebuilder:validation:Required
 	ToPort int64 `json:"toPort" tf:"to_port"`
 
+	// Type of rule, ingress (inbound) or egress (outbound).
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 

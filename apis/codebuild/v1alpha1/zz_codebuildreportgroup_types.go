@@ -31,18 +31,28 @@ type CodebuildReportGroupObservation struct {
 }
 
 type CodebuildReportGroupParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteReports *bool `json:"deleteReports,omitempty" tf:"delete_reports"`
 
+	// +kubebuilder:validation:Required
 	ExportConfig []ExportConfigParameters `json:"exportConfig" tf:"export_config"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -50,8 +60,11 @@ type ExportConfigObservation struct {
 }
 
 type ExportConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
 	S3Destination []S3DestinationParameters `json:"s3Destination,omitempty" tf:"s3_destination"`
 
+	// +kubebuilder:validation:Required
 	Type string `json:"type" tf:"type"`
 }
 
@@ -59,14 +72,20 @@ type S3DestinationObservation struct {
 }
 
 type S3DestinationParameters struct {
+
+	// +kubebuilder:validation:Required
 	Bucket string `json:"bucket" tf:"bucket"`
 
+	// +kubebuilder:validation:Optional
 	EncryptionDisabled *bool `json:"encryptionDisabled,omitempty" tf:"encryption_disabled"`
 
+	// +kubebuilder:validation:Required
 	EncryptionKey string `json:"encryptionKey" tf:"encryption_key"`
 
+	// +kubebuilder:validation:Optional
 	Packaging *string `json:"packaging,omitempty" tf:"packaging"`
 
+	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 }
 

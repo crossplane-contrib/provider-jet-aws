@@ -29,18 +29,28 @@ type ConfigRemediationConfigurationObservation struct {
 }
 
 type ConfigRemediationConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
 	ConfigRuleName string `json:"configRuleName" tf:"config_rule_name"`
 
+	// +kubebuilder:validation:Optional
 	Parameter []ParameterParameters `json:"parameter,omitempty" tf:"parameter"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type"`
 
-	TargetId string `json:"targetId" tf:"target_id"`
+	// +kubebuilder:validation:Required
+	TargetID string `json:"targetId" tf:"target_id"`
 
+	// +kubebuilder:validation:Required
 	TargetType string `json:"targetType" tf:"target_type"`
 
+	// +kubebuilder:validation:Optional
 	TargetVersion *string `json:"targetVersion,omitempty" tf:"target_version"`
 }
 
@@ -48,10 +58,14 @@ type ParameterObservation struct {
 }
 
 type ParameterParameters struct {
+
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// +kubebuilder:validation:Optional
 	ResourceValue *string `json:"resourceValue,omitempty" tf:"resource_value"`
 
+	// +kubebuilder:validation:Optional
 	StaticValue *string `json:"staticValue,omitempty" tf:"static_value"`
 }
 

@@ -28,14 +28,22 @@ type SesIdentityNotificationTopicObservation struct {
 }
 
 type SesIdentityNotificationTopicParameters struct {
+
+	// +kubebuilder:validation:Required
 	Identity string `json:"identity" tf:"identity"`
 
+	// +kubebuilder:validation:Optional
 	IncludeOriginalHeaders *bool `json:"includeOriginalHeaders,omitempty" tf:"include_original_headers"`
 
+	// +kubebuilder:validation:Required
 	NotificationType string `json:"notificationType" tf:"notification_type"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	TopicArn *string `json:"topicArn,omitempty" tf:"topic_arn"`
 }
 

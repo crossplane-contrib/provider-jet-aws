@@ -28,7 +28,9 @@ type DeliveryOptionsObservation struct {
 }
 
 type DeliveryOptionsParameters struct {
-	TlsPolicy *string `json:"tlsPolicy,omitempty" tf:"tls_policy"`
+
+	// +kubebuilder:validation:Optional
+	TLSPolicy *string `json:"tlsPolicy,omitempty" tf:"tls_policy"`
 }
 
 type SesConfigurationSetObservation struct {
@@ -38,14 +40,22 @@ type SesConfigurationSetObservation struct {
 }
 
 type SesConfigurationSetParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeliveryOptions []DeliveryOptionsParameters `json:"deliveryOptions,omitempty" tf:"delivery_options"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	ReputationMetricsEnabled *bool `json:"reputationMetricsEnabled,omitempty" tf:"reputation_metrics_enabled"`
 
+	// +kubebuilder:validation:Optional
 	SendingEnabled *bool `json:"sendingEnabled,omitempty" tf:"sending_enabled"`
 }
 

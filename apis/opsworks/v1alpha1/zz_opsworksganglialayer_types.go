@@ -28,18 +28,26 @@ type OpsworksGangliaLayerEbsVolumeObservation struct {
 }
 
 type OpsworksGangliaLayerEbsVolumeParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
+	// +kubebuilder:validation:Required
 	MountPoint string `json:"mountPoint" tf:"mount_point"`
 
+	// +kubebuilder:validation:Required
 	NumberOfDisks int64 `json:"numberOfDisks" tf:"number_of_disks"`
 
+	// +kubebuilder:validation:Optional
 	RaidLevel *string `json:"raidLevel,omitempty" tf:"raid_level"`
 
+	// +kubebuilder:validation:Required
 	Size int64 `json:"size" tf:"size"`
 
+	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
@@ -48,56 +56,85 @@ type OpsworksGangliaLayerObservation struct {
 }
 
 type OpsworksGangliaLayerParameters struct {
+
+	// +kubebuilder:validation:Optional
 	AutoAssignElasticIps *bool `json:"autoAssignElasticIps,omitempty" tf:"auto_assign_elastic_ips"`
 
+	// +kubebuilder:validation:Optional
 	AutoAssignPublicIps *bool `json:"autoAssignPublicIps,omitempty" tf:"auto_assign_public_ips"`
 
+	// +kubebuilder:validation:Optional
 	AutoHealing *bool `json:"autoHealing,omitempty" tf:"auto_healing"`
 
+	// +kubebuilder:validation:Optional
 	CustomConfigureRecipes []string `json:"customConfigureRecipes,omitempty" tf:"custom_configure_recipes"`
 
+	// +kubebuilder:validation:Optional
 	CustomDeployRecipes []string `json:"customDeployRecipes,omitempty" tf:"custom_deploy_recipes"`
 
+	// +kubebuilder:validation:Optional
 	CustomInstanceProfileArn *string `json:"customInstanceProfileArn,omitempty" tf:"custom_instance_profile_arn"`
 
-	CustomJson *string `json:"customJson,omitempty" tf:"custom_json"`
+	// +kubebuilder:validation:Optional
+	CustomJSON *string `json:"customJson,omitempty" tf:"custom_json"`
 
+	// +kubebuilder:validation:Optional
 	CustomSecurityGroupIds []string `json:"customSecurityGroupIds,omitempty" tf:"custom_security_group_ids"`
 
+	// +kubebuilder:validation:Optional
 	CustomSetupRecipes []string `json:"customSetupRecipes,omitempty" tf:"custom_setup_recipes"`
 
+	// +kubebuilder:validation:Optional
 	CustomShutdownRecipes []string `json:"customShutdownRecipes,omitempty" tf:"custom_shutdown_recipes"`
 
+	// +kubebuilder:validation:Optional
 	CustomUndeployRecipes []string `json:"customUndeployRecipes,omitempty" tf:"custom_undeploy_recipes"`
 
+	// +kubebuilder:validation:Optional
 	DrainElbOnShutdown *bool `json:"drainElbOnShutdown,omitempty" tf:"drain_elb_on_shutdown"`
 
+	// +kubebuilder:validation:Optional
 	EbsVolume []OpsworksGangliaLayerEbsVolumeParameters `json:"ebsVolume,omitempty" tf:"ebs_volume"`
 
+	// +kubebuilder:validation:Optional
 	ElasticLoadBalancer *string `json:"elasticLoadBalancer,omitempty" tf:"elastic_load_balancer"`
 
+	// +kubebuilder:validation:Optional
 	InstallUpdatesOnBoot *bool `json:"installUpdatesOnBoot,omitempty" tf:"install_updates_on_boot"`
 
+	// +kubebuilder:validation:Optional
 	InstanceShutdownTimeout *int64 `json:"instanceShutdownTimeout,omitempty" tf:"instance_shutdown_timeout"`
 
+	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name"`
 
+	// +kubebuilder:validation:Required
 	Password string `json:"password" tf:"password"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	StackId string `json:"stackId" tf:"stack_id"`
+	// +kubebuilder:validation:Required
+	StackID string `json:"stackId" tf:"stack_id"`
 
+	// +kubebuilder:validation:Optional
 	SystemPackages []string `json:"systemPackages,omitempty" tf:"system_packages"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
-	Url *string `json:"url,omitempty" tf:"url"`
+	// +kubebuilder:validation:Optional
+	URL *string `json:"url,omitempty" tf:"url"`
 
+	// +kubebuilder:validation:Optional
 	UseEbsOptimizedInstances *bool `json:"useEbsOptimizedInstances,omitempty" tf:"use_ebs_optimized_instances"`
 
+	// +kubebuilder:validation:Optional
 	Username *string `json:"username,omitempty" tf:"username"`
 }
 

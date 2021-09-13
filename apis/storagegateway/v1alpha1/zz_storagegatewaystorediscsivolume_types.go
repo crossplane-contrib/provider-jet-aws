@@ -37,7 +37,7 @@ type StoragegatewayStoredIscsiVolumeObservation struct {
 
 	VolumeAttachmentStatus string `json:"volumeAttachmentStatus" tf:"volume_attachment_status"`
 
-	VolumeId string `json:"volumeId" tf:"volume_id"`
+	VolumeID string `json:"volumeId" tf:"volume_id"`
 
 	VolumeSizeInBytes int64 `json:"volumeSizeInBytes" tf:"volume_size_in_bytes"`
 
@@ -47,26 +47,40 @@ type StoragegatewayStoredIscsiVolumeObservation struct {
 }
 
 type StoragegatewayStoredIscsiVolumeParameters struct {
-	DiskId string `json:"diskId" tf:"disk_id"`
 
+	// +kubebuilder:validation:Required
+	DiskID string `json:"diskId" tf:"disk_id"`
+
+	// +kubebuilder:validation:Required
 	GatewayArn string `json:"gatewayArn" tf:"gateway_arn"`
 
+	// +kubebuilder:validation:Optional
 	KmsEncrypted *bool `json:"kmsEncrypted,omitempty" tf:"kms_encrypted"`
 
+	// +kubebuilder:validation:Optional
 	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key"`
 
-	NetworkInterfaceId string `json:"networkInterfaceId" tf:"network_interface_id"`
+	// +kubebuilder:validation:Required
+	NetworkInterfaceID string `json:"networkInterfaceId" tf:"network_interface_id"`
 
+	// +kubebuilder:validation:Required
 	PreserveExistingData bool `json:"preserveExistingData" tf:"preserve_existing_data"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	// +kubebuilder:validation:Optional
+	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Required
 	TargetName string `json:"targetName" tf:"target_name"`
 }
 

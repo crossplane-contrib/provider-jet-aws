@@ -34,7 +34,7 @@ type HlsIngestParameters struct {
 type IngestEndpointsObservation struct {
 	Password string `json:"password" tf:"password"`
 
-	Url string `json:"url" tf:"url"`
+	URL string `json:"url" tf:"url"`
 
 	Username string `json:"username" tf:"username"`
 }
@@ -49,14 +49,22 @@ type MediaPackageChannelObservation struct {
 }
 
 type MediaPackageChannelParameters struct {
-	ChannelId string `json:"channelId" tf:"channel_id"`
 
+	// +kubebuilder:validation:Required
+	ChannelID string `json:"channelId" tf:"channel_id"`
+
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 

@@ -35,7 +35,7 @@ type AmiObservation struct {
 
 	ManageEbsSnapshots bool `json:"manageEbsSnapshots" tf:"manage_ebs_snapshots"`
 
-	OwnerId string `json:"ownerId" tf:"owner_id"`
+	OwnerID string `json:"ownerId" tf:"owner_id"`
 
 	Platform string `json:"platform" tf:"platform"`
 
@@ -43,40 +43,58 @@ type AmiObservation struct {
 
 	Public bool `json:"public" tf:"public"`
 
-	RootSnapshotId string `json:"rootSnapshotId" tf:"root_snapshot_id"`
+	RootSnapshotID string `json:"rootSnapshotId" tf:"root_snapshot_id"`
 
 	UsageOperation string `json:"usageOperation" tf:"usage_operation"`
 }
 
 type AmiParameters struct {
+
+	// +kubebuilder:validation:Optional
 	Architecture *string `json:"architecture,omitempty" tf:"architecture"`
 
+	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
+	// +kubebuilder:validation:Optional
 	EbsBlockDevice []EbsBlockDeviceParameters `json:"ebsBlockDevice,omitempty" tf:"ebs_block_device"`
 
+	// +kubebuilder:validation:Optional
 	EnaSupport *bool `json:"enaSupport,omitempty" tf:"ena_support"`
 
+	// +kubebuilder:validation:Optional
 	EphemeralBlockDevice []EphemeralBlockDeviceParameters `json:"ephemeralBlockDevice,omitempty" tf:"ephemeral_block_device"`
 
+	// +kubebuilder:validation:Optional
 	ImageLocation *string `json:"imageLocation,omitempty" tf:"image_location"`
 
-	KernelId *string `json:"kernelId,omitempty" tf:"kernel_id"`
+	// +kubebuilder:validation:Optional
+	KernelID *string `json:"kernelId,omitempty" tf:"kernel_id"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
-	RamdiskId *string `json:"ramdiskId,omitempty" tf:"ramdisk_id"`
+	// +kubebuilder:validation:Optional
+	RamdiskID *string `json:"ramdiskId,omitempty" tf:"ramdisk_id"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
 	RootDeviceName *string `json:"rootDeviceName,omitempty" tf:"root_device_name"`
 
+	// +kubebuilder:validation:Optional
 	SriovNetSupport *string `json:"sriovNetSupport,omitempty" tf:"sriov_net_support"`
 
+	// +kubebuilder:validation:Optional
 	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
 
+	// +kubebuilder:validation:Optional
 	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
 
+	// +kubebuilder:validation:Optional
 	VirtualizationType *string `json:"virtualizationType,omitempty" tf:"virtualization_type"`
 }
 
@@ -84,20 +102,29 @@ type EbsBlockDeviceObservation struct {
 }
 
 type EbsBlockDeviceParameters struct {
+
+	// +kubebuilder:validation:Optional
 	DeleteOnTermination *bool `json:"deleteOnTermination,omitempty" tf:"delete_on_termination"`
 
+	// +kubebuilder:validation:Required
 	DeviceName string `json:"deviceName" tf:"device_name"`
 
+	// +kubebuilder:validation:Optional
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
+	// +kubebuilder:validation:Optional
 	Iops *int64 `json:"iops,omitempty" tf:"iops"`
 
-	SnapshotId *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	// +kubebuilder:validation:Optional
+	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
 
+	// +kubebuilder:validation:Optional
 	Throughput *int64 `json:"throughput,omitempty" tf:"throughput"`
 
+	// +kubebuilder:validation:Optional
 	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size"`
 
+	// +kubebuilder:validation:Optional
 	VolumeType *string `json:"volumeType,omitempty" tf:"volume_type"`
 }
 
@@ -105,8 +132,11 @@ type EphemeralBlockDeviceObservation struct {
 }
 
 type EphemeralBlockDeviceParameters struct {
+
+	// +kubebuilder:validation:Required
 	DeviceName string `json:"deviceName" tf:"device_name"`
 
+	// +kubebuilder:validation:Required
 	VirtualName string `json:"virtualName" tf:"virtual_name"`
 }
 

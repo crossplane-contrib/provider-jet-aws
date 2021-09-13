@@ -28,14 +28,22 @@ type AppCookieStickinessPolicyObservation struct {
 }
 
 type AppCookieStickinessPolicyParameters struct {
+
+	// +kubebuilder:validation:Required
 	CookieName string `json:"cookieName" tf:"cookie_name"`
 
+	// +kubebuilder:validation:Required
 	LbPort int64 `json:"lbPort" tf:"lb_port"`
 
+	// +kubebuilder:validation:Required
 	LoadBalancer string `json:"loadBalancer" tf:"load_balancer"`
 
+	// +kubebuilder:validation:Required
 	Name string `json:"name" tf:"name"`
 
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
 	Region string `json:"region" tf:"-"`
 }
 
