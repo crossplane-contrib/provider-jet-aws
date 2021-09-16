@@ -24,6 +24,10 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
+
+	resource2 "github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
+
 	"github.com/crossplane-contrib/terrajet/pkg/comments"
 	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -137,13 +141,18 @@ func main() { // nolint:gocyclo
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
 			resource := resources[name]
 			resource.Schema["region"] = regionSchema
-			if err := crdGen.Generate(version, kind, resource); err != nil {
+			c := resource2.NewConfiguration(version, kind, name)
+			// NOTE(muvaf): This is temporary, just to show the feature.
+			if name == "aws_rds_cluster" {
+				c.ExternalNamer = v1alpha1.DBClusterExternalNamer
+			}
+			if err := crdGen.Generate(c, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
-			if err := tfGen.Generate(version, kind, name, "id"); err != nil {
+			if err := tfGen.Generate(c); err != nil {
 				panic(errors.Wrap(err, "cannot generate terraformed"))
 			}
-			ctrlPkgPath, err := ctrlGen.Generate(versionGen.Package().Path(), kind)
+			ctrlPkgPath, err := ctrlGen.Generate(c, versionGen.Package().Path())
 			if err != nil {
 				panic(errors.Wrap(err, "cannot generate controller"))
 			}
