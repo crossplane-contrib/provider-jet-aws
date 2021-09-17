@@ -18,7 +18,9 @@ limitations under the License.
 
 package v1alpha1
 
-import "github.com/crossplane-contrib/terrajet/pkg/conversion"
+import (
+	"github.com/crossplane-contrib/terrajet/pkg/json"
+)
 
 // GetTerraformResourceType returns Terraform resource type for this EksIdentityProviderConfig
 func (mg *EksIdentityProviderConfig) GetTerraformResourceType() string {
@@ -32,20 +34,29 @@ func (tr *EksIdentityProviderConfig) GetTerraformResourceIdField() string {
 
 // GetObservation of this EksIdentityProviderConfig
 func (tr *EksIdentityProviderConfig) GetObservation() ([]byte, error) {
-	return conversion.TFParser.Marshal(tr.Status.AtProvider)
+	return json.TFParser.Marshal(tr.Status.AtProvider)
 }
 
 // SetObservation for this EksIdentityProviderConfig
 func (tr *EksIdentityProviderConfig) SetObservation(data []byte) error {
-	return conversion.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
 }
 
 // GetParameters of this EksIdentityProviderConfig
-func (tr *EksIdentityProviderConfig) GetParameters() ([]byte, error) {
-	return conversion.TFParser.Marshal(tr.Spec.ForProvider)
+func (tr *EksIdentityProviderConfig) GetParameters() (map[string]interface{}, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.JSParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this EksIdentityProviderConfig
-func (tr *EksIdentityProviderConfig) SetParameters(data []byte) error {
-	return conversion.TFParser.Unmarshal(data, &tr.Spec.ForProvider)
+func (tr *EksIdentityProviderConfig) SetParameters(params map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }

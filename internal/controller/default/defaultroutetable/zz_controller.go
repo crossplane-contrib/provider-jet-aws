@@ -38,10 +38,10 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter) error {
 	name := managed.ControllerName(v1alpha1.DefaultRouteTableGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.DefaultRouteTableGroupVersionKind),
-		managed.WithInitializers(),
 		managed.WithExternalConnecter(terraform.NewConnector(mgr.GetClient(), l, clients.ProviderConfigBuilder)),
 		managed.WithLogger(l.WithValues("controller", name)),
-		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))))
+		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
+	)
 
 	return ctrl.NewControllerManagedBy(mgr).
 		Named(name).
