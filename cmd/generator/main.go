@@ -24,6 +24,8 @@ import (
 	"sort"
 	"strings"
 
+	v1alpha12 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
+
 	"github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
 
 	resource2 "github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
@@ -143,8 +145,15 @@ func main() { // nolint:gocyclo
 			resource.Schema["region"] = regionSchema
 			c := resource2.NewConfiguration(version, kind, name)
 			// NOTE(muvaf): This is temporary, just to show the feature.
-			if name == "aws_rds_cluster" {
+			switch name {
+			case "aws_rds_cluster":
 				c.ExternalNamer = v1alpha1.DBClusterExternalNamer
+			case "aws_vpc":
+				c.ExternalNamer = v1alpha1.VPCExternalNamer
+			case "aws_iam_role":
+				c.ExternalNamer = v1alpha12.IAMRoleExternalNamer
+			case "aws_iam_user":
+				c.ExternalNamer = v1alpha12.IAMUserExternalNamer
 			}
 			if err := crdGen.Generate(c, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))

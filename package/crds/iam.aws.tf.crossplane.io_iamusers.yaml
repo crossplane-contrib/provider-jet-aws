@@ -66,8 +66,6 @@ spec:
                     description: Delete user even if it has non-Terraform-managed
                       IAM access keys, login profile or MFA devices
                     type: boolean
-                  name:
-                    type: string
                   path:
                     type: string
                   permissionsBoundary:
@@ -85,7 +83,6 @@ spec:
                       type: string
                     type: object
                 required:
-                - name
                 - region
                 type: object
               providerConfigRef:

@@ -84,10 +84,6 @@ spec:
                   maxSessionDuration:
                     format: int64
                     type: integer
-                  name:
-                    type: string
-                  namePrefix:
-                    type: string
                   path:
                     type: string
                   permissionsBoundary:

@@ -36,9 +36,6 @@ type IamUserParameters struct {
 	// +kubebuilder:validation:Optional
 	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
-	// +kubebuilder:validation:Required
-	Name string `json:"name" tf:"name"`
-
 	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 

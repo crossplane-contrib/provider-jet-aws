@@ -19,7 +19,9 @@ limitations under the License.
 package v1alpha1
 
 import (
+	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
 	"github.com/crossplane-contrib/terrajet/pkg/json"
+	"github.com/crossplane/crossplane-runtime/pkg/meta"
 )
 
 // GetTerraformResourceType returns Terraform resource type for this Vpc
@@ -49,6 +51,7 @@ func (tr *Vpc) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
+	v1alpha1.VPCExternalNamer.Configure(base, meta.GetExternalName(tr))
 	return base, json.JSParser.Unmarshal(p, &base)
 }
 

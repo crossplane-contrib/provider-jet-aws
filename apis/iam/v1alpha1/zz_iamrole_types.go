@@ -53,12 +53,6 @@ type IamRoleParameters struct {
 	MaxSessionDuration *int64 `json:"maxSessionDuration,omitempty" tf:"max_session_duration"`
 
 	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name"`
-
-	// +kubebuilder:validation:Optional
-	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
-
-	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
 
 	// +kubebuilder:validation:Optional
