@@ -17,6 +17,7 @@ limitations under the License.
 package controller
 
 import (
+	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 	"k8s.io/client-go/util/workqueue"
 	ctrl "sigs.k8s.io/controller-runtime"
 
@@ -154,8 +155,8 @@ import (
 
 // Setup creates all controllers with the supplied logger and adds them to
 // the supplied manager.
-func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, concurrency int) error {
-	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter, int) error{
+func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terraform.ProviderSetupFn, concurrency int) error {
+	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter, terraform.ProviderSetupFn, int) error{
 		defaultnetworkacl.Setup,
 		defaultroutetable.Setup,
 		defaultsecuritygroup.Setup,

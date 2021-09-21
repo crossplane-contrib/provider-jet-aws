@@ -38,8 +38,4 @@ ADD provider /usr/local/bin/crossplane-provider
 USER ${USER_ID}
 EXPOSE 8080
 
-# TODO(muvaf): Rename one of them and use single one everywhere.
-ENV XP_TERRAFORM_PROVIDER_SOURCE ${TERRAFORM_PROVIDER_SOURCE}
-ENV XP_TERRAFORM_PROVIDER_VERSION ${TERRAFORM_PROVIDER_VERSION}
-
 ENTRYPOINT ["crossplane-provider"]
