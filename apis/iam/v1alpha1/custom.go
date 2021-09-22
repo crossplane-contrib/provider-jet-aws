@@ -19,10 +19,10 @@ package v1alpha1
 import "github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
 
 var (
-	IAMRoleExternalNamer = resource.ExternalNameConfiguration{
-		SelfVarPath: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.IAMRoleExternalNamer",
-		Configure: func(base map[string]interface{}, name string) {
-			base["name"] = name
+	IAMRoleExternalNameConfig = resource.ExternalNameConfiguration{
+		SelfVarPath: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.IAMRoleExternalNameConfig",
+		Configure: func(base map[string]interface{}, externalName string) {
+			base["name"] = externalName
 		},
 		OmittedFields: []string{
 			"name",
@@ -32,10 +32,10 @@ var (
 		// to be the default for external name.
 		DisableNameInitializer: false,
 	}
-	IAMUserExternalNamer = resource.ExternalNameConfiguration{
-		SelfVarPath: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.IAMUserExternalNamer",
-		Configure: func(base map[string]interface{}, name string) {
-			base["name"] = name
+	IAMUserExternalNameConfig = resource.ExternalNameConfiguration{
+		SelfVarPath: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.IAMUserExternalNameConfig",
+		Configure: func(base map[string]interface{}, externalName string) {
+			base["name"] = externalName
 		},
 		OmittedFields: []string{
 			"name",

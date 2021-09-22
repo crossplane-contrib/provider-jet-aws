@@ -50,7 +50,7 @@ func (tr *IamUser) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	IAMUserExternalNamer.Configure(base, meta.GetExternalName(tr))
+	IAMUserExternalNameConfig.Configure(base, meta.GetExternalName(tr))
 	return base, json.JSParser.Unmarshal(p, &base)
 }
 

@@ -50,7 +50,7 @@ func (tr *RdsCluster) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	DBClusterExternalNamer.Configure(base, meta.GetExternalName(tr))
+	DBClusterExternalNameConfig.Configure(base, meta.GetExternalName(tr))
 	return base, json.JSParser.Unmarshal(p, &base)
 }
 

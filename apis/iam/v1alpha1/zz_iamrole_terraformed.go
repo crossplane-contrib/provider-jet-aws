@@ -50,7 +50,7 @@ func (tr *IamRole) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	IAMRoleExternalNamer.Configure(base, meta.GetExternalName(tr))
+	IAMRoleExternalNameConfig.Configure(base, meta.GetExternalName(tr))
 	return base, json.JSParser.Unmarshal(p, &base)
 }
 
