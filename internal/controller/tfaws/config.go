@@ -30,11 +30,12 @@ import (
 
 // Setup adds a controller that reconciles ProviderConfigs by accounting for
 // their current usage.
-func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter) error {
+func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, concurrency int) error {
 	name := providerconfig.ControllerName(v1alpha1.ProviderConfigGroupKind)
 
 	o := controller.Options{
-		RateLimiter: ratelimiter.NewDefaultManagedRateLimiter(rl),
+		RateLimiter:             ratelimiter.NewDefaultManagedRateLimiter(rl),
+		MaxConcurrentReconciles: concurrency,
 	}
 
 	of := resource.ProviderConfigKinds{

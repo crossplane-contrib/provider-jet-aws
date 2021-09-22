@@ -34,7 +34,7 @@ import (
 )
 
 // Setup adds a controller that reconciles Route53ResolverFirewallDomainList managed resources.
-func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter) error {
+func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, concurrency int) error {
 	name := managed.ControllerName(v1alpha1.Route53ResolverFirewallDomainListGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.Route53ResolverFirewallDomainListGroupVersionKind),
@@ -45,7 +45,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter) error {
 
 	return ctrl.NewControllerManagedBy(mgr).
 		Named(name).
-		WithOptions(controller.Options{RateLimiter: rl}).
+		WithOptions(controller.Options{RateLimiter: rl, MaxConcurrentReconciles: concurrency}).
 		For(&v1alpha1.Route53ResolverFirewallDomainList{}).
 		Complete(r)
 }

@@ -147,13 +147,13 @@ func main() { // nolint:gocyclo
 			// NOTE(muvaf): This is temporary, just to show the feature.
 			switch name {
 			case "aws_rds_cluster":
-				c.ExternalNamer = v1alpha1.DBClusterExternalNamer
+				c.ExternalName = v1alpha1.DBClusterExternalNamer
 			case "aws_vpc":
-				c.ExternalNamer = v1alpha1.VPCExternalNamer
+				c.ExternalName = v1alpha1.VPCExternalNamer
 			case "aws_iam_role":
-				c.ExternalNamer = v1alpha12.IAMRoleExternalNamer
+				c.ExternalName = v1alpha12.IAMRoleExternalNamer
 			case "aws_iam_user":
-				c.ExternalNamer = v1alpha12.IAMUserExternalNamer
+				c.ExternalName = v1alpha12.IAMUserExternalNamer
 			}
 			if err := crdGen.Generate(c, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))

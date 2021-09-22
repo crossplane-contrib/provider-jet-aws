@@ -34,7 +34,7 @@ import (
 )
 
 // Setup adds a controller that reconciles EksIdentityProviderConfig managed resources.
-func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter) error {
+func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, concurrency int) error {
 	name := managed.ControllerName(v1alpha1.EksIdentityProviderConfigGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.EksIdentityProviderConfigGroupVersionKind),
@@ -45,7 +45,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter) error {
 
 	return ctrl.NewControllerManagedBy(mgr).
 		Named(name).
-		WithOptions(controller.Options{RateLimiter: rl}).
+		WithOptions(controller.Options{RateLimiter: rl, MaxConcurrentReconciles: concurrency}).
 		For(&v1alpha1.EksIdentityProviderConfig{}).
 		Complete(r)
 }

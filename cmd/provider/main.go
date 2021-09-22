@@ -62,6 +62,6 @@ func main() {
 
 	rl := ratelimiter.NewDefaultProviderRateLimiter(ratelimiter.DefaultProviderRPS)
 	kingpin.FatalIfError(apis.AddToScheme(mgr.GetScheme()), "Cannot add AWS APIs to scheme")
-	kingpin.FatalIfError(controller.Setup(mgr, log, rl), "Cannot setup AWS controllers")
+	kingpin.FatalIfError(controller.Setup(mgr, log, rl, 1), "Cannot setup AWS controllers")
 	kingpin.FatalIfError(mgr.Start(ctrl.SetupSignalHandler()), "Cannot start controller manager")
 }
