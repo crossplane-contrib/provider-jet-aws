@@ -20,7 +20,6 @@ package v1alpha1
 
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/json"
-	"github.com/crossplane/crossplane-runtime/pkg/meta"
 )
 
 // GetTerraformResourceType returns Terraform resource type for this IamUser
@@ -50,7 +49,6 @@ func (tr *IamUser) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	IAMUserExternalNameConfig.Configure(base, meta.GetExternalName(tr))
 	return base, json.JSParser.Unmarshal(p, &base)
 }
 

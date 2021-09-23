@@ -24,6 +24,8 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/crossplane-contrib/provider-tf-aws/apis"
+
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/iancoleman/strcase"
 	"github.com/pkg/errors"
@@ -32,10 +34,6 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/comments"
 	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 	tjresource "github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
-
-	iamv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
-	rdsv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
-	vpcv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 )
 
 // Constants to use in generated artifacts.
@@ -88,6 +86,10 @@ func main() { // nolint:gocyclo
 	if err != nil {
 		panic(errors.Wrap(err, "cannot get working directory"))
 	}
+
+	customConfig := tjresource.NewConfigStore()
+	apis.AddToConfigStores.AddToConfigStore(&customConfig)
+
 	groups := map[string]map[string]*schema.Resource{}
 	for name, resource := range aws.Provider().ResourcesMap {
 		if len(resource.Schema) == 0 {
@@ -144,17 +146,8 @@ func main() { // nolint:gocyclo
 			resource := resources[name]
 			resource.Schema["region"] = regionSchema
 			c := tjresource.NewConfiguration(version, kind, name)
-			// NOTE(muvaf): This is temporary, just to show the feature.
-			switch name {
-			case "aws_rds_cluster":
-				c.ExternalName = rdsv1alpha1.DBClusterExternalNameConfig
-			case "aws_vpc":
-				c.ExternalName = vpcv1alpha1.VPCExternalNameConfig
-			case "aws_iam_role":
-				c.ExternalName = iamv1alpha1.IAMRoleExternalNameConfig
-			case "aws_iam_user":
-				c.ExternalName = iamv1alpha1.IAMUserExternalNameConfig
-			}
+			c.OverrideConfiguration(customConfig.GetConfigForResource(name))
+
 			if err := crdGen.Generate(c, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
