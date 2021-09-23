@@ -56,12 +56,6 @@ type RdsClusterParameters struct {
 	BackupRetentionPeriod *int64 `json:"backupRetentionPeriod,omitempty" tf:"backup_retention_period"`
 
 	// +kubebuilder:validation:Optional
-	ClusterIdentifier *string `json:"clusterIdentifier,omitempty" tf:"cluster_identifier"`
-
-	// +kubebuilder:validation:Optional
-	ClusterIdentifierPrefix *string `json:"clusterIdentifierPrefix,omitempty" tf:"cluster_identifier_prefix"`
-
-	// +kubebuilder:validation:Optional
 	ClusterMembers []string `json:"clusterMembers,omitempty" tf:"cluster_members"`
 
 	// +kubebuilder:validation:Optional

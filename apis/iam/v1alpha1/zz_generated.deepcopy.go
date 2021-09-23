@@ -1663,16 +1663,6 @@ func (in *IamRoleParameters) DeepCopyInto(out *IamRoleParameters) {
 		*out = new(int64)
 		**out = **in
 	}
-	if in.Name != nil {
-		in, out := &in.Name, &out.Name
-		*out = new(string)
-		**out = **in
-	}
-	if in.NamePrefix != nil {
-		in, out := &in.NamePrefix, &out.NamePrefix
-		*out = new(string)
-		**out = **in
-	}
 	if in.Path != nil {
 		in, out := &in.Path, &out.Path
 		*out = new(string)

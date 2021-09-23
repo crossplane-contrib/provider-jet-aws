@@ -729,16 +729,6 @@ func (in *RdsClusterParameters) DeepCopyInto(out *RdsClusterParameters) {
 		*out = new(int64)
 		**out = **in
 	}
-	if in.ClusterIdentifier != nil {
-		in, out := &in.ClusterIdentifier, &out.ClusterIdentifier
-		*out = new(string)
-		**out = **in
-	}
-	if in.ClusterIdentifierPrefix != nil {
-		in, out := &in.ClusterIdentifierPrefix, &out.ClusterIdentifierPrefix
-		*out = new(string)
-		**out = **in
-	}
 	if in.ClusterMembers != nil {
 		in, out := &in.ClusterMembers, &out.ClusterMembers
 		*out = make([]string, len(*in))

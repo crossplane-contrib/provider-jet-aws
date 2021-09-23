@@ -18,7 +18,9 @@ limitations under the License.
 
 package v1alpha1
 
-import "github.com/crossplane-contrib/terrajet/pkg/conversion"
+import (
+	"github.com/crossplane-contrib/terrajet/pkg/json"
+)
 
 // GetTerraformResourceType returns Terraform resource type for this Route53ResolverFirewallConfig
 func (mg *Route53ResolverFirewallConfig) GetTerraformResourceType() string {
@@ -32,20 +34,29 @@ func (tr *Route53ResolverFirewallConfig) GetTerraformResourceIdField() string {
 
 // GetObservation of this Route53ResolverFirewallConfig
 func (tr *Route53ResolverFirewallConfig) GetObservation() ([]byte, error) {
-	return conversion.TFParser.Marshal(tr.Status.AtProvider)
+	return json.TFParser.Marshal(tr.Status.AtProvider)
 }
 
 // SetObservation for this Route53ResolverFirewallConfig
 func (tr *Route53ResolverFirewallConfig) SetObservation(data []byte) error {
-	return conversion.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
 }
 
 // GetParameters of this Route53ResolverFirewallConfig
-func (tr *Route53ResolverFirewallConfig) GetParameters() ([]byte, error) {
-	return conversion.TFParser.Marshal(tr.Spec.ForProvider)
+func (tr *Route53ResolverFirewallConfig) GetParameters() (map[string]interface{}, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.JSParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this Route53ResolverFirewallConfig
-func (tr *Route53ResolverFirewallConfig) SetParameters(data []byte) error {
-	return conversion.TFParser.Unmarshal(data, &tr.Spec.ForProvider)
+func (tr *Route53ResolverFirewallConfig) SetParameters(params map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }

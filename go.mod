@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/aws/aws-sdk-go-v2 v0.23.0
-	github.com/crossplane-contrib/terrajet v0.0.0-20210913140820-03b092f395b0
+	github.com/crossplane-contrib/terrajet v0.0.0-20210922074318-4e24aad2fa4c
 	github.com/crossplane/crossplane-runtime v0.15.1-0.20210907213605-9779b31a42ce
 	github.com/crossplane/crossplane-tools v0.0.0-20210320162312-1baca298c527
 	github.com/crossplane/provider-aws v0.19.0

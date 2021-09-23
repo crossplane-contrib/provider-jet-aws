@@ -18,7 +18,10 @@ limitations under the License.
 
 package v1alpha1
 
-import "github.com/crossplane-contrib/terrajet/pkg/conversion"
+import (
+	"github.com/crossplane-contrib/terrajet/pkg/json"
+	"github.com/crossplane/crossplane-runtime/pkg/meta"
+)
 
 // GetTerraformResourceType returns Terraform resource type for this RdsCluster
 func (mg *RdsCluster) GetTerraformResourceType() string {
@@ -32,20 +35,30 @@ func (tr *RdsCluster) GetTerraformResourceIdField() string {
 
 // GetObservation of this RdsCluster
 func (tr *RdsCluster) GetObservation() ([]byte, error) {
-	return conversion.TFParser.Marshal(tr.Status.AtProvider)
+	return json.TFParser.Marshal(tr.Status.AtProvider)
 }
 
 // SetObservation for this RdsCluster
 func (tr *RdsCluster) SetObservation(data []byte) error {
-	return conversion.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
 }
 
 // GetParameters of this RdsCluster
-func (tr *RdsCluster) GetParameters() ([]byte, error) {
-	return conversion.TFParser.Marshal(tr.Spec.ForProvider)
+func (tr *RdsCluster) GetParameters() (map[string]interface{}, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	DBClusterExternalNameConfig.Configure(base, meta.GetExternalName(tr))
+	return base, json.JSParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this RdsCluster
-func (tr *RdsCluster) SetParameters(data []byte) error {
-	return conversion.TFParser.Unmarshal(data, &tr.Spec.ForProvider)
+func (tr *RdsCluster) SetParameters(params map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }

@@ -24,12 +24,18 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/crossplane-contrib/terrajet/pkg/comments"
-	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/iancoleman/strcase"
 	"github.com/pkg/errors"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
+
+	"github.com/crossplane-contrib/terrajet/pkg/comments"
+	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
+	tjresource "github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
+
+	iamv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
+	rdsv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
+	vpcv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 )
 
 // Constants to use in generated artifacts.
@@ -137,13 +143,25 @@ func main() { // nolint:gocyclo
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
 			resource := resources[name]
 			resource.Schema["region"] = regionSchema
-			if err := crdGen.Generate(version, kind, resource); err != nil {
+			c := tjresource.NewConfiguration(version, kind, name)
+			// NOTE(muvaf): This is temporary, just to show the feature.
+			switch name {
+			case "aws_rds_cluster":
+				c.ExternalName = rdsv1alpha1.DBClusterExternalNameConfig
+			case "aws_vpc":
+				c.ExternalName = vpcv1alpha1.VPCExternalNameConfig
+			case "aws_iam_role":
+				c.ExternalName = iamv1alpha1.IAMRoleExternalNameConfig
+			case "aws_iam_user":
+				c.ExternalName = iamv1alpha1.IAMUserExternalNameConfig
+			}
+			if err := crdGen.Generate(c, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
-			if err := tfGen.Generate(version, kind, name, "id"); err != nil {
+			if err := tfGen.Generate(c); err != nil {
 				panic(errors.Wrap(err, "cannot generate terraformed"))
 			}
-			ctrlPkgPath, err := ctrlGen.Generate(versionGen.Package().Path(), kind)
+			ctrlPkgPath, err := ctrlGen.Generate(c, versionGen.Package().Path())
 			if err != nil {
 				panic(errors.Wrap(err, "cannot generate controller"))
 			}

@@ -154,8 +154,8 @@ import (
 
 // Setup creates all controllers with the supplied logger and adds them to
 // the supplied manager.
-func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter) error {
-	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter) error{
+func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, concurrency int) error {
+	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter, int) error{
 		defaultnetworkacl.Setup,
 		defaultroutetable.Setup,
 		defaultsecuritygroup.Setup,
@@ -285,7 +285,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter) error {
 		vpcpeeringconnection.Setup,
 		vpcpeeringconnectionoptions.Setup,
 	} {
-		if err := setup(mgr, l, wl); err != nil {
+		if err := setup(mgr, l, wl, concurrency); err != nil {
 			return err
 		}
 	}

@@ -76,10 +76,6 @@ spec:
                   backupRetentionPeriod:
                     format: int64
                     type: integer
-                  clusterIdentifier:
-                    type: string
-                  clusterIdentifierPrefix:
-                    type: string
                   clusterMembers:
                     items:
                       type: string
