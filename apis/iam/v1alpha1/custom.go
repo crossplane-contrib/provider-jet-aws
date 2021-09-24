@@ -19,6 +19,7 @@ package v1alpha1
 import "github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
 
 var (
+	// IAMRoleExternalNameConfig is config for external name mechanism of IAMRole.
 	IAMRoleExternalNameConfig = resource.ExternalNameConfiguration{
 		SelfVarPath: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.IAMRoleExternalNameConfig",
 		Configure: func(base map[string]interface{}, externalName string) {
@@ -32,6 +33,7 @@ var (
 		// to be the default for external name.
 		DisableNameInitializer: false,
 	}
+	// IAMUserExternalNameConfig is config for external name mechanism of IAMUser.
 	IAMUserExternalNameConfig = resource.ExternalNameConfiguration{
 		SelfVarPath: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.IAMUserExternalNameConfig",
 		Configure: func(base map[string]interface{}, externalName string) {

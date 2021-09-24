@@ -30,15 +30,14 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller"
 
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
-	clients "github.com/crossplane-contrib/provider-tf-aws/internal/clients"
 )
 
 // Setup adds a controller that reconciles IamRole managed resources.
-func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, concurrency int) error {
+func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, ps terraform.SetupFn, concurrency int) error {
 	name := managed.ControllerName(v1alpha1.IamRoleGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.IamRoleGroupVersionKind),
-		managed.WithExternalConnecter(terraform.NewConnector(mgr.GetClient(), l, clients.ProviderConfigBuilder)),
+		managed.WithExternalConnecter(terraform.NewConnector(mgr.GetClient(), l, ps)),
 		managed.WithLogger(l.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
 	)
