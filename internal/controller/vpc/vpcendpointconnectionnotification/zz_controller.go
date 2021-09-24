@@ -33,7 +33,7 @@ import (
 )
 
 // Setup adds a controller that reconciles VpcEndpointConnectionNotification managed resources.
-func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, ps terraform.ProviderSetupFn, concurrency int) error {
+func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, ps terraform.SetupFn, concurrency int) error {
 	name := managed.ControllerName(v1alpha1.VpcEndpointConnectionNotificationGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.VpcEndpointConnectionNotificationGroupVersionKind),

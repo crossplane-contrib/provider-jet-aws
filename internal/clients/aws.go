@@ -3,9 +3,6 @@ package clients
 import (
 	"context"
 
-	"github.com/crossplane-contrib/terrajet/pkg/terraform"
-	"github.com/crossplane-contrib/terrajet/pkg/tfcli"
-
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 	"github.com/crossplane-contrib/terrajet/pkg/tfcli"
