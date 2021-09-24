@@ -1,13 +1,13 @@
 package v1alpha1
 
 import (
-	"github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
+	"github.com/crossplane-contrib/terrajet/pkg/configuration"
 )
 
 func vpcExternalNameConfigure(_ map[string]interface{}, _ string) {}
 
-var vpcCustomConfig = &resource.Configuration{
-	ExternalName: resource.ExternalNameConfiguration{
+var vpcCustomConfig = configuration.Resource{
+	ExternalName: configuration.ExternalName{
 		ConfigureFunction: "vpcExternalNameConfigure",
 		OmittedFields: []string{
 			"cluster_identifier",
@@ -18,11 +18,11 @@ var vpcCustomConfig = &resource.Configuration{
 	},
 }
 
-var ConfigStoreBuilder resource.ConfigStoreBuilder
+var ConfigStoreBuilder configuration.StoreBuilder
 
 func init() {
-	ConfigStoreBuilder.Register(func(c *resource.ConfigStore) error {
-		c.SetConfigForResource("aws_vpc", vpcCustomConfig)
+	ConfigStoreBuilder.Register(func(s *configuration.Store) error {
+		s.SetForResource("aws_vpc", vpcCustomConfig)
 		return nil
 	})
 }

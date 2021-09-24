@@ -24,6 +24,8 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/crossplane-contrib/terrajet/pkg/configuration"
+
 	"github.com/crossplane-contrib/provider-tf-aws/apis"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -33,7 +35,6 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/comments"
 	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
-	tjresource "github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
 )
 
 // Constants to use in generated artifacts.
@@ -87,8 +88,8 @@ func main() { // nolint:gocyclo
 		panic(errors.Wrap(err, "cannot get working directory"))
 	}
 
-	customConfig := tjresource.NewConfigStore()
-	apis.AddToConfigStores.AddToConfigStore(&customConfig)
+	customConfig := configuration.NewStore()
+	apis.AddToConfigStores.AddToStore(&customConfig)
 
 	groups := map[string]map[string]*schema.Resource{}
 	for name, resource := range aws.Provider().ResourcesMap {
@@ -145,8 +146,8 @@ func main() { // nolint:gocyclo
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
 			resource := resources[name]
 			resource.Schema["region"] = regionSchema
-			c := tjresource.NewConfiguration(version, kind, name)
-			c.OverrideConfiguration(customConfig.GetConfigForResource(name))
+			c := configuration.NewResource(version, kind, name)
+			c.OverrideConfig(customConfig.GetForResource(name))
 
 			if err := crdGen.Generate(c, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))

@@ -17,16 +17,15 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
-	"github.com/crossplane-contrib/terrajet/pkg/types"
+	"github.com/crossplane-contrib/terrajet/pkg/configuration"
 )
 
 func iamExternalNameConfigure(base map[string]interface{}, externalName string) {
 	base["name"] = externalName
 }
 
-var iamRoleCustomConfig = &resource.Configuration{
-	ExternalName: resource.ExternalNameConfiguration{
+var iamRoleCustomConfig = configuration.Resource{
+	ExternalName: configuration.ExternalName{
 		ConfigureFunction: "iamExternalNameConfigure",
 		OmittedFields: []string{
 			"name",
@@ -36,17 +35,17 @@ var iamRoleCustomConfig = &resource.Configuration{
 		// to be the default for external name.
 		DisableNameInitializer: false,
 	},
-	Reference: map[string]resource.FieldReferenceConfiguration{
+	/*	Reference: map[string]resource.FieldReferenceConfiguration{
 		"ManagedPolicyArns": {
 			ReferenceToType: types.PathForType(IamPolicy{}),
 			// TODO(hasan): fix below
 			ReferenceExtractor: "github.com/crossplane/provider-aws/apis/ec2/v1beta1.SubnetARN()",
 		},
-	},
+	},*/
 }
 
-var iamUserCustomConfig = &resource.Configuration{
-	ExternalName: resource.ExternalNameConfiguration{
+var iamUserCustomConfig = configuration.Resource{
+	ExternalName: configuration.ExternalName{
 		ConfigureFunction: "iamExternalNameConfigure",
 		OmittedFields: []string{
 			"name",
@@ -57,12 +56,12 @@ var iamUserCustomConfig = &resource.Configuration{
 	},
 }
 
-var ConfigStoreBuilder resource.ConfigStoreBuilder
+var ConfigStoreBuilder configuration.StoreBuilder
 
 func init() {
-	ConfigStoreBuilder.Register(func(c *resource.ConfigStore) error {
-		c.SetConfigForResource("aws_iam_user", iamUserCustomConfig)
-		c.SetConfigForResource("aws_iam_role", iamRoleCustomConfig)
+	ConfigStoreBuilder.Register(func(s *configuration.Store) error {
+		s.SetForResource("aws_iam_user", iamUserCustomConfig)
+		s.SetForResource("aws_iam_role", iamRoleCustomConfig)
 		return nil
 	})
 }

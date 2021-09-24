@@ -1,7 +1,7 @@
 package v1alpha1
 
 import (
-	"github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
+	"github.com/crossplane-contrib/terrajet/pkg/configuration"
 	"github.com/crossplane-contrib/terrajet/pkg/types"
 
 	s3v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
@@ -11,8 +11,8 @@ func rdsClusterExternalNameConfigure(base map[string]interface{}, name string) {
 	base["cluster_identifier"] = name
 }
 
-var rdsClusterCustomConfig = &resource.Configuration{
-	ExternalName: resource.ExternalNameConfiguration{
+var rdsClusterCustomConfig = configuration.Resource{
+	ExternalName: configuration.ExternalName{
 		ConfigureFunction: "rdsClusterExternalNameConfigure",
 		OmittedFields: []string{
 			"cluster_identifier",
@@ -22,18 +22,18 @@ var rdsClusterCustomConfig = &resource.Configuration{
 		// to be the default for external name.
 		DisableNameInitializer: true,
 	},
-	Reference: map[string]resource.FieldReferenceConfiguration{
+	References: configuration.References{
 		"S3Import.BucketName": {
-			ReferenceToType: types.PathForType(s3v1alpha1.S3Bucket{}),
+			Type: types.TypePath(s3v1alpha1.S3Bucket{}),
 		},
 	},
 }
 
-var ConfigStoreBuilder resource.ConfigStoreBuilder
+var ConfigStoreBuilder configuration.StoreBuilder
 
 func init() {
-	ConfigStoreBuilder.Register(func(c *resource.ConfigStore) error {
-		c.SetConfigForResource("aws_rds_cluster", rdsClusterCustomConfig)
+	ConfigStoreBuilder.Register(func(s *configuration.Store) error {
+		s.SetForResource("aws_rds_cluster", rdsClusterCustomConfig)
 		return nil
 	})
 }
