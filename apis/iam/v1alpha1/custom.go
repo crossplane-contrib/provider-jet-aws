@@ -17,16 +17,16 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"github.com/crossplane-contrib/terrajet/pkg/configuration"
+	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
 func iamExternalNameConfigure(base map[string]interface{}, externalName string) {
 	base["name"] = externalName
 }
 
-var iamRoleCustomConfig = configuration.Resource{
-	ExternalName: configuration.ExternalName{
-		ConfigureFunction: "iamExternalNameConfigure",
+var iamRoleCustomConfig = config.Resource{
+	ExternalName: config.ExternalName{
+		ConfigureFunctionPath: "iamExternalNameConfigure",
 		OmittedFields: []string{
 			"name",
 			"name_prefix",
@@ -35,7 +35,7 @@ var iamRoleCustomConfig = configuration.Resource{
 		// to be the default for external name.
 		DisableNameInitializer: false,
 	},
-	/*	Reference: map[string]resource.FieldReferenceConfiguration{
+	/*	Reference: map[string]resource.FieldReferenceconfig{
 		"ManagedPolicyArns": {
 			ReferenceToType: types.PathForType(IamPolicy{}),
 			// TODO(hasan): fix below
@@ -44,9 +44,9 @@ var iamRoleCustomConfig = configuration.Resource{
 	},*/
 }
 
-var iamUserCustomConfig = configuration.Resource{
-	ExternalName: configuration.ExternalName{
-		ConfigureFunction: "iamExternalNameConfigure",
+var iamUserCustomConfig = config.Resource{
+	ExternalName: config.ExternalName{
+		ConfigureFunctionPath: "iamExternalNameConfigure",
 		OmittedFields: []string{
 			"name",
 		},
@@ -56,12 +56,7 @@ var iamUserCustomConfig = configuration.Resource{
 	},
 }
 
-var ConfigStoreBuilder configuration.StoreBuilder
-
 func init() {
-	ConfigStoreBuilder.Register(func(s *configuration.Store) error {
-		s.SetForResource("aws_iam_user", iamUserCustomConfig)
-		s.SetForResource("aws_iam_role", iamRoleCustomConfig)
-		return nil
-	})
+	config.Store.SetForResource("aws_iam_user", iamUserCustomConfig)
+	config.Store.SetForResource("aws_iam_role", iamRoleCustomConfig)
 }

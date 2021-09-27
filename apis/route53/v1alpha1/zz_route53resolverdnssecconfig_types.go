@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Route53ResolverDnssecConfigObservation struct {
@@ -47,14 +48,14 @@ type Route53ResolverDnssecConfigParameters struct {
 
 // Route53ResolverDnssecConfigSpec defines the desired state of Route53ResolverDnssecConfig
 type Route53ResolverDnssecConfigSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Route53ResolverDnssecConfigParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Route53ResolverDnssecConfigParameters `json:"forProvider"`
 }
 
 // Route53ResolverDnssecConfigStatus defines the observed state of Route53ResolverDnssecConfig.
 type Route53ResolverDnssecConfigStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Route53ResolverDnssecConfigObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Route53ResolverDnssecConfigObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -33,13 +33,22 @@ func (tr *IamInstanceProfile) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this IamInstanceProfile
-func (tr *IamInstanceProfile) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *IamInstanceProfile) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this IamInstanceProfile
-func (tr *IamInstanceProfile) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *IamInstanceProfile) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this IamInstanceProfile
@@ -49,7 +58,7 @@ func (tr *IamInstanceProfile) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this IamInstanceProfile

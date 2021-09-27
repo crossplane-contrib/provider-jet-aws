@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Ec2ClientVpnAuthorizationRuleObservation struct {
@@ -52,14 +53,14 @@ type Ec2ClientVpnAuthorizationRuleParameters struct {
 
 // Ec2ClientVpnAuthorizationRuleSpec defines the desired state of Ec2ClientVpnAuthorizationRule
 type Ec2ClientVpnAuthorizationRuleSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Ec2ClientVpnAuthorizationRuleParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Ec2ClientVpnAuthorizationRuleParameters `json:"forProvider"`
 }
 
 // Ec2ClientVpnAuthorizationRuleStatus defines the observed state of Ec2ClientVpnAuthorizationRule.
 type Ec2ClientVpnAuthorizationRuleStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Ec2ClientVpnAuthorizationRuleObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Ec2ClientVpnAuthorizationRuleObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

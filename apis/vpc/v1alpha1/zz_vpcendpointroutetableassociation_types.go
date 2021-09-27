@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type VpcEndpointRouteTableAssociationObservation struct {
@@ -43,14 +44,14 @@ type VpcEndpointRouteTableAssociationParameters struct {
 
 // VpcEndpointRouteTableAssociationSpec defines the desired state of VpcEndpointRouteTableAssociation
 type VpcEndpointRouteTableAssociationSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       VpcEndpointRouteTableAssociationParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     VpcEndpointRouteTableAssociationParameters `json:"forProvider"`
 }
 
 // VpcEndpointRouteTableAssociationStatus defines the observed state of VpcEndpointRouteTableAssociation.
 type VpcEndpointRouteTableAssociationStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          VpcEndpointRouteTableAssociationObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        VpcEndpointRouteTableAssociationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

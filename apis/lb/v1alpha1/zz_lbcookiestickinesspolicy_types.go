@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type LbCookieStickinessPolicyObservation struct {
@@ -49,14 +50,14 @@ type LbCookieStickinessPolicyParameters struct {
 
 // LbCookieStickinessPolicySpec defines the desired state of LbCookieStickinessPolicy
 type LbCookieStickinessPolicySpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       LbCookieStickinessPolicyParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     LbCookieStickinessPolicyParameters `json:"forProvider"`
 }
 
 // LbCookieStickinessPolicyStatus defines the observed state of LbCookieStickinessPolicy.
 type LbCookieStickinessPolicyStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          LbCookieStickinessPolicyObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        LbCookieStickinessPolicyObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

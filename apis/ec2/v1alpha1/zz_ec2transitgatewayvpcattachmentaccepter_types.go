@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Ec2TransitGatewayVpcAttachmentAccepterObservation struct {
@@ -65,14 +66,14 @@ type Ec2TransitGatewayVpcAttachmentAccepterParameters struct {
 
 // Ec2TransitGatewayVpcAttachmentAccepterSpec defines the desired state of Ec2TransitGatewayVpcAttachmentAccepter
 type Ec2TransitGatewayVpcAttachmentAccepterSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Ec2TransitGatewayVpcAttachmentAccepterParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Ec2TransitGatewayVpcAttachmentAccepterParameters `json:"forProvider"`
 }
 
 // Ec2TransitGatewayVpcAttachmentAccepterStatus defines the observed state of Ec2TransitGatewayVpcAttachmentAccepter.
 type Ec2TransitGatewayVpcAttachmentAccepterStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Ec2TransitGatewayVpcAttachmentAccepterObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Ec2TransitGatewayVpcAttachmentAccepterObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

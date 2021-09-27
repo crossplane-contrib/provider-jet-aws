@@ -33,13 +33,22 @@ func (tr *VpcPeeringConnectionOptions) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this VpcPeeringConnectionOptions
-func (tr *VpcPeeringConnectionOptions) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *VpcPeeringConnectionOptions) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this VpcPeeringConnectionOptions
-func (tr *VpcPeeringConnectionOptions) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *VpcPeeringConnectionOptions) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this VpcPeeringConnectionOptions
@@ -49,7 +58,7 @@ func (tr *VpcPeeringConnectionOptions) GetParameters() (map[string]interface{}, 
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this VpcPeeringConnectionOptions

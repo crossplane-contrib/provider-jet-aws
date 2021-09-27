@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type AccessLogsObservation struct {
@@ -155,14 +156,14 @@ type ListenerParameters struct {
 
 // ElbSpec defines the desired state of Elb
 type ElbSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       ElbParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     ElbParameters `json:"forProvider"`
 }
 
 // ElbStatus defines the observed state of Elb.
 type ElbStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          ElbObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        ElbObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

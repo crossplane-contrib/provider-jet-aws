@@ -20,21 +20,20 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"sort"
 	"strings"
 
-	"github.com/crossplane-contrib/terrajet/pkg/configuration"
-
-	"github.com/crossplane-contrib/provider-tf-aws/apis"
-
+	"github.com/crossplane-contrib/terrajet/pkg/comments"
+	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/iancoleman/strcase"
 	"github.com/pkg/errors"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
 
-	"github.com/crossplane-contrib/terrajet/pkg/comments"
-	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
+	// This is to get init functions registering custom configs to be called.
+	// TODO(hasan): Revisit getting custom config with pipeline abstraction work
+	_ "github.com/crossplane-contrib/provider-tf-aws/apis"
 )
 
 // Constants to use in generated artifacts.
@@ -42,13 +41,6 @@ const (
 	modulePath        = "github.com/crossplane-contrib/provider-tf-aws"
 	groupSuffix       = ".aws.tf.crossplane.io"
 	providerShortName = "tfaws"
-)
-
-var (
-	// We expect a function called "ProviderConfigBuilder" of type
-	// "ProviderConfigFn" (https://github.com/crossplane-contrib/terrajet/blob/4246657031f181fdaf0de83e83ceaa8735307180/pkg/terraform/controller.go#L33)
-	// available at this path
-	providerConfigBuilderPath = filepath.Join(modulePath, "internal", "clients")
 )
 
 // These resources cannot be generated because of their suffixes colliding with
@@ -87,9 +79,6 @@ func main() { // nolint:gocyclo
 	if err != nil {
 		panic(errors.Wrap(err, "cannot get working directory"))
 	}
-
-	customConfig := configuration.NewStore()
-	apis.AddToConfigStores.AddToStore(&customConfig)
 
 	groups := map[string]map[string]*schema.Resource{}
 	for name, resource := range aws.Provider().ResourcesMap {
@@ -131,7 +120,7 @@ func main() { // nolint:gocyclo
 
 		crdGen := pipeline.NewCRDGenerator(versionGen.Package(), versionGen.DirectoryPath(), strings.ToLower(group)+groupSuffix, providerShortName)
 		tfGen := pipeline.NewTerraformedGenerator(versionGen.Package(), versionGen.DirectoryPath())
-		ctrlGen := pipeline.NewControllerGenerator(wd, modulePath, strings.ToLower(group)+groupSuffix, providerConfigBuilderPath)
+		ctrlGen := pipeline.NewControllerGenerator(wd, modulePath, strings.ToLower(group)+groupSuffix)
 
 		keys := make([]string, len(resources))
 		i := 0
@@ -146,16 +135,16 @@ func main() { // nolint:gocyclo
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
 			resource := resources[name]
 			resource.Schema["region"] = regionSchema
-			c := configuration.NewResource(version, kind, name)
-			c.OverrideConfig(customConfig.GetForResource(name))
+			rc := config.NewResource(version, kind, name)
+			rc.OverrideConfig(config.Store.GetForResource(name))
 
-			if err := crdGen.Generate(c, resource); err != nil {
+			if err := crdGen.Generate(rc, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
-			if err := tfGen.Generate(c); err != nil {
+			if err := tfGen.Generate(rc); err != nil {
 				panic(errors.Wrap(err, "cannot generate terraformed"))
 			}
-			ctrlPkgPath, err := ctrlGen.Generate(c, versionGen.Package().Path())
+			ctrlPkgPath, err := ctrlGen.Generate(rc, versionGen.Package().Path())
 			if err != nil {
 				panic(errors.Wrap(err, "cannot generate controller"))
 			}

@@ -33,13 +33,22 @@ func (tr *Ec2TrafficMirrorSession) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this Ec2TrafficMirrorSession
-func (tr *Ec2TrafficMirrorSession) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *Ec2TrafficMirrorSession) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this Ec2TrafficMirrorSession
-func (tr *Ec2TrafficMirrorSession) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *Ec2TrafficMirrorSession) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this Ec2TrafficMirrorSession
@@ -49,7 +58,7 @@ func (tr *Ec2TrafficMirrorSession) GetParameters() (map[string]interface{}, erro
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this Ec2TrafficMirrorSession

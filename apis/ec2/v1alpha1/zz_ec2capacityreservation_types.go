@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Ec2CapacityReservationObservation struct {
@@ -79,14 +80,14 @@ type Ec2CapacityReservationParameters struct {
 
 // Ec2CapacityReservationSpec defines the desired state of Ec2CapacityReservation
 type Ec2CapacityReservationSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Ec2CapacityReservationParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Ec2CapacityReservationParameters `json:"forProvider"`
 }
 
 // Ec2CapacityReservationStatus defines the observed state of Ec2CapacityReservation.
 type Ec2CapacityReservationStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Ec2CapacityReservationObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Ec2CapacityReservationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

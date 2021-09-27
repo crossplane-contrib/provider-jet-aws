@@ -33,13 +33,22 @@ func (tr *VpcEndpointConnectionNotification) GetTerraformResourceIdField() strin
 }
 
 // GetObservation of this VpcEndpointConnectionNotification
-func (tr *VpcEndpointConnectionNotification) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *VpcEndpointConnectionNotification) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this VpcEndpointConnectionNotification
-func (tr *VpcEndpointConnectionNotification) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *VpcEndpointConnectionNotification) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this VpcEndpointConnectionNotification
@@ -49,7 +58,7 @@ func (tr *VpcEndpointConnectionNotification) GetParameters() (map[string]interfa
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this VpcEndpointConnectionNotification

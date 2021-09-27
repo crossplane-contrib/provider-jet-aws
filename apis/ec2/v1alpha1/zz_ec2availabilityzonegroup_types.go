@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Ec2AvailabilityZoneGroupObservation struct {
@@ -43,14 +44,14 @@ type Ec2AvailabilityZoneGroupParameters struct {
 
 // Ec2AvailabilityZoneGroupSpec defines the desired state of Ec2AvailabilityZoneGroup
 type Ec2AvailabilityZoneGroupSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Ec2AvailabilityZoneGroupParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Ec2AvailabilityZoneGroupParameters `json:"forProvider"`
 }
 
 // Ec2AvailabilityZoneGroupStatus defines the observed state of Ec2AvailabilityZoneGroup.
 type Ec2AvailabilityZoneGroupStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Ec2AvailabilityZoneGroupObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Ec2AvailabilityZoneGroupObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

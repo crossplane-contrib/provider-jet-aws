@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type S3BucketPublicAccessBlockObservation struct {
@@ -52,14 +53,14 @@ type S3BucketPublicAccessBlockParameters struct {
 
 // S3BucketPublicAccessBlockSpec defines the desired state of S3BucketPublicAccessBlock
 type S3BucketPublicAccessBlockSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       S3BucketPublicAccessBlockParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     S3BucketPublicAccessBlockParameters `json:"forProvider"`
 }
 
 // S3BucketPublicAccessBlockStatus defines the observed state of S3BucketPublicAccessBlock.
 type S3BucketPublicAccessBlockStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          S3BucketPublicAccessBlockObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        S3BucketPublicAccessBlockObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

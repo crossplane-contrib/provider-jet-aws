@@ -33,13 +33,22 @@ func (tr *DefaultNetworkAcl) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this DefaultNetworkAcl
-func (tr *DefaultNetworkAcl) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *DefaultNetworkAcl) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this DefaultNetworkAcl
-func (tr *DefaultNetworkAcl) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *DefaultNetworkAcl) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this DefaultNetworkAcl
@@ -49,7 +58,7 @@ func (tr *DefaultNetworkAcl) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this DefaultNetworkAcl

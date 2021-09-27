@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Route53ZoneObservation struct {
@@ -73,14 +74,14 @@ type VpcParameters struct {
 
 // Route53ZoneSpec defines the desired state of Route53Zone
 type Route53ZoneSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Route53ZoneParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Route53ZoneParameters `json:"forProvider"`
 }
 
 // Route53ZoneStatus defines the observed state of Route53Zone.
 type Route53ZoneStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Route53ZoneObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Route53ZoneObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

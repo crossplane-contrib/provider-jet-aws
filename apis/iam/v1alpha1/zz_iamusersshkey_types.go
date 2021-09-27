@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type IamUserSshKeyObservation struct {
@@ -52,14 +53,14 @@ type IamUserSshKeyParameters struct {
 
 // IamUserSshKeySpec defines the desired state of IamUserSshKey
 type IamUserSshKeySpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       IamUserSshKeyParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     IamUserSshKeyParameters `json:"forProvider"`
 }
 
 // IamUserSshKeyStatus defines the observed state of IamUserSshKey.
 type IamUserSshKeyStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          IamUserSshKeyObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        IamUserSshKeyObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

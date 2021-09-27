@@ -33,13 +33,22 @@ func (tr *Ec2ClientVpnAuthorizationRule) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this Ec2ClientVpnAuthorizationRule
-func (tr *Ec2ClientVpnAuthorizationRule) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *Ec2ClientVpnAuthorizationRule) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this Ec2ClientVpnAuthorizationRule
-func (tr *Ec2ClientVpnAuthorizationRule) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *Ec2ClientVpnAuthorizationRule) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this Ec2ClientVpnAuthorizationRule
@@ -49,7 +58,7 @@ func (tr *Ec2ClientVpnAuthorizationRule) GetParameters() (map[string]interface{}
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this Ec2ClientVpnAuthorizationRule

@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type IamRolePolicyAttachmentObservation struct {
@@ -43,14 +44,14 @@ type IamRolePolicyAttachmentParameters struct {
 
 // IamRolePolicyAttachmentSpec defines the desired state of IamRolePolicyAttachment
 type IamRolePolicyAttachmentSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       IamRolePolicyAttachmentParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     IamRolePolicyAttachmentParameters `json:"forProvider"`
 }
 
 // IamRolePolicyAttachmentStatus defines the observed state of IamRolePolicyAttachment.
 type IamRolePolicyAttachmentStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          IamRolePolicyAttachmentObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        IamRolePolicyAttachmentObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

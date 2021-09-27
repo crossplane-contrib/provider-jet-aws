@@ -33,13 +33,22 @@ func (tr *Route53ResolverEndpoint) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this Route53ResolverEndpoint
-func (tr *Route53ResolverEndpoint) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *Route53ResolverEndpoint) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this Route53ResolverEndpoint
-func (tr *Route53ResolverEndpoint) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *Route53ResolverEndpoint) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this Route53ResolverEndpoint
@@ -49,7 +58,7 @@ func (tr *Route53ResolverEndpoint) GetParameters() (map[string]interface{}, erro
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this Route53ResolverEndpoint

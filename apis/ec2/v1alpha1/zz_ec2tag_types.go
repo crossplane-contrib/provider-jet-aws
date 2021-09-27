@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Ec2TagObservation struct {
@@ -46,14 +47,14 @@ type Ec2TagParameters struct {
 
 // Ec2TagSpec defines the desired state of Ec2Tag
 type Ec2TagSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Ec2TagParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Ec2TagParameters `json:"forProvider"`
 }
 
 // Ec2TagStatus defines the observed state of Ec2Tag.
 type Ec2TagStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Ec2TagObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Ec2TagObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

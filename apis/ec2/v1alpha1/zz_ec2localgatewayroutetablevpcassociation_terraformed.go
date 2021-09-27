@@ -33,13 +33,22 @@ func (tr *Ec2LocalGatewayRouteTableVpcAssociation) GetTerraformResourceIdField()
 }
 
 // GetObservation of this Ec2LocalGatewayRouteTableVpcAssociation
-func (tr *Ec2LocalGatewayRouteTableVpcAssociation) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *Ec2LocalGatewayRouteTableVpcAssociation) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this Ec2LocalGatewayRouteTableVpcAssociation
-func (tr *Ec2LocalGatewayRouteTableVpcAssociation) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *Ec2LocalGatewayRouteTableVpcAssociation) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this Ec2LocalGatewayRouteTableVpcAssociation
@@ -49,7 +58,7 @@ func (tr *Ec2LocalGatewayRouteTableVpcAssociation) GetParameters() (map[string]i
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this Ec2LocalGatewayRouteTableVpcAssociation

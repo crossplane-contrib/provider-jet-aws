@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Route53ResolverRuleAssociationObservation struct {
@@ -46,14 +47,14 @@ type Route53ResolverRuleAssociationParameters struct {
 
 // Route53ResolverRuleAssociationSpec defines the desired state of Route53ResolverRuleAssociation
 type Route53ResolverRuleAssociationSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Route53ResolverRuleAssociationParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Route53ResolverRuleAssociationParameters `json:"forProvider"`
 }
 
 // Route53ResolverRuleAssociationStatus defines the observed state of Route53ResolverRuleAssociation.
 type Route53ResolverRuleAssociationStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Route53ResolverRuleAssociationObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Route53ResolverRuleAssociationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

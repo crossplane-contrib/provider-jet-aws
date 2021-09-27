@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type VpcIpv4CidrBlockAssociationObservation struct {
@@ -43,14 +44,14 @@ type VpcIpv4CidrBlockAssociationParameters struct {
 
 // VpcIpv4CidrBlockAssociationSpec defines the desired state of VpcIpv4CidrBlockAssociation
 type VpcIpv4CidrBlockAssociationSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       VpcIpv4CidrBlockAssociationParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     VpcIpv4CidrBlockAssociationParameters `json:"forProvider"`
 }
 
 // VpcIpv4CidrBlockAssociationStatus defines the observed state of VpcIpv4CidrBlockAssociation.
 type VpcIpv4CidrBlockAssociationStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          VpcIpv4CidrBlockAssociationObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        VpcIpv4CidrBlockAssociationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

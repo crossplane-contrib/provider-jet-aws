@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Route53VpcAssociationAuthorizationObservation struct {
@@ -46,14 +47,14 @@ type Route53VpcAssociationAuthorizationParameters struct {
 
 // Route53VpcAssociationAuthorizationSpec defines the desired state of Route53VpcAssociationAuthorization
 type Route53VpcAssociationAuthorizationSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Route53VpcAssociationAuthorizationParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Route53VpcAssociationAuthorizationParameters `json:"forProvider"`
 }
 
 // Route53VpcAssociationAuthorizationStatus defines the observed state of Route53VpcAssociationAuthorization.
 type Route53VpcAssociationAuthorizationStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Route53VpcAssociationAuthorizationObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Route53VpcAssociationAuthorizationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type IamServerCertificateObservation struct {
@@ -66,14 +67,14 @@ type IamServerCertificateParameters struct {
 
 // IamServerCertificateSpec defines the desired state of IamServerCertificate
 type IamServerCertificateSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       IamServerCertificateParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     IamServerCertificateParameters `json:"forProvider"`
 }
 
 // IamServerCertificateStatus defines the observed state of IamServerCertificate.
 type IamServerCertificateStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          IamServerCertificateObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        IamServerCertificateObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

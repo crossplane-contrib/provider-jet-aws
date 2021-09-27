@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Route53ResolverFirewallRuleObservation struct {
@@ -64,14 +65,14 @@ type Route53ResolverFirewallRuleParameters struct {
 
 // Route53ResolverFirewallRuleSpec defines the desired state of Route53ResolverFirewallRule
 type Route53ResolverFirewallRuleSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Route53ResolverFirewallRuleParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Route53ResolverFirewallRuleParameters `json:"forProvider"`
 }
 
 // Route53ResolverFirewallRuleStatus defines the observed state of Route53ResolverFirewallRule.
 type Route53ResolverFirewallRuleStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Route53ResolverFirewallRuleObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Route53ResolverFirewallRuleObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

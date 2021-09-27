@@ -20,6 +20,7 @@ package v1alpha1
 
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/json"
+	"github.com/crossplane/crossplane-runtime/pkg/meta"
 )
 
 // GetTerraformResourceType returns Terraform resource type for this RdsCluster
@@ -33,13 +34,22 @@ func (tr *RdsCluster) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this RdsCluster
-func (tr *RdsCluster) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *RdsCluster) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this RdsCluster
-func (tr *RdsCluster) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *RdsCluster) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this RdsCluster
@@ -49,7 +59,8 @@ func (tr *RdsCluster) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	rdsClusterExternalNameConfigure(base, meta.GetExternalName(tr))
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this RdsCluster

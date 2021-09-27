@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type GlobalClusterMembersObservation struct {
@@ -75,14 +76,14 @@ type RdsGlobalClusterParameters struct {
 
 // RdsGlobalClusterSpec defines the desired state of RdsGlobalCluster
 type RdsGlobalClusterSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       RdsGlobalClusterParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     RdsGlobalClusterParameters `json:"forProvider"`
 }
 
 // RdsGlobalClusterStatus defines the observed state of RdsGlobalCluster.
 type RdsGlobalClusterStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          RdsGlobalClusterObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        RdsGlobalClusterObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -33,13 +33,22 @@ func (tr *RouteTableAssociation) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this RouteTableAssociation
-func (tr *RouteTableAssociation) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *RouteTableAssociation) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this RouteTableAssociation
-func (tr *RouteTableAssociation) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *RouteTableAssociation) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this RouteTableAssociation
@@ -49,7 +58,7 @@ func (tr *RouteTableAssociation) GetParameters() (map[string]interface{}, error)
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this RouteTableAssociation
