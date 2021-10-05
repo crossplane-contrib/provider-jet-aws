@@ -19,6 +19,9 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"github.com/pkg/errors"
+
+	"github.com/crossplane-contrib/terrajet/pkg/conversion"
 	"github.com/crossplane-contrib/terrajet/pkg/json"
 )
 
@@ -33,13 +36,22 @@ func (tr *Ec2TransitGatewayPeeringAttachmentAccepter) GetTerraformResourceIdFiel
 }
 
 // GetObservation of this Ec2TransitGatewayPeeringAttachmentAccepter
-func (tr *Ec2TransitGatewayPeeringAttachmentAccepter) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *Ec2TransitGatewayPeeringAttachmentAccepter) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this Ec2TransitGatewayPeeringAttachmentAccepter
-func (tr *Ec2TransitGatewayPeeringAttachmentAccepter) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *Ec2TransitGatewayPeeringAttachmentAccepter) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this Ec2TransitGatewayPeeringAttachmentAccepter
@@ -49,7 +61,7 @@ func (tr *Ec2TransitGatewayPeeringAttachmentAccepter) GetParameters() (map[strin
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this Ec2TransitGatewayPeeringAttachmentAccepter
@@ -59,4 +71,16 @@ func (tr *Ec2TransitGatewayPeeringAttachmentAccepter) SetParameters(params map[s
 		return err
 	}
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this Ec2TransitGatewayPeeringAttachmentAccepter using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *Ec2TransitGatewayPeeringAttachmentAccepter) LateInitialize(attrs []byte) (bool, error) {
+	params := &Ec2TransitGatewayPeeringAttachmentAccepterParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	li := conversion.NewLateInitializer(conversion.WithZeroValueJSONOmitEmptyFilter(conversion.CNameWildcard),
+		conversion.WithZeroElemPtrFilter(conversion.CNameWildcard))
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }

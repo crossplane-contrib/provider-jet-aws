@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type S3BucketPolicyObservation struct {
@@ -43,14 +44,14 @@ type S3BucketPolicyParameters struct {
 
 // S3BucketPolicySpec defines the desired state of S3BucketPolicy
 type S3BucketPolicySpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       S3BucketPolicyParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     S3BucketPolicyParameters `json:"forProvider"`
 }
 
 // S3BucketPolicyStatus defines the observed state of S3BucketPolicy.
 type S3BucketPolicyStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          S3BucketPolicyObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        S3BucketPolicyObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

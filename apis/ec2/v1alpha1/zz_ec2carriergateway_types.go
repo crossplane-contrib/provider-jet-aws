@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Ec2CarrierGatewayObservation struct {
@@ -49,14 +50,14 @@ type Ec2CarrierGatewayParameters struct {
 
 // Ec2CarrierGatewaySpec defines the desired state of Ec2CarrierGateway
 type Ec2CarrierGatewaySpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Ec2CarrierGatewayParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Ec2CarrierGatewayParameters `json:"forProvider"`
 }
 
 // Ec2CarrierGatewayStatus defines the observed state of Ec2CarrierGateway.
 type Ec2CarrierGatewayStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Ec2CarrierGatewayObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Ec2CarrierGatewayObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

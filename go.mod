@@ -4,9 +4,9 @@ go 1.16
 
 require (
 	github.com/aws/aws-sdk-go-v2 v0.23.0
-	github.com/crossplane-contrib/terrajet v0.0.0-20210924125828-b4627e875756
+	github.com/crossplane-contrib/terrajet v0.0.0-20211005100111-ecc982116498
 	github.com/crossplane/crossplane-runtime v0.15.0
-	github.com/crossplane/crossplane-tools v0.0.0-20210320162312-1baca298c527
+	github.com/crossplane/crossplane-tools v0.0.0-20210916125540-071de511ae8e
 	github.com/crossplane/provider-aws v0.19.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.7.0
 	github.com/iancoleman/strcase v0.2.0

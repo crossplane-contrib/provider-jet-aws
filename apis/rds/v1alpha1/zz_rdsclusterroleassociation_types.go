@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type RdsClusterRoleAssociationObservation struct {
@@ -46,14 +47,14 @@ type RdsClusterRoleAssociationParameters struct {
 
 // RdsClusterRoleAssociationSpec defines the desired state of RdsClusterRoleAssociation
 type RdsClusterRoleAssociationSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       RdsClusterRoleAssociationParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     RdsClusterRoleAssociationParameters `json:"forProvider"`
 }
 
 // RdsClusterRoleAssociationStatus defines the observed state of RdsClusterRoleAssociation.
 type RdsClusterRoleAssociationStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          RdsClusterRoleAssociationObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        RdsClusterRoleAssociationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

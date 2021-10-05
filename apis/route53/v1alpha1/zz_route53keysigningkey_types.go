@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Route53KeySigningKeyObservation struct {
@@ -68,14 +69,14 @@ type Route53KeySigningKeyParameters struct {
 
 // Route53KeySigningKeySpec defines the desired state of Route53KeySigningKey
 type Route53KeySigningKeySpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Route53KeySigningKeyParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Route53KeySigningKeyParameters `json:"forProvider"`
 }
 
 // Route53KeySigningKeyStatus defines the observed state of Route53KeySigningKey.
 type Route53KeySigningKeyStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Route53KeySigningKeyObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Route53KeySigningKeyObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

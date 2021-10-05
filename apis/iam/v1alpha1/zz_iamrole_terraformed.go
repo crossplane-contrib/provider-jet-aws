@@ -19,6 +19,9 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"github.com/pkg/errors"
+
+	"github.com/crossplane-contrib/terrajet/pkg/conversion"
 	"github.com/crossplane-contrib/terrajet/pkg/json"
 	"github.com/crossplane/crossplane-runtime/pkg/meta"
 )
@@ -34,13 +37,22 @@ func (tr *IamRole) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this IamRole
-func (tr *IamRole) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *IamRole) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this IamRole
-func (tr *IamRole) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *IamRole) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this IamRole
@@ -50,8 +62,8 @@ func (tr *IamRole) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	IAMRoleExternalNameConfig.Configure(base, meta.GetExternalName(tr))
-	return base, json.JSParser.Unmarshal(p, &base)
+	iamExternalNameConfigure(base, meta.GetExternalName(tr))
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this IamRole
@@ -61,4 +73,16 @@ func (tr *IamRole) SetParameters(params map[string]interface{}) error {
 		return err
 	}
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this IamRole using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *IamRole) LateInitialize(attrs []byte) (bool, error) {
+	params := &IamRoleParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	li := conversion.NewLateInitializer(conversion.WithZeroValueJSONOmitEmptyFilter(conversion.CNameWildcard),
+		conversion.WithZeroElemPtrFilter(conversion.CNameWildcard))
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }

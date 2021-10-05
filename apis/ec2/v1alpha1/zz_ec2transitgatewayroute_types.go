@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Ec2TransitGatewayRouteObservation struct {
@@ -49,14 +50,14 @@ type Ec2TransitGatewayRouteParameters struct {
 
 // Ec2TransitGatewayRouteSpec defines the desired state of Ec2TransitGatewayRoute
 type Ec2TransitGatewayRouteSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Ec2TransitGatewayRouteParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Ec2TransitGatewayRouteParameters `json:"forProvider"`
 }
 
 // Ec2TransitGatewayRouteStatus defines the observed state of Ec2TransitGatewayRoute.
 type Ec2TransitGatewayRouteStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Ec2TransitGatewayRouteObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Ec2TransitGatewayRouteObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

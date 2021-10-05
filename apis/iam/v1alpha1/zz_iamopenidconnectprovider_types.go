@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type IamOpenidConnectProviderObservation struct {
@@ -53,14 +54,14 @@ type IamOpenidConnectProviderParameters struct {
 
 // IamOpenidConnectProviderSpec defines the desired state of IamOpenidConnectProvider
 type IamOpenidConnectProviderSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       IamOpenidConnectProviderParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     IamOpenidConnectProviderParameters `json:"forProvider"`
 }
 
 // IamOpenidConnectProviderStatus defines the observed state of IamOpenidConnectProvider.
 type IamOpenidConnectProviderStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          IamOpenidConnectProviderObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        IamOpenidConnectProviderObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

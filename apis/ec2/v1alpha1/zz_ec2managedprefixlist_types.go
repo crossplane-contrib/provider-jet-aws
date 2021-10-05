@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Ec2ManagedPrefixListObservation struct {
@@ -72,14 +73,14 @@ type EntryParameters struct {
 
 // Ec2ManagedPrefixListSpec defines the desired state of Ec2ManagedPrefixList
 type Ec2ManagedPrefixListSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Ec2ManagedPrefixListParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Ec2ManagedPrefixListParameters `json:"forProvider"`
 }
 
 // Ec2ManagedPrefixListStatus defines the observed state of Ec2ManagedPrefixList.
 type Ec2ManagedPrefixListStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Ec2ManagedPrefixListObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Ec2ManagedPrefixListObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

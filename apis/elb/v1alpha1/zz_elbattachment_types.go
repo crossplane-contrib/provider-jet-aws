@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type ElbAttachmentObservation struct {
@@ -43,14 +44,14 @@ type ElbAttachmentParameters struct {
 
 // ElbAttachmentSpec defines the desired state of ElbAttachment
 type ElbAttachmentSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       ElbAttachmentParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     ElbAttachmentParameters `json:"forProvider"`
 }
 
 // ElbAttachmentStatus defines the observed state of ElbAttachment.
 type ElbAttachmentStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          ElbAttachmentObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        ElbAttachmentObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type DefaultVpcDhcpOptionsObservation struct {
@@ -59,14 +60,14 @@ type DefaultVpcDhcpOptionsParameters struct {
 
 // DefaultVpcDhcpOptionsSpec defines the desired state of DefaultVpcDhcpOptions
 type DefaultVpcDhcpOptionsSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       DefaultVpcDhcpOptionsParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     DefaultVpcDhcpOptionsParameters `json:"forProvider"`
 }
 
 // DefaultVpcDhcpOptionsStatus defines the observed state of DefaultVpcDhcpOptions.
 type DefaultVpcDhcpOptionsStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          DefaultVpcDhcpOptionsObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        DefaultVpcDhcpOptionsObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

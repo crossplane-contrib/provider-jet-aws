@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Ec2TrafficMirrorTargetObservation struct {
@@ -55,14 +56,14 @@ type Ec2TrafficMirrorTargetParameters struct {
 
 // Ec2TrafficMirrorTargetSpec defines the desired state of Ec2TrafficMirrorTarget
 type Ec2TrafficMirrorTargetSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Ec2TrafficMirrorTargetParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Ec2TrafficMirrorTargetParameters `json:"forProvider"`
 }
 
 // Ec2TrafficMirrorTargetStatus defines the observed state of Ec2TrafficMirrorTarget.
 type Ec2TrafficMirrorTargetStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Ec2TrafficMirrorTargetObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Ec2TrafficMirrorTargetObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

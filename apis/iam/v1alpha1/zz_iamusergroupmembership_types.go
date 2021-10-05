@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type IamUserGroupMembershipObservation struct {
@@ -43,14 +44,14 @@ type IamUserGroupMembershipParameters struct {
 
 // IamUserGroupMembershipSpec defines the desired state of IamUserGroupMembership
 type IamUserGroupMembershipSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       IamUserGroupMembershipParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     IamUserGroupMembershipParameters `json:"forProvider"`
 }
 
 // IamUserGroupMembershipStatus defines the observed state of IamUserGroupMembership.
 type IamUserGroupMembershipStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          IamUserGroupMembershipObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        IamUserGroupMembershipObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

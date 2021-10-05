@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type RdsClusterObservation struct {
@@ -180,8 +181,15 @@ type S3ImportObservation struct {
 
 type S3ImportParameters struct {
 
-	// +kubebuilder:validation:Required
-	BucketName string `json:"bucketName" tf:"bucket_name"`
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.S3Bucket
+	// +kubebuilder:validation:Optional
+	BucketName string `json:"bucketName,omitempty" tf:"bucket_name"`
+
+	// +kubebuilder:validation:Optional
+	BucketNameRef *v1.Reference `json:"bucketNameRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	BucketNameSelector *v1.Selector `json:"bucketNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	BucketPrefix *string `json:"bucketPrefix,omitempty" tf:"bucket_prefix"`
@@ -219,14 +227,14 @@ type ScalingConfigurationParameters struct {
 
 // RdsClusterSpec defines the desired state of RdsCluster
 type RdsClusterSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       RdsClusterParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     RdsClusterParameters `json:"forProvider"`
 }
 
 // RdsClusterStatus defines the observed state of RdsCluster.
 type RdsClusterStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          RdsClusterObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        RdsClusterObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

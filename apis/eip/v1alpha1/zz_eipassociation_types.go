@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type EipAssociationObservation struct {
@@ -55,14 +56,14 @@ type EipAssociationParameters struct {
 
 // EipAssociationSpec defines the desired state of EipAssociation
 type EipAssociationSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       EipAssociationParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     EipAssociationParameters `json:"forProvider"`
 }
 
 // EipAssociationStatus defines the observed state of EipAssociation.
 type EipAssociationStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          EipAssociationObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        EipAssociationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

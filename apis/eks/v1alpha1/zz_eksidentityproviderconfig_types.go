@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type EksIdentityProviderConfigObservation struct {
@@ -82,14 +83,14 @@ type EksIdentityProviderConfigParameters struct {
 
 // EksIdentityProviderConfigSpec defines the desired state of EksIdentityProviderConfig
 type EksIdentityProviderConfigSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       EksIdentityProviderConfigParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     EksIdentityProviderConfigParameters `json:"forProvider"`
 }
 
 // EksIdentityProviderConfigStatus defines the observed state of EksIdentityProviderConfig.
 type EksIdentityProviderConfigStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          EksIdentityProviderConfigObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        EksIdentityProviderConfigObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

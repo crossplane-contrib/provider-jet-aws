@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type CapacityReservationSpecificationObservation struct {
@@ -338,14 +339,14 @@ type RootBlockDeviceParameters struct {
 
 // InstanceSpec defines the desired state of Instance
 type InstanceSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       InstanceParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     InstanceParameters `json:"forProvider"`
 }
 
 // InstanceStatus defines the observed state of Instance.
 type InstanceStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          InstanceObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        InstanceObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

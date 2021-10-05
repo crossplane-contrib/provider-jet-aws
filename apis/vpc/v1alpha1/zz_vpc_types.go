@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type VpcObservation struct {
@@ -81,14 +82,14 @@ type VpcParameters struct {
 
 // VpcSpec defines the desired state of Vpc
 type VpcSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       VpcParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     VpcParameters `json:"forProvider"`
 }
 
 // VpcStatus defines the observed state of Vpc.
 type VpcStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          VpcObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        VpcObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

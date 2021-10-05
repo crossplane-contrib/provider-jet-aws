@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type Route53QueryLogObservation struct {
@@ -43,14 +44,14 @@ type Route53QueryLogParameters struct {
 
 // Route53QueryLogSpec defines the desired state of Route53QueryLog
 type Route53QueryLogSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       Route53QueryLogParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     Route53QueryLogParameters `json:"forProvider"`
 }
 
 // Route53QueryLogStatus defines the observed state of Route53QueryLog.
 type Route53QueryLogStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          Route53QueryLogObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        Route53QueryLogObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

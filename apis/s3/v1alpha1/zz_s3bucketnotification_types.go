@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type LambdaFunctionObservation struct {
@@ -112,14 +113,14 @@ type TopicParameters struct {
 
 // S3BucketNotificationSpec defines the desired state of S3BucketNotification
 type S3BucketNotificationSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       S3BucketNotificationParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     S3BucketNotificationParameters `json:"forProvider"`
 }
 
 // S3BucketNotificationStatus defines the observed state of S3BucketNotification.
 type S3BucketNotificationStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          S3BucketNotificationObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        S3BucketNotificationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

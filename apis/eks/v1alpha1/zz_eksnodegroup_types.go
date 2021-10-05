@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type AutoscalingGroupsObservation struct {
@@ -172,14 +173,14 @@ type TaintParameters struct {
 
 // EksNodeGroupSpec defines the desired state of EksNodeGroup
 type EksNodeGroupSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       EksNodeGroupParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     EksNodeGroupParameters `json:"forProvider"`
 }
 
 // EksNodeGroupStatus defines the observed state of EksNodeGroup.
 type EksNodeGroupStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          EksNodeGroupObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        EksNodeGroupObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

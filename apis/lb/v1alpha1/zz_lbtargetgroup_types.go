@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type HealthCheckObservation struct {
@@ -142,14 +143,14 @@ type LbTargetGroupStickinessParameters struct {
 
 // LbTargetGroupSpec defines the desired state of LbTargetGroup
 type LbTargetGroupSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       LbTargetGroupParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     LbTargetGroupParameters `json:"forProvider"`
 }
 
 // LbTargetGroupStatus defines the observed state of LbTargetGroup.
 type LbTargetGroupStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          LbTargetGroupObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        LbTargetGroupObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

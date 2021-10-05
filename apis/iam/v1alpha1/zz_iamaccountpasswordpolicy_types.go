@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type IamAccountPasswordPolicyObservation struct {
@@ -65,14 +66,14 @@ type IamAccountPasswordPolicyParameters struct {
 
 // IamAccountPasswordPolicySpec defines the desired state of IamAccountPasswordPolicy
 type IamAccountPasswordPolicySpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       IamAccountPasswordPolicyParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     IamAccountPasswordPolicyParameters `json:"forProvider"`
 }
 
 // IamAccountPasswordPolicyStatus defines the observed state of IamAccountPasswordPolicy.
 type IamAccountPasswordPolicyStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          IamAccountPasswordPolicyObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        IamAccountPasswordPolicyObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

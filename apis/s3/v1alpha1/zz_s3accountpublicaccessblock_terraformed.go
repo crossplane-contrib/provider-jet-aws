@@ -19,6 +19,9 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"github.com/pkg/errors"
+
+	"github.com/crossplane-contrib/terrajet/pkg/conversion"
 	"github.com/crossplane-contrib/terrajet/pkg/json"
 )
 
@@ -33,13 +36,22 @@ func (tr *S3AccountPublicAccessBlock) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this S3AccountPublicAccessBlock
-func (tr *S3AccountPublicAccessBlock) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *S3AccountPublicAccessBlock) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this S3AccountPublicAccessBlock
-func (tr *S3AccountPublicAccessBlock) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *S3AccountPublicAccessBlock) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this S3AccountPublicAccessBlock
@@ -49,7 +61,7 @@ func (tr *S3AccountPublicAccessBlock) GetParameters() (map[string]interface{}, e
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this S3AccountPublicAccessBlock
@@ -59,4 +71,16 @@ func (tr *S3AccountPublicAccessBlock) SetParameters(params map[string]interface{
 		return err
 	}
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this S3AccountPublicAccessBlock using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *S3AccountPublicAccessBlock) LateInitialize(attrs []byte) (bool, error) {
+	params := &S3AccountPublicAccessBlockParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	li := conversion.NewLateInitializer(conversion.WithZeroValueJSONOmitEmptyFilter(conversion.CNameWildcard),
+		conversion.WithZeroElemPtrFilter(conversion.CNameWildcard))
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }

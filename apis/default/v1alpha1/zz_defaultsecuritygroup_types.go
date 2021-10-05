@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type DefaultSecurityGroupEgressObservation struct {
@@ -128,14 +129,14 @@ type DefaultSecurityGroupParameters struct {
 
 // DefaultSecurityGroupSpec defines the desired state of DefaultSecurityGroup
 type DefaultSecurityGroupSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       DefaultSecurityGroupParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     DefaultSecurityGroupParameters `json:"forProvider"`
 }
 
 // DefaultSecurityGroupStatus defines the observed state of DefaultSecurityGroup.
 type DefaultSecurityGroupStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          DefaultSecurityGroupObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        DefaultSecurityGroupObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

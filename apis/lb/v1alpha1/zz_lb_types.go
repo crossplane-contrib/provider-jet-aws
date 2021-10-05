@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type AccessLogsObservation struct {
@@ -131,14 +132,14 @@ type SubnetMappingParameters struct {
 
 // LbSpec defines the desired state of Lb
 type LbSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       LbParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     LbParameters `json:"forProvider"`
 }
 
 // LbStatus defines the observed state of Lb.
 type LbStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          LbObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        LbObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

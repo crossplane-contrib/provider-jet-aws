@@ -19,6 +19,9 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"github.com/pkg/errors"
+
+	"github.com/crossplane-contrib/terrajet/pkg/conversion"
 	"github.com/crossplane-contrib/terrajet/pkg/json"
 )
 
@@ -33,13 +36,22 @@ func (tr *Ec2ClientVpnEndpoint) GetTerraformResourceIdField() string {
 }
 
 // GetObservation of this Ec2ClientVpnEndpoint
-func (tr *Ec2ClientVpnEndpoint) GetObservation() ([]byte, error) {
-	return json.TFParser.Marshal(tr.Status.AtProvider)
+func (tr *Ec2ClientVpnEndpoint) GetObservation() (map[string]interface{}, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]interface{}{}
+	return base, json.TFParser.Unmarshal(o, &base)
 }
 
 // SetObservation for this Ec2ClientVpnEndpoint
-func (tr *Ec2ClientVpnEndpoint) SetObservation(data []byte) error {
-	return json.TFParser.Unmarshal(data, &tr.Status.AtProvider)
+func (tr *Ec2ClientVpnEndpoint) SetObservation(obs map[string]interface{}) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
 // GetParameters of this Ec2ClientVpnEndpoint
@@ -49,7 +61,7 @@ func (tr *Ec2ClientVpnEndpoint) GetParameters() (map[string]interface{}, error) 
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.JSParser.Unmarshal(p, &base)
+	return base, json.TFParser.Unmarshal(p, &base)
 }
 
 // SetParameters for this Ec2ClientVpnEndpoint
@@ -59,4 +71,16 @@ func (tr *Ec2ClientVpnEndpoint) SetParameters(params map[string]interface{}) err
 		return err
 	}
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this Ec2ClientVpnEndpoint using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *Ec2ClientVpnEndpoint) LateInitialize(attrs []byte) (bool, error) {
+	params := &Ec2ClientVpnEndpointParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	li := conversion.NewLateInitializer(conversion.WithZeroValueJSONOmitEmptyFilter(conversion.CNameWildcard),
+		conversion.WithZeroElemPtrFilter(conversion.CNameWildcard))
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }

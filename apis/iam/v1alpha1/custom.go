@@ -16,15 +16,17 @@ limitations under the License.
 
 package v1alpha1
 
-import "github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
+import (
+	"github.com/crossplane-contrib/terrajet/pkg/config"
+)
 
-var (
-	// IAMRoleExternalNameConfig is config for external name mechanism of IAMRole.
-	IAMRoleExternalNameConfig = resource.ExternalNameConfiguration{
-		SelfVarPath: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.IAMRoleExternalNameConfig",
-		Configure: func(base map[string]interface{}, externalName string) {
-			base["name"] = externalName
-		},
+func iamExternalNameConfigure(base map[string]interface{}, externalName string) {
+	base["name"] = externalName
+}
+
+var iamRoleCustomConfig = config.Resource{
+	ExternalName: config.ExternalName{
+		ConfigureFunctionPath: "iamExternalNameConfigure",
 		OmittedFields: []string{
 			"name",
 			"name_prefix",
@@ -32,18 +34,29 @@ var (
 		// Set to false explicitly. For this resource, metadata.name is suitable
 		// to be the default for external name.
 		DisableNameInitializer: false,
-	}
-	// IAMUserExternalNameConfig is config for external name mechanism of IAMUser.
-	IAMUserExternalNameConfig = resource.ExternalNameConfiguration{
-		SelfVarPath: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.IAMUserExternalNameConfig",
-		Configure: func(base map[string]interface{}, externalName string) {
-			base["name"] = externalName
+	},
+	/*	Reference: map[string]resource.FieldReferenceconfig{
+		"ManagedPolicyArns": {
+			ReferenceToType: types.PathForType(IamPolicy{}),
+			// TODO(hasan): fix below
+			ReferenceExtractor: "github.com/crossplane/provider-aws/apis/ec2/v1beta1.SubnetARN()",
 		},
+	},*/
+}
+
+var iamUserCustomConfig = config.Resource{
+	ExternalName: config.ExternalName{
+		ConfigureFunctionPath: "iamExternalNameConfigure",
 		OmittedFields: []string{
 			"name",
 		},
 		// Set to false explicitly. For this resource, metadata.name is suitable
 		// to be the default for external name.
 		DisableNameInitializer: false,
-	}
-)
+	},
+}
+
+func init() {
+	config.Store.SetForResource("aws_iam_user", iamUserCustomConfig)
+	config.Store.SetForResource("aws_iam_role", iamRoleCustomConfig)
+}

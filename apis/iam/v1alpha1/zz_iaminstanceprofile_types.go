@@ -19,9 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+
+	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
 type IamInstanceProfileObservation struct {
@@ -60,14 +61,14 @@ type IamInstanceProfileParameters struct {
 
 // IamInstanceProfileSpec defines the desired state of IamInstanceProfile
 type IamInstanceProfileSpec struct {
-	xpv1.ResourceSpec `json:",inline"`
-	ForProvider       IamInstanceProfileParameters `json:"forProvider"`
+	v1.ResourceSpec `json:",inline"`
+	ForProvider     IamInstanceProfileParameters `json:"forProvider"`
 }
 
 // IamInstanceProfileStatus defines the observed state of IamInstanceProfile.
 type IamInstanceProfileStatus struct {
-	xpv1.ResourceStatus `json:",inline"`
-	AtProvider          IamInstanceProfileObservation `json:"atProvider,omitempty"`
+	v1.ResourceStatus `json:",inline"`
+	AtProvider        IamInstanceProfileObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

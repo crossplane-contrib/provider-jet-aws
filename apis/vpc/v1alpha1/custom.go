@@ -1,13 +1,23 @@
 package v1alpha1
 
-import "github.com/crossplane-contrib/terrajet/pkg/terraform/resource"
+import (
+	"github.com/crossplane-contrib/terrajet/pkg/config"
+)
 
-var (
-	// VPCExternalNameConfig is config for external name mechanism of VPC.
-	VPCExternalNameConfig = resource.ExternalNameConfiguration{
-		SelfVarPath: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.VPCExternalNameConfig",
-		Configure:   resource.NopConfigureWithName,
+func vpcExternalNameConfigure(_ map[string]interface{}, _ string) {}
+
+var vpcCustomConfig = config.Resource{
+	ExternalName: config.ExternalName{
+		ConfigureFunctionPath: "vpcExternalNameConfigure",
+		OmittedFields: []string{
+			"cluster_identifier",
+			"cluster_identifier_prefix",
+		},
 		// Set to true explicitly since the value is calculated by AWS.
 		DisableNameInitializer: true,
-	}
-)
+	},
+}
+
+func init() {
+	config.Store.SetForResource("aws_vpc", vpcCustomConfig)
+}
