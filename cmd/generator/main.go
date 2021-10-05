@@ -136,12 +136,14 @@ func main() { // nolint:gocyclo
 			resource := resources[name]
 			resource.Schema["region"] = regionSchema
 			rc := config.NewResource(version, kind, name)
-			rc.OverrideConfig(config.Store.GetForResource(name))
+			if err = rc.OverrideConfig(config.Store.GetForResource(name)); err != nil {
+				panic(errors.Wrap(err, "cannot override config"))
+			}
 
-			if err := crdGen.Generate(rc, resource); err != nil {
+			if err = crdGen.Generate(rc, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
-			if err := tfGen.Generate(rc); err != nil {
+			if err = tfGen.Generate(rc); err != nil {
 				panic(errors.Wrap(err, "cannot generate terraformed"))
 			}
 			ctrlPkgPath, err := ctrlGen.Generate(rc, versionGen.Package().Path())
