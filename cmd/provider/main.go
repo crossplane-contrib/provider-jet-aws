@@ -20,6 +20,8 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/crossplane-contrib/terrajet/pkg/terraform"
+
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	"gopkg.in/alecthomas/kingpin.v2"
@@ -63,9 +65,11 @@ func main() {
 		SyncPeriod:       syncPeriod,
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")
+	ws := terraform.NewWorkspaceStore(log)
+	setup := clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion)
 
-	rl := ratelimiter.NewDefaultProviderRateLimiter(ratelimiter.DefaultProviderRPS)
+	rl := ratelimiter.NewGlobal(ratelimiter.DefaultGlobalRPS)
 	kingpin.FatalIfError(apis.AddToScheme(mgr.GetScheme()), "Cannot add AWS APIs to scheme")
-	kingpin.FatalIfError(controller.Setup(mgr, log, rl, clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion), 1), "Cannot setup AWS controllers")
+	kingpin.FatalIfError(controller.Setup(mgr, log, rl, setup, ws, 1), "Cannot setup AWS controllers")
 	kingpin.FatalIfError(mgr.Start(ctrl.SetupSignalHandler()), "Cannot start controller manager")
 }

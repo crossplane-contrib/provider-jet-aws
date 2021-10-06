@@ -5,7 +5,6 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
-	"github.com/crossplane-contrib/terrajet/pkg/tfcli"
 	xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
@@ -22,10 +21,10 @@ import (
 // configuration like provider credentials used to connect to cloud APIs in the
 // expected form of a Terraform provider.
 func TerraformSetupBuilder(version, providerSource, providerVersion string) terraform.SetupFn { //nolint:gocyclo
-	return func(ctx context.Context, client client.Client, mg resource.Managed) (tfcli.TerraformSetup, error) {
-		ps := tfcli.TerraformSetup{
+	return func(ctx context.Context, client client.Client, mg resource.Managed) (terraform.Setup, error) {
+		ps := terraform.Setup{
 			Version: version,
-			Requirement: tfcli.ProviderRequirement{
+			Requirement: terraform.ProviderRequirement{
 				Source:  providerSource,
 				Version: providerVersion,
 			},

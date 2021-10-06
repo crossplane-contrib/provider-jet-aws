@@ -23,13 +23,14 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/crossplane-contrib/terrajet/pkg/comments"
-	"github.com/crossplane-contrib/terrajet/pkg/config"
-	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/iancoleman/strcase"
 	"github.com/pkg/errors"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
+
+	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
+	"github.com/crossplane-contrib/terrajet/pkg/types/comments"
 
 	// This is to get init functions registering custom configs to be called.
 	// TODO(hasan): Revisit getting custom config with pipeline abstraction work
