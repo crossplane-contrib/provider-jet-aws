@@ -21,8 +21,8 @@ package v1alpha1
 import (
 	"github.com/pkg/errors"
 
-	"github.com/crossplane-contrib/terrajet/pkg/conversion"
-	"github.com/crossplane-contrib/terrajet/pkg/json"
+	"github.com/crossplane-contrib/terrajet/pkg/resource"
+	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
 // GetTerraformResourceType returns Terraform resource type for this IamSamlProvider
@@ -30,8 +30,8 @@ func (mg *IamSamlProvider) GetTerraformResourceType() string {
 	return "aws_iam_saml_provider"
 }
 
-// GetTerraformResourceIdField returns Terraform identifier field for this IamSamlProvider
-func (tr *IamSamlProvider) GetTerraformResourceIdField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this IamSamlProvider
+func (tr *IamSamlProvider) GetTerraformResourceIDField() string {
 	return "id"
 }
 
@@ -80,7 +80,7 @@ func (tr *IamSamlProvider) LateInitialize(attrs []byte) (bool, error) {
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
-	li := conversion.NewLateInitializer(conversion.WithZeroValueJSONOmitEmptyFilter(conversion.CNameWildcard),
-		conversion.WithZeroElemPtrFilter(conversion.CNameWildcard))
+	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
+		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }

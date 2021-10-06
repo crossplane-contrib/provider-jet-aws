@@ -19,27 +19,33 @@ limitations under the License.
 package s3bucketinventory
 
 import (
+	"time"
+
 	"k8s.io/client-go/util/workqueue"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 	"github.com/crossplane/crossplane-runtime/pkg/event"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/reconciler/managed"
 	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
 	"sigs.k8s.io/controller-runtime/pkg/controller"
 
+	tjcontroller "github.com/crossplane-contrib/terrajet/pkg/controller"
+	"github.com/crossplane-contrib/terrajet/pkg/terraform"
+
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
 )
 
 // Setup adds a controller that reconciles S3BucketInventory managed resources.
-func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, ps terraform.SetupFn, concurrency int) error {
+func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terraform.SetupFn, ws *terraform.WorkspaceStore, concurrency int) error {
 	name := managed.ControllerName(v1alpha1.S3BucketInventoryGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.S3BucketInventoryGroupVersionKind),
-		managed.WithExternalConnecter(terraform.NewConnector(mgr.GetClient(), l, ps)),
+		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s)),
 		managed.WithLogger(l.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
+		managed.WithFinalizer(terraform.NewWorkspaceFinalizer(ws, xpresource.NewAPIFinalizer(mgr.GetClient(), managed.FinalizerName))),
+		managed.WithTimeout(3*time.Minute),
 	)
 
 	return ctrl.NewControllerManagedBy(mgr).
