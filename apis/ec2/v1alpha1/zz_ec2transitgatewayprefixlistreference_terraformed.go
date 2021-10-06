@@ -19,6 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"context"
+
 	"github.com/pkg/errors"
 
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
@@ -36,13 +38,16 @@ func (tr *Ec2TransitGatewayPrefixListReference) GetTerraformResourceIDField() st
 }
 
 // GetObservation of this Ec2TransitGatewayPrefixListReference
-func (tr *Ec2TransitGatewayPrefixListReference) GetObservation() (map[string]interface{}, error) {
+func (tr *Ec2TransitGatewayPrefixListReference) GetObservation(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.TFParser.Unmarshal(o, &base)
+	if err := json.TFParser.Unmarshal(o, &base); err != nil {
+		return nil, err
+	}
+	return base, nil
 }
 
 // SetObservation for this Ec2TransitGatewayPrefixListReference
@@ -55,13 +60,16 @@ func (tr *Ec2TransitGatewayPrefixListReference) SetObservation(obs map[string]in
 }
 
 // GetParameters of this Ec2TransitGatewayPrefixListReference
-func (tr *Ec2TransitGatewayPrefixListReference) GetParameters() (map[string]interface{}, error) {
+func (tr *Ec2TransitGatewayPrefixListReference) GetParameters(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.TFParser.Unmarshal(p, &base)
+	if err := json.TFParser.Unmarshal(p, &base); err != nil {
+		return nil, err
+	}
+	return base, nil
 }
 
 // SetParameters for this Ec2TransitGatewayPrefixListReference
@@ -83,4 +91,9 @@ func (tr *Ec2TransitGatewayPrefixListReference) LateInitialize(attrs []byte) (bo
 	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
 		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetConnectionDetails of this Ec2TransitGatewayPrefixListReference
+func (tr *Ec2TransitGatewayPrefixListReference) GetConnectionDetails(obs map[string]interface{}) (map[string][]byte, error) {
+	return nil, nil
 }

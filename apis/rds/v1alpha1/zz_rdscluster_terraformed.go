@@ -19,6 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"context"
+
 	"github.com/crossplane/crossplane-runtime/pkg/meta"
 	"github.com/pkg/errors"
 
@@ -37,13 +39,16 @@ func (tr *RdsCluster) GetTerraformResourceIDField() string {
 }
 
 // GetObservation of this RdsCluster
-func (tr *RdsCluster) GetObservation() (map[string]interface{}, error) {
+func (tr *RdsCluster) GetObservation(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.TFParser.Unmarshal(o, &base)
+	if err := json.TFParser.Unmarshal(o, &base); err != nil {
+		return nil, err
+	}
+	return base, resource.GetSensitiveObservation(ctx, c, tr.GetWriteConnectionSecretToReference(), base)
 }
 
 // SetObservation for this RdsCluster
@@ -56,14 +61,17 @@ func (tr *RdsCluster) SetObservation(obs map[string]interface{}) error {
 }
 
 // GetParameters of this RdsCluster
-func (tr *RdsCluster) GetParameters() (map[string]interface{}, error) {
+func (tr *RdsCluster) GetParameters(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
 	rdsClusterExternalNameConfigure(base, meta.GetExternalName(tr))
-	return base, json.TFParser.Unmarshal(p, &base)
+	if err := json.TFParser.Unmarshal(p, &base); err != nil {
+		return nil, err
+	}
+	return base, resource.GetSensitiveParameters(ctx, c, tr, base, map[string]string{"master_password": "masterPasswordSecretRef"})
 }
 
 // SetParameters for this RdsCluster
@@ -85,4 +93,9 @@ func (tr *RdsCluster) LateInitialize(attrs []byte) (bool, error) {
 	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
 		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetConnectionDetails of this RdsCluster
+func (tr *RdsCluster) GetConnectionDetails(obs map[string]interface{}) (map[string][]byte, error) {
+	return resource.GetConnectionDetails(obs, map[string]string{"master_password": "masterPasswordSecretRef"})
 }

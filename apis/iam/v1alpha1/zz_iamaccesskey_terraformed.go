@@ -19,6 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"context"
+
 	"github.com/pkg/errors"
 
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
@@ -36,13 +38,16 @@ func (tr *IamAccessKey) GetTerraformResourceIDField() string {
 }
 
 // GetObservation of this IamAccessKey
-func (tr *IamAccessKey) GetObservation() (map[string]interface{}, error) {
+func (tr *IamAccessKey) GetObservation(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.TFParser.Unmarshal(o, &base)
+	if err := json.TFParser.Unmarshal(o, &base); err != nil {
+		return nil, err
+	}
+	return base, resource.GetSensitiveObservation(ctx, c, tr.GetWriteConnectionSecretToReference(), base)
 }
 
 // SetObservation for this IamAccessKey
@@ -55,13 +60,16 @@ func (tr *IamAccessKey) SetObservation(obs map[string]interface{}) error {
 }
 
 // GetParameters of this IamAccessKey
-func (tr *IamAccessKey) GetParameters() (map[string]interface{}, error) {
+func (tr *IamAccessKey) GetParameters(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.TFParser.Unmarshal(p, &base)
+	if err := json.TFParser.Unmarshal(p, &base); err != nil {
+		return nil, err
+	}
+	return base, resource.GetSensitiveParameters(ctx, c, tr, base, map[string]string{"secret": "secret", "ses_smtp_password_v4": "sesSMTPPasswordV4"})
 }
 
 // SetParameters for this IamAccessKey
@@ -83,4 +91,9 @@ func (tr *IamAccessKey) LateInitialize(attrs []byte) (bool, error) {
 	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
 		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetConnectionDetails of this IamAccessKey
+func (tr *IamAccessKey) GetConnectionDetails(obs map[string]interface{}) (map[string][]byte, error) {
+	return resource.GetConnectionDetails(obs, map[string]string{"secret": "secret", "ses_smtp_password_v4": "sesSMTPPasswordV4"})
 }

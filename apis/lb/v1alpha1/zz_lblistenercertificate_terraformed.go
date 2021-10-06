@@ -19,6 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"context"
+
 	"github.com/pkg/errors"
 
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
@@ -36,13 +38,16 @@ func (tr *LbListenerCertificate) GetTerraformResourceIDField() string {
 }
 
 // GetObservation of this LbListenerCertificate
-func (tr *LbListenerCertificate) GetObservation() (map[string]interface{}, error) {
+func (tr *LbListenerCertificate) GetObservation(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.TFParser.Unmarshal(o, &base)
+	if err := json.TFParser.Unmarshal(o, &base); err != nil {
+		return nil, err
+	}
+	return base, nil
 }
 
 // SetObservation for this LbListenerCertificate
@@ -55,13 +60,16 @@ func (tr *LbListenerCertificate) SetObservation(obs map[string]interface{}) erro
 }
 
 // GetParameters of this LbListenerCertificate
-func (tr *LbListenerCertificate) GetParameters() (map[string]interface{}, error) {
+func (tr *LbListenerCertificate) GetParameters(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.TFParser.Unmarshal(p, &base)
+	if err := json.TFParser.Unmarshal(p, &base); err != nil {
+		return nil, err
+	}
+	return base, nil
 }
 
 // SetParameters for this LbListenerCertificate
@@ -83,4 +91,9 @@ func (tr *LbListenerCertificate) LateInitialize(attrs []byte) (bool, error) {
 	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
 		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetConnectionDetails of this LbListenerCertificate
+func (tr *LbListenerCertificate) GetConnectionDetails(obs map[string]interface{}) (map[string][]byte, error) {
+	return nil, nil
 }

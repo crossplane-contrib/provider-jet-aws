@@ -19,6 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"context"
+
 	"github.com/pkg/errors"
 
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
@@ -36,13 +38,16 @@ func (tr *RdsClusterParameterGroup) GetTerraformResourceIDField() string {
 }
 
 // GetObservation of this RdsClusterParameterGroup
-func (tr *RdsClusterParameterGroup) GetObservation() (map[string]interface{}, error) {
+func (tr *RdsClusterParameterGroup) GetObservation(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.TFParser.Unmarshal(o, &base)
+	if err := json.TFParser.Unmarshal(o, &base); err != nil {
+		return nil, err
+	}
+	return base, nil
 }
 
 // SetObservation for this RdsClusterParameterGroup
@@ -55,13 +60,16 @@ func (tr *RdsClusterParameterGroup) SetObservation(obs map[string]interface{}) e
 }
 
 // GetParameters of this RdsClusterParameterGroup
-func (tr *RdsClusterParameterGroup) GetParameters() (map[string]interface{}, error) {
+func (tr *RdsClusterParameterGroup) GetParameters(ctx context.Context, c resource.SecretClient) (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	return base, json.TFParser.Unmarshal(p, &base)
+	if err := json.TFParser.Unmarshal(p, &base); err != nil {
+		return nil, err
+	}
+	return base, nil
 }
 
 // SetParameters for this RdsClusterParameterGroup
@@ -83,4 +91,9 @@ func (tr *RdsClusterParameterGroup) LateInitialize(attrs []byte) (bool, error) {
 	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
 		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetConnectionDetails of this RdsClusterParameterGroup
+func (tr *RdsClusterParameterGroup) GetConnectionDetails(obs map[string]interface{}) (map[string][]byte, error) {
+	return nil, nil
 }
