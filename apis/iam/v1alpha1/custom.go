@@ -18,45 +18,106 @@ package v1alpha1
 
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane/crossplane-runtime/pkg/reference"
+	"github.com/crossplane/crossplane-runtime/pkg/resource"
 )
 
-func iamExternalNameConfigure(base map[string]interface{}, externalName string) {
+func externalNameAsName(base map[string]interface{}, externalName string) {
 	base["name"] = externalName
 }
 
-var iamRoleCustomConfig = config.Resource{
-	ExternalName: config.ExternalName{
-		ConfigureFunctionPath: "iamExternalNameConfigure",
-		OmittedFields: []string{
-			"name",
-			"name_prefix",
-		},
-		// Set to false explicitly. For this resource, metadata.name is suitable
-		// to be the default for external name.
-		DisableNameInitializer: false,
-	},
-	/*	Reference: map[string]resource.FieldReferenceconfig{
-		"ManagedPolicyArns": {
-			ReferenceToType: types.PathForType(IamPolicy{}),
-			// TODO(hasan): fix below
-			ReferenceExtractor: "github.com/crossplane/provider-aws/apis/ec2/v1beta1.SubnetARN()",
-		},
-	},*/
-}
-
-var iamUserCustomConfig = config.Resource{
-	ExternalName: config.ExternalName{
-		ConfigureFunctionPath: "iamExternalNameConfigure",
-		OmittedFields: []string{
-			"name",
-		},
-		// Set to false explicitly. For this resource, metadata.name is suitable
-		// to be the default for external name.
-		DisableNameInitializer: false,
-	},
+func policyARNExtractor() reference.ExtractValueFn {
+	return func(mg resource.Managed) string {
+		p, ok := mg.(*IamPolicy)
+		if !ok {
+			return ""
+		}
+		return p.Status.AtProvider.Arn
+	}
 }
 
 func init() {
-	config.Store.SetForResource("aws_iam_user", iamUserCustomConfig)
-	config.Store.SetForResource("aws_iam_role", iamRoleCustomConfig)
+	config.Store.SetForResource("aws_iam_access_key", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: config.References{
+			"user": config.Reference{
+				Type: "IamUser",
+			},
+		},
+	})
+
+	config.Store.SetForResource("aws_iam_group", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: false,
+			ConfigureFunctionPath:  "externalNameAsName",
+			OmittedFields: []string{
+				"name",
+			},
+		},
+	})
+
+	config.Store.SetForResource("aws_iam_group_policy", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: false,
+			ConfigureFunctionPath:  "externalNameAsName",
+			OmittedFields: []string{
+				"name",
+				"name_prefix",
+			},
+		},
+		References: config.References{
+			"group": config.Reference{
+				Type: "IamGroup",
+			},
+		},
+	})
+
+	config.Store.SetForResource("aws_iam_group_policy_attachment", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: config.References{
+			"group": config.Reference{
+				Type: "IamGroup",
+			},
+			"policy_arn": config.Reference{
+				Type:      "IamPolicy",
+				Extractor: "policyARNExtractor()",
+			},
+		},
+	})
+
+	config.Store.SetForResource("aws_iam_instance_profile", config.Resource{})
+	config.Store.SetForResource("aws_iam_policy", config.Resource{})
+	config.Store.SetForResource("aws_iam_policy_attachment", config.Resource{})
+
+	config.Store.SetForResource("aws_iam_role", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: false,
+			ConfigureFunctionPath:  "externalNameAsName",
+			OmittedFields: []string{
+				"name",
+				"name_prefix",
+			},
+		},
+	})
+
+	config.Store.SetForResource("aws_iam_role_policy", config.Resource{})
+	config.Store.SetForResource("aws_iam_role_policy_attachment", config.Resource{})
+
+	config.Store.SetForResource("aws_iam_user", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: false,
+			ConfigureFunctionPath:  "externalNameAsName",
+			OmittedFields: []string{
+				"name",
+			},
+		},
+	})
+
+	config.Store.SetForResource("aws_iam_user_group_membership", config.Resource{})
+	config.Store.SetForResource("aws_iam_user_policy", config.Resource{})
+	config.Store.SetForResource("aws_iam_user_policy_attachment", config.Resource{})
 }

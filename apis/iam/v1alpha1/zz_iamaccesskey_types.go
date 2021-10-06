@@ -48,8 +48,15 @@ type IamAccessKeyParameters struct {
 	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status"`
 
-	// +kubebuilder:validation:Required
-	User string `json:"user" tf:"user"`
+	// +crossplane:generate:reference:type=IamUser
+	// +kubebuilder:validation:Optional
+	User string `json:"user,omitempty" tf:"user"`
+
+	// +kubebuilder:validation:Optional
+	UserRef *v1.Reference `json:"userRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	UserSelector *v1.Selector `json:"userSelector,omitempty" tf:"-"`
 }
 
 // IamAccessKeySpec defines the desired state of IamAccessKey
