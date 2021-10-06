@@ -21,8 +21,8 @@ package v1alpha1
 import (
 	"github.com/pkg/errors"
 
-	"github.com/crossplane-contrib/terrajet/pkg/conversion"
-	"github.com/crossplane-contrib/terrajet/pkg/json"
+	"github.com/crossplane-contrib/terrajet/pkg/resource"
+	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
 // GetTerraformResourceType returns Terraform resource type for this Route53ResolverQueryLogConfigAssociation
@@ -30,8 +30,8 @@ func (mg *Route53ResolverQueryLogConfigAssociation) GetTerraformResourceType() s
 	return "aws_route53_resolver_query_log_config_association"
 }
 
-// GetTerraformResourceIdField returns Terraform identifier field for this Route53ResolverQueryLogConfigAssociation
-func (tr *Route53ResolverQueryLogConfigAssociation) GetTerraformResourceIdField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this Route53ResolverQueryLogConfigAssociation
+func (tr *Route53ResolverQueryLogConfigAssociation) GetTerraformResourceIDField() string {
 	return "id"
 }
 
@@ -80,7 +80,7 @@ func (tr *Route53ResolverQueryLogConfigAssociation) LateInitialize(attrs []byte)
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
-	li := conversion.NewLateInitializer(conversion.WithZeroValueJSONOmitEmptyFilter(conversion.CNameWildcard),
-		conversion.WithZeroElemPtrFilter(conversion.CNameWildcard))
+	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
+		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }

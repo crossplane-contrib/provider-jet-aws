@@ -21,8 +21,8 @@ package v1alpha1
 import (
 	"github.com/pkg/errors"
 
-	"github.com/crossplane-contrib/terrajet/pkg/conversion"
-	"github.com/crossplane-contrib/terrajet/pkg/json"
+	"github.com/crossplane-contrib/terrajet/pkg/resource"
+	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
 // GetTerraformResourceType returns Terraform resource type for this RdsClusterEndpoint
@@ -30,8 +30,8 @@ func (mg *RdsClusterEndpoint) GetTerraformResourceType() string {
 	return "aws_rds_cluster_endpoint"
 }
 
-// GetTerraformResourceIdField returns Terraform identifier field for this RdsClusterEndpoint
-func (tr *RdsClusterEndpoint) GetTerraformResourceIdField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this RdsClusterEndpoint
+func (tr *RdsClusterEndpoint) GetTerraformResourceIDField() string {
 	return "id"
 }
 
@@ -80,7 +80,7 @@ func (tr *RdsClusterEndpoint) LateInitialize(attrs []byte) (bool, error) {
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
-	li := conversion.NewLateInitializer(conversion.WithZeroValueJSONOmitEmptyFilter(conversion.CNameWildcard),
-		conversion.WithZeroElemPtrFilter(conversion.CNameWildcard))
+	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
+		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }

@@ -20,8 +20,9 @@ import (
 	"k8s.io/client-go/util/workqueue"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
+
+	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
 	defaultnetworkacl "github.com/crossplane-contrib/provider-tf-aws/internal/controller/default/defaultnetworkacl"
 	defaultroutetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/default/defaultroutetable"
@@ -155,8 +156,8 @@ import (
 
 // Setup creates all controllers with the supplied logger and adds them to
 // the supplied manager.
-func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terraform.SetupFn, concurrency int) error {
-	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter, terraform.SetupFn, int) error{
+func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terraform.SetupFn, ws *terraform.WorkspaceStore, concurrency int) error {
+	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter, terraform.SetupFn, *terraform.WorkspaceStore, int) error{
 		defaultnetworkacl.Setup,
 		defaultroutetable.Setup,
 		defaultsecuritygroup.Setup,
@@ -286,7 +287,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		vpcpeeringconnection.Setup,
 		vpcpeeringconnectionoptions.Setup,
 	} {
-		if err := setup(mgr, l, wl, ps, concurrency); err != nil {
+		if err := setup(mgr, l, wl, ps, ws, concurrency); err != nil {
 			return err
 		}
 	}

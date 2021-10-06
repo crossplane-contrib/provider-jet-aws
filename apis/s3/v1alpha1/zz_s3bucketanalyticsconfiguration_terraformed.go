@@ -21,8 +21,8 @@ package v1alpha1
 import (
 	"github.com/pkg/errors"
 
-	"github.com/crossplane-contrib/terrajet/pkg/conversion"
-	"github.com/crossplane-contrib/terrajet/pkg/json"
+	"github.com/crossplane-contrib/terrajet/pkg/resource"
+	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
 // GetTerraformResourceType returns Terraform resource type for this S3BucketAnalyticsConfiguration
@@ -30,8 +30,8 @@ func (mg *S3BucketAnalyticsConfiguration) GetTerraformResourceType() string {
 	return "aws_s3_bucket_analytics_configuration"
 }
 
-// GetTerraformResourceIdField returns Terraform identifier field for this S3BucketAnalyticsConfiguration
-func (tr *S3BucketAnalyticsConfiguration) GetTerraformResourceIdField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this S3BucketAnalyticsConfiguration
+func (tr *S3BucketAnalyticsConfiguration) GetTerraformResourceIDField() string {
 	return "id"
 }
 
@@ -80,7 +80,7 @@ func (tr *S3BucketAnalyticsConfiguration) LateInitialize(attrs []byte) (bool, er
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
-	li := conversion.NewLateInitializer(conversion.WithZeroValueJSONOmitEmptyFilter(conversion.CNameWildcard),
-		conversion.WithZeroElemPtrFilter(conversion.CNameWildcard))
+	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
+		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }

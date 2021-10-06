@@ -18,15 +18,13 @@ var rdsClusterCustomConfig = config.Resource{
 			"cluster_identifier",
 			"cluster_identifier_prefix",
 		},
-		// Set to false explicitly. For this resource, metadata.name is suitable
-		// to be the default for external name.
-		DisableNameInitializer: true,
 	},
 	References: config.References{
 		"S3Import.BucketName": {
 			Type: types.TypePath(s3v1alpha1.S3Bucket{}),
 		},
 	},
+	UseAsync: true,
 }
 
 func init() {
