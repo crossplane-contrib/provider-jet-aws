@@ -35,13 +35,6 @@ var iamRoleCustomConfig = config.Resource{
 		// to be the default for external name.
 		DisableNameInitializer: false,
 	},
-	/*	Reference: map[string]resource.FieldReferenceconfig{
-		"ManagedPolicyArns": {
-			ReferenceToType: types.PathForType(IamPolicy{}),
-			// TODO(hasan): fix below
-			ReferenceExtractor: "github.com/crossplane/provider-aws/apis/ec2/v1beta1.SubnetARN()",
-		},
-	},*/
 }
 
 var iamUserCustomConfig = config.Resource{
@@ -56,7 +49,19 @@ var iamUserCustomConfig = config.Resource{
 	},
 }
 
+var iamAccessKeyCustomConfig = config.Resource{
+	ExternalName: config.ExternalName{
+		DisableNameInitializer: true,
+	},
+	References: config.References{
+		"user": config.Reference{
+			Type: "IamUser",
+		},
+	},
+}
+
 func init() {
 	config.Store.SetForResource("aws_iam_user", iamUserCustomConfig)
 	config.Store.SetForResource("aws_iam_role", iamRoleCustomConfig)
+	config.Store.SetForResource("aws_iam_access_key", iamAccessKeyCustomConfig)
 }
