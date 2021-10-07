@@ -57,13 +57,31 @@ var skipList = map[string]struct{}{
 	"aws_kinesis_analytics_application":        {},
 }
 
-var techPreviewIncludedGroups = map[string]struct{}{
-	"vpc":      {},
-	"rds":      {},
-	"eks":      {},
-	"ec2":      {},
-	"s3":       {},
-	"iam":      {},
+// todo(hasan): reconsider this approach for which resources to include and
+//  consider merging with skiplist above. Should we just have a list of
+//  resources just we want to generate?
+var alphaIncludedGroups = map[string]map[string]struct{}{
+	"vpc": {},
+	"rds": {},
+	"eks": {},
+	"ec2": {},
+	"s3":  {},
+	"iam": {
+		"aws_iam_access_key":              {},
+		"aws_iam_group":                   {},
+		"aws_iam_group_policy":            {},
+		"aws_iam_group_policy_attachment": {},
+		"aws_iam_instance_profile":        {},
+		"aws_iam_policy":                  {},
+		"aws_iam_policy_attachment":       {},
+		"aws_iam_role":                    {},
+		"aws_iam_role_policy":             {},
+		"aws_iam_role_policy_attachment":  {},
+		"aws_iam_user":                    {},
+		"aws_iam_user_group_membership":   {},
+		"aws_iam_user_policy":             {},
+		"aws_iam_user_policy_attachment":  {},
+	},
 	"default":  {},
 	"eip":      {},
 	"elb":      {},
@@ -113,7 +131,9 @@ func main() { // nolint:gocyclo
 	}
 
 	for group, resources := range groups {
-		if _, ok := techPreviewIncludedGroups[group]; !ok {
+		includedResources, ok := alphaIncludedGroups[group]
+		if !ok {
+			// Group completely skipped
 			continue
 		}
 		version := "v1alpha1"
@@ -132,6 +152,11 @@ func main() { // nolint:gocyclo
 		sort.Strings(keys)
 
 		for _, name := range keys {
+			if len(includedResources) != 0 { // If group is not included completely
+				if _, ok := includedResources[name]; !ok {
+					continue
+				}
+			}
 			// We don't want Aws prefix in all kinds.
 			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
 			resource := resources[name]
