@@ -33,8 +33,7 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/types/comments"
 
 	// This is to get init functions registering custom configs to be called.
-	// TODO(hasan): Revisit getting custom config with pipeline abstraction work
-	_ "github.com/crossplane-contrib/provider-tf-aws/apis"
+	_ "github.com/crossplane-contrib/provider-tf-aws/config"
 )
 
 // Constants to use in generated artifacts.
@@ -46,7 +45,7 @@ const (
 
 // These resources cannot be generated because of their suffixes colliding with
 // kubebuilder-accepted type suffixes.
-var skipList = map[string]struct{}{
+/*var skipList = map[string]struct{}{
 	"aws_config_configuration_recorder_status": {},
 	"aws_vpc_peering_connection_accepter":      {},
 	"aws_elasticache_user_group":               {},
@@ -55,24 +54,34 @@ var skipList = map[string]struct{}{
 	"aws_shield_protection_group":              {},
 	"aws_route53_resolver_firewall_rule_group": {},
 	"aws_kinesis_analytics_application":        {},
-}
+}*/
 
-var techPreviewIncludedGroups = map[string]struct{}{
-	"vpc":      {},
-	"rds":      {},
-	"eks":      {},
-	"ec2":      {},
-	"s3":       {},
-	"iam":      {},
-	"default":  {},
-	"eip":      {},
-	"elb":      {},
-	"instance": {},
-	"lb":       {},
-	"main":     {},
-	"route":    {},
-	"route53":  {},
-	"subnet":   {},
+var alphaIncludedResource = map[string]struct{}{
+
+	// VPC
+	"aws_vpc": {},
+
+	// RDS
+	"aws_rds_cluster": {},
+
+	// S3
+	"aws_s3_bucket": {},
+
+	// IAM
+	"aws_iam_access_key":              {},
+	"aws_iam_group":                   {},
+	"aws_iam_group_policy":            {},
+	"aws_iam_group_policy_attachment": {},
+	"aws_iam_instance_profile":        {},
+	"aws_iam_policy":                  {},
+	"aws_iam_policy_attachment":       {},
+	"aws_iam_role":                    {},
+	"aws_iam_role_policy":             {},
+	"aws_iam_role_policy_attachment":  {},
+	"aws_iam_user":                    {},
+	"aws_iam_user_group_membership":   {},
+	"aws_iam_user_policy":             {},
+	"aws_iam_user_policy_attachment":  {},
 }
 
 func main() { // nolint:gocyclo
@@ -83,13 +92,14 @@ func main() { // nolint:gocyclo
 
 	groups := map[string]map[string]*schema.Resource{}
 	for name, resource := range aws.Provider().ResourcesMap {
+		if _, ok := alphaIncludedResource[name]; !ok {
+			// Skip if not included
+			continue
+		}
 		if len(resource.Schema) == 0 {
 			// There are resources with no schema, like aws_securityhub_account
 			// that we will address later.
 			fmt.Printf("Skipping resource %s because it has no schema\n", name)
-			continue
-		}
-		if _, ok := skipList[name]; ok {
 			continue
 		}
 		words := strings.Split(name, "_")
@@ -113,9 +123,6 @@ func main() { // nolint:gocyclo
 	}
 
 	for group, resources := range groups {
-		if _, ok := techPreviewIncludedGroups[group]; !ok {
-			continue
-		}
 		version := "v1alpha1"
 		versionGen := pipeline.NewVersionGenerator(wd, modulePath, strings.ToLower(group)+groupSuffix, version)
 

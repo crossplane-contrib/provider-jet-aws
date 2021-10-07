@@ -62,8 +62,6 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  name:
-                    type: string
                   path:
                     type: string
                   region:
@@ -71,7 +69,6 @@ spec:
                       be created in.
                     type: string
                 required:
-                - name
                 - region
                 type: object
               providerConfigRef:
