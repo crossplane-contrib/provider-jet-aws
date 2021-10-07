@@ -35,6 +35,11 @@ func (tr *IamAccessKey) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this IamAccessKey
+func (tr *IamAccessKey) GetConnectionDetailsMapping() map[string]string {
+	return map[string]string{"secret": "status.atProvider.secret", "ses_smtp_password_v4": "status.atProvider.sesSMTPPasswordV4"}
+}
+
 // GetObservation of this IamAccessKey
 func (tr *IamAccessKey) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

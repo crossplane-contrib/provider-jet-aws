@@ -133,10 +133,6 @@ spec:
                     type: string
                   keyFingerprint:
                     type: string
-                  secret:
-                    type: string
-                  sesSmtpPasswordV4:
-                    type: string
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -35,6 +35,11 @@ func (tr *Elb) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Elb
+func (tr *Elb) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Elb
 func (tr *Elb) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

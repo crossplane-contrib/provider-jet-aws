@@ -35,6 +35,11 @@ func (tr *DefaultSecurityGroup) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this DefaultSecurityGroup
+func (tr *DefaultSecurityGroup) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this DefaultSecurityGroup
 func (tr *DefaultSecurityGroup) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -35,6 +35,11 @@ func (tr *Route53HostedZoneDnssec) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route53HostedZoneDnssec
+func (tr *Route53HostedZoneDnssec) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route53HostedZoneDnssec
 func (tr *Route53HostedZoneDnssec) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

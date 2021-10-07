@@ -35,6 +35,11 @@ func (tr *Ec2ClientVpnAuthorizationRule) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2ClientVpnAuthorizationRule
+func (tr *Ec2ClientVpnAuthorizationRule) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2ClientVpnAuthorizationRule
 func (tr *Ec2ClientVpnAuthorizationRule) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -35,6 +35,11 @@ func (tr *DefaultSubnet) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this DefaultSubnet
+func (tr *DefaultSubnet) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this DefaultSubnet
 func (tr *DefaultSubnet) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

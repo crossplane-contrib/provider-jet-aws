@@ -35,6 +35,11 @@ func (tr *Route53QueryLog) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route53QueryLog
+func (tr *Route53QueryLog) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route53QueryLog
 func (tr *Route53QueryLog) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

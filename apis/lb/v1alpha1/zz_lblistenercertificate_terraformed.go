@@ -35,6 +35,11 @@ func (tr *LbListenerCertificate) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this LbListenerCertificate
+func (tr *LbListenerCertificate) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this LbListenerCertificate
 func (tr *LbListenerCertificate) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -36,6 +36,11 @@ func (tr *IamRole) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this IamRole
+func (tr *IamRole) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this IamRole
 func (tr *IamRole) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

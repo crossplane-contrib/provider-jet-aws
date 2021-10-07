@@ -35,6 +35,11 @@ func (tr *LbListenerRule) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this LbListenerRule
+func (tr *LbListenerRule) GetConnectionDetailsMapping() map[string]string {
+	return map[string]string{"action[*].authenticate_oidc[*].client_secret": "spec.forProvider.action[*].authenticateOidc[*].clientSecretSecretRef"}
+}
+
 // GetObservation of this LbListenerRule
 func (tr *LbListenerRule) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -88,10 +88,26 @@ spec:
                     type: string
                   customerAlgorithm:
                     type: string
-                  customerKey:
-                    type: string
                   customerKeyMd5:
                     type: string
+                  customerKeySecretRef:
+                    description: A SecretKeySelector is a reference to a secret key
+                      in an arbitrary namespace.
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
                   expectedBucketOwner:
                     type: string
                   expectedSourceBucketOwner:
@@ -122,10 +138,42 @@ spec:
                     type: array
                   key:
                     type: string
-                  kmsEncryptionContext:
-                    type: string
-                  kmsKeyId:
-                    type: string
+                  kmsEncryptionContextSecretRef:
+                    description: A SecretKeySelector is a reference to a secret key
+                      in an arbitrary namespace.
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
+                  kmsKeyIdSecretRef:
+                    description: A SecretKeySelector is a reference to a secret key
+                      in an arbitrary namespace.
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
                   metadata:
                     additionalProperties:
                       type: string
@@ -150,10 +198,26 @@ spec:
                     type: string
                   sourceCustomerAlgorithm:
                     type: string
-                  sourceCustomerKey:
-                    type: string
                   sourceCustomerKeyMd5:
                     type: string
+                  sourceCustomerKeySecretRef:
+                    description: A SecretKeySelector is a reference to a secret key
+                      in an arbitrary namespace.
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
                   storageClass:
                     type: string
                   taggingDirective:

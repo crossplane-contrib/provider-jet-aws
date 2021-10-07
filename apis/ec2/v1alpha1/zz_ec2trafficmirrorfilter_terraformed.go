@@ -35,6 +35,11 @@ func (tr *Ec2TrafficMirrorFilter) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2TrafficMirrorFilter
+func (tr *Ec2TrafficMirrorFilter) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2TrafficMirrorFilter
 func (tr *Ec2TrafficMirrorFilter) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -35,6 +35,11 @@ func (tr *EksIdentityProviderConfig) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this EksIdentityProviderConfig
+func (tr *EksIdentityProviderConfig) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this EksIdentityProviderConfig
 func (tr *EksIdentityProviderConfig) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

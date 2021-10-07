@@ -35,6 +35,11 @@ func (tr *IamAccountPasswordPolicy) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this IamAccountPasswordPolicy
+func (tr *IamAccountPasswordPolicy) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this IamAccountPasswordPolicy
 func (tr *IamAccountPasswordPolicy) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

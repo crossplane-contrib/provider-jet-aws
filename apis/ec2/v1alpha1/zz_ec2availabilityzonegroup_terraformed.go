@@ -35,6 +35,11 @@ func (tr *Ec2AvailabilityZoneGroup) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2AvailabilityZoneGroup
+func (tr *Ec2AvailabilityZoneGroup) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2AvailabilityZoneGroup
 func (tr *Ec2AvailabilityZoneGroup) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

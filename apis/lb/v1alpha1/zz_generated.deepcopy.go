@@ -146,6 +146,7 @@ func (in *ActionAuthenticateOidcParameters) DeepCopyInto(out *ActionAuthenticate
 			(*out)[key] = val
 		}
 	}
+	out.ClientSecretSecretRef = in.ClientSecretSecretRef
 	if in.OnUnauthenticatedRequest != nil {
 		in, out := &in.OnUnauthenticatedRequest, &out.OnUnauthenticatedRequest
 		*out = new(string)
@@ -504,6 +505,7 @@ func (in *AuthenticateOidcParameters) DeepCopyInto(out *AuthenticateOidcParamete
 			(*out)[key] = val
 		}
 	}
+	out.ClientSecretSecretRef = in.ClientSecretSecretRef
 	if in.OnUnauthenticatedRequest != nil {
 		in, out := &in.OnUnauthenticatedRequest, &out.OnUnauthenticatedRequest
 		*out = new(string)

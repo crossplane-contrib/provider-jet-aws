@@ -35,6 +35,11 @@ func (tr *S3BucketAnalyticsConfiguration) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this S3BucketAnalyticsConfiguration
+func (tr *S3BucketAnalyticsConfiguration) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this S3BucketAnalyticsConfiguration
 func (tr *S3BucketAnalyticsConfiguration) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

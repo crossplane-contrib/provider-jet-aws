@@ -35,6 +35,11 @@ func (tr *Route53DelegationSet) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route53DelegationSet
+func (tr *Route53DelegationSet) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route53DelegationSet
 func (tr *Route53DelegationSet) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

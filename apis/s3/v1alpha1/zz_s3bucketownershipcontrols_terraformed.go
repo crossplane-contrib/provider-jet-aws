@@ -35,6 +35,11 @@ func (tr *S3BucketOwnershipControls) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this S3BucketOwnershipControls
+func (tr *S3BucketOwnershipControls) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this S3BucketOwnershipControls
 func (tr *S3BucketOwnershipControls) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

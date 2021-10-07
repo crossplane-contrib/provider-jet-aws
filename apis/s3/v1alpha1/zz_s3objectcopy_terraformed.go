@@ -35,6 +35,11 @@ func (tr *S3ObjectCopy) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this S3ObjectCopy
+func (tr *S3ObjectCopy) GetConnectionDetailsMapping() map[string]string {
+	return map[string]string{"customer_key": "spec.forProvider.customerKeySecretRef", "kms_encryption_context": "spec.forProvider.kmsEncryptionContextSecretRef", "kms_key_id": "spec.forProvider.kmsKeyIDSecretRef", "source_customer_key": "spec.forProvider.sourceCustomerKeySecretRef"}
+}
+
 // GetObservation of this S3ObjectCopy
 func (tr *S3ObjectCopy) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

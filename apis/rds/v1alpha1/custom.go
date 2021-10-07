@@ -20,7 +20,7 @@ var rdsClusterCustomConfig = config.Resource{
 		},
 	},
 	References: config.References{
-		"S3Import.BucketName": {
+		"s3_import[*].bucket_name": {
 			Type: types.TypePath(s3v1alpha1.S3Bucket{}),
 		},
 	},

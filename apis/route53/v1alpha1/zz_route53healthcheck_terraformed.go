@@ -35,6 +35,11 @@ func (tr *Route53HealthCheck) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route53HealthCheck
+func (tr *Route53HealthCheck) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route53HealthCheck
 func (tr *Route53HealthCheck) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

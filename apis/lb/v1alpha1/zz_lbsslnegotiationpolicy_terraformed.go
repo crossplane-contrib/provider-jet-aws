@@ -35,6 +35,11 @@ func (tr *LbSslNegotiationPolicy) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this LbSslNegotiationPolicy
+func (tr *LbSslNegotiationPolicy) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this LbSslNegotiationPolicy
 func (tr *LbSslNegotiationPolicy) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

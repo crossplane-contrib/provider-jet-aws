@@ -35,6 +35,11 @@ func (tr *IamUserPolicyAttachment) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this IamUserPolicyAttachment
+func (tr *IamUserPolicyAttachment) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this IamUserPolicyAttachment
 func (tr *IamUserPolicyAttachment) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

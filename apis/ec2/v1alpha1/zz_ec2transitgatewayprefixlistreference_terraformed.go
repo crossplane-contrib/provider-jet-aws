@@ -35,6 +35,11 @@ func (tr *Ec2TransitGatewayPrefixListReference) GetTerraformResourceIDField() st
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2TransitGatewayPrefixListReference
+func (tr *Ec2TransitGatewayPrefixListReference) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2TransitGatewayPrefixListReference
 func (tr *Ec2TransitGatewayPrefixListReference) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

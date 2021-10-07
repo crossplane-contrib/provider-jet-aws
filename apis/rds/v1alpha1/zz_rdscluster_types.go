@@ -105,7 +105,7 @@ type RdsClusterParameters struct {
 	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
 	// +kubebuilder:validation:Optional
-	MasterPassword *string `json:"masterPassword,omitempty" tf:"master_password"`
+	MasterPasswordSecretRef v1.SecretKeySelector `json:"masterPasswordSecretRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	MasterUsername *string `json:"masterUsername,omitempty" tf:"master_username"`

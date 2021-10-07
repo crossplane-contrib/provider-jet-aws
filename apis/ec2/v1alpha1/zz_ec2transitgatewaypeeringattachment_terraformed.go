@@ -35,6 +35,11 @@ func (tr *Ec2TransitGatewayPeeringAttachment) GetTerraformResourceIDField() stri
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2TransitGatewayPeeringAttachment
+func (tr *Ec2TransitGatewayPeeringAttachment) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2TransitGatewayPeeringAttachment
 func (tr *Ec2TransitGatewayPeeringAttachment) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

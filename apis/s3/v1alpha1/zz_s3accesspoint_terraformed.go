@@ -35,6 +35,11 @@ func (tr *S3AccessPoint) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this S3AccessPoint
+func (tr *S3AccessPoint) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this S3AccessPoint
 func (tr *S3AccessPoint) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -35,6 +35,11 @@ func (tr *Ec2Fleet) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2Fleet
+func (tr *Ec2Fleet) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2Fleet
 func (tr *Ec2Fleet) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -35,6 +35,11 @@ func (tr *Ec2TransitGatewayRouteTablePropagation) GetTerraformResourceIDField() 
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2TransitGatewayRouteTablePropagation
+func (tr *Ec2TransitGatewayRouteTablePropagation) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2TransitGatewayRouteTablePropagation
 func (tr *Ec2TransitGatewayRouteTablePropagation) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

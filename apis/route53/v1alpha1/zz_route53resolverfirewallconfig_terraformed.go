@@ -35,6 +35,11 @@ func (tr *Route53ResolverFirewallConfig) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route53ResolverFirewallConfig
+func (tr *Route53ResolverFirewallConfig) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route53ResolverFirewallConfig
 func (tr *Route53ResolverFirewallConfig) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
