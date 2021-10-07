@@ -35,6 +35,11 @@ func (tr *IamUserSshKey) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this IamUserSshKey
+func (tr *IamUserSshKey) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this IamUserSshKey
 func (tr *IamUserSshKey) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

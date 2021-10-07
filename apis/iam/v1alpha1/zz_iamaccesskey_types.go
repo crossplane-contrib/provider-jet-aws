@@ -33,10 +33,6 @@ type IamAccessKeyObservation struct {
 	EncryptedSesSMTPPasswordV4 string `json:"encryptedSesSmtpPasswordV4,omitempty" tf:"encrypted_ses_smtp_password_v4"`
 
 	KeyFingerprint string `json:"keyFingerprint,omitempty" tf:"key_fingerprint"`
-
-	Secret string `json:"secret,omitempty" tf:"secret"`
-
-	SesSMTPPasswordV4 string `json:"sesSmtpPasswordV4,omitempty" tf:"ses_smtp_password_v4"`
 }
 
 type IamAccessKeyParameters struct {

@@ -35,6 +35,11 @@ func (tr *Ec2ManagedPrefixList) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2ManagedPrefixList
+func (tr *Ec2ManagedPrefixList) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2ManagedPrefixList
 func (tr *Ec2ManagedPrefixList) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

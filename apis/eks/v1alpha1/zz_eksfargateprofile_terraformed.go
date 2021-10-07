@@ -35,6 +35,11 @@ func (tr *EksFargateProfile) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this EksFargateProfile
+func (tr *EksFargateProfile) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this EksFargateProfile
 func (tr *EksFargateProfile) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

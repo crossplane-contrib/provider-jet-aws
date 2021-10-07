@@ -35,6 +35,11 @@ func (tr *Route53KeySigningKey) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route53KeySigningKey
+func (tr *Route53KeySigningKey) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route53KeySigningKey
 func (tr *Route53KeySigningKey) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

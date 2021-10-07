@@ -21,7 +21,7 @@ limitations under the License.
 package v1alpha1
 
 import (
-	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+	"github.com/crossplane/crossplane-runtime/apis/common/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 )
 
@@ -810,11 +810,7 @@ func (in *RdsClusterParameters) DeepCopyInto(out *RdsClusterParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.MasterPassword != nil {
-		in, out := &in.MasterPassword, &out.MasterPassword
-		*out = new(string)
-		**out = **in
-	}
+	out.MasterPasswordSecretRef = in.MasterPasswordSecretRef
 	if in.MasterUsername != nil {
 		in, out := &in.MasterUsername, &out.MasterUsername
 		*out = new(string)

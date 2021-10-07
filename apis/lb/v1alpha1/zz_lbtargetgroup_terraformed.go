@@ -35,6 +35,11 @@ func (tr *LbTargetGroup) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this LbTargetGroup
+func (tr *LbTargetGroup) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this LbTargetGroup
 func (tr *LbTargetGroup) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

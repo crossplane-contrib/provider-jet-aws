@@ -35,6 +35,11 @@ func (tr *VpcIpv4CidrBlockAssociation) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this VpcIpv4CidrBlockAssociation
+func (tr *VpcIpv4CidrBlockAssociation) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this VpcIpv4CidrBlockAssociation
 func (tr *VpcIpv4CidrBlockAssociation) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

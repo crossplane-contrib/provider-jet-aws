@@ -35,6 +35,11 @@ func (tr *Ec2TransitGatewayVpcAttachment) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2TransitGatewayVpcAttachment
+func (tr *Ec2TransitGatewayVpcAttachment) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2TransitGatewayVpcAttachment
 func (tr *Ec2TransitGatewayVpcAttachment) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

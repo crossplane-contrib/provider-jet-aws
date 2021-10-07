@@ -3221,16 +3221,12 @@ func (in *S3ObjectCopyParameters) DeepCopyInto(out *S3ObjectCopyParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.CustomerKey != nil {
-		in, out := &in.CustomerKey, &out.CustomerKey
-		*out = new(string)
-		**out = **in
-	}
 	if in.CustomerKeyMd5 != nil {
 		in, out := &in.CustomerKeyMd5, &out.CustomerKeyMd5
 		*out = new(string)
 		**out = **in
 	}
+	out.CustomerKeySecretRef = in.CustomerKeySecretRef
 	if in.ExpectedBucketOwner != nil {
 		in, out := &in.ExpectedBucketOwner, &out.ExpectedBucketOwner
 		*out = new(string)
@@ -3258,16 +3254,8 @@ func (in *S3ObjectCopyParameters) DeepCopyInto(out *S3ObjectCopyParameters) {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
-	if in.KmsEncryptionContext != nil {
-		in, out := &in.KmsEncryptionContext, &out.KmsEncryptionContext
-		*out = new(string)
-		**out = **in
-	}
-	if in.KmsKeyID != nil {
-		in, out := &in.KmsKeyID, &out.KmsKeyID
-		*out = new(string)
-		**out = **in
-	}
+	out.KmsEncryptionContextSecretRef = in.KmsEncryptionContextSecretRef
+	out.KmsKeyIDSecretRef = in.KmsKeyIDSecretRef
 	if in.Metadata != nil {
 		in, out := &in.Metadata, &out.Metadata
 		*out = make(map[string]string, len(*in))
@@ -3310,16 +3298,12 @@ func (in *S3ObjectCopyParameters) DeepCopyInto(out *S3ObjectCopyParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.SourceCustomerKey != nil {
-		in, out := &in.SourceCustomerKey, &out.SourceCustomerKey
-		*out = new(string)
-		**out = **in
-	}
 	if in.SourceCustomerKeyMd5 != nil {
 		in, out := &in.SourceCustomerKeyMd5, &out.SourceCustomerKeyMd5
 		*out = new(string)
 		**out = **in
 	}
+	out.SourceCustomerKeySecretRef = in.SourceCustomerKeySecretRef
 	if in.StorageClass != nil {
 		in, out := &in.StorageClass, &out.StorageClass
 		*out = new(string)

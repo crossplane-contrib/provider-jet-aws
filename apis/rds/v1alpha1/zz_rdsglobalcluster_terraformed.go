@@ -35,6 +35,11 @@ func (tr *RdsGlobalCluster) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this RdsGlobalCluster
+func (tr *RdsGlobalCluster) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this RdsGlobalCluster
 func (tr *RdsGlobalCluster) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -35,6 +35,11 @@ func (tr *Ec2CapacityReservation) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2CapacityReservation
+func (tr *Ec2CapacityReservation) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2CapacityReservation
 func (tr *Ec2CapacityReservation) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

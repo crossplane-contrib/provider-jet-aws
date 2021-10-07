@@ -36,6 +36,11 @@ func (tr *RdsCluster) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this RdsCluster
+func (tr *RdsCluster) GetConnectionDetailsMapping() map[string]string {
+	return map[string]string{"master_password": "spec.forProvider.masterPasswordSecretRef"}
+}
+
 // GetObservation of this RdsCluster
 func (tr *RdsCluster) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

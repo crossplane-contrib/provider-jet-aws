@@ -51,7 +51,7 @@ type IamServerCertificateParameters struct {
 	Path *string `json:"path,omitempty" tf:"path"`
 
 	// +kubebuilder:validation:Required
-	PrivateKey string `json:"privateKey" tf:"private_key"`
+	PrivateKeySecretRef v1.SecretKeySelector `json:"privateKeySecretRef" tf:"-"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-

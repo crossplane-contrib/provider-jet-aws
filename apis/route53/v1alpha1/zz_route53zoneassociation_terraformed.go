@@ -35,6 +35,11 @@ func (tr *Route53ZoneAssociation) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route53ZoneAssociation
+func (tr *Route53ZoneAssociation) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route53ZoneAssociation
 func (tr *Route53ZoneAssociation) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

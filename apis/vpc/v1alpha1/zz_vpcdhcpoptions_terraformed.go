@@ -35,6 +35,11 @@ func (tr *VpcDhcpOptions) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this VpcDhcpOptions
+func (tr *VpcDhcpOptions) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this VpcDhcpOptions
 func (tr *VpcDhcpOptions) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

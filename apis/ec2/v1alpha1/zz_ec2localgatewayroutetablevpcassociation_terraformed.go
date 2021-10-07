@@ -35,6 +35,11 @@ func (tr *Ec2LocalGatewayRouteTableVpcAssociation) GetTerraformResourceIDField()
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Ec2LocalGatewayRouteTableVpcAssociation
+func (tr *Ec2LocalGatewayRouteTableVpcAssociation) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Ec2LocalGatewayRouteTableVpcAssociation
 func (tr *Ec2LocalGatewayRouteTableVpcAssociation) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

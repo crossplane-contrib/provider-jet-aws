@@ -70,7 +70,7 @@ type ActionAuthenticateOidcParameters struct {
 	ClientID string `json:"clientId" tf:"client_id"`
 
 	// +kubebuilder:validation:Required
-	ClientSecret string `json:"clientSecret" tf:"client_secret"`
+	ClientSecretSecretRef v1.SecretKeySelector `json:"clientSecretSecretRef" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	Issuer string `json:"issuer" tf:"issuer"`

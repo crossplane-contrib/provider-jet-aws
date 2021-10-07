@@ -35,6 +35,11 @@ func (tr *RdsClusterRoleAssociation) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this RdsClusterRoleAssociation
+func (tr *RdsClusterRoleAssociation) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this RdsClusterRoleAssociation
 func (tr *RdsClusterRoleAssociation) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

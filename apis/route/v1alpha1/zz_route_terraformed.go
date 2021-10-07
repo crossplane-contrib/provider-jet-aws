@@ -35,6 +35,11 @@ func (tr *Route) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route
+func (tr *Route) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route
 func (tr *Route) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

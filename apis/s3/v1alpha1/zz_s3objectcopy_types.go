@@ -102,10 +102,10 @@ type S3ObjectCopyParameters struct {
 	CustomerAlgorithm *string `json:"customerAlgorithm,omitempty" tf:"customer_algorithm"`
 
 	// +kubebuilder:validation:Optional
-	CustomerKey *string `json:"customerKey,omitempty" tf:"customer_key"`
+	CustomerKeyMd5 *string `json:"customerKeyMd5,omitempty" tf:"customer_key_md5"`
 
 	// +kubebuilder:validation:Optional
-	CustomerKeyMd5 *string `json:"customerKeyMd5,omitempty" tf:"customer_key_md5"`
+	CustomerKeySecretRef v1.SecretKeySelector `json:"customerKeySecretRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	ExpectedBucketOwner *string `json:"expectedBucketOwner,omitempty" tf:"expected_bucket_owner"`
@@ -126,10 +126,10 @@ type S3ObjectCopyParameters struct {
 	Key string `json:"key" tf:"key"`
 
 	// +kubebuilder:validation:Optional
-	KmsEncryptionContext *string `json:"kmsEncryptionContext,omitempty" tf:"kms_encryption_context"`
+	KmsEncryptionContextSecretRef v1.SecretKeySelector `json:"kmsEncryptionContextSecretRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyIDSecretRef v1.SecretKeySelector `json:"kmsKeyIdSecretRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Metadata map[string]string `json:"metadata,omitempty" tf:"metadata"`
@@ -164,10 +164,10 @@ type S3ObjectCopyParameters struct {
 	SourceCustomerAlgorithm *string `json:"sourceCustomerAlgorithm,omitempty" tf:"source_customer_algorithm"`
 
 	// +kubebuilder:validation:Optional
-	SourceCustomerKey *string `json:"sourceCustomerKey,omitempty" tf:"source_customer_key"`
+	SourceCustomerKeyMd5 *string `json:"sourceCustomerKeyMd5,omitempty" tf:"source_customer_key_md5"`
 
 	// +kubebuilder:validation:Optional
-	SourceCustomerKeyMd5 *string `json:"sourceCustomerKeyMd5,omitempty" tf:"source_customer_key_md5"`
+	SourceCustomerKeySecretRef v1.SecretKeySelector `json:"sourceCustomerKeySecretRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class"`

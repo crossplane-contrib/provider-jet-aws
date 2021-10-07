@@ -35,6 +35,11 @@ func (tr *Route53VpcAssociationAuthorization) GetTerraformResourceIDField() stri
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route53VpcAssociationAuthorization
+func (tr *Route53VpcAssociationAuthorization) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route53VpcAssociationAuthorization
 func (tr *Route53VpcAssociationAuthorization) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

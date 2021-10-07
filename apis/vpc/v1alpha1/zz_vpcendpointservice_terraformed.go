@@ -35,6 +35,11 @@ func (tr *VpcEndpointService) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this VpcEndpointService
+func (tr *VpcEndpointService) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this VpcEndpointService
 func (tr *VpcEndpointService) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

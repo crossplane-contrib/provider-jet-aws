@@ -35,6 +35,11 @@ func (tr *IamServerCertificate) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this IamServerCertificate
+func (tr *IamServerCertificate) GetConnectionDetailsMapping() map[string]string {
+	return map[string]string{"private_key": "spec.forProvider.privateKeySecretRef"}
+}
+
 // GetObservation of this IamServerCertificate
 func (tr *IamServerCertificate) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -35,6 +35,11 @@ func (tr *EksCluster) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this EksCluster
+func (tr *EksCluster) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this EksCluster
 func (tr *EksCluster) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

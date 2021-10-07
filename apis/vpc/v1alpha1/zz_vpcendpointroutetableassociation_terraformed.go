@@ -35,6 +35,11 @@ func (tr *VpcEndpointRouteTableAssociation) GetTerraformResourceIDField() string
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this VpcEndpointRouteTableAssociation
+func (tr *VpcEndpointRouteTableAssociation) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this VpcEndpointRouteTableAssociation
 func (tr *VpcEndpointRouteTableAssociation) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

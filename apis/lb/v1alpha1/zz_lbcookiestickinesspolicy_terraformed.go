@@ -35,6 +35,11 @@ func (tr *LbCookieStickinessPolicy) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this LbCookieStickinessPolicy
+func (tr *LbCookieStickinessPolicy) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this LbCookieStickinessPolicy
 func (tr *LbCookieStickinessPolicy) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

@@ -35,6 +35,11 @@ func (tr *RouteTableAssociation) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this RouteTableAssociation
+func (tr *RouteTableAssociation) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this RouteTableAssociation
 func (tr *RouteTableAssociation) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

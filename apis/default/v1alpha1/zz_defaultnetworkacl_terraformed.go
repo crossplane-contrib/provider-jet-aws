@@ -35,6 +35,11 @@ func (tr *DefaultNetworkAcl) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this DefaultNetworkAcl
+func (tr *DefaultNetworkAcl) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this DefaultNetworkAcl
 func (tr *DefaultNetworkAcl) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)

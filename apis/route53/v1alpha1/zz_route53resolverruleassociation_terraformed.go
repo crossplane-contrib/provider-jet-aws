@@ -35,6 +35,11 @@ func (tr *Route53ResolverRuleAssociation) GetTerraformResourceIDField() string {
 	return "id"
 }
 
+// GetConnectionDetailsMapping for this Route53ResolverRuleAssociation
+func (tr *Route53ResolverRuleAssociation) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
 // GetObservation of this Route53ResolverRuleAssociation
 func (tr *Route53ResolverRuleAssociation) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
