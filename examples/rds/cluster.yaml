@@ -7,8 +7,11 @@ spec:
     region: us-west-1
     engine: aurora-postgresql
     masterUsername: cpadmin
-    masterPassword: testPass23!
+    masterPasswordSecretRef:
+      name: sample-cluster-password
+      namespace: crossplane-system
+      key: password
     skipFinalSnapshot: true
   writeConnectionSecretToRef:
-    name: testkey-secret
+    name: sample-rds-cluster-secret
     namespace: crossplane-system

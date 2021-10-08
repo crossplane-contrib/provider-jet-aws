@@ -21,7 +21,6 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
 	"github.com/crossplane/crossplane-runtime/pkg/reference"
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
-	//iamv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
 )
 
 var SelfPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/iam"
@@ -32,11 +31,6 @@ func ExternalNameAsName(base map[string]interface{}, externalName string) {
 
 func PolicyARNExtractor() reference.ExtractValueFn {
 	return func(mg resource.Managed) string {
-		/*		r, ok := mg.(*iamv1alpha1.Policy)
-				if !ok {
-					return ""
-				}
-				return reference.FromPtrValue(r.Status.AtProvider.Arn)*/
 		paved, err := fieldpath.PaveObject(mg)
 		if err != nil {
 			// todo(hasan): should we log this error?
