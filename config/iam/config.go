@@ -162,7 +162,20 @@ func init() {
 			},
 		},
 	})
-	config.Store.SetForResource("aws_iam_role_policy_attachment", config.Resource{})
+	config.Store.SetForResource("aws_iam_role_policy_attachment", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: config.References{
+			"role": config.Reference{
+				Type: "Role",
+			},
+			"policy_arn": config.Reference{
+				Type:      "Policy",
+				Extractor: SelfPgkPath + ".PolicyARNExtractor()",
+			},
+		},
+	})
 
 	config.Store.SetForResource("aws_iam_user", config.Resource{
 		ExternalName: config.ExternalName{
@@ -174,7 +187,42 @@ func init() {
 		},
 	})
 
-	config.Store.SetForResource("aws_iam_user_group_membership", config.Resource{})
-	config.Store.SetForResource("aws_iam_user_policy", config.Resource{})
-	config.Store.SetForResource("aws_iam_user_policy_attachment", config.Resource{})
+	config.Store.SetForResource("aws_iam_user_group_membership", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: config.References{
+			"user": config.Reference{
+				Type: "User",
+			},
+			"groups": config.Reference{
+				Type: "IAMGroup",
+			},
+		},
+	})
+
+	config.Store.SetForResource("aws_iam_user_policy", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: config.References{
+			"user": config.Reference{
+				Type: "User",
+			},
+		},
+	})
+	config.Store.SetForResource("aws_iam_user_policy_attachment", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: config.References{
+			"user": config.Reference{
+				Type: "User",
+			},
+			"policy_arn": config.Reference{
+				Type:      "Policy",
+				Extractor: SelfPgkPath + ".PolicyARNExtractor()",
+			},
+		},
+	})
 }
