@@ -22,7 +22,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/meta"
 	"github.com/pkg/errors"
 
-	iam "github.com/crossplane-contrib/provider-tf-aws/config/iam"
+	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
@@ -68,7 +68,7 @@ func (tr *Role) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	iam.ExternalNameAsName(base, meta.GetExternalName(tr))
+	common.ExternalNameAsName(base, meta.GetExternalName(tr))
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
