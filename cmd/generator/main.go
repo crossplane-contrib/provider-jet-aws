@@ -140,7 +140,7 @@ func main() { // nolint:gocyclo
 
 		for _, name := range keys {
 			// We don't want Aws prefix in all kinds.
-			kind := strings.TrimPrefix(strcase.ToCamel(name), "Aws")
+			kind := strcase.ToCamel(strings.TrimPrefix(name, "aws_"+group))
 			resource := resources[name]
 			resource.Schema["region"] = regionSchema
 			rc := config.NewResource(version, kind, name)

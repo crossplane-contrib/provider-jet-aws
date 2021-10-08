@@ -52,12 +52,14 @@ func init() {
 		},
 		References: config.References{
 			"user": config.Reference{
-				Type: "IamUser",
+				Type: "User",
 			},
 		},
 	})
 
 	config.Store.SetForResource("aws_iam_group", config.Resource{
+		// Cannot use kind "Group" since it conflict with generated constant
+		// name in group version info
 		Kind: "IAMGroup",
 		ExternalName: config.ExternalName{
 			ConfigureFunctionPath: "iam.ExternalNameAsName",
@@ -91,7 +93,7 @@ func init() {
 				Type: "IamGroup",
 			},
 			"policy_arn": config.Reference{
-				Type:      "IamPolicy",
+				Type:      "Policy",
 				Extractor: SelfPgkPath + ".PolicyARNExtractor()",
 			},
 		},
@@ -107,7 +109,7 @@ func init() {
 		},
 		References: config.References{
 			"role": config.Reference{
-				Type: "IamRole",
+				Type: "Role",
 			},
 		},
 	})
@@ -124,16 +126,16 @@ func init() {
 		},
 		References: config.References{
 			"users": config.Reference{
-				Type: "IamUser",
+				Type: "User",
 			},
 			"roles": config.Reference{
-				Type: "IamRole",
+				Type: "Role",
 			},
 			"groups": config.Reference{
 				Type: "IamGroup",
 			},
 			"policy_arn": config.Reference{
-				Type:      "IamPolicy",
+				Type:      "Policy",
 				Extractor: SelfPgkPath + ".PolicyARNExtractor()",
 			},
 		},
