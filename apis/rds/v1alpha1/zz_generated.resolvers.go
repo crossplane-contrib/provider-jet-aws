@@ -56,8 +56,8 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.S3Import[i3].BucketName),
 			Extract:      reference.ExternalName(),
-			Reference:    mg.Spec.ForProvider.S3Import[i3].BucketNameRef,
-			Selector:     mg.Spec.ForProvider.S3Import[i3].BucketNameSelector,
+			Reference:    mg.Spec.ForProvider.S3Import[i3].BucketRef,
+			Selector:     mg.Spec.ForProvider.S3Import[i3].BucketSelector,
 			To: reference.To{
 				List:    &v1alpha1.BucketList{},
 				Managed: &v1alpha1.Bucket{},
@@ -67,7 +67,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 			return errors.Wrap(err, "mg.Spec.ForProvider.S3Import[i3].BucketName")
 		}
 		mg.Spec.ForProvider.S3Import[i3].BucketName = reference.ToPtrValue(rsp.ResolvedValue)
-		mg.Spec.ForProvider.S3Import[i3].BucketNameRef = rsp.ResolvedReference
+		mg.Spec.ForProvider.S3Import[i3].BucketRef = rsp.ResolvedReference
 
 	}
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{

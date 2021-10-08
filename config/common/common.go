@@ -16,7 +16,38 @@ limitations under the License.
 
 package common
 
+import (
+	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
+	"github.com/crossplane/crossplane-runtime/pkg/reference"
+	"github.com/crossplane/crossplane-runtime/pkg/resource"
+)
+
+const (
+	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
+)
+
+var (
+	PathExternalNameAsName = SelfPackagePath + ".ExternalNameAsName"
+	PathARNExtractor       = SelfPackagePath + ".ARNExtractor()"
+)
+
 // ExternalNameAsName is used by the resources whose schema includes a name field.
 func ExternalNameAsName(base map[string]interface{}, externalName string) {
 	base["name"] = externalName
+}
+
+func ARNExtractor() reference.ExtractValueFn {
+	return func(mg resource.Managed) string {
+		paved, err := fieldpath.PaveObject(mg)
+		if err != nil {
+			// todo(hasan): should we log this error?
+			return ""
+		}
+		r, err := paved.GetString("status.atProvider.arn")
+		if err != nil {
+			// todo(hasan): should we log this error?
+			return ""
+		}
+		return r
+	}
 }

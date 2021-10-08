@@ -50,11 +50,6 @@ func PolicyARNExtractor() reference.ExtractValueFn {
 // RoleARNExtractor extracts ARN from role.
 func RoleARNExtractor() reference.ExtractValueFn {
 	return func(mg resource.Managed) string {
-		/*		r, ok := mg.(*iamv1alpha1.Policy)
-				if !ok {
-					return ""
-				}
-				return reference.FromPtrValue(r.Status.AtProvider.Arn)*/
 		paved, err := fieldpath.PaveObject(mg)
 		if err != nil {
 			// todo(hasan): should we log this error?

@@ -76,6 +76,17 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_elasticache_parameter_group":   {},
 	"aws_elasticache_replication_group": {},
 
+	// ECS
+	"aws_ecs_cluster":           {},
+	"aws_ecs_service":           {},
+	"aws_ecs_capacity_provider": {},
+	"aws_ecs_tag":               {},
+	"aws_ecs_task_definition":   {},
+
+	// Autoscaling
+	"aws_autoscaling_group":      {},
+	"aws_autoscaling_attachment": {},
+
 	// IAM
 	"aws_iam_access_key":              {},
 	"aws_iam_group":                   {},

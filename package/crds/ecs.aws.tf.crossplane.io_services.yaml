@@ -4,18 +4,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: clusters.rds.aws.tf.crossplane.io
+  name: services.ecs.aws.tf.crossplane.io
 spec:
-  group: rds.aws.tf.crossplane.io
+  group: ecs.aws.tf.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - tfaws
-    kind: Cluster
-    listKind: ClusterList
-    plural: clusters
-    singular: cluster
+    kind: Service
+    listKind: ServiceList
+    plural: services
+    singular: service
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Cluster is the Schema for the Clusters API
+        description: Service is the Schema for the Services API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ClusterSpec defines the desired state of Cluster
+            description: ServiceSpec defines the desired state of Service
             properties:
               deletionPolicy:
                 default: Delete
@@ -62,217 +62,33 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  allowMajorVersionUpgrade:
-                    type: boolean
-                  applyImmediately:
-                    type: boolean
-                  availabilityZones:
+                  capacityProviderStrategy:
                     items:
-                      type: string
+                      properties:
+                        base:
+                          format: int64
+                          type: integer
+                        capacityProvider:
+                          type: string
+                        weight:
+                          format: int64
+                          type: integer
+                      required:
+                      - capacityProvider
+                      type: object
                     type: array
-                  backtrackWindow:
-                    format: int64
-                    type: integer
-                  backupRetentionPeriod:
-                    format: int64
-                    type: integer
-                  clusterMembers:
-                    items:
-                      type: string
-                    type: array
-                  copyTagsToSnapshot:
-                    type: boolean
-                  databaseName:
+                  cluster:
                     type: string
-                  dbClusterParameterGroupName:
-                    type: string
-                  dbSubnetGroupName:
-                    type: string
-                  deletionProtection:
-                    type: boolean
-                  enableHttpEndpoint:
-                    type: boolean
-                  enabledCloudwatchLogsExports:
-                    items:
-                      type: string
-                    type: array
-                  engine:
-                    type: string
-                  engineMode:
-                    type: string
-                  engineVersion:
-                    type: string
-                  finalSnapshotIdentifier:
-                    type: string
-                  globalClusterIdentifier:
-                    type: string
-                  iamDatabaseAuthenticationEnabled:
-                    type: boolean
-                  iamRoles:
-                    items:
-                      type: string
-                    type: array
-                  kmsKeyId:
-                    type: string
-                  masterPasswordSecretRef:
-                    description: A SecretKeySelector is a reference to a secret key
-                      in an arbitrary namespace.
+                  clusterRef:
+                    description: A Reference to a named object.
                     properties:
-                      key:
-                        description: The key to select.
-                        type: string
                       name:
-                        description: Name of the secret.
-                        type: string
-                      namespace:
-                        description: Namespace of the secret.
+                        description: Name of the referenced object.
                         type: string
                     required:
-                    - key
                     - name
-                    - namespace
                     type: object
-                  masterUsername:
-                    type: string
-                  port:
-                    format: int64
-                    type: integer
-                  preferredBackupWindow:
-                    type: string
-                  preferredMaintenanceWindow:
-                    type: string
-                  region:
-                    description: Region is the region you'd like your resource to
-                      be created in.
-                    type: string
-                  replicationSourceIdentifier:
-                    type: string
-                  restoreToPointInTime:
-                    items:
-                      properties:
-                        restoreToTime:
-                          type: string
-                        restoreType:
-                          type: string
-                        sourceClusterIdentifier:
-                          type: string
-                        sourceClusterIdentifierRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        sourceClusterIdentifierSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        useLatestRestorableTime:
-                          type: boolean
-                      type: object
-                    type: array
-                  s3Import:
-                    items:
-                      properties:
-                        bucketName:
-                          type: string
-                        bucketPrefix:
-                          type: string
-                        bucketRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        bucketSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        ingestionRole:
-                          type: string
-                        sourceEngine:
-                          type: string
-                        sourceEngineVersion:
-                          type: string
-                      required:
-                      - ingestionRole
-                      - sourceEngine
-                      - sourceEngineVersion
-                      type: object
-                    type: array
-                  scalingConfiguration:
-                    items:
-                      properties:
-                        autoPause:
-                          type: boolean
-                        maxCapacity:
-                          format: int64
-                          type: integer
-                        minCapacity:
-                          format: int64
-                          type: integer
-                        secondsUntilAutoPause:
-                          format: int64
-                          type: integer
-                        timeoutAction:
-                          type: string
-                      type: object
-                    type: array
-                  skipFinalSnapshot:
-                    type: boolean
-                  snapshotIdentifier:
-                    type: string
-                  sourceRegion:
-                    type: string
-                  storageEncrypted:
-                    type: boolean
-                  tags:
-                    additionalProperties:
-                      type: string
-                    type: object
-                  vpcSecurityGroupIds:
-                    items:
-                      type: string
-                    type: array
-                  vpcSecurityGroupIdsRefs:
-                    items:
-                      description: A Reference to a named object.
-                      properties:
-                        name:
-                          description: Name of the referenced object.
-                          type: string
-                      required:
-                      - name
-                      type: object
-                    type: array
-                  vpcSecurityGroupIdsSelector:
+                  clusterSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -286,6 +102,187 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  deploymentCircuitBreaker:
+                    items:
+                      properties:
+                        enable:
+                          type: boolean
+                        rollback:
+                          type: boolean
+                      required:
+                      - enable
+                      - rollback
+                      type: object
+                    type: array
+                  deploymentController:
+                    items:
+                      properties:
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  deploymentMaximumPercent:
+                    format: int64
+                    type: integer
+                  deploymentMinimumHealthyPercent:
+                    format: int64
+                    type: integer
+                  desiredCount:
+                    format: int64
+                    type: integer
+                  enableEcsManagedTags:
+                    type: boolean
+                  enableExecuteCommand:
+                    type: boolean
+                  forceNewDeployment:
+                    type: boolean
+                  healthCheckGracePeriodSeconds:
+                    format: int64
+                    type: integer
+                  iamRole:
+                    type: string
+                  iamRoleRef:
+                    description: A Reference to a named object.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                    required:
+                    - name
+                    type: object
+                  iamRoleSelector:
+                    description: A Selector selects an object.
+                    properties:
+                      matchControllerRef:
+                        description: MatchControllerRef ensures an object with the
+                          same controller reference as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                    type: object
+                  launchType:
+                    type: string
+                  loadBalancer:
+                    items:
+                      properties:
+                        containerName:
+                          type: string
+                        containerPort:
+                          format: int64
+                          type: integer
+                        elbName:
+                          type: string
+                        targetGroupArn:
+                          type: string
+                      required:
+                      - containerName
+                      - containerPort
+                      type: object
+                    type: array
+                  networkConfiguration:
+                    items:
+                      properties:
+                        assignPublicIp:
+                          type: boolean
+                        securityGroups:
+                          items:
+                            type: string
+                          type: array
+                        securityGroupsRefs:
+                          items:
+                            description: A Reference to a named object.
+                            properties:
+                              name:
+                                description: Name of the referenced object.
+                                type: string
+                            required:
+                            - name
+                            type: object
+                          type: array
+                        securityGroupsSelector:
+                          description: A Selector selects an object.
+                          properties:
+                            matchControllerRef:
+                              description: MatchControllerRef ensures an object with
+                                the same controller reference as the selecting object
+                                is selected.
+                              type: boolean
+                            matchLabels:
+                              additionalProperties:
+                                type: string
+                              description: MatchLabels ensures an object with matching
+                                labels is selected.
+                              type: object
+                          type: object
+                        subnets:
+                          items:
+                            type: string
+                          type: array
+                      required:
+                      - subnets
+                      type: object
+                    type: array
+                  orderedPlacementStrategy:
+                    items:
+                      properties:
+                        field:
+                          type: string
+                        type:
+                          type: string
+                      required:
+                      - type
+                      type: object
+                    type: array
+                  placementConstraints:
+                    items:
+                      properties:
+                        expression:
+                          type: string
+                        type:
+                          type: string
+                      required:
+                      - type
+                      type: object
+                    type: array
+                  platformVersion:
+                    type: string
+                  propagateTags:
+                    type: string
+                  region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
+                    type: string
+                  schedulingStrategy:
+                    type: string
+                  serviceRegistries:
+                    items:
+                      properties:
+                        containerName:
+                          type: string
+                        containerPort:
+                          format: int64
+                          type: integer
+                        port:
+                          format: int64
+                          type: integer
+                        registryArn:
+                          type: string
+                      required:
+                      - registryArn
+                      type: object
+                    type: array
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  taskDefinition:
+                    type: string
+                  waitForSteadyState:
+                    type: boolean
                 required:
                 - region
                 type: object
@@ -334,22 +331,10 @@ spec:
             - forProvider
             type: object
           status:
-            description: ClusterStatus defines the observed state of Cluster.
+            description: ServiceStatus defines the observed state of Service.
             properties:
               atProvider:
                 properties:
-                  arn:
-                    type: string
-                  clusterResourceId:
-                    type: string
-                  endpoint:
-                    type: string
-                  engineVersionActual:
-                    type: string
-                  hostedZoneId:
-                    type: string
-                  readerEndpoint:
-                    type: string
                   tagsAll:
                     additionalProperties:
                       type: string
