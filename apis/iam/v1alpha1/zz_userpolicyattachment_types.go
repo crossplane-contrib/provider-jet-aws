@@ -30,16 +30,31 @@ type UserPolicyAttachmentObservation struct {
 
 type UserPolicyAttachmentParameters struct {
 
-	// +kubebuilder:validation:Required
-	PolicyArn *string `json:"policyArn" tf:"policy_arn"`
+	// +crossplane:generate:reference:type=Policy
+	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.PolicyARNExtractor()
+	// +kubebuilder:validation:Optional
+	PolicyArn *string `json:"policyArn,omitempty" tf:"policy_arn"`
+
+	// +kubebuilder:validation:Optional
+	PolicyArnRef *v1.Reference `json:"policyArnRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	PolicyArnSelector *v1.Selector `json:"policyArnSelector,omitempty" tf:"-"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
-	// +kubebuilder:validation:Required
-	User *string `json:"user" tf:"user"`
+	// +crossplane:generate:reference:type=User
+	// +kubebuilder:validation:Optional
+	User *string `json:"user,omitempty" tf:"user"`
+
+	// +kubebuilder:validation:Optional
+	UserRef *v1.Reference `json:"userRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	UserSelector *v1.Selector `json:"userSelector,omitempty" tf:"-"`
 }
 
 // UserPolicyAttachmentSpec defines the desired state of UserPolicyAttachment

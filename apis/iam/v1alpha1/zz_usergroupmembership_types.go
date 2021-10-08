@@ -30,16 +30,30 @@ type UserGroupMembershipObservation struct {
 
 type UserGroupMembershipParameters struct {
 
-	// +kubebuilder:validation:Required
-	Groups []*string `json:"groups" tf:"groups"`
+	// +crossplane:generate:reference:type=IAMGroup
+	// +kubebuilder:validation:Optional
+	Groups []*string `json:"groups,omitempty" tf:"groups"`
+
+	// +kubebuilder:validation:Optional
+	GroupsRefs []v1.Reference `json:"groupsRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	GroupsSelector *v1.Selector `json:"groupsSelector,omitempty" tf:"-"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
-	// +kubebuilder:validation:Required
-	User *string `json:"user" tf:"user"`
+	// +crossplane:generate:reference:type=User
+	// +kubebuilder:validation:Optional
+	User *string `json:"user,omitempty" tf:"user"`
+
+	// +kubebuilder:validation:Optional
+	UserRef *v1.Reference `json:"userRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	UserSelector *v1.Selector `json:"userSelector,omitempty" tf:"-"`
 }
 
 // UserGroupMembershipSpec defines the desired state of UserGroupMembership

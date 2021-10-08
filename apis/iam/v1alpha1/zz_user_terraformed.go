@@ -22,7 +22,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/meta"
 	"github.com/pkg/errors"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config/iam"
+	iam "github.com/crossplane-contrib/provider-tf-aws/config/iam"
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
