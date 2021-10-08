@@ -51,6 +51,8 @@ type ReplicationGroupObservation struct {
 	PrimaryEndpointAddress *string `json:"primaryEndpointAddress,omitempty" tf:"primary_endpoint_address"`
 
 	ReaderEndpointAddress *string `json:"readerEndpointAddress,omitempty" tf:"reader_endpoint_address"`
+
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type ReplicationGroupParameters struct {
@@ -146,9 +148,6 @@ type ReplicationGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
-
-	// +kubebuilder:validation:Optional
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 
 	// +kubebuilder:validation:Optional
 	TransitEncryptionEnabled *bool `json:"transitEncryptionEnabled,omitempty" tf:"transit_encryption_enabled"`

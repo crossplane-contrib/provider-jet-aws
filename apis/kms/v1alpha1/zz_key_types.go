@@ -25,22 +25,39 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type ParameterGroupObservation struct {
+type KeyObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn"`
+
+	KeyID *string `json:"keyId,omitempty" tf:"key_id"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
-type ParameterGroupParameters struct {
+type KeyParameters struct {
+
+	// +kubebuilder:validation:Optional
+	BypassPolicyLockoutSafetyCheck *bool `json:"bypassPolicyLockoutSafetyCheck,omitempty" tf:"bypass_policy_lockout_safety_check"`
+
+	// +kubebuilder:validation:Optional
+	CustomerMasterKeySpec *string `json:"customerMasterKeySpec,omitempty" tf:"customer_master_key_spec"`
+
+	// +kubebuilder:validation:Optional
+	DeletionWindowInDays *int64 `json:"deletionWindowInDays,omitempty" tf:"deletion_window_in_days"`
 
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	// +kubebuilder:validation:Required
-	Family *string `json:"family" tf:"family"`
+	// +kubebuilder:validation:Optional
+	EnableKeyRotation *bool `json:"enableKeyRotation,omitempty" tf:"enable_key_rotation"`
 
 	// +kubebuilder:validation:Optional
-	Parameter []ParameterParameters `json:"parameter,omitempty" tf:"parameter"`
+	IsEnabled *bool `json:"isEnabled,omitempty" tf:"is_enabled"`
+
+	// +kubebuilder:validation:Optional
+	KeyUsage *string `json:"keyUsage,omitempty" tf:"key_usage"`
+
+	// +kubebuilder:validation:Optional
+	Policy *string `json:"policy,omitempty" tf:"policy"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
@@ -51,63 +68,51 @@ type ParameterGroupParameters struct {
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
 }
 
-type ParameterObservation struct {
-}
-
-type ParameterParameters struct {
-
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name"`
-
-	// +kubebuilder:validation:Required
-	Value *string `json:"value" tf:"value"`
-}
-
-// ParameterGroupSpec defines the desired state of ParameterGroup
-type ParameterGroupSpec struct {
+// KeySpec defines the desired state of Key
+type KeySpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     ParameterGroupParameters `json:"forProvider"`
+	ForProvider     KeyParameters `json:"forProvider"`
 }
 
-// ParameterGroupStatus defines the observed state of ParameterGroup.
-type ParameterGroupStatus struct {
+// KeyStatus defines the observed state of Key.
+type KeyStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        ParameterGroupObservation `json:"atProvider,omitempty"`
+	AtProvider        KeyObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// ParameterGroup is the Schema for the ParameterGroups API
+// Key is the Schema for the Keys API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type ParameterGroup struct {
+type Key struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              ParameterGroupSpec   `json:"spec"`
-	Status            ParameterGroupStatus `json:"status,omitempty"`
+	Spec              KeySpec   `json:"spec"`
+	Status            KeyStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// ParameterGroupList contains a list of ParameterGroups
-type ParameterGroupList struct {
+// KeyList contains a list of Keys
+type KeyList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []ParameterGroup `json:"items"`
+	Items           []Key `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	ParameterGroupKind             = "ParameterGroup"
-	ParameterGroupGroupKind        = schema.GroupKind{Group: Group, Kind: ParameterGroupKind}.String()
-	ParameterGroupKindAPIVersion   = ParameterGroupKind + "." + GroupVersion.String()
-	ParameterGroupGroupVersionKind = GroupVersion.WithKind(ParameterGroupKind)
+	KeyKind             = "Key"
+	KeyGroupKind        = schema.GroupKind{Group: Group, Kind: KeyKind}.String()
+	KeyKindAPIVersion   = KeyKind + "." + GroupVersion.String()
+	KeyGroupVersionKind = GroupVersion.WithKind(KeyKind)
 )
 
 func init() {
-	SchemeBuilder.Register(&ParameterGroup{}, &ParameterGroupList{})
+	SchemeBuilder.Register(&Key{}, &KeyList{})
 }

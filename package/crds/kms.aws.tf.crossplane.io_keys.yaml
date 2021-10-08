@@ -4,18 +4,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: replicationgroups.elasticache.aws.tf.crossplane.io
+  name: keys.kms.aws.tf.crossplane.io
 spec:
-  group: elasticache.aws.tf.crossplane.io
+  group: kms.aws.tf.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - tfaws
-    kind: ReplicationGroup
-    listKind: ReplicationGroupList
-    plural: replicationgroups
-    singular: replicationgroup
+    kind: Key
+    listKind: KeyList
+    plural: keys
+    singular: key
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: ReplicationGroup is the Schema for the ReplicationGroups API
+        description: Key is the Schema for the Keys API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ReplicationGroupSpec defines the desired state of ReplicationGroup
+            description: KeySpec defines the desired state of Key
             properties:
               deletionPolicy:
                 default: Delete
@@ -62,114 +62,33 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applyImmediately:
+                  bypassPolicyLockoutSafetyCheck:
                     type: boolean
-                  atRestEncryptionEnabled:
-                    type: boolean
-                  authTokenSecretRef:
-                    description: A SecretKeySelector is a reference to a secret key
-                      in an arbitrary namespace.
-                    properties:
-                      key:
-                        description: The key to select.
-                        type: string
-                      name:
-                        description: Name of the secret.
-                        type: string
-                      namespace:
-                        description: Namespace of the secret.
-                        type: string
-                    required:
-                    - key
-                    - name
-                    - namespace
-                    type: object
-                  autoMinorVersionUpgrade:
-                    type: boolean
-                  automaticFailoverEnabled:
-                    type: boolean
-                  availabilityZones:
-                    items:
-                      type: string
-                    type: array
-                  clusterMode:
-                    items:
-                      properties:
-                        numNodeGroups:
-                          format: int64
-                          type: integer
-                        replicasPerNodeGroup:
-                          format: int64
-                          type: integer
-                      required:
-                      - replicasPerNodeGroup
-                      type: object
-                    type: array
-                  engine:
+                  customerMasterKeySpec:
                     type: string
-                  engineVersion:
-                    type: string
-                  finalSnapshotIdentifier:
-                    type: string
-                  globalReplicationGroupId:
-                    type: string
-                  kmsKeyId:
-                    type: string
-                  maintenanceWindow:
-                    type: string
-                  multiAzEnabled:
-                    type: boolean
-                  nodeType:
-                    type: string
-                  notificationTopicArn:
-                    type: string
-                  numberCacheClusters:
+                  deletionWindowInDays:
                     format: int64
                     type: integer
-                  parameterGroupName:
+                  description:
                     type: string
-                  port:
-                    format: int64
-                    type: integer
+                  enableKeyRotation:
+                    type: boolean
+                  isEnabled:
+                    type: boolean
+                  keyUsage:
+                    type: string
+                  policy:
+                    type: string
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
-                    type: string
-                  replicationGroupDescription:
-                    type: string
-                  replicationGroupId:
-                    type: string
-                  securityGroupIds:
-                    items:
-                      type: string
-                    type: array
-                  securityGroupNames:
-                    items:
-                      type: string
-                    type: array
-                  snapshotArns:
-                    items:
-                      type: string
-                    type: array
-                  snapshotName:
-                    type: string
-                  snapshotRetentionLimit:
-                    format: int64
-                    type: integer
-                  snapshotWindow:
-                    type: string
-                  subnetGroupName:
                     type: string
                   tags:
                     additionalProperties:
                       type: string
                     type: object
-                  transitEncryptionEnabled:
-                    type: boolean
                 required:
                 - region
-                - replicationGroupDescription
-                - replicationGroupId
                 type: object
               providerConfigRef:
                 default:
@@ -216,25 +135,13 @@ spec:
             - forProvider
             type: object
           status:
-            description: ReplicationGroupStatus defines the observed state of ReplicationGroup.
+            description: KeyStatus defines the observed state of Key.
             properties:
               atProvider:
                 properties:
                   arn:
                     type: string
-                  clusterEnabled:
-                    type: boolean
-                  configurationEndpointAddress:
-                    type: string
-                  engineVersionActual:
-                    type: string
-                  memberClusters:
-                    items:
-                      type: string
-                    type: array
-                  primaryEndpointAddress:
-                    type: string
-                  readerEndpointAddress:
+                  keyId:
                     type: string
                   tagsAll:
                     additionalProperties:

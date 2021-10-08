@@ -52,7 +52,7 @@ func (mg *Addon) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ServiceAccountRoleArn),
-		Extract:      reference.ExternalName(),
+		Extract:      iam.RoleARNExtractor(),
 		Reference:    mg.Spec.ForProvider.ServiceAccountRoleArnRef,
 		Selector:     mg.Spec.ForProvider.ServiceAccountRoleArnSelector,
 		To: reference.To{
@@ -159,7 +159,7 @@ func (mg *FargateProfile) ResolveReferences(ctx context.Context, c client.Reader
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PodExecutionRoleArn),
-		Extract:      reference.ExternalName(),
+		Extract:      iam.RoleARNExtractor(),
 		Reference:    mg.Spec.ForProvider.PodExecutionRoleArnRef,
 		Selector:     mg.Spec.ForProvider.PodExecutionRoleArnSelector,
 		To: reference.To{
@@ -244,7 +244,7 @@ func (mg *NodeGroup) ResolveReferences(ctx context.Context, c client.Reader) err
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.NodeRoleArn),
-		Extract:      reference.ExternalName(),
+		Extract:      iam.RoleARNExtractor(),
 		Reference:    mg.Spec.ForProvider.NodeRoleArnRef,
 		Selector:     mg.Spec.ForProvider.NodeRoleArnSelector,
 		To: reference.To{

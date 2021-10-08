@@ -24,12 +24,14 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
+	volume "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ebs/volume"
+	instance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/instance"
 	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
+	clustereks "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
 	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
 	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
-	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
@@ -46,9 +48,11 @@ import (
 	usergroupmembership "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/usergroupmembership"
 	userpolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicy"
 	userpolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicyattachment"
+	key "github.com/crossplane-contrib/provider-tf-aws/internal/controller/kms/key"
 	clusterrds "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
+	networkinterface "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/networkinterface"
 	securitygroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygroup"
 	securitygrouprule "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygrouprule"
 	subnet "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/subnet"
@@ -63,16 +67,19 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		addon.Setup,
 		bucket.Setup,
 		cluster.Setup,
-		clusterelasticache.Setup,
+		clustereks.Setup,
 		clusterrds.Setup,
 		fargateprofile.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
 		iamgroup.Setup,
 		identityproviderconfig.Setup,
+		instance.Setup,
 		instanceprofile.Setup,
-		parametergroup.Setup,
+		key.Setup,
+		networkinterface.Setup,
 		nodegroup.Setup,
+		parametergroup.Setup,
 		policy.Setup,
 		policyattachment.Setup,
 		replicationgroup.Setup,
@@ -87,6 +94,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		usergroupmembership.Setup,
 		userpolicy.Setup,
 		userpolicyattachment.Setup,
+		volume.Setup,
 		vpc.Setup,
 	} {
 		if err := setup(mgr, l, wl, ps, ws, concurrency); err != nil {

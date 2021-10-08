@@ -91,6 +91,7 @@ type NodeGroupParameters struct {
 	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate,omitempty" tf:"launch_template"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role
+	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.RoleARNExtractor()
 	// +kubebuilder:validation:Optional
 	NodeRoleArn *string `json:"nodeRoleArn,omitempty" tf:"node_role_arn"`
 

@@ -25,33 +25,38 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type AddonObservation struct {
+type VolumeObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn"`
-
-	CreatedAt *string `json:"createdAt,omitempty" tf:"created_at"`
-
-	ModifiedAt *string `json:"modifiedAt,omitempty" tf:"modified_at"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
-type AddonParameters struct {
+type VolumeParameters struct {
 
 	// +kubebuilder:validation:Required
-	AddonName *string `json:"addonName" tf:"addon_name"`
+	AvailabilityZone *string `json:"availabilityZone" tf:"availability_zone"`
 
 	// +kubebuilder:validation:Optional
-	AddonVersion *string `json:"addonVersion,omitempty" tf:"addon_version"`
-
-	// +crossplane:generate:reference:type=Cluster
-	// +kubebuilder:validation:Optional
-	ClusterName *string `json:"clusterName,omitempty" tf:"cluster_name"`
+	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
 
 	// +kubebuilder:validation:Optional
-	ClusterNameRef *v1.Reference `json:"clusterNameRef,omitempty" tf:"-"`
+	Iops *int64 `json:"iops,omitempty" tf:"iops"`
+
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key
+	// +kubebuilder:validation:Optional
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
 
 	// +kubebuilder:validation:Optional
-	ClusterNameSelector *v1.Selector `json:"clusterNameSelector,omitempty" tf:"-"`
+	KmsKeyIDRef *v1.Reference `json:"kmsKeyIDRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	KmsKeyIDSelector *v1.Selector `json:"kmsKeyIDSelector,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	MultiAttachEnabled *bool `json:"multiAttachEnabled,omitempty" tf:"multi_attach_enabled"`
+
+	// +kubebuilder:validation:Optional
+	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
@@ -59,68 +64,66 @@ type AddonParameters struct {
 	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	ResolveConflicts *string `json:"resolveConflicts,omitempty" tf:"resolve_conflicts"`
-
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.RoleARNExtractor()
-	// +kubebuilder:validation:Optional
-	ServiceAccountRoleArn *string `json:"serviceAccountRoleArn,omitempty" tf:"service_account_role_arn"`
+	Size *int64 `json:"size,omitempty" tf:"size"`
 
 	// +kubebuilder:validation:Optional
-	ServiceAccountRoleArnRef *v1.Reference `json:"serviceAccountRoleArnRef,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	ServiceAccountRoleArnSelector *v1.Selector `json:"serviceAccountRoleArnSelector,omitempty" tf:"-"`
+	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+
+	// +kubebuilder:validation:Optional
+	Throughput *int64 `json:"throughput,omitempty" tf:"throughput"`
+
+	// +kubebuilder:validation:Optional
+	Type *string `json:"type,omitempty" tf:"type"`
 }
 
-// AddonSpec defines the desired state of Addon
-type AddonSpec struct {
+// VolumeSpec defines the desired state of Volume
+type VolumeSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     AddonParameters `json:"forProvider"`
+	ForProvider     VolumeParameters `json:"forProvider"`
 }
 
-// AddonStatus defines the observed state of Addon.
-type AddonStatus struct {
+// VolumeStatus defines the observed state of Volume.
+type VolumeStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        AddonObservation `json:"atProvider,omitempty"`
+	AtProvider        VolumeObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// Addon is the Schema for the Addons API
+// Volume is the Schema for the Volumes API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type Addon struct {
+type Volume struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              AddonSpec   `json:"spec"`
-	Status            AddonStatus `json:"status,omitempty"`
+	Spec              VolumeSpec   `json:"spec"`
+	Status            VolumeStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// AddonList contains a list of Addons
-type AddonList struct {
+// VolumeList contains a list of Volumes
+type VolumeList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []Addon `json:"items"`
+	Items           []Volume `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	AddonKind             = "Addon"
-	AddonGroupKind        = schema.GroupKind{Group: Group, Kind: AddonKind}.String()
-	AddonKindAPIVersion   = AddonKind + "." + GroupVersion.String()
-	AddonGroupVersionKind = GroupVersion.WithKind(AddonKind)
+	VolumeKind             = "Volume"
+	VolumeGroupKind        = schema.GroupKind{Group: Group, Kind: VolumeKind}.String()
+	VolumeKindAPIVersion   = VolumeKind + "." + GroupVersion.String()
+	VolumeGroupVersionKind = GroupVersion.WithKind(VolumeKind)
 )
 
 func init() {
-	SchemeBuilder.Register(&Addon{}, &AddonList{})
+	SchemeBuilder.Register(&Volume{}, &VolumeList{})
 }
