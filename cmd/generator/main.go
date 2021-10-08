@@ -67,6 +67,11 @@ var alphaIncludedResource = map[string]struct{}{
 	// S3
 	"aws_s3_bucket": {},
 
+	// Elasticache
+	"aws_elasticache_cluster":                  {},
+	"aws_elasticache_parameter_group":          {},
+	"aws_elasticache_global_replication_group": {},
+
 	// IAM
 	"aws_iam_access_key":              {},
 	"aws_iam_group":                   {},
