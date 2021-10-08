@@ -23,8 +23,10 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
 )
 
-var CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
-var SelfPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/iam"
+const (
+	CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
+	SelfPkgPath   = "github.com/crossplane-contrib/provider-tf-aws/config/iam"
+)
 
 func PolicyARNExtractor() reference.ExtractValueFn {
 	return func(mg resource.Managed) string {

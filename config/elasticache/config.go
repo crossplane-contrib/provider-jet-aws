@@ -4,8 +4,10 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
-var CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
-var SelfPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/elasticache"
+const (
+	CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
+	SelfPkgPath   = "github.com/crossplane-contrib/provider-tf-aws/config/elasticache"
+)
 
 func ClusterExternalNameConfigure(base map[string]interface{}, name string) {
 	base["cluster_id"] = name

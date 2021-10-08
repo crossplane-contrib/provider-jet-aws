@@ -24,7 +24,7 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
+	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
@@ -41,7 +41,7 @@ import (
 	usergroupmembership "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/usergroupmembership"
 	userpolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicy"
 	userpolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicyattachment"
-	clusterrds "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
 	vpc "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/vpc"
@@ -54,7 +54,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		accesskey.Setup,
 		bucket.Setup,
 		cluster.Setup,
-		clusterrds.Setup,
+		clusterelasticache.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
 		iamgroup.Setup,
