@@ -25,8 +25,8 @@ import (
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-// ResolveReferences of this IamAccessKey.
-func (mg *IamAccessKey) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this AccessKey.
+func (mg *AccessKey) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -38,8 +38,8 @@ func (mg *IamAccessKey) ResolveReferences(ctx context.Context, c client.Reader) 
 		Reference:    mg.Spec.ForProvider.UserRef,
 		Selector:     mg.Spec.ForProvider.UserSelector,
 		To: reference.To{
-			List:    &IamUserList{},
-			Managed: &IamUser{},
+			List:    &UserList{},
+			Managed: &User{},
 		},
 	})
 	if err != nil {
@@ -51,8 +51,8 @@ func (mg *IamAccessKey) ResolveReferences(ctx context.Context, c client.Reader) 
 	return nil
 }
 
-// ResolveReferences of this IamGroupPolicy.
-func (mg *IamGroupPolicy) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this GroupPolicy.
+func (mg *GroupPolicy) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -64,8 +64,8 @@ func (mg *IamGroupPolicy) ResolveReferences(ctx context.Context, c client.Reader
 		Reference:    mg.Spec.ForProvider.GroupRef,
 		Selector:     mg.Spec.ForProvider.GroupSelector,
 		To: reference.To{
-			List:    &IamGroupList{},
-			Managed: &IamGroup{},
+			List:    &IAMGroupList{},
+			Managed: &IAMGroup{},
 		},
 	})
 	if err != nil {
@@ -77,8 +77,8 @@ func (mg *IamGroupPolicy) ResolveReferences(ctx context.Context, c client.Reader
 	return nil
 }
 
-// ResolveReferences of this IamGroupPolicyAttachment.
-func (mg *IamGroupPolicyAttachment) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this GroupPolicyAttachment.
+func (mg *GroupPolicyAttachment) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -90,8 +90,8 @@ func (mg *IamGroupPolicyAttachment) ResolveReferences(ctx context.Context, c cli
 		Reference:    mg.Spec.ForProvider.GroupRef,
 		Selector:     mg.Spec.ForProvider.GroupSelector,
 		To: reference.To{
-			List:    &IamGroupList{},
-			Managed: &IamGroup{},
+			List:    &IAMGroupList{},
+			Managed: &IAMGroup{},
 		},
 	})
 	if err != nil {
@@ -106,8 +106,8 @@ func (mg *IamGroupPolicyAttachment) ResolveReferences(ctx context.Context, c cli
 		Reference:    mg.Spec.ForProvider.PolicyArnRef,
 		Selector:     mg.Spec.ForProvider.PolicyArnSelector,
 		To: reference.To{
-			List:    &IamPolicyList{},
-			Managed: &IamPolicy{},
+			List:    &PolicyList{},
+			Managed: &Policy{},
 		},
 	})
 	if err != nil {
@@ -119,8 +119,8 @@ func (mg *IamGroupPolicyAttachment) ResolveReferences(ctx context.Context, c cli
 	return nil
 }
 
-// ResolveReferences of this IamInstanceProfile.
-func (mg *IamInstanceProfile) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this InstanceProfile.
+func (mg *InstanceProfile) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -132,8 +132,8 @@ func (mg *IamInstanceProfile) ResolveReferences(ctx context.Context, c client.Re
 		Reference:    mg.Spec.ForProvider.RoleRef,
 		Selector:     mg.Spec.ForProvider.RoleSelector,
 		To: reference.To{
-			List:    &IamRoleList{},
-			Managed: &IamRole{},
+			List:    &RoleList{},
+			Managed: &Role{},
 		},
 	})
 	if err != nil {
@@ -145,8 +145,8 @@ func (mg *IamInstanceProfile) ResolveReferences(ctx context.Context, c client.Re
 	return nil
 }
 
-// ResolveReferences of this IamPolicyAttachment.
-func (mg *IamPolicyAttachment) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this PolicyAttachment.
+func (mg *PolicyAttachment) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -159,8 +159,8 @@ func (mg *IamPolicyAttachment) ResolveReferences(ctx context.Context, c client.R
 		References:    mg.Spec.ForProvider.GroupsRefs,
 		Selector:      mg.Spec.ForProvider.GroupsSelector,
 		To: reference.To{
-			List:    &IamGroupList{},
-			Managed: &IamGroup{},
+			List:    &IAMGroupList{},
+			Managed: &IAMGroup{},
 		},
 	})
 	if err != nil {
@@ -175,8 +175,8 @@ func (mg *IamPolicyAttachment) ResolveReferences(ctx context.Context, c client.R
 		Reference:    mg.Spec.ForProvider.PolicyArnRef,
 		Selector:     mg.Spec.ForProvider.PolicyArnSelector,
 		To: reference.To{
-			List:    &IamPolicyList{},
-			Managed: &IamPolicy{},
+			List:    &PolicyList{},
+			Managed: &Policy{},
 		},
 	})
 	if err != nil {
@@ -191,8 +191,8 @@ func (mg *IamPolicyAttachment) ResolveReferences(ctx context.Context, c client.R
 		References:    mg.Spec.ForProvider.RolesRefs,
 		Selector:      mg.Spec.ForProvider.RolesSelector,
 		To: reference.To{
-			List:    &IamRoleList{},
-			Managed: &IamRole{},
+			List:    &RoleList{},
+			Managed: &Role{},
 		},
 	})
 	if err != nil {
@@ -207,8 +207,8 @@ func (mg *IamPolicyAttachment) ResolveReferences(ctx context.Context, c client.R
 		References:    mg.Spec.ForProvider.UsersRefs,
 		Selector:      mg.Spec.ForProvider.UsersSelector,
 		To: reference.To{
-			List:    &IamUserList{},
-			Managed: &IamUser{},
+			List:    &UserList{},
+			Managed: &User{},
 		},
 	})
 	if err != nil {

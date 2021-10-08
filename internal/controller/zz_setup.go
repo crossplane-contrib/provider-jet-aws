@@ -24,22 +24,22 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
-	iamaccesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamaccesskey"
+	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
+	grouppolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/grouppolicy"
+	grouppolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/grouppolicyattachment"
 	iamgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamgroup"
-	iamgrouppolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamgrouppolicy"
-	iamgrouppolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamgrouppolicyattachment"
-	iaminstanceprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iaminstanceprofile"
-	iampolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iampolicy"
-	iampolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iampolicyattachment"
-	iamrole "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamrole"
-	iamrolepolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamrolepolicy"
-	iamrolepolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamrolepolicyattachment"
-	iamuser "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamuser"
-	iamusergroupmembership "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamusergroupmembership"
-	iamuserpolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamuserpolicy"
-	iamuserpolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/iamuserpolicyattachment"
-	rdscluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/rdscluster"
-	s3bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/s3bucket"
+	instanceprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/instanceprofile"
+	policy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/policy"
+	policyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/policyattachment"
+	role "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/role"
+	rolepolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/rolepolicy"
+	rolepolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/rolepolicyattachment"
+	user "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/user"
+	usergroupmembership "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/usergroupmembership"
+	userpolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicy"
+	userpolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicyattachment"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
+	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
 	vpc "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/vpc"
 )
@@ -48,23 +48,23 @@ import (
 // the supplied manager.
 func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terraform.SetupFn, ws *terraform.WorkspaceStore, concurrency int) error {
 	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter, terraform.SetupFn, *terraform.WorkspaceStore, int) error{
-		iamaccesskey.Setup,
+		accesskey.Setup,
+		bucket.Setup,
+		cluster.Setup,
+		grouppolicy.Setup,
+		grouppolicyattachment.Setup,
 		iamgroup.Setup,
-		iamgrouppolicy.Setup,
-		iamgrouppolicyattachment.Setup,
-		iaminstanceprofile.Setup,
-		iampolicy.Setup,
-		iampolicyattachment.Setup,
-		iamrole.Setup,
-		iamrolepolicy.Setup,
-		iamrolepolicyattachment.Setup,
-		iamuser.Setup,
-		iamusergroupmembership.Setup,
-		iamuserpolicy.Setup,
-		iamuserpolicyattachment.Setup,
-		rdscluster.Setup,
-		s3bucket.Setup,
+		instanceprofile.Setup,
+		policy.Setup,
+		policyattachment.Setup,
+		role.Setup,
+		rolepolicy.Setup,
+		rolepolicyattachment.Setup,
 		tfaws.Setup,
+		user.Setup,
+		usergroupmembership.Setup,
+		userpolicy.Setup,
+		userpolicyattachment.Setup,
 		vpc.Setup,
 	} {
 		if err := setup(mgr, l, wl, ps, ws, concurrency); err != nil {

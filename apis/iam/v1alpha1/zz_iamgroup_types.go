@@ -25,13 +25,13 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type IamGroupObservation struct {
+type IAMGroupObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn"`
 
 	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id"`
 }
 
-type IamGroupParameters struct {
+type IAMGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path"`
@@ -42,51 +42,51 @@ type IamGroupParameters struct {
 	Region *string `json:"region" tf:"-"`
 }
 
-// IamGroupSpec defines the desired state of IamGroup
-type IamGroupSpec struct {
+// IAMGroupSpec defines the desired state of IAMGroup
+type IAMGroupSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     IamGroupParameters `json:"forProvider"`
+	ForProvider     IAMGroupParameters `json:"forProvider"`
 }
 
-// IamGroupStatus defines the observed state of IamGroup.
-type IamGroupStatus struct {
+// IAMGroupStatus defines the observed state of IAMGroup.
+type IAMGroupStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        IamGroupObservation `json:"atProvider,omitempty"`
+	AtProvider        IAMGroupObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// IamGroup is the Schema for the IamGroups API
+// IAMGroup is the Schema for the IAMGroups API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type IamGroup struct {
+type IAMGroup struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              IamGroupSpec   `json:"spec"`
-	Status            IamGroupStatus `json:"status,omitempty"`
+	Spec              IAMGroupSpec   `json:"spec"`
+	Status            IAMGroupStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// IamGroupList contains a list of IamGroups
-type IamGroupList struct {
+// IAMGroupList contains a list of IAMGroups
+type IAMGroupList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []IamGroup `json:"items"`
+	Items           []IAMGroup `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	IamGroupKind             = "IamGroup"
-	IamGroupGroupKind        = schema.GroupKind{Group: Group, Kind: IamGroupKind}.String()
-	IamGroupKindAPIVersion   = IamGroupKind + "." + GroupVersion.String()
-	IamGroupGroupVersionKind = GroupVersion.WithKind(IamGroupKind)
+	IAMGroupKind             = "IAMGroup"
+	IAMGroupGroupKind        = schema.GroupKind{Group: Group, Kind: IAMGroupKind}.String()
+	IAMGroupKindAPIVersion   = IAMGroupKind + "." + GroupVersion.String()
+	IAMGroupGroupVersionKind = GroupVersion.WithKind(IAMGroupKind)
 )
 
 func init() {
-	SchemeBuilder.Register(&IamGroup{}, &IamGroupList{})
+	SchemeBuilder.Register(&IAMGroup{}, &IAMGroupList{})
 }

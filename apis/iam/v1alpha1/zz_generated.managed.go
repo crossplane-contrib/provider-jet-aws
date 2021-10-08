@@ -19,786 +19,786 @@ package v1alpha1
 
 import xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 
-// GetCondition of this IamAccessKey.
-func (mg *IamAccessKey) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this AccessKey.
+func (mg *AccessKey) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamAccessKey.
-func (mg *IamAccessKey) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this AccessKey.
+func (mg *AccessKey) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamAccessKey.
-func (mg *IamAccessKey) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this AccessKey.
+func (mg *AccessKey) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamAccessKey.
+GetProviderReference of this AccessKey.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamAccessKey) GetProviderReference() *xpv1.Reference {
+func (mg *AccessKey) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamAccessKey.
-func (mg *IamAccessKey) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this AccessKey.
+func (mg *AccessKey) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamAccessKey.
-func (mg *IamAccessKey) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this AccessKey.
+func (mg *AccessKey) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamAccessKey.
-func (mg *IamAccessKey) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this AccessKey.
+func (mg *AccessKey) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamAccessKey.
-func (mg *IamAccessKey) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this AccessKey.
+func (mg *AccessKey) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamAccessKey.
+SetProviderReference of this AccessKey.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamAccessKey) SetProviderReference(r *xpv1.Reference) {
+func (mg *AccessKey) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamAccessKey.
-func (mg *IamAccessKey) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this AccessKey.
+func (mg *AccessKey) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamGroup.
-func (mg *IamGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this GroupPolicy.
+func (mg *GroupPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamGroup.
-func (mg *IamGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this GroupPolicy.
+func (mg *GroupPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamGroup.
-func (mg *IamGroup) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this GroupPolicy.
+func (mg *GroupPolicy) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamGroup.
+GetProviderReference of this GroupPolicy.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamGroup) GetProviderReference() *xpv1.Reference {
+func (mg *GroupPolicy) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamGroup.
-func (mg *IamGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this GroupPolicy.
+func (mg *GroupPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamGroup.
-func (mg *IamGroup) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this GroupPolicy.
+func (mg *GroupPolicy) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamGroup.
-func (mg *IamGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this GroupPolicy.
+func (mg *GroupPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamGroup.
-func (mg *IamGroup) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this GroupPolicy.
+func (mg *GroupPolicy) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamGroup.
+SetProviderReference of this GroupPolicy.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamGroup) SetProviderReference(r *xpv1.Reference) {
+func (mg *GroupPolicy) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamGroup.
-func (mg *IamGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this GroupPolicy.
+func (mg *GroupPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamGroupPolicy.
-func (mg *IamGroupPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this GroupPolicyAttachment.
+func (mg *GroupPolicyAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamGroupPolicy.
-func (mg *IamGroupPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this GroupPolicyAttachment.
+func (mg *GroupPolicyAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamGroupPolicy.
-func (mg *IamGroupPolicy) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this GroupPolicyAttachment.
+func (mg *GroupPolicyAttachment) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamGroupPolicy.
+GetProviderReference of this GroupPolicyAttachment.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamGroupPolicy) GetProviderReference() *xpv1.Reference {
+func (mg *GroupPolicyAttachment) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamGroupPolicy.
-func (mg *IamGroupPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this GroupPolicyAttachment.
+func (mg *GroupPolicyAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamGroupPolicy.
-func (mg *IamGroupPolicy) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this GroupPolicyAttachment.
+func (mg *GroupPolicyAttachment) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamGroupPolicy.
-func (mg *IamGroupPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this GroupPolicyAttachment.
+func (mg *GroupPolicyAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamGroupPolicy.
-func (mg *IamGroupPolicy) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this GroupPolicyAttachment.
+func (mg *GroupPolicyAttachment) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamGroupPolicy.
+SetProviderReference of this GroupPolicyAttachment.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamGroupPolicy) SetProviderReference(r *xpv1.Reference) {
+func (mg *GroupPolicyAttachment) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamGroupPolicy.
-func (mg *IamGroupPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this GroupPolicyAttachment.
+func (mg *GroupPolicyAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamGroupPolicyAttachment.
-func (mg *IamGroupPolicyAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this IAMGroup.
+func (mg *IAMGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamGroupPolicyAttachment.
-func (mg *IamGroupPolicyAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this IAMGroup.
+func (mg *IAMGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamGroupPolicyAttachment.
-func (mg *IamGroupPolicyAttachment) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this IAMGroup.
+func (mg *IAMGroup) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamGroupPolicyAttachment.
+GetProviderReference of this IAMGroup.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamGroupPolicyAttachment) GetProviderReference() *xpv1.Reference {
+func (mg *IAMGroup) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamGroupPolicyAttachment.
-func (mg *IamGroupPolicyAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this IAMGroup.
+func (mg *IAMGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamGroupPolicyAttachment.
-func (mg *IamGroupPolicyAttachment) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this IAMGroup.
+func (mg *IAMGroup) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamGroupPolicyAttachment.
-func (mg *IamGroupPolicyAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this IAMGroup.
+func (mg *IAMGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamGroupPolicyAttachment.
-func (mg *IamGroupPolicyAttachment) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this IAMGroup.
+func (mg *IAMGroup) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamGroupPolicyAttachment.
+SetProviderReference of this IAMGroup.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamGroupPolicyAttachment) SetProviderReference(r *xpv1.Reference) {
+func (mg *IAMGroup) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamGroupPolicyAttachment.
-func (mg *IamGroupPolicyAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this IAMGroup.
+func (mg *IAMGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamInstanceProfile.
-func (mg *IamInstanceProfile) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this InstanceProfile.
+func (mg *InstanceProfile) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamInstanceProfile.
-func (mg *IamInstanceProfile) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this InstanceProfile.
+func (mg *InstanceProfile) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamInstanceProfile.
-func (mg *IamInstanceProfile) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this InstanceProfile.
+func (mg *InstanceProfile) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamInstanceProfile.
+GetProviderReference of this InstanceProfile.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamInstanceProfile) GetProviderReference() *xpv1.Reference {
+func (mg *InstanceProfile) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamInstanceProfile.
-func (mg *IamInstanceProfile) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this InstanceProfile.
+func (mg *InstanceProfile) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamInstanceProfile.
-func (mg *IamInstanceProfile) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this InstanceProfile.
+func (mg *InstanceProfile) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamInstanceProfile.
-func (mg *IamInstanceProfile) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this InstanceProfile.
+func (mg *InstanceProfile) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamInstanceProfile.
-func (mg *IamInstanceProfile) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this InstanceProfile.
+func (mg *InstanceProfile) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamInstanceProfile.
+SetProviderReference of this InstanceProfile.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamInstanceProfile) SetProviderReference(r *xpv1.Reference) {
+func (mg *InstanceProfile) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamInstanceProfile.
-func (mg *IamInstanceProfile) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this InstanceProfile.
+func (mg *InstanceProfile) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamPolicy.
-func (mg *IamPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this Policy.
+func (mg *Policy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamPolicy.
-func (mg *IamPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this Policy.
+func (mg *Policy) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamPolicy.
-func (mg *IamPolicy) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this Policy.
+func (mg *Policy) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamPolicy.
+GetProviderReference of this Policy.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamPolicy) GetProviderReference() *xpv1.Reference {
+func (mg *Policy) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamPolicy.
-func (mg *IamPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this Policy.
+func (mg *Policy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamPolicy.
-func (mg *IamPolicy) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this Policy.
+func (mg *Policy) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamPolicy.
-func (mg *IamPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this Policy.
+func (mg *Policy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamPolicy.
-func (mg *IamPolicy) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this Policy.
+func (mg *Policy) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamPolicy.
+SetProviderReference of this Policy.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamPolicy) SetProviderReference(r *xpv1.Reference) {
+func (mg *Policy) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamPolicy.
-func (mg *IamPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this Policy.
+func (mg *Policy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamPolicyAttachment.
-func (mg *IamPolicyAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this PolicyAttachment.
+func (mg *PolicyAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamPolicyAttachment.
-func (mg *IamPolicyAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this PolicyAttachment.
+func (mg *PolicyAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamPolicyAttachment.
-func (mg *IamPolicyAttachment) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this PolicyAttachment.
+func (mg *PolicyAttachment) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamPolicyAttachment.
+GetProviderReference of this PolicyAttachment.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamPolicyAttachment) GetProviderReference() *xpv1.Reference {
+func (mg *PolicyAttachment) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamPolicyAttachment.
-func (mg *IamPolicyAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this PolicyAttachment.
+func (mg *PolicyAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamPolicyAttachment.
-func (mg *IamPolicyAttachment) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this PolicyAttachment.
+func (mg *PolicyAttachment) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamPolicyAttachment.
-func (mg *IamPolicyAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this PolicyAttachment.
+func (mg *PolicyAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamPolicyAttachment.
-func (mg *IamPolicyAttachment) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this PolicyAttachment.
+func (mg *PolicyAttachment) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamPolicyAttachment.
+SetProviderReference of this PolicyAttachment.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamPolicyAttachment) SetProviderReference(r *xpv1.Reference) {
+func (mg *PolicyAttachment) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamPolicyAttachment.
-func (mg *IamPolicyAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this PolicyAttachment.
+func (mg *PolicyAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamRole.
-func (mg *IamRole) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this Role.
+func (mg *Role) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamRole.
-func (mg *IamRole) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this Role.
+func (mg *Role) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamRole.
-func (mg *IamRole) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this Role.
+func (mg *Role) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamRole.
+GetProviderReference of this Role.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamRole) GetProviderReference() *xpv1.Reference {
+func (mg *Role) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamRole.
-func (mg *IamRole) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this Role.
+func (mg *Role) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamRole.
-func (mg *IamRole) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this Role.
+func (mg *Role) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamRole.
-func (mg *IamRole) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this Role.
+func (mg *Role) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamRole.
-func (mg *IamRole) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this Role.
+func (mg *Role) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamRole.
+SetProviderReference of this Role.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamRole) SetProviderReference(r *xpv1.Reference) {
+func (mg *Role) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamRole.
-func (mg *IamRole) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this Role.
+func (mg *Role) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamRolePolicy.
-func (mg *IamRolePolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this RolePolicy.
+func (mg *RolePolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamRolePolicy.
-func (mg *IamRolePolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this RolePolicy.
+func (mg *RolePolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamRolePolicy.
-func (mg *IamRolePolicy) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this RolePolicy.
+func (mg *RolePolicy) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamRolePolicy.
+GetProviderReference of this RolePolicy.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamRolePolicy) GetProviderReference() *xpv1.Reference {
+func (mg *RolePolicy) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamRolePolicy.
-func (mg *IamRolePolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this RolePolicy.
+func (mg *RolePolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamRolePolicy.
-func (mg *IamRolePolicy) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this RolePolicy.
+func (mg *RolePolicy) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamRolePolicy.
-func (mg *IamRolePolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this RolePolicy.
+func (mg *RolePolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamRolePolicy.
-func (mg *IamRolePolicy) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this RolePolicy.
+func (mg *RolePolicy) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamRolePolicy.
+SetProviderReference of this RolePolicy.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamRolePolicy) SetProviderReference(r *xpv1.Reference) {
+func (mg *RolePolicy) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamRolePolicy.
-func (mg *IamRolePolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this RolePolicy.
+func (mg *RolePolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamRolePolicyAttachment.
-func (mg *IamRolePolicyAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this RolePolicyAttachment.
+func (mg *RolePolicyAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamRolePolicyAttachment.
-func (mg *IamRolePolicyAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this RolePolicyAttachment.
+func (mg *RolePolicyAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamRolePolicyAttachment.
-func (mg *IamRolePolicyAttachment) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this RolePolicyAttachment.
+func (mg *RolePolicyAttachment) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamRolePolicyAttachment.
+GetProviderReference of this RolePolicyAttachment.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamRolePolicyAttachment) GetProviderReference() *xpv1.Reference {
+func (mg *RolePolicyAttachment) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamRolePolicyAttachment.
-func (mg *IamRolePolicyAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this RolePolicyAttachment.
+func (mg *RolePolicyAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamRolePolicyAttachment.
-func (mg *IamRolePolicyAttachment) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this RolePolicyAttachment.
+func (mg *RolePolicyAttachment) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamRolePolicyAttachment.
-func (mg *IamRolePolicyAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this RolePolicyAttachment.
+func (mg *RolePolicyAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamRolePolicyAttachment.
-func (mg *IamRolePolicyAttachment) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this RolePolicyAttachment.
+func (mg *RolePolicyAttachment) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamRolePolicyAttachment.
+SetProviderReference of this RolePolicyAttachment.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamRolePolicyAttachment) SetProviderReference(r *xpv1.Reference) {
+func (mg *RolePolicyAttachment) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamRolePolicyAttachment.
-func (mg *IamRolePolicyAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this RolePolicyAttachment.
+func (mg *RolePolicyAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamUser.
-func (mg *IamUser) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this User.
+func (mg *User) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamUser.
-func (mg *IamUser) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this User.
+func (mg *User) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamUser.
-func (mg *IamUser) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this User.
+func (mg *User) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamUser.
+GetProviderReference of this User.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamUser) GetProviderReference() *xpv1.Reference {
+func (mg *User) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamUser.
-func (mg *IamUser) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this User.
+func (mg *User) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamUser.
-func (mg *IamUser) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this User.
+func (mg *User) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamUser.
-func (mg *IamUser) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this User.
+func (mg *User) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamUser.
-func (mg *IamUser) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this User.
+func (mg *User) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamUser.
+SetProviderReference of this User.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamUser) SetProviderReference(r *xpv1.Reference) {
+func (mg *User) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamUser.
-func (mg *IamUser) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this User.
+func (mg *User) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamUserGroupMembership.
-func (mg *IamUserGroupMembership) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this UserGroupMembership.
+func (mg *UserGroupMembership) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamUserGroupMembership.
-func (mg *IamUserGroupMembership) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this UserGroupMembership.
+func (mg *UserGroupMembership) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamUserGroupMembership.
-func (mg *IamUserGroupMembership) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this UserGroupMembership.
+func (mg *UserGroupMembership) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamUserGroupMembership.
+GetProviderReference of this UserGroupMembership.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamUserGroupMembership) GetProviderReference() *xpv1.Reference {
+func (mg *UserGroupMembership) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamUserGroupMembership.
-func (mg *IamUserGroupMembership) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this UserGroupMembership.
+func (mg *UserGroupMembership) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamUserGroupMembership.
-func (mg *IamUserGroupMembership) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this UserGroupMembership.
+func (mg *UserGroupMembership) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamUserGroupMembership.
-func (mg *IamUserGroupMembership) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this UserGroupMembership.
+func (mg *UserGroupMembership) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamUserGroupMembership.
-func (mg *IamUserGroupMembership) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this UserGroupMembership.
+func (mg *UserGroupMembership) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamUserGroupMembership.
+SetProviderReference of this UserGroupMembership.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamUserGroupMembership) SetProviderReference(r *xpv1.Reference) {
+func (mg *UserGroupMembership) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamUserGroupMembership.
-func (mg *IamUserGroupMembership) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this UserGroupMembership.
+func (mg *UserGroupMembership) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamUserPolicy.
-func (mg *IamUserPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this UserPolicy.
+func (mg *UserPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamUserPolicy.
-func (mg *IamUserPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this UserPolicy.
+func (mg *UserPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamUserPolicy.
-func (mg *IamUserPolicy) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this UserPolicy.
+func (mg *UserPolicy) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamUserPolicy.
+GetProviderReference of this UserPolicy.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamUserPolicy) GetProviderReference() *xpv1.Reference {
+func (mg *UserPolicy) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamUserPolicy.
-func (mg *IamUserPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this UserPolicy.
+func (mg *UserPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamUserPolicy.
-func (mg *IamUserPolicy) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this UserPolicy.
+func (mg *UserPolicy) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamUserPolicy.
-func (mg *IamUserPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this UserPolicy.
+func (mg *UserPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamUserPolicy.
-func (mg *IamUserPolicy) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this UserPolicy.
+func (mg *UserPolicy) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamUserPolicy.
+SetProviderReference of this UserPolicy.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamUserPolicy) SetProviderReference(r *xpv1.Reference) {
+func (mg *UserPolicy) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamUserPolicy.
-func (mg *IamUserPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this UserPolicy.
+func (mg *UserPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this IamUserPolicyAttachment.
-func (mg *IamUserPolicyAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this UserPolicyAttachment.
+func (mg *UserPolicyAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this IamUserPolicyAttachment.
-func (mg *IamUserPolicyAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this UserPolicyAttachment.
+func (mg *UserPolicyAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this IamUserPolicyAttachment.
-func (mg *IamUserPolicyAttachment) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this UserPolicyAttachment.
+func (mg *UserPolicyAttachment) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this IamUserPolicyAttachment.
+GetProviderReference of this UserPolicyAttachment.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *IamUserPolicyAttachment) GetProviderReference() *xpv1.Reference {
+func (mg *UserPolicyAttachment) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this IamUserPolicyAttachment.
-func (mg *IamUserPolicyAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this UserPolicyAttachment.
+func (mg *UserPolicyAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this IamUserPolicyAttachment.
-func (mg *IamUserPolicyAttachment) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this UserPolicyAttachment.
+func (mg *UserPolicyAttachment) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this IamUserPolicyAttachment.
-func (mg *IamUserPolicyAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this UserPolicyAttachment.
+func (mg *UserPolicyAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this IamUserPolicyAttachment.
-func (mg *IamUserPolicyAttachment) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this UserPolicyAttachment.
+func (mg *UserPolicyAttachment) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this IamUserPolicyAttachment.
+SetProviderReference of this UserPolicyAttachment.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *IamUserPolicyAttachment) SetProviderReference(r *xpv1.Reference) {
+func (mg *UserPolicyAttachment) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this IamUserPolicyAttachment.
-func (mg *IamUserPolicyAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this UserPolicyAttachment.
+func (mg *UserPolicyAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }

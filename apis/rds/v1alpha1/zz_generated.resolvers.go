@@ -25,8 +25,8 @@ import (
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-// ResolveReferences of this RdsCluster.
-func (mg *RdsCluster) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this Cluster.
+func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -39,8 +39,8 @@ func (mg *RdsCluster) ResolveReferences(ctx context.Context, c client.Reader) er
 			Reference:    mg.Spec.ForProvider.S3Import[i3].BucketNameRef,
 			Selector:     mg.Spec.ForProvider.S3Import[i3].BucketNameSelector,
 			To: reference.To{
-				List:    &v1alpha1.S3BucketList{},
-				Managed: &v1alpha1.S3Bucket{},
+				List:    &v1alpha1.BucketList{},
+				Managed: &v1alpha1.Bucket{},
 			},
 		})
 		if err != nil {

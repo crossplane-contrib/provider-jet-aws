@@ -27,23 +27,23 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
-// GetTerraformResourceType returns Terraform resource type for this IamGroup
-func (mg *IamGroup) GetTerraformResourceType() string {
+// GetTerraformResourceType returns Terraform resource type for this IAMGroup
+func (mg *IAMGroup) GetTerraformResourceType() string {
 	return "aws_iam_group"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this IamGroup
-func (tr *IamGroup) GetTerraformResourceIDField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this IAMGroup
+func (tr *IAMGroup) GetTerraformResourceIDField() string {
 	return "id"
 }
 
-// GetConnectionDetailsMapping for this IamGroup
-func (tr *IamGroup) GetConnectionDetailsMapping() map[string]string {
+// GetConnectionDetailsMapping for this IAMGroup
+func (tr *IAMGroup) GetConnectionDetailsMapping() map[string]string {
 	return nil
 }
 
-// GetObservation of this IamGroup
-func (tr *IamGroup) GetObservation() (map[string]interface{}, error) {
+// GetObservation of this IAMGroup
+func (tr *IAMGroup) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
@@ -52,8 +52,8 @@ func (tr *IamGroup) GetObservation() (map[string]interface{}, error) {
 	return base, json.TFParser.Unmarshal(o, &base)
 }
 
-// SetObservation for this IamGroup
-func (tr *IamGroup) SetObservation(obs map[string]interface{}) error {
+// SetObservation for this IAMGroup
+func (tr *IAMGroup) SetObservation(obs map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(obs)
 	if err != nil {
 		return err
@@ -61,8 +61,8 @@ func (tr *IamGroup) SetObservation(obs map[string]interface{}) error {
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
-// GetParameters of this IamGroup
-func (tr *IamGroup) GetParameters() (map[string]interface{}, error) {
+// GetParameters of this IAMGroup
+func (tr *IAMGroup) GetParameters() (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
@@ -72,8 +72,8 @@ func (tr *IamGroup) GetParameters() (map[string]interface{}, error) {
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
-// SetParameters for this IamGroup
-func (tr *IamGroup) SetParameters(params map[string]interface{}) error {
+// SetParameters for this IAMGroup
+func (tr *IAMGroup) SetParameters(params map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(params)
 	if err != nil {
 		return err
@@ -81,10 +81,10 @@ func (tr *IamGroup) SetParameters(params map[string]interface{}) error {
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }
 
-// LateInitialize this IamGroup using its observed tfState.
+// LateInitialize this IAMGroup using its observed tfState.
 // returns True if there are any spec changes for the resource.
-func (tr *IamGroup) LateInitialize(attrs []byte) (bool, error) {
-	params := &IamGroupParameters{}
+func (tr *IAMGroup) LateInitialize(attrs []byte) (bool, error) {
+	params := &IAMGroupParameters{}
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}

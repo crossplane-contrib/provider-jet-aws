@@ -79,7 +79,7 @@ func init() {
 		},
 		References: config.References{
 			"group": config.Reference{
-				Type: "IamGroup",
+				Type: "IAMGroup",
 			},
 		},
 	})
@@ -90,7 +90,7 @@ func init() {
 		},
 		References: config.References{
 			"group": config.Reference{
-				Type: "IamGroup",
+				Type: "IAMGroup",
 			},
 			"policy_arn": config.Reference{
 				Type:      "Policy",
@@ -132,7 +132,7 @@ func init() {
 				Type: "Role",
 			},
 			"groups": config.Reference{
-				Type: "IamGroup",
+				Type: "IAMGroup",
 			},
 			"policy_arn": config.Reference{
 				Type:      "Policy",
