@@ -24,6 +24,9 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
+	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
+	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
+	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
 	grouppolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/grouppolicy"
 	grouppolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/grouppolicyattachment"
@@ -51,12 +54,15 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		accesskey.Setup,
 		bucket.Setup,
 		cluster.Setup,
+		clusterelasticache.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
 		iamgroup.Setup,
 		instanceprofile.Setup,
+		parametergroup.Setup,
 		policy.Setup,
 		policyattachment.Setup,
+		replicationgroup.Setup,
 		role.Setup,
 		rolepolicy.Setup,
 		rolepolicyattachment.Setup,

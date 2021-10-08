@@ -21,22 +21,15 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
 	"github.com/crossplane/crossplane-runtime/pkg/reference"
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
-	//iamv1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
 )
 
-var SelfPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/iam"
-
-func ExternalNameAsName(base map[string]interface{}, externalName string) {
-	base["name"] = externalName
-}
+const (
+	CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
+	SelfPkgPath   = "github.com/crossplane-contrib/provider-tf-aws/config/iam"
+)
 
 func PolicyARNExtractor() reference.ExtractValueFn {
 	return func(mg resource.Managed) string {
-		/*		r, ok := mg.(*iamv1alpha1.Policy)
-				if !ok {
-					return ""
-				}
-				return reference.FromPtrValue(r.Status.AtProvider.Arn)*/
 		paved, err := fieldpath.PaveObject(mg)
 		if err != nil {
 			// todo(hasan): should we log this error?
@@ -68,7 +61,7 @@ func init() {
 		// name in group version info
 		Kind: "IAMGroup",
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath: CommonPkgPath + ".ExternalNameAsName",
 			OmittedFields: []string{
 				"name",
 			},
@@ -77,7 +70,7 @@ func init() {
 
 	config.Store.SetForResource("aws_iam_group_policy", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath: CommonPkgPath + ".ExternalNameAsName",
 			OmittedFields: []string{
 				"name",
 				"name_prefix",
@@ -107,7 +100,7 @@ func init() {
 
 	config.Store.SetForResource("aws_iam_instance_profile", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath: CommonPkgPath + ".ExternalNameAsName",
 			OmittedFields: []string{
 				"name",
 				"name_prefix",
@@ -150,7 +143,7 @@ func init() {
 	config.Store.SetForResource("aws_iam_role", config.Resource{
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: false,
-			ConfigureFunctionPath:  SelfPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath:  CommonPkgPath + ".ExternalNameAsName",
 			OmittedFields: []string{
 				"name",
 				"name_prefix",
@@ -161,7 +154,7 @@ func init() {
 	config.Store.SetForResource("aws_iam_role_policy", config.Resource{
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: false,
-			ConfigureFunctionPath:  SelfPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath:  CommonPkgPath + ".ExternalNameAsName",
 			OmittedFields: []string{
 				"name",
 				"name_prefix",
@@ -186,7 +179,7 @@ func init() {
 	config.Store.SetForResource("aws_iam_user", config.Resource{
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: false,
-			ConfigureFunctionPath:  SelfPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath:  CommonPkgPath + ".ExternalNameAsName",
 			OmittedFields: []string{
 				"name",
 			},

@@ -27,23 +27,23 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
-// GetTerraformResourceType returns Terraform resource type for this User
-func (mg *User) GetTerraformResourceType() string {
-	return "aws_iam_user"
+// GetTerraformResourceType returns Terraform resource type for this ParameterGroup
+func (mg *ParameterGroup) GetTerraformResourceType() string {
+	return "aws_elasticache_parameter_group"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this User
-func (tr *User) GetTerraformResourceIDField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this ParameterGroup
+func (tr *ParameterGroup) GetTerraformResourceIDField() string {
 	return "id"
 }
 
-// GetConnectionDetailsMapping for this User
-func (tr *User) GetConnectionDetailsMapping() map[string]string {
+// GetConnectionDetailsMapping for this ParameterGroup
+func (tr *ParameterGroup) GetConnectionDetailsMapping() map[string]string {
 	return nil
 }
 
-// GetObservation of this User
-func (tr *User) GetObservation() (map[string]interface{}, error) {
+// GetObservation of this ParameterGroup
+func (tr *ParameterGroup) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
@@ -52,8 +52,8 @@ func (tr *User) GetObservation() (map[string]interface{}, error) {
 	return base, json.TFParser.Unmarshal(o, &base)
 }
 
-// SetObservation for this User
-func (tr *User) SetObservation(obs map[string]interface{}) error {
+// SetObservation for this ParameterGroup
+func (tr *ParameterGroup) SetObservation(obs map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(obs)
 	if err != nil {
 		return err
@@ -61,8 +61,8 @@ func (tr *User) SetObservation(obs map[string]interface{}) error {
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
-// GetParameters of this User
-func (tr *User) GetParameters() (map[string]interface{}, error) {
+// GetParameters of this ParameterGroup
+func (tr *ParameterGroup) GetParameters() (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
@@ -72,8 +72,8 @@ func (tr *User) GetParameters() (map[string]interface{}, error) {
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
-// SetParameters for this User
-func (tr *User) SetParameters(params map[string]interface{}) error {
+// SetParameters for this ParameterGroup
+func (tr *ParameterGroup) SetParameters(params map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(params)
 	if err != nil {
 		return err
@@ -81,10 +81,10 @@ func (tr *User) SetParameters(params map[string]interface{}) error {
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }
 
-// LateInitialize this User using its observed tfState.
+// LateInitialize this ParameterGroup using its observed tfState.
 // returns True if there are any spec changes for the resource.
-func (tr *User) LateInitialize(attrs []byte) (bool, error) {
-	params := &UserParameters{}
+func (tr *ParameterGroup) LateInitialize(attrs []byte) (bool, error) {
+	params := &ParameterGroupParameters{}
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}

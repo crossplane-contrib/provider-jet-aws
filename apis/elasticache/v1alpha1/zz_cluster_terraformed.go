@@ -22,28 +22,28 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/meta"
 	"github.com/pkg/errors"
 
-	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
+	elasticache "github.com/crossplane-contrib/provider-tf-aws/config/elasticache"
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
-// GetTerraformResourceType returns Terraform resource type for this User
-func (mg *User) GetTerraformResourceType() string {
-	return "aws_iam_user"
+// GetTerraformResourceType returns Terraform resource type for this Cluster
+func (mg *Cluster) GetTerraformResourceType() string {
+	return "aws_elasticache_cluster"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this User
-func (tr *User) GetTerraformResourceIDField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this Cluster
+func (tr *Cluster) GetTerraformResourceIDField() string {
 	return "id"
 }
 
-// GetConnectionDetailsMapping for this User
-func (tr *User) GetConnectionDetailsMapping() map[string]string {
+// GetConnectionDetailsMapping for this Cluster
+func (tr *Cluster) GetConnectionDetailsMapping() map[string]string {
 	return nil
 }
 
-// GetObservation of this User
-func (tr *User) GetObservation() (map[string]interface{}, error) {
+// GetObservation of this Cluster
+func (tr *Cluster) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
@@ -52,8 +52,8 @@ func (tr *User) GetObservation() (map[string]interface{}, error) {
 	return base, json.TFParser.Unmarshal(o, &base)
 }
 
-// SetObservation for this User
-func (tr *User) SetObservation(obs map[string]interface{}) error {
+// SetObservation for this Cluster
+func (tr *Cluster) SetObservation(obs map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(obs)
 	if err != nil {
 		return err
@@ -61,19 +61,19 @@ func (tr *User) SetObservation(obs map[string]interface{}) error {
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
-// GetParameters of this User
-func (tr *User) GetParameters() (map[string]interface{}, error) {
+// GetParameters of this Cluster
+func (tr *Cluster) GetParameters() (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	common.ExternalNameAsName(base, meta.GetExternalName(tr))
+	elasticache.ClusterExternalNameConfigure(base, meta.GetExternalName(tr))
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
-// SetParameters for this User
-func (tr *User) SetParameters(params map[string]interface{}) error {
+// SetParameters for this Cluster
+func (tr *Cluster) SetParameters(params map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(params)
 	if err != nil {
 		return err
@@ -81,10 +81,10 @@ func (tr *User) SetParameters(params map[string]interface{}) error {
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }
 
-// LateInitialize this User using its observed tfState.
+// LateInitialize this Cluster using its observed tfState.
 // returns True if there are any spec changes for the resource.
-func (tr *User) LateInitialize(attrs []byte) (bool, error) {
-	params := &UserParameters{}
+func (tr *Cluster) LateInitialize(attrs []byte) (bool, error) {
+	params := &ClusterParameters{}
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
