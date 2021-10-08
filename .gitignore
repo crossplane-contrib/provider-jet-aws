@@ -1,8 +1,6 @@
 /.cache
 /.work
 /_output
-/config/
-/config
 cover.out
 /vendor
 /.vendor-new

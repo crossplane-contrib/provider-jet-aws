@@ -76,6 +76,19 @@ crds.clean:
 
 generate.done: crds.clean
 
+terrajet.run:
+	@go run cmd/generator/main.go
+	@make generate
+
+# todo(turkenh): clean up whole apis and internal/control directories once we
+# figured out where to keep non generated files inside there dirs
+terrajet.clean:
+	@rm -f apis/zz_*.go
+	@rm -f apis/*/zz_*.go
+	@rm -f apis/*/*/zz_*.go
+	@rm -f internal/controller/zz_*.go
+	@rm -f internal/controller/*/*/zz_*.go
+
 # Update the submodules, such as the common build scripts.
 submodules:
 	@git submodule sync

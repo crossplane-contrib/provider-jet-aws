@@ -19,30 +19,29 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"github.com/crossplane/crossplane-runtime/pkg/meta"
 	"github.com/pkg/errors"
 
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
-// GetTerraformResourceType returns Terraform resource type for this Vpc
-func (mg *Vpc) GetTerraformResourceType() string {
+// GetTerraformResourceType returns Terraform resource type for this VPC
+func (mg *VPC) GetTerraformResourceType() string {
 	return "aws_vpc"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Vpc
-func (tr *Vpc) GetTerraformResourceIDField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this VPC
+func (tr *VPC) GetTerraformResourceIDField() string {
 	return "id"
 }
 
-// GetConnectionDetailsMapping for this Vpc
-func (tr *Vpc) GetConnectionDetailsMapping() map[string]string {
+// GetConnectionDetailsMapping for this VPC
+func (tr *VPC) GetConnectionDetailsMapping() map[string]string {
 	return nil
 }
 
-// GetObservation of this Vpc
-func (tr *Vpc) GetObservation() (map[string]interface{}, error) {
+// GetObservation of this VPC
+func (tr *VPC) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
@@ -51,8 +50,8 @@ func (tr *Vpc) GetObservation() (map[string]interface{}, error) {
 	return base, json.TFParser.Unmarshal(o, &base)
 }
 
-// SetObservation for this Vpc
-func (tr *Vpc) SetObservation(obs map[string]interface{}) error {
+// SetObservation for this VPC
+func (tr *VPC) SetObservation(obs map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(obs)
 	if err != nil {
 		return err
@@ -60,19 +59,18 @@ func (tr *Vpc) SetObservation(obs map[string]interface{}) error {
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
-// GetParameters of this Vpc
-func (tr *Vpc) GetParameters() (map[string]interface{}, error) {
+// GetParameters of this VPC
+func (tr *VPC) GetParameters() (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	vpcExternalNameConfigure(base, meta.GetExternalName(tr))
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
-// SetParameters for this Vpc
-func (tr *Vpc) SetParameters(params map[string]interface{}) error {
+// SetParameters for this VPC
+func (tr *VPC) SetParameters(params map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(params)
 	if err != nil {
 		return err
@@ -80,14 +78,15 @@ func (tr *Vpc) SetParameters(params map[string]interface{}) error {
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }
 
-// LateInitialize this Vpc using its observed tfState.
+// LateInitialize this VPC using its observed tfState.
 // returns True if there are any spec changes for the resource.
-func (tr *Vpc) LateInitialize(attrs []byte) (bool, error) {
-	params := &VpcParameters{}
+func (tr *VPC) LateInitialize(attrs []byte) (bool, error) {
+	params := &VPCParameters{}
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
-	li := resource.NewGenericLateInitializer(resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard),
-		resource.WithZeroElemPtrFilter(resource.CNameWildcard))
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }

@@ -1,7 +1,9 @@
 apiVersion: iam.aws.tf.crossplane.io/v1alpha1
-kind: IamUser
+kind:   User
 metadata:
-  name: muvaftestexternal
+  name: sample-user
 spec:
   forProvider:
     region: ""
+    tags:
+      k1: v1

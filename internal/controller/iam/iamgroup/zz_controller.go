@@ -36,11 +36,11 @@ import (
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
 )
 
-// Setup adds a controller that reconciles IamGroup managed resources.
+// Setup adds a controller that reconciles IAMGroup managed resources.
 func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terraform.SetupFn, ws *terraform.WorkspaceStore, concurrency int) error {
-	name := managed.ControllerName(v1alpha1.IamGroupGroupVersionKind.String())
+	name := managed.ControllerName(v1alpha1.IAMGroupGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
-		xpresource.ManagedKind(v1alpha1.IamGroupGroupVersionKind),
+		xpresource.ManagedKind(v1alpha1.IAMGroupGroupVersionKind),
 		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s)),
 		managed.WithLogger(l.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
@@ -51,6 +51,6 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terra
 	return ctrl.NewControllerManagedBy(mgr).
 		Named(name).
 		WithOptions(controller.Options{RateLimiter: rl, MaxConcurrentReconciles: concurrency}).
-		For(&v1alpha1.IamGroup{}).
+		For(&v1alpha1.IAMGroup{}).
 		Complete(r)
 }

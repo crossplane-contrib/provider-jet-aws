@@ -22,20 +22,9 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1default "github.com/crossplane-contrib/provider-tf-aws/apis/default/v1alpha1"
-	v1alpha1ec2 "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1"
-	v1alpha1eip "github.com/crossplane-contrib/provider-tf-aws/apis/eip/v1alpha1"
-	v1alpha1eks "github.com/crossplane-contrib/provider-tf-aws/apis/eks/v1alpha1"
-	v1alpha1elb "github.com/crossplane-contrib/provider-tf-aws/apis/elb/v1alpha1"
 	v1alpha1iam "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
-	v1alpha1instance "github.com/crossplane-contrib/provider-tf-aws/apis/instance/v1alpha1"
-	v1alpha1lb "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1"
-	v1alpha1main "github.com/crossplane-contrib/provider-tf-aws/apis/main/v1alpha1"
 	v1alpha1rds "github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
-	v1alpha1route "github.com/crossplane-contrib/provider-tf-aws/apis/route/v1alpha1"
-	v1alpha1route53 "github.com/crossplane-contrib/provider-tf-aws/apis/route53/v1alpha1"
 	v1alpha1s3 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
-	v1alpha1subnet "github.com/crossplane-contrib/provider-tf-aws/apis/subnet/v1alpha1"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
 	v1alpha1vpc "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 )
@@ -44,20 +33,9 @@ func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
-		v1alpha1default.SchemeBuilder.AddToScheme,
-		v1alpha1ec2.SchemeBuilder.AddToScheme,
-		v1alpha1eip.SchemeBuilder.AddToScheme,
-		v1alpha1eks.SchemeBuilder.AddToScheme,
-		v1alpha1elb.SchemeBuilder.AddToScheme,
 		v1alpha1iam.SchemeBuilder.AddToScheme,
-		v1alpha1instance.SchemeBuilder.AddToScheme,
-		v1alpha1lb.SchemeBuilder.AddToScheme,
-		v1alpha1main.SchemeBuilder.AddToScheme,
 		v1alpha1rds.SchemeBuilder.AddToScheme,
-		v1alpha1route.SchemeBuilder.AddToScheme,
-		v1alpha1route53.SchemeBuilder.AddToScheme,
 		v1alpha1s3.SchemeBuilder.AddToScheme,
-		v1alpha1subnet.SchemeBuilder.AddToScheme,
 		v1alpha1vpc.SchemeBuilder.AddToScheme,
 	)
 }

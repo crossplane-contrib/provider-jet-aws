@@ -1,0 +1,12 @@
+apiVersion: iam.aws.tf.crossplane.io/v1alpha1
+kind: AccessKey
+metadata:
+  name: testkey
+spec:
+  forProvider:
+    region: ""
+    userRef:
+      name: testuser
+  writeConnectionSecretToRef:
+    name: testkey-secret
+    namespace: crossplane-system

@@ -1,0 +1,14 @@
+apiVersion: rds.aws.tf.crossplane.io/v1alpha1
+kind: Cluster
+metadata:
+  name: sample-cluster
+spec:
+  forProvider:
+    region: us-west-1
+    engine: aurora-postgresql
+    masterUsername: cpadmin
+    masterPassword: testPass23!
+    skipFinalSnapshot: true
+  writeConnectionSecretToRef:
+    name: testkey-secret
+    namespace: crossplane-system

@@ -25,8 +25,8 @@ import (
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-// ResolveReferences of this RdsCluster.
-func (mg *RdsCluster) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this Cluster.
+func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -34,19 +34,19 @@ func (mg *RdsCluster) ResolveReferences(ctx context.Context, c client.Reader) er
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.S3Import); i3++ {
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-			CurrentValue: mg.Spec.ForProvider.S3Import[i3].BucketName,
+			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.S3Import[i3].BucketName),
 			Extract:      reference.ExternalName(),
 			Reference:    mg.Spec.ForProvider.S3Import[i3].BucketNameRef,
 			Selector:     mg.Spec.ForProvider.S3Import[i3].BucketNameSelector,
 			To: reference.To{
-				List:    &v1alpha1.S3BucketList{},
-				Managed: &v1alpha1.S3Bucket{},
+				List:    &v1alpha1.BucketList{},
+				Managed: &v1alpha1.Bucket{},
 			},
 		})
 		if err != nil {
 			return errors.Wrap(err, "mg.Spec.ForProvider.S3Import[i3].BucketName")
 		}
-		mg.Spec.ForProvider.S3Import[i3].BucketName = rsp.ResolvedValue
+		mg.Spec.ForProvider.S3Import[i3].BucketName = reference.ToPtrValue(rsp.ResolvedValue)
 		mg.Spec.ForProvider.S3Import[i3].BucketNameRef = rsp.ResolvedReference
 
 	}

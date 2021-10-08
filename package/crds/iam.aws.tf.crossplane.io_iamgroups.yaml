@@ -12,8 +12,8 @@ spec:
     - crossplane
     - managed
     - tfaws
-    kind: IamGroup
-    listKind: IamGroupList
+    kind: IAMGroup
+    listKind: IAMGroupList
     plural: iamgroups
     singular: iamgroup
   scope: Cluster
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: IamGroup is the Schema for the IamGroups API
+        description: IAMGroup is the Schema for the IAMGroups API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: IamGroupSpec defines the desired state of IamGroup
+            description: IAMGroupSpec defines the desired state of IAMGroup
             properties:
               deletionPolicy:
                 default: Delete
@@ -62,8 +62,6 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  name:
-                    type: string
                   path:
                     type: string
                   region:
@@ -71,7 +69,6 @@ spec:
                       be created in.
                     type: string
                 required:
-                - name
                 - region
                 type: object
               providerConfigRef:
@@ -119,7 +116,7 @@ spec:
             - forProvider
             type: object
           status:
-            description: IamGroupStatus defines the observed state of IamGroup.
+            description: IAMGroupStatus defines the observed state of IAMGroup.
             properties:
               atProvider:
                 properties:

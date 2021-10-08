@@ -1,5 +1,5 @@
 apiVersion: vpc.aws.tf.crossplane.io/v1alpha1
-kind: Vpc
+kind: VPC
 metadata:
   name: sample-vpc
 spec:
@@ -10,5 +10,3 @@ spec:
       Name: DemoVpc
     tags:
       Name: DemoVpc
-  providerConfigRef:
-    name: example

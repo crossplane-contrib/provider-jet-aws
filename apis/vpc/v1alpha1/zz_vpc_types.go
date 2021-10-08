@@ -25,33 +25,33 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type VpcObservation struct {
-	Arn string `json:"arn,omitempty" tf:"arn"`
+type VPCObservation struct {
+	Arn *string `json:"arn,omitempty" tf:"arn"`
 
-	DefaultNetworkACLID string `json:"defaultNetworkAclId,omitempty" tf:"default_network_acl_id"`
+	DefaultNetworkACLID *string `json:"defaultNetworkAclId,omitempty" tf:"default_network_acl_id"`
 
-	DefaultRouteTableID string `json:"defaultRouteTableId,omitempty" tf:"default_route_table_id"`
+	DefaultRouteTableID *string `json:"defaultRouteTableId,omitempty" tf:"default_route_table_id"`
 
-	DefaultSecurityGroupID string `json:"defaultSecurityGroupId,omitempty" tf:"default_security_group_id"`
+	DefaultSecurityGroupID *string `json:"defaultSecurityGroupId,omitempty" tf:"default_security_group_id"`
 
-	DhcpOptionsID string `json:"dhcpOptionsId,omitempty" tf:"dhcp_options_id"`
+	DhcpOptionsID *string `json:"dhcpOptionsId,omitempty" tf:"dhcp_options_id"`
 
-	IPv6AssociationID string `json:"ipv6AssociationId,omitempty" tf:"ipv6_association_id"`
+	IPv6AssociationID *string `json:"ipv6AssociationId,omitempty" tf:"ipv6_association_id"`
 
-	IPv6CidrBlock string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
 
-	MainRouteTableID string `json:"mainRouteTableId,omitempty" tf:"main_route_table_id"`
+	MainRouteTableID *string `json:"mainRouteTableId,omitempty" tf:"main_route_table_id"`
 
-	OwnerID string `json:"ownerId,omitempty" tf:"owner_id"`
+	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id"`
 }
 
-type VpcParameters struct {
+type VPCParameters struct {
 
 	// +kubebuilder:validation:Optional
 	AssignGeneratedIPv6CidrBlock *bool `json:"assignGeneratedIpv6CidrBlock,omitempty" tf:"assign_generated_ipv6_cidr_block"`
 
 	// +kubebuilder:validation:Required
-	CidrBlock string `json:"cidrBlock" tf:"cidr_block"`
+	CidrBlock *string `json:"cidrBlock" tf:"cidr_block"`
 
 	// +kubebuilder:validation:Optional
 	EnableClassiclink *bool `json:"enableClassiclink,omitempty" tf:"enable_classiclink"`
@@ -71,60 +71,60 @@ type VpcParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
 
 	// +kubebuilder:validation:Optional
-	TagsAll map[string]string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
-// VpcSpec defines the desired state of Vpc
-type VpcSpec struct {
+// VPCSpec defines the desired state of VPC
+type VPCSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     VpcParameters `json:"forProvider"`
+	ForProvider     VPCParameters `json:"forProvider"`
 }
 
-// VpcStatus defines the observed state of Vpc.
-type VpcStatus struct {
+// VPCStatus defines the observed state of VPC.
+type VPCStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        VpcObservation `json:"atProvider,omitempty"`
+	AtProvider        VPCObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// Vpc is the Schema for the Vpcs API
+// VPC is the Schema for the VPCs API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type Vpc struct {
+type VPC struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              VpcSpec   `json:"spec"`
-	Status            VpcStatus `json:"status,omitempty"`
+	Spec              VPCSpec   `json:"spec"`
+	Status            VPCStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// VpcList contains a list of Vpcs
-type VpcList struct {
+// VPCList contains a list of VPCs
+type VPCList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []Vpc `json:"items"`
+	Items           []VPC `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	VpcKind             = "Vpc"
-	VpcGroupKind        = schema.GroupKind{Group: Group, Kind: VpcKind}.String()
-	VpcKindAPIVersion   = VpcKind + "." + GroupVersion.String()
-	VpcGroupVersionKind = GroupVersion.WithKind(VpcKind)
+	VPCKind             = "VPC"
+	VPCGroupKind        = schema.GroupKind{Group: Group, Kind: VPCKind}.String()
+	VPCKindAPIVersion   = VPCKind + "." + GroupVersion.String()
+	VPCGroupVersionKind = GroupVersion.WithKind(VPCKind)
 )
 
 func init() {
-	SchemeBuilder.Register(&Vpc{}, &VpcList{})
+	SchemeBuilder.Register(&VPC{}, &VPCList{})
 }
