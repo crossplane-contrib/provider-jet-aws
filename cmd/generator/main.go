@@ -59,7 +59,10 @@ const (
 var alphaIncludedResource = map[string]struct{}{
 
 	// VPC
-	"aws_vpc": {},
+	"aws_vpc":                 {},
+	"aws_security_group":      {},
+	"aws_security_group_rule": {},
+	"aws_subnet":              {},
 
 	// RDS
 	"aws_rds_cluster": {},
@@ -87,6 +90,13 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_iam_user_group_membership":   {},
 	"aws_iam_user_policy":             {},
 	"aws_iam_user_policy_attachment":  {},
+
+	// EKS
+	"aws_eks_addon":                    {},
+	"aws_eks_cluster":                  {},
+	"aws_eks_fargate_profile":          {},
+	"aws_eks_node_group":               {},
+	"aws_eks_identity_provider_config": {},
 }
 
 func main() { // nolint:gocyclo
@@ -109,6 +119,10 @@ func main() { // nolint:gocyclo
 		}
 		words := strings.Split(name, "_")
 		groupName := words[1]
+		if strings.Contains(name, "aws_security_group") ||
+			strings.Contains(name, "aws_subnet") {
+			groupName = "vpc"
+		}
 		if len(groups[groupName]) == 0 {
 			groups[groupName] = map[string]*schema.Resource{}
 		}
@@ -145,9 +159,16 @@ func main() { // nolint:gocyclo
 
 		for _, name := range keys {
 			// We don't want Aws prefix in all kinds.
-			kind := strcase.ToCamel(strings.TrimPrefix(name, "aws_"+group))
+			kind := strcase.ToCamel(strings.TrimPrefix(strings.TrimPrefix(name, "aws_"), group))
 			resource := resources[name]
 			resource.Schema["region"] = regionSchema
+			// tags_all is used only in tfstate to accumulate provider-wide
+			// default tags in TF, which is not something we support. So, we don't
+			// need it as a parameter while "tags" is already in place.
+			if t, ok := resource.Schema["tags_all"]; ok {
+				t.Computed = true
+				t.Optional = false
+			}
 			rc := config.NewResource(version, kind, name)
 			if err = rc.OverrideConfig(config.Store.GetForResource(name)); err != nil {
 				panic(errors.Wrap(err, "cannot override config"))
