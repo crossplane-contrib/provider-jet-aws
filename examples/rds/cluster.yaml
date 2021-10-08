@@ -1,5 +1,5 @@
 apiVersion: rds.aws.tf.crossplane.io/v1alpha1
-kind: RdsCluster
+kind: Cluster
 metadata:
   name: sample-cluster
 spec:
@@ -9,5 +9,6 @@ spec:
     masterUsername: cpadmin
     masterPassword: testPass23!
     skipFinalSnapshot: true
-  providerConfigRef:
-    name: example
+  writeConnectionSecretToRef:
+    name: testkey-secret
+    namespace: crossplane-system

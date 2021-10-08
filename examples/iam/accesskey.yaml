@@ -1,5 +1,5 @@
 apiVersion: iam.aws.tf.crossplane.io/v1alpha1
-kind: IamAccessKey
+kind: AccessKey
 metadata:
   name: testkey
 spec:
