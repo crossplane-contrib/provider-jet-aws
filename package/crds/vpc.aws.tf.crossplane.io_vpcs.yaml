@@ -12,8 +12,8 @@ spec:
     - crossplane
     - managed
     - tfaws
-    kind: Vpc
-    listKind: VpcList
+    kind: VPC
+    listKind: VPCList
     plural: vpcs
     singular: vpc
   scope: Cluster
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Vpc is the Schema for the Vpcs API
+        description: VPC is the Schema for the VPCs API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: VpcSpec defines the desired state of Vpc
+            description: VPCSpec defines the desired state of VPC
             properties:
               deletionPolicy:
                 default: Delete
@@ -137,7 +137,7 @@ spec:
             - forProvider
             type: object
           status:
-            description: VpcStatus defines the observed state of Vpc.
+            description: VPCStatus defines the observed state of VPC.
             properties:
               atProvider:
                 properties:

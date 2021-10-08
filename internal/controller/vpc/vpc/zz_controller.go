@@ -36,11 +36,11 @@ import (
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 )
 
-// Setup adds a controller that reconciles Vpc managed resources.
+// Setup adds a controller that reconciles VPC managed resources.
 func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terraform.SetupFn, ws *terraform.WorkspaceStore, concurrency int) error {
-	name := managed.ControllerName(v1alpha1.VpcGroupVersionKind.String())
+	name := managed.ControllerName(v1alpha1.VPCGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
-		xpresource.ManagedKind(v1alpha1.VpcGroupVersionKind),
+		xpresource.ManagedKind(v1alpha1.VPCGroupVersionKind),
 		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s)),
 		managed.WithLogger(l.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
@@ -52,6 +52,6 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terra
 	return ctrl.NewControllerManagedBy(mgr).
 		Named(name).
 		WithOptions(controller.Options{RateLimiter: rl, MaxConcurrentReconciles: concurrency}).
-		For(&v1alpha1.Vpc{}).
+		For(&v1alpha1.VPC{}).
 		Complete(r)
 }

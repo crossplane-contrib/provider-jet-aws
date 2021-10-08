@@ -22,7 +22,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/meta"
 	"github.com/pkg/errors"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config/rds"
+	rds "github.com/crossplane-contrib/provider-tf-aws/config/rds"
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
@@ -68,7 +68,7 @@ func (tr *Cluster) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	rds.RdsClusterExternalNameConfigure(base, meta.GetExternalName(tr))
+	rds.ClusterExternalNameConfigure(base, meta.GetExternalName(tr))
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 

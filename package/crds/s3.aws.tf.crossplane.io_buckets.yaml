@@ -68,10 +68,6 @@ spec:
                     type: string
                   arn:
                     type: string
-                  bucket:
-                    type: string
-                  bucketPrefix:
-                    type: string
                   corsRule:
                     items:
                       properties:

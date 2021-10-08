@@ -201,16 +201,6 @@ func (in *BucketParameters) DeepCopyInto(out *BucketParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Bucket != nil {
-		in, out := &in.Bucket, &out.Bucket
-		*out = new(string)
-		**out = **in
-	}
-	if in.BucketPrefix != nil {
-		in, out := &in.BucketPrefix, &out.BucketPrefix
-		*out = new(string)
-		**out = **in
-	}
 	if in.CorsRule != nil {
 		in, out := &in.CorsRule, &out.CorsRule
 		*out = make([]CorsRuleParameters, len(*in))

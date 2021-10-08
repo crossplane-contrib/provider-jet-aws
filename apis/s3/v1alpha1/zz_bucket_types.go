@@ -64,12 +64,6 @@ type BucketParameters struct {
 	Arn *string `json:"arn,omitempty" tf:"arn"`
 
 	// +kubebuilder:validation:Optional
-	Bucket *string `json:"bucket,omitempty" tf:"bucket"`
-
-	// +kubebuilder:validation:Optional
-	BucketPrefix *string `json:"bucketPrefix,omitempty" tf:"bucket_prefix"`
-
-	// +kubebuilder:validation:Optional
 	CorsRule []CorsRuleParameters `json:"corsRule,omitempty" tf:"cors_rule"`
 
 	// +kubebuilder:validation:Optional
