@@ -63,6 +63,7 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_security_group":      {},
 	"aws_security_group_rule": {},
 	"aws_subnet":              {},
+	"aws_network_interface":   {},
 
 	// RDS
 	"aws_rds_cluster": {},
@@ -97,6 +98,15 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_eks_fargate_profile":          {},
 	"aws_eks_node_group":               {},
 	"aws_eks_identity_provider_config": {},
+
+	// EC2
+	"aws_instance": {},
+
+	// KMS
+	"aws_kms_key": {},
+
+	// EBS
+	"aws_ebs_volume": {},
 }
 
 func main() { // nolint:gocyclo
@@ -119,9 +129,11 @@ func main() { // nolint:gocyclo
 		}
 		words := strings.Split(name, "_")
 		groupName := words[1]
-		if strings.Contains(name, "aws_security_group") ||
-			strings.Contains(name, "aws_subnet") {
+		switch {
+		case strings.Contains(name, "aws_security_group") || strings.Contains(name, "aws_subnet") || strings.Contains(name, "aws_network"):
 			groupName = "vpc"
+		case name == "aws_instance":
+			groupName = "ec2"
 		}
 		if len(groups[groupName]) == 0 {
 			groups[groupName] = map[string]*schema.Resource{}
