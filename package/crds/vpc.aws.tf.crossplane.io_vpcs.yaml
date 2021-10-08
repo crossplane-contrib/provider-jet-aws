@@ -84,10 +84,6 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  tagsAll:
-                    additionalProperties:
-                      type: string
-                    type: object
                 required:
                 - cidrBlock
                 - region
@@ -159,6 +155,10 @@ spec:
                     type: string
                   ownerId:
                     type: string
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
                 type: object
               conditions:
                 description: Conditions of the resource.

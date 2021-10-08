@@ -27,6 +27,8 @@ import (
 
 type ParameterGroupObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn"`
+
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type ParameterGroupParameters struct {
@@ -47,9 +49,6 @@ type ParameterGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
-
-	// +kubebuilder:validation:Optional
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type ParameterObservation struct {

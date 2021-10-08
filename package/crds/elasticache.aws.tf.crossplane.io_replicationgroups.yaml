@@ -164,10 +164,6 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  tagsAll:
-                    additionalProperties:
-                      type: string
-                    type: object
                   transitEncryptionEnabled:
                     type: boolean
                 required:
@@ -240,6 +236,10 @@ spec:
                     type: string
                   readerEndpointAddress:
                     type: string
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
                 type: object
               conditions:
                 description: Conditions of the resource.

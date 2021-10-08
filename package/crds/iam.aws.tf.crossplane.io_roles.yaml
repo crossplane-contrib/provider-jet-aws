@@ -96,10 +96,6 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  tagsAll:
-                    additionalProperties:
-                      type: string
-                    type: object
                 required:
                 - assumeRolePolicy
                 - region
@@ -157,6 +153,10 @@ spec:
                     type: string
                   createDate:
                     type: string
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
                   uniqueId:
                     type: string
                 type: object

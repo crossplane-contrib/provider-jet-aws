@@ -20,6 +20,7 @@ package v1alpha1
 import (
 	"context"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
+	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
@@ -30,8 +31,27 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
+	var mrsp reference.MultiResolutionResponse
 	var err error
 
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.RestoreToPointInTime); i3++ {
+		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifier),
+			Extract:      reference.ExternalName(),
+			Reference:    mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifierRef,
+			Selector:     mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifierSelector,
+			To: reference.To{
+				List:    &ClusterList{},
+				Managed: &Cluster{},
+			},
+		})
+		if err != nil {
+			return errors.Wrap(err, "mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifier")
+		}
+		mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
+		mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifierRef = rsp.ResolvedReference
+
+	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.S3Import); i3++ {
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.S3Import[i3].BucketName),
@@ -50,6 +70,21 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 		mg.Spec.ForProvider.S3Import[i3].BucketNameRef = rsp.ResolvedReference
 
 	}
+	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VpcSecurityGroupIds),
+		Extract:       reference.ExternalName(),
+		References:    mg.Spec.ForProvider.VpcSecurityGroupIdsRefs,
+		Selector:      mg.Spec.ForProvider.VpcSecurityGroupIdsSelector,
+		To: reference.To{
+			List:    &v1alpha11.SecurityGroupList{},
+			Managed: &v1alpha11.SecurityGroup{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcSecurityGroupIds")
+	}
+	mg.Spec.ForProvider.VpcSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.VpcSecurityGroupIdsRefs = mrsp.ResolvedReferences
 
 	return nil
 }

@@ -48,6 +48,8 @@ type ClusterObservation struct {
 	ConfigurationEndpoint *string `json:"configurationEndpoint,omitempty" tf:"configuration_endpoint"`
 
 	EngineVersionActual *string `json:"engineVersionActual,omitempty" tf:"engine_version_actual"`
+
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type ClusterParameters struct {
@@ -131,9 +133,6 @@ type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
-
-	// +kubebuilder:validation:Optional
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 // ClusterSpec defines the desired state of Cluster

@@ -42,6 +42,8 @@ type RoleObservation struct {
 
 	CreateDate *string `json:"createDate,omitempty" tf:"create_date"`
 
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+
 	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id"`
 }
 
@@ -78,9 +80,6 @@ type RoleParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
-
-	// +kubebuilder:validation:Optional
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 // RoleSpec defines the desired state of Role

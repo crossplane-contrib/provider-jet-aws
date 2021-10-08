@@ -43,6 +43,8 @@ type VPCObservation struct {
 	MainRouteTableID *string `json:"mainRouteTableId,omitempty" tf:"main_route_table_id"`
 
 	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id"`
+
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type VPCParameters struct {
@@ -75,9 +77,6 @@ type VPCParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
-
-	// +kubebuilder:validation:Optional
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 // VPCSpec defines the desired state of VPC
