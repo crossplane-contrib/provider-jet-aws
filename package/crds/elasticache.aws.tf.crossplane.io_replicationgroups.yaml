@@ -4,7 +4,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: globalreplicationgroups.elasticache.aws.tf.crossplane.io
+  name: replicationgroups.elasticache.aws.tf.crossplane.io
 spec:
   group: elasticache.aws.tf.crossplane.io
   names:
@@ -12,10 +12,10 @@ spec:
     - crossplane
     - managed
     - tfaws
-    kind: GlobalReplicationGroup
-    listKind: GlobalReplicationGroupList
-    plural: globalreplicationgroups
-    singular: globalreplicationgroup
+    kind: ReplicationGroup
+    listKind: ReplicationGroupList
+    plural: replicationgroups
+    singular: replicationgroup
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,8 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: GlobalReplicationGroup is the Schema for the GlobalReplicationGroups
-          API
+        description: ReplicationGroup is the Schema for the ReplicationGroups API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: GlobalReplicationGroupSpec defines the desired state of GlobalReplicationGroup
+            description: ReplicationGroupSpec defines the desired state of ReplicationGroup
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,20 +62,118 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  globalReplicationGroupDescription:
+                  applyImmediately:
+                    type: boolean
+                  atRestEncryptionEnabled:
+                    type: boolean
+                  authTokenSecretRef:
+                    description: A SecretKeySelector is a reference to a secret key
+                      in an arbitrary namespace.
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
+                  autoMinorVersionUpgrade:
+                    type: boolean
+                  automaticFailoverEnabled:
+                    type: boolean
+                  availabilityZones:
+                    items:
+                      type: string
+                    type: array
+                  clusterMode:
+                    items:
+                      properties:
+                        numNodeGroups:
+                          format: int64
+                          type: integer
+                        replicasPerNodeGroup:
+                          format: int64
+                          type: integer
+                      required:
+                      - replicasPerNodeGroup
+                      type: object
+                    type: array
+                  engine:
                     type: string
-                  globalReplicationGroupIdSuffix:
+                  engineVersion:
                     type: string
-                  primaryReplicationGroupId:
+                  finalSnapshotIdentifier:
                     type: string
+                  globalReplicationGroupId:
+                    type: string
+                  kmsKeyId:
+                    type: string
+                  maintenanceWindow:
+                    type: string
+                  multiAzEnabled:
+                    type: boolean
+                  nodeType:
+                    type: string
+                  notificationTopicArn:
+                    type: string
+                  numberCacheClusters:
+                    format: int64
+                    type: integer
+                  parameterGroupName:
+                    type: string
+                  port:
+                    format: int64
+                    type: integer
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
+                  replicationGroupDescription:
+                    type: string
+                  replicationGroupId:
+                    type: string
+                  securityGroupIds:
+                    items:
+                      type: string
+                    type: array
+                  securityGroupNames:
+                    items:
+                      type: string
+                    type: array
+                  snapshotArns:
+                    items:
+                      type: string
+                    type: array
+                  snapshotName:
+                    type: string
+                  snapshotRetentionLimit:
+                    format: int64
+                    type: integer
+                  snapshotWindow:
+                    type: string
+                  subnetGroupName:
+                    type: string
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  transitEncryptionEnabled:
+                    type: boolean
                 required:
-                - globalReplicationGroupIdSuffix
-                - primaryReplicationGroupId
                 - region
+                - replicationGroupDescription
+                - replicationGroupId
                 type: object
               providerConfigRef:
                 default:
@@ -123,31 +220,26 @@ spec:
             - forProvider
             type: object
           status:
-            description: GlobalReplicationGroupStatus defines the observed state of
-              GlobalReplicationGroup.
+            description: ReplicationGroupStatus defines the observed state of ReplicationGroup.
             properties:
               atProvider:
                 properties:
-                  actualEngineVersion:
-                    type: string
                   arn:
-                    type: string
-                  atRestEncryptionEnabled:
-                    type: boolean
-                  authTokenEnabled:
-                    type: boolean
-                  cacheNodeType:
                     type: string
                   clusterEnabled:
                     type: boolean
-                  engine:
+                  configurationEndpointAddress:
                     type: string
                   engineVersionActual:
                     type: string
-                  globalReplicationGroupId:
+                  memberClusters:
+                    items:
+                      type: string
+                    type: array
+                  primaryEndpointAddress:
                     type: string
-                  transitEncryptionEnabled:
-                    type: boolean
+                  readerEndpointAddress:
+                    type: string
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -24,9 +24,9 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
-	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
-	globalreplicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/globalreplicationgroup"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
+	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
 	grouppolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/grouppolicy"
 	grouppolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/grouppolicyattachment"
@@ -41,7 +41,7 @@ import (
 	usergroupmembership "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/usergroupmembership"
 	userpolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicy"
 	userpolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicyattachment"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
+	clusterrds "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
 	vpc "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/vpc"
@@ -54,8 +54,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		accesskey.Setup,
 		bucket.Setup,
 		cluster.Setup,
-		clusterelasticache.Setup,
-		globalreplicationgroup.Setup,
+		clusterrds.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
 		iamgroup.Setup,
@@ -63,6 +62,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		parametergroup.Setup,
 		policy.Setup,
 		policyattachment.Setup,
+		replicationgroup.Setup,
 		role.Setup,
 		rolepolicy.Setup,
 		rolepolicyattachment.Setup,
