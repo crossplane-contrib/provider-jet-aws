@@ -22,6 +22,7 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
+	v1alpha1eks "github.com/crossplane-contrib/provider-tf-aws/apis/eks/v1alpha1"
 	v1alpha1elasticache "github.com/crossplane-contrib/provider-tf-aws/apis/elasticache/v1alpha1"
 	v1alpha1iam "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
 	v1alpha1rds "github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
@@ -35,6 +36,7 @@ func init() {
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
 		v1alpha1elasticache.SchemeBuilder.AddToScheme,
+		v1alpha1eks.SchemeBuilder.AddToScheme,
 		v1alpha1iam.SchemeBuilder.AddToScheme,
 		v1alpha1rds.SchemeBuilder.AddToScheme,
 		v1alpha1s3.SchemeBuilder.AddToScheme,

@@ -50,6 +50,8 @@ type BucketObservation struct {
 	BucketDomainName *string `json:"bucketDomainName,omitempty" tf:"bucket_domain_name"`
 
 	BucketRegionalDomainName *string `json:"bucketRegionalDomainName,omitempty" tf:"bucket_regional_domain_name"`
+
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type BucketParameters struct {
@@ -103,9 +105,6 @@ type BucketParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
-
-	// +kubebuilder:validation:Optional
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 
 	// +kubebuilder:validation:Optional
 	Versioning []VersioningParameters `json:"versioning,omitempty" tf:"versioning"`

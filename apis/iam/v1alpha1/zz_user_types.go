@@ -28,6 +28,8 @@ import (
 type UserObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn"`
 
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+
 	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id"`
 }
 
@@ -50,9 +52,6 @@ type UserParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
-
-	// +kubebuilder:validation:Optional
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 // UserSpec defines the desired state of User

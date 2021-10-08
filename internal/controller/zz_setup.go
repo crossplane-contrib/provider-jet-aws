@@ -24,6 +24,11 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
+	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
+	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
+	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
+	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
 	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
@@ -41,9 +46,12 @@ import (
 	usergroupmembership "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/usergroupmembership"
 	userpolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicy"
 	userpolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicyattachment"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
+	clusterrds "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
+	securitygroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygroup"
+	securitygrouprule "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygrouprule"
+	subnet "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/subnet"
 	vpc "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/vpc"
 )
 
@@ -52,20 +60,28 @@ import (
 func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terraform.SetupFn, ws *terraform.WorkspaceStore, concurrency int) error {
 	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter, terraform.SetupFn, *terraform.WorkspaceStore, int) error{
 		accesskey.Setup,
+		addon.Setup,
 		bucket.Setup,
 		cluster.Setup,
 		clusterelasticache.Setup,
+		clusterrds.Setup,
+		fargateprofile.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
 		iamgroup.Setup,
+		identityproviderconfig.Setup,
 		instanceprofile.Setup,
 		parametergroup.Setup,
+		nodegroup.Setup,
 		policy.Setup,
 		policyattachment.Setup,
 		replicationgroup.Setup,
 		role.Setup,
 		rolepolicy.Setup,
 		rolepolicyattachment.Setup,
+		securitygroup.Setup,
+		securitygrouprule.Setup,
+		subnet.Setup,
 		tfaws.Setup,
 		user.Setup,
 		usergroupmembership.Setup,

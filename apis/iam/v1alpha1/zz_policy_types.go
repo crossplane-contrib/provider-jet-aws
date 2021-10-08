@@ -29,6 +29,8 @@ type PolicyObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn"`
 
 	PolicyID *string `json:"policyId,omitempty" tf:"policy_id"`
+
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type PolicyParameters struct {
@@ -55,9 +57,6 @@ type PolicyParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
-
-	// +kubebuilder:validation:Optional
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 // PolicySpec defines the desired state of Policy

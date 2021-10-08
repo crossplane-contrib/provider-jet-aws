@@ -37,6 +37,8 @@ type ClusterObservation struct {
 	HostedZoneID *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id"`
 
 	ReaderEndpoint *string `json:"readerEndpoint,omitempty" tf:"reader_endpoint"`
+
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
 }
 
 type ClusterParameters struct {
@@ -151,11 +153,15 @@ type ClusterParameters struct {
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
 
-	// +kubebuilder:validation:Optional
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
-
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+
+	// +kubebuilder:validation:Optional
+	VpcSecurityGroupIdsRefs []v1.Reference `json:"vpcSecurityGroupIdsRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	VpcSecurityGroupIdsSelector *v1.Selector `json:"vpcSecurityGroupIdsSelector,omitempty" tf:"-"`
 }
 
 type RestoreToPointInTimeObservation struct {
@@ -169,8 +175,15 @@ type RestoreToPointInTimeParameters struct {
 	// +kubebuilder:validation:Optional
 	RestoreType *string `json:"restoreType,omitempty" tf:"restore_type"`
 
-	// +kubebuilder:validation:Required
-	SourceClusterIdentifier *string `json:"sourceClusterIdentifier" tf:"source_cluster_identifier"`
+	// +crossplane:generate:reference:type=Cluster
+	// +kubebuilder:validation:Optional
+	SourceClusterIdentifier *string `json:"sourceClusterIdentifier,omitempty" tf:"source_cluster_identifier"`
+
+	// +kubebuilder:validation:Optional
+	SourceClusterIdentifierRef *v1.Reference `json:"sourceClusterIdentifierRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SourceClusterIdentifierSelector *v1.Selector `json:"sourceClusterIdentifierSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	UseLatestRestorableTime *bool `json:"useLatestRestorableTime,omitempty" tf:"use_latest_restorable_time"`

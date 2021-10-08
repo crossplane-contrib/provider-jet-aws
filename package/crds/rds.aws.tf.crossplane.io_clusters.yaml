@@ -156,10 +156,32 @@ spec:
                           type: string
                         sourceClusterIdentifier:
                           type: string
+                        sourceClusterIdentifierRef:
+                          description: A Reference to a named object.
+                          properties:
+                            name:
+                              description: Name of the referenced object.
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        sourceClusterIdentifierSelector:
+                          description: A Selector selects an object.
+                          properties:
+                            matchControllerRef:
+                              description: MatchControllerRef ensures an object with
+                                the same controller reference as the selecting object
+                                is selected.
+                              type: boolean
+                            matchLabels:
+                              additionalProperties:
+                                type: string
+                              description: MatchLabels ensures an object with matching
+                                labels is selected.
+                              type: object
+                          type: object
                         useLatestRestorableTime:
                           type: boolean
-                      required:
-                      - sourceClusterIdentifier
                       type: object
                     type: array
                   s3Import:
@@ -235,14 +257,35 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  tagsAll:
-                    additionalProperties:
-                      type: string
-                    type: object
                   vpcSecurityGroupIds:
                     items:
                       type: string
                     type: array
+                  vpcSecurityGroupIdsRefs:
+                    items:
+                      description: A Reference to a named object.
+                      properties:
+                        name:
+                          description: Name of the referenced object.
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
+                  vpcSecurityGroupIdsSelector:
+                    description: A Selector selects an object.
+                    properties:
+                      matchControllerRef:
+                        description: MatchControllerRef ensures an object with the
+                          same controller reference as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                    type: object
                 required:
                 - region
                 type: object
@@ -307,6 +350,10 @@ spec:
                     type: string
                   readerEndpoint:
                     type: string
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
                 type: object
               conditions:
                 description: Conditions of the resource.
