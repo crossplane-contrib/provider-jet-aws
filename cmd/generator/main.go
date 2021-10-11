@@ -121,7 +121,15 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_eks_identity_provider_config": {},
 
 	// EC2
-	"aws_instance": {},
+	"aws_instance":                                    {},
+	"aws_eip":                                         {},
+	"aws_launch_template":                             {},
+	"aws_ec2_transit_gateway":                         {},
+	"aws_ec2_transit_gateway_route":                   {},
+	"aws_ec2_transit_gateway_route_table":             {},
+	"aws_ec2_transit_gateway_route_table_association": {},
+	"aws_ec2_transit_gateway_vpc_attachment":          {},
+	"aws_ec2_transit_gateway_vpc_attachment_accepter": {},
 
 	// KMS
 	"aws_kms_key": {},
@@ -153,7 +161,7 @@ func main() { // nolint:gocyclo
 		switch {
 		case strings.Contains(name, "aws_security_group") || strings.Contains(name, "aws_subnet") || strings.Contains(name, "aws_network"):
 			groupName = "vpc"
-		case name == "aws_instance":
+		case name == "aws_instance" || name == "aws_eip" || name == "aws_launch_template":
 			groupName = "ec2"
 		case name == "aws_lb":
 			groupName = "lb"
