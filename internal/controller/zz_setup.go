@@ -27,11 +27,19 @@ import (
 	attachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/autoscaling/autoscalinggroup"
 	volume "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ebs/volume"
+	ec2launchtemplate "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ec2launchtemplate"
+	elasticip "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/elasticip"
 	instance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/instance"
+	transitgateway "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgateway"
+	transitgatewayroute "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayroute"
+	transitgatewayroutetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayroutetable"
+	transitgatewayroutetableassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayroutetableassociation"
+	transitgatewayvpcattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayvpcattachment"
+	transitgatewayvpcattachmentaccepter "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayvpcattachmentaccepter"
 	publicrepository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/publicrepository"
 	repository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/repository"
 	capacityprovider "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/capacityprovider"
-	clusterecs "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
 	service "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/service"
 	taskdefinition "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/taskdefinition"
 	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
@@ -39,7 +47,7 @@ import (
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
 	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
 	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
+	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
@@ -82,9 +90,11 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		bucket.Setup,
 		capacityprovider.Setup,
 		cluster.Setup,
-		clusterecs.Setup,
 		clustereks.Setup,
+		clusterelasticache.Setup,
 		clusterrds.Setup,
+		ec2launchtemplate.Setup,
+		elasticip.Setup,
 		fargateprofile.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
@@ -114,6 +124,12 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		subnet.Setup,
 		taskdefinition.Setup,
 		tfaws.Setup,
+		transitgateway.Setup,
+		transitgatewayroute.Setup,
+		transitgatewayroutetable.Setup,
+		transitgatewayroutetableassociation.Setup,
+		transitgatewayvpcattachment.Setup,
+		transitgatewayvpcattachmentaccepter.Setup,
 		user.Setup,
 		usergroupmembership.Setup,
 		userpolicy.Setup,
