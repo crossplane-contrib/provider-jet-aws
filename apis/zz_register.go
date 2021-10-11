@@ -31,7 +31,7 @@ import (
 	v1alpha1elasticache "github.com/crossplane-contrib/provider-tf-aws/apis/elasticache/v1alpha1"
 	v1alpha1iam "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
 	v1alpha1kms "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1"
-	v1alpha1lbv2 "github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1"
+	v1alpha1lb "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1"
 	v1alpha1rds "github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
 	v1alpha1s3 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
@@ -51,7 +51,7 @@ func init() {
 		v1alpha1elasticache.SchemeBuilder.AddToScheme,
 		v1alpha1iam.SchemeBuilder.AddToScheme,
 		v1alpha1kms.SchemeBuilder.AddToScheme,
-		v1alpha1lbv2.SchemeBuilder.AddToScheme,
+		v1alpha1lb.SchemeBuilder.AddToScheme,
 		v1alpha1rds.SchemeBuilder.AddToScheme,
 		v1alpha1s3.SchemeBuilder.AddToScheme,
 		v1alpha1vpc.SchemeBuilder.AddToScheme,

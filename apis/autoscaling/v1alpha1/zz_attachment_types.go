@@ -30,7 +30,7 @@ type AttachmentObservation struct {
 
 type AttachmentParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1.LbTargetGroup
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	AlbTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn,omitempty"`
@@ -42,16 +42,14 @@ type AttachmentParameters struct {
 	AlbTargetGroupArnSelector *v1.Selector `json:"albTargetGroupArnSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=AutoscalingGroup
-	// +crossplane:generate:reference:refFieldName=AutoscalingGroupRef
-	// +crossplane:generate:reference:selectorFieldName=AutoscalingGroupSelector
 	// +kubebuilder:validation:Optional
 	AutoscalingGroupName *string `json:"autoscalingGroupName,omitempty" tf:"autoscaling_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AutoscalingGroupRef *v1.Reference `json:"autoscalingGroupRef,omitempty" tf:"-"`
+	AutoscalingGroupNameRef *v1.Reference `json:"autoscalingGroupNameRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	AutoscalingGroupSelector *v1.Selector `json:"autoscalingGroupSelector,omitempty" tf:"-"`
+	AutoscalingGroupNameSelector *v1.Selector `json:"autoscalingGroupNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Elb *string `json:"elb,omitempty" tf:"elb,omitempty"`

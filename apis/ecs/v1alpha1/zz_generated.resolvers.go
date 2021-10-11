@@ -141,6 +141,24 @@ func (mg *Service) ResolveReferences(ctx context.Context, c client.Reader) error
 		mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupsRefs = mrsp.ResolvedReferences
 
 	}
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.NetworkConfiguration); i3++ {
+		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.NetworkConfiguration[i3].Subnets),
+			Extract:       reference.ExternalName(),
+			References:    mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetsRefs,
+			Selector:      mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetsSelector,
+			To: reference.To{
+				List:    &v1alpha12.SubnetList{},
+				Managed: &v1alpha12.Subnet{},
+			},
+		})
+		if err != nil {
+			return errors.Wrap(err, "mg.Spec.ForProvider.NetworkConfiguration[i3].Subnets")
+		}
+		mg.Spec.ForProvider.NetworkConfiguration[i3].Subnets = reference.ToPtrValues(mrsp.ResolvedValues)
+		mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetsRefs = mrsp.ResolvedReferences
+
+	}
 
 	return nil
 }

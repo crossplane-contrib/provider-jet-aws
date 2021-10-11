@@ -97,8 +97,15 @@ type NetworkConfigurationParameters struct {
 	// +kubebuilder:validation:Optional
 	SecurityGroupsSelector *v1.Selector `json:"securityGroupsSelector,omitempty" tf:"-"`
 
-	// +kubebuilder:validation:Required
-	Subnets []*string `json:"subnets" tf:"subnets,omitempty"`
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet
+	// +kubebuilder:validation:Optional
+	Subnets []*string `json:"subnets,omitempty" tf:"subnets,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SubnetsRefs []v1.Reference `json:"subnetsRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SubnetsSelector *v1.Selector `json:"subnetsSelector,omitempty" tf:"-"`
 }
 
 type OrderedPlacementStrategyObservation struct {

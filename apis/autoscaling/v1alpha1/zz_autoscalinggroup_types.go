@@ -114,7 +114,7 @@ type AutoscalingGroupParameters struct {
 	// +kubebuilder:validation:Optional
 	Tags []map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1.LbTargetGroup
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup
 	// +kubebuilder:validation:Optional
 	TargetGroupArns []*string `json:"targetGroupArns,omitempty" tf:"target_group_arns,omitempty"`
 

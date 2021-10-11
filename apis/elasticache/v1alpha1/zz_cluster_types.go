@@ -85,16 +85,14 @@ type ClusterParameters struct {
 	NumCacheNodes *int64 `json:"numCacheNodes,omitempty" tf:"num_cache_nodes,omitempty"`
 
 	// +crossplane:generate:reference:type=ParameterGroup
-	// +crossplane:generate:reference:refFieldName=ParameterGroupRef
-	// +crossplane:generate:reference:selectorFieldName=ParameterGroupSelector
 	// +kubebuilder:validation:Optional
 	ParameterGroupName *string `json:"parameterGroupName,omitempty" tf:"parameter_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ParameterGroupRef *v1.Reference `json:"parameterGroupRef,omitempty" tf:"-"`
+	ParameterGroupNameRef *v1.Reference `json:"parameterGroupNameRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	ParameterGroupSelector *v1.Selector `json:"parameterGroupSelector,omitempty" tf:"-"`
+	ParameterGroupNameSelector *v1.Selector `json:"parameterGroupNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`

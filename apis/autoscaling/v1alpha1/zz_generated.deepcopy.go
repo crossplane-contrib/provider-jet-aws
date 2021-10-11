@@ -122,13 +122,13 @@ func (in *AttachmentParameters) DeepCopyInto(out *AttachmentParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.AutoscalingGroupRef != nil {
-		in, out := &in.AutoscalingGroupRef, &out.AutoscalingGroupRef
+	if in.AutoscalingGroupNameRef != nil {
+		in, out := &in.AutoscalingGroupNameRef, &out.AutoscalingGroupNameRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.AutoscalingGroupSelector != nil {
-		in, out := &in.AutoscalingGroupSelector, &out.AutoscalingGroupSelector
+	if in.AutoscalingGroupNameSelector != nil {
+		in, out := &in.AutoscalingGroupNameSelector, &out.AutoscalingGroupNameSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}

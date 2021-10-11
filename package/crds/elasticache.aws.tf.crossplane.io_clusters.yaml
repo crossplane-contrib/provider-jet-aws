@@ -85,7 +85,7 @@ spec:
                     type: integer
                   parameterGroupName:
                     type: string
-                  parameterGroupRef:
+                  parameterGroupNameRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -94,7 +94,7 @@ spec:
                     required:
                     - name
                     type: object
-                  parameterGroupSelector:
+                  parameterGroupNameSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:

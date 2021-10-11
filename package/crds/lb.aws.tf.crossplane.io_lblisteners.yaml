@@ -4,16 +4,16 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: lblisteners.lbv2.aws.tf.crossplane.io
+  name: lblisteners.lb.aws.tf.crossplane.io
 spec:
-  group: lbv2.aws.tf.crossplane.io
+  group: lb.aws.tf.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - tfaws
-    kind: LbListener
-    listKind: LbListenerList
+    kind: LBListener
+    listKind: LBListenerList
     plural: lblisteners
     singular: lblistener
   scope: Cluster
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: LbListener is the Schema for the LbListeners API
+        description: LBListener is the Schema for the LBListeners API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: LbListenerSpec defines the desired state of LbListener
+            description: LBListenerSpec defines the desired state of LBListener
             properties:
               deletionPolicy:
                 default: Delete
@@ -359,7 +359,7 @@ spec:
             - forProvider
             type: object
           status:
-            description: LbListenerStatus defines the observed state of LbListener.
+            description: LBListenerStatus defines the observed state of LBListener.
             properties:
               atProvider:
                 properties:

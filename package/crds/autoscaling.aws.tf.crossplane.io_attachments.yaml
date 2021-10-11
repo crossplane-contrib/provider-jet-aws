@@ -89,7 +89,7 @@ spec:
                     type: object
                   autoscalingGroupName:
                     type: string
-                  autoscalingGroupRef:
+                  autoscalingGroupNameRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -98,7 +98,7 @@ spec:
                     required:
                     - name
                     type: object
-                  autoscalingGroupSelector:
+                  autoscalingGroupNameSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:

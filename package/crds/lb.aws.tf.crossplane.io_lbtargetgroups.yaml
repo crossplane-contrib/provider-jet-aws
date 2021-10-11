@@ -4,18 +4,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: lbs.lbv2.aws.tf.crossplane.io
+  name: lbtargetgroups.lb.aws.tf.crossplane.io
 spec:
-  group: lbv2.aws.tf.crossplane.io
+  group: lb.aws.tf.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - tfaws
-    kind: Lb
-    listKind: LbList
-    plural: lbs
-    singular: lb
+    kind: LBTargetGroup
+    listKind: LBTargetGroupList
+    plural: lbtargetgroups
+    singular: lbtargetgroup
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Lb is the Schema for the Lbs API
+        description: LBTargetGroup is the Schema for the LBTargetGroups API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: LbSpec defines the desired state of Lb
+            description: LBTargetGroupSpec defines the desired state of LBTargetGroup
             properties:
               deletionPolicy:
                 default: Delete
@@ -62,167 +62,109 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  accessLogs:
-                    items:
-                      properties:
-                        bucket:
-                          type: string
-                        bucketRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        bucketSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        enabled:
-                          type: boolean
-                        prefix:
-                          type: string
-                      type: object
-                    type: array
-                  customerOwnedIpv4Pool:
-                    type: string
-                  dropInvalidHeaderFields:
-                    type: boolean
-                  enableCrossZoneLoadBalancing:
-                    type: boolean
-                  enableDeletionProtection:
-                    type: boolean
-                  enableHttp2:
-                    type: boolean
-                  idleTimeout:
+                  deregistrationDelay:
                     format: int64
                     type: integer
-                  internal:
+                  healthCheck:
+                    items:
+                      properties:
+                        enabled:
+                          type: boolean
+                        healthyThreshold:
+                          format: int64
+                          type: integer
+                        interval:
+                          format: int64
+                          type: integer
+                        matcher:
+                          type: string
+                        path:
+                          type: string
+                        port:
+                          type: string
+                        protocol:
+                          type: string
+                        timeout:
+                          format: int64
+                          type: integer
+                        unhealthyThreshold:
+                          format: int64
+                          type: integer
+                      type: object
+                    type: array
+                  lambdaMultiValueHeadersEnabled:
                     type: boolean
-                  ipAddressType:
-                    type: string
-                  loadBalancerType:
+                  loadBalancingAlgorithmType:
                     type: string
                   name:
                     type: string
                   namePrefix:
                     type: string
+                  port:
+                    format: int64
+                    type: integer
+                  preserveClientIp:
+                    type: string
+                  protocol:
+                    type: string
+                  protocolVersion:
+                    type: string
+                  proxyProtocolV2:
+                    type: boolean
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  securityGroups:
+                  slowStart:
+                    format: int64
+                    type: integer
+                  stickiness:
                     items:
-                      type: string
-                    type: array
-                  securityGroupsRefs:
-                    items:
-                      description: A Reference to a named object.
                       properties:
-                        name:
-                          description: Name of the referenced object.
+                        cookieDuration:
+                          format: int64
+                          type: integer
+                        cookieName:
+                          type: string
+                        enabled:
+                          type: boolean
+                        type:
                           type: string
                       required:
-                      - name
+                      - type
                       type: object
                     type: array
-                  securityGroupsSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
-                          type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
-                  subnetMapping:
-                    items:
-                      properties:
-                        allocationId:
-                          type: string
-                        ipv6Address:
-                          type: string
-                        privateIpv4Address:
-                          type: string
-                        subnetIDRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        subnetIDSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        subnetId:
-                          type: string
-                      type: object
-                    type: array
-                  subnets:
-                    items:
-                      type: string
-                    type: array
-                  subnetsRefs:
-                    items:
-                      description: A Reference to a named object.
-                      properties:
-                        name:
-                          description: Name of the referenced object.
-                          type: string
-                      required:
-                      - name
-                      type: object
-                    type: array
-                  subnetsSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
-                          type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
                   tags:
                     additionalProperties:
                       type: string
                     type: object
+                  targetType:
+                    type: string
+                  vpcIDRef:
+                    description: A Reference to a named object.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                    required:
+                    - name
+                    type: object
+                  vpcIDSelector:
+                    description: A Selector selects an object.
+                    properties:
+                      matchControllerRef:
+                        description: MatchControllerRef ensures an object with the
+                          same controller reference as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                    type: object
+                  vpcId:
+                    type: string
                 required:
                 - region
                 type: object
@@ -271,7 +213,7 @@ spec:
             - forProvider
             type: object
           status:
-            description: LbStatus defines the observed state of Lb.
+            description: LBTargetGroupStatus defines the observed state of LBTargetGroup.
             properties:
               atProvider:
                 properties:
@@ -279,16 +221,10 @@ spec:
                     type: string
                   arnSuffix:
                     type: string
-                  dnsName:
-                    type: string
                   tagsAll:
                     additionalProperties:
                       type: string
                     type: object
-                  vpcId:
-                    type: string
-                  zoneId:
-                    type: string
                 type: object
               conditions:
                 description: Conditions of the resource.

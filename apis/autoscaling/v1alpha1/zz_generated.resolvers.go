@@ -19,7 +19,7 @@ package v1alpha1
 
 import (
 	"context"
-	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1"
+	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1"
 	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
@@ -40,8 +40,8 @@ func (mg *Attachment) ResolveReferences(ctx context.Context, c client.Reader) er
 		Reference:    mg.Spec.ForProvider.AlbTargetGroupArnRef,
 		Selector:     mg.Spec.ForProvider.AlbTargetGroupArnSelector,
 		To: reference.To{
-			List:    &v1alpha1.LbTargetGroupList{},
-			Managed: &v1alpha1.LbTargetGroup{},
+			List:    &v1alpha1.LBTargetGroupList{},
+			Managed: &v1alpha1.LBTargetGroup{},
 		},
 	})
 	if err != nil {
@@ -53,8 +53,8 @@ func (mg *Attachment) ResolveReferences(ctx context.Context, c client.Reader) er
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.AutoscalingGroupName),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.AutoscalingGroupRef,
-		Selector:     mg.Spec.ForProvider.AutoscalingGroupSelector,
+		Reference:    mg.Spec.ForProvider.AutoscalingGroupNameRef,
+		Selector:     mg.Spec.ForProvider.AutoscalingGroupNameSelector,
 		To: reference.To{
 			List:    &AutoscalingGroupList{},
 			Managed: &AutoscalingGroup{},
@@ -64,7 +64,7 @@ func (mg *Attachment) ResolveReferences(ctx context.Context, c client.Reader) er
 		return errors.Wrap(err, "mg.Spec.ForProvider.AutoscalingGroupName")
 	}
 	mg.Spec.ForProvider.AutoscalingGroupName = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.AutoscalingGroupRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.AutoscalingGroupNameRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -82,8 +82,8 @@ func (mg *AutoscalingGroup) ResolveReferences(ctx context.Context, c client.Read
 		References:    mg.Spec.ForProvider.TargetGroupArnsRefs,
 		Selector:      mg.Spec.ForProvider.TargetGroupArnsSelector,
 		To: reference.To{
-			List:    &v1alpha1.LbTargetGroupList{},
-			Managed: &v1alpha1.LbTargetGroup{},
+			List:    &v1alpha1.LBTargetGroupList{},
+			Managed: &v1alpha1.LBTargetGroup{},
 		},
 	})
 	if err != nil {

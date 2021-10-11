@@ -4,18 +4,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: lbtargetgroups.lbv2.aws.tf.crossplane.io
+  name: lbtargetgroupattachments.lb.aws.tf.crossplane.io
 spec:
-  group: lbv2.aws.tf.crossplane.io
+  group: lb.aws.tf.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - tfaws
-    kind: LbTargetGroup
-    listKind: LbTargetGroupList
-    plural: lbtargetgroups
-    singular: lbtargetgroup
+    kind: LBTargetGroupAttachment
+    listKind: LBTargetGroupAttachmentList
+    plural: lbtargetgroupattachments
+    singular: lbtargetgroupattachment
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: LbTargetGroup is the Schema for the LbTargetGroups API
+        description: LBTargetGroupAttachment is the Schema for the LBTargetGroupAttachments
+          API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +50,8 @@ spec:
           metadata:
             type: object
           spec:
-            description: LbTargetGroupSpec defines the desired state of LbTargetGroup
+            description: LBTargetGroupAttachmentSpec defines the desired state of
+              LBTargetGroupAttachment
             properties:
               deletionPolicy:
                 default: Delete
@@ -62,85 +64,18 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  deregistrationDelay:
-                    format: int64
-                    type: integer
-                  healthCheck:
-                    items:
-                      properties:
-                        enabled:
-                          type: boolean
-                        healthyThreshold:
-                          format: int64
-                          type: integer
-                        interval:
-                          format: int64
-                          type: integer
-                        matcher:
-                          type: string
-                        path:
-                          type: string
-                        port:
-                          type: string
-                        protocol:
-                          type: string
-                        timeout:
-                          format: int64
-                          type: integer
-                        unhealthyThreshold:
-                          format: int64
-                          type: integer
-                      type: object
-                    type: array
-                  lambdaMultiValueHeadersEnabled:
-                    type: boolean
-                  loadBalancingAlgorithmType:
-                    type: string
-                  name:
-                    type: string
-                  namePrefix:
+                  availabilityZone:
                     type: string
                   port:
                     format: int64
                     type: integer
-                  preserveClientIp:
-                    type: string
-                  protocol:
-                    type: string
-                  protocolVersion:
-                    type: string
-                  proxyProtocolV2:
-                    type: boolean
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  slowStart:
-                    format: int64
-                    type: integer
-                  stickiness:
-                    items:
-                      properties:
-                        cookieDuration:
-                          format: int64
-                          type: integer
-                        cookieName:
-                          type: string
-                        enabled:
-                          type: boolean
-                        type:
-                          type: string
-                      required:
-                      - type
-                      type: object
-                    type: array
-                  tags:
-                    additionalProperties:
-                      type: string
-                    type: object
-                  targetType:
+                  targetGroupArn:
                     type: string
-                  vpcIDRef:
+                  targetGroupArnRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -149,7 +84,7 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcIDSelector:
+                  targetGroupArnSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -163,10 +98,11 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  vpcId:
+                  targetId:
                     type: string
                 required:
                 - region
+                - targetId
                 type: object
               providerConfigRef:
                 default:
@@ -213,18 +149,10 @@ spec:
             - forProvider
             type: object
           status:
-            description: LbTargetGroupStatus defines the observed state of LbTargetGroup.
+            description: LBTargetGroupAttachmentStatus defines the observed state
+              of LBTargetGroupAttachment.
             properties:
               atProvider:
-                properties:
-                  arn:
-                    type: string
-                  arnSuffix:
-                    type: string
-                  tagsAll:
-                    additionalProperties:
-                      type: string
-                    type: object
                 type: object
               conditions:
                 description: Conditions of the resource.

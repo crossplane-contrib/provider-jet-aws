@@ -189,9 +189,7 @@ spec:
                       properties:
                         bucketName:
                           type: string
-                        bucketPrefix:
-                          type: string
-                        bucketRef:
+                        bucketNameRef:
                           description: A Reference to a named object.
                           properties:
                             name:
@@ -200,7 +198,7 @@ spec:
                           required:
                           - name
                           type: object
-                        bucketSelector:
+                        bucketNameSelector:
                           description: A Selector selects an object.
                           properties:
                             matchControllerRef:
@@ -215,6 +213,8 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
+                        bucketPrefix:
+                          type: string
                         ingestionRole:
                           type: string
                         sourceEngine:

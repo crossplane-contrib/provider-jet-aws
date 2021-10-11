@@ -34,8 +34,8 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ParameterGroupName),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.ParameterGroupRef,
-		Selector:     mg.Spec.ForProvider.ParameterGroupSelector,
+		Reference:    mg.Spec.ForProvider.ParameterGroupNameRef,
+		Selector:     mg.Spec.ForProvider.ParameterGroupNameSelector,
 		To: reference.To{
 			List:    &ParameterGroupList{},
 			Managed: &ParameterGroup{},
@@ -45,7 +45,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 		return errors.Wrap(err, "mg.Spec.ForProvider.ParameterGroupName")
 	}
 	mg.Spec.ForProvider.ParameterGroupName = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.ParameterGroupRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.ParameterGroupNameRef = rsp.ResolvedReference
 
 	return nil
 }

@@ -39,7 +39,7 @@ import (
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
 	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
 	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
-	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
@@ -57,11 +57,11 @@ import (
 	userpolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicy"
 	userpolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicyattachment"
 	key "github.com/crossplane-contrib/provider-tf-aws/internal/controller/kms/key"
-	lb "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lbv2/lb"
-	lblistener "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lbv2/lblistener"
-	lbtargetgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lbv2/lbtargetgroup"
-	lbtargetgroupattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lbv2/lbtargetgroupattachment"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
+	lblistener "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/lblistener"
+	lbtargetgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/lbtargetgroup"
+	lbtargetgroupattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/lbtargetgroupattachment"
+	loadbalancer "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/loadbalancer"
+	clusterrds "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
 	networkinterface "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/networkinterface"
@@ -84,7 +84,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		cluster.Setup,
 		clusterecs.Setup,
 		clustereks.Setup,
-		clusterelasticache.Setup,
+		clusterrds.Setup,
 		fargateprofile.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
@@ -93,10 +93,10 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		instance.Setup,
 		instanceprofile.Setup,
 		key.Setup,
-		lb.Setup,
 		lblistener.Setup,
 		lbtargetgroup.Setup,
 		lbtargetgroupattachment.Setup,
+		loadbalancer.Setup,
 		networkinterface.Setup,
 		nodegroup.Setup,
 		parametergroup.Setup,
