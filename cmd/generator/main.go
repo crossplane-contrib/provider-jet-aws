@@ -59,11 +59,16 @@ const (
 var alphaIncludedResource = map[string]struct{}{
 
 	// VPC
-	"aws_vpc":                 {},
-	"aws_security_group":      {},
-	"aws_security_group_rule": {},
-	"aws_subnet":              {},
-	"aws_network_interface":   {},
+	"aws_vpc":                             {},
+	"aws_security_group":                  {},
+	"aws_security_group_rule":             {},
+	"aws_subnet":                          {},
+	"aws_network_interface":               {},
+	"aws_route_table":                     {},
+	"aws_vpc_endpoint":                    {},
+	"aws_vpc_ipv4_cidr_block_association": {},
+	"aws_vpc_peering_connection":          {},
+	"aws_route_table_association":         {},
 
 	// Elastic Load Balancing v2 (ALB/NLB)
 	"aws_lb":                         {},
@@ -159,7 +164,11 @@ func main() { // nolint:gocyclo
 		words := strings.Split(name, "_")
 		groupName := words[1]
 		switch {
-		case strings.Contains(name, "aws_security_group") || strings.Contains(name, "aws_subnet") || strings.Contains(name, "aws_network"):
+		case strings.Contains(name, "aws_security_group") ||
+			strings.Contains(name, "aws_subnet") ||
+			strings.Contains(name, "aws_network") ||
+			strings.Contains(name, "aws_route_table_association") ||
+			strings.Contains(name, "aws_route_table"):
 			groupName = "vpc"
 		case name == "aws_instance" || name == "aws_eip" || name == "aws_launch_template":
 			groupName = "ec2"
