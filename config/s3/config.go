@@ -16,7 +16,10 @@ limitations under the License.
 
 package s3
 
-import "github.com/crossplane-contrib/terrajet/pkg/config"
+import (
+	"github.com/crossplane-contrib/provider-tf-aws/config/common"
+	"github.com/crossplane-contrib/terrajet/pkg/config"
+)
 
 // Package path constants.
 const (
@@ -35,6 +38,12 @@ func init() {
 			OmittedFields: []string{
 				"bucket",
 				"bucket_prefix",
+			},
+		},
+		References: map[string]config.Reference{
+			"server_side_encryption_configuration[*].rule[*].apply_server_side_encryption_by_default[*].kms_master_key_id": {
+				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+				Extractor: common.PathARNExtractor,
 			},
 		},
 	})

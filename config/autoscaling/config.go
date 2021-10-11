@@ -7,8 +7,7 @@ import (
 )
 
 const (
-	CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
-	SelfPkgPath   = "github.com/crossplane-contrib/provider-tf-aws/config/autoscaling"
+	SelfPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/autoscaling"
 )
 
 func init() {
@@ -21,6 +20,14 @@ func init() {
 				"name_prefix",
 			},
 		},
+		References: map[string]config.Reference{
+			"vpc_zone_identifier": {
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
+			},
+			"target_group_arns": {
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1.LbTargetGroup",
+			},
+		},
 		UseAsync: true,
 	})
 	config.Store.SetForResource("aws_autoscaling_attachment", config.Resource{
@@ -28,10 +35,14 @@ func init() {
 			DisableNameInitializer: true,
 		},
 		References: map[string]config.Reference{
-			"autoscaling_group_name": config.Reference{
+			"autoscaling_group_name": {
 				Type:              "AutoscalingGroup",
 				RefFieldName:      "AutoscalingGroupRef",
 				SelectorFieldName: "AutoscalingGroupSelector",
+			},
+			"alb_target_group_arn": {
+				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1.LbTargetGroup",
+				Extractor: common.PathARNExtractor,
 			},
 		},
 	})

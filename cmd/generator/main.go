@@ -65,6 +65,16 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_subnet":              {},
 	"aws_network_interface":   {},
 
+	// Elastic Load Balancing v2 (ALB/NLB)
+	"aws_lb":                         {},
+	"aws_lb_listener":                {},
+	"aws_lb_target_group":            {},
+	"aws_lb_target_group_attachment": {},
+
+	// ECR
+	"aws_ecr_repository":       {},
+	"aws_ecrpublic_repository": {},
+
 	// RDS
 	"aws_rds_cluster": {},
 
@@ -145,6 +155,10 @@ func main() { // nolint:gocyclo
 			groupName = "vpc"
 		case name == "aws_instance":
 			groupName = "ec2"
+		case strings.Contains(name, "aws_lb"):
+			groupName = "lbv2"
+		case strings.Contains(name, "aws_ecrpublic_repository"):
+			groupName = "ecr"
 		}
 		if len(groups[groupName]) == 0 {
 			groups[groupName] = map[string]*schema.Resource{}
