@@ -16,7 +16,45 @@ limitations under the License.
 
 package common
 
+import (
+	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
+	"github.com/crossplane/crossplane-runtime/pkg/reference"
+	"github.com/crossplane/crossplane-runtime/pkg/resource"
+)
+
+const (
+	// SelfPackagePath is the golang path for this package.
+	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
+)
+
+var (
+	// PathExternalNameAsName is the golang path to ExternalNameAsName function
+	// in this package.
+	PathExternalNameAsName = SelfPackagePath + ".ExternalNameAsName"
+	// PathARNExtractor is the golang path to ARNExtractor function
+	// in this package.
+	PathARNExtractor = SelfPackagePath + ".ARNExtractor()"
+)
+
 // ExternalNameAsName is used by the resources whose schema includes a name field.
 func ExternalNameAsName(base map[string]interface{}, externalName string) {
 	base["name"] = externalName
+}
+
+// ARNExtractor extracts ARN of the resources from "status.atProvider.arn" which
+// is quite common among all AWS resources.
+func ARNExtractor() reference.ExtractValueFn {
+	return func(mg resource.Managed) string {
+		paved, err := fieldpath.PaveObject(mg)
+		if err != nil {
+			// todo(hasan): should we log this error?
+			return ""
+		}
+		r, err := paved.GetString("status.atProvider.arn")
+		if err != nil {
+			// todo(hasan): should we log this error?
+			return ""
+		}
+		return r
+	}
 }

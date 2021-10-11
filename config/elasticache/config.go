@@ -18,21 +18,21 @@ package elasticache
 
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
+
+	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-// Package path constants.
 const (
-	CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
-	SelfPkgPath   = "github.com/crossplane-contrib/provider-tf-aws/config/elasticache"
+	// SelfPackagePath is the golang path for this package.
+	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/elasticache"
 )
 
-// ClusterExternalNameConfigure configures name of the cluster via external name.
+// ClusterExternalNameConfigure configures cluster id via external name.
 func ClusterExternalNameConfigure(base map[string]interface{}, name string) {
 	base["cluster_id"] = name
 }
 
-// ReplicationGroupExternalNameConfigure configures name of the replication group
-// via external name.
+// ReplicationGroupExternalNameConfigure configures replication group id via external name.
 func ReplicationGroupExternalNameConfigure(base map[string]interface{}, name string) {
 	base["replication_group_id"] = name
 }
@@ -41,7 +41,7 @@ func init() {
 
 	config.Store.SetForResource("aws_elasticache_parameter_group", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: CommonPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath: common.PathExternalNameAsName,
 			OmittedFields: []string{
 				"name",
 			},
@@ -50,16 +50,14 @@ func init() {
 
 	config.Store.SetForResource("aws_elasticache_cluster", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPkgPath + ".ClusterExternalNameConfigure",
+			ConfigureFunctionPath: SelfPackagePath + ".ClusterExternalNameConfigure",
 			OmittedFields: []string{
 				"cluster_id",
 			},
 		},
 		References: config.References{
 			"parameter_group_name": config.Reference{
-				Type:              "ParameterGroup",
-				RefFieldName:      "ParameterGroupRef",
-				SelectorFieldName: "ParameterGroupSelector",
+				Type: "ParameterGroup",
 			},
 		},
 		UseAsync: true,
@@ -67,7 +65,7 @@ func init() {
 
 	config.Store.SetForResource("aws_elasticache_replication_group", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPkgPath + ".ReplicationGroupExternalNameConfigure",
+			ConfigureFunctionPath: SelfPackagePath + ".ReplicationGroupExternalNameConfigure",
 		},
 	})
 }

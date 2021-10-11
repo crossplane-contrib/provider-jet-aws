@@ -44,7 +44,7 @@ type PolicyAttachmentParameters struct {
 	Name *string `json:"name" tf:"name,omitempty"`
 
 	// +crossplane:generate:reference:type=Policy
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.PolicyARNExtractor()
+	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	PolicyArn *string `json:"policyArn,omitempty" tf:"policy_arn,omitempty"`
 

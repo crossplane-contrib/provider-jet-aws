@@ -20,9 +20,9 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
-// Package path constants.
 const (
-	SelfPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/rds"
+	// SelfPackagePath is the golang path for this package.
+	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/rds"
 )
 
 // ClusterExternalNameConfigure configures name of cluster.
@@ -33,7 +33,7 @@ func ClusterExternalNameConfigure(base map[string]interface{}, name string) {
 func init() {
 	config.Store.SetForResource("aws_rds_cluster", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPkgPath + ".ClusterExternalNameConfigure",
+			ConfigureFunctionPath: SelfPackagePath + ".ClusterExternalNameConfigure",
 			OmittedFields: []string{
 				"cluster_identifier",
 				"cluster_identifier_prefix",

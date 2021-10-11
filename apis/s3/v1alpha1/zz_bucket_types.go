@@ -39,8 +39,16 @@ type ApplyServerSideEncryptionByDefaultObservation struct {
 
 type ApplyServerSideEncryptionByDefaultParameters struct {
 
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key
+	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	KmsMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	KmsMasterKeyIDRef *v1.Reference `json:"kmsMasterKeyIDRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	KmsMasterKeyIDSelector *v1.Selector `json:"kmsMasterKeyIDSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	SseAlgorithm *string `json:"sseAlgorithm" tf:"sse_algorithm,omitempty"`

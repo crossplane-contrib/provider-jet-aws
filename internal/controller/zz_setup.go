@@ -24,10 +24,26 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
+	attachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/autoscaling/attachment"
+	autoscalinggroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/autoscaling/autoscalinggroup"
 	volume "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ebs/volume"
+	ec2launchtemplate "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ec2launchtemplate"
+	elasticip "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/elasticip"
 	instance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/instance"
+	transitgateway "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgateway"
+	transitgatewayroute "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayroute"
+	transitgatewayroutetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayroutetable"
+	transitgatewayroutetableassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayroutetableassociation"
+	transitgatewayvpcattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayvpcattachment"
+	transitgatewayvpcattachmentaccepter "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayvpcattachmentaccepter"
+	publicrepository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/publicrepository"
+	repository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/repository"
+	capacityprovider "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/capacityprovider"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
+	service "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/service"
+	taskdefinition "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/taskdefinition"
 	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
+	clustereks "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
 	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
 	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
@@ -49,6 +65,10 @@ import (
 	userpolicy "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicy"
 	userpolicyattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/userpolicyattachment"
 	key "github.com/crossplane-contrib/provider-tf-aws/internal/controller/kms/key"
+	lblistener "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/lblistener"
+	lbtargetgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/lbtargetgroup"
+	lbtargetgroupattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/lbtargetgroupattachment"
+	loadbalancer "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/loadbalancer"
 	clusterrds "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
@@ -65,10 +85,16 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter, terraform.SetupFn, *terraform.WorkspaceStore, int) error{
 		accesskey.Setup,
 		addon.Setup,
+		attachment.Setup,
+		autoscalinggroup.Setup,
 		bucket.Setup,
+		capacityprovider.Setup,
 		cluster.Setup,
+		clustereks.Setup,
 		clusterelasticache.Setup,
 		clusterrds.Setup,
+		ec2launchtemplate.Setup,
+		elasticip.Setup,
 		fargateprofile.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
@@ -77,19 +103,33 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		instance.Setup,
 		instanceprofile.Setup,
 		key.Setup,
+		lblistener.Setup,
+		lbtargetgroup.Setup,
+		lbtargetgroupattachment.Setup,
+		loadbalancer.Setup,
 		networkinterface.Setup,
 		nodegroup.Setup,
 		parametergroup.Setup,
 		policy.Setup,
 		policyattachment.Setup,
+		publicrepository.Setup,
 		replicationgroup.Setup,
+		repository.Setup,
 		role.Setup,
 		rolepolicy.Setup,
 		rolepolicyattachment.Setup,
 		securitygroup.Setup,
 		securitygrouprule.Setup,
+		service.Setup,
 		subnet.Setup,
+		taskdefinition.Setup,
 		tfaws.Setup,
+		transitgateway.Setup,
+		transitgatewayroute.Setup,
+		transitgatewayroutetable.Setup,
+		transitgatewayroutetableassociation.Setup,
+		transitgatewayvpcattachment.Setup,
+		transitgatewayvpcattachmentaccepter.Setup,
 		user.Setup,
 		usergroupmembership.Setup,
 		userpolicy.Setup,

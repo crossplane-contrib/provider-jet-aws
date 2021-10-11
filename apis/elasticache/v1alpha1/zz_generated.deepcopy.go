@@ -289,13 +289,13 @@ func (in *ClusterParameters) DeepCopyInto(out *ClusterParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.ParameterGroupRef != nil {
-		in, out := &in.ParameterGroupRef, &out.ParameterGroupRef
+	if in.ParameterGroupNameRef != nil {
+		in, out := &in.ParameterGroupNameRef, &out.ParameterGroupNameRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.ParameterGroupSelector != nil {
-		in, out := &in.ParameterGroupSelector, &out.ParameterGroupSelector
+	if in.ParameterGroupNameSelector != nil {
+		in, out := &in.ParameterGroupNameSelector, &out.ParameterGroupNameSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}

@@ -65,6 +65,16 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_subnet":              {},
 	"aws_network_interface":   {},
 
+	// Elastic Load Balancing v2 (ALB/NLB)
+	"aws_lb":                         {},
+	"aws_lb_listener":                {},
+	"aws_lb_target_group":            {},
+	"aws_lb_target_group_attachment": {},
+
+	// ECR
+	"aws_ecr_repository":       {},
+	"aws_ecrpublic_repository": {},
+
 	// RDS
 	"aws_rds_cluster": {},
 
@@ -75,6 +85,17 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_elasticache_cluster":           {},
 	"aws_elasticache_parameter_group":   {},
 	"aws_elasticache_replication_group": {},
+
+	// ECS
+	"aws_ecs_cluster":           {},
+	"aws_ecs_service":           {},
+	"aws_ecs_capacity_provider": {},
+	"aws_ecs_tag":               {},
+	"aws_ecs_task_definition":   {},
+
+	// Autoscaling
+	"aws_autoscaling_group":      {},
+	"aws_autoscaling_attachment": {},
 
 	// IAM
 	"aws_iam_access_key":              {},
@@ -100,7 +121,15 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_eks_identity_provider_config": {},
 
 	// EC2
-	"aws_instance": {},
+	"aws_instance":                                    {},
+	"aws_eip":                                         {},
+	"aws_launch_template":                             {},
+	"aws_ec2_transit_gateway":                         {},
+	"aws_ec2_transit_gateway_route":                   {},
+	"aws_ec2_transit_gateway_route_table":             {},
+	"aws_ec2_transit_gateway_route_table_association": {},
+	"aws_ec2_transit_gateway_vpc_attachment":          {},
+	"aws_ec2_transit_gateway_vpc_attachment_accepter": {},
 
 	// KMS
 	"aws_kms_key": {},
@@ -132,8 +161,12 @@ func main() { // nolint:gocyclo
 		switch {
 		case strings.Contains(name, "aws_security_group") || strings.Contains(name, "aws_subnet") || strings.Contains(name, "aws_network"):
 			groupName = "vpc"
-		case name == "aws_instance":
+		case name == "aws_instance" || name == "aws_eip" || name == "aws_launch_template":
 			groupName = "ec2"
+		case name == "aws_lb":
+			groupName = "lb"
+		case strings.Contains(name, "aws_ecrpublic_repository"):
+			groupName = "ecr"
 		}
 		if len(groups[groupName]) == 0 {
 			groups[groupName] = map[string]*schema.Resource{}

@@ -19,7 +19,7 @@ package v1alpha1
 
 import (
 	"context"
-	iam "github.com/crossplane-contrib/provider-tf-aws/config/iam"
+	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
@@ -102,7 +102,7 @@ func (mg *GroupPolicyAttachment) ResolveReferences(ctx context.Context, c client
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PolicyArn),
-		Extract:      iam.PolicyARNExtractor(),
+		Extract:      common.ARNExtractor(),
 		Reference:    mg.Spec.ForProvider.PolicyArnRef,
 		Selector:     mg.Spec.ForProvider.PolicyArnSelector,
 		To: reference.To{
@@ -171,7 +171,7 @@ func (mg *PolicyAttachment) ResolveReferences(ctx context.Context, c client.Read
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PolicyArn),
-		Extract:      iam.PolicyARNExtractor(),
+		Extract:      common.ARNExtractor(),
 		Reference:    mg.Spec.ForProvider.PolicyArnRef,
 		Selector:     mg.Spec.ForProvider.PolicyArnSelector,
 		To: reference.To{
@@ -229,7 +229,7 @@ func (mg *RolePolicyAttachment) ResolveReferences(ctx context.Context, c client.
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PolicyArn),
-		Extract:      iam.PolicyARNExtractor(),
+		Extract:      common.ARNExtractor(),
 		Reference:    mg.Spec.ForProvider.PolicyArnRef,
 		Selector:     mg.Spec.ForProvider.PolicyArnSelector,
 		To: reference.To{
@@ -340,7 +340,7 @@ func (mg *UserPolicyAttachment) ResolveReferences(ctx context.Context, c client.
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PolicyArn),
-		Extract:      iam.PolicyARNExtractor(),
+		Extract:      common.ARNExtractor(),
 		Reference:    mg.Spec.ForProvider.PolicyArnRef,
 		Selector:     mg.Spec.ForProvider.PolicyArnSelector,
 		To: reference.To{
