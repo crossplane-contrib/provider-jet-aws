@@ -19,12 +19,12 @@ package eks
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config/iam"
+	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-// Package path constants.
 const (
-	SelfPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/eks"
+	// SelfPackagePath is the golang path for this package.
+	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/eks"
 )
 
 // ClusterExternalNameConfigure configures cluster name.
@@ -45,7 +45,7 @@ func FargateProfileExternalNameConfigure(base map[string]interface{}, name strin
 func init() {
 	config.Store.SetForResource("aws_eks_cluster", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPkgPath + ".ClusterExternalNameConfigure",
+			ConfigureFunctionPath: SelfPackagePath + ".ClusterExternalNameConfigure",
 			OmittedFields: []string{
 				"name",
 			},
@@ -53,7 +53,7 @@ func init() {
 		References: config.References{
 			"role_arn": {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
-				Extractor: iam.SelfPkgPath + ".RoleARNExtractor()",
+				Extractor: common.PathARNExtractor,
 			},
 			"vpc_config[*].subnet_ids": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
@@ -66,7 +66,7 @@ func init() {
 	})
 	config.Store.SetForResource("aws_eks_node_group", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPkgPath + ".NodeGroupExternalNameConfigure",
+			ConfigureFunctionPath: SelfPackagePath + ".NodeGroupExternalNameConfigure",
 			OmittedFields: []string{
 				"node_group_name",
 				"node_group_name_prefix",
@@ -78,7 +78,7 @@ func init() {
 			},
 			"node_role_arn": {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
-				Extractor: iam.SelfPkgPath + ".RoleARNExtractor()",
+				Extractor: common.PathARNExtractor,
 			},
 			"remote_access[*].source_security_group_ids": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup",
@@ -111,7 +111,7 @@ func init() {
 			},
 			"pod_execution_role_arn": {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
-				Extractor: iam.SelfPkgPath + ".RoleARNExtractor()",
+				Extractor: common.PathARNExtractor,
 			},
 			"subnet_ids": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
@@ -128,7 +128,7 @@ func init() {
 			},
 			"service_account_role_arn": {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
-				Extractor: iam.SelfPkgPath + ".RoleARNExtractor()",
+				Extractor: common.PathARNExtractor,
 			},
 		},
 	})

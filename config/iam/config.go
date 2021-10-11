@@ -17,52 +17,10 @@ limitations under the License.
 package iam
 
 import (
-	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
-	"github.com/crossplane/crossplane-runtime/pkg/reference"
-	"github.com/crossplane/crossplane-runtime/pkg/resource"
-
 	"github.com/crossplane-contrib/terrajet/pkg/config"
+
+	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
-
-// Package path constants.
-const (
-	CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
-	SelfPkgPath   = "github.com/crossplane-contrib/provider-tf-aws/config/iam"
-)
-
-// PolicyARNExtractor extracts policy ARN from status.
-func PolicyARNExtractor() reference.ExtractValueFn {
-	return func(mg resource.Managed) string {
-		paved, err := fieldpath.PaveObject(mg)
-		if err != nil {
-			// todo(hasan): should we log this error?
-			return ""
-		}
-		r, err := paved.GetString("status.atProvider.arn")
-		if err != nil {
-			// todo(hasan): should we log this error?
-			return ""
-		}
-		return r
-	}
-}
-
-// RoleARNExtractor extracts ARN from role.
-func RoleARNExtractor() reference.ExtractValueFn {
-	return func(mg resource.Managed) string {
-		paved, err := fieldpath.PaveObject(mg)
-		if err != nil {
-			// todo(hasan): should we log this error?
-			return ""
-		}
-		r, err := paved.GetString("status.atProvider.arn")
-		if err != nil {
-			// todo(hasan): should we log this error?
-			return ""
-		}
-		return r
-	}
-}
 
 func init() {
 	config.Store.SetForResource("aws_iam_access_key", config.Resource{
@@ -81,7 +39,7 @@ func init() {
 		// name in group version info
 		Kind: "IAMGroup",
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: CommonPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath: common.PathExternalNameAsName,
 			OmittedFields: []string{
 				"name",
 			},
@@ -90,7 +48,7 @@ func init() {
 
 	config.Store.SetForResource("aws_iam_group_policy", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: CommonPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath: common.PathExternalNameAsName,
 			OmittedFields: []string{
 				"name",
 				"name_prefix",
@@ -113,14 +71,14 @@ func init() {
 			},
 			"policy_arn": config.Reference{
 				Type:      "Policy",
-				Extractor: SelfPkgPath + ".PolicyARNExtractor()",
+				Extractor: common.PathARNExtractor,
 			},
 		},
 	})
 
 	config.Store.SetForResource("aws_iam_instance_profile", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: CommonPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath: common.PathExternalNameAsName,
 			OmittedFields: []string{
 				"name",
 				"name_prefix",
@@ -155,7 +113,7 @@ func init() {
 			},
 			"policy_arn": config.Reference{
 				Type:      "Policy",
-				Extractor: SelfPkgPath + ".PolicyARNExtractor()",
+				Extractor: common.PathARNExtractor,
 			},
 		},
 	})
@@ -163,7 +121,7 @@ func init() {
 	config.Store.SetForResource("aws_iam_role", config.Resource{
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: false,
-			ConfigureFunctionPath:  CommonPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath:  common.PathExternalNameAsName,
 			OmittedFields: []string{
 				"name",
 				"name_prefix",
@@ -174,7 +132,7 @@ func init() {
 	config.Store.SetForResource("aws_iam_role_policy", config.Resource{
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: false,
-			ConfigureFunctionPath:  CommonPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath:  common.PathExternalNameAsName,
 			OmittedFields: []string{
 				"name",
 				"name_prefix",
@@ -191,7 +149,7 @@ func init() {
 			},
 			"policy_arn": config.Reference{
 				Type:      "Policy",
-				Extractor: SelfPkgPath + ".PolicyARNExtractor()",
+				Extractor: common.PathARNExtractor,
 			},
 		},
 	})
@@ -199,7 +157,7 @@ func init() {
 	config.Store.SetForResource("aws_iam_user", config.Resource{
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: false,
-			ConfigureFunctionPath:  CommonPkgPath + ".ExternalNameAsName",
+			ConfigureFunctionPath:  common.PathExternalNameAsName,
 			OmittedFields: []string{
 				"name",
 			},
@@ -240,7 +198,7 @@ func init() {
 			},
 			"policy_arn": config.Reference{
 				Type:      "Policy",
-				Extractor: SelfPkgPath + ".PolicyARNExtractor()",
+				Extractor: common.PathARNExtractor,
 			},
 		},
 	})

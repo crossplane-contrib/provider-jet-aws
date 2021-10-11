@@ -31,13 +31,13 @@ type CapacityProviderStrategyObservation struct {
 type CapacityProviderStrategyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Base *int64 `json:"base,omitempty" tf:"base"`
+	Base *int64 `json:"base,omitempty" tf:"base,omitempty"`
 
 	// +kubebuilder:validation:Required
-	CapacityProvider *string `json:"capacityProvider" tf:"capacity_provider"`
+	CapacityProvider *string `json:"capacityProvider" tf:"capacity_provider,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Weight *int64 `json:"weight,omitempty" tf:"weight"`
+	Weight *int64 `json:"weight,omitempty" tf:"weight,omitempty"`
 }
 
 type DeploymentCircuitBreakerObservation struct {
@@ -46,10 +46,10 @@ type DeploymentCircuitBreakerObservation struct {
 type DeploymentCircuitBreakerParameters struct {
 
 	// +kubebuilder:validation:Required
-	Enable *bool `json:"enable" tf:"enable"`
+	Enable *bool `json:"enable" tf:"enable,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Rollback *bool `json:"rollback" tf:"rollback"`
+	Rollback *bool `json:"rollback" tf:"rollback,omitempty"`
 }
 
 type DeploymentControllerObservation struct {
@@ -58,7 +58,7 @@ type DeploymentControllerObservation struct {
 type DeploymentControllerParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Type *string `json:"type,omitempty" tf:"type"`
+	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type LoadBalancerObservation struct {
@@ -67,16 +67,16 @@ type LoadBalancerObservation struct {
 type LoadBalancerParameters struct {
 
 	// +kubebuilder:validation:Required
-	ContainerName *string `json:"containerName" tf:"container_name"`
+	ContainerName *string `json:"containerName" tf:"container_name,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ContainerPort *int64 `json:"containerPort" tf:"container_port"`
+	ContainerPort *int64 `json:"containerPort" tf:"container_port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ElbName *string `json:"elbName,omitempty" tf:"elb_name"`
+	ElbName *string `json:"elbName,omitempty" tf:"elb_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn"`
+	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn,omitempty"`
 }
 
 type NetworkConfigurationObservation struct {
@@ -85,11 +85,11 @@ type NetworkConfigurationObservation struct {
 type NetworkConfigurationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AssignPublicIP *bool `json:"assignPublicIp,omitempty" tf:"assign_public_ip"`
+	AssignPublicIP *bool `json:"assignPublicIp,omitempty" tf:"assign_public_ip,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
-	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups"`
+	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SecurityGroupsRefs []v1.Reference `json:"securityGroupsRefs,omitempty" tf:"-"`
@@ -98,7 +98,7 @@ type NetworkConfigurationParameters struct {
 	SecurityGroupsSelector *v1.Selector `json:"securityGroupsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
-	Subnets []*string `json:"subnets" tf:"subnets"`
+	Subnets []*string `json:"subnets" tf:"subnets,omitempty"`
 }
 
 type OrderedPlacementStrategyObservation struct {
@@ -107,10 +107,10 @@ type OrderedPlacementStrategyObservation struct {
 type OrderedPlacementStrategyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Field *string `json:"field,omitempty" tf:"field"`
+	Field *string `json:"field,omitempty" tf:"field,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Type *string `json:"type" tf:"type"`
+	Type *string `json:"type" tf:"type,omitempty"`
 }
 
 type PlacementConstraintsObservation struct {
@@ -119,25 +119,25 @@ type PlacementConstraintsObservation struct {
 type PlacementConstraintsParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Expression *string `json:"expression,omitempty" tf:"expression"`
+	Expression *string `json:"expression,omitempty" tf:"expression,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Type *string `json:"type" tf:"type"`
+	Type *string `json:"type" tf:"type,omitempty"`
 }
 
 type ServiceObservation struct {
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type ServiceParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CapacityProviderStrategy []CapacityProviderStrategyParameters `json:"capacityProviderStrategy,omitempty" tf:"capacity_provider_strategy"`
+	CapacityProviderStrategy []CapacityProviderStrategyParameters `json:"capacityProviderStrategy,omitempty" tf:"capacity_provider_strategy,omitempty"`
 
 	// +crossplane:generate:reference:type=Cluster
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
-	Cluster *string `json:"cluster,omitempty" tf:"cluster"`
+	Cluster *string `json:"cluster,omitempty" tf:"cluster,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ClusterRef *v1.Reference `json:"clusterRef,omitempty" tf:"-"`
@@ -146,36 +146,36 @@ type ServiceParameters struct {
 	ClusterSelector *v1.Selector `json:"clusterSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	DeploymentCircuitBreaker []DeploymentCircuitBreakerParameters `json:"deploymentCircuitBreaker,omitempty" tf:"deployment_circuit_breaker"`
+	DeploymentCircuitBreaker []DeploymentCircuitBreakerParameters `json:"deploymentCircuitBreaker,omitempty" tf:"deployment_circuit_breaker,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DeploymentController []DeploymentControllerParameters `json:"deploymentController,omitempty" tf:"deployment_controller"`
+	DeploymentController []DeploymentControllerParameters `json:"deploymentController,omitempty" tf:"deployment_controller,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DeploymentMaximumPercent *int64 `json:"deploymentMaximumPercent,omitempty" tf:"deployment_maximum_percent"`
+	DeploymentMaximumPercent *int64 `json:"deploymentMaximumPercent,omitempty" tf:"deployment_maximum_percent,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DeploymentMinimumHealthyPercent *int64 `json:"deploymentMinimumHealthyPercent,omitempty" tf:"deployment_minimum_healthy_percent"`
+	DeploymentMinimumHealthyPercent *int64 `json:"deploymentMinimumHealthyPercent,omitempty" tf:"deployment_minimum_healthy_percent,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DesiredCount *int64 `json:"desiredCount,omitempty" tf:"desired_count"`
+	DesiredCount *int64 `json:"desiredCount,omitempty" tf:"desired_count,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableEcsManagedTags *bool `json:"enableEcsManagedTags,omitempty" tf:"enable_ecs_managed_tags"`
+	EnableEcsManagedTags *bool `json:"enableEcsManagedTags,omitempty" tf:"enable_ecs_managed_tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableExecuteCommand *bool `json:"enableExecuteCommand,omitempty" tf:"enable_execute_command"`
+	EnableExecuteCommand *bool `json:"enableExecuteCommand,omitempty" tf:"enable_execute_command,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ForceNewDeployment *bool `json:"forceNewDeployment,omitempty" tf:"force_new_deployment"`
+	ForceNewDeployment *bool `json:"forceNewDeployment,omitempty" tf:"force_new_deployment,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	HealthCheckGracePeriodSeconds *int64 `json:"healthCheckGracePeriodSeconds,omitempty" tf:"health_check_grace_period_seconds"`
+	HealthCheckGracePeriodSeconds *int64 `json:"healthCheckGracePeriodSeconds,omitempty" tf:"health_check_grace_period_seconds,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
-	IamRole *string `json:"iamRole,omitempty" tf:"iam_role"`
+	IamRole *string `json:"iamRole,omitempty" tf:"iam_role,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	IamRoleRef *v1.Reference `json:"iamRoleRef,omitempty" tf:"-"`
@@ -184,45 +184,45 @@ type ServiceParameters struct {
 	IamRoleSelector *v1.Selector `json:"iamRoleSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	LaunchType *string `json:"launchType,omitempty" tf:"launch_type"`
+	LaunchType *string `json:"launchType,omitempty" tf:"launch_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	LoadBalancer []LoadBalancerParameters `json:"loadBalancer,omitempty" tf:"load_balancer"`
+	LoadBalancer []LoadBalancerParameters `json:"loadBalancer,omitempty" tf:"load_balancer,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NetworkConfiguration []NetworkConfigurationParameters `json:"networkConfiguration,omitempty" tf:"network_configuration"`
+	NetworkConfiguration []NetworkConfigurationParameters `json:"networkConfiguration,omitempty" tf:"network_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	OrderedPlacementStrategy []OrderedPlacementStrategyParameters `json:"orderedPlacementStrategy,omitempty" tf:"ordered_placement_strategy"`
+	OrderedPlacementStrategy []OrderedPlacementStrategyParameters `json:"orderedPlacementStrategy,omitempty" tf:"ordered_placement_strategy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PlacementConstraints []PlacementConstraintsParameters `json:"placementConstraints,omitempty" tf:"placement_constraints"`
+	PlacementConstraints []PlacementConstraintsParameters `json:"placementConstraints,omitempty" tf:"placement_constraints,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PlatformVersion *string `json:"platformVersion,omitempty" tf:"platform_version"`
+	PlatformVersion *string `json:"platformVersion,omitempty" tf:"platform_version,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PropagateTags *string `json:"propagateTags,omitempty" tf:"propagate_tags"`
+	PropagateTags *string `json:"propagateTags,omitempty" tf:"propagate_tags,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SchedulingStrategy *string `json:"schedulingStrategy,omitempty" tf:"scheduling_strategy"`
+	SchedulingStrategy *string `json:"schedulingStrategy,omitempty" tf:"scheduling_strategy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ServiceRegistries []ServiceRegistriesParameters `json:"serviceRegistries,omitempty" tf:"service_registries"`
+	ServiceRegistries []ServiceRegistriesParameters `json:"serviceRegistries,omitempty" tf:"service_registries,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TaskDefinition *string `json:"taskDefinition,omitempty" tf:"task_definition"`
+	TaskDefinition *string `json:"taskDefinition,omitempty" tf:"task_definition,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	WaitForSteadyState *bool `json:"waitForSteadyState,omitempty" tf:"wait_for_steady_state"`
+	WaitForSteadyState *bool `json:"waitForSteadyState,omitempty" tf:"wait_for_steady_state,omitempty"`
 }
 
 type ServiceRegistriesObservation struct {
@@ -231,16 +231,16 @@ type ServiceRegistriesObservation struct {
 type ServiceRegistriesParameters struct {
 
 	// +kubebuilder:validation:Optional
-	ContainerName *string `json:"containerName,omitempty" tf:"container_name"`
+	ContainerName *string `json:"containerName,omitempty" tf:"container_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ContainerPort *int64 `json:"containerPort,omitempty" tf:"container_port"`
+	ContainerPort *int64 `json:"containerPort,omitempty" tf:"container_port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Required
-	RegistryArn *string `json:"registryArn" tf:"registry_arn"`
+	RegistryArn *string `json:"registryArn" tf:"registry_arn,omitempty"`
 }
 
 // ServiceSpec defines the desired state of Service

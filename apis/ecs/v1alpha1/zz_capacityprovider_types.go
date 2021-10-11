@@ -33,7 +33,7 @@ type AutoScalingGroupProviderParameters struct {
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1.AutoscalingGroup
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
-	AutoScalingGroupArn *string `json:"autoScalingGroupArn,omitempty" tf:"auto_scaling_group_arn"`
+	AutoScalingGroupArn *string `json:"autoScalingGroupArn,omitempty" tf:"auto_scaling_group_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	AutoScalingGroupArnRef *v1.Reference `json:"autoScalingGroupArnRef,omitempty" tf:"-"`
@@ -42,30 +42,30 @@ type AutoScalingGroupProviderParameters struct {
 	AutoScalingGroupArnSelector *v1.Selector `json:"autoScalingGroupArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	ManagedScaling []ManagedScalingParameters `json:"managedScaling,omitempty" tf:"managed_scaling"`
+	ManagedScaling []ManagedScalingParameters `json:"managedScaling,omitempty" tf:"managed_scaling,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ManagedTerminationProtection *string `json:"managedTerminationProtection,omitempty" tf:"managed_termination_protection"`
+	ManagedTerminationProtection *string `json:"managedTerminationProtection,omitempty" tf:"managed_termination_protection,omitempty"`
 }
 
 type CapacityProviderObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type CapacityProviderParameters struct {
 
 	// +kubebuilder:validation:Required
-	AutoScalingGroupProvider []AutoScalingGroupProviderParameters `json:"autoScalingGroupProvider" tf:"auto_scaling_group_provider"`
+	AutoScalingGroupProvider []AutoScalingGroupProviderParameters `json:"autoScalingGroupProvider" tf:"auto_scaling_group_provider,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 type ManagedScalingObservation struct {
@@ -74,19 +74,19 @@ type ManagedScalingObservation struct {
 type ManagedScalingParameters struct {
 
 	// +kubebuilder:validation:Optional
-	InstanceWarmupPeriod *int64 `json:"instanceWarmupPeriod,omitempty" tf:"instance_warmup_period"`
+	InstanceWarmupPeriod *int64 `json:"instanceWarmupPeriod,omitempty" tf:"instance_warmup_period,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaximumScalingStepSize *int64 `json:"maximumScalingStepSize,omitempty" tf:"maximum_scaling_step_size"`
+	MaximumScalingStepSize *int64 `json:"maximumScalingStepSize,omitempty" tf:"maximum_scaling_step_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MinimumScalingStepSize *int64 `json:"minimumScalingStepSize,omitempty" tf:"minimum_scaling_step_size"`
+	MinimumScalingStepSize *int64 `json:"minimumScalingStepSize,omitempty" tf:"minimum_scaling_step_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Status *string `json:"status,omitempty" tf:"status"`
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TargetCapacity *int64 `json:"targetCapacity,omitempty" tf:"target_capacity"`
+	TargetCapacity *int64 `json:"targetCapacity,omitempty" tf:"target_capacity,omitempty"`
 }
 
 // CapacityProviderSpec defines the desired state of CapacityProvider

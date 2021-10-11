@@ -1,8 +1,9 @@
 package ecr
 
 import (
-	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 	"github.com/crossplane-contrib/terrajet/pkg/config"
+
+	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
 func init() {

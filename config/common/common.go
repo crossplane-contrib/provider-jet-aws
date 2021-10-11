@@ -23,12 +23,17 @@ import (
 )
 
 const (
+	// SelfPackagePath is the golang path for this package.
 	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
 var (
+	// PathExternalNameAsName is the golang path to ExternalNameAsName function
+	// in this package.
 	PathExternalNameAsName = SelfPackagePath + ".ExternalNameAsName"
-	PathARNExtractor       = SelfPackagePath + ".ARNExtractor()"
+	// PathARNExtractor is the golang path to ARNExtractor function
+	// in this package.
+	PathARNExtractor = SelfPackagePath + ".ARNExtractor()"
 )
 
 // ExternalNameAsName is used by the resources whose schema includes a name field.
@@ -36,6 +41,8 @@ func ExternalNameAsName(base map[string]interface{}, externalName string) {
 	base["name"] = externalName
 }
 
+// ARNExtractor extracts ARN of the resources from "status.atProvider.arn" which
+// is quite common among all AWS resources.
 func ARNExtractor() reference.ExtractValueFn {
 	return func(mg resource.Managed) string {
 		paved, err := fieldpath.PaveObject(mg)

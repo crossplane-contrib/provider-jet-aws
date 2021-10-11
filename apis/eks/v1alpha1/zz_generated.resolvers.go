@@ -21,7 +21,7 @@ import (
 	"context"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
 	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
-	iam "github.com/crossplane-contrib/provider-tf-aws/config/iam"
+	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
@@ -52,7 +52,7 @@ func (mg *Addon) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ServiceAccountRoleArn),
-		Extract:      iam.RoleARNExtractor(),
+		Extract:      common.ARNExtractor(),
 		Reference:    mg.Spec.ForProvider.ServiceAccountRoleArnRef,
 		Selector:     mg.Spec.ForProvider.ServiceAccountRoleArnSelector,
 		To: reference.To{
@@ -79,7 +79,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RoleArn),
-		Extract:      iam.RoleARNExtractor(),
+		Extract:      common.ARNExtractor(),
 		Reference:    mg.Spec.ForProvider.RoleArnRef,
 		Selector:     mg.Spec.ForProvider.RoleArnSelector,
 		To: reference.To{
@@ -159,7 +159,7 @@ func (mg *FargateProfile) ResolveReferences(ctx context.Context, c client.Reader
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PodExecutionRoleArn),
-		Extract:      iam.RoleARNExtractor(),
+		Extract:      common.ARNExtractor(),
 		Reference:    mg.Spec.ForProvider.PodExecutionRoleArnRef,
 		Selector:     mg.Spec.ForProvider.PodExecutionRoleArnSelector,
 		To: reference.To{
@@ -244,7 +244,7 @@ func (mg *NodeGroup) ResolveReferences(ctx context.Context, c client.Reader) err
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.NodeRoleArn),
-		Extract:      iam.RoleARNExtractor(),
+		Extract:      common.ARNExtractor(),
 		Reference:    mg.Spec.ForProvider.NodeRoleArnRef,
 		Selector:     mg.Spec.ForProvider.NodeRoleArnSelector,
 		To: reference.To{

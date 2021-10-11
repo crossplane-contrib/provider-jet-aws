@@ -31,19 +31,19 @@ type LbTargetGroupAttachmentObservation struct {
 type LbTargetGroupAttachmentParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
+	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +crossplane:generate:reference:type=LbTargetGroup
 	// +kubebuilder:validation:Optional
-	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn"`
+	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	TargetGroupArnRef *v1.Reference `json:"targetGroupArnRef,omitempty" tf:"-"`
@@ -52,7 +52,7 @@ type LbTargetGroupAttachmentParameters struct {
 	TargetGroupArnSelector *v1.Selector `json:"targetGroupArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
-	TargetID *string `json:"targetId" tf:"target_id"`
+	TargetID *string `json:"targetId" tf:"target_id,omitempty"`
 }
 
 // LbTargetGroupAttachmentSpec defines the desired state of LbTargetGroupAttachment

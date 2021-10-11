@@ -31,12 +31,12 @@ type EncryptionConfigurationObservation struct {
 type EncryptionConfigurationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	EncryptionType *string `json:"encryptionType,omitempty" tf:"encryption_type"`
+	EncryptionType *string `json:"encryptionType,omitempty" tf:"encryption_type,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
-	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key"`
+	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	KmsKeyRef *v1.Reference `json:"kmsKeyRef,omitempty" tf:"-"`
@@ -51,37 +51,37 @@ type ImageScanningConfigurationObservation struct {
 type ImageScanningConfigurationParameters struct {
 
 	// +kubebuilder:validation:Required
-	ScanOnPush *bool `json:"scanOnPush" tf:"scan_on_push"`
+	ScanOnPush *bool `json:"scanOnPush" tf:"scan_on_push,omitempty"`
 }
 
 type RepositoryObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	RegistryID *string `json:"registryId,omitempty" tf:"registry_id"`
+	RegistryID *string `json:"registryId,omitempty" tf:"registry_id,omitempty"`
 
-	RepositoryURL *string `json:"repositoryUrl,omitempty" tf:"repository_url"`
+	RepositoryURL *string `json:"repositoryUrl,omitempty" tf:"repository_url,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type RepositoryParameters struct {
 
 	// +kubebuilder:validation:Optional
-	EncryptionConfiguration []EncryptionConfigurationParameters `json:"encryptionConfiguration,omitempty" tf:"encryption_configuration"`
+	EncryptionConfiguration []EncryptionConfigurationParameters `json:"encryptionConfiguration,omitempty" tf:"encryption_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ImageScanningConfiguration []ImageScanningConfigurationParameters `json:"imageScanningConfiguration,omitempty" tf:"image_scanning_configuration"`
+	ImageScanningConfiguration []ImageScanningConfigurationParameters `json:"imageScanningConfiguration,omitempty" tf:"image_scanning_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ImageTagMutability *string `json:"imageTagMutability,omitempty" tf:"image_tag_mutability"`
+	ImageTagMutability *string `json:"imageTagMutability,omitempty" tf:"image_tag_mutability,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // RepositorySpec defines the desired state of Repository

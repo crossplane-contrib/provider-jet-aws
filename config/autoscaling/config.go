@@ -6,10 +6,6 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-const (
-	SelfPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/autoscaling"
-)
-
 func init() {
 	config.Store.SetForResource("aws_autoscaling_group", config.Resource{
 		Kind: "AutoscalingGroup",

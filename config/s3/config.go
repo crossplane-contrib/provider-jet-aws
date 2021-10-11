@@ -17,13 +17,14 @@ limitations under the License.
 package s3
 
 import (
-	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 	"github.com/crossplane-contrib/terrajet/pkg/config"
+
+	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-// Package path constants.
 const (
-	SelfPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/s3"
+	// SelfPackagePath is the golang path for this package.
+	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/s3"
 )
 
 // BucketExternalNameConfigure configures bucket name.
@@ -34,7 +35,7 @@ func BucketExternalNameConfigure(base map[string]interface{}, name string) {
 func init() {
 	config.Store.SetForResource("aws_s3_bucket", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPkgPath + ".BucketExternalNameConfigure",
+			ConfigureFunctionPath: SelfPackagePath + ".BucketExternalNameConfigure",
 			OmittedFields: []string{
 				"bucket",
 				"bucket_prefix",

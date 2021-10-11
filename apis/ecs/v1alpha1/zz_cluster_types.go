@@ -26,16 +26,16 @@ import (
 )
 
 type ClusterObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type ClusterParameters struct {
 
 	// +crossplane:generate:reference:type=CapacityProvider
 	// +kubebuilder:validation:Optional
-	CapacityProviders []*string `json:"capacityProviders,omitempty" tf:"capacity_providers"`
+	CapacityProviders []*string `json:"capacityProviders,omitempty" tf:"capacity_providers,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	CapacityProvidersRefs []v1.Reference `json:"capacityProvidersRefs,omitempty" tf:"-"`
@@ -44,21 +44,21 @@ type ClusterParameters struct {
 	CapacityProvidersSelector *v1.Selector `json:"capacityProvidersSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Configuration []ConfigurationParameters `json:"configuration,omitempty" tf:"configuration"`
+	Configuration []ConfigurationParameters `json:"configuration,omitempty" tf:"configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DefaultCapacityProviderStrategy []DefaultCapacityProviderStrategyParameters `json:"defaultCapacityProviderStrategy,omitempty" tf:"default_capacity_provider_strategy"`
+	DefaultCapacityProviderStrategy []DefaultCapacityProviderStrategyParameters `json:"defaultCapacityProviderStrategy,omitempty" tf:"default_capacity_provider_strategy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Setting []SettingParameters `json:"setting,omitempty" tf:"setting"`
+	Setting []SettingParameters `json:"setting,omitempty" tf:"setting,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 type ConfigurationObservation struct {
@@ -67,7 +67,7 @@ type ConfigurationObservation struct {
 type ConfigurationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	ExecuteCommandConfiguration []ExecuteCommandConfigurationParameters `json:"executeCommandConfiguration,omitempty" tf:"execute_command_configuration"`
+	ExecuteCommandConfiguration []ExecuteCommandConfigurationParameters `json:"executeCommandConfiguration,omitempty" tf:"execute_command_configuration,omitempty"`
 }
 
 type DefaultCapacityProviderStrategyObservation struct {
@@ -76,13 +76,13 @@ type DefaultCapacityProviderStrategyObservation struct {
 type DefaultCapacityProviderStrategyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Base *int64 `json:"base,omitempty" tf:"base"`
+	Base *int64 `json:"base,omitempty" tf:"base,omitempty"`
 
 	// +kubebuilder:validation:Required
-	CapacityProvider *string `json:"capacityProvider" tf:"capacity_provider"`
+	CapacityProvider *string `json:"capacityProvider" tf:"capacity_provider,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Weight *int64 `json:"weight,omitempty" tf:"weight"`
+	Weight *int64 `json:"weight,omitempty" tf:"weight,omitempty"`
 }
 
 type ExecuteCommandConfigurationObservation struct {
@@ -91,13 +91,13 @@ type ExecuteCommandConfigurationObservation struct {
 type ExecuteCommandConfigurationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	LogConfiguration []LogConfigurationParameters `json:"logConfiguration,omitempty" tf:"log_configuration"`
+	LogConfiguration []LogConfigurationParameters `json:"logConfiguration,omitempty" tf:"log_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Logging *string `json:"logging,omitempty" tf:"logging"`
+	Logging *string `json:"logging,omitempty" tf:"logging,omitempty"`
 }
 
 type LogConfigurationObservation struct {
@@ -106,19 +106,19 @@ type LogConfigurationObservation struct {
 type LogConfigurationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CloudWatchEncryptionEnabled *bool `json:"cloudWatchEncryptionEnabled,omitempty" tf:"cloud_watch_encryption_enabled"`
+	CloudWatchEncryptionEnabled *bool `json:"cloudWatchEncryptionEnabled,omitempty" tf:"cloud_watch_encryption_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	CloudWatchLogGroupName *string `json:"cloudWatchLogGroupName,omitempty" tf:"cloud_watch_log_group_name"`
+	CloudWatchLogGroupName *string `json:"cloudWatchLogGroupName,omitempty" tf:"cloud_watch_log_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	S3BucketEncryptionEnabled *bool `json:"s3BucketEncryptionEnabled,omitempty" tf:"s3_bucket_encryption_enabled"`
+	S3BucketEncryptionEnabled *bool `json:"s3BucketEncryptionEnabled,omitempty" tf:"s3_bucket_encryption_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	S3BucketName *string `json:"s3BucketName,omitempty" tf:"s3_bucket_name"`
+	S3BucketName *string `json:"s3BucketName,omitempty" tf:"s3_bucket_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	S3KeyPrefix *string `json:"s3KeyPrefix,omitempty" tf:"s3_key_prefix"`
+	S3KeyPrefix *string `json:"s3KeyPrefix,omitempty" tf:"s3_key_prefix,omitempty"`
 }
 
 type SettingObservation struct {
@@ -127,10 +127,10 @@ type SettingObservation struct {
 type SettingParameters struct {
 
 	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name"`
+	Name *string `json:"name" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Value *string `json:"value" tf:"value"`
+	Value *string `json:"value" tf:"value,omitempty"`
 }
 
 // ClusterSpec defines the desired state of Cluster

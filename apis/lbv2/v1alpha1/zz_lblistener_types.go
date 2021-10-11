@@ -31,28 +31,28 @@ type AuthenticateCognitoObservation struct {
 type AuthenticateCognitoParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AuthenticationRequestExtraParams map[string]*string `json:"authenticationRequestExtraParams,omitempty" tf:"authentication_request_extra_params"`
+	AuthenticationRequestExtraParams map[string]*string `json:"authenticationRequestExtraParams,omitempty" tf:"authentication_request_extra_params,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest,omitempty" tf:"on_unauthenticated_request"`
+	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest,omitempty" tf:"on_unauthenticated_request,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope"`
+	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SessionCookieName *string `json:"sessionCookieName,omitempty" tf:"session_cookie_name"`
+	SessionCookieName *string `json:"sessionCookieName,omitempty" tf:"session_cookie_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout"`
+	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout,omitempty"`
 
 	// +kubebuilder:validation:Required
-	UserPoolArn *string `json:"userPoolArn" tf:"user_pool_arn"`
+	UserPoolArn *string `json:"userPoolArn" tf:"user_pool_arn,omitempty"`
 
 	// +kubebuilder:validation:Required
-	UserPoolClientID *string `json:"userPoolClientId" tf:"user_pool_client_id"`
+	UserPoolClientID *string `json:"userPoolClientId" tf:"user_pool_client_id,omitempty"`
 
 	// +kubebuilder:validation:Required
-	UserPoolDomain *string `json:"userPoolDomain" tf:"user_pool_domain"`
+	UserPoolDomain *string `json:"userPoolDomain" tf:"user_pool_domain,omitempty"`
 }
 
 type AuthenticateOidcObservation struct {
@@ -61,37 +61,37 @@ type AuthenticateOidcObservation struct {
 type AuthenticateOidcParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AuthenticationRequestExtraParams map[string]*string `json:"authenticationRequestExtraParams,omitempty" tf:"authentication_request_extra_params"`
+	AuthenticationRequestExtraParams map[string]*string `json:"authenticationRequestExtraParams,omitempty" tf:"authentication_request_extra_params,omitempty"`
 
 	// +kubebuilder:validation:Required
-	AuthorizationEndpoint *string `json:"authorizationEndpoint" tf:"authorization_endpoint"`
+	AuthorizationEndpoint *string `json:"authorizationEndpoint" tf:"authorization_endpoint,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ClientID *string `json:"clientId" tf:"client_id"`
+	ClientID *string `json:"clientId" tf:"client_id,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ClientSecretSecretRef v1.SecretKeySelector `json:"clientSecretSecretRef" tf:"-"`
+	ClientSecretSecretRef v1.SecretKeySelector `json:"clientSecretSecretRef" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Issuer *string `json:"issuer" tf:"issuer"`
+	Issuer *string `json:"issuer" tf:"issuer,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest,omitempty" tf:"on_unauthenticated_request"`
+	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest,omitempty" tf:"on_unauthenticated_request,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Scope *string `json:"scope,omitempty" tf:"scope"`
+	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SessionCookieName *string `json:"sessionCookieName,omitempty" tf:"session_cookie_name"`
+	SessionCookieName *string `json:"sessionCookieName,omitempty" tf:"session_cookie_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout"`
+	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout,omitempty"`
 
 	// +kubebuilder:validation:Required
-	TokenEndpoint *string `json:"tokenEndpoint" tf:"token_endpoint"`
+	TokenEndpoint *string `json:"tokenEndpoint" tf:"token_endpoint,omitempty"`
 
 	// +kubebuilder:validation:Required
-	UserInfoEndpoint *string `json:"userInfoEndpoint" tf:"user_info_endpoint"`
+	UserInfoEndpoint *string `json:"userInfoEndpoint" tf:"user_info_endpoint,omitempty"`
 }
 
 type DefaultActionObservation struct {
@@ -100,26 +100,26 @@ type DefaultActionObservation struct {
 type DefaultActionParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AuthenticateCognito []AuthenticateCognitoParameters `json:"authenticateCognito,omitempty" tf:"authenticate_cognito"`
+	AuthenticateCognito []AuthenticateCognitoParameters `json:"authenticateCognito,omitempty" tf:"authenticate_cognito,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AuthenticateOidc []AuthenticateOidcParameters `json:"authenticateOidc,omitempty" tf:"authenticate_oidc"`
+	AuthenticateOidc []AuthenticateOidcParameters `json:"authenticateOidc,omitempty" tf:"authenticate_oidc,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	FixedResponse []FixedResponseParameters `json:"fixedResponse,omitempty" tf:"fixed_response"`
+	FixedResponse []FixedResponseParameters `json:"fixedResponse,omitempty" tf:"fixed_response,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Forward []ForwardParameters `json:"forward,omitempty" tf:"forward"`
+	Forward []ForwardParameters `json:"forward,omitempty" tf:"forward,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Order *int64 `json:"order,omitempty" tf:"order"`
+	Order *int64 `json:"order,omitempty" tf:"order,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Redirect []RedirectParameters `json:"redirect,omitempty" tf:"redirect"`
+	Redirect []RedirectParameters `json:"redirect,omitempty" tf:"redirect,omitempty"`
 
 	// +crossplane:generate:reference:type=LbTargetGroup
 	// +kubebuilder:validation:Optional
-	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn"`
+	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	TargetGroupArnRef *v1.Reference `json:"targetGroupArnRef,omitempty" tf:"-"`
@@ -128,7 +128,7 @@ type DefaultActionParameters struct {
 	TargetGroupArnSelector *v1.Selector `json:"targetGroupArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
-	Type *string `json:"type" tf:"type"`
+	Type *string `json:"type" tf:"type,omitempty"`
 }
 
 type FixedResponseObservation struct {
@@ -137,13 +137,13 @@ type FixedResponseObservation struct {
 type FixedResponseParameters struct {
 
 	// +kubebuilder:validation:Required
-	ContentType *string `json:"contentType" tf:"content_type"`
+	ContentType *string `json:"contentType" tf:"content_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MessageBody *string `json:"messageBody,omitempty" tf:"message_body"`
+	MessageBody *string `json:"messageBody,omitempty" tf:"message_body,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	StatusCode *string `json:"statusCode,omitempty" tf:"status_code"`
+	StatusCode *string `json:"statusCode,omitempty" tf:"status_code,omitempty"`
 }
 
 type ForwardObservation struct {
@@ -152,32 +152,32 @@ type ForwardObservation struct {
 type ForwardParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Stickiness []StickinessParameters `json:"stickiness,omitempty" tf:"stickiness"`
+	Stickiness []StickinessParameters `json:"stickiness,omitempty" tf:"stickiness,omitempty"`
 
 	// +kubebuilder:validation:Required
-	TargetGroup []TargetGroupParameters `json:"targetGroup" tf:"target_group"`
+	TargetGroup []TargetGroupParameters `json:"targetGroup" tf:"target_group,omitempty"`
 }
 
 type LbListenerObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type LbListenerParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AlpnPolicy *string `json:"alpnPolicy,omitempty" tf:"alpn_policy"`
+	AlpnPolicy *string `json:"alpnPolicy,omitempty" tf:"alpn_policy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn"`
+	CertificateArn *string `json:"certificateArn,omitempty" tf:"certificate_arn,omitempty"`
 
 	// +kubebuilder:validation:Required
-	DefaultAction []DefaultActionParameters `json:"defaultAction" tf:"default_action"`
+	DefaultAction []DefaultActionParameters `json:"defaultAction" tf:"default_action,omitempty"`
 
 	// +crossplane:generate:reference:type=Lb
 	// +kubebuilder:validation:Optional
-	LoadBalancerArn *string `json:"loadBalancerArn,omitempty" tf:"load_balancer_arn"`
+	LoadBalancerArn *string `json:"loadBalancerArn,omitempty" tf:"load_balancer_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	LoadBalancerArnRef *v1.Reference `json:"loadBalancerArnRef,omitempty" tf:"-"`
@@ -186,21 +186,21 @@ type LbListenerParameters struct {
 	LoadBalancerArnSelector *v1.Selector `json:"loadBalancerArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
+	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SslPolicy *string `json:"sslPolicy,omitempty" tf:"ssl_policy"`
+	SslPolicy *string `json:"sslPolicy,omitempty" tf:"ssl_policy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 type RedirectObservation struct {
@@ -209,22 +209,22 @@ type RedirectObservation struct {
 type RedirectParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Host *string `json:"host,omitempty" tf:"host"`
+	Host *string `json:"host,omitempty" tf:"host,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Path *string `json:"path,omitempty" tf:"path"`
+	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *string `json:"port,omitempty" tf:"port"`
+	Port *string `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
+	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Query *string `json:"query,omitempty" tf:"query"`
+	Query *string `json:"query,omitempty" tf:"query,omitempty"`
 
 	// +kubebuilder:validation:Required
-	StatusCode *string `json:"statusCode" tf:"status_code"`
+	StatusCode *string `json:"statusCode" tf:"status_code,omitempty"`
 }
 
 type StickinessObservation struct {
@@ -233,10 +233,10 @@ type StickinessObservation struct {
 type StickinessParameters struct {
 
 	// +kubebuilder:validation:Required
-	Duration *int64 `json:"duration" tf:"duration"`
+	Duration *int64 `json:"duration" tf:"duration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 }
 
 type TargetGroupObservation struct {
@@ -246,7 +246,7 @@ type TargetGroupParameters struct {
 
 	// +crossplane:generate:reference:type=LbTargetGroup
 	// +kubebuilder:validation:Optional
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ArnRef *v1.Reference `json:"arnRef,omitempty" tf:"-"`
@@ -255,7 +255,7 @@ type TargetGroupParameters struct {
 	ArnSelector *v1.Selector `json:"arnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Weight *int64 `json:"weight,omitempty" tf:"weight"`
+	Weight *int64 `json:"weight,omitempty" tf:"weight,omitempty"`
 }
 
 // LbListenerSpec defines the desired state of LbListener

@@ -32,7 +32,7 @@ type AccessLogsParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket
 	// +kubebuilder:validation:Optional
-	Bucket *string `json:"bucket,omitempty" tf:"bucket"`
+	Bucket *string `json:"bucket,omitempty" tf:"bucket,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	BucketRef *v1.Reference `json:"bucketRef,omitempty" tf:"-"`
@@ -41,72 +41,72 @@ type AccessLogsParameters struct {
 	BucketSelector *v1.Selector `json:"bucketSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
+	Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
 }
 
 type LbObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	ArnSuffix *string `json:"arnSuffix,omitempty" tf:"arn_suffix"`
+	ArnSuffix *string `json:"arnSuffix,omitempty" tf:"arn_suffix,omitempty"`
 
-	DNSName *string `json:"dnsName,omitempty" tf:"dns_name"`
+	DNSName *string `json:"dnsName,omitempty" tf:"dns_name,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
-	ZoneID *string `json:"zoneId,omitempty" tf:"zone_id"`
+	ZoneID *string `json:"zoneId,omitempty" tf:"zone_id,omitempty"`
 }
 
 type LbParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AccessLogs []AccessLogsParameters `json:"accessLogs,omitempty" tf:"access_logs"`
+	AccessLogs []AccessLogsParameters `json:"accessLogs,omitempty" tf:"access_logs,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	CustomerOwnedIPv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool"`
+	CustomerOwnedIPv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DropInvalidHeaderFields *bool `json:"dropInvalidHeaderFields,omitempty" tf:"drop_invalid_header_fields"`
+	DropInvalidHeaderFields *bool `json:"dropInvalidHeaderFields,omitempty" tf:"drop_invalid_header_fields,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableCrossZoneLoadBalancing *bool `json:"enableCrossZoneLoadBalancing,omitempty" tf:"enable_cross_zone_load_balancing"`
+	EnableCrossZoneLoadBalancing *bool `json:"enableCrossZoneLoadBalancing,omitempty" tf:"enable_cross_zone_load_balancing,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableDeletionProtection *bool `json:"enableDeletionProtection,omitempty" tf:"enable_deletion_protection"`
+	EnableDeletionProtection *bool `json:"enableDeletionProtection,omitempty" tf:"enable_deletion_protection,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableHttp2 *bool `json:"enableHttp2,omitempty" tf:"enable_http2"`
+	EnableHttp2 *bool `json:"enableHttp2,omitempty" tf:"enable_http2,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IPAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type"`
+	IPAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IdleTimeout *int64 `json:"idleTimeout,omitempty" tf:"idle_timeout"`
+	IdleTimeout *int64 `json:"idleTimeout,omitempty" tf:"idle_timeout,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Internal *bool `json:"internal,omitempty" tf:"internal"`
+	Internal *bool `json:"internal,omitempty" tf:"internal,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	LoadBalancerType *string `json:"loadBalancerType,omitempty" tf:"load_balancer_type"`
+	LoadBalancerType *string `json:"loadBalancerType,omitempty" tf:"load_balancer_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name"`
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
+	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
-	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups"`
+	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SecurityGroupsRefs []v1.Reference `json:"securityGroupsRefs,omitempty" tf:"-"`
@@ -115,11 +115,11 @@ type LbParameters struct {
 	SecurityGroupsSelector *v1.Selector `json:"securityGroupsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	SubnetMapping []SubnetMappingParameters `json:"subnetMapping,omitempty" tf:"subnet_mapping"`
+	SubnetMapping []SubnetMappingParameters `json:"subnetMapping,omitempty" tf:"subnet_mapping,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet
 	// +kubebuilder:validation:Optional
-	Subnets []*string `json:"subnets,omitempty" tf:"subnets"`
+	Subnets []*string `json:"subnets,omitempty" tf:"subnets,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SubnetsRefs []v1.Reference `json:"subnetsRefs,omitempty" tf:"-"`
@@ -128,27 +128,27 @@ type LbParameters struct {
 	SubnetsSelector *v1.Selector `json:"subnetsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 type SubnetMappingObservation struct {
-	OutpostID *string `json:"outpostId,omitempty" tf:"outpost_id"`
+	OutpostID *string `json:"outpostId,omitempty" tf:"outpost_id,omitempty"`
 }
 
 type SubnetMappingParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AllocationID *string `json:"allocationId,omitempty" tf:"allocation_id"`
+	AllocationID *string `json:"allocationId,omitempty" tf:"allocation_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IPv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address"`
+	IPv6Address *string `json:"ipv6Address,omitempty" tf:"ipv6_address,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PrivateIPv4Address *string `json:"privateIpv4Address,omitempty" tf:"private_ipv4_address"`
+	PrivateIPv4Address *string `json:"privateIpv4Address,omitempty" tf:"private_ipv4_address,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet
 	// +kubebuilder:validation:Optional
-	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id"`
+	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SubnetIDRef *v1.Reference `json:"subnetIDRef,omitempty" tf:"-"`

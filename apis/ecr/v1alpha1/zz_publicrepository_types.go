@@ -31,44 +31,44 @@ type CatalogDataObservation struct {
 type CatalogDataParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AboutText *string `json:"aboutText,omitempty" tf:"about_text"`
+	AboutText *string `json:"aboutText,omitempty" tf:"about_text,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Architectures []*string `json:"architectures,omitempty" tf:"architectures"`
+	Architectures []*string `json:"architectures,omitempty" tf:"architectures,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description"`
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	LogoImageBlob *string `json:"logoImageBlob,omitempty" tf:"logo_image_blob"`
+	LogoImageBlob *string `json:"logoImageBlob,omitempty" tf:"logo_image_blob,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	OperatingSystems []*string `json:"operatingSystems,omitempty" tf:"operating_systems"`
+	OperatingSystems []*string `json:"operatingSystems,omitempty" tf:"operating_systems,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	UsageText *string `json:"usageText,omitempty" tf:"usage_text"`
+	UsageText *string `json:"usageText,omitempty" tf:"usage_text,omitempty"`
 }
 
 type PublicRepositoryObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	RegistryID *string `json:"registryId,omitempty" tf:"registry_id"`
+	RegistryID *string `json:"registryId,omitempty" tf:"registry_id,omitempty"`
 
-	RepositoryURI *string `json:"repositoryUri,omitempty" tf:"repository_uri"`
+	RepositoryURI *string `json:"repositoryUri,omitempty" tf:"repository_uri,omitempty"`
 }
 
 type PublicRepositoryParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CatalogData []CatalogDataParameters `json:"catalogData,omitempty" tf:"catalog_data"`
+	CatalogData []CatalogDataParameters `json:"catalogData,omitempty" tf:"catalog_data,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
+	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 }
 
 // PublicRepositorySpec defines the desired state of PublicRepository

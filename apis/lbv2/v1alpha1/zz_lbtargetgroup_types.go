@@ -31,96 +31,96 @@ type HealthCheckObservation struct {
 type HealthCheckParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	HealthyThreshold *int64 `json:"healthyThreshold,omitempty" tf:"healthy_threshold"`
+	HealthyThreshold *int64 `json:"healthyThreshold,omitempty" tf:"healthy_threshold,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Interval *int64 `json:"interval,omitempty" tf:"interval"`
+	Interval *int64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Matcher *string `json:"matcher,omitempty" tf:"matcher"`
+	Matcher *string `json:"matcher,omitempty" tf:"matcher,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Path *string `json:"path,omitempty" tf:"path"`
+	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *string `json:"port,omitempty" tf:"port"`
+	Port *string `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
+	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Timeout *int64 `json:"timeout,omitempty" tf:"timeout"`
+	Timeout *int64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	UnhealthyThreshold *int64 `json:"unhealthyThreshold,omitempty" tf:"unhealthy_threshold"`
+	UnhealthyThreshold *int64 `json:"unhealthyThreshold,omitempty" tf:"unhealthy_threshold,omitempty"`
 }
 
 type LbTargetGroupObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	ArnSuffix *string `json:"arnSuffix,omitempty" tf:"arn_suffix"`
+	ArnSuffix *string `json:"arnSuffix,omitempty" tf:"arn_suffix,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type LbTargetGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
-	DeregistrationDelay *int64 `json:"deregistrationDelay,omitempty" tf:"deregistration_delay"`
+	DeregistrationDelay *int64 `json:"deregistrationDelay,omitempty" tf:"deregistration_delay,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	HealthCheck []HealthCheckParameters `json:"healthCheck,omitempty" tf:"health_check"`
+	HealthCheck []HealthCheckParameters `json:"healthCheck,omitempty" tf:"health_check,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	LambdaMultiValueHeadersEnabled *bool `json:"lambdaMultiValueHeadersEnabled,omitempty" tf:"lambda_multi_value_headers_enabled"`
+	LambdaMultiValueHeadersEnabled *bool `json:"lambdaMultiValueHeadersEnabled,omitempty" tf:"lambda_multi_value_headers_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	LoadBalancingAlgorithmType *string `json:"loadBalancingAlgorithmType,omitempty" tf:"load_balancing_algorithm_type"`
+	LoadBalancingAlgorithmType *string `json:"loadBalancingAlgorithmType,omitempty" tf:"load_balancing_algorithm_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name"`
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
+	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PreserveClientIP *string `json:"preserveClientIp,omitempty" tf:"preserve_client_ip"`
+	PreserveClientIP *string `json:"preserveClientIp,omitempty" tf:"preserve_client_ip,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
+	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ProtocolVersion *string `json:"protocolVersion,omitempty" tf:"protocol_version"`
+	ProtocolVersion *string `json:"protocolVersion,omitempty" tf:"protocol_version,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ProxyProtocolV2 *bool `json:"proxyProtocolV2,omitempty" tf:"proxy_protocol_v2"`
+	ProxyProtocolV2 *bool `json:"proxyProtocolV2,omitempty" tf:"proxy_protocol_v2,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SlowStart *int64 `json:"slowStart,omitempty" tf:"slow_start"`
+	SlowStart *int64 `json:"slowStart,omitempty" tf:"slow_start,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Stickiness []LbTargetGroupStickinessParameters `json:"stickiness,omitempty" tf:"stickiness"`
+	Stickiness []LbTargetGroupStickinessParameters `json:"stickiness,omitempty" tf:"stickiness,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TargetType *string `json:"targetType,omitempty" tf:"target_type"`
+	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.VPC
 	// +kubebuilder:validation:Optional
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	VpcIDRef *v1.Reference `json:"vpcIDRef,omitempty" tf:"-"`
@@ -135,16 +135,16 @@ type LbTargetGroupStickinessObservation struct {
 type LbTargetGroupStickinessParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CookieDuration *int64 `json:"cookieDuration,omitempty" tf:"cookie_duration"`
+	CookieDuration *int64 `json:"cookieDuration,omitempty" tf:"cookie_duration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	CookieName *string `json:"cookieName,omitempty" tf:"cookie_name"`
+	CookieName *string `json:"cookieName,omitempty" tf:"cookie_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Type *string `json:"type" tf:"type"`
+	Type *string `json:"type" tf:"type,omitempty"`
 }
 
 // LbTargetGroupSpec defines the desired state of LbTargetGroup
