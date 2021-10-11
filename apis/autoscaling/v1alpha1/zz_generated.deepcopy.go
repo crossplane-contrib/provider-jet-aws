@@ -107,6 +107,16 @@ func (in *AttachmentParameters) DeepCopyInto(out *AttachmentParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.AlbTargetGroupArnRef != nil {
+		in, out := &in.AlbTargetGroupArnRef, &out.AlbTargetGroupArnRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.AlbTargetGroupArnSelector != nil {
+		in, out := &in.AlbTargetGroupArnSelector, &out.AlbTargetGroupArnSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.AutoscalingGroupName != nil {
 		in, out := &in.AutoscalingGroupName, &out.AutoscalingGroupName
 		*out = new(string)
@@ -456,6 +466,16 @@ func (in *AutoscalingGroupParameters) DeepCopyInto(out *AutoscalingGroupParamete
 			}
 		}
 	}
+	if in.TargetGroupArnsRefs != nil {
+		in, out := &in.TargetGroupArnsRefs, &out.TargetGroupArnsRefs
+		*out = make([]v1.Reference, len(*in))
+		copy(*out, *in)
+	}
+	if in.TargetGroupArnsSelector != nil {
+		in, out := &in.TargetGroupArnsSelector, &out.TargetGroupArnsSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.TerminationPolicies != nil {
 		in, out := &in.TerminationPolicies, &out.TerminationPolicies
 		*out = make([]*string, len(*in))
@@ -477,6 +497,16 @@ func (in *AutoscalingGroupParameters) DeepCopyInto(out *AutoscalingGroupParamete
 				**out = **in
 			}
 		}
+	}
+	if in.VpcZoneIdentifierRefs != nil {
+		in, out := &in.VpcZoneIdentifierRefs, &out.VpcZoneIdentifierRefs
+		*out = make([]v1.Reference, len(*in))
+		copy(*out, *in)
+	}
+	if in.VpcZoneIdentifierSelector != nil {
+		in, out := &in.VpcZoneIdentifierSelector, &out.VpcZoneIdentifierSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.WaitForCapacityTimeout != nil {
 		in, out := &in.WaitForCapacityTimeout, &out.WaitForCapacityTimeout

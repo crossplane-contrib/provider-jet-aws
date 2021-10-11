@@ -25,36 +25,45 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type AttachmentObservation struct {
+type CatalogDataObservation struct {
 }
 
-type AttachmentParameters struct {
-
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1.LbTargetGroup
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
-	// +kubebuilder:validation:Optional
-	AlbTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn"`
+type CatalogDataParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AlbTargetGroupArnRef *v1.Reference `json:"albTargetGroupArnRef,omitempty" tf:"-"`
+	AboutText *string `json:"aboutText,omitempty" tf:"about_text"`
 
 	// +kubebuilder:validation:Optional
-	AlbTargetGroupArnSelector *v1.Selector `json:"albTargetGroupArnSelector,omitempty" tf:"-"`
-
-	// +crossplane:generate:reference:type=AutoscalingGroup
-	// +crossplane:generate:reference:refFieldName=AutoscalingGroupRef
-	// +crossplane:generate:reference:selectorFieldName=AutoscalingGroupSelector
-	// +kubebuilder:validation:Optional
-	AutoscalingGroupName *string `json:"autoscalingGroupName,omitempty" tf:"autoscaling_group_name"`
+	Architectures []*string `json:"architectures,omitempty" tf:"architectures"`
 
 	// +kubebuilder:validation:Optional
-	AutoscalingGroupRef *v1.Reference `json:"autoscalingGroupRef,omitempty" tf:"-"`
+	Description *string `json:"description,omitempty" tf:"description"`
 
 	// +kubebuilder:validation:Optional
-	AutoscalingGroupSelector *v1.Selector `json:"autoscalingGroupSelector,omitempty" tf:"-"`
+	LogoImageBlob *string `json:"logoImageBlob,omitempty" tf:"logo_image_blob"`
 
 	// +kubebuilder:validation:Optional
-	Elb *string `json:"elb,omitempty" tf:"elb"`
+	OperatingSystems []*string `json:"operatingSystems,omitempty" tf:"operating_systems"`
+
+	// +kubebuilder:validation:Optional
+	UsageText *string `json:"usageText,omitempty" tf:"usage_text"`
+}
+
+type PublicRepositoryObservation struct {
+	Arn *string `json:"arn,omitempty" tf:"arn"`
+
+	RegistryID *string `json:"registryId,omitempty" tf:"registry_id"`
+
+	RepositoryURI *string `json:"repositoryUri,omitempty" tf:"repository_uri"`
+}
+
+type PublicRepositoryParameters struct {
+
+	// +kubebuilder:validation:Optional
+	CatalogData []CatalogDataParameters `json:"catalogData,omitempty" tf:"catalog_data"`
+
+	// +kubebuilder:validation:Optional
+	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
@@ -62,51 +71,51 @@ type AttachmentParameters struct {
 	Region *string `json:"region" tf:"-"`
 }
 
-// AttachmentSpec defines the desired state of Attachment
-type AttachmentSpec struct {
+// PublicRepositorySpec defines the desired state of PublicRepository
+type PublicRepositorySpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     AttachmentParameters `json:"forProvider"`
+	ForProvider     PublicRepositoryParameters `json:"forProvider"`
 }
 
-// AttachmentStatus defines the observed state of Attachment.
-type AttachmentStatus struct {
+// PublicRepositoryStatus defines the observed state of PublicRepository.
+type PublicRepositoryStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        AttachmentObservation `json:"atProvider,omitempty"`
+	AtProvider        PublicRepositoryObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// Attachment is the Schema for the Attachments API
+// PublicRepository is the Schema for the PublicRepositorys API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type Attachment struct {
+type PublicRepository struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              AttachmentSpec   `json:"spec"`
-	Status            AttachmentStatus `json:"status,omitempty"`
+	Spec              PublicRepositorySpec   `json:"spec"`
+	Status            PublicRepositoryStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// AttachmentList contains a list of Attachments
-type AttachmentList struct {
+// PublicRepositoryList contains a list of PublicRepositorys
+type PublicRepositoryList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []Attachment `json:"items"`
+	Items           []PublicRepository `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	AttachmentKind             = "Attachment"
-	AttachmentGroupKind        = schema.GroupKind{Group: Group, Kind: AttachmentKind}.String()
-	AttachmentKindAPIVersion   = AttachmentKind + "." + GroupVersion.String()
-	AttachmentGroupVersionKind = GroupVersion.WithKind(AttachmentKind)
+	PublicRepositoryKind             = "PublicRepository"
+	PublicRepositoryGroupKind        = schema.GroupKind{Group: Group, Kind: PublicRepositoryKind}.String()
+	PublicRepositoryKindAPIVersion   = PublicRepositoryKind + "." + GroupVersion.String()
+	PublicRepositoryGroupVersionKind = GroupVersion.WithKind(PublicRepositoryKind)
 )
 
 func init() {
-	SchemeBuilder.Register(&Attachment{}, &AttachmentList{})
+	SchemeBuilder.Register(&PublicRepository{}, &PublicRepositoryList{})
 }

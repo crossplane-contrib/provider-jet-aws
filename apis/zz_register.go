@@ -25,11 +25,13 @@ import (
 	v1alpha1autoscaling "github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1"
 	v1alpha1ebs "github.com/crossplane-contrib/provider-tf-aws/apis/ebs/v1alpha1"
 	v1alpha1ec2 "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1"
+	v1alpha1ecr "github.com/crossplane-contrib/provider-tf-aws/apis/ecr/v1alpha1"
 	v1alpha1ecs "github.com/crossplane-contrib/provider-tf-aws/apis/ecs/v1alpha1"
 	v1alpha1eks "github.com/crossplane-contrib/provider-tf-aws/apis/eks/v1alpha1"
 	v1alpha1elasticache "github.com/crossplane-contrib/provider-tf-aws/apis/elasticache/v1alpha1"
 	v1alpha1iam "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
 	v1alpha1kms "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1"
+	v1alpha1lbv2 "github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1"
 	v1alpha1rds "github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
 	v1alpha1s3 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
@@ -43,11 +45,13 @@ func init() {
 		v1alpha1autoscaling.SchemeBuilder.AddToScheme,
 		v1alpha1ebs.SchemeBuilder.AddToScheme,
 		v1alpha1ec2.SchemeBuilder.AddToScheme,
+		v1alpha1ecr.SchemeBuilder.AddToScheme,
 		v1alpha1ecs.SchemeBuilder.AddToScheme,
 		v1alpha1eks.SchemeBuilder.AddToScheme,
 		v1alpha1elasticache.SchemeBuilder.AddToScheme,
 		v1alpha1iam.SchemeBuilder.AddToScheme,
 		v1alpha1kms.SchemeBuilder.AddToScheme,
+		v1alpha1lbv2.SchemeBuilder.AddToScheme,
 		v1alpha1rds.SchemeBuilder.AddToScheme,
 		v1alpha1s3.SchemeBuilder.AddToScheme,
 		v1alpha1vpc.SchemeBuilder.AddToScheme,

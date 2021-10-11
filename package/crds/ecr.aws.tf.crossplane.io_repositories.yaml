@@ -4,18 +4,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: attachments.autoscaling.aws.tf.crossplane.io
+  name: repositories.ecr.aws.tf.crossplane.io
 spec:
-  group: autoscaling.aws.tf.crossplane.io
+  group: ecr.aws.tf.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - tfaws
-    kind: Attachment
-    listKind: AttachmentList
-    plural: attachments
-    singular: attachment
+    kind: Repository
+    listKind: RepositoryList
+    plural: repositories
+    singular: repository
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Attachment is the Schema for the Attachments API
+        description: Repository is the Schema for the Repositorys API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: AttachmentSpec defines the desired state of Attachment
+            description: RepositorySpec defines the desired state of Repository
             properties:
               deletionPolicy:
                 default: Delete
@@ -62,62 +62,58 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  albTargetGroupArn:
-                    type: string
-                  albTargetGroupArnRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  albTargetGroupArnSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
+                  encryptionConfiguration:
+                    items:
+                      properties:
+                        encryptionType:
                           type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
-                  autoscalingGroupName:
-                    type: string
-                  autoscalingGroupRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  autoscalingGroupSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
+                        kmsKey:
                           type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
-                  elb:
+                        kmsKeyRef:
+                          description: A Reference to a named object.
+                          properties:
+                            name:
+                              description: Name of the referenced object.
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        kmsKeySelector:
+                          description: A Selector selects an object.
+                          properties:
+                            matchControllerRef:
+                              description: MatchControllerRef ensures an object with
+                                the same controller reference as the selecting object
+                                is selected.
+                              type: boolean
+                            matchLabels:
+                              additionalProperties:
+                                type: string
+                              description: MatchLabels ensures an object with matching
+                                labels is selected.
+                              type: object
+                          type: object
+                      type: object
+                    type: array
+                  imageScanningConfiguration:
+                    items:
+                      properties:
+                        scanOnPush:
+                          type: boolean
+                      required:
+                      - scanOnPush
+                      type: object
+                    type: array
+                  imageTagMutability:
                     type: string
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
                 required:
                 - region
                 type: object
@@ -166,9 +162,20 @@ spec:
             - forProvider
             type: object
           status:
-            description: AttachmentStatus defines the observed state of Attachment.
+            description: RepositoryStatus defines the observed state of Repository.
             properties:
               atProvider:
+                properties:
+                  arn:
+                    type: string
+                  registryId:
+                    type: string
+                  repositoryUrl:
+                    type: string
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
                 type: object
               conditions:
                 description: Conditions of the resource.

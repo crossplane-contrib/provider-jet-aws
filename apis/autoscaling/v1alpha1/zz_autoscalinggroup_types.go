@@ -114,14 +114,28 @@ type AutoscalingGroupParameters struct {
 	// +kubebuilder:validation:Optional
 	Tags []map[string]*string `json:"tags,omitempty" tf:"tags"`
 
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1.LbTargetGroup
 	// +kubebuilder:validation:Optional
 	TargetGroupArns []*string `json:"targetGroupArns,omitempty" tf:"target_group_arns"`
 
 	// +kubebuilder:validation:Optional
-	TerminationPolicies []*string `json:"terminationPolicies,omitempty" tf:"termination_policies"`
+	TargetGroupArnsRefs []v1.Reference `json:"targetGroupArnsRefs,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
+	TargetGroupArnsSelector *v1.Selector `json:"targetGroupArnsSelector,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	TerminationPolicies []*string `json:"terminationPolicies,omitempty" tf:"termination_policies"`
+
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet
+	// +kubebuilder:validation:Optional
 	VpcZoneIdentifier []*string `json:"vpcZoneIdentifier,omitempty" tf:"vpc_zone_identifier"`
+
+	// +kubebuilder:validation:Optional
+	VpcZoneIdentifierRefs []v1.Reference `json:"vpcZoneIdentifierRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	VpcZoneIdentifierSelector *v1.Selector `json:"vpcZoneIdentifierSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	WaitForCapacityTimeout *string `json:"waitForCapacityTimeout,omitempty" tf:"wait_for_capacity_timeout"`

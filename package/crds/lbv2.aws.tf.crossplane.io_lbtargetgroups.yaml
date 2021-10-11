@@ -4,18 +4,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: attachments.autoscaling.aws.tf.crossplane.io
+  name: lbtargetgroups.lbv2.aws.tf.crossplane.io
 spec:
-  group: autoscaling.aws.tf.crossplane.io
+  group: lbv2.aws.tf.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - tfaws
-    kind: Attachment
-    listKind: AttachmentList
-    plural: attachments
-    singular: attachment
+    kind: LbTargetGroup
+    listKind: LbTargetGroupList
+    plural: lbtargetgroups
+    singular: lbtargetgroup
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Attachment is the Schema for the Attachments API
+        description: LbTargetGroup is the Schema for the LbTargetGroups API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: AttachmentSpec defines the desired state of Attachment
+            description: LbTargetGroupSpec defines the desired state of LbTargetGroup
             properties:
               deletionPolicy:
                 default: Delete
@@ -62,61 +62,108 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  albTargetGroupArn:
-                    type: string
-                  albTargetGroupArnRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  albTargetGroupArnSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
+                  deregistrationDelay:
+                    format: int64
+                    type: integer
+                  healthCheck:
+                    items:
+                      properties:
+                        enabled:
+                          type: boolean
+                        healthyThreshold:
+                          format: int64
+                          type: integer
+                        interval:
+                          format: int64
+                          type: integer
+                        matcher:
                           type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
-                  autoscalingGroupName:
-                    type: string
-                  autoscalingGroupRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  autoscalingGroupSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
+                        path:
                           type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
-                  elb:
+                        port:
+                          type: string
+                        protocol:
+                          type: string
+                        timeout:
+                          format: int64
+                          type: integer
+                        unhealthyThreshold:
+                          format: int64
+                          type: integer
+                      type: object
+                    type: array
+                  lambdaMultiValueHeadersEnabled:
+                    type: boolean
+                  loadBalancingAlgorithmType:
                     type: string
+                  name:
+                    type: string
+                  namePrefix:
+                    type: string
+                  port:
+                    format: int64
+                    type: integer
+                  preserveClientIp:
+                    type: string
+                  protocol:
+                    type: string
+                  protocolVersion:
+                    type: string
+                  proxyProtocolV2:
+                    type: boolean
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
+                    type: string
+                  slowStart:
+                    format: int64
+                    type: integer
+                  stickiness:
+                    items:
+                      properties:
+                        cookieDuration:
+                          format: int64
+                          type: integer
+                        cookieName:
+                          type: string
+                        enabled:
+                          type: boolean
+                        type:
+                          type: string
+                      required:
+                      - type
+                      type: object
+                    type: array
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  targetType:
+                    type: string
+                  vpcIDRef:
+                    description: A Reference to a named object.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                    required:
+                    - name
+                    type: object
+                  vpcIDSelector:
+                    description: A Selector selects an object.
+                    properties:
+                      matchControllerRef:
+                        description: MatchControllerRef ensures an object with the
+                          same controller reference as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                    type: object
+                  vpcId:
                     type: string
                 required:
                 - region
@@ -166,9 +213,18 @@ spec:
             - forProvider
             type: object
           status:
-            description: AttachmentStatus defines the observed state of Attachment.
+            description: LbTargetGroupStatus defines the observed state of LbTargetGroup.
             properties:
               atProvider:
+                properties:
+                  arn:
+                    type: string
+                  arnSuffix:
+                    type: string
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
                 type: object
               conditions:
                 description: Conditions of the resource.
