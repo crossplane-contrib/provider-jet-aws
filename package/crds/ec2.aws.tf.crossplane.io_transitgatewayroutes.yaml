@@ -71,32 +71,9 @@ spec:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  transitGatewayAttachmentIDRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  transitGatewayAttachmentIDSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
-                          type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
                   transitGatewayAttachmentId:
                     type: string
-                  transitGatewayRouteTableIDRef:
+                  transitGatewayAttachmentIdRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -105,7 +82,7 @@ spec:
                     required:
                     - name
                     type: object
-                  transitGatewayRouteTableIDSelector:
+                  transitGatewayAttachmentIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -121,6 +98,29 @@ spec:
                     type: object
                   transitGatewayRouteTableId:
                     type: string
+                  transitGatewayRouteTableIdRef:
+                    description: A Reference to a named object.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                    required:
+                    - name
+                    type: object
+                  transitGatewayRouteTableIdSelector:
+                    description: A Selector selects an object.
+                    properties:
+                      matchControllerRef:
+                        description: MatchControllerRef ensures an object with the
+                          same controller reference as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                    type: object
                 required:
                 - destinationCidrBlock
                 - region

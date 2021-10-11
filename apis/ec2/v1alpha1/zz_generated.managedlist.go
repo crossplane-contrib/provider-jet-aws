@@ -19,13 +19,8 @@ package v1alpha1
 
 import resource "github.com/crossplane/crossplane-runtime/pkg/resource"
 
-<<<<<<< HEAD
 // GetItems of this EC2LaunchTemplateList.
 func (l *EC2LaunchTemplateList) GetItems() []resource.Managed {
-=======
-// GetItems of this EC2NetworkInterfaceList.
-func (l *EC2NetworkInterfaceList) GetItems() []resource.Managed {
->>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -33,13 +28,26 @@ func (l *EC2NetworkInterfaceList) GetItems() []resource.Managed {
 	return items
 }
 
-<<<<<<< HEAD
+// GetItems of this EC2NetworkInterfaceList.
+func (l *EC2NetworkInterfaceList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this ElasticIPList.
 func (l *ElasticIPList) GetItems() []resource.Managed {
-=======
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this IPv4CIDRBlockAssociationList.
 func (l *IPv4CIDRBlockAssociationList) GetItems() []resource.Managed {
->>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -56,13 +64,8 @@ func (l *InstanceList) GetItems() []resource.Managed {
 	return items
 }
 
-<<<<<<< HEAD
-// GetItems of this TransitGatewayList.
-func (l *TransitGatewayList) GetItems() []resource.Managed {
-=======
 // GetItems of this RouteTableAssociationList.
 func (l *RouteTableAssociationList) GetItems() []resource.Managed {
->>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -70,13 +73,8 @@ func (l *RouteTableAssociationList) GetItems() []resource.Managed {
 	return items
 }
 
-<<<<<<< HEAD
-// GetItems of this TransitGatewayRouteList.
-func (l *TransitGatewayRouteList) GetItems() []resource.Managed {
-=======
 // GetItems of this RouteTableList.
 func (l *RouteTableList) GetItems() []resource.Managed {
->>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -84,13 +82,8 @@ func (l *RouteTableList) GetItems() []resource.Managed {
 	return items
 }
 
-<<<<<<< HEAD
-// GetItems of this TransitGatewayRouteTableAssociationList.
-func (l *TransitGatewayRouteTableAssociationList) GetItems() []resource.Managed {
-=======
 // GetItems of this SecurityGroupList.
 func (l *SecurityGroupList) GetItems() []resource.Managed {
->>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -98,13 +91,8 @@ func (l *SecurityGroupList) GetItems() []resource.Managed {
 	return items
 }
 
-<<<<<<< HEAD
-// GetItems of this TransitGatewayRouteTableList.
-func (l *TransitGatewayRouteTableList) GetItems() []resource.Managed {
-=======
 // GetItems of this SecurityGroupRuleList.
 func (l *SecurityGroupRuleList) GetItems() []resource.Managed {
->>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -112,13 +100,8 @@ func (l *SecurityGroupRuleList) GetItems() []resource.Managed {
 	return items
 }
 
-<<<<<<< HEAD
-// GetItems of this TransitGatewayVpcAttachmentAccepterList.
-func (l *TransitGatewayVpcAttachmentAccepterList) GetItems() []resource.Managed {
-=======
 // GetItems of this SubnetList.
 func (l *SubnetList) GetItems() []resource.Managed {
->>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -126,10 +109,60 @@ func (l *SubnetList) GetItems() []resource.Managed {
 	return items
 }
 
-<<<<<<< HEAD
+// GetItems of this TransitGatewayList.
+func (l *TransitGatewayList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this TransitGatewayRouteList.
+func (l *TransitGatewayRouteList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this TransitGatewayRouteTableAssociationList.
+func (l *TransitGatewayRouteTableAssociationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this TransitGatewayRouteTableList.
+func (l *TransitGatewayRouteTableList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this TransitGatewayVpcAttachmentAccepterList.
+func (l *TransitGatewayVpcAttachmentAccepterList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this TransitGatewayVpcAttachmentList.
 func (l *TransitGatewayVpcAttachmentList) GetItems() []resource.Managed {
-=======
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this VPCList.
 func (l *VPCList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -150,7 +183,6 @@ func (l *VpcEndpointList) GetItems() []resource.Managed {
 
 // GetItems of this VpcPeeringConnectionList.
 func (l *VpcPeeringConnectionList) GetItems() []resource.Managed {
->>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

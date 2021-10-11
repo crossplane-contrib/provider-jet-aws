@@ -320,7 +320,9 @@ spec:
                               applyServerSideEncryptionByDefault:
                                 items:
                                   properties:
-                                    kmsMasterKeyIDRef:
+                                    kmsMasterKeyId:
+                                      type: string
+                                    kmsMasterKeyIdRef:
                                       description: A Reference to a named object.
                                       properties:
                                         name:
@@ -329,7 +331,7 @@ spec:
                                       required:
                                       - name
                                       type: object
-                                    kmsMasterKeyIDSelector:
+                                    kmsMasterKeyIdSelector:
                                       description: A Selector selects an object.
                                       properties:
                                         matchControllerRef:
@@ -344,8 +346,6 @@ spec:
                                             with matching labels is selected.
                                           type: object
                                       type: object
-                                    kmsMasterKeyId:
-                                      type: string
                                     sseAlgorithm:
                                       type: string
                                   required:

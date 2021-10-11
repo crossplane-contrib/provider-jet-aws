@@ -72,7 +72,9 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  transitGatewayIDRef:
+                  transitGatewayId:
+                    type: string
+                  transitGatewayIdRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -81,7 +83,7 @@ spec:
                     required:
                     - name
                     type: object
-                  transitGatewayIDSelector:
+                  transitGatewayIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -95,8 +97,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  transitGatewayId:
-                    type: string
                 required:
                 - region
                 type: object

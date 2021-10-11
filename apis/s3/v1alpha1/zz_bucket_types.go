@@ -45,10 +45,10 @@ type ApplyServerSideEncryptionByDefaultParameters struct {
 	KmsMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsMasterKeyIDRef *v1.Reference `json:"kmsMasterKeyIDRef,omitempty" tf:"-"`
+	KmsMasterKeyIDRef *v1.Reference `json:"kmsMasterKeyIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	KmsMasterKeyIDSelector *v1.Selector `json:"kmsMasterKeyIDSelector,omitempty" tf:"-"`
+	KmsMasterKeyIDSelector *v1.Selector `json:"kmsMasterKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	SseAlgorithm *string `json:"sseAlgorithm" tf:"sse_algorithm,omitempty"`

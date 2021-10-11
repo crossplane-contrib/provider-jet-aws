@@ -13,16 +13,16 @@ func init() {
 		},
 		References: map[string]config.Reference{
 			"security_groups": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
 			},
 			"subnets": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
 			"access_logs[*].bucket": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
 			},
 			"subnet_mapping[*].subnet_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
 		},
 		UseAsync: true,
@@ -60,7 +60,7 @@ func init() {
 		},
 		References: map[string]config.Reference{
 			"vpc_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.VPC",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.VPC",
 			},
 		},
 	})

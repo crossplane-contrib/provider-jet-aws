@@ -140,7 +140,9 @@ spec:
                     type: object
                   targetType:
                     type: string
-                  vpcIDRef:
+                  vpcId:
+                    type: string
+                  vpcIdRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -149,7 +151,7 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcIDSelector:
+                  vpcIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -163,8 +165,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  vpcId:
-                    type: string
                 required:
                 - region
                 type: object

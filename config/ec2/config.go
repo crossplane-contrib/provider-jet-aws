@@ -49,6 +49,8 @@ func init() {
 			},
 		},
 		LateInitializer: config.LateInitializer{
+			// NOTE(muvaf): These are ignored because they conflict with each other.
+			// See the following for more details: https://github.com/crossplane-contrib/terrajet/issues/107
 			IgnoredFields: []string{
 				"SubnetID",
 				"NetworkInterface",
@@ -120,13 +122,13 @@ func init() {
 		},
 		References: map[string]config.Reference{
 			"subnet_ids": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
+				Type: "Subnet",
 			},
 			"transit_gateway_id": {
 				Type: "TransitGateway",
 			},
 			"vpc_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.VPC",
+				Type: "VPC",
 			},
 		},
 	})
@@ -155,10 +157,10 @@ func init() {
 
 		References: map[string]config.Reference{
 			"security_group_names": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup",
+				Type: "SecurityGroup",
 			},
 			"vpc_security_group_ids": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup",
+				Type: "SecurityGroup",
 			},
 			"block_device_mappings[*].ebs[*].kms_key_id": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
@@ -171,13 +173,13 @@ func init() {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.InstanceProfile",
 			},
 			"network_interfaces[*].network_interface_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.NetworkInterface",
+				Type: "EC2NetworkInterface",
 			},
 			"network_interfaces[*].security_groups": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup",
+				Type: "SecurityGroup",
 			},
 			"network_interfaces[*].subnet_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
+				Type: "Subnet",
 			},
 		},
 	})
@@ -219,6 +221,8 @@ func init() {
 			},
 		},
 		LateInitializer: config.LateInitializer{
+			// NOTE(muvaf): Conflicts with AvailabilityZone. See the following
+			// for more details: https://github.com/crossplane-contrib/terrajet/issues/107
 			IgnoredFields: []string{
 				"AvailabilityZoneID",
 			},
@@ -306,7 +310,7 @@ func init() {
 				Type: "Endpoint",
 			},
 			"network_interface_id": {
-				Type: "NetworkInterface",
+				Type: "EC2NetworkInterface",
 			},
 			"instance_id": {
 				Type: "Instance",

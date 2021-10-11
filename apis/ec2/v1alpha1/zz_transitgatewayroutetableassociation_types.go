@@ -36,27 +36,27 @@ type TransitGatewayRouteTableAssociationParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 
 	// +crossplane:generate:reference:type=TransitGatewayVpcAttachment
 	// +kubebuilder:validation:Optional
 	TransitGatewayAttachmentID *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayAttachmentIDRef *v1.Reference `json:"transitGatewayAttachmentIDRef,omitempty" tf:"-"`
+	TransitGatewayAttachmentIDRef *v1.Reference `json:"transitGatewayAttachmentIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayAttachmentIDSelector *v1.Selector `json:"transitGatewayAttachmentIDSelector,omitempty" tf:"-"`
+	TransitGatewayAttachmentIDSelector *v1.Selector `json:"transitGatewayAttachmentIdSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=TransitGatewayRouteTable
 	// +kubebuilder:validation:Optional
 	TransitGatewayRouteTableID *string `json:"transitGatewayRouteTableId,omitempty" tf:"transit_gateway_route_table_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayRouteTableIDRef *v1.Reference `json:"transitGatewayRouteTableIDRef,omitempty" tf:"-"`
+	TransitGatewayRouteTableIDRef *v1.Reference `json:"transitGatewayRouteTableIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayRouteTableIDSelector *v1.Selector `json:"transitGatewayRouteTableIDSelector,omitempty" tf:"-"`
+	TransitGatewayRouteTableIDSelector *v1.Selector `json:"transitGatewayRouteTableIdSelector,omitempty" tf:"-"`
 }
 
 // TransitGatewayRouteTableAssociationSpec defines the desired state of TransitGatewayRouteTableAssociation

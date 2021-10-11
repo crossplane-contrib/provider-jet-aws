@@ -48,7 +48,7 @@ type TransitGatewayVpcAttachmentAccepterParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -58,10 +58,10 @@ type TransitGatewayVpcAttachmentAccepterParameters struct {
 	TransitGatewayAttachmentID *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayAttachmentIDRef *v1.Reference `json:"transitGatewayAttachmentIDRef,omitempty" tf:"-"`
+	TransitGatewayAttachmentIDRef *v1.Reference `json:"transitGatewayAttachmentIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayAttachmentIDSelector *v1.Selector `json:"transitGatewayAttachmentIDSelector,omitempty" tf:"-"`
+	TransitGatewayAttachmentIDSelector *v1.Selector `json:"transitGatewayAttachmentIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	TransitGatewayDefaultRouteTableAssociation *bool `json:"transitGatewayDefaultRouteTableAssociation,omitempty" tf:"transit_gateway_default_route_table_association,omitempty"`

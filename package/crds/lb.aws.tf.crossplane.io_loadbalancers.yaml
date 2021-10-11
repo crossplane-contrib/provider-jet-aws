@@ -162,7 +162,9 @@ spec:
                           type: string
                         privateIpv4Address:
                           type: string
-                        subnetIDRef:
+                        subnetId:
+                          type: string
+                        subnetIdRef:
                           description: A Reference to a named object.
                           properties:
                             name:
@@ -171,7 +173,7 @@ spec:
                           required:
                           - name
                           type: object
-                        subnetIDSelector:
+                        subnetIdSelector:
                           description: A Selector selects an object.
                           properties:
                             matchControllerRef:
@@ -186,8 +188,6 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
-                        subnetId:
-                          type: string
                       type: object
                     type: array
                   subnets:

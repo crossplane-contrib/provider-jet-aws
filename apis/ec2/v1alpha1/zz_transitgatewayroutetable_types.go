@@ -40,7 +40,7 @@ type TransitGatewayRouteTableParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -50,10 +50,10 @@ type TransitGatewayRouteTableParameters struct {
 	TransitGatewayID *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayIDRef *v1.Reference `json:"transitGatewayIDRef,omitempty" tf:"-"`
+	TransitGatewayIDRef *v1.Reference `json:"transitGatewayIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayIDSelector *v1.Selector `json:"transitGatewayIDSelector,omitempty" tf:"-"`
+	TransitGatewayIDSelector *v1.Selector `json:"transitGatewayIdSelector,omitempty" tf:"-"`
 }
 
 // TransitGatewayRouteTableSpec defines the desired state of TransitGatewayRouteTable

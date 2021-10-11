@@ -18,7 +18,7 @@ func init() {
 		},
 		References: map[string]config.Reference{
 			"vpc_zone_identifier": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
 			"target_group_arns": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",

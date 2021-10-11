@@ -21,12 +21,7 @@ import (
 	"context"
 	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
-<<<<<<< HEAD
-	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
-=======
-	iam "github.com/crossplane-contrib/provider-tf-aws/config/iam"
->>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
