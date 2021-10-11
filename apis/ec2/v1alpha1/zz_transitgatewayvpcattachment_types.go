@@ -45,9 +45,9 @@ type TransitGatewayVpcAttachmentParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet
+	// +crossplane:generate:reference:type=Subnet
 	// +kubebuilder:validation:Optional
 	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
 
@@ -71,20 +71,20 @@ type TransitGatewayVpcAttachmentParameters struct {
 	TransitGatewayID *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayIDRef *v1.Reference `json:"transitGatewayIDRef,omitempty" tf:"-"`
+	TransitGatewayIDRef *v1.Reference `json:"transitGatewayIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	TransitGatewayIDSelector *v1.Selector `json:"transitGatewayIDSelector,omitempty" tf:"-"`
+	TransitGatewayIDSelector *v1.Selector `json:"transitGatewayIdSelector,omitempty" tf:"-"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.VPC
+	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
 	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDRef *v1.Reference `json:"vpcIDRef,omitempty" tf:"-"`
+	VpcIDRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDSelector *v1.Selector `json:"vpcIDSelector,omitempty" tf:"-"`
+	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
 
 // TransitGatewayVpcAttachmentSpec defines the desired state of TransitGatewayVpcAttachment

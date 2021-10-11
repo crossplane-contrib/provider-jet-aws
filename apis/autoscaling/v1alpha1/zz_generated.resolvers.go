@@ -19,8 +19,8 @@ package v1alpha1
 
 import (
 	"context"
+	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1"
-	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"

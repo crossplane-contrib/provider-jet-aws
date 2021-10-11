@@ -69,7 +69,9 @@ spec:
                   iops:
                     format: int64
                     type: integer
-                  kmsKeyIDRef:
+                  kmsKeyId:
+                    type: string
+                  kmsKeyIdRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -78,7 +80,7 @@ spec:
                     required:
                     - name
                     type: object
-                  kmsKeyIDSelector:
+                  kmsKeyIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -92,8 +94,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  kmsKeyId:
-                    type: string
                   multiAttachEnabled:
                     type: boolean
                   outpostArn:

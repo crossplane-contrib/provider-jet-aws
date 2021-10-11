@@ -45,10 +45,10 @@ type ApplyServerSideEncryptionByDefaultParameters struct {
 	KmsMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsMasterKeyIDRef *v1.Reference `json:"kmsMasterKeyIDRef,omitempty" tf:"-"`
+	KmsMasterKeyIDRef *v1.Reference `json:"kmsMasterKeyIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	KmsMasterKeyIDSelector *v1.Selector `json:"kmsMasterKeyIDSelector,omitempty" tf:"-"`
+	KmsMasterKeyIDSelector *v1.Selector `json:"kmsMasterKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	SseAlgorithm *string `json:"sseAlgorithm" tf:"sse_algorithm,omitempty"`
@@ -100,7 +100,7 @@ type BucketParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	ReplicationConfiguration []ReplicationConfigurationParameters `json:"replicationConfiguration,omitempty" tf:"replication_configuration,omitempty"`

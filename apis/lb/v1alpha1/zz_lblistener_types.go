@@ -70,7 +70,7 @@ type AuthenticateOidcParameters struct {
 	ClientID *string `json:"clientId" tf:"client_id,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ClientSecretSecretRef v1.SecretKeySelector `json:"clientSecretSecretRef" tf:"-,omitempty"`
+	ClientSecretSecretRef v1.SecretKeySelector `json:"clientSecretSecretRef" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	Issuer *string `json:"issuer" tf:"issuer,omitempty"`
@@ -194,7 +194,7 @@ type LBListenerParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	SslPolicy *string `json:"sslPolicy,omitempty" tf:"ssl_policy,omitempty"`

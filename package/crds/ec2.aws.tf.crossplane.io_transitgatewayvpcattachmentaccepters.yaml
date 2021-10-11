@@ -72,7 +72,9 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
-                  transitGatewayAttachmentIDRef:
+                  transitGatewayAttachmentId:
+                    type: string
+                  transitGatewayAttachmentIdRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -81,7 +83,7 @@ spec:
                     required:
                     - name
                     type: object
-                  transitGatewayAttachmentIDSelector:
+                  transitGatewayAttachmentIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -95,8 +97,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  transitGatewayAttachmentId:
-                    type: string
                   transitGatewayDefaultRouteTableAssociation:
                     type: boolean
                   transitGatewayDefaultRouteTablePropagation:

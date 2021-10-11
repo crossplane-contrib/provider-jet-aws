@@ -57,7 +57,7 @@ type AttachmentParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 }
 
 // AttachmentSpec defines the desired state of Attachment

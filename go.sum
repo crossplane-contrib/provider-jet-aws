@@ -176,8 +176,8 @@ github.com/cpuguy83/go-md2man/v2 v2.0.0/go.mod h1:maD7wRr/U5Z6m/iR4s+kqSMx2CaBsr
 github.com/creack/pty v1.1.7/go.mod h1:lj5s0c3V2DBrqTV7llrYr5NG6My20zk30Fl46Y7DoTY=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/creack/pty v1.1.11/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
-github.com/crossplane-contrib/terrajet v0.0.0-20211011080828-519fe16e4dd6 h1:BXFQy2kcYZMekeYQ7pHhpWMfgF4+ni0gZJTJQly40Ak=
-github.com/crossplane-contrib/terrajet v0.0.0-20211011080828-519fe16e4dd6/go.mod h1:qqmEllC3g+ZYm5uMXu3Hc/mzmWftlujtn+BeO3Ez108=
+github.com/crossplane-contrib/terrajet v0.0.0-20211011143935-d5ef4c689304 h1:yHpzph5zGPdD50VJRlu77YkE27jKpHjXy75k6aqv/IM=
+github.com/crossplane-contrib/terrajet v0.0.0-20211011143935-d5ef4c689304/go.mod h1:qqmEllC3g+ZYm5uMXu3Hc/mzmWftlujtn+BeO3Ez108=
 github.com/crossplane/crossplane-runtime v0.14.0/go.mod h1:Bc54/KBvV9ld/tvervcnhcSzk13FYguTqmYt72Mybps=
 github.com/crossplane/crossplane-runtime v0.15.1-0.20211004150827-579c1833b513 h1:Sk3QurYYpy8x3c0DvTh9iGYFSv8WgdhnjCalNqNqlRI=
 github.com/crossplane/crossplane-runtime v0.15.1-0.20211004150827-579c1833b513/go.mod h1:gKix9Gq5kRzVe/4XOpwlFgG7OurzrYayviJxWZakhw0=

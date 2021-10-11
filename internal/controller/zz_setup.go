@@ -28,18 +28,28 @@ import (
 	autoscalinggroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/autoscaling/autoscalinggroup"
 	volume "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ebs/volume"
 	ec2launchtemplate "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ec2launchtemplate"
+	ec2networkinterface "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ec2networkinterface"
 	elasticip "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/elasticip"
 	instance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/instance"
+	ipv4cidrblockassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ipv4cidrblockassociation"
+	routetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/routetable"
+	routetableassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/routetableassociation"
+	securitygroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/securitygroup"
+	securitygrouprule "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/securitygrouprule"
+	subnet "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/subnet"
 	transitgateway "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgateway"
 	transitgatewayroute "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayroute"
 	transitgatewayroutetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayroutetable"
 	transitgatewayroutetableassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayroutetableassociation"
 	transitgatewayvpcattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayvpcattachment"
 	transitgatewayvpcattachmentaccepter "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/transitgatewayvpcattachmentaccepter"
+	vpc "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/vpc"
+	vpcendpoint "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/vpcendpoint"
+	vpcpeeringconnection "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/vpcpeeringconnection"
 	publicrepository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/publicrepository"
 	repository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/repository"
 	capacityprovider "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/capacityprovider"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
+	clusterecs "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
 	service "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/service"
 	taskdefinition "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/taskdefinition"
 	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
@@ -47,7 +57,7 @@ import (
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
 	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
 	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
-	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
@@ -72,11 +82,6 @@ import (
 	clusterrds "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
-	networkinterface "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/networkinterface"
-	securitygroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygroup"
-	securitygrouprule "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygrouprule"
-	subnet "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/subnet"
-	vpc "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/vpc"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -90,10 +95,11 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		bucket.Setup,
 		capacityprovider.Setup,
 		cluster.Setup,
+		clusterecs.Setup,
 		clustereks.Setup,
-		clusterelasticache.Setup,
 		clusterrds.Setup,
 		ec2launchtemplate.Setup,
+		ec2networkinterface.Setup,
 		elasticip.Setup,
 		fargateprofile.Setup,
 		grouppolicy.Setup,
@@ -102,12 +108,12 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		identityproviderconfig.Setup,
 		instance.Setup,
 		instanceprofile.Setup,
+		ipv4cidrblockassociation.Setup,
 		key.Setup,
 		lblistener.Setup,
 		lbtargetgroup.Setup,
 		lbtargetgroupattachment.Setup,
 		loadbalancer.Setup,
-		networkinterface.Setup,
 		nodegroup.Setup,
 		parametergroup.Setup,
 		policy.Setup,
@@ -118,6 +124,8 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		role.Setup,
 		rolepolicy.Setup,
 		rolepolicyattachment.Setup,
+		routetable.Setup,
+		routetableassociation.Setup,
 		securitygroup.Setup,
 		securitygrouprule.Setup,
 		service.Setup,
@@ -136,6 +144,8 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		userpolicyattachment.Setup,
 		volume.Setup,
 		vpc.Setup,
+		vpcendpoint.Setup,
+		vpcpeeringconnection.Setup,
 	} {
 		if err := setup(mgr, l, wl, ps, ws, concurrency); err != nil {
 			return err

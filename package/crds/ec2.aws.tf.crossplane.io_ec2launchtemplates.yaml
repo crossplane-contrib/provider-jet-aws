@@ -77,7 +77,9 @@ spec:
                               iops:
                                 format: int64
                                 type: integer
-                              kmsKeyIDRef:
+                              kmsKeyId:
+                                type: string
+                              kmsKeyIdRef:
                                 description: A Reference to a named object.
                                 properties:
                                   name:
@@ -86,7 +88,7 @@ spec:
                                 required:
                                 - name
                                 type: object
-                              kmsKeyIDSelector:
+                              kmsKeyIdSelector:
                                 description: A Selector selects an object.
                                 properties:
                                   matchControllerRef:
@@ -101,8 +103,6 @@ spec:
                                       matching labels is selected.
                                     type: object
                                 type: object
-                              kmsKeyId:
-                                type: string
                               snapshotId:
                                 type: string
                               throughput:
@@ -348,7 +348,9 @@ spec:
                           items:
                             type: string
                           type: array
-                        networkInterfaceIDRef:
+                        networkInterfaceId:
+                          type: string
+                        networkInterfaceIdRef:
                           description: A Reference to a named object.
                           properties:
                             name:
@@ -357,7 +359,7 @@ spec:
                           required:
                           - name
                           type: object
-                        networkInterfaceIDSelector:
+                        networkInterfaceIdSelector:
                           description: A Selector selects an object.
                           properties:
                             matchControllerRef:
@@ -372,8 +374,6 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
-                        networkInterfaceId:
-                          type: string
                         privateIpAddress:
                           type: string
                         securityGroups:
@@ -406,7 +406,9 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
-                        subnetIDRef:
+                        subnetId:
+                          type: string
+                        subnetIdRef:
                           description: A Reference to a named object.
                           properties:
                             name:
@@ -415,7 +417,7 @@ spec:
                           required:
                           - name
                           type: object
-                        subnetIDSelector:
+                        subnetIdSelector:
                           description: A Selector selects an object.
                           properties:
                             matchControllerRef:
@@ -430,8 +432,6 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
-                        subnetId:
-                          type: string
                       type: object
                     type: array
                   placement:

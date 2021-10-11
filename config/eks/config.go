@@ -56,10 +56,10 @@ func init() {
 				Extractor: common.PathARNExtractor,
 			},
 			"vpc_config[*].subnet_ids": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
 			"vpc_config[*].security_group_ids": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
 			},
 		},
 		UseAsync: true,
@@ -81,10 +81,10 @@ func init() {
 				Extractor: common.PathARNExtractor,
 			},
 			"remote_access[*].source_security_group_ids": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
 			},
 			"subnet_ids": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
 		},
 		UseAsync: true,
@@ -114,7 +114,7 @@ func init() {
 				Extractor: common.PathARNExtractor,
 			},
 			"subnet_ids": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
 		},
 	})
