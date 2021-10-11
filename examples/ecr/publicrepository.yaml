@@ -1,0 +1,12 @@
+apiVersion: ecr.aws.tf.crossplane.io/v1alpha1
+kind: PublicRepository
+metadata:
+  name: sample-repository
+spec:
+  forProvider:
+    region: us-east-1
+    catalogData:
+      - aboutText: Created with Crossplane
+        description: A sample public repository
+        operatingSystems:
+          - Linux

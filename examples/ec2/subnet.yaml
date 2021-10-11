@@ -9,3 +9,15 @@ spec:
     vpcIdRef:
       name: sample-vpc
     cidrBlock: 172.16.10.0/24
+---
+apiVersion: ec2.aws.tf.crossplane.io/v1alpha1
+kind: Subnet
+metadata:
+  name: sample-subnet2
+spec:
+  forProvider:
+    region: us-west-1
+    availabilityZone: us-west-1c
+    vpcIdRef:
+      name: sample-vpc
+    cidrBlock: 172.16.11.0/24

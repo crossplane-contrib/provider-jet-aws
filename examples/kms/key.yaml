@@ -1,0 +1,9 @@
+apiVersion: kms.aws.tf.crossplane.io/v1alpha1
+kind: Key
+metadata:
+  name: sample-key
+spec:
+  forProvider:
+    region: us-west-1
+    description: Created with Crossplane
+    deletionWindowInDays: 7

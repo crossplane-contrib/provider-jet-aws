@@ -1,0 +1,21 @@
+apiVersion: iam.aws.tf.crossplane.io/v1alpha1
+kind: RolePolicyAttachment
+metadata:
+  name: sample-cluster-policy
+spec:
+  forProvider:
+    region: ""
+    policyArn: arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+    roleRef:
+      name: sample-eks-cluster
+---
+apiVersion: iam.aws.tf.crossplane.io/v1alpha1
+kind: RolePolicyAttachment
+metadata:
+  name: sample-vpc-resource-controller
+spec:
+  forProvider:
+    region: ""
+    policyArn: arn:aws:iam::aws:policy/AmazonEKSVPCResourceController
+    roleRef:
+      name: sample-eks-cluster
