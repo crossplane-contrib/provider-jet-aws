@@ -42,10 +42,18 @@ func init() {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
 			},
 			"network_interface[*].network_interface_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+				Type: "EC2NetworkInterface",
 			},
 			"ebs_block_device[*].kms_key_id": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+			},
+		},
+		LateInitializer: config.LateInitializer{
+			IgnoredFields: []string{
+				"SubnetID",
+				"NetworkInterface",
+				"PrivateIP",
+				"SourceDestCheck",
 			},
 		},
 	})
@@ -189,13 +197,13 @@ func init() {
 			"vpc_id": {
 				Type: "VPC",
 			},
-			"subnet_ids[*]": {
+			"subnet_ids": {
 				Type: "Subnet",
 			},
-			"security_group_ids[*]": {
+			"security_group_ids": {
 				Type: "SecurityGroup",
 			},
-			"route_table_ids[*]": {
+			"route_table_ids": {
 				Type: "RouteTable",
 			},
 		},
@@ -208,6 +216,11 @@ func init() {
 		References: map[string]config.Reference{
 			"vpc_id": {
 				Type: "VPC",
+			},
+		},
+		LateInitializer: config.LateInitializer{
+			IgnoredFields: []string{
+				"AvailabilityZoneID",
 			},
 		},
 	})
@@ -231,6 +244,11 @@ func init() {
 				Type: "Instance",
 			},
 		},
+		LateInitializer: config.LateInitializer{
+			IgnoredFields: []string{
+				"InterfaceType",
+			},
+		},
 	})
 	config.Store.SetForResource("aws_security_group", config.Resource{
 		ExternalName: config.ExternalName{
@@ -241,10 +259,10 @@ func init() {
 			"vpc_id": {
 				Type: "VPC",
 			},
-			"egress[*].security_groups[*]": {
+			"egress[*].security_groups": {
 				Type: "SecurityGroup",
 			},
-			"ingress[*].security_groups[*]": {
+			"ingress[*].security_groups": {
 				Type: "SecurityGroup",
 			},
 		},

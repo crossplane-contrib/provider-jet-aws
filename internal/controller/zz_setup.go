@@ -27,6 +27,7 @@ import (
 	attachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/autoscaling/autoscalinggroup"
 	volume "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ebs/volume"
+<<<<<<< HEAD
 	ec2launchtemplate "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ec2launchtemplate"
 	elasticip "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/elasticip"
 	instance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/instance"
@@ -42,6 +43,19 @@ import (
 	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
 	service "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/service"
 	taskdefinition "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/taskdefinition"
+=======
+	ec2networkinterface "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ec2networkinterface"
+	instance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/instance"
+	ipv4cidrblockassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ipv4cidrblockassociation"
+	routetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/routetable"
+	routetableassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/routetableassociation"
+	securitygroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/securitygroup"
+	securitygrouprule "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/securitygrouprule"
+	subnet "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/subnet"
+	vpc "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/vpc"
+	vpcendpoint "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/vpcendpoint"
+	vpcpeeringconnection "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/vpcpeeringconnection"
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
 	clustereks "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
@@ -73,16 +87,6 @@ import (
 	clusterrds "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
-	endpoint "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/endpoint"
-	ipv4cidrblockassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/ipv4cidrblockassociation"
-	networkinterface "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/networkinterface"
-	peeringconnection "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/peeringconnection"
-	routetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/routetable"
-	routetableassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/routetableassociation"
-	securitygroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygroup"
-	securitygrouprule "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygrouprule"
-	subnet "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/subnet"
-	vpc "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/vpc"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -98,10 +102,14 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		cluster.Setup,
 		clustereks.Setup,
 		clusterelasticache.Setup,
+<<<<<<< HEAD
 		clusterrds.Setup,
 		ec2launchtemplate.Setup,
 		elasticip.Setup,
 		endpoint.Setup,
+=======
+		ec2networkinterface.Setup,
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 		fargateprofile.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
@@ -111,14 +119,16 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		instanceprofile.Setup,
 		ipv4cidrblockassociation.Setup,
 		key.Setup,
+<<<<<<< HEAD
 		lblistener.Setup,
 		lbtargetgroup.Setup,
 		lbtargetgroupattachment.Setup,
 		loadbalancer.Setup,
 		networkinterface.Setup,
+=======
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 		nodegroup.Setup,
 		parametergroup.Setup,
-		peeringconnection.Setup,
 		policy.Setup,
 		policyattachment.Setup,
 		publicrepository.Setup,
@@ -147,6 +157,8 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		userpolicyattachment.Setup,
 		volume.Setup,
 		vpc.Setup,
+		vpcendpoint.Setup,
+		vpcpeeringconnection.Setup,
 	} {
 		if err := setup(mgr, l, wl, ps, ws, concurrency); err != nil {
 			return err

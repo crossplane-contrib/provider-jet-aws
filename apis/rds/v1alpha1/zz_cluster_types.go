@@ -107,7 +107,7 @@ type ClusterParameters struct {
 	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MasterPasswordSecretRef v1.SecretKeySelector `json:"masterPasswordSecretRef,omitempty" tf:"-,omitempty"`
+	MasterPasswordSecretRef v1.SecretKeySelector `json:"masterPasswordSecretRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	MasterUsername *string `json:"masterUsername,omitempty" tf:"master_username,omitempty"`
@@ -124,7 +124,7 @@ type ClusterParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	ReplicationSourceIdentifier *string `json:"replicationSourceIdentifier,omitempty" tf:"replication_source_identifier,omitempty"`
@@ -153,7 +153,7 @@ type ClusterParameters struct {
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
 

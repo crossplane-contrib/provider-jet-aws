@@ -19,6 +19,7 @@ package v1alpha1
 
 import xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 
+<<<<<<< HEAD
 // GetCondition of this EC2LaunchTemplate.
 func (mg *EC2LaunchTemplate) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -31,10 +32,25 @@ func (mg *EC2LaunchTemplate) GetDeletionPolicy() xpv1.DeletionPolicy {
 
 // GetProviderConfigReference of this EC2LaunchTemplate.
 func (mg *EC2LaunchTemplate) GetProviderConfigReference() *xpv1.Reference {
+=======
+// GetCondition of this EC2NetworkInterface.
+func (mg *EC2NetworkInterface) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EC2NetworkInterface.
+func (mg *EC2NetworkInterface) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this EC2NetworkInterface.
+func (mg *EC2NetworkInterface) GetProviderConfigReference() *xpv1.Reference {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
+<<<<<<< HEAD
 GetProviderReference of this EC2LaunchTemplate.
 Deprecated: Use GetProviderConfigReference.
 */
@@ -59,10 +75,37 @@ func (mg *EC2LaunchTemplate) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 
 // SetProviderConfigReference of this EC2LaunchTemplate.
 func (mg *EC2LaunchTemplate) SetProviderConfigReference(r *xpv1.Reference) {
+=======
+GetProviderReference of this EC2NetworkInterface.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *EC2NetworkInterface) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this EC2NetworkInterface.
+func (mg *EC2NetworkInterface) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EC2NetworkInterface.
+func (mg *EC2NetworkInterface) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EC2NetworkInterface.
+func (mg *EC2NetworkInterface) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this EC2NetworkInterface.
+func (mg *EC2NetworkInterface) SetProviderConfigReference(r *xpv1.Reference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
+<<<<<<< HEAD
 SetProviderReference of this EC2LaunchTemplate.
 Deprecated: Use SetProviderConfigReference.
 */
@@ -87,10 +130,37 @@ func (mg *ElasticIP) GetDeletionPolicy() xpv1.DeletionPolicy {
 
 // GetProviderConfigReference of this ElasticIP.
 func (mg *ElasticIP) GetProviderConfigReference() *xpv1.Reference {
+=======
+SetProviderReference of this EC2NetworkInterface.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *EC2NetworkInterface) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this EC2NetworkInterface.
+func (mg *EC2NetworkInterface) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) GetProviderConfigReference() *xpv1.Reference {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
+<<<<<<< HEAD
 GetProviderReference of this ElasticIP.
 Deprecated: Use GetProviderConfigReference.
 */
@@ -115,10 +185,37 @@ func (mg *ElasticIP) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 
 // SetProviderConfigReference of this ElasticIP.
 func (mg *ElasticIP) SetProviderConfigReference(r *xpv1.Reference) {
+=======
+GetProviderReference of this IPv4CIDRBlockAssociation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *IPv4CIDRBlockAssociation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) SetProviderConfigReference(r *xpv1.Reference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
+<<<<<<< HEAD
 SetProviderReference of this ElasticIP.
 Deprecated: Use SetProviderConfigReference.
 */
@@ -128,6 +225,17 @@ func (mg *ElasticIP) SetProviderReference(r *xpv1.Reference) {
 
 // SetWriteConnectionSecretToReference of this ElasticIP.
 func (mg *ElasticIP) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+=======
+SetProviderReference of this IPv4CIDRBlockAssociation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *IPv4CIDRBlockAssociation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
@@ -187,6 +295,7 @@ func (mg *Instance) SetWriteConnectionSecretToReference(r *xpv1.SecretReference)
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+<<<<<<< HEAD
 // GetCondition of this TransitGateway.
 func (mg *TransitGateway) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -199,10 +308,25 @@ func (mg *TransitGateway) GetDeletionPolicy() xpv1.DeletionPolicy {
 
 // GetProviderConfigReference of this TransitGateway.
 func (mg *TransitGateway) GetProviderConfigReference() *xpv1.Reference {
+=======
+// GetCondition of this RouteTable.
+func (mg *RouteTable) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this RouteTable.
+func (mg *RouteTable) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this RouteTable.
+func (mg *RouteTable) GetProviderConfigReference() *xpv1.Reference {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
+<<<<<<< HEAD
 GetProviderReference of this TransitGateway.
 Deprecated: Use GetProviderConfigReference.
 */
@@ -227,10 +351,37 @@ func (mg *TransitGateway) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 
 // SetProviderConfigReference of this TransitGateway.
 func (mg *TransitGateway) SetProviderConfigReference(r *xpv1.Reference) {
+=======
+GetProviderReference of this RouteTable.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *RouteTable) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this RouteTable.
+func (mg *RouteTable) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this RouteTable.
+func (mg *RouteTable) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this RouteTable.
+func (mg *RouteTable) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this RouteTable.
+func (mg *RouteTable) SetProviderConfigReference(r *xpv1.Reference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
+<<<<<<< HEAD
 SetProviderReference of this TransitGateway.
 Deprecated: Use SetProviderConfigReference.
 */
@@ -255,10 +406,37 @@ func (mg *TransitGatewayRoute) GetDeletionPolicy() xpv1.DeletionPolicy {
 
 // GetProviderConfigReference of this TransitGatewayRoute.
 func (mg *TransitGatewayRoute) GetProviderConfigReference() *xpv1.Reference {
+=======
+SetProviderReference of this RouteTable.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *RouteTable) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this RouteTable.
+func (mg *RouteTable) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this RouteTableAssociation.
+func (mg *RouteTableAssociation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this RouteTableAssociation.
+func (mg *RouteTableAssociation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this RouteTableAssociation.
+func (mg *RouteTableAssociation) GetProviderConfigReference() *xpv1.Reference {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
+<<<<<<< HEAD
 GetProviderReference of this TransitGatewayRoute.
 Deprecated: Use GetProviderConfigReference.
 */
@@ -283,10 +461,37 @@ func (mg *TransitGatewayRoute) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 
 // SetProviderConfigReference of this TransitGatewayRoute.
 func (mg *TransitGatewayRoute) SetProviderConfigReference(r *xpv1.Reference) {
+=======
+GetProviderReference of this RouteTableAssociation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *RouteTableAssociation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this RouteTableAssociation.
+func (mg *RouteTableAssociation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this RouteTableAssociation.
+func (mg *RouteTableAssociation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this RouteTableAssociation.
+func (mg *RouteTableAssociation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this RouteTableAssociation.
+func (mg *RouteTableAssociation) SetProviderConfigReference(r *xpv1.Reference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
+<<<<<<< HEAD
 SetProviderReference of this TransitGatewayRoute.
 Deprecated: Use SetProviderConfigReference.
 */
@@ -311,10 +516,37 @@ func (mg *TransitGatewayRouteTable) GetDeletionPolicy() xpv1.DeletionPolicy {
 
 // GetProviderConfigReference of this TransitGatewayRouteTable.
 func (mg *TransitGatewayRouteTable) GetProviderConfigReference() *xpv1.Reference {
+=======
+SetProviderReference of this RouteTableAssociation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *RouteTableAssociation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this RouteTableAssociation.
+func (mg *RouteTableAssociation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this SecurityGroup.
+func (mg *SecurityGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this SecurityGroup.
+func (mg *SecurityGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this SecurityGroup.
+func (mg *SecurityGroup) GetProviderConfigReference() *xpv1.Reference {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
+<<<<<<< HEAD
 GetProviderReference of this TransitGatewayRouteTable.
 Deprecated: Use GetProviderConfigReference.
 */
@@ -339,10 +571,37 @@ func (mg *TransitGatewayRouteTable) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 
 // SetProviderConfigReference of this TransitGatewayRouteTable.
 func (mg *TransitGatewayRouteTable) SetProviderConfigReference(r *xpv1.Reference) {
+=======
+GetProviderReference of this SecurityGroup.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *SecurityGroup) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this SecurityGroup.
+func (mg *SecurityGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this SecurityGroup.
+func (mg *SecurityGroup) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this SecurityGroup.
+func (mg *SecurityGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this SecurityGroup.
+func (mg *SecurityGroup) SetProviderConfigReference(r *xpv1.Reference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
+<<<<<<< HEAD
 SetProviderReference of this TransitGatewayRouteTable.
 Deprecated: Use SetProviderConfigReference.
 */
@@ -367,10 +626,37 @@ func (mg *TransitGatewayRouteTableAssociation) GetDeletionPolicy() xpv1.Deletion
 
 // GetProviderConfigReference of this TransitGatewayRouteTableAssociation.
 func (mg *TransitGatewayRouteTableAssociation) GetProviderConfigReference() *xpv1.Reference {
+=======
+SetProviderReference of this SecurityGroup.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *SecurityGroup) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this SecurityGroup.
+func (mg *SecurityGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this SecurityGroupRule.
+func (mg *SecurityGroupRule) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this SecurityGroupRule.
+func (mg *SecurityGroupRule) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this SecurityGroupRule.
+func (mg *SecurityGroupRule) GetProviderConfigReference() *xpv1.Reference {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
+<<<<<<< HEAD
 GetProviderReference of this TransitGatewayRouteTableAssociation.
 Deprecated: Use GetProviderConfigReference.
 */
@@ -395,10 +681,37 @@ func (mg *TransitGatewayRouteTableAssociation) SetDeletionPolicy(r xpv1.Deletion
 
 // SetProviderConfigReference of this TransitGatewayRouteTableAssociation.
 func (mg *TransitGatewayRouteTableAssociation) SetProviderConfigReference(r *xpv1.Reference) {
+=======
+GetProviderReference of this SecurityGroupRule.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *SecurityGroupRule) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this SecurityGroupRule.
+func (mg *SecurityGroupRule) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this SecurityGroupRule.
+func (mg *SecurityGroupRule) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this SecurityGroupRule.
+func (mg *SecurityGroupRule) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this SecurityGroupRule.
+func (mg *SecurityGroupRule) SetProviderConfigReference(r *xpv1.Reference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
+<<<<<<< HEAD
 SetProviderReference of this TransitGatewayRouteTableAssociation.
 Deprecated: Use SetProviderConfigReference.
 */
@@ -423,10 +736,37 @@ func (mg *TransitGatewayVpcAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
 
 // GetProviderConfigReference of this TransitGatewayVpcAttachment.
 func (mg *TransitGatewayVpcAttachment) GetProviderConfigReference() *xpv1.Reference {
+=======
+SetProviderReference of this SecurityGroupRule.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *SecurityGroupRule) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this SecurityGroupRule.
+func (mg *SecurityGroupRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this Subnet.
+func (mg *Subnet) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this Subnet.
+func (mg *Subnet) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this Subnet.
+func (mg *Subnet) GetProviderConfigReference() *xpv1.Reference {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
+<<<<<<< HEAD
 GetProviderReference of this TransitGatewayVpcAttachment.
 Deprecated: Use GetProviderConfigReference.
 */
@@ -451,10 +791,37 @@ func (mg *TransitGatewayVpcAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) 
 
 // SetProviderConfigReference of this TransitGatewayVpcAttachment.
 func (mg *TransitGatewayVpcAttachment) SetProviderConfigReference(r *xpv1.Reference) {
+=======
+GetProviderReference of this Subnet.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *Subnet) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this Subnet.
+func (mg *Subnet) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this Subnet.
+func (mg *Subnet) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this Subnet.
+func (mg *Subnet) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this Subnet.
+func (mg *Subnet) SetProviderConfigReference(r *xpv1.Reference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
+<<<<<<< HEAD
 SetProviderReference of this TransitGatewayVpcAttachment.
 Deprecated: Use SetProviderConfigReference.
 */
@@ -479,10 +846,37 @@ func (mg *TransitGatewayVpcAttachmentAccepter) GetDeletionPolicy() xpv1.Deletion
 
 // GetProviderConfigReference of this TransitGatewayVpcAttachmentAccepter.
 func (mg *TransitGatewayVpcAttachmentAccepter) GetProviderConfigReference() *xpv1.Reference {
+=======
+SetProviderReference of this Subnet.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *Subnet) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this Subnet.
+func (mg *Subnet) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VPC.
+func (mg *VPC) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VPC.
+func (mg *VPC) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this VPC.
+func (mg *VPC) GetProviderConfigReference() *xpv1.Reference {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
+<<<<<<< HEAD
 GetProviderReference of this TransitGatewayVpcAttachmentAccepter.
 Deprecated: Use GetProviderConfigReference.
 */
@@ -507,10 +901,37 @@ func (mg *TransitGatewayVpcAttachmentAccepter) SetDeletionPolicy(r xpv1.Deletion
 
 // SetProviderConfigReference of this TransitGatewayVpcAttachmentAccepter.
 func (mg *TransitGatewayVpcAttachmentAccepter) SetProviderConfigReference(r *xpv1.Reference) {
+=======
+GetProviderReference of this VPC.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VPC) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this VPC.
+func (mg *VPC) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VPC.
+func (mg *VPC) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VPC.
+func (mg *VPC) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this VPC.
+func (mg *VPC) SetProviderConfigReference(r *xpv1.Reference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
+<<<<<<< HEAD
 SetProviderReference of this TransitGatewayVpcAttachmentAccepter.
 Deprecated: Use SetProviderConfigReference.
 */
@@ -520,5 +941,128 @@ func (mg *TransitGatewayVpcAttachmentAccepter) SetProviderReference(r *xpv1.Refe
 
 // SetWriteConnectionSecretToReference of this TransitGatewayVpcAttachmentAccepter.
 func (mg *TransitGatewayVpcAttachmentAccepter) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+=======
+SetProviderReference of this VPC.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VPC) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this VPC.
+func (mg *VPC) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VpcEndpoint.
+func (mg *VpcEndpoint) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VpcEndpoint.
+func (mg *VpcEndpoint) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this VpcEndpoint.
+func (mg *VpcEndpoint) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VpcEndpoint.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VpcEndpoint) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this VpcEndpoint.
+func (mg *VpcEndpoint) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VpcEndpoint.
+func (mg *VpcEndpoint) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VpcEndpoint.
+func (mg *VpcEndpoint) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this VpcEndpoint.
+func (mg *VpcEndpoint) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VpcEndpoint.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VpcEndpoint) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this VpcEndpoint.
+func (mg *VpcEndpoint) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VpcPeeringConnection.
+func (mg *VpcPeeringConnection) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VpcPeeringConnection.
+func (mg *VpcPeeringConnection) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this VpcPeeringConnection.
+func (mg *VpcPeeringConnection) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VpcPeeringConnection.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VpcPeeringConnection) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this VpcPeeringConnection.
+func (mg *VpcPeeringConnection) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VpcPeeringConnection.
+func (mg *VpcPeeringConnection) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VpcPeeringConnection.
+func (mg *VpcPeeringConnection) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this VpcPeeringConnection.
+func (mg *VpcPeeringConnection) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VpcPeeringConnection.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VpcPeeringConnection) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this VpcPeeringConnection.
+func (mg *VpcPeeringConnection) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	mg.Spec.WriteConnectionSecretToReference = r
 }

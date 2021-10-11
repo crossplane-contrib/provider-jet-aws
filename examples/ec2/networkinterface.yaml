@@ -8,4 +8,4 @@ spec:
     subnetIdRef:
       name: sample-subnet1
     privateIps:
-      - "10.0.10.100"
+      - "172.16.10.100"

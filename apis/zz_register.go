@@ -35,7 +35,6 @@ import (
 	v1alpha1rds "github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
 	v1alpha1s3 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
-	v1alpha1vpc "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 )
 
 func init() {
@@ -54,7 +53,6 @@ func init() {
 		v1alpha1lb.SchemeBuilder.AddToScheme,
 		v1alpha1rds.SchemeBuilder.AddToScheme,
 		v1alpha1s3.SchemeBuilder.AddToScheme,
-		v1alpha1vpc.SchemeBuilder.AddToScheme,
 	)
 }
 

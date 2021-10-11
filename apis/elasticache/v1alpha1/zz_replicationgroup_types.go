@@ -64,7 +64,7 @@ type ReplicationGroupParameters struct {
 	AtRestEncryptionEnabled *bool `json:"atRestEncryptionEnabled,omitempty" tf:"at_rest_encryption_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AuthTokenSecretRef v1.SecretKeySelector `json:"authTokenSecretRef,omitempty" tf:"-,omitempty"`
+	AuthTokenSecretRef v1.SecretKeySelector `json:"authTokenSecretRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade,omitempty" tf:"auto_minor_version_upgrade,omitempty"`
@@ -117,7 +117,7 @@ type ReplicationGroupParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	ReplicationGroupDescription *string `json:"replicationGroupDescription" tf:"replication_group_description,omitempty"`

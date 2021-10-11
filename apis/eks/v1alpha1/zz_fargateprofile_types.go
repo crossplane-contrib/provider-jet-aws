@@ -59,12 +59,12 @@ type FargateProfileParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-,omitempty"`
+	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	Selector []SelectorParameters `json:"selector" tf:"selector,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet
 	// +kubebuilder:validation:Optional
 	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
 

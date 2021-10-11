@@ -21,21 +21,30 @@ import (
 	"context"
 	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
 	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1"
+<<<<<<< HEAD
 	v1alpha12 "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1"
 	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
+=======
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 
+<<<<<<< HEAD
 // ResolveReferences of this EC2LaunchTemplate.
 func (mg *EC2LaunchTemplate) ResolveReferences(ctx context.Context, c client.Reader) error {
+=======
+// ResolveReferences of this EC2NetworkInterface.
+func (mg *EC2NetworkInterface) ResolveReferences(ctx context.Context, c client.Reader) error {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 
+<<<<<<< HEAD
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.BlockDeviceMappings); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.BlockDeviceMappings[i3].Ebs); i4++ {
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -177,18 +186,75 @@ func (mg *EC2LaunchTemplate) ResolveReferences(ctx context.Context, c client.Rea
 	}
 	mg.Spec.ForProvider.VpcSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.VpcSecurityGroupIdsRefs = mrsp.ResolvedReferences
+=======
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.Attachment); i3++ {
+		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Attachment[i3].Instance),
+			Extract:      reference.ExternalName(),
+			Reference:    mg.Spec.ForProvider.Attachment[i3].InstanceRef,
+			Selector:     mg.Spec.ForProvider.Attachment[i3].InstanceSelector,
+			To: reference.To{
+				List:    &InstanceList{},
+				Managed: &Instance{},
+			},
+		})
+		if err != nil {
+			return errors.Wrap(err, "mg.Spec.ForProvider.Attachment[i3].Instance")
+		}
+		mg.Spec.ForProvider.Attachment[i3].Instance = reference.ToPtrValue(rsp.ResolvedValue)
+		mg.Spec.ForProvider.Attachment[i3].InstanceRef = rsp.ResolvedReference
+
+	}
+	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.SecurityGroups),
+		Extract:       reference.ExternalName(),
+		References:    mg.Spec.ForProvider.SecurityGroupsRefs,
+		Selector:      mg.Spec.ForProvider.SecurityGroupsSelector,
+		To: reference.To{
+			List:    &SecurityGroupList{},
+			Managed: &SecurityGroup{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SecurityGroups")
+	}
+	mg.Spec.ForProvider.SecurityGroups = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.SecurityGroupsRefs = mrsp.ResolvedReferences
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SubnetID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.SubnetIDRef,
+		Selector:     mg.Spec.ForProvider.SubnetIDSelector,
+		To: reference.To{
+			List:    &SubnetList{},
+			Managed: &Subnet{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SubnetID")
+	}
+	mg.Spec.ForProvider.SubnetID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.SubnetIDRef = rsp.ResolvedReference
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 
 	return nil
 }
 
+<<<<<<< HEAD
 // ResolveReferences of this ElasticIP.
 func (mg *ElasticIP) ResolveReferences(ctx context.Context, c client.Reader) error {
+=======
+// ResolveReferences of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) ResolveReferences(ctx context.Context, c client.Reader) error {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+<<<<<<< HEAD
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Instance),
 		Extract:      reference.ExternalName(),
 		Reference:    mg.Spec.ForProvider.InstanceRef,
@@ -203,6 +269,22 @@ func (mg *ElasticIP) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	mg.Spec.ForProvider.Instance = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.InstanceRef = rsp.ResolvedReference
+=======
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcIDRef,
+		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+	}
+	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 
 	return nil
 }
@@ -240,8 +322,8 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 			Reference:    mg.Spec.ForProvider.NetworkInterface[i3].NetworkInterfaceIDRef,
 			Selector:     mg.Spec.ForProvider.NetworkInterface[i3].NetworkInterfaceIDSelector,
 			To: reference.To{
-				List:    &v1alpha1.KeyList{},
-				Managed: &v1alpha1.Key{},
+				List:    &EC2NetworkInterfaceList{},
+				Managed: &EC2NetworkInterface{},
 			},
 		})
 		if err != nil {
@@ -275,8 +357,13 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 		References:    mg.Spec.ForProvider.SecurityGroupsRefs,
 		Selector:      mg.Spec.ForProvider.SecurityGroupsSelector,
 		To: reference.To{
+<<<<<<< HEAD
 			List:    &v1alpha12.SecurityGroupList{},
 			Managed: &v1alpha12.SecurityGroup{},
+=======
+			List:    &SecurityGroupList{},
+			Managed: &SecurityGroup{},
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 		},
 	})
 	if err != nil {
@@ -291,8 +378,13 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 		Reference:    mg.Spec.ForProvider.SubnetIDRef,
 		Selector:     mg.Spec.ForProvider.SubnetIDSelector,
 		To: reference.To{
+<<<<<<< HEAD
 			List:    &v1alpha12.SubnetList{},
 			Managed: &v1alpha12.Subnet{},
+=======
+			List:    &SubnetList{},
+			Managed: &Subnet{},
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 		},
 	})
 	if err != nil {
@@ -307,8 +399,13 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 		References:    mg.Spec.ForProvider.VpcSecurityGroupIdsRefs,
 		Selector:      mg.Spec.ForProvider.VpcSecurityGroupIdsSelector,
 		To: reference.To{
+<<<<<<< HEAD
 			List:    &v1alpha12.SecurityGroupList{},
 			Managed: &v1alpha12.SecurityGroup{},
+=======
+			List:    &SecurityGroupList{},
+			Managed: &SecurityGroup{},
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 		},
 	})
 	if err != nil {
@@ -320,14 +417,20 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	return nil
 }
 
+<<<<<<< HEAD
 // ResolveReferences of this TransitGatewayRoute.
 func (mg *TransitGatewayRoute) ResolveReferences(ctx context.Context, c client.Reader) error {
+=======
+// ResolveReferences of this RouteTableAssociation.
+func (mg *RouteTableAssociation) ResolveReferences(ctx context.Context, c client.Reader) error {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+<<<<<<< HEAD
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.TransitGatewayAttachmentID),
 		Extract:      reference.ExternalName(),
 		Reference:    mg.Spec.ForProvider.TransitGatewayAttachmentIDRef,
@@ -358,10 +461,43 @@ func (mg *TransitGatewayRoute) ResolveReferences(ctx context.Context, c client.R
 	}
 	mg.Spec.ForProvider.TransitGatewayRouteTableID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.TransitGatewayRouteTableIDRef = rsp.ResolvedReference
+=======
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RouteTableID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.RouteTableIDRef,
+		Selector:     mg.Spec.ForProvider.RouteTableIDSelector,
+		To: reference.To{
+			List:    &RouteTableList{},
+			Managed: &RouteTable{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.RouteTableID")
+	}
+	mg.Spec.ForProvider.RouteTableID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.RouteTableIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SubnetID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.SubnetIDRef,
+		Selector:     mg.Spec.ForProvider.SubnetIDSelector,
+		To: reference.To{
+			List:    &SubnetList{},
+			Managed: &Subnet{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SubnetID")
+	}
+	mg.Spec.ForProvider.SubnetID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.SubnetIDRef = rsp.ResolvedReference
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 
 	return nil
 }
 
+<<<<<<< HEAD
 // ResolveReferences of this TransitGatewayRouteTable.
 func (mg *TransitGatewayRouteTable) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
@@ -384,18 +520,85 @@ func (mg *TransitGatewayRouteTable) ResolveReferences(ctx context.Context, c cli
 	}
 	mg.Spec.ForProvider.TransitGatewayID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.TransitGatewayIDRef = rsp.ResolvedReference
+=======
+// ResolveReferences of this SecurityGroup.
+func (mg *SecurityGroup) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var mrsp reference.MultiResolutionResponse
+	var err error
+
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.Egress); i3++ {
+		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.Egress[i3].SecurityGroups),
+			Extract:       reference.ExternalName(),
+			References:    mg.Spec.ForProvider.Egress[i3].SecurityGroupsRefs,
+			Selector:      mg.Spec.ForProvider.Egress[i3].SecurityGroupsSelector,
+			To: reference.To{
+				List:    &SecurityGroupList{},
+				Managed: &SecurityGroup{},
+			},
+		})
+		if err != nil {
+			return errors.Wrap(err, "mg.Spec.ForProvider.Egress[i3].SecurityGroups")
+		}
+		mg.Spec.ForProvider.Egress[i3].SecurityGroups = reference.ToPtrValues(mrsp.ResolvedValues)
+		mg.Spec.ForProvider.Egress[i3].SecurityGroupsRefs = mrsp.ResolvedReferences
+
+	}
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.Ingress); i3++ {
+		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.Ingress[i3].SecurityGroups),
+			Extract:       reference.ExternalName(),
+			References:    mg.Spec.ForProvider.Ingress[i3].SecurityGroupsRefs,
+			Selector:      mg.Spec.ForProvider.Ingress[i3].SecurityGroupsSelector,
+			To: reference.To{
+				List:    &SecurityGroupList{},
+				Managed: &SecurityGroup{},
+			},
+		})
+		if err != nil {
+			return errors.Wrap(err, "mg.Spec.ForProvider.Ingress[i3].SecurityGroups")
+		}
+		mg.Spec.ForProvider.Ingress[i3].SecurityGroups = reference.ToPtrValues(mrsp.ResolvedValues)
+		mg.Spec.ForProvider.Ingress[i3].SecurityGroupsRefs = mrsp.ResolvedReferences
+
+	}
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcIDRef,
+		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+	}
+	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 
 	return nil
 }
 
+<<<<<<< HEAD
 // ResolveReferences of this TransitGatewayRouteTableAssociation.
 func (mg *TransitGatewayRouteTableAssociation) ResolveReferences(ctx context.Context, c client.Reader) error {
+=======
+// ResolveReferences of this Subnet.
+func (mg *Subnet) ResolveReferences(ctx context.Context, c client.Reader) error {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+<<<<<<< HEAD
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.TransitGatewayAttachmentID),
 		Extract:      reference.ExternalName(),
 		Reference:    mg.Spec.ForProvider.TransitGatewayAttachmentIDRef,
@@ -426,12 +629,33 @@ func (mg *TransitGatewayRouteTableAssociation) ResolveReferences(ctx context.Con
 	}
 	mg.Spec.ForProvider.TransitGatewayRouteTableID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.TransitGatewayRouteTableIDRef = rsp.ResolvedReference
+=======
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcIDRef,
+		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+	}
+	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 
 	return nil
 }
 
+<<<<<<< HEAD
 // ResolveReferences of this TransitGatewayVpcAttachment.
 func (mg *TransitGatewayVpcAttachment) ResolveReferences(ctx context.Context, c client.Reader) error {
+=======
+// ResolveReferences of this VpcEndpoint.
+func (mg *VpcEndpoint) ResolveReferences(ctx context.Context, c client.Reader) error {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -439,6 +663,7 @@ func (mg *TransitGatewayVpcAttachment) ResolveReferences(ctx context.Context, c 
 	var err error
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+<<<<<<< HEAD
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.SubnetIds),
 		Extract:       reference.ExternalName(),
 		References:    mg.Spec.ForProvider.SubnetIdsRefs,
@@ -469,6 +694,54 @@ func (mg *TransitGatewayVpcAttachment) ResolveReferences(ctx context.Context, c 
 	}
 	mg.Spec.ForProvider.TransitGatewayID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.TransitGatewayIDRef = rsp.ResolvedReference
+=======
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.RouteTableIds),
+		Extract:       reference.ExternalName(),
+		References:    mg.Spec.ForProvider.RouteTableIdsRefs,
+		Selector:      mg.Spec.ForProvider.RouteTableIdsSelector,
+		To: reference.To{
+			List:    &RouteTableList{},
+			Managed: &RouteTable{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.RouteTableIds")
+	}
+	mg.Spec.ForProvider.RouteTableIds = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.RouteTableIdsRefs = mrsp.ResolvedReferences
+
+	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.SecurityGroupIds),
+		Extract:       reference.ExternalName(),
+		References:    mg.Spec.ForProvider.SecurityGroupIdsRefs,
+		Selector:      mg.Spec.ForProvider.SecurityGroupIdsSelector,
+		To: reference.To{
+			List:    &SecurityGroupList{},
+			Managed: &SecurityGroup{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SecurityGroupIds")
+	}
+	mg.Spec.ForProvider.SecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.SecurityGroupIdsRefs = mrsp.ResolvedReferences
+
+	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.SubnetIds),
+		Extract:       reference.ExternalName(),
+		References:    mg.Spec.ForProvider.SubnetIdsRefs,
+		Selector:      mg.Spec.ForProvider.SubnetIdsSelector,
+		To: reference.To{
+			List:    &SubnetList{},
+			Managed: &Subnet{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SubnetIds")
+	}
+	mg.Spec.ForProvider.SubnetIds = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.SubnetIdsRefs = mrsp.ResolvedReferences
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
@@ -476,8 +749,13 @@ func (mg *TransitGatewayVpcAttachment) ResolveReferences(ctx context.Context, c 
 		Reference:    mg.Spec.ForProvider.VpcIDRef,
 		Selector:     mg.Spec.ForProvider.VpcIDSelector,
 		To: reference.To{
+<<<<<<< HEAD
 			List:    &v1alpha12.VPCList{},
 			Managed: &v1alpha12.VPC{},
+=======
+			List:    &VPCList{},
+			Managed: &VPC{},
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 		},
 	})
 	if err != nil {
@@ -489,14 +767,20 @@ func (mg *TransitGatewayVpcAttachment) ResolveReferences(ctx context.Context, c 
 	return nil
 }
 
+<<<<<<< HEAD
 // ResolveReferences of this TransitGatewayVpcAttachmentAccepter.
 func (mg *TransitGatewayVpcAttachmentAccepter) ResolveReferences(ctx context.Context, c client.Reader) error {
+=======
+// ResolveReferences of this VpcPeeringConnection.
+func (mg *VpcPeeringConnection) ResolveReferences(ctx context.Context, c client.Reader) error {
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+<<<<<<< HEAD
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.TransitGatewayAttachmentID),
 		Extract:      reference.ExternalName(),
 		Reference:    mg.Spec.ForProvider.TransitGatewayAttachmentIDRef,
@@ -511,6 +795,38 @@ func (mg *TransitGatewayVpcAttachmentAccepter) ResolveReferences(ctx context.Con
 	}
 	mg.Spec.ForProvider.TransitGatewayAttachmentID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.TransitGatewayAttachmentIDRef = rsp.ResolvedReference
+=======
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PeerVpcID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.PeerVpcIDRef,
+		Selector:     mg.Spec.ForProvider.PeerVpcIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.PeerVpcID")
+	}
+	mg.Spec.ForProvider.PeerVpcID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.PeerVpcIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcIDRef,
+		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+	}
+	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+>>>>>>> 36ad04b7 (ec2: add late initializer exceptions and examples)
 
 	return nil
 }
