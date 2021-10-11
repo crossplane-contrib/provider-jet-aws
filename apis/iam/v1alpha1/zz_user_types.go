@@ -26,32 +26,32 @@ import (
 )
 
 type UserObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 
-	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id"`
+	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id,omitempty"`
 }
 
 type UserParameters struct {
 
 	// Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
 	// +kubebuilder:validation:Optional
-	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
+	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Path *string `json:"path,omitempty" tf:"path"`
+	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PermissionsBoundary *string `json:"permissionsBoundary,omitempty" tf:"permissions_boundary"`
+	PermissionsBoundary *string `json:"permissionsBoundary,omitempty" tf:"permissions_boundary,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // UserSpec defines the desired state of User

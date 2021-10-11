@@ -33,7 +33,7 @@ type RolePolicyAttachmentParameters struct {
 	// +crossplane:generate:reference:type=Policy
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.PolicyARNExtractor()
 	// +kubebuilder:validation:Optional
-	PolicyArn *string `json:"policyArn,omitempty" tf:"policy_arn"`
+	PolicyArn *string `json:"policyArn,omitempty" tf:"policy_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PolicyArnRef *v1.Reference `json:"policyArnRef,omitempty" tf:"-"`
@@ -44,11 +44,11 @@ type RolePolicyAttachmentParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +crossplane:generate:reference:type=Role
 	// +kubebuilder:validation:Optional
-	Role *string `json:"role,omitempty" tf:"role"`
+	Role *string `json:"role,omitempty" tf:"role,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	RoleRef *v1.Reference `json:"roleRef,omitempty" tf:"-"`

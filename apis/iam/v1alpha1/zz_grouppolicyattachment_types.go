@@ -32,7 +32,7 @@ type GroupPolicyAttachmentParameters struct {
 
 	// +crossplane:generate:reference:type=IAMGroup
 	// +kubebuilder:validation:Optional
-	Group *string `json:"group,omitempty" tf:"group"`
+	Group *string `json:"group,omitempty" tf:"group,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	GroupRef *v1.Reference `json:"groupRef,omitempty" tf:"-"`
@@ -43,7 +43,7 @@ type GroupPolicyAttachmentParameters struct {
 	// +crossplane:generate:reference:type=Policy
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.PolicyARNExtractor()
 	// +kubebuilder:validation:Optional
-	PolicyArn *string `json:"policyArn,omitempty" tf:"policy_arn"`
+	PolicyArn *string `json:"policyArn,omitempty" tf:"policy_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PolicyArnRef *v1.Reference `json:"policyArnRef,omitempty" tf:"-"`
@@ -54,7 +54,7 @@ type GroupPolicyAttachmentParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 }
 
 // GroupPolicyAttachmentSpec defines the desired state of GroupPolicyAttachment

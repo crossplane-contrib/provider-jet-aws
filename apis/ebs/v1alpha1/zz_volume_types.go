@@ -26,25 +26,25 @@ import (
 )
 
 type VolumeObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type VolumeParameters struct {
 
 	// +kubebuilder:validation:Required
-	AvailabilityZone *string `json:"availabilityZone" tf:"availability_zone"`
+	AvailabilityZone *string `json:"availabilityZone" tf:"availability_zone,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted"`
+	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Iops *int64 `json:"iops,omitempty" tf:"iops"`
+	Iops *int64 `json:"iops,omitempty" tf:"iops,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	KmsKeyIDRef *v1.Reference `json:"kmsKeyIDRef,omitempty" tf:"-"`
@@ -53,30 +53,30 @@ type VolumeParameters struct {
 	KmsKeyIDSelector *v1.Selector `json:"kmsKeyIDSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	MultiAttachEnabled *bool `json:"multiAttachEnabled,omitempty" tf:"multi_attach_enabled"`
+	MultiAttachEnabled *bool `json:"multiAttachEnabled,omitempty" tf:"multi_attach_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn"`
+	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Size *int64 `json:"size,omitempty" tf:"size"`
+	Size *int64 `json:"size,omitempty" tf:"size,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id"`
+	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Throughput *int64 `json:"throughput,omitempty" tf:"throughput"`
+	Throughput *int64 `json:"throughput,omitempty" tf:"throughput,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Type *string `json:"type,omitempty" tf:"type"`
+	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 // VolumeSpec defines the desired state of Volume

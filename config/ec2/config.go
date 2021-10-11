@@ -18,10 +18,6 @@ package ec2
 
 import "github.com/crossplane-contrib/terrajet/pkg/config"
 
-const (
-	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/ec2"
-)
-
 func init() {
 	config.Store.SetForResource("aws_instance", config.Resource{
 		ExternalName: config.ExternalName{

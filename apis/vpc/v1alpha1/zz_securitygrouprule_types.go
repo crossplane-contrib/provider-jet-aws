@@ -31,43 +31,43 @@ type SecurityGroupRuleObservation struct {
 type SecurityGroupRuleParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks"`
+	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description"`
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Required
-	FromPort *int64 `json:"fromPort" tf:"from_port"`
+	FromPort *int64 `json:"fromPort" tf:"from_port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
+	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
+	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Protocol *string `json:"protocol" tf:"protocol"`
+	Protocol *string `json:"protocol" tf:"protocol,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Required
-	SecurityGroupID *string `json:"securityGroupId" tf:"security_group_id"`
+	SecurityGroupID *string `json:"securityGroupId" tf:"security_group_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Self *bool `json:"self,omitempty" tf:"self"`
+	Self *bool `json:"self,omitempty" tf:"self,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SourceSecurityGroupID *string `json:"sourceSecurityGroupId,omitempty" tf:"source_security_group_id"`
+	SourceSecurityGroupID *string `json:"sourceSecurityGroupId,omitempty" tf:"source_security_group_id,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ToPort *int64 `json:"toPort" tf:"to_port"`
+	ToPort *int64 `json:"toPort" tf:"to_port,omitempty"`
 
 	// Type of rule, ingress (inbound) or egress (outbound).
 	// +kubebuilder:validation:Required
-	Type *string `json:"type" tf:"type"`
+	Type *string `json:"type" tf:"type,omitempty"`
 }
 
 // SecurityGroupRuleSpec defines the desired state of SecurityGroupRule

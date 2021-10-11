@@ -26,37 +26,37 @@ import (
 )
 
 type PolicyObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	PolicyID *string `json:"policyId,omitempty" tf:"policy_id"`
+	PolicyID *string `json:"policyId,omitempty" tf:"policy_id,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type PolicyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description"`
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name"`
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
+	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Path *string `json:"path,omitempty" tf:"path"`
+	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Policy *string `json:"policy" tf:"policy"`
+	Policy *string `json:"policy" tf:"policy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // PolicySpec defines the desired state of Policy

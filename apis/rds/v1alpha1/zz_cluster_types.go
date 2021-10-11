@@ -26,136 +26,136 @@ import (
 )
 
 type ClusterObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	ClusterResourceID *string `json:"clusterResourceId,omitempty" tf:"cluster_resource_id"`
+	ClusterResourceID *string `json:"clusterResourceId,omitempty" tf:"cluster_resource_id,omitempty"`
 
-	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint"`
+	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint,omitempty"`
 
-	EngineVersionActual *string `json:"engineVersionActual,omitempty" tf:"engine_version_actual"`
+	EngineVersionActual *string `json:"engineVersionActual,omitempty" tf:"engine_version_actual,omitempty"`
 
-	HostedZoneID *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id"`
+	HostedZoneID *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id,omitempty"`
 
-	ReaderEndpoint *string `json:"readerEndpoint,omitempty" tf:"reader_endpoint"`
+	ReaderEndpoint *string `json:"readerEndpoint,omitempty" tf:"reader_endpoint,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade,omitempty" tf:"allow_major_version_upgrade"`
+	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade,omitempty" tf:"allow_major_version_upgrade,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately"`
+	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AvailabilityZones []*string `json:"availabilityZones,omitempty" tf:"availability_zones"`
+	AvailabilityZones []*string `json:"availabilityZones,omitempty" tf:"availability_zones,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	BacktrackWindow *int64 `json:"backtrackWindow,omitempty" tf:"backtrack_window"`
+	BacktrackWindow *int64 `json:"backtrackWindow,omitempty" tf:"backtrack_window,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	BackupRetentionPeriod *int64 `json:"backupRetentionPeriod,omitempty" tf:"backup_retention_period"`
+	BackupRetentionPeriod *int64 `json:"backupRetentionPeriod,omitempty" tf:"backup_retention_period,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ClusterMembers []*string `json:"clusterMembers,omitempty" tf:"cluster_members"`
+	ClusterMembers []*string `json:"clusterMembers,omitempty" tf:"cluster_members,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot,omitempty" tf:"copy_tags_to_snapshot"`
+	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot,omitempty" tf:"copy_tags_to_snapshot,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DBClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name"`
+	DBClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name"`
+	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DatabaseName *string `json:"databaseName,omitempty" tf:"database_name"`
+	DatabaseName *string `json:"databaseName,omitempty" tf:"database_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DeletionProtection *bool `json:"deletionProtection,omitempty" tf:"deletion_protection"`
+	DeletionProtection *bool `json:"deletionProtection,omitempty" tf:"deletion_protection,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableHTTPEndpoint *bool `json:"enableHttpEndpoint,omitempty" tf:"enable_http_endpoint"`
+	EnableHTTPEndpoint *bool `json:"enableHttpEndpoint,omitempty" tf:"enable_http_endpoint,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnabledCloudwatchLogsExports []*string `json:"enabledCloudwatchLogsExports,omitempty" tf:"enabled_cloudwatch_logs_exports"`
+	EnabledCloudwatchLogsExports []*string `json:"enabledCloudwatchLogsExports,omitempty" tf:"enabled_cloudwatch_logs_exports,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Engine *string `json:"engine,omitempty" tf:"engine"`
+	Engine *string `json:"engine,omitempty" tf:"engine,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EngineMode *string `json:"engineMode,omitempty" tf:"engine_mode"`
+	EngineMode *string `json:"engineMode,omitempty" tf:"engine_mode,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version"`
+	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier"`
+	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	GlobalClusterIdentifier *string `json:"globalClusterIdentifier,omitempty" tf:"global_cluster_identifier"`
+	GlobalClusterIdentifier *string `json:"globalClusterIdentifier,omitempty" tf:"global_cluster_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IamDatabaseAuthenticationEnabled *bool `json:"iamDatabaseAuthenticationEnabled,omitempty" tf:"iam_database_authentication_enabled"`
+	IamDatabaseAuthenticationEnabled *bool `json:"iamDatabaseAuthenticationEnabled,omitempty" tf:"iam_database_authentication_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IamRoles []*string `json:"iamRoles,omitempty" tf:"iam_roles"`
+	IamRoles []*string `json:"iamRoles,omitempty" tf:"iam_roles,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id"`
+	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MasterPasswordSecretRef v1.SecretKeySelector `json:"masterPasswordSecretRef,omitempty" tf:"-"`
+	MasterPasswordSecretRef v1.SecretKeySelector `json:"masterPasswordSecretRef,omitempty" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MasterUsername *string `json:"masterUsername,omitempty" tf:"master_username"`
+	MasterUsername *string `json:"masterUsername,omitempty" tf:"master_username,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PreferredBackupWindow *string `json:"preferredBackupWindow,omitempty" tf:"preferred_backup_window"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow,omitempty" tf:"preferred_backup_window,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow,omitempty" tf:"preferred_maintenance_window"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow,omitempty" tf:"preferred_maintenance_window,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ReplicationSourceIdentifier *string `json:"replicationSourceIdentifier,omitempty" tf:"replication_source_identifier"`
+	ReplicationSourceIdentifier *string `json:"replicationSourceIdentifier,omitempty" tf:"replication_source_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RestoreToPointInTime []RestoreToPointInTimeParameters `json:"restoreToPointInTime,omitempty" tf:"restore_to_point_in_time"`
+	RestoreToPointInTime []RestoreToPointInTimeParameters `json:"restoreToPointInTime,omitempty" tf:"restore_to_point_in_time,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	S3Import []S3ImportParameters `json:"s3Import,omitempty" tf:"s3_import"`
+	S3Import []S3ImportParameters `json:"s3Import,omitempty" tf:"s3_import,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ScalingConfiguration []ScalingConfigurationParameters `json:"scalingConfiguration,omitempty" tf:"scaling_configuration"`
+	ScalingConfiguration []ScalingConfigurationParameters `json:"scalingConfiguration,omitempty" tf:"scaling_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot"`
+	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SnapshotIdentifier *string `json:"snapshotIdentifier,omitempty" tf:"snapshot_identifier"`
+	SnapshotIdentifier *string `json:"snapshotIdentifier,omitempty" tf:"snapshot_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SourceRegion *string `json:"sourceRegion,omitempty" tf:"source_region"`
+	SourceRegion *string `json:"sourceRegion,omitempty" tf:"source_region,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	StorageEncrypted *bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted"`
+	StorageEncrypted *bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids"`
+	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIdsRefs []v1.Reference `json:"vpcSecurityGroupIdsRefs,omitempty" tf:"-"`
@@ -170,14 +170,14 @@ type RestoreToPointInTimeObservation struct {
 type RestoreToPointInTimeParameters struct {
 
 	// +kubebuilder:validation:Optional
-	RestoreToTime *string `json:"restoreToTime,omitempty" tf:"restore_to_time"`
+	RestoreToTime *string `json:"restoreToTime,omitempty" tf:"restore_to_time,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RestoreType *string `json:"restoreType,omitempty" tf:"restore_type"`
+	RestoreType *string `json:"restoreType,omitempty" tf:"restore_type,omitempty"`
 
 	// +crossplane:generate:reference:type=Cluster
 	// +kubebuilder:validation:Optional
-	SourceClusterIdentifier *string `json:"sourceClusterIdentifier,omitempty" tf:"source_cluster_identifier"`
+	SourceClusterIdentifier *string `json:"sourceClusterIdentifier,omitempty" tf:"source_cluster_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SourceClusterIdentifierRef *v1.Reference `json:"sourceClusterIdentifierRef,omitempty" tf:"-"`
@@ -186,7 +186,7 @@ type RestoreToPointInTimeParameters struct {
 	SourceClusterIdentifierSelector *v1.Selector `json:"sourceClusterIdentifierSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	UseLatestRestorableTime *bool `json:"useLatestRestorableTime,omitempty" tf:"use_latest_restorable_time"`
+	UseLatestRestorableTime *bool `json:"useLatestRestorableTime,omitempty" tf:"use_latest_restorable_time,omitempty"`
 }
 
 type S3ImportObservation struct {
@@ -196,7 +196,7 @@ type S3ImportParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket
 	// +kubebuilder:validation:Optional
-	BucketName *string `json:"bucketName,omitempty" tf:"bucket_name"`
+	BucketName *string `json:"bucketName,omitempty" tf:"bucket_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	BucketNameRef *v1.Reference `json:"bucketNameRef,omitempty" tf:"-"`
@@ -205,16 +205,16 @@ type S3ImportParameters struct {
 	BucketNameSelector *v1.Selector `json:"bucketNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	BucketPrefix *string `json:"bucketPrefix,omitempty" tf:"bucket_prefix"`
+	BucketPrefix *string `json:"bucketPrefix,omitempty" tf:"bucket_prefix,omitempty"`
 
 	// +kubebuilder:validation:Required
-	IngestionRole *string `json:"ingestionRole" tf:"ingestion_role"`
+	IngestionRole *string `json:"ingestionRole" tf:"ingestion_role,omitempty"`
 
 	// +kubebuilder:validation:Required
-	SourceEngine *string `json:"sourceEngine" tf:"source_engine"`
+	SourceEngine *string `json:"sourceEngine" tf:"source_engine,omitempty"`
 
 	// +kubebuilder:validation:Required
-	SourceEngineVersion *string `json:"sourceEngineVersion" tf:"source_engine_version"`
+	SourceEngineVersion *string `json:"sourceEngineVersion" tf:"source_engine_version,omitempty"`
 }
 
 type ScalingConfigurationObservation struct {
@@ -223,19 +223,19 @@ type ScalingConfigurationObservation struct {
 type ScalingConfigurationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AutoPause *bool `json:"autoPause,omitempty" tf:"auto_pause"`
+	AutoPause *bool `json:"autoPause,omitempty" tf:"auto_pause,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaxCapacity *int64 `json:"maxCapacity,omitempty" tf:"max_capacity"`
+	MaxCapacity *int64 `json:"maxCapacity,omitempty" tf:"max_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MinCapacity *int64 `json:"minCapacity,omitempty" tf:"min_capacity"`
+	MinCapacity *int64 `json:"minCapacity,omitempty" tf:"min_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SecondsUntilAutoPause *int64 `json:"secondsUntilAutoPause,omitempty" tf:"seconds_until_auto_pause"`
+	SecondsUntilAutoPause *int64 `json:"secondsUntilAutoPause,omitempty" tf:"seconds_until_auto_pause,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TimeoutAction *string `json:"timeoutAction,omitempty" tf:"timeout_action"`
+	TimeoutAction *string `json:"timeoutAction,omitempty" tf:"timeout_action,omitempty"`
 }
 
 // ClusterSpec defines the desired state of Cluster

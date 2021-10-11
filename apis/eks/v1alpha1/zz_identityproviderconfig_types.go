@@ -26,11 +26,11 @@ import (
 )
 
 type IdentityProviderConfigObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	Status *string `json:"status,omitempty" tf:"status"`
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type IdentityProviderConfigOidcObservation struct {
@@ -39,35 +39,35 @@ type IdentityProviderConfigOidcObservation struct {
 type IdentityProviderConfigOidcParameters struct {
 
 	// +kubebuilder:validation:Required
-	ClientID *string `json:"clientId" tf:"client_id"`
+	ClientID *string `json:"clientId" tf:"client_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	GroupsClaim *string `json:"groupsClaim,omitempty" tf:"groups_claim"`
+	GroupsClaim *string `json:"groupsClaim,omitempty" tf:"groups_claim,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	GroupsPrefix *string `json:"groupsPrefix,omitempty" tf:"groups_prefix"`
+	GroupsPrefix *string `json:"groupsPrefix,omitempty" tf:"groups_prefix,omitempty"`
 
 	// +kubebuilder:validation:Required
-	IdentityProviderConfigName *string `json:"identityProviderConfigName" tf:"identity_provider_config_name"`
+	IdentityProviderConfigName *string `json:"identityProviderConfigName" tf:"identity_provider_config_name,omitempty"`
 
 	// +kubebuilder:validation:Required
-	IssuerURL *string `json:"issuerUrl" tf:"issuer_url"`
+	IssuerURL *string `json:"issuerUrl" tf:"issuer_url,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RequiredClaims map[string]*string `json:"requiredClaims,omitempty" tf:"required_claims"`
+	RequiredClaims map[string]*string `json:"requiredClaims,omitempty" tf:"required_claims,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	UsernameClaim *string `json:"usernameClaim,omitempty" tf:"username_claim"`
+	UsernameClaim *string `json:"usernameClaim,omitempty" tf:"username_claim,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	UsernamePrefix *string `json:"usernamePrefix,omitempty" tf:"username_prefix"`
+	UsernamePrefix *string `json:"usernamePrefix,omitempty" tf:"username_prefix,omitempty"`
 }
 
 type IdentityProviderConfigParameters struct {
 
 	// +crossplane:generate:reference:type=Cluster
 	// +kubebuilder:validation:Optional
-	ClusterName *string `json:"clusterName,omitempty" tf:"cluster_name"`
+	ClusterName *string `json:"clusterName,omitempty" tf:"cluster_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ClusterNameRef *v1.Reference `json:"clusterNameRef,omitempty" tf:"-"`
@@ -76,15 +76,15 @@ type IdentityProviderConfigParameters struct {
 	ClusterNameSelector *v1.Selector `json:"clusterNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
-	Oidc []IdentityProviderConfigOidcParameters `json:"oidc" tf:"oidc"`
+	Oidc []IdentityProviderConfigOidcParameters `json:"oidc" tf:"oidc,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // IdentityProviderConfigSpec defines the desired state of IdentityProviderConfig

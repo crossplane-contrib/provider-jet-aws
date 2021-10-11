@@ -32,7 +32,7 @@ type PolicyAttachmentParameters struct {
 
 	// +crossplane:generate:reference:type=IAMGroup
 	// +kubebuilder:validation:Optional
-	Groups []*string `json:"groups,omitempty" tf:"groups"`
+	Groups []*string `json:"groups,omitempty" tf:"groups,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	GroupsRefs []v1.Reference `json:"groupsRefs,omitempty" tf:"-"`
@@ -41,12 +41,12 @@ type PolicyAttachmentParameters struct {
 	GroupsSelector *v1.Selector `json:"groupsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name"`
+	Name *string `json:"name" tf:"name,omitempty"`
 
 	// +crossplane:generate:reference:type=Policy
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.PolicyARNExtractor()
 	// +kubebuilder:validation:Optional
-	PolicyArn *string `json:"policyArn,omitempty" tf:"policy_arn"`
+	PolicyArn *string `json:"policyArn,omitempty" tf:"policy_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PolicyArnRef *v1.Reference `json:"policyArnRef,omitempty" tf:"-"`
@@ -57,11 +57,11 @@ type PolicyAttachmentParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +crossplane:generate:reference:type=Role
 	// +kubebuilder:validation:Optional
-	Roles []*string `json:"roles,omitempty" tf:"roles"`
+	Roles []*string `json:"roles,omitempty" tf:"roles,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	RolesRefs []v1.Reference `json:"rolesRefs,omitempty" tf:"-"`
@@ -71,7 +71,7 @@ type PolicyAttachmentParameters struct {
 
 	// +crossplane:generate:reference:type=User
 	// +kubebuilder:validation:Optional
-	Users []*string `json:"users,omitempty" tf:"users"`
+	Users []*string `json:"users,omitempty" tf:"users,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	UsersRefs []v1.Reference `json:"usersRefs,omitempty" tf:"-"`

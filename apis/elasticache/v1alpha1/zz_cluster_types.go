@@ -26,69 +26,69 @@ import (
 )
 
 type CacheNodesObservation struct {
-	Address *string `json:"address,omitempty" tf:"address"`
+	Address *string `json:"address,omitempty" tf:"address,omitempty"`
 
-	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
+	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone,omitempty"`
 
-	ID *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Port *int64 `json:"port,omitempty" tf:"port"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 }
 
 type CacheNodesParameters struct {
 }
 
 type ClusterObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	CacheNodes []CacheNodesObservation `json:"cacheNodes,omitempty" tf:"cache_nodes"`
+	CacheNodes []CacheNodesObservation `json:"cacheNodes,omitempty" tf:"cache_nodes,omitempty"`
 
-	ClusterAddress *string `json:"clusterAddress,omitempty" tf:"cluster_address"`
+	ClusterAddress *string `json:"clusterAddress,omitempty" tf:"cluster_address,omitempty"`
 
-	ConfigurationEndpoint *string `json:"configurationEndpoint,omitempty" tf:"configuration_endpoint"`
+	ConfigurationEndpoint *string `json:"configurationEndpoint,omitempty" tf:"configuration_endpoint,omitempty"`
 
-	EngineVersionActual *string `json:"engineVersionActual,omitempty" tf:"engine_version_actual"`
+	EngineVersionActual *string `json:"engineVersionActual,omitempty" tf:"engine_version_actual,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
-	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately"`
+	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone"`
+	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AzMode *string `json:"azMode,omitempty" tf:"az_mode"`
+	AzMode *string `json:"azMode,omitempty" tf:"az_mode,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Engine *string `json:"engine,omitempty" tf:"engine"`
+	Engine *string `json:"engine,omitempty" tf:"engine,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version"`
+	EngineVersion *string `json:"engineVersion,omitempty" tf:"engine_version,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier"`
+	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window"`
+	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NodeType *string `json:"nodeType,omitempty" tf:"node_type"`
+	NodeType *string `json:"nodeType,omitempty" tf:"node_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn"`
+	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NumCacheNodes *int64 `json:"numCacheNodes,omitempty" tf:"num_cache_nodes"`
+	NumCacheNodes *int64 `json:"numCacheNodes,omitempty" tf:"num_cache_nodes,omitempty"`
 
 	// +crossplane:generate:reference:type=ParameterGroup
 	// +crossplane:generate:reference:refFieldName=ParameterGroupRef
 	// +crossplane:generate:reference:selectorFieldName=ParameterGroupSelector
 	// +kubebuilder:validation:Optional
-	ParameterGroupName *string `json:"parameterGroupName,omitempty" tf:"parameter_group_name"`
+	ParameterGroupName *string `json:"parameterGroupName,omitempty" tf:"parameter_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ParameterGroupRef *v1.Reference `json:"parameterGroupRef,omitempty" tf:"-"`
@@ -97,42 +97,42 @@ type ClusterParameters struct {
 	ParameterGroupSelector *v1.Selector `json:"parameterGroupSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PreferredAvailabilityZones []*string `json:"preferredAvailabilityZones,omitempty" tf:"preferred_availability_zones"`
+	PreferredAvailabilityZones []*string `json:"preferredAvailabilityZones,omitempty" tf:"preferred_availability_zones,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ReplicationGroupID *string `json:"replicationGroupId,omitempty" tf:"replication_group_id"`
+	ReplicationGroupID *string `json:"replicationGroupId,omitempty" tf:"replication_group_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
+	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SecurityGroupNames []*string `json:"securityGroupNames,omitempty" tf:"security_group_names"`
+	SecurityGroupNames []*string `json:"securityGroupNames,omitempty" tf:"security_group_names,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SnapshotArns []*string `json:"snapshotArns,omitempty" tf:"snapshot_arns"`
+	SnapshotArns []*string `json:"snapshotArns,omitempty" tf:"snapshot_arns,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SnapshotName *string `json:"snapshotName,omitempty" tf:"snapshot_name"`
+	SnapshotName *string `json:"snapshotName,omitempty" tf:"snapshot_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SnapshotRetentionLimit *int64 `json:"snapshotRetentionLimit,omitempty" tf:"snapshot_retention_limit"`
+	SnapshotRetentionLimit *int64 `json:"snapshotRetentionLimit,omitempty" tf:"snapshot_retention_limit,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SnapshotWindow *string `json:"snapshotWindow,omitempty" tf:"snapshot_window"`
+	SnapshotWindow *string `json:"snapshotWindow,omitempty" tf:"snapshot_window,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SubnetGroupName *string `json:"subnetGroupName,omitempty" tf:"subnet_group_name"`
+	SubnetGroupName *string `json:"subnetGroupName,omitempty" tf:"subnet_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // ClusterSpec defines the desired state of Cluster

@@ -32,7 +32,7 @@ type UserGroupMembershipParameters struct {
 
 	// +crossplane:generate:reference:type=IAMGroup
 	// +kubebuilder:validation:Optional
-	Groups []*string `json:"groups,omitempty" tf:"groups"`
+	Groups []*string `json:"groups,omitempty" tf:"groups,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	GroupsRefs []v1.Reference `json:"groupsRefs,omitempty" tf:"-"`
@@ -43,11 +43,11 @@ type UserGroupMembershipParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +crossplane:generate:reference:type=User
 	// +kubebuilder:validation:Optional
-	User *string `json:"user,omitempty" tf:"user"`
+	User *string `json:"user,omitempty" tf:"user,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	UserRef *v1.Reference `json:"userRef,omitempty" tf:"-"`

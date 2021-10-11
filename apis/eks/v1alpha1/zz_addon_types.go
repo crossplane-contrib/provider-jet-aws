@@ -26,26 +26,26 @@ import (
 )
 
 type AddonObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	CreatedAt *string `json:"createdAt,omitempty" tf:"created_at"`
+	CreatedAt *string `json:"createdAt,omitempty" tf:"created_at,omitempty"`
 
-	ModifiedAt *string `json:"modifiedAt,omitempty" tf:"modified_at"`
+	ModifiedAt *string `json:"modifiedAt,omitempty" tf:"modified_at,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type AddonParameters struct {
 
 	// +kubebuilder:validation:Required
-	AddonName *string `json:"addonName" tf:"addon_name"`
+	AddonName *string `json:"addonName" tf:"addon_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AddonVersion *string `json:"addonVersion,omitempty" tf:"addon_version"`
+	AddonVersion *string `json:"addonVersion,omitempty" tf:"addon_version,omitempty"`
 
 	// +crossplane:generate:reference:type=Cluster
 	// +kubebuilder:validation:Optional
-	ClusterName *string `json:"clusterName,omitempty" tf:"cluster_name"`
+	ClusterName *string `json:"clusterName,omitempty" tf:"cluster_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ClusterNameRef *v1.Reference `json:"clusterNameRef,omitempty" tf:"-"`
@@ -56,15 +56,15 @@ type AddonParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ResolveConflicts *string `json:"resolveConflicts,omitempty" tf:"resolve_conflicts"`
+	ResolveConflicts *string `json:"resolveConflicts,omitempty" tf:"resolve_conflicts,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.RoleARNExtractor()
 	// +kubebuilder:validation:Optional
-	ServiceAccountRoleArn *string `json:"serviceAccountRoleArn,omitempty" tf:"service_account_role_arn"`
+	ServiceAccountRoleArn *string `json:"serviceAccountRoleArn,omitempty" tf:"service_account_role_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ServiceAccountRoleArnRef *v1.Reference `json:"serviceAccountRoleArnRef,omitempty" tf:"-"`
@@ -73,7 +73,7 @@ type AddonParameters struct {
 	ServiceAccountRoleArnSelector *v1.Selector `json:"serviceAccountRoleArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // AddonSpec defines the desired state of Addon

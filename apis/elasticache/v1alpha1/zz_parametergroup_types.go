@@ -26,29 +26,29 @@ import (
 )
 
 type ParameterGroupObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type ParameterGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description"`
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Family *string `json:"family" tf:"family"`
+	Family *string `json:"family" tf:"family,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Parameter []ParameterParameters `json:"parameter,omitempty" tf:"parameter"`
+	Parameter []ParameterParameters `json:"parameter,omitempty" tf:"parameter,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 type ParameterObservation struct {
@@ -57,10 +57,10 @@ type ParameterObservation struct {
 type ParameterParameters struct {
 
 	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name"`
+	Name *string `json:"name" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Value *string `json:"value" tf:"value"`
+	Value *string `json:"value" tf:"value,omitempty"`
 }
 
 // ParameterGroupSpec defines the desired state of ParameterGroup

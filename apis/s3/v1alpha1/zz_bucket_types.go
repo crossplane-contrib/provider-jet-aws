@@ -31,7 +31,7 @@ type AccessControlTranslationObservation struct {
 type AccessControlTranslationParameters struct {
 
 	// +kubebuilder:validation:Required
-	Owner *string `json:"owner" tf:"owner"`
+	Owner *string `json:"owner" tf:"owner,omitempty"`
 }
 
 type ApplyServerSideEncryptionByDefaultObservation struct {
@@ -40,83 +40,83 @@ type ApplyServerSideEncryptionByDefaultObservation struct {
 type ApplyServerSideEncryptionByDefaultParameters struct {
 
 	// +kubebuilder:validation:Optional
-	KmsMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id"`
+	KmsMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id,omitempty"`
 
 	// +kubebuilder:validation:Required
-	SseAlgorithm *string `json:"sseAlgorithm" tf:"sse_algorithm"`
+	SseAlgorithm *string `json:"sseAlgorithm" tf:"sse_algorithm,omitempty"`
 }
 
 type BucketObservation struct {
-	BucketDomainName *string `json:"bucketDomainName,omitempty" tf:"bucket_domain_name"`
+	BucketDomainName *string `json:"bucketDomainName,omitempty" tf:"bucket_domain_name,omitempty"`
 
-	BucketRegionalDomainName *string `json:"bucketRegionalDomainName,omitempty" tf:"bucket_regional_domain_name"`
+	BucketRegionalDomainName *string `json:"bucketRegionalDomainName,omitempty" tf:"bucket_regional_domain_name,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type BucketParameters struct {
 
 	// +kubebuilder:validation:Optional
-	ACL *string `json:"acl,omitempty" tf:"acl"`
+	ACL *string `json:"acl,omitempty" tf:"acl,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AccelerationStatus *string `json:"accelerationStatus,omitempty" tf:"acceleration_status"`
+	AccelerationStatus *string `json:"accelerationStatus,omitempty" tf:"acceleration_status,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	CorsRule []CorsRuleParameters `json:"corsRule,omitempty" tf:"cors_rule"`
+	CorsRule []CorsRuleParameters `json:"corsRule,omitempty" tf:"cors_rule,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy"`
+	ForceDestroy *bool `json:"forceDestroy,omitempty" tf:"force_destroy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Grant []GrantParameters `json:"grant,omitempty" tf:"grant"`
+	Grant []GrantParameters `json:"grant,omitempty" tf:"grant,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	HostedZoneID *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id"`
+	HostedZoneID *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	LifecycleRule []LifecycleRuleParameters `json:"lifecycleRule,omitempty" tf:"lifecycle_rule"`
+	LifecycleRule []LifecycleRuleParameters `json:"lifecycleRule,omitempty" tf:"lifecycle_rule,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Logging []LoggingParameters `json:"logging,omitempty" tf:"logging"`
+	Logging []LoggingParameters `json:"logging,omitempty" tf:"logging,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ObjectLockConfiguration []ObjectLockConfigurationParameters `json:"objectLockConfiguration,omitempty" tf:"object_lock_configuration"`
+	ObjectLockConfiguration []ObjectLockConfigurationParameters `json:"objectLockConfiguration,omitempty" tf:"object_lock_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Policy *string `json:"policy,omitempty" tf:"policy"`
+	Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ReplicationConfiguration []ReplicationConfigurationParameters `json:"replicationConfiguration,omitempty" tf:"replication_configuration"`
+	ReplicationConfiguration []ReplicationConfigurationParameters `json:"replicationConfiguration,omitempty" tf:"replication_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RequestPayer *string `json:"requestPayer,omitempty" tf:"request_payer"`
+	RequestPayer *string `json:"requestPayer,omitempty" tf:"request_payer,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ServerSideEncryptionConfiguration []ServerSideEncryptionConfigurationParameters `json:"serverSideEncryptionConfiguration,omitempty" tf:"server_side_encryption_configuration"`
+	ServerSideEncryptionConfiguration []ServerSideEncryptionConfigurationParameters `json:"serverSideEncryptionConfiguration,omitempty" tf:"server_side_encryption_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Versioning []VersioningParameters `json:"versioning,omitempty" tf:"versioning"`
+	Versioning []VersioningParameters `json:"versioning,omitempty" tf:"versioning,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Website []WebsiteParameters `json:"website,omitempty" tf:"website"`
+	Website []WebsiteParameters `json:"website,omitempty" tf:"website,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	WebsiteDomain *string `json:"websiteDomain,omitempty" tf:"website_domain"`
+	WebsiteDomain *string `json:"websiteDomain,omitempty" tf:"website_domain,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	WebsiteEndpoint *string `json:"websiteEndpoint,omitempty" tf:"website_endpoint"`
+	WebsiteEndpoint *string `json:"websiteEndpoint,omitempty" tf:"website_endpoint,omitempty"`
 }
 
 type CorsRuleObservation struct {
@@ -125,19 +125,19 @@ type CorsRuleObservation struct {
 type CorsRuleParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AllowedHeaders []*string `json:"allowedHeaders,omitempty" tf:"allowed_headers"`
+	AllowedHeaders []*string `json:"allowedHeaders,omitempty" tf:"allowed_headers,omitempty"`
 
 	// +kubebuilder:validation:Required
-	AllowedMethods []*string `json:"allowedMethods" tf:"allowed_methods"`
+	AllowedMethods []*string `json:"allowedMethods" tf:"allowed_methods,omitempty"`
 
 	// +kubebuilder:validation:Required
-	AllowedOrigins []*string `json:"allowedOrigins" tf:"allowed_origins"`
+	AllowedOrigins []*string `json:"allowedOrigins" tf:"allowed_origins,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ExposeHeaders []*string `json:"exposeHeaders,omitempty" tf:"expose_headers"`
+	ExposeHeaders []*string `json:"exposeHeaders,omitempty" tf:"expose_headers,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaxAgeSeconds *int64 `json:"maxAgeSeconds,omitempty" tf:"max_age_seconds"`
+	MaxAgeSeconds *int64 `json:"maxAgeSeconds,omitempty" tf:"max_age_seconds,omitempty"`
 }
 
 type DefaultRetentionObservation struct {
@@ -146,13 +146,13 @@ type DefaultRetentionObservation struct {
 type DefaultRetentionParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days"`
+	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Mode *string `json:"mode" tf:"mode"`
+	Mode *string `json:"mode" tf:"mode,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Years *int64 `json:"years,omitempty" tf:"years"`
+	Years *int64 `json:"years,omitempty" tf:"years,omitempty"`
 }
 
 type DestinationObservation struct {
@@ -161,19 +161,19 @@ type DestinationObservation struct {
 type DestinationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AccessControlTranslation []AccessControlTranslationParameters `json:"accessControlTranslation,omitempty" tf:"access_control_translation"`
+	AccessControlTranslation []AccessControlTranslationParameters `json:"accessControlTranslation,omitempty" tf:"access_control_translation,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AccountID *string `json:"accountId,omitempty" tf:"account_id"`
+	AccountID *string `json:"accountId,omitempty" tf:"account_id,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Bucket *string `json:"bucket" tf:"bucket"`
+	Bucket *string `json:"bucket" tf:"bucket,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ReplicaKmsKeyID *string `json:"replicaKmsKeyId,omitempty" tf:"replica_kms_key_id"`
+	ReplicaKmsKeyID *string `json:"replicaKmsKeyId,omitempty" tf:"replica_kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class"`
+	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class,omitempty"`
 }
 
 type ExpirationObservation struct {
@@ -182,13 +182,13 @@ type ExpirationObservation struct {
 type ExpirationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Date *string `json:"date,omitempty" tf:"date"`
+	Date *string `json:"date,omitempty" tf:"date,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days"`
+	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ExpiredObjectDeleteMarker *bool `json:"expiredObjectDeleteMarker,omitempty" tf:"expired_object_delete_marker"`
+	ExpiredObjectDeleteMarker *bool `json:"expiredObjectDeleteMarker,omitempty" tf:"expired_object_delete_marker,omitempty"`
 }
 
 type FilterObservation struct {
@@ -197,10 +197,10 @@ type FilterObservation struct {
 type FilterParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
+	Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 type GrantObservation struct {
@@ -209,16 +209,16 @@ type GrantObservation struct {
 type GrantParameters struct {
 
 	// +kubebuilder:validation:Optional
-	ID *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Permissions []*string `json:"permissions" tf:"permissions"`
+	Permissions []*string `json:"permissions" tf:"permissions,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Type *string `json:"type" tf:"type"`
+	Type *string `json:"type" tf:"type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	URI *string `json:"uri,omitempty" tf:"uri"`
+	URI *string `json:"uri,omitempty" tf:"uri,omitempty"`
 }
 
 type LifecycleRuleObservation struct {
@@ -227,31 +227,31 @@ type LifecycleRuleObservation struct {
 type LifecycleRuleParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AbortIncompleteMultipartUploadDays *int64 `json:"abortIncompleteMultipartUploadDays,omitempty" tf:"abort_incomplete_multipart_upload_days"`
+	AbortIncompleteMultipartUploadDays *int64 `json:"abortIncompleteMultipartUploadDays,omitempty" tf:"abort_incomplete_multipart_upload_days,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Enabled *bool `json:"enabled" tf:"enabled"`
+	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Expiration []ExpirationParameters `json:"expiration,omitempty" tf:"expiration"`
+	Expiration []ExpirationParameters `json:"expiration,omitempty" tf:"expiration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ID *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NoncurrentVersionExpiration []NoncurrentVersionExpirationParameters `json:"noncurrentVersionExpiration,omitempty" tf:"noncurrent_version_expiration"`
+	NoncurrentVersionExpiration []NoncurrentVersionExpirationParameters `json:"noncurrentVersionExpiration,omitempty" tf:"noncurrent_version_expiration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NoncurrentVersionTransition []NoncurrentVersionTransitionParameters `json:"noncurrentVersionTransition,omitempty" tf:"noncurrent_version_transition"`
+	NoncurrentVersionTransition []NoncurrentVersionTransitionParameters `json:"noncurrentVersionTransition,omitempty" tf:"noncurrent_version_transition,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
+	Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Transition []TransitionParameters `json:"transition,omitempty" tf:"transition"`
+	Transition []TransitionParameters `json:"transition,omitempty" tf:"transition,omitempty"`
 }
 
 type LoggingObservation struct {
@@ -260,10 +260,10 @@ type LoggingObservation struct {
 type LoggingParameters struct {
 
 	// +kubebuilder:validation:Required
-	TargetBucket *string `json:"targetBucket" tf:"target_bucket"`
+	TargetBucket *string `json:"targetBucket" tf:"target_bucket,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TargetPrefix *string `json:"targetPrefix,omitempty" tf:"target_prefix"`
+	TargetPrefix *string `json:"targetPrefix,omitempty" tf:"target_prefix,omitempty"`
 }
 
 type NoncurrentVersionExpirationObservation struct {
@@ -272,7 +272,7 @@ type NoncurrentVersionExpirationObservation struct {
 type NoncurrentVersionExpirationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days"`
+	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
 }
 
 type NoncurrentVersionTransitionObservation struct {
@@ -281,10 +281,10 @@ type NoncurrentVersionTransitionObservation struct {
 type NoncurrentVersionTransitionParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days"`
+	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
 
 	// +kubebuilder:validation:Required
-	StorageClass *string `json:"storageClass" tf:"storage_class"`
+	StorageClass *string `json:"storageClass" tf:"storage_class,omitempty"`
 }
 
 type ObjectLockConfigurationObservation struct {
@@ -293,10 +293,10 @@ type ObjectLockConfigurationObservation struct {
 type ObjectLockConfigurationParameters struct {
 
 	// +kubebuilder:validation:Required
-	ObjectLockEnabled *string `json:"objectLockEnabled" tf:"object_lock_enabled"`
+	ObjectLockEnabled *string `json:"objectLockEnabled" tf:"object_lock_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Rule []RuleParameters `json:"rule,omitempty" tf:"rule"`
+	Rule []RuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
 }
 
 type ReplicationConfigurationObservation struct {
@@ -305,10 +305,10 @@ type ReplicationConfigurationObservation struct {
 type ReplicationConfigurationParameters struct {
 
 	// +kubebuilder:validation:Required
-	Role *string `json:"role" tf:"role"`
+	Role *string `json:"role" tf:"role,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Rules []RulesParameters `json:"rules" tf:"rules"`
+	Rules []RulesParameters `json:"rules" tf:"rules,omitempty"`
 }
 
 type RuleObservation struct {
@@ -317,7 +317,7 @@ type RuleObservation struct {
 type RuleParameters struct {
 
 	// +kubebuilder:validation:Required
-	DefaultRetention []DefaultRetentionParameters `json:"defaultRetention" tf:"default_retention"`
+	DefaultRetention []DefaultRetentionParameters `json:"defaultRetention" tf:"default_retention,omitempty"`
 }
 
 type RulesObservation struct {
@@ -326,28 +326,28 @@ type RulesObservation struct {
 type RulesParameters struct {
 
 	// +kubebuilder:validation:Optional
-	DeleteMarkerReplicationStatus *string `json:"deleteMarkerReplicationStatus,omitempty" tf:"delete_marker_replication_status"`
+	DeleteMarkerReplicationStatus *string `json:"deleteMarkerReplicationStatus,omitempty" tf:"delete_marker_replication_status,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Destination []DestinationParameters `json:"destination" tf:"destination"`
+	Destination []DestinationParameters `json:"destination" tf:"destination,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Filter []FilterParameters `json:"filter,omitempty" tf:"filter"`
+	Filter []FilterParameters `json:"filter,omitempty" tf:"filter,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ID *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Prefix *string `json:"prefix,omitempty" tf:"prefix"`
+	Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Priority *int64 `json:"priority,omitempty" tf:"priority"`
+	Priority *int64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SourceSelectionCriteria []SourceSelectionCriteriaParameters `json:"sourceSelectionCriteria,omitempty" tf:"source_selection_criteria"`
+	SourceSelectionCriteria []SourceSelectionCriteriaParameters `json:"sourceSelectionCriteria,omitempty" tf:"source_selection_criteria,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Status *string `json:"status" tf:"status"`
+	Status *string `json:"status" tf:"status,omitempty"`
 }
 
 type ServerSideEncryptionConfigurationObservation struct {
@@ -356,7 +356,7 @@ type ServerSideEncryptionConfigurationObservation struct {
 type ServerSideEncryptionConfigurationParameters struct {
 
 	// +kubebuilder:validation:Required
-	Rule []ServerSideEncryptionConfigurationRuleParameters `json:"rule" tf:"rule"`
+	Rule []ServerSideEncryptionConfigurationRuleParameters `json:"rule" tf:"rule,omitempty"`
 }
 
 type ServerSideEncryptionConfigurationRuleObservation struct {
@@ -365,10 +365,10 @@ type ServerSideEncryptionConfigurationRuleObservation struct {
 type ServerSideEncryptionConfigurationRuleParameters struct {
 
 	// +kubebuilder:validation:Required
-	ApplyServerSideEncryptionByDefault []ApplyServerSideEncryptionByDefaultParameters `json:"applyServerSideEncryptionByDefault" tf:"apply_server_side_encryption_by_default"`
+	ApplyServerSideEncryptionByDefault []ApplyServerSideEncryptionByDefaultParameters `json:"applyServerSideEncryptionByDefault" tf:"apply_server_side_encryption_by_default,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	BucketKeyEnabled *bool `json:"bucketKeyEnabled,omitempty" tf:"bucket_key_enabled"`
+	BucketKeyEnabled *bool `json:"bucketKeyEnabled,omitempty" tf:"bucket_key_enabled,omitempty"`
 }
 
 type SourceSelectionCriteriaObservation struct {
@@ -377,7 +377,7 @@ type SourceSelectionCriteriaObservation struct {
 type SourceSelectionCriteriaParameters struct {
 
 	// +kubebuilder:validation:Optional
-	SseKmsEncryptedObjects []SseKmsEncryptedObjectsParameters `json:"sseKmsEncryptedObjects,omitempty" tf:"sse_kms_encrypted_objects"`
+	SseKmsEncryptedObjects []SseKmsEncryptedObjectsParameters `json:"sseKmsEncryptedObjects,omitempty" tf:"sse_kms_encrypted_objects,omitempty"`
 }
 
 type SseKmsEncryptedObjectsObservation struct {
@@ -386,7 +386,7 @@ type SseKmsEncryptedObjectsObservation struct {
 type SseKmsEncryptedObjectsParameters struct {
 
 	// +kubebuilder:validation:Required
-	Enabled *bool `json:"enabled" tf:"enabled"`
+	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
 }
 
 type TransitionObservation struct {
@@ -395,13 +395,13 @@ type TransitionObservation struct {
 type TransitionParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Date *string `json:"date,omitempty" tf:"date"`
+	Date *string `json:"date,omitempty" tf:"date,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days"`
+	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
 
 	// +kubebuilder:validation:Required
-	StorageClass *string `json:"storageClass" tf:"storage_class"`
+	StorageClass *string `json:"storageClass" tf:"storage_class,omitempty"`
 }
 
 type VersioningObservation struct {
@@ -410,10 +410,10 @@ type VersioningObservation struct {
 type VersioningParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled"`
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MfaDelete *bool `json:"mfaDelete,omitempty" tf:"mfa_delete"`
+	MfaDelete *bool `json:"mfaDelete,omitempty" tf:"mfa_delete,omitempty"`
 }
 
 type WebsiteObservation struct {
@@ -422,16 +422,16 @@ type WebsiteObservation struct {
 type WebsiteParameters struct {
 
 	// +kubebuilder:validation:Optional
-	ErrorDocument *string `json:"errorDocument,omitempty" tf:"error_document"`
+	ErrorDocument *string `json:"errorDocument,omitempty" tf:"error_document,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IndexDocument *string `json:"indexDocument,omitempty" tf:"index_document"`
+	IndexDocument *string `json:"indexDocument,omitempty" tf:"index_document,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RedirectAllRequestsTo *string `json:"redirectAllRequestsTo,omitempty" tf:"redirect_all_requests_to"`
+	RedirectAllRequestsTo *string `json:"redirectAllRequestsTo,omitempty" tf:"redirect_all_requests_to,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RoutingRules *string `json:"routingRules,omitempty" tf:"routing_rules"`
+	RoutingRules *string `json:"routingRules,omitempty" tf:"routing_rules,omitempty"`
 }
 
 // BucketSpec defines the desired state of Bucket
