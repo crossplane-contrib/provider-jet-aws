@@ -41,9 +41,7 @@ func init() {
 		},
 		References: config.References{
 			"s3_import[*].bucket_name": {
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
-				RefFieldName:      "BucketRef",
-				SelectorFieldName: "BucketSelector",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
 			},
 			"vpc_security_group_ids": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup",

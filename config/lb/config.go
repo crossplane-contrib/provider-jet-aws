@@ -1,4 +1,4 @@
-package lbv2
+package lb
 
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
@@ -7,6 +7,7 @@ import (
 func init() {
 
 	config.Store.SetForResource("aws_lb", config.Resource{
+		Kind: "LoadBalancer",
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: true,
 		},
@@ -28,23 +29,32 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_lb_listener", config.Resource{
+		Kind: "LBListener",
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: true,
 		},
 		References: map[string]config.Reference{
 			"load_balancer_arn": {
-				Type: "Lb",
+				Type: "LoadBalancer",
 			},
 			"default_action[*].target_group_arn": {
-				Type: "LbTargetGroup",
+				Type: "LBTargetGroup",
 			},
 			"default_action[*].forward[*].target_group[*].arn": {
-				Type: "LbTargetGroup",
+				Type: "LBTargetGroup",
 			},
 		},
 	})
 
 	config.Store.SetForResource("aws_lb_target_group", config.Resource{
+		// Note(turkenh): Without setting Kind here, we get kind as "TargetGroup"
+		// which sounds better however, generator fails with the following since
+		// it conflicts with lblisters "TargetGroupParameters":
+		//
+		// panic: cannot generate crd: cannot build types for TargetGroup:
+		//  cannot build the types: cannot generate parameters type name of
+		//  TargetGroup: could not generate a unique name for TargetGroupParameters
+		Kind: "LBTargetGroup",
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: true,
 		},
@@ -56,12 +66,13 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_lb_target_group_attachment", config.Resource{
+		Kind: "LBTargetGroupAttachment",
 		ExternalName: config.ExternalName{
 			DisableNameInitializer: true,
 		},
 		References: map[string]config.Reference{
 			"target_group_arn": {
-				Type: "LbTargetGroup",
+				Type: "LBTargetGroup",
 			},
 		},
 	})

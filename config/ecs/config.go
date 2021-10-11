@@ -25,14 +25,10 @@ func init() {
 				Type: "CapacityProvider",
 			},
 			"execute_command_configuration[*].kms_key_id": config.Reference{
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
-				RefFieldName:      "KmsKeyRef",
-				SelectorFieldName: "KmsKeySelector",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
 			},
 			"log_configuration[*].s3_bucket_name": config.Reference{
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
-				RefFieldName:      "BucketRef",
-				SelectorFieldName: "BucketSelector",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
 			},
 		},
 		UseAsync: true,
@@ -54,7 +50,7 @@ func init() {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
-			"network_configuration[*].Subnets": config.Reference{
+			"network_configuration[*].subnets": config.Reference{
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
 			},
 			"network_configuration[*].security_groups": config.Reference{

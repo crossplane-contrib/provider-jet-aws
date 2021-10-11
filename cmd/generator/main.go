@@ -155,8 +155,8 @@ func main() { // nolint:gocyclo
 			groupName = "vpc"
 		case name == "aws_instance":
 			groupName = "ec2"
-		case strings.Contains(name, "aws_lb"):
-			groupName = "lbv2"
+		case name == "aws_lb":
+			groupName = "lb"
 		case strings.Contains(name, "aws_ecrpublic_repository"):
 			groupName = "ecr"
 		}

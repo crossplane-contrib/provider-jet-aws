@@ -57,9 +57,7 @@ func init() {
 		},
 		References: config.References{
 			"parameter_group_name": config.Reference{
-				Type:              "ParameterGroup",
-				RefFieldName:      "ParameterGroupRef",
-				SelectorFieldName: "ParameterGroupSelector",
+				Type: "ParameterGroup",
 			},
 		},
 		UseAsync: true,

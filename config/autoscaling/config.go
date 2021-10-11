@@ -21,7 +21,7 @@ func init() {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet",
 			},
 			"target_group_arns": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1.LbTargetGroup",
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
 			},
 		},
 		UseAsync: true,
@@ -32,12 +32,10 @@ func init() {
 		},
 		References: map[string]config.Reference{
 			"autoscaling_group_name": {
-				Type:              "AutoscalingGroup",
-				RefFieldName:      "AutoscalingGroupRef",
-				SelectorFieldName: "AutoscalingGroupSelector",
+				Type: "AutoscalingGroup",
 			},
 			"alb_target_group_arn": {
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/lbv2/v1alpha1.LbTargetGroup",
+				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
 				Extractor: common.PathARNExtractor,
 			},
 		},

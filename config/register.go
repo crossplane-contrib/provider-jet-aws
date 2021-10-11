@@ -10,7 +10,7 @@ import (
 	_ "github.com/crossplane-contrib/provider-tf-aws/config/elasticache" //nolint:golint
 	_ "github.com/crossplane-contrib/provider-tf-aws/config/iam"         //nolint:golint
 	_ "github.com/crossplane-contrib/provider-tf-aws/config/kms"         //nolint:golint
-	_ "github.com/crossplane-contrib/provider-tf-aws/config/lbv2"        //nolint:golint
+	_ "github.com/crossplane-contrib/provider-tf-aws/config/lb"          //nolint:golint
 	_ "github.com/crossplane-contrib/provider-tf-aws/config/rds"         //nolint:golint
 	_ "github.com/crossplane-contrib/provider-tf-aws/config/s3"          //nolint:golint
 	_ "github.com/crossplane-contrib/provider-tf-aws/config/vpc"         //nolint:golint
