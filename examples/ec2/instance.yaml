@@ -1,0 +1,15 @@
+apiVersion: ec2.aws.tf.crossplane.io/v1alpha1
+kind: Instance
+metadata:
+  name: sample-instance
+spec:
+  forProvider:
+    region: us-west-1
+    ami: ami-005e54dee72cc1d00
+    instanceType: t2.micro
+    networkInterface:
+    - deviceIndex: 0
+      networkInterfaceIdRef:
+        name: sample-ni
+    creditSpecification:
+    - cpuCredits: unlimited

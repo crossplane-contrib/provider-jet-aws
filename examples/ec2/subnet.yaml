@@ -1,0 +1,11 @@
+apiVersion: ec2.aws.tf.crossplane.io/v1alpha1
+kind: Subnet
+metadata:
+  name: sample-subnet1
+spec:
+  forProvider:
+    region: us-west-1
+    availabilityZone: us-west-1a
+    vpcIdRef:
+      name: sample-vpc
+    cidrBlock: 10.0.10.0/16

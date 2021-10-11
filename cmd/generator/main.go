@@ -167,10 +167,10 @@ func main() { // nolint:gocyclo
 		case strings.Contains(name, "aws_security_group") ||
 			strings.Contains(name, "aws_subnet") ||
 			strings.Contains(name, "aws_network") ||
+			strings.Contains(name, "aws_eip") ||
+			strings.Contains(name, "aws_launch_template") ||
 			strings.Contains(name, "aws_route_table_association") ||
 			strings.Contains(name, "aws_route_table"):
-			groupName = "vpc"
-		case name == "aws_instance" || name == "aws_eip" || name == "aws_launch_template":
 			groupName = "ec2"
 		case name == "aws_lb":
 			groupName = "lb"
