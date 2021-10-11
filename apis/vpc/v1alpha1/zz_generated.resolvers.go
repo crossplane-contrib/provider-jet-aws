@@ -24,6 +24,142 @@ import (
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 
+// ResolveReferences of this Endpoint.
+func (mg *Endpoint) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcIDRef,
+		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+	}
+	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+
+	return nil
+}
+
+// ResolveReferences of this IPv4CIDRBlockAssociation.
+func (mg *IPv4CIDRBlockAssociation) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcIDRef,
+		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+	}
+	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+
+	return nil
+}
+
+// ResolveReferences of this PeeringConnection.
+func (mg *PeeringConnection) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PeerVpcID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.PeerVpcIDRef,
+		Selector:     mg.Spec.ForProvider.PeerVpcIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.PeerVpcID")
+	}
+	mg.Spec.ForProvider.PeerVpcID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.PeerVpcIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcIDRef,
+		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+	}
+	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+
+	return nil
+}
+
+// ResolveReferences of this RouteTableAssociation.
+func (mg *RouteTableAssociation) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RouteTableID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.RouteTableIDRef,
+		Selector:     mg.Spec.ForProvider.RouteTableIDSelector,
+		To: reference.To{
+			List:    &RouteTableList{},
+			Managed: &RouteTable{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.RouteTableID")
+	}
+	mg.Spec.ForProvider.RouteTableID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.RouteTableIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SubnetID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.SubnetIDRef,
+		Selector:     mg.Spec.ForProvider.SubnetIDSelector,
+		To: reference.To{
+			List:    &SubnetList{},
+			Managed: &Subnet{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SubnetID")
+	}
+	mg.Spec.ForProvider.SubnetID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.SubnetIDRef = rsp.ResolvedReference
+
+	return nil
+}
+
 // ResolveReferences of this SecurityGroup.
 func (mg *SecurityGroup) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)

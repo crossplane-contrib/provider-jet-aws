@@ -69,10 +69,16 @@ import (
 	lbtargetgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/lbtargetgroup"
 	lbtargetgroupattachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/lbtargetgroupattachment"
 	loadbalancer "github.com/crossplane-contrib/provider-tf-aws/internal/controller/lb/loadbalancer"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	clusterrds "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/cluster"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
 	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
+	endpoint "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/endpoint"
+	ipv4cidrblockassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/ipv4cidrblockassociation"
 	networkinterface "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/networkinterface"
+	peeringconnection "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/peeringconnection"
+	routetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/routetable"
+	routetableassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/routetableassociation"
 	securitygroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygroup"
 	securitygrouprule "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/securitygrouprule"
 	subnet "github.com/crossplane-contrib/provider-tf-aws/internal/controller/vpc/subnet"
@@ -95,6 +101,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		clusterrds.Setup,
 		ec2launchtemplate.Setup,
 		elasticip.Setup,
+		endpoint.Setup,
 		fargateprofile.Setup,
 		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
@@ -102,6 +109,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		identityproviderconfig.Setup,
 		instance.Setup,
 		instanceprofile.Setup,
+		ipv4cidrblockassociation.Setup,
 		key.Setup,
 		lblistener.Setup,
 		lbtargetgroup.Setup,
@@ -110,6 +118,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		networkinterface.Setup,
 		nodegroup.Setup,
 		parametergroup.Setup,
+		peeringconnection.Setup,
 		policy.Setup,
 		policyattachment.Setup,
 		publicrepository.Setup,
@@ -118,6 +127,8 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		role.Setup,
 		rolepolicy.Setup,
 		rolepolicyattachment.Setup,
+		routetable.Setup,
+		routetableassociation.Setup,
 		securitygroup.Setup,
 		securitygrouprule.Setup,
 		service.Setup,
