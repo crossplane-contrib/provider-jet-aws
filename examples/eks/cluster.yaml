@@ -1,0 +1,18 @@
+apiVersion: eks.aws.tf.crossplane.io/v1alpha1
+kind: Cluster
+metadata:
+  name: sample-eks-cluster
+  labels:
+    example: "true"
+spec:
+  forProvider:
+    region: us-west-1
+    roleArnRef:
+      name: sample-eks-cluster
+    vpcConfig:
+      - subnetIdsRefs:
+          - name: sample-subnet1
+          - name: sample-subnet2
+  writeConnectionSecretToRef:
+    name: cluster-conn
+    namespace: default

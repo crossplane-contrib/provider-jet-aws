@@ -6,6 +6,16 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
+const (
+	// SelfPackagePath is the golang path for this package.
+	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/ecr"
+)
+
+// PublicRepositoryExternalName is used to set repository name from external name
+func PublicRepositoryExternalName(base map[string]interface{}, externalName string) {
+	base["repository_name"] = externalName
+}
+
 func init() {
 
 	config.Store.SetForResource("aws_ecr_repository", config.Resource{
@@ -31,7 +41,7 @@ func init() {
 
 	config.Store.SetForResource("aws_ecrpublic_repository", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: common.PathExternalNameAsName,
+			ConfigureFunctionPath: SelfPackagePath + ".PublicRepositoryExternalName",
 			OmittedFields: []string{
 				"repository_name",
 			},

@@ -22,7 +22,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/meta"
 	"github.com/pkg/errors"
 
-	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
+	ecr "github.com/crossplane-contrib/provider-tf-aws/config/ecr"
 	"github.com/crossplane-contrib/terrajet/pkg/resource"
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
@@ -68,7 +68,7 @@ func (tr *PublicRepository) GetParameters() (map[string]interface{}, error) {
 		return nil, err
 	}
 	base := map[string]interface{}{}
-	common.ExternalNameAsName(base, meta.GetExternalName(tr))
+	ecr.PublicRepositoryExternalName(base, meta.GetExternalName(tr))
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
