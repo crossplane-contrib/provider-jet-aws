@@ -27,11 +27,11 @@ import (
 	volume "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ebs/volume"
 	instance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/instance"
 	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
-	clustereks "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
 	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
 	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
+	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
@@ -67,7 +67,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		addon.Setup,
 		bucket.Setup,
 		cluster.Setup,
-		clustereks.Setup,
+		clusterelasticache.Setup,
 		clusterrds.Setup,
 		fargateprofile.Setup,
 		grouppolicy.Setup,

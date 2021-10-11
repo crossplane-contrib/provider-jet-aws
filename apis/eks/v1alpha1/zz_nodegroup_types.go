@@ -26,7 +26,7 @@ import (
 )
 
 type AutoscalingGroupsObservation struct {
-	Name *string `json:"name,omitempty" tf:"name"`
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 }
 
 type AutoscalingGroupsParameters struct {
@@ -38,36 +38,36 @@ type LaunchTemplateObservation struct {
 type LaunchTemplateParameters struct {
 
 	// +kubebuilder:validation:Optional
-	ID *string `json:"id,omitempty" tf:"id"`
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name"`
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Version *string `json:"version" tf:"version"`
+	Version *string `json:"version" tf:"version,omitempty"`
 }
 
 type NodeGroupObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	Resources []ResourcesObservation `json:"resources,omitempty" tf:"resources"`
+	Resources []ResourcesObservation `json:"resources,omitempty" tf:"resources,omitempty"`
 
-	Status *string `json:"status,omitempty" tf:"status"`
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type NodeGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AmiType *string `json:"amiType,omitempty" tf:"ami_type"`
+	AmiType *string `json:"amiType,omitempty" tf:"ami_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	CapacityType *string `json:"capacityType,omitempty" tf:"capacity_type"`
+	CapacityType *string `json:"capacityType,omitempty" tf:"capacity_type,omitempty"`
 
 	// +crossplane:generate:reference:type=Cluster
 	// +kubebuilder:validation:Optional
-	ClusterName *string `json:"clusterName,omitempty" tf:"cluster_name"`
+	ClusterName *string `json:"clusterName,omitempty" tf:"cluster_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ClusterNameRef *v1.Reference `json:"clusterNameRef,omitempty" tf:"-"`
@@ -76,24 +76,24 @@ type NodeGroupParameters struct {
 	ClusterNameSelector *v1.Selector `json:"clusterNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	DiskSize *int64 `json:"diskSize,omitempty" tf:"disk_size"`
+	DiskSize *int64 `json:"diskSize,omitempty" tf:"disk_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ForceUpdateVersion *bool `json:"forceUpdateVersion,omitempty" tf:"force_update_version"`
+	ForceUpdateVersion *bool `json:"forceUpdateVersion,omitempty" tf:"force_update_version,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	InstanceTypes []*string `json:"instanceTypes,omitempty" tf:"instance_types"`
+	InstanceTypes []*string `json:"instanceTypes,omitempty" tf:"instance_types,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Labels map[string]*string `json:"labels,omitempty" tf:"labels"`
+	Labels map[string]*string `json:"labels,omitempty" tf:"labels,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate,omitempty" tf:"launch_template"`
+	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate,omitempty" tf:"launch_template,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.RoleARNExtractor()
 	// +kubebuilder:validation:Optional
-	NodeRoleArn *string `json:"nodeRoleArn,omitempty" tf:"node_role_arn"`
+	NodeRoleArn *string `json:"nodeRoleArn,omitempty" tf:"node_role_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	NodeRoleArnRef *v1.Reference `json:"nodeRoleArnRef,omitempty" tf:"-"`
@@ -104,20 +104,20 @@ type NodeGroupParameters struct {
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ReleaseVersion *string `json:"releaseVersion,omitempty" tf:"release_version"`
+	ReleaseVersion *string `json:"releaseVersion,omitempty" tf:"release_version,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RemoteAccess []RemoteAccessParameters `json:"remoteAccess,omitempty" tf:"remote_access"`
+	RemoteAccess []RemoteAccessParameters `json:"remoteAccess,omitempty" tf:"remote_access,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ScalingConfig []ScalingConfigParameters `json:"scalingConfig" tf:"scaling_config"`
+	ScalingConfig []ScalingConfigParameters `json:"scalingConfig" tf:"scaling_config,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet
 	// +kubebuilder:validation:Optional
-	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids"`
+	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SubnetIdsRefs []v1.Reference `json:"subnetIdsRefs,omitempty" tf:"-"`
@@ -126,13 +126,13 @@ type NodeGroupParameters struct {
 	SubnetIdsSelector *v1.Selector `json:"subnetIdsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Taint []TaintParameters `json:"taint,omitempty" tf:"taint"`
+	Taint []TaintParameters `json:"taint,omitempty" tf:"taint,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Version *string `json:"version,omitempty" tf:"version"`
+	Version *string `json:"version,omitempty" tf:"version,omitempty"`
 }
 
 type RemoteAccessObservation struct {
@@ -141,11 +141,11 @@ type RemoteAccessObservation struct {
 type RemoteAccessParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Ec2SSHKey *string `json:"ec2SshKey,omitempty" tf:"ec2_ssh_key"`
+	Ec2SSHKey *string `json:"ec2SshKey,omitempty" tf:"ec2_ssh_key,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
-	SourceSecurityGroupIds []*string `json:"sourceSecurityGroupIds,omitempty" tf:"source_security_group_ids"`
+	SourceSecurityGroupIds []*string `json:"sourceSecurityGroupIds,omitempty" tf:"source_security_group_ids,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SourceSecurityGroupIdsRefs []v1.Reference `json:"sourceSecurityGroupIdsRefs,omitempty" tf:"-"`
@@ -155,9 +155,9 @@ type RemoteAccessParameters struct {
 }
 
 type ResourcesObservation struct {
-	AutoscalingGroups []AutoscalingGroupsObservation `json:"autoscalingGroups,omitempty" tf:"autoscaling_groups"`
+	AutoscalingGroups []AutoscalingGroupsObservation `json:"autoscalingGroups,omitempty" tf:"autoscaling_groups,omitempty"`
 
-	RemoteAccessSecurityGroupID *string `json:"remoteAccessSecurityGroupId,omitempty" tf:"remote_access_security_group_id"`
+	RemoteAccessSecurityGroupID *string `json:"remoteAccessSecurityGroupId,omitempty" tf:"remote_access_security_group_id,omitempty"`
 }
 
 type ResourcesParameters struct {
@@ -169,13 +169,13 @@ type ScalingConfigObservation struct {
 type ScalingConfigParameters struct {
 
 	// +kubebuilder:validation:Required
-	DesiredSize *int64 `json:"desiredSize" tf:"desired_size"`
+	DesiredSize *int64 `json:"desiredSize" tf:"desired_size,omitempty"`
 
 	// +kubebuilder:validation:Required
-	MaxSize *int64 `json:"maxSize" tf:"max_size"`
+	MaxSize *int64 `json:"maxSize" tf:"max_size,omitempty"`
 
 	// +kubebuilder:validation:Required
-	MinSize *int64 `json:"minSize" tf:"min_size"`
+	MinSize *int64 `json:"minSize" tf:"min_size,omitempty"`
 }
 
 type TaintObservation struct {
@@ -184,13 +184,13 @@ type TaintObservation struct {
 type TaintParameters struct {
 
 	// +kubebuilder:validation:Required
-	Effect *string `json:"effect" tf:"effect"`
+	Effect *string `json:"effect" tf:"effect,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Key *string `json:"key" tf:"key"`
+	Key *string `json:"key" tf:"key,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Value *string `json:"value,omitempty" tf:"value"`
+	Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
 
 // NodeGroupSpec defines the desired state of NodeGroup

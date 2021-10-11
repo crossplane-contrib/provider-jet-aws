@@ -26,46 +26,46 @@ import (
 )
 
 type KeyObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	KeyID *string `json:"keyId,omitempty" tf:"key_id"`
+	KeyID *string `json:"keyId,omitempty" tf:"key_id,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type KeyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	BypassPolicyLockoutSafetyCheck *bool `json:"bypassPolicyLockoutSafetyCheck,omitempty" tf:"bypass_policy_lockout_safety_check"`
+	BypassPolicyLockoutSafetyCheck *bool `json:"bypassPolicyLockoutSafetyCheck,omitempty" tf:"bypass_policy_lockout_safety_check,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	CustomerMasterKeySpec *string `json:"customerMasterKeySpec,omitempty" tf:"customer_master_key_spec"`
+	CustomerMasterKeySpec *string `json:"customerMasterKeySpec,omitempty" tf:"customer_master_key_spec,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DeletionWindowInDays *int64 `json:"deletionWindowInDays,omitempty" tf:"deletion_window_in_days"`
+	DeletionWindowInDays *int64 `json:"deletionWindowInDays,omitempty" tf:"deletion_window_in_days,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description"`
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableKeyRotation *bool `json:"enableKeyRotation,omitempty" tf:"enable_key_rotation"`
+	EnableKeyRotation *bool `json:"enableKeyRotation,omitempty" tf:"enable_key_rotation,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IsEnabled *bool `json:"isEnabled,omitempty" tf:"is_enabled"`
+	IsEnabled *bool `json:"isEnabled,omitempty" tf:"is_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KeyUsage *string `json:"keyUsage,omitempty" tf:"key_usage"`
+	KeyUsage *string `json:"keyUsage,omitempty" tf:"key_usage,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Policy *string `json:"policy,omitempty" tf:"policy"`
+	Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // KeySpec defines the desired state of Key

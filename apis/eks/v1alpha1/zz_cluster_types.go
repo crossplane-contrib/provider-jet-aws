@@ -26,50 +26,50 @@ import (
 )
 
 type CertificateAuthorityObservation struct {
-	Data *string `json:"data,omitempty" tf:"data"`
+	Data *string `json:"data,omitempty" tf:"data,omitempty"`
 }
 
 type CertificateAuthorityParameters struct {
 }
 
 type ClusterObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	CertificateAuthority []CertificateAuthorityObservation `json:"certificateAuthority,omitempty" tf:"certificate_authority"`
+	CertificateAuthority []CertificateAuthorityObservation `json:"certificateAuthority,omitempty" tf:"certificate_authority,omitempty"`
 
-	CreatedAt *string `json:"createdAt,omitempty" tf:"created_at"`
+	CreatedAt *string `json:"createdAt,omitempty" tf:"created_at,omitempty"`
 
-	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint"`
+	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint,omitempty"`
 
-	Identity []IdentityObservation `json:"identity,omitempty" tf:"identity"`
+	Identity []IdentityObservation `json:"identity,omitempty" tf:"identity,omitempty"`
 
-	PlatformVersion *string `json:"platformVersion,omitempty" tf:"platform_version"`
+	PlatformVersion *string `json:"platformVersion,omitempty" tf:"platform_version,omitempty"`
 
-	Status *string `json:"status,omitempty" tf:"status"`
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
-	EnabledClusterLogTypes []*string `json:"enabledClusterLogTypes,omitempty" tf:"enabled_cluster_log_types"`
+	EnabledClusterLogTypes []*string `json:"enabledClusterLogTypes,omitempty" tf:"enabled_cluster_log_types,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EncryptionConfig []EncryptionConfigParameters `json:"encryptionConfig,omitempty" tf:"encryption_config"`
+	EncryptionConfig []EncryptionConfigParameters `json:"encryptionConfig,omitempty" tf:"encryption_config,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KubernetesNetworkConfig []KubernetesNetworkConfigParameters `json:"kubernetesNetworkConfig,omitempty" tf:"kubernetes_network_config"`
+	KubernetesNetworkConfig []KubernetesNetworkConfigParameters `json:"kubernetesNetworkConfig,omitempty" tf:"kubernetes_network_config,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/iam.RoleARNExtractor()
 	// +kubebuilder:validation:Optional
-	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn"`
+	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	RoleArnRef *v1.Reference `json:"roleArnRef,omitempty" tf:"-"`
@@ -78,13 +78,13 @@ type ClusterParameters struct {
 	RoleArnSelector *v1.Selector `json:"roleArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Version *string `json:"version,omitempty" tf:"version"`
+	Version *string `json:"version,omitempty" tf:"version,omitempty"`
 
 	// +kubebuilder:validation:Required
-	VpcConfig []VpcConfigParameters `json:"vpcConfig" tf:"vpc_config"`
+	VpcConfig []VpcConfigParameters `json:"vpcConfig" tf:"vpc_config,omitempty"`
 }
 
 type EncryptionConfigObservation struct {
@@ -93,14 +93,14 @@ type EncryptionConfigObservation struct {
 type EncryptionConfigParameters struct {
 
 	// +kubebuilder:validation:Required
-	Provider []ProviderParameters `json:"provider" tf:"provider"`
+	Provider []ProviderParameters `json:"provider" tf:"provider,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Resources []*string `json:"resources" tf:"resources"`
+	Resources []*string `json:"resources" tf:"resources,omitempty"`
 }
 
 type IdentityObservation struct {
-	Oidc []OidcObservation `json:"oidc,omitempty" tf:"oidc"`
+	Oidc []OidcObservation `json:"oidc,omitempty" tf:"oidc,omitempty"`
 }
 
 type IdentityParameters struct {
@@ -112,11 +112,11 @@ type KubernetesNetworkConfigObservation struct {
 type KubernetesNetworkConfigParameters struct {
 
 	// +kubebuilder:validation:Optional
-	ServiceIPv4Cidr *string `json:"serviceIpv4Cidr,omitempty" tf:"service_ipv4_cidr"`
+	ServiceIPv4Cidr *string `json:"serviceIpv4Cidr,omitempty" tf:"service_ipv4_cidr,omitempty"`
 }
 
 type OidcObservation struct {
-	Issuer *string `json:"issuer,omitempty" tf:"issuer"`
+	Issuer *string `json:"issuer,omitempty" tf:"issuer,omitempty"`
 }
 
 type OidcParameters struct {
@@ -128,29 +128,29 @@ type ProviderObservation struct {
 type ProviderParameters struct {
 
 	// +kubebuilder:validation:Required
-	KeyArn *string `json:"keyArn" tf:"key_arn"`
+	KeyArn *string `json:"keyArn" tf:"key_arn,omitempty"`
 }
 
 type VpcConfigObservation struct {
-	ClusterSecurityGroupID *string `json:"clusterSecurityGroupId,omitempty" tf:"cluster_security_group_id"`
+	ClusterSecurityGroupID *string `json:"clusterSecurityGroupId,omitempty" tf:"cluster_security_group_id,omitempty"`
 
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 }
 
 type VpcConfigParameters struct {
 
 	// +kubebuilder:validation:Optional
-	EndpointPrivateAccess *bool `json:"endpointPrivateAccess,omitempty" tf:"endpoint_private_access"`
+	EndpointPrivateAccess *bool `json:"endpointPrivateAccess,omitempty" tf:"endpoint_private_access,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EndpointPublicAccess *bool `json:"endpointPublicAccess,omitempty" tf:"endpoint_public_access"`
+	EndpointPublicAccess *bool `json:"endpointPublicAccess,omitempty" tf:"endpoint_public_access,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PublicAccessCidrs []*string `json:"publicAccessCidrs,omitempty" tf:"public_access_cidrs"`
+	PublicAccessCidrs []*string `json:"publicAccessCidrs,omitempty" tf:"public_access_cidrs,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
-	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids"`
+	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SecurityGroupIdsRefs []v1.Reference `json:"securityGroupIdsRefs,omitempty" tf:"-"`
@@ -160,7 +160,7 @@ type VpcConfigParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/vpc/v1alpha1.Subnet
 	// +kubebuilder:validation:Optional
-	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids"`
+	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SubnetIdsRefs []v1.Reference `json:"subnetIdsRefs,omitempty" tf:"-"`

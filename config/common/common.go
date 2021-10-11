@@ -16,6 +16,7 @@ limitations under the License.
 
 package common
 
+// ExternalNameAsName is used by the resources whose schema includes a name field.
 func ExternalNameAsName(base map[string]interface{}, externalName string) {
 	base["name"] = externalName
 }

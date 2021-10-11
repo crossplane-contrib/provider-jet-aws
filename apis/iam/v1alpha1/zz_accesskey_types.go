@@ -26,31 +26,31 @@ import (
 )
 
 type AccessKeyObservation struct {
-	CreateDate *string `json:"createDate,omitempty" tf:"create_date"`
+	CreateDate *string `json:"createDate,omitempty" tf:"create_date,omitempty"`
 
-	EncryptedSecret *string `json:"encryptedSecret,omitempty" tf:"encrypted_secret"`
+	EncryptedSecret *string `json:"encryptedSecret,omitempty" tf:"encrypted_secret,omitempty"`
 
-	EncryptedSesSMTPPasswordV4 *string `json:"encryptedSesSmtpPasswordV4,omitempty" tf:"encrypted_ses_smtp_password_v4"`
+	EncryptedSesSMTPPasswordV4 *string `json:"encryptedSesSmtpPasswordV4,omitempty" tf:"encrypted_ses_smtp_password_v4,omitempty"`
 
-	KeyFingerprint *string `json:"keyFingerprint,omitempty" tf:"key_fingerprint"`
+	KeyFingerprint *string `json:"keyFingerprint,omitempty" tf:"key_fingerprint,omitempty"`
 }
 
 type AccessKeyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	PgpKey *string `json:"pgpKey,omitempty" tf:"pgp_key"`
+	PgpKey *string `json:"pgpKey,omitempty" tf:"pgp_key,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Status *string `json:"status,omitempty" tf:"status"`
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
 	// +crossplane:generate:reference:type=User
 	// +kubebuilder:validation:Optional
-	User *string `json:"user,omitempty" tf:"user"`
+	User *string `json:"user,omitempty" tf:"user,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	UserRef *v1.Reference `json:"userRef,omitempty" tf:"-"`

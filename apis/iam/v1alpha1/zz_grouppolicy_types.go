@@ -32,7 +32,7 @@ type GroupPolicyParameters struct {
 
 	// +crossplane:generate:reference:type=IAMGroup
 	// +kubebuilder:validation:Optional
-	Group *string `json:"group,omitempty" tf:"group"`
+	Group *string `json:"group,omitempty" tf:"group,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	GroupRef *v1.Reference `json:"groupRef,omitempty" tf:"-"`
@@ -41,12 +41,12 @@ type GroupPolicyParameters struct {
 	GroupSelector *v1.Selector `json:"groupSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
-	Policy *string `json:"policy" tf:"policy"`
+	Policy *string `json:"policy" tf:"policy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 }
 
 // GroupPolicySpec defines the desired state of GroupPolicy

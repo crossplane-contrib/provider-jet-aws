@@ -31,22 +31,22 @@ type UserPolicyObservation struct {
 type UserPolicyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name"`
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
+	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Policy *string `json:"policy" tf:"policy"`
+	Policy *string `json:"policy" tf:"policy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +crossplane:generate:reference:type=User
 	// +kubebuilder:validation:Optional
-	User *string `json:"user,omitempty" tf:"user"`
+	User *string `json:"user,omitempty" tf:"user,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	UserRef *v1.Reference `json:"userRef,omitempty" tf:"-"`

@@ -17,12 +17,14 @@ limitations under the License.
 package iam
 
 import (
-	"github.com/crossplane-contrib/terrajet/pkg/config"
 	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
 	"github.com/crossplane/crossplane-runtime/pkg/reference"
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
+
+	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
+// Package path constants.
 const (
 	CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
 	SelfPkgPath   = "github.com/crossplane-contrib/provider-tf-aws/config/iam"

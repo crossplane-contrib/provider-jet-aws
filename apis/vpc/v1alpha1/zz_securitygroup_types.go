@@ -31,31 +31,31 @@ type EgressObservation struct {
 type EgressParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks"`
+	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description"`
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Required
-	FromPort *int64 `json:"fromPort" tf:"from_port"`
+	FromPort *int64 `json:"fromPort" tf:"from_port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
+	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
+	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Protocol *string `json:"protocol" tf:"protocol"`
+	Protocol *string `json:"protocol" tf:"protocol,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups"`
+	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Self *bool `json:"self,omitempty" tf:"self"`
+	Self *bool `json:"self,omitempty" tf:"self,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ToPort *int64 `json:"toPort" tf:"to_port"`
+	ToPort *int64 `json:"toPort" tf:"to_port,omitempty"`
 }
 
 type IngressObservation struct {
@@ -64,72 +64,72 @@ type IngressObservation struct {
 type IngressParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks"`
+	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description"`
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Required
-	FromPort *int64 `json:"fromPort" tf:"from_port"`
+	FromPort *int64 `json:"fromPort" tf:"from_port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
+	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
+	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Protocol *string `json:"protocol" tf:"protocol"`
+	Protocol *string `json:"protocol" tf:"protocol,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups"`
+	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Self *bool `json:"self,omitempty" tf:"self"`
+	Self *bool `json:"self,omitempty" tf:"self,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ToPort *int64 `json:"toPort" tf:"to_port"`
+	ToPort *int64 `json:"toPort" tf:"to_port,omitempty"`
 }
 
 type SecurityGroupObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id"`
+	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type SecurityGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description"`
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Egress []EgressParameters `json:"egress,omitempty" tf:"egress"`
+	Egress []EgressParameters `json:"egress,omitempty" tf:"egress,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Ingress []IngressParameters `json:"ingress,omitempty" tf:"ingress"`
+	Ingress []IngressParameters `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name"`
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix"`
+	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RevokeRulesOnDelete *bool `json:"revokeRulesOnDelete,omitempty" tf:"revoke_rules_on_delete"`
+	RevokeRulesOnDelete *bool `json:"revokeRulesOnDelete,omitempty" tf:"revoke_rules_on_delete,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id"`
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	VpcIDRef *v1.Reference `json:"vpcIDRef,omitempty" tf:"-"`

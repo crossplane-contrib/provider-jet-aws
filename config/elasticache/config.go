@@ -20,15 +20,19 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
+// Package path constants.
 const (
 	CommonPkgPath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
 	SelfPkgPath   = "github.com/crossplane-contrib/provider-tf-aws/config/elasticache"
 )
 
+// ClusterExternalNameConfigure configures name of the cluster via external name.
 func ClusterExternalNameConfigure(base map[string]interface{}, name string) {
 	base["cluster_id"] = name
 }
 
+// ReplicationGroupExternalNameConfigure configures name of the replication group
+// via external name.
 func ReplicationGroupExternalNameConfigure(base map[string]interface{}, name string) {
 	base["replication_group_id"] = name
 }

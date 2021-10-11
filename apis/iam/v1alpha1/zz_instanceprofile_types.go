@@ -26,28 +26,28 @@ import (
 )
 
 type InstanceProfileObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	CreateDate *string `json:"createDate,omitempty" tf:"create_date"`
+	CreateDate *string `json:"createDate,omitempty" tf:"create_date,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 
-	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id"`
+	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id,omitempty"`
 }
 
 type InstanceProfileParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Path *string `json:"path,omitempty" tf:"path"`
+	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +crossplane:generate:reference:type=Role
 	// +kubebuilder:validation:Optional
-	Role *string `json:"role,omitempty" tf:"role"`
+	Role *string `json:"role,omitempty" tf:"role,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	RoleRef *v1.Reference `json:"roleRef,omitempty" tf:"-"`
@@ -56,7 +56,7 @@ type InstanceProfileParameters struct {
 	RoleSelector *v1.Selector `json:"roleSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // InstanceProfileSpec defines the desired state of InstanceProfile

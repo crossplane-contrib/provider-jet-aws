@@ -26,57 +26,57 @@ import (
 )
 
 type VPCObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	DefaultNetworkACLID *string `json:"defaultNetworkAclId,omitempty" tf:"default_network_acl_id"`
+	DefaultNetworkACLID *string `json:"defaultNetworkAclId,omitempty" tf:"default_network_acl_id,omitempty"`
 
-	DefaultRouteTableID *string `json:"defaultRouteTableId,omitempty" tf:"default_route_table_id"`
+	DefaultRouteTableID *string `json:"defaultRouteTableId,omitempty" tf:"default_route_table_id,omitempty"`
 
-	DefaultSecurityGroupID *string `json:"defaultSecurityGroupId,omitempty" tf:"default_security_group_id"`
+	DefaultSecurityGroupID *string `json:"defaultSecurityGroupId,omitempty" tf:"default_security_group_id,omitempty"`
 
-	DhcpOptionsID *string `json:"dhcpOptionsId,omitempty" tf:"dhcp_options_id"`
+	DhcpOptionsID *string `json:"dhcpOptionsId,omitempty" tf:"dhcp_options_id,omitempty"`
 
-	IPv6AssociationID *string `json:"ipv6AssociationId,omitempty" tf:"ipv6_association_id"`
+	IPv6AssociationID *string `json:"ipv6AssociationId,omitempty" tf:"ipv6_association_id,omitempty"`
 
-	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block"`
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block,omitempty"`
 
-	MainRouteTableID *string `json:"mainRouteTableId,omitempty" tf:"main_route_table_id"`
+	MainRouteTableID *string `json:"mainRouteTableId,omitempty" tf:"main_route_table_id,omitempty"`
 
-	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id"`
+	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
 type VPCParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AssignGeneratedIPv6CidrBlock *bool `json:"assignGeneratedIpv6CidrBlock,omitempty" tf:"assign_generated_ipv6_cidr_block"`
+	AssignGeneratedIPv6CidrBlock *bool `json:"assignGeneratedIpv6CidrBlock,omitempty" tf:"assign_generated_ipv6_cidr_block,omitempty"`
 
 	// +kubebuilder:validation:Required
-	CidrBlock *string `json:"cidrBlock" tf:"cidr_block"`
+	CidrBlock *string `json:"cidrBlock" tf:"cidr_block,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableClassiclink *bool `json:"enableClassiclink,omitempty" tf:"enable_classiclink"`
+	EnableClassiclink *bool `json:"enableClassiclink,omitempty" tf:"enable_classiclink,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableClassiclinkDNSSupport *bool `json:"enableClassiclinkDnsSupport,omitempty" tf:"enable_classiclink_dns_support"`
+	EnableClassiclinkDNSSupport *bool `json:"enableClassiclinkDnsSupport,omitempty" tf:"enable_classiclink_dns_support,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableDNSHostnames *bool `json:"enableDnsHostnames,omitempty" tf:"enable_dns_hostnames"`
+	EnableDNSHostnames *bool `json:"enableDnsHostnames,omitempty" tf:"enable_dns_hostnames,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EnableDNSSupport *bool `json:"enableDnsSupport,omitempty" tf:"enable_dns_support"`
+	EnableDNSSupport *bool `json:"enableDnsSupport,omitempty" tf:"enable_dns_support,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	InstanceTenancy *string `json:"instanceTenancy,omitempty" tf:"instance_tenancy"`
+	InstanceTenancy *string `json:"instanceTenancy,omitempty" tf:"instance_tenancy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // VPCSpec defines the desired state of VPC

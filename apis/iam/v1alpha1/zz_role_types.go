@@ -31,55 +31,55 @@ type InlinePolicyObservation struct {
 type InlinePolicyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name"`
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Policy *string `json:"policy,omitempty" tf:"policy"`
+	Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`
 }
 
 type RoleObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn"`
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	CreateDate *string `json:"createDate,omitempty" tf:"create_date"`
+	CreateDate *string `json:"createDate,omitempty" tf:"create_date,omitempty"`
 
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all"`
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 
-	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id"`
+	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id,omitempty"`
 }
 
 type RoleParameters struct {
 
 	// +kubebuilder:validation:Required
-	AssumeRolePolicy *string `json:"assumeRolePolicy" tf:"assume_role_policy"`
+	AssumeRolePolicy *string `json:"assumeRolePolicy" tf:"assume_role_policy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description"`
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ForceDetachPolicies *bool `json:"forceDetachPolicies,omitempty" tf:"force_detach_policies"`
+	ForceDetachPolicies *bool `json:"forceDetachPolicies,omitempty" tf:"force_detach_policies,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	InlinePolicy []InlinePolicyParameters `json:"inlinePolicy,omitempty" tf:"inline_policy"`
+	InlinePolicy []InlinePolicyParameters `json:"inlinePolicy,omitempty" tf:"inline_policy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ManagedPolicyArns []*string `json:"managedPolicyArns,omitempty" tf:"managed_policy_arns"`
+	ManagedPolicyArns []*string `json:"managedPolicyArns,omitempty" tf:"managed_policy_arns,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaxSessionDuration *int64 `json:"maxSessionDuration,omitempty" tf:"max_session_duration"`
+	MaxSessionDuration *int64 `json:"maxSessionDuration,omitempty" tf:"max_session_duration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Path *string `json:"path,omitempty" tf:"path"`
+	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PermissionsBoundary *string `json:"permissionsBoundary,omitempty" tf:"permissions_boundary"`
+	PermissionsBoundary *string `json:"permissionsBoundary,omitempty" tf:"permissions_boundary,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
+	Region *string `json:"region" tf:"-,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags"`
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // RoleSpec defines the desired state of Role
