@@ -17,6 +17,7 @@ limitations under the License.
 package rds
 
 import (
+	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
@@ -58,6 +59,7 @@ func init() {
 		UseAsync: true,
 	})
 	config.Store.SetForResource("aws_db_instance", config.Resource{
+		Kind: "DBInstance",
 		ExternalName: config.ExternalName{
 			ConfigureFunctionPath: SelfPackagePath + ".DBInstanceExternalNameConfigure",
 			OmittedFields: []string{
@@ -87,7 +89,20 @@ func init() {
 			"vpc_security_group_ids": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
 			},
+			"parameter_group_name": {
+				Type: "DBParameterGroup",
+			},
 		},
 		UseAsync: true,
+	})
+	config.Store.SetForResource("aws_db_parameter_group", config.Resource{
+		Kind: "DBParameterGroup",
+		ExternalName: config.ExternalName{
+			ConfigureFunctionPath: common.PathExternalNameAsName,
+			OmittedFields: []string{
+				"name",
+				"name_prefix",
+			},
+		},
 	})
 }

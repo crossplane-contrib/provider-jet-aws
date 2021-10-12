@@ -24,7 +24,8 @@ spec:
     skipFinalSnapshot: true
     storageEncrypted: false
     storageType: gp2
-    dbParameterGroupName: example-dbparametergroup
+    dbParameterGroupNameRef:
+      name: example-dbparametergroup
   writeConnectionSecretToRef:
     name: example-dbinstance-out
     namespace: default
