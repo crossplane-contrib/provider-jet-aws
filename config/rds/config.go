@@ -30,6 +30,11 @@ func ClusterExternalNameConfigure(base map[string]interface{}, name string) {
 	base["cluster_identifier"] = name
 }
 
+// DBInstanceExternalNameConfigure configures name of db instance.
+func DBInstanceExternalNameConfigure(base map[string]interface{}, name string) {
+	base["identifier"] = name
+}
+
 func init() {
 	config.Store.SetForResource("aws_rds_cluster", config.Resource{
 		ExternalName: config.ExternalName{
@@ -48,6 +53,39 @@ func init() {
 			},
 			"restore_to_point_in_time[*].source_cluster_identifier": {
 				Type: "Cluster",
+			},
+		},
+		UseAsync: true,
+	})
+	config.Store.SetForResource("aws_db_instance", config.Resource{
+		ExternalName: config.ExternalName{
+			ConfigureFunctionPath: SelfPackagePath + ".DBInstanceExternalNameConfigure",
+			OmittedFields: []string{
+				"identifier",
+				"identifier_prefix",
+			},
+		},
+		References: config.References{
+			"restore_to_point_in_time[*].source_db_instance_identifier": {
+				Type: "DBInstance",
+			},
+			"s3_import[*].bucket_name": {
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
+			},
+			"kms_key_id": {
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+			},
+			"performance_insights_kms_key_id": {
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+			},
+			"restore_to_point_in_time[*].source_cluster_identifier": {
+				Type: "Cluster",
+			},
+			"security_group_names": {
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+			},
+			"vpc_security_group_ids": {
+				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
 			},
 		},
 		UseAsync: true,
