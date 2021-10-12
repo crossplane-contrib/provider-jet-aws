@@ -1,10 +1,10 @@
-apiVersion: rds.aws.crossplane.io/v1alpha1
+apiVersion: rds.aws.tf.crossplane.io/v1alpha1
 kind: DBParameterGroup
 metadata:
   name: example-dbparametergroup
 spec:
   forProvider:
-    region: eu-central-1
+    region: us-east-1
     family: postgres12
     description: example
     parameter:
