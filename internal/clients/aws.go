@@ -20,8 +20,8 @@ import (
 
 const (
 	// AWS credentials environment variable names
-	envSessionToken = "AWS_SESSION_TOKEN"
-	envAccessKeyID = "AWS_ACCESS_KEY_ID"
+	envSessionToken    = "AWS_SESSION_TOKEN"
+	envAccessKeyID     = "AWS_ACCESS_KEY_ID"
 	envSecretAccessKey = "AWS_SECRET_ACCESS_KEY"
 
 	fmtEnvVar = "%s=%s"
