@@ -2,6 +2,7 @@ package clients
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
@@ -15,6 +16,15 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
 	"github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
+)
+
+const (
+	// AWS credentials environment variable names
+	envSessionToken = "AWS_SESSION_TOKEN"
+	envAccessKeyID = "AWS_ACCESS_KEY_ID"
+	envSecretAccessKey = "AWS_SECRET_ACCESS_KEY"
+
+	fmtEnvVar = "%s=%s"
 )
 
 // TerraformSetupBuilder returns Terraform setup with provider specific
@@ -73,11 +83,14 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		//   e.g. what about setting an assume_role section: https://registry.terraform.io/providers/hashicorp/aws/latest/docs#argument-reference
 		tfCfg := map[string]interface{}{}
 		tfCfg["region"] = awsConf.Region
-		tfCfg["access_key"] = creds.AccessKeyID
-		tfCfg["secret_key"] = creds.SecretAccessKey
-		tfCfg["token"] = creds.SessionToken
 
 		ps.Configuration = tfCfg
+		// set credentials environment
+		ps.Env = []string{
+			fmt.Sprintf(fmtEnvVar, envAccessKeyID, creds.AccessKeyID),
+			fmt.Sprintf(fmtEnvVar, envSecretAccessKey, creds.SecretAccessKey),
+			fmt.Sprintf(fmtEnvVar, envSessionToken, creds.SessionToken),
+		}
 
 		return ps, err
 	}
