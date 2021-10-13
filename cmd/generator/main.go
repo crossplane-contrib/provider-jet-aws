@@ -81,7 +81,9 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_ecrpublic_repository": {},
 
 	// RDS
-	"aws_rds_cluster": {},
+	"aws_rds_cluster":        {},
+	"aws_db_instance":        {},
+	"aws_db_parameter_group": {},
 
 	// S3
 	"aws_s3_bucket": {},
@@ -176,6 +178,8 @@ func main() { // nolint:gocyclo
 			groupName = "ec2"
 		case name == "aws_lb":
 			groupName = "lb"
+		case strings.Contains(name, "aws_db_"):
+			groupName = "rds"
 		case strings.Contains(name, "aws_ecrpublic_repository"):
 			groupName = "ecr"
 		}

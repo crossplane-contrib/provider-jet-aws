@@ -130,10 +130,10 @@ type ClusterParameters struct {
 	ReplicationSourceIdentifier *string `json:"replicationSourceIdentifier,omitempty" tf:"replication_source_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RestoreToPointInTime []RestoreToPointInTimeParameters `json:"restoreToPointInTime,omitempty" tf:"restore_to_point_in_time,omitempty"`
+	RestoreToPointInTime []ClusterRestoreToPointInTimeParameters `json:"restoreToPointInTime,omitempty" tf:"restore_to_point_in_time,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	S3Import []S3ImportParameters `json:"s3Import,omitempty" tf:"s3_import,omitempty"`
+	S3Import []ClusterS3ImportParameters `json:"s3Import,omitempty" tf:"s3_import,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ScalingConfiguration []ScalingConfigurationParameters `json:"scalingConfiguration,omitempty" tf:"scaling_configuration,omitempty"`
@@ -164,10 +164,10 @@ type ClusterParameters struct {
 	VpcSecurityGroupIdsSelector *v1.Selector `json:"vpcSecurityGroupIdsSelector,omitempty" tf:"-"`
 }
 
-type RestoreToPointInTimeObservation struct {
+type ClusterRestoreToPointInTimeObservation struct {
 }
 
-type RestoreToPointInTimeParameters struct {
+type ClusterRestoreToPointInTimeParameters struct {
 
 	// +kubebuilder:validation:Optional
 	RestoreToTime *string `json:"restoreToTime,omitempty" tf:"restore_to_time,omitempty"`
@@ -189,10 +189,10 @@ type RestoreToPointInTimeParameters struct {
 	UseLatestRestorableTime *bool `json:"useLatestRestorableTime,omitempty" tf:"use_latest_restorable_time,omitempty"`
 }
 
-type S3ImportObservation struct {
+type ClusterS3ImportObservation struct {
 }
 
-type S3ImportParameters struct {
+type ClusterS3ImportParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket
 	// +kubebuilder:validation:Optional
