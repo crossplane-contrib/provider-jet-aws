@@ -10,7 +10,7 @@ generation tools and exposes XRM-conformant managed resources for
 Install the provider by using the following command after changing the image tag
 to the [latest release](https://github.com/crossplane-contrib/provider-tf-aws/releases):
 ```
-kubectl crossplane install provider crossplane/provider-tf-aws:v0.2.0-alpha.1
+kubectl crossplane install provider crossplane/provider-tf-aws:v0.2.0
 ```
 
 You can see the API reference [here](https://doc.crds.dev/github.com/crossplane-contrib/provider-tf-aws).
