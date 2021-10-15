@@ -237,7 +237,7 @@ func main() { // nolint:gocyclo
 			if err = crdGen.Generate(rc, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate crd"))
 			}
-			if err = tfGen.Generate(rc); err != nil {
+			if err = tfGen.Generate(rc, resource); err != nil {
 				panic(errors.Wrap(err, "cannot generate terraformed"))
 			}
 			ctrlPkgPath, err := ctrlGen.Generate(rc, versionGen.Package().Path())
