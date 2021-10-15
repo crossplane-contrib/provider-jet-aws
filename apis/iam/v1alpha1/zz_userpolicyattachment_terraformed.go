@@ -90,3 +90,8 @@ func (tr *UserPolicyAttachment) LateInitialize(attrs []byte) (bool, error) {
 	li := resource.NewGenericLateInitializer(opts...)
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *UserPolicyAttachment) GetTerraformSchemaVersion() int {
+	return 0
+}
