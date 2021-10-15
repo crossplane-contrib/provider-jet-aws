@@ -1,0 +1,12 @@
+apiVersion: ecr.aws.tf.crossplane.io/v1alpha1
+kind: Repository
+metadata:
+  name: sample-repository
+spec:
+  forProvider:
+    region: us-east-1
+    imageScanningConfiguration:
+      - scanOnPush: true
+    imageTagMutability: "IMMUTABLE"
+    tags:
+      key1: value1
