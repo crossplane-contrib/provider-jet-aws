@@ -90,3 +90,8 @@ func (tr *TransitGatewayRouteTableAssociation) LateInitialize(attrs []byte) (boo
 	li := resource.NewGenericLateInitializer(opts...)
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
 }
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *TransitGatewayRouteTableAssociation) GetTerraformSchemaVersion() int {
+	return 0
+}
