@@ -42,11 +42,6 @@ type GroupPolicyParameters struct {
 
 	// +kubebuilder:validation:Required
 	Policy *string `json:"policy" tf:"policy,omitempty"`
-
-	// Region is the region you'd like your resource to be created in.
-	// +terrajet:crd:field:TFTag=-
-	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
 }
 
 // GroupPolicySpec defines the desired state of GroupPolicy

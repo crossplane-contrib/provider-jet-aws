@@ -68,10 +68,6 @@ spec:
                     type: string
                   policy:
                     type: string
-                  region:
-                    description: Region is the region you'd like your resource to
-                      be created in.
-                    type: string
                   user:
                     type: string
                   userRef:
@@ -99,7 +95,6 @@ spec:
                     type: object
                 required:
                 - policy
-                - region
                 type: object
               providerConfigRef:
                 default:

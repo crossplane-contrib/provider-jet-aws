@@ -64,10 +64,6 @@ spec:
                 properties:
                   pgpKey:
                     type: string
-                  region:
-                    description: Region is the region you'd like your resource to
-                      be created in.
-                    type: string
                   status:
                     type: string
                   user:
@@ -95,8 +91,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                required:
-                - region
                 type: object
               providerConfigRef:
                 default:
