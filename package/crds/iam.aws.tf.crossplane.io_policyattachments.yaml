@@ -118,10 +118,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  region:
-                    description: Region is the region you'd like your resource to
-                      be created in.
-                    type: string
                   roles:
                     items:
                       type: string
@@ -182,7 +178,6 @@ spec:
                     type: object
                 required:
                 - name
-                - region
                 type: object
               providerConfigRef:
                 default:
