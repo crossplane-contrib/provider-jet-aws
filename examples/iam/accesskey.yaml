@@ -4,7 +4,6 @@ metadata:
   name: sample-access-key
 spec:
   forProvider:
-    region: ""
     userRef:
       name: sample-user
   writeConnectionSecretToRef:

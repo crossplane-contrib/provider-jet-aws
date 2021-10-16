@@ -92,10 +92,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  region:
-                    description: Region is the region you'd like your resource to
-                      be created in.
-                    type: string
                   user:
                     type: string
                   userRef:
@@ -121,8 +117,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                required:
-                - region
                 type: object
               providerConfigRef:
                 default:

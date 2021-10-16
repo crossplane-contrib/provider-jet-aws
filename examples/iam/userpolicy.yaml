@@ -4,7 +4,6 @@ metadata:
   name: sample-user-policy
 spec:
   forProvider:
-    region: ""
     userRef:
       name: sample-user
     policy: |

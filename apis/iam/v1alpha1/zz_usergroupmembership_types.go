@@ -40,11 +40,6 @@ type UserGroupMembershipParameters struct {
 	// +kubebuilder:validation:Optional
 	GroupsSelector *v1.Selector `json:"groupsSelector,omitempty" tf:"-"`
 
-	// Region is the region you'd like your resource to be created in.
-	// +terrajet:crd:field:TFTag=-
-	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
-
 	// +crossplane:generate:reference:type=User
 	// +kubebuilder:validation:Optional
 	User *string `json:"user,omitempty" tf:"user,omitempty"`

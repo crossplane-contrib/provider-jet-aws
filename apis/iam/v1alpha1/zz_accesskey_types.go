@@ -40,11 +40,6 @@ type AccessKeyParameters struct {
 	// +kubebuilder:validation:Optional
 	PgpKey *string `json:"pgpKey,omitempty" tf:"pgp_key,omitempty"`
 
-	// Region is the region you'd like your resource to be created in.
-	// +terrajet:crd:field:TFTag=-
-	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
-
 	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 

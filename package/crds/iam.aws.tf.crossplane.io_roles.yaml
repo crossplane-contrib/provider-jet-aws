@@ -88,17 +88,12 @@ spec:
                     type: string
                   permissionsBoundary:
                     type: string
-                  region:
-                    description: Region is the region you'd like your resource to
-                      be created in.
-                    type: string
                   tags:
                     additionalProperties:
                       type: string
                     type: object
                 required:
                 - assumeRolePolicy
-                - region
                 type: object
               providerConfigRef:
                 default:

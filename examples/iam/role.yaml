@@ -4,7 +4,6 @@ metadata:
   name: sample-eks-cluster
 spec:
   forProvider:
-    region: ""
     assumeRolePolicy: |
       {
         "Version": "2012-10-17",

@@ -221,7 +221,9 @@ func main() { // nolint:gocyclo
 			// We don't want Aws prefix in all kinds.
 			kind := strcase.ToCamel(strings.TrimPrefix(strings.TrimPrefix(name, "aws_"), group))
 			resource := resources[name]
-			resource.Schema["region"] = regionSchema
+			if group != "iam" {
+				resource.Schema["region"] = regionSchema
+			}
 			// tags_all is used only in tfstate to accumulate provider-wide
 			// default tags in TF, which is not something we support. So, we don't
 			// need it as a parameter while "tags" is already in place.
