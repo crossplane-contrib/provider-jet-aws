@@ -64,15 +64,10 @@ spec:
                 properties:
                   policy:
                     type: string
-                  region:
-                    description: Region is the region you'd like your resource to
-                      be created in.
-                    type: string
                   role:
                     type: string
                 required:
                 - policy
-                - region
                 - role
                 type: object
               providerConfigRef:

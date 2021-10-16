@@ -101,5 +101,11 @@ func getRegion(obj runtime.Object) (string, error) {
 	if err != nil {
 		return "", errors.Wrap(err, "cannot convert to unstructured")
 	}
-	return fieldpath.Pave(fromMap).GetString("spec.forProvider.region")
+	r, err := fieldpath.Pave(fromMap).GetString("spec.forProvider.region")
+	if fieldpath.IsNotFound(err) {
+		// Region is not required for all resources, e.g. resource in "iam"
+		// group.
+		return "", nil
+	}
+	return r, err
 }
