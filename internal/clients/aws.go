@@ -83,6 +83,14 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		//   e.g. what about setting an assume_role section: https://registry.terraform.io/providers/hashicorp/aws/latest/docs#argument-reference
 		tfCfg := map[string]interface{}{}
 		tfCfg["region"] = awsConf.Region
+		if awsConf.Region == "" {
+			// Some resources, like iam group, do not have a notion of region
+			// hence we have no region in their schema. However, terraform still
+			// attempts validating region in provider config and does not like
+			// both empty string or not setting it at all. We need to skip
+			// region validation in this case.
+			tfCfg["skip_region_validation"] = true
+		}
 
 		ps.Configuration = tfCfg
 		// set credentials environment
