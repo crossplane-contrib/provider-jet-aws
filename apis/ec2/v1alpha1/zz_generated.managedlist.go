@@ -145,6 +145,15 @@ func (l *TransitGatewayRouteTableList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this TransitGatewayRouteTablePropagationList.
+func (l *TransitGatewayRouteTablePropagationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this TransitGatewayVpcAttachmentAccepterList.
 func (l *TransitGatewayVpcAttachmentAccepterList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))

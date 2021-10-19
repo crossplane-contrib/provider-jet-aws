@@ -647,6 +647,48 @@ func (mg *TransitGatewayRouteTableAssociation) ResolveReferences(ctx context.Con
 	return nil
 }
 
+// ResolveReferences of this TransitGatewayRouteTablePropagation.
+func (mg *TransitGatewayRouteTablePropagation) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.TransitGatewayAttachmentID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.TransitGatewayAttachmentIDRef,
+		Selector:     mg.Spec.ForProvider.TransitGatewayAttachmentIDSelector,
+		To: reference.To{
+			List:    &TransitGatewayVpcAttachmentList{},
+			Managed: &TransitGatewayVpcAttachment{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.TransitGatewayAttachmentID")
+	}
+	mg.Spec.ForProvider.TransitGatewayAttachmentID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.TransitGatewayAttachmentIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.TransitGatewayRouteTableID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.TransitGatewayRouteTableIDRef,
+		Selector:     mg.Spec.ForProvider.TransitGatewayRouteTableIDSelector,
+		To: reference.To{
+			List:    &TransitGatewayRouteTableList{},
+			Managed: &TransitGatewayRouteTable{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.TransitGatewayRouteTableID")
+	}
+	mg.Spec.ForProvider.TransitGatewayRouteTableID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.TransitGatewayRouteTableIDRef = rsp.ResolvedReference
+
+	return nil
+}
+
 // ResolveReferences of this TransitGatewayVpcAttachment.
 func (mg *TransitGatewayVpcAttachment) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)

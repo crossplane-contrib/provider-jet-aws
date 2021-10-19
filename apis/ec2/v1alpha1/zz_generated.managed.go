@@ -803,6 +803,62 @@ func (mg *TransitGatewayRouteTableAssociation) SetWriteConnectionSecretToReferen
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this TransitGatewayRouteTablePropagation.
+func (mg *TransitGatewayRouteTablePropagation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this TransitGatewayRouteTablePropagation.
+func (mg *TransitGatewayRouteTablePropagation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this TransitGatewayRouteTablePropagation.
+func (mg *TransitGatewayRouteTablePropagation) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this TransitGatewayRouteTablePropagation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *TransitGatewayRouteTablePropagation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this TransitGatewayRouteTablePropagation.
+func (mg *TransitGatewayRouteTablePropagation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this TransitGatewayRouteTablePropagation.
+func (mg *TransitGatewayRouteTablePropagation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this TransitGatewayRouteTablePropagation.
+func (mg *TransitGatewayRouteTablePropagation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this TransitGatewayRouteTablePropagation.
+func (mg *TransitGatewayRouteTablePropagation) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this TransitGatewayRouteTablePropagation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *TransitGatewayRouteTablePropagation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this TransitGatewayRouteTablePropagation.
+func (mg *TransitGatewayRouteTablePropagation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this TransitGatewayVpcAttachment.
 func (mg *TransitGatewayVpcAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
