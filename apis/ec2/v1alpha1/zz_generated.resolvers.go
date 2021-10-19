@@ -406,6 +406,112 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	return nil
 }
 
+// ResolveReferences of this Route.
+func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.InstanceID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.InstanceIDRef,
+		Selector:     mg.Spec.ForProvider.InstanceIDSelector,
+		To: reference.To{
+			List:    &InstanceList{},
+			Managed: &Instance{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.InstanceID")
+	}
+	mg.Spec.ForProvider.InstanceID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.InstanceIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.NetworkInterfaceID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.NetworkInterfaceIDRef,
+		Selector:     mg.Spec.ForProvider.NetworkInterfaceIDSelector,
+		To: reference.To{
+			List:    &EC2NetworkInterfaceList{},
+			Managed: &EC2NetworkInterface{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.NetworkInterfaceID")
+	}
+	mg.Spec.ForProvider.NetworkInterfaceID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.NetworkInterfaceIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RouteTableID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.RouteTableIDRef,
+		Selector:     mg.Spec.ForProvider.RouteTableIDSelector,
+		To: reference.To{
+			List:    &RouteTableList{},
+			Managed: &RouteTable{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.RouteTableID")
+	}
+	mg.Spec.ForProvider.RouteTableID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.RouteTableIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.TransitGatewayID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.TransitGatewayIDRef,
+		Selector:     mg.Spec.ForProvider.TransitGatewayIDSelector,
+		To: reference.To{
+			List:    &TransitGatewayList{},
+			Managed: &TransitGateway{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.TransitGatewayID")
+	}
+	mg.Spec.ForProvider.TransitGatewayID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.TransitGatewayIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcEndpointID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcEndpointIDRef,
+		Selector:     mg.Spec.ForProvider.VpcEndpointIDSelector,
+		To: reference.To{
+			List:    &VpcEndpointList{},
+			Managed: &VpcEndpoint{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcEndpointID")
+	}
+	mg.Spec.ForProvider.VpcEndpointID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcEndpointIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcPeeringConnectionID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcPeeringConnectionIDRef,
+		Selector:     mg.Spec.ForProvider.VpcPeeringConnectionIDSelector,
+		To: reference.To{
+			List:    &VpcPeeringConnectionList{},
+			Managed: &VpcPeeringConnection{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VpcPeeringConnectionID")
+	}
+	mg.Spec.ForProvider.VpcPeeringConnectionID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcPeeringConnectionIDRef = rsp.ResolvedReference
+
+	return nil
+}
+
 // ResolveReferences of this RouteTable.
 func (mg *RouteTable) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)

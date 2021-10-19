@@ -32,6 +32,7 @@ import (
 	elasticip "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/elasticip"
 	instance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/instance"
 	ipv4cidrblockassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ipv4cidrblockassociation"
+	route "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/route"
 	routetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/routetable"
 	routetableassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/routetableassociation"
 	securitygroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/securitygroup"
@@ -50,7 +51,7 @@ import (
 	publicrepository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/publicrepository"
 	repository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/repository"
 	capacityprovider "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/capacityprovider"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
+	clusterecs "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
 	service "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/service"
 	taskdefinition "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/taskdefinition"
 	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
@@ -58,7 +59,7 @@ import (
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
 	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
 	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
-	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
@@ -98,8 +99,8 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		bucket.Setup,
 		capacityprovider.Setup,
 		cluster.Setup,
+		clusterecs.Setup,
 		clustereks.Setup,
-		clusterelasticache.Setup,
 		clusterrds.Setup,
 		dbinstance.Setup,
 		dbparametergroup.Setup,
@@ -129,6 +130,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		role.Setup,
 		rolepolicy.Setup,
 		rolepolicyattachment.Setup,
+		route.Setup,
 		routetable.Setup,
 		routetableassociation.Setup,
 		securitygroup.Setup,
