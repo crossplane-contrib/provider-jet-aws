@@ -303,16 +303,19 @@ func init() {
 			DisableNameInitializer: true,
 		},
 		References: map[string]config.Reference{
-			"vpc_peering_connection_id": {
-				Type: "PeeringConnection",
+			"vpc_id": {
+				Type: "VPC",
 			},
-			"vpc_endpoint_id": {
-				Type: "Endpoint",
+			"route[*].vpc_peering_connection_id": {
+				Type: "VpcPeeringConnection",
 			},
-			"network_interface_id": {
+			"route[*].vpc_endpoint_id": {
+				Type: "VpcEndpoint",
+			},
+			"route[*].network_interface_id": {
 				Type: "EC2NetworkInterface",
 			},
-			"instance_id": {
+			"route[*].instance_id": {
 				Type: "Instance",
 			},
 		},

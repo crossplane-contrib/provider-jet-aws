@@ -48,8 +48,15 @@ type RouteParameters struct {
 	// +kubebuilder:validation:Optional
 	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block,omitempty"`
 
+	// +crossplane:generate:reference:type=Instance
 	// +kubebuilder:validation:Optional
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	InstanceIDRef *v1.Reference `json:"instanceIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	InstanceIDSelector *v1.Selector `json:"instanceIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	LocalGatewayID *string `json:"localGatewayId,omitempty" tf:"local_gateway_id,omitempty"`
@@ -57,17 +64,38 @@ type RouteParameters struct {
 	// +kubebuilder:validation:Optional
 	NatGatewayID *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id,omitempty"`
 
+	// +crossplane:generate:reference:type=EC2NetworkInterface
 	// +kubebuilder:validation:Optional
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	NetworkInterfaceIDRef *v1.Reference `json:"networkInterfaceIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	NetworkInterfaceIDSelector *v1.Selector `json:"networkInterfaceIdSelector,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
 	TransitGatewayID *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id,omitempty"`
 
+	// +crossplane:generate:reference:type=VpcEndpoint
 	// +kubebuilder:validation:Optional
 	VpcEndpointID *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	VpcEndpointIDRef *v1.Reference `json:"vpcEndpointIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	VpcEndpointIDSelector *v1.Selector `json:"vpcEndpointIdSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=VpcPeeringConnection
+	// +kubebuilder:validation:Optional
 	VpcPeeringConnectionID *string `json:"vpcPeeringConnectionId,omitempty" tf:"vpc_peering_connection_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	VpcPeeringConnectionIDRef *v1.Reference `json:"vpcPeeringConnectionIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	VpcPeeringConnectionIDSelector *v1.Selector `json:"vpcPeeringConnectionIdSelector,omitempty" tf:"-"`
 }
 
 type RouteTableObservation struct {
@@ -94,8 +122,15 @@ type RouteTableParameters struct {
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// +kubebuilder:validation:Required
-	VpcID *string `json:"vpcId" tf:"vpc_id,omitempty"`
+	// +crossplane:generate:reference:type=VPC
+	// +kubebuilder:validation:Optional
+	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	VpcIDRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
 
 // RouteTableSpec defines the desired state of RouteTable

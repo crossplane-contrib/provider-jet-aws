@@ -50,7 +50,7 @@ import (
 	publicrepository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/publicrepository"
 	repository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/repository"
 	capacityprovider "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/capacityprovider"
-	clusterecs "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
 	service "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/service"
 	taskdefinition "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/taskdefinition"
 	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
@@ -58,7 +58,7 @@ import (
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
 	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
 	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
+	clusterelasticache "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/elasticache/replicationgroup"
 	accesskey "github.com/crossplane-contrib/provider-tf-aws/internal/controller/iam/accesskey"
@@ -98,8 +98,8 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		bucket.Setup,
 		capacityprovider.Setup,
 		cluster.Setup,
-		clusterecs.Setup,
 		clustereks.Setup,
+		clusterelasticache.Setup,
 		clusterrds.Setup,
 		dbinstance.Setup,
 		dbparametergroup.Setup,

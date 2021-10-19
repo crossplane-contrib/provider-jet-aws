@@ -3408,6 +3408,16 @@ func (in *RouteParameters) DeepCopyInto(out *RouteParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.InstanceIDRef != nil {
+		in, out := &in.InstanceIDRef, &out.InstanceIDRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.InstanceIDSelector != nil {
+		in, out := &in.InstanceIDSelector, &out.InstanceIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.LocalGatewayID != nil {
 		in, out := &in.LocalGatewayID, &out.LocalGatewayID
 		*out = new(string)
@@ -3423,6 +3433,16 @@ func (in *RouteParameters) DeepCopyInto(out *RouteParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.NetworkInterfaceIDRef != nil {
+		in, out := &in.NetworkInterfaceIDRef, &out.NetworkInterfaceIDRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.NetworkInterfaceIDSelector != nil {
+		in, out := &in.NetworkInterfaceIDSelector, &out.NetworkInterfaceIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.TransitGatewayID != nil {
 		in, out := &in.TransitGatewayID, &out.TransitGatewayID
 		*out = new(string)
@@ -3433,10 +3453,30 @@ func (in *RouteParameters) DeepCopyInto(out *RouteParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.VpcEndpointIDRef != nil {
+		in, out := &in.VpcEndpointIDRef, &out.VpcEndpointIDRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.VpcEndpointIDSelector != nil {
+		in, out := &in.VpcEndpointIDSelector, &out.VpcEndpointIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.VpcPeeringConnectionID != nil {
 		in, out := &in.VpcPeeringConnectionID, &out.VpcPeeringConnectionID
 		*out = new(string)
 		**out = **in
+	}
+	if in.VpcPeeringConnectionIDRef != nil {
+		in, out := &in.VpcPeeringConnectionIDRef, &out.VpcPeeringConnectionIDRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.VpcPeeringConnectionIDSelector != nil {
+		in, out := &in.VpcPeeringConnectionIDSelector, &out.VpcPeeringConnectionIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -3757,6 +3797,16 @@ func (in *RouteTableParameters) DeepCopyInto(out *RouteTableParameters) {
 		in, out := &in.VpcID, &out.VpcID
 		*out = new(string)
 		**out = **in
+	}
+	if in.VpcIDRef != nil {
+		in, out := &in.VpcIDRef, &out.VpcIDRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.VpcIDSelector != nil {
+		in, out := &in.VpcIDSelector, &out.VpcIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
