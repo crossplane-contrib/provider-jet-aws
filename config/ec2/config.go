@@ -331,4 +331,17 @@ func init() {
 			},
 		},
 	})
+	config.Store.SetForResource("aws_ec2_transit_gateway_route_table_propagation", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: map[string]config.Reference{
+			"transit_gateway_attachment_id": {
+				Type: "TransitGatewayVpcAttachment",
+			},
+			"transit_gateway_route_table_id": {
+				Type: "TransitGatewayRouteTable",
+			},
+		},
+	})
 }

@@ -137,6 +137,7 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_ec2_transit_gateway_route_table_association": {},
 	"aws_ec2_transit_gateway_vpc_attachment":          {},
 	"aws_ec2_transit_gateway_vpc_attachment_accepter": {},
+	"aws_ec2_transit_gateway_route_table_propagation": {},
 
 	// KMS
 	"aws_kms_key": {},
