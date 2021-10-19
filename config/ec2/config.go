@@ -297,22 +297,51 @@ func init() {
 			},
 		},
 	})
+	config.Store.SetForResource("aws_route", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: map[string]config.Reference{
+			"route_table_id": {
+				Type: "RouteTable",
+			},
+			"instance_id": {
+				Type: "Instance",
+			},
+			"network_interface_id": {
+				Type: "EC2NetworkInterface",
+			},
+			"transit_gateway_id": {
+				Type: "TransitGateway",
+			},
+			"vpc_peering_connection_id": {
+				Type: "VpcPeeringConnection",
+			},
+			"vpc_endpoint_id": {
+				Type: "VpcEndpoint",
+			},
+		},
+		UseAsync: true,
+	})
 	config.Store.SetForResource("aws_route_table", config.Resource{
 		ExternalName: config.ExternalName{
 			// Set to true explicitly since the value is calculated by AWS.
 			DisableNameInitializer: true,
 		},
 		References: map[string]config.Reference{
-			"vpc_peering_connection_id": {
-				Type: "PeeringConnection",
+			"vpc_id": {
+				Type: "VPC",
 			},
-			"vpc_endpoint_id": {
-				Type: "Endpoint",
+			"route[*].vpc_peering_connection_id": {
+				Type: "VpcPeeringConnection",
 			},
-			"network_interface_id": {
+			"route[*].vpc_endpoint_id": {
+				Type: "VpcEndpoint",
+			},
+			"route[*].network_interface_id": {
 				Type: "EC2NetworkInterface",
 			},
-			"instance_id": {
+			"route[*].instance_id": {
 				Type: "Instance",
 			},
 		},
@@ -328,6 +357,19 @@ func init() {
 			},
 			"route_table_id": {
 				Type: "RouteTable",
+			},
+		},
+	})
+	config.Store.SetForResource("aws_ec2_transit_gateway_route_table_propagation", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: map[string]config.Reference{
+			"transit_gateway_attachment_id": {
+				Type: "TransitGatewayVpcAttachment",
+			},
+			"transit_gateway_route_table_id": {
+				Type: "TransitGatewayRouteTable",
 			},
 		},
 	})

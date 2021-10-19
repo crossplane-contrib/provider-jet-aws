@@ -4,7 +4,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: routetables.ec2.aws.tf.crossplane.io
+  name: transitgatewayroutetablepropagations.ec2.aws.tf.crossplane.io
 spec:
   group: ec2.aws.tf.crossplane.io
   names:
@@ -12,10 +12,10 @@ spec:
     - crossplane
     - managed
     - tfaws
-    kind: RouteTable
-    listKind: RouteTableList
-    plural: routetables
-    singular: routetable
+    kind: TransitGatewayRouteTablePropagation
+    listKind: TransitGatewayRouteTablePropagationList
+    plural: transitgatewayroutetablepropagations
+    singular: transitgatewayroutetablepropagation
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: RouteTable is the Schema for the RouteTables API
+        description: TransitGatewayRouteTablePropagation is the Schema for the TransitGatewayRouteTablePropagations
+          API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +50,8 @@ spec:
           metadata:
             type: object
           spec:
-            description: RouteTableSpec defines the desired state of RouteTable
+            description: TransitGatewayRouteTablePropagationSpec defines the desired
+              state of TransitGatewayRouteTablePropagation
             properties:
               deletionPolicy:
                 default: Delete
@@ -62,148 +64,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  propagatingVgws:
-                    items:
-                      type: string
-                    type: array
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  route:
-                    items:
-                      properties:
-                        carrierGatewayId:
-                          type: string
-                        cidrBlock:
-                          type: string
-                        destinationPrefixListId:
-                          type: string
-                        egressOnlyGatewayId:
-                          type: string
-                        gatewayId:
-                          type: string
-                        instanceId:
-                          type: string
-                        instanceIdRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        instanceIdSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        ipv6CidrBlock:
-                          type: string
-                        localGatewayId:
-                          type: string
-                        natGatewayId:
-                          type: string
-                        networkInterfaceId:
-                          type: string
-                        networkInterfaceIdRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        networkInterfaceIdSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        transitGatewayId:
-                          type: string
-                        vpcEndpointId:
-                          type: string
-                        vpcEndpointIdRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        vpcEndpointIdSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        vpcPeeringConnectionId:
-                          type: string
-                        vpcPeeringConnectionIdRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        vpcPeeringConnectionIdSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                      type: object
-                    type: array
-                  tags:
-                    additionalProperties:
-                      type: string
-                    type: object
-                  vpcId:
+                  transitGatewayAttachmentId:
                     type: string
-                  vpcIdRef:
+                  transitGatewayAttachmentIdRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -212,7 +79,32 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcIdSelector:
+                  transitGatewayAttachmentIdSelector:
+                    description: A Selector selects an object.
+                    properties:
+                      matchControllerRef:
+                        description: MatchControllerRef ensures an object with the
+                          same controller reference as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                    type: object
+                  transitGatewayRouteTableId:
+                    type: string
+                  transitGatewayRouteTableIdRef:
+                    description: A Reference to a named object.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                    required:
+                    - name
+                    type: object
+                  transitGatewayRouteTableIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -274,18 +166,15 @@ spec:
             - forProvider
             type: object
           status:
-            description: RouteTableStatus defines the observed state of RouteTable.
+            description: TransitGatewayRouteTablePropagationStatus defines the observed
+              state of TransitGatewayRouteTablePropagation.
             properties:
               atProvider:
                 properties:
-                  arn:
+                  resourceId:
                     type: string
-                  ownerId:
+                  resourceType:
                     type: string
-                  tagsAll:
-                    additionalProperties:
-                      type: string
-                    type: object
                 type: object
               conditions:
                 description: Conditions of the resource.
