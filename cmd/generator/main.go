@@ -64,6 +64,7 @@ var alphaIncludedResource = map[string]struct{}{
 	"aws_security_group_rule":             {},
 	"aws_subnet":                          {},
 	"aws_network_interface":               {},
+	"aws_route":                           {},
 	"aws_route_table":                     {},
 	"aws_vpc_endpoint":                    {},
 	"aws_vpc_ipv4_cidr_block_association": {},
@@ -172,7 +173,7 @@ func main() { // nolint:gocyclo
 			strings.Contains(name, "aws_network") ||
 			strings.Contains(name, "aws_eip") ||
 			strings.Contains(name, "aws_launch_template") ||
-			strings.Contains(name, "aws_route_table") ||
+			strings.Contains(name, "aws_route") ||
 			strings.Contains(name, "aws_instance"):
 			groupName = "ec2"
 		case groupName == "vpc":

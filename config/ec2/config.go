@@ -297,6 +297,32 @@ func init() {
 			},
 		},
 	})
+	config.Store.SetForResource("aws_route", config.Resource{
+		ExternalName: config.ExternalName{
+			DisableNameInitializer: true,
+		},
+		References: map[string]config.Reference{
+			"route_table_id": {
+				Type: "RouteTable",
+			},
+			"instance_id": {
+				Type: "Instance",
+			},
+			"network_interface_id": {
+				Type: "EC2NetworkInterface",
+			},
+			"transit_gateway_id": {
+				Type: "TransitGateway",
+			},
+			"vpc_peering_connection_id": {
+				Type: "VpcPeeringConnection",
+			},
+			"vpc_endpoint_id": {
+				Type: "VpcEndpoint",
+			},
+		},
+		UseAsync: true,
+	})
 	config.Store.SetForResource("aws_route_table", config.Resource{
 		ExternalName: config.ExternalName{
 			// Set to true explicitly since the value is calculated by AWS.
