@@ -24,10 +24,7 @@ import (
 
 func init() {
 	config.Store.SetForResource("aws_instance", config.Resource{
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"subnet_id": {
 				Type: "Subnet",
@@ -60,10 +57,8 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_eip", config.Resource{
-		Kind: "ElasticIP",
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		Kind:         "ElasticIP",
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"instance": {
 				Type: "Instance",
@@ -74,15 +69,11 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_ec2_transit_gateway", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 	})
 
 	config.Store.SetForResource("aws_ec2_transit_gateway_route", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"transit_gateway_attachment_id": {
 				Type: "TransitGatewayVpcAttachment",
@@ -94,9 +85,7 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_ec2_transit_gateway_route_table", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"transit_gateway_id": {
 				Type: "TransitGateway",
@@ -104,9 +93,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_ec2_transit_gateway_route_table_association", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"transit_gateway_attachment_id": {
 				Type: "TransitGatewayVpcAttachment",
@@ -117,9 +104,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_ec2_transit_gateway_vpc_attachment", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"subnet_ids": {
 				Type: "Subnet",
@@ -133,9 +118,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_ec2_transit_gateway_vpc_attachment_accepter", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"transit_gateway_attachment_id": {
 				Type: "TransitGatewayVpcAttachment",
@@ -151,9 +134,7 @@ func init() {
 		//  LaunchTemplateParameters
 		Kind: "EC2LaunchTemplate",
 
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 
 		References: map[string]config.Reference{
 			"security_group_names": {
@@ -184,17 +165,11 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_vpc", config.Resource{
-		Kind: "VPC",
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		Kind:         "VPC",
+		ExternalName: config.IdentifierFromProvider,
 	})
 	config.Store.SetForResource("aws_vpc_endpoint", config.Resource{
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"vpc_id": {
 				Type: "VPC",
@@ -211,10 +186,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_subnet", config.Resource{
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"vpc_id": {
 				Type: "VPC",
@@ -229,11 +201,8 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_network_interface", config.Resource{
-		Kind: "EC2NetworkInterface",
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		Kind:         "EC2NetworkInterface",
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"vpc_id": {
 				Type: "VPC",
@@ -255,10 +224,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_security_group", config.Resource{
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"vpc_id": {
 				Type: "VPC",
@@ -272,11 +238,8 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_vpc_ipv4_cidr_block_association", config.Resource{
-		Kind: "IPv4CIDRBlockAssociation",
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		Kind:         "IPv4CIDRBlockAssociation",
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"vpc_id": {
 				Type: "VPC",
@@ -284,10 +247,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_vpc_peering_connection", config.Resource{
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"vpc_id": {
 				Type: "VPC",
@@ -298,9 +258,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_route", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"route_table_id": {
 				Type: "RouteTable",
@@ -324,10 +282,7 @@ func init() {
 		UseAsync: true,
 	})
 	config.Store.SetForResource("aws_route_table", config.Resource{
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"vpc_id": {
 				Type: "VPC",
@@ -347,10 +302,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_route_table_association", config.Resource{
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"subnet_id": {
 				Type: "Subnet",
@@ -361,9 +313,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_ec2_transit_gateway_route_table_propagation", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"transit_gateway_attachment_id": {
 				Type: "TransitGatewayVpcAttachment",

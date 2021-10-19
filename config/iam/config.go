@@ -24,9 +24,7 @@ import (
 
 func init() {
 	config.Store.SetForResource("aws_iam_access_key", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"user": config.Reference{
 				Type: "User",
@@ -37,23 +35,12 @@ func init() {
 	config.Store.SetForResource("aws_iam_group", config.Resource{
 		// Cannot use kind "Group" since it conflict with generated constant
 		// name in group version info
-		Kind: "IAMGroup",
-		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-			},
-		},
+		Kind:         "IAMGroup",
+		ExternalName: config.NameAsIdentifier,
 	})
 
 	config.Store.SetForResource("aws_iam_group_policy", config.Resource{
-		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
-		},
+		ExternalName: config.NameAsIdentifier,
 		References: config.References{
 			"group": config.Reference{
 				Type: "IAMGroup",
@@ -62,9 +49,7 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_iam_group_policy_attachment", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"group": config.Reference{
 				Type: "IAMGroup",
@@ -77,13 +62,7 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_iam_instance_profile", config.Resource{
-		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
-		},
+		ExternalName: config.NameAsIdentifier,
 		References: config.References{
 			"role": config.Reference{
 				Type: "Role",
@@ -92,15 +71,11 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_iam_policy", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 	})
 
 	config.Store.SetForResource("aws_iam_policy_attachment", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"users": config.Reference{
 				Type: "User",
@@ -119,30 +94,14 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_iam_role", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: false,
-			ConfigureFunctionPath:  common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
-		},
+		ExternalName: config.NameAsIdentifier,
 	})
 
 	config.Store.SetForResource("aws_iam_role_policy", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: false,
-			ConfigureFunctionPath:  common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
-		},
+		ExternalName: config.NameAsIdentifier,
 	})
 	config.Store.SetForResource("aws_iam_role_policy_attachment", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"role": config.Reference{
 				Type: "Role",
@@ -155,19 +114,11 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_iam_user", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: false,
-			ConfigureFunctionPath:  common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-			},
-		},
+		ExternalName: config.NameAsIdentifier,
 	})
 
 	config.Store.SetForResource("aws_iam_user_group_membership", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"user": config.Reference{
 				Type: "User",
@@ -179,9 +130,7 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_iam_user_policy", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"user": config.Reference{
 				Type: "User",
@@ -189,9 +138,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_iam_user_policy_attachment", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"user": config.Reference{
 				Type: "User",

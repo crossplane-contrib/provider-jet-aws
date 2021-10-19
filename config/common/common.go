@@ -28,18 +28,10 @@ const (
 )
 
 var (
-	// PathExternalNameAsName is the golang path to ExternalNameAsName function
-	// in this package.
-	PathExternalNameAsName = SelfPackagePath + ".ExternalNameAsName"
 	// PathARNExtractor is the golang path to ARNExtractor function
 	// in this package.
 	PathARNExtractor = SelfPackagePath + ".ARNExtractor()"
 )
-
-// ExternalNameAsName is used by the resources whose schema includes a name field.
-func ExternalNameAsName(base map[string]interface{}, externalName string) {
-	base["name"] = externalName
-}
 
 // ARNExtractor extracts ARN of the resources from "status.atProvider.arn" which
 // is quite common among all AWS resources.

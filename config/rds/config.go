@@ -18,29 +18,14 @@ package rds
 
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
-
-	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
-
-const (
-	// SelfPackagePath is the golang path for this package.
-	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/rds"
-)
-
-// ClusterExternalNameConfigure configures name of cluster.
-func ClusterExternalNameConfigure(base map[string]interface{}, name string) {
-	base["cluster_identifier"] = name
-}
-
-// DBInstanceExternalNameConfigure configures name of db instance.
-func DBInstanceExternalNameConfigure(base map[string]interface{}, name string) {
-	base["identifier"] = name
-}
 
 func init() {
 	config.Store.SetForResource("aws_rds_cluster", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPackagePath + ".ClusterExternalNameConfigure",
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["cluster_identifier"] = name
+			},
 			OmittedFields: []string{
 				"cluster_identifier",
 				"cluster_identifier_prefix",
@@ -62,7 +47,9 @@ func init() {
 	config.Store.SetForResource("aws_db_instance", config.Resource{
 		Kind: "DBInstance",
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPackagePath + ".DBInstanceExternalNameConfigure",
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["identifier"] = name
+			},
 			OmittedFields: []string{
 				"identifier",
 				"identifier_prefix",
@@ -97,13 +84,7 @@ func init() {
 		UseAsync: true,
 	})
 	config.Store.SetForResource("aws_db_parameter_group", config.Resource{
-		Kind: "DBParameterGroup",
-		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
-		},
+		Kind:         "DBParameterGroup",
+		ExternalName: config.NameAsIdentifier,
 	})
 }

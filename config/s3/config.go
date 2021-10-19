@@ -22,20 +22,12 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-const (
-	// SelfPackagePath is the golang path for this package.
-	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/s3"
-)
-
-// BucketExternalNameConfigure configures bucket name.
-func BucketExternalNameConfigure(base map[string]interface{}, name string) {
-	base["bucket"] = name
-}
-
 func init() {
 	config.Store.SetForResource("aws_s3_bucket", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPackagePath + ".BucketExternalNameConfigure",
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["bucket"] = name
+			},
 			OmittedFields: []string{
 				"bucket",
 				"bucket_prefix",

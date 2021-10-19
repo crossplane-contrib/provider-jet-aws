@@ -9,17 +9,12 @@ import (
 func init() {
 
 	config.Store.SetForResource("aws_ecs_cluster", config.Resource{
-		ExternalName: config.ExternalName{
-			// Note(turkenh): Seems like we have a case that breaks our
-			// assumption that "id" field always used to import resource and
-			// should be set as external-id. Here we could import the resource
-			// with "name" but id contains "arn".
-			// https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster
-			ConfigureFunctionPath: common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-			},
-		},
+		// Note(turkenh): Seems like we have a case that breaks our
+		// assumption that "id" field always used to import resource and
+		// should be set as external-id. Here we could import the resource
+		// with "name" but id contains "arn".
+		// https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster
+		ExternalName: config.NameAsIdentifier,
 		References: config.References{
 			"capacity_providers": config.Reference{
 				Type: "CapacityProvider",
@@ -35,12 +30,7 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_ecs_service", config.Resource{
-		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-			},
-		},
+		ExternalName: config.NameAsIdentifier,
 		References: config.References{
 			"cluster": config.Reference{
 				Type:      "Cluster",
@@ -62,12 +52,7 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_ecs_capacity_provider", config.Resource{
-		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-			},
-		},
+		ExternalName: config.NameAsIdentifier,
 		References: config.References{
 			"auto_scaling_group_provider[*].auto_scaling_group_arn": config.Reference{
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1.AutoscalingGroup",
@@ -77,9 +62,7 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_ecs_tag", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			// Note(turkenh): This reference could correspond multiple types as
 			// per documentation, any ecs resource: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_tag#resource_arn
@@ -92,9 +75,7 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_ecs_task_definition", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"execution_role_arn": config.Reference{
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",

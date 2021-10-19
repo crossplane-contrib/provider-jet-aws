@@ -22,34 +22,9 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-const (
-	// SelfPackagePath is the golang path for this package.
-	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/eks"
-)
-
-// ClusterExternalNameConfigure configures cluster name.
-func ClusterExternalNameConfigure(base map[string]interface{}, name string) {
-	base["name"] = name
-}
-
-// NodeGroupExternalNameConfigure configures nodegroup name.
-func NodeGroupExternalNameConfigure(base map[string]interface{}, name string) {
-	base["name"] = name
-}
-
-// FargateProfileExternalNameConfigure configures fargate profile name.
-func FargateProfileExternalNameConfigure(base map[string]interface{}, name string) {
-	base["fargate_profile_name"] = name
-}
-
 func init() {
 	config.Store.SetForResource("aws_eks_cluster", config.Resource{
-		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPackagePath + ".ClusterExternalNameConfigure",
-			OmittedFields: []string{
-				"name",
-			},
-		},
+		ExternalName: config.NameAsIdentifier,
 		References: config.References{
 			"role_arn": {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
@@ -66,7 +41,9 @@ func init() {
 	})
 	config.Store.SetForResource("aws_eks_node_group", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPackagePath + ".NodeGroupExternalNameConfigure",
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["node_group_name"] = name
+			},
 			OmittedFields: []string{
 				"node_group_name",
 				"node_group_name_prefix",
@@ -90,9 +67,7 @@ func init() {
 		UseAsync: true,
 	})
 	config.Store.SetForResource("aws_eks_identity_provider_config", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"cluster_name": {
 				Type: "Cluster",
@@ -101,6 +76,9 @@ func init() {
 	})
 	config.Store.SetForResource("aws_eks_fargate_profile", config.Resource{
 		ExternalName: config.ExternalName{
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["fargate_profile_name"] = name
+			},
 			OmittedFields: []string{
 				"fargate_profile_name",
 			},
@@ -119,9 +97,7 @@ func init() {
 		},
 	})
 	config.Store.SetForResource("aws_eks_addon", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: config.References{
 			"cluster_name": {
 				Type: "Cluster",

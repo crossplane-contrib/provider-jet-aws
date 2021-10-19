@@ -16,13 +16,12 @@ limitations under the License.
 
 package kms
 
-import "github.com/crossplane-contrib/terrajet/pkg/config"
+import (
+	"github.com/crossplane-contrib/terrajet/pkg/config"
+)
 
 func init() {
 	config.Store.SetForResource("aws_kms_key", config.Resource{
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 	})
 }
