@@ -901,11 +901,6 @@ func (in *ReplicationGroupParameters) DeepCopyInto(out *ReplicationGroupParamete
 		*out = new(string)
 		**out = **in
 	}
-	if in.ReplicationGroupID != nil {
-		in, out := &in.ReplicationGroupID, &out.ReplicationGroupID
-		*out = new(string)
-		**out = **in
-	}
 	if in.SecurityGroupIds != nil {
 		in, out := &in.SecurityGroupIds, &out.SecurityGroupIds
 		*out = make([]*string, len(*in))

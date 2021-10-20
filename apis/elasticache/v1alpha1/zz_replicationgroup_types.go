@@ -122,9 +122,6 @@ type ReplicationGroupParameters struct {
 	// +kubebuilder:validation:Required
 	ReplicationGroupDescription *string `json:"replicationGroupDescription" tf:"replication_group_description,omitempty"`
 
-	// +kubebuilder:validation:Required
-	ReplicationGroupID *string `json:"replicationGroupId" tf:"replication_group_id,omitempty"`
-
 	// +kubebuilder:validation:Optional
 	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids,omitempty"`
 
