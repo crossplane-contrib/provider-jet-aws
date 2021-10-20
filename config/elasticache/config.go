@@ -18,39 +18,19 @@ package elasticache
 
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
-
-	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
-
-const (
-	// SelfPackagePath is the golang path for this package.
-	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/elasticache"
-)
-
-// ClusterExternalNameConfigure configures cluster id via external name.
-func ClusterExternalNameConfigure(base map[string]interface{}, name string) {
-	base["cluster_id"] = name
-}
-
-// ReplicationGroupExternalNameConfigure configures replication group id via external name.
-func ReplicationGroupExternalNameConfigure(base map[string]interface{}, name string) {
-	base["replication_group_id"] = name
-}
 
 func init() {
 
 	config.Store.SetForResource("aws_elasticache_parameter_group", config.Resource{
-		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-			},
-		},
+		ExternalName: config.NameAsIdentifier,
 	})
 
 	config.Store.SetForResource("aws_elasticache_cluster", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPackagePath + ".ClusterExternalNameConfigure",
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["cluster_id"] = name
+			},
 			OmittedFields: []string{
 				"cluster_id",
 			},
@@ -65,7 +45,12 @@ func init() {
 
 	config.Store.SetForResource("aws_elasticache_replication_group", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPackagePath + ".ReplicationGroupExternalNameConfigure",
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["replication_group_id"] = name
+			},
+			OmittedFields: []string{
+				"replication_group_id",
+			},
 		},
 	})
 }

@@ -8,14 +8,8 @@ import (
 
 func init() {
 	config.Store.SetForResource("aws_autoscaling_group", config.Resource{
-		Kind: "AutoscalingGroup",
-		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: common.PathExternalNameAsName,
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
-		},
+		Kind:         "AutoscalingGroup",
+		ExternalName: config.NameAsIdentifier,
 		References: map[string]config.Reference{
 			"vpc_zone_identifier": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
@@ -27,9 +21,7 @@ func init() {
 		UseAsync: true,
 	})
 	config.Store.SetForResource("aws_autoscaling_attachment", config.Resource{
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"autoscaling_group_name": {
 				Type: "AutoscalingGroup",

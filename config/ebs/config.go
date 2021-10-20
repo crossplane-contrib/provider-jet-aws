@@ -16,14 +16,13 @@ limitations under the License.
 
 package ebs
 
-import "github.com/crossplane-contrib/terrajet/pkg/config"
+import (
+	"github.com/crossplane-contrib/terrajet/pkg/config"
+)
 
 func init() {
 	config.Store.SetForResource("aws_ebs_volume", config.Resource{
-		ExternalName: config.ExternalName{
-			// Set to true explicitly since the value is calculated by AWS.
-			DisableNameInitializer: true,
-		},
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"kms_key_id": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",

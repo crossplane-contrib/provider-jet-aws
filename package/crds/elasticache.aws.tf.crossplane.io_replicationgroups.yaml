@@ -137,8 +137,6 @@ spec:
                     type: string
                   replicationGroupDescription:
                     type: string
-                  replicationGroupId:
-                    type: string
                   securityGroupIds:
                     items:
                       type: string
@@ -169,7 +167,6 @@ spec:
                 required:
                 - region
                 - replicationGroupDescription
-                - replicationGroupId
                 type: object
               providerConfigRef:
                 default:

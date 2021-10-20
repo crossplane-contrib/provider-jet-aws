@@ -20,15 +20,17 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/crossplane-contrib/terrajet/pkg/terraform"
-
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	"gopkg.in/alecthomas/kingpin.v2"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
+	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane-contrib/terrajet/pkg/terraform"
+
 	"github.com/crossplane-contrib/provider-tf-aws/apis"
+	_ "github.com/crossplane-contrib/provider-tf-aws/config"
 	"github.com/crossplane-contrib/provider-tf-aws/internal/clients"
 	"github.com/crossplane-contrib/provider-tf-aws/internal/controller"
 )
@@ -65,7 +67,7 @@ func main() {
 		SyncPeriod:       syncPeriod,
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")
-	ws := terraform.NewWorkspaceStore(log)
+	ws := terraform.NewWorkspaceStore(&config.Store, log)
 	setup := clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion)
 
 	rl := ratelimiter.NewGlobal(ratelimiter.DefaultGlobalRPS)

@@ -7,10 +7,8 @@ import (
 func init() {
 
 	config.Store.SetForResource("aws_lb", config.Resource{
-		Kind: "LoadBalancer",
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		Kind:         "LoadBalancer",
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"security_groups": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
@@ -29,10 +27,8 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_lb_listener", config.Resource{
-		Kind: "LBListener",
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		Kind:         "LBListener",
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"load_balancer_arn": {
 				Type: "LoadBalancer",
@@ -54,10 +50,8 @@ func init() {
 		// panic: cannot generate crd: cannot build types for TargetGroup:
 		//  cannot build the types: cannot generate parameters type name of
 		//  TargetGroup: could not generate a unique name for TargetGroupParameters
-		Kind: "LBTargetGroup",
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		Kind:         "LBTargetGroup",
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"vpc_id": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.VPC",
@@ -66,10 +60,8 @@ func init() {
 	})
 
 	config.Store.SetForResource("aws_lb_target_group_attachment", config.Resource{
-		Kind: "LBTargetGroupAttachment",
-		ExternalName: config.ExternalName{
-			DisableNameInitializer: true,
-		},
+		Kind:         "LBTargetGroupAttachment",
+		ExternalName: config.IdentifierFromProvider,
 		References: map[string]config.Reference{
 			"target_group_arn": {
 				Type: "LBTargetGroup",
