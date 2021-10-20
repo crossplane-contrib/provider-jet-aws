@@ -258,7 +258,74 @@ not.
 // Todo(turkenh): Add some examples once/if https://github.com/crossplane-contrib/terrajet/pull/121 get merged.
 
 ## Late Initialization Behavior
+Terrajet runtime automatically performs late-initialization during 
+an [`external.Observe`] call with means of runtime reflection. 
+State of the world observed by Terraform CLI is used to initialize 
+any `nil`-valued pointer parameters in the managed resource's `spec`.
+In most of the cases no custom configuration should be necessary for 
+late-initialization to work. However, there are certain cases where 
+you will want/need to customize late-initialization behaviour. Thus, 
+Terrajet provides an extensible [late-initialization customization API] 
+that controls late-initialization behaviour.
 
+The associated resource struct is defined [here](https://github.com/crossplane-contrib/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/config/resource.go#L91) as follows:
+```go
+// LateInitializer represents configurations that control
+// late-initialization behaviour
+type LateInitializer struct {
+	// IgnoredFields are the canonical field names to be skipped during
+	// late-initialization
+	IgnoredFields []string
+}
+```
+Currently, it only involves a configuration option to specify 
+certain `spec` parameters to be ignored during late-initialization. 
+Each element of the `LateInitializer.IgnoredFields` slice represents 
+the canonical path relative to the parameters struct for the managed resource's `Spec` 
+using `Go` type names as path elements. As an example, with the following type definitions:
+```go
+type Subnet struct {
+	metav1.TypeMeta   `json:",inline"`
+	metav1.ObjectMeta `json:"metadata,omitempty"`
+	Spec              SubnetSpec   `json:"spec"`
+	Status            SubnetStatus `json:"status,omitempty"`
+}
+
+type SubnetSpec struct {
+    ForProvider     SubnetParameters `json:"forProvider"`
+    ...
+}
+
+type DelegationParameters struct {
+    // +kubebuilder:validation:Required
+    Name *string `json:"name" tf:"name,omitempty"`
+    ...
+}
+
+type SubnetParameters struct {
+    // +kubebuilder:validation:Optional
+    AddressPrefix *string `json:"addressPrefix,omitempty" tf:"address_prefix,omitempty"`
+    // +kubebuilder:validation:Optional
+    Delegation []DelegationParameters `json:"delegation,omitempty" tf:"delegation,omitempty"`
+    ...
+}
+```
+If you would like to have the late-initialization library *not* to process the 
+`SubnetParameters.AddressPrefix`parameter field, then the 
+following configuration where we specify the relative parameter field path is sufficient:
+```go
+config.Store.SetForResource("azurerm_subnet", config.Resource{
+    LateInitializer: config.LateInitializer{
+        IgnoredFields: []string{"AddressPrefix"},
+      },
+})
+```
+Please note also that, unlike fieldpath specifications, 
+path elements are `Go` type names, and you should not use 
+array specifiers when denoting slice of struct types. 
+As an example if you would like to ignore `DelegationParameters.Name`
+fields during late-initialization, the relative name to be used is:
+`Delegation.Name`.
 
 [comment]: <> (References)
 [Terrajet]: https://github.com/crossplane-contrib/terrajet
@@ -291,3 +358,5 @@ not.
 [connection details]: https://crossplane.io/docs/v1.4/concepts/managed-resources.html#connection-details
 [handle sensitive fields]: https://github.com/crossplane-contrib/terrajet/pull/77
 [add additional keys with custom values]: https://github.com/crossplane-contrib/terrajet/pull/121
+[`external.Observe`]: https://github.com/crossplane-contrib/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/controller/external.go#L177
+[late-initialization customization API]: https://github.com/crossplane-contrib/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/resource/lateinit.go#L50
