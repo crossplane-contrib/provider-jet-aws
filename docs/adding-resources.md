@@ -19,24 +19,24 @@ configuration for the resource.
 
 2. **Create and Register Group Config File:** (if not exist)
 
-  1. Create the custom config file for the group:
+3. Create the custom config file for the group:
 
-      ```console
-      GROUP=<group-name>
-      RESOURCE=<terraform-resource-name>
-      mkdir config/$GROUP
-      cat << EOF > config/$GROUP/config.go
-      package $GROUP
+    ```console
+    GROUP=<group-name>
+    RESOURCE=<terraform-resource-name>
+    mkdir config/$GROUP
+    cat << EOF > config/$GROUP/config.go
+    package $GROUP
 
-      import (
-        "github.com/crossplane-contrib/terrajet/pkg/config"
-      )
+    import (
+      "github.com/crossplane-contrib/terrajet/pkg/config"
+    )
       
-      func init() {
-        config.Store.SetForResource("$RESOURCE", config.Resource{})
-      }
-      EOF
-      ```
+    func init() {
+      config.Store.SetForResource("$RESOURCE", config.Resource{})
+    }
+    EOF
+    ```
 
    For `aws_iam_access_key` example:
 
@@ -45,35 +45,35 @@ configuration for the resource.
       RESOURCE=aws_iam_access_key
       ```
 
-  2. Register this custom configuration package in custom/register.go. See
-     [this](https://github.com/crossplane-contrib/provider-tf-aws/blob/main/config/register.go#L11)
-     for iam as an example.
+4. Register this custom configuration package in custom/register.go. See
+   [this](https://github.com/crossplane-contrib/provider-tf-aws/blob/main/config/register.go#L11)
+   for iam as an example.
 
-3. **Add custom configuration** in `config/$GROUP/config.go`:
+5. **Add custom configuration** in `config/$GROUP/config.go`:
 
-  1. [Configure external name](#external-name).
+   1. [Configure external name](#external-name).
 
-  2. [Cross resource referencing](#cross-resource-referencing).
+   2. [Cross resource referencing](#cross-resource-referencing).
 
-  3. [Configure Connection Secret Keys](#additional-sensitive-fields-and-custom-connection-details).
+   3. [Configure Connection Secret Keys](#additional-sensitive-fields-and-custom-connection-details).
 
-  4. [Late initialization configuration](#late-initialization-behavior).
+   4. [Late initialization configuration](#late-initialization-behavior).
 
-5. Run code-generation:
+6. Run code-generation:
 
-  1. Run Terrajet code-generation pipeline:
+7. Run Terrajet code-generation pipeline:
 
-      ```console
-      go run cmd/generator/main.go
-      ```
+    ```console
+    go run cmd/generator/main.go
+    ```
 
-  1. Run code-generation for Controller Tools and Crossplane Tools:
+8. Run code-generation for Controller Tools and Crossplane Tools:
 
-      ```console
-      make generate
-      ```
+    ```console
+    make generate
+    ```
 
-6. Run against a Kubernetes cluster:
+9. Run against a Kubernetes cluster:
 
     ```console
     kubectl apply -f package/crds
