@@ -56,7 +56,7 @@ const (
 	"aws_kinesis_analytics_application":        {},
 }*/
 
-var alphaIncludedResource = map[string]struct{}{
+var includedResources = map[string]struct{}{
 
 	// VPC
 	"aws_vpc":                             {},
@@ -155,7 +155,7 @@ func main() { // nolint:gocyclo
 
 	groups := map[string]map[string]*schema.Resource{}
 	for name, resource := range aws.Provider().ResourcesMap {
-		if _, ok := alphaIncludedResource[name]; !ok {
+		if _, ok := includedResources[name]; !ok {
 			// Skip if not included
 			continue
 		}

@@ -15,43 +15,9 @@ kubectl crossplane install provider crossplane/provider-tf-aws:v0.2.1
 
 You can see the API reference [here](https://doc.crds.dev/github.com/crossplane-contrib/provider-tf-aws).
 
-## Developing
+## Contributing
 
-Run code-generation pipeline:
-```console
-make prepare.azurerm
-go run cmd/generator/main.go
-```
-
-Run against a Kubernetes cluster:
-
-```console
-make run
-```
-
-Build, push, and install:
-
-```console
-make all
-```
-
-Build image:
-
-```console
-make image
-```
-
-Push image:
-
-```console
-make push
-```
-
-Build binary:
-
-```console
-make build
-```
+Please see the [Adding New Resources](/docs/adding-resources.md) guide.
 
 ## Report a Bug
 
