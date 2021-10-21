@@ -255,8 +255,6 @@ sensitive (e.g. just if we encounter a field that is not marked properly) and
 also to [add additional keys with custom values] no matter they are sensitive or
 not.
 
-// Todo(turkenh): Add some examples once/if https://github.com/crossplane-contrib/terrajet/pull/121 get merged.
-
 ## Late Initialization Behavior
 Terrajet runtime automatically performs late-initialization during 
 an [`external.Observe`] call with means of runtime reflection. 
