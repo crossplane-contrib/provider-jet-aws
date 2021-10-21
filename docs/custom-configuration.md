@@ -35,20 +35,21 @@ This is [the struct that holds the External Name configuration]:
 // such as removal of those fields from spec schema and calling Configure function
 // to fill attributes with information given in external name.
 type ExternalName struct {
-	// DisableNameInitializer allows you to specify whether the name initializer
-	// that sets external name to metadata.name if none specified should be disabled.
-	// It needs to be disabled for resources whose external name includes information
-	// more than the actual name of the resource, like subscription ID or region
-	// etc. which is unlikely to be included in metadata.name
-	DisableNameInitializer bool
-	
-	// Configure name attributes of the given configuration using external name.
-	ConfigureFunctionPath string
-
-	// OmittedFields are the ones you'd like to be removed from the schema since
-	// they are specified via external name. You can omit only the top level fields.
-	// No field is omitted by default.
-	OmittedFields []string
+  // SetIdentifierArgumentFn sets the name of the resource in Terraform argument
+  // map.
+  SetIdentifierArgumentFn SetIdentifierArgumentFn
+  
+  // OmittedFields are the ones you'd like to be removed from the schema since
+  // they are specified via external name. You can omit only the top level fields.
+  // No field is omitted by default.
+  OmittedFields []string
+  
+  // DisableNameInitializer allows you to specify whether the name initializer
+  // that sets external name to metadata.name if none specified should be disabled.
+  // It needs to be disabled for resources whose external name includes information
+  // more than the actual name of the resource, like subscription ID or region
+  // etc. which is unlikely to be included in metadata.name
+  DisableNameInitializer bool
 }
 ```
 
@@ -68,7 +69,7 @@ DisableNameInitializer: true
 
 Since we have no related fields in the [arguments list] that could be used to
 build the external-name, we don't need to omit any fields (`OmittedFields`) or
-need to use external name to set some arguments (`ConfigureFunctionPath`).
+need to use external name to set some arguments (`SetIdentifierArgumentFn`).
 Hence, we end up the following external name configuration for `aws_vpc`
 resource:
 
@@ -116,15 +117,15 @@ const (
 	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/s3"
 )
 
-// BucketExternalNameConfigure configures bucket name.
-func BucketExternalNameConfigure(base map[string]interface{}, name string) {
+// BucketSetIdentifierArgument configures bucket name.
+func BucketSetIdentifierArgument(base map[string]interface{}, name string) {
 	base["bucket"] = name
 }
 
 func init() {
 	config.Store.SetForResource("aws_s3_bucket", config.Resource{
 		ExternalName: config.ExternalName{
-			ConfigureFunctionPath: SelfPackagePath + ".BucketExternalNameConfigure",
+			SetIdentifierArgumentFn: BucketSetIdentifierArgument,
 			OmittedFields: []string{
 				"bucket",
 				"bucket_prefix",
@@ -333,7 +334,7 @@ fields during late-initialization, the relative name to be used is:
 [Late Initialization Behavior]: #late-initialization-behavior
 [the external name documentation]: https://crossplane.io/docs/v1.4/concepts/managed-resources.html#external-name
 [import section]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key#import
-[the struct that holds the External Name configuration]: https://github.com/crossplane-contrib/terrajet/blob/24f186f45e70808768aa0b7abd4fa82e4f446f3f/pkg/config/resource.go#L56
+[the struct that holds the External Name configuration]: https://github.com/crossplane-contrib/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/config/resource.go#L58
 [aws_vpc]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
 [import section of aws_vpc]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc#import
 [arguments list]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc#argument-reference
