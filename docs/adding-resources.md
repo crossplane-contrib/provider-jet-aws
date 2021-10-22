@@ -408,6 +408,20 @@ As an example if you would like to ignore `DelegationParameters.Name`
 fields during late-initialization, the relative name to be used is:
 `Delegation.Name`.
 
+In most cases, custom late-initialization configuration will not be necessary. However,
+after generating a new managed resource and observing its behaviour (at runtime),
+it may turn out that late-initialization behaviour needs customization. For certain
+resources like the `provider-tf-azure`'s `PostgresqlServer` resource, we have
+observed that Terraform state contains values for mutually exclusive parameters, e.g.,
+for `PostgresqlServer`, both `StorageMb` and `StorageProfile[].StorageMb` get
+late-initialized. Upon next reconciliation, we generate values for both parameters in the
+Terraform configuration, and although they happen to have the same value, Terraform
+configuration validation requires them to be mutually exclusive. Currently, we observe
+this behaviour at runtime, and upon observing that the resource cannot transition to the
+`Ready` state and acquires the Terraform validation error message in its `status.conditions`,
+we do the `LateInitializer.IgnoreFields` custom configuration detailed above to skip
+one of the mutually exclusive fields during late-initialization.
+
 [comment]: <> (References)
 
 [Terrajet]: https://github.com/crossplane-contrib/terrajet
