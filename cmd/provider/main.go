@@ -26,7 +26,6 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/crossplane-contrib/terrajet/pkg/config"
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
 	"github.com/crossplane-contrib/provider-tf-aws/apis"
@@ -67,7 +66,7 @@ func main() {
 		SyncPeriod:       syncPeriod,
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")
-	ws := terraform.NewWorkspaceStore(&config.Store, log)
+	ws := terraform.NewWorkspaceStore(log)
 	setup := clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion)
 
 	rl := ratelimiter.NewGlobal(ratelimiter.DefaultGlobalRPS)
