@@ -30,6 +30,18 @@ func init() {
 				Type: "User",
 			},
 		},
+		Sensitive: config.Sensitive{
+			AdditionalConnectionDetailsFn: func(attr map[string]interface{}) (map[string][]byte, error) {
+				conn := map[string][]byte{}
+				if a, ok := attr["id"].(string); ok {
+					conn["aws_access_key_id"] = []byte(a)
+				}
+				if a, ok := attr["secret"].(string); ok {
+					conn["aws_secret_access_key"] = []byte(a)
+				}
+				return conn, nil
+			},
+		},
 	})
 
 	config.Store.SetForResource("aws_iam_group", config.Resource{
