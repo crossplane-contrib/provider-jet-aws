@@ -176,8 +176,6 @@ github.com/cpuguy83/go-md2man/v2 v2.0.0/go.mod h1:maD7wRr/U5Z6m/iR4s+kqSMx2CaBsr
 github.com/creack/pty v1.1.7/go.mod h1:lj5s0c3V2DBrqTV7llrYr5NG6My20zk30Fl46Y7DoTY=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/creack/pty v1.1.11/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
-github.com/crossplane-contrib/terrajet v0.1.1-0.20211020104517-c9e21387298d h1:Hqy5ruOFVsm4G8GqPgBsX75IlqnL6fHDCmNK+n046sA=
-github.com/crossplane-contrib/terrajet v0.1.1-0.20211020104517-c9e21387298d/go.mod h1:qqmEllC3g+ZYm5uMXu3Hc/mzmWftlujtn+BeO3Ez108=
 github.com/crossplane/crossplane-runtime v0.14.0/go.mod h1:Bc54/KBvV9ld/tvervcnhcSzk13FYguTqmYt72Mybps=
 github.com/crossplane/crossplane-runtime v0.15.1-0.20211004150827-579c1833b513 h1:Sk3QurYYpy8x3c0DvTh9iGYFSv8WgdhnjCalNqNqlRI=
 github.com/crossplane/crossplane-runtime v0.15.1-0.20211004150827-579c1833b513/go.mod h1:gKix9Gq5kRzVe/4XOpwlFgG7OurzrYayviJxWZakhw0=
@@ -632,6 +630,8 @@ github.com/modern-go/reflect2 v1.0.1 h1:9f412s+6RmYXLWZSEzVVgPGK7C2PphHj5RJrvfx9
 github.com/modern-go/reflect2 v1.0.1/go.mod h1:bx2lNnkwVCuqBIxFjflWJWanXIb3RllmbCylyMrvgv0=
 github.com/munnerz/goautoneg v0.0.0-20120707110453-a547fc61f48d/go.mod h1:+n7T8mK8HuQTcFwEeznm/DIxMOiR9yIdICNftLE1DvQ=
 github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822/go.mod h1:+n7T8mK8HuQTcFwEeznm/DIxMOiR9yIdICNftLE1DvQ=
+github.com/muvaf/terrajet v0.0.0-20211027185749-c68d2062ce88 h1:BEoSEo7hJ2hmejzAbr4DZd3nk5wexT/eGGUtHXDsVBU=
+github.com/muvaf/terrajet v0.0.0-20211027185749-c68d2062ce88/go.mod h1:qqmEllC3g+ZYm5uMXu3Hc/mzmWftlujtn+BeO3Ez108=
 github.com/muvaf/typewriter v0.0.0-20210910160850-80e49fe1eb32 h1:yBQlHXLeUJL3TWVmzup5uT3wG5FLxhiTAiTsmNVocys=
 github.com/muvaf/typewriter v0.0.0-20210910160850-80e49fe1eb32/go.mod h1:SAAdeMEiFXR8LcHffvIdiLI1w243DCH2DuHq7UrA5YQ=
 github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod h1:qRWi+5nqEBWmkhHvq77mSJWrCKwh8bxhgT7d/eI7P4U=

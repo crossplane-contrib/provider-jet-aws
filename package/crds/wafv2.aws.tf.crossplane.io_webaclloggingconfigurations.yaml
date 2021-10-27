@@ -1,0 +1,270 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.6.2
+  creationTimestamp: null
+  name: webaclloggingconfigurations.wafv2.aws.tf.crossplane.io
+spec:
+  group: wafv2.aws.tf.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - tfaws
+    kind: WebAclLoggingConfiguration
+    listKind: WebAclLoggingConfigurationList
+    plural: webaclloggingconfigurations
+    singular: webaclloggingconfiguration
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: WebAclLoggingConfiguration is the Schema for the WebAclLoggingConfigurations
+          API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: WebAclLoggingConfigurationSpec defines the desired state
+              of WebAclLoggingConfiguration
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource.
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  logDestinationConfigs:
+                    description: AWS Kinesis Firehose Delivery Stream ARNs
+                    items:
+                      type: string
+                    type: array
+                  loggingFilter:
+                    items:
+                      properties:
+                        defaultBehavior:
+                          type: string
+                        filter:
+                          items:
+                            properties:
+                              behavior:
+                                type: string
+                              condition:
+                                items:
+                                  properties:
+                                    actionCondition:
+                                      items:
+                                        properties:
+                                          action:
+                                            type: string
+                                        required:
+                                        - action
+                                        type: object
+                                      type: array
+                                    labelNameCondition:
+                                      items:
+                                        properties:
+                                          labelName:
+                                            type: string
+                                        required:
+                                        - labelName
+                                        type: object
+                                      type: array
+                                  type: object
+                                type: array
+                              requirement:
+                                type: string
+                            required:
+                            - behavior
+                            - condition
+                            - requirement
+                            type: object
+                          type: array
+                      required:
+                      - defaultBehavior
+                      - filter
+                      type: object
+                    type: array
+                  redactedFields:
+                    description: Parts of the request to exclude from logs
+                    items:
+                      properties:
+                        allQueryArguments:
+                          items:
+                            type: object
+                          type: array
+                        body:
+                          items:
+                            type: object
+                          type: array
+                        method:
+                          items:
+                            type: object
+                          type: array
+                        queryString:
+                          items:
+                            type: object
+                          type: array
+                        singleHeader:
+                          items:
+                            properties:
+                              name:
+                                type: string
+                            required:
+                            - name
+                            type: object
+                          type: array
+                        singleQueryArgument:
+                          items:
+                            properties:
+                              name:
+                                type: string
+                            required:
+                            - name
+                            type: object
+                          type: array
+                        uriPath:
+                          items:
+                            type: object
+                          type: array
+                      type: object
+                    type: array
+                  region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
+                    type: string
+                  resourceArn:
+                    description: AWS WebACL ARN
+                    type: string
+                required:
+                - logDestinationConfigs
+                - region
+                - resourceArn
+                type: object
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+          status:
+            description: WebAclLoggingConfigurationStatus defines the observed state
+              of WebAclLoggingConfiguration.
+            properties:
+              atProvider:
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

@@ -45,8 +45,8 @@ const (
 
 // These resources cannot be generated because of their suffixes colliding with
 // kubebuilder-accepted type suffixes.
-/*var skipList = map[string]struct{}{
-	"aws_config_configuration_recorder_status": {},
+var skipList = map[string]struct{}{
+	"aws_config_configuration_recorder_status": {}, // collision
 	"aws_vpc_peering_connection_accepter":      {},
 	"aws_elasticache_user_group":               {},
 	"aws_waf_rule_group":                       {},
@@ -54,7 +54,21 @@ const (
 	"aws_shield_protection_group":              {},
 	"aws_route53_resolver_firewall_rule_group": {},
 	"aws_kinesis_analytics_application":        {},
-}*/
+	"aws_ssm_parameter":                        {}, // collision
+	"aws_alb_target_group":                     {}, // collision
+	"aws_appmesh_virtual_service":              {}, // collision
+	"aws_mwaa_environment":                     {}, // sensitive field type
+	"aws_mq_configuration":                     {}, // collision
+	"aws_lex_intent":                           {}, // collision
+	"aws_glue_schema":                          {}, // collision
+	"aws_glue_connection":                      {}, // sensitive field type
+	"aws_placement_group":                      {}, // collision
+	"aws_quicksight_group":                     {}, // collision
+	"aws_resourcegroups_group":                 {}, // collision
+	"aws_xray_group":                           {}, // collision
+	"aws_cloudformation_type":                  {}, // collision with special word type
+	"aws_wafv2_web_acl":                        {}, // CRD with 1.9MB size
+}
 
 var includedResources = map[string]struct{}{
 
@@ -154,11 +168,19 @@ func main() { // nolint:gocyclo
 	}
 
 	groups := map[string]map[string]*schema.Resource{}
-	for name, resource := range aws.Provider().ResourcesMap {
-		if _, ok := includedResources[name]; !ok {
-			// Skip if not included
+	resources := aws.Provider().ResourcesMap
+	keys := make([]string, len(resources))
+	i := 0
+	for k := range resources {
+		keys[i] = k
+		i++
+	}
+	sort.Strings(keys)
+	for _, name := range keys {
+		if _, ok := skipList[name]; ok {
 			continue
 		}
+		resource := resources[name]
 		if len(resource.Schema) == 0 {
 			// There are resources with no schema, like aws_securityhub_account
 			// that we will address later.
@@ -222,6 +244,9 @@ func main() { // nolint:gocyclo
 		for _, name := range keys {
 			// We don't want Aws prefix in all kinds.
 			kind := strcase.ToCamel(strings.TrimPrefix(strings.TrimPrefix(name, "aws_"), group))
+			if kind == "" {
+				kind = strcase.ToCamel(group)
+			}
 			resource := resources[name]
 			if group != "iam" {
 				resource.Schema["region"] = regionSchema
@@ -264,11 +289,13 @@ func main() { // nolint:gocyclo
 	if err := pipeline.NewSetupGenerator(wd, modulePath).Generate(controllerPkgList); err != nil {
 		panic(errors.Wrap(err, "cannot generate setup file"))
 	}
-	if err := exec.Command("bash", "-c", "goimports -w $(find apis -iname 'zz_*')").Run(); err != nil {
-		panic(errors.Wrap(err, "cannot run goimports for apis folder"))
+	fmt.Println("running goimports apis")
+	if o, err := exec.Command("bash", "-c", "goimports -w $(find apis -iname 'zz_*')").CombinedOutput(); err != nil {
+		panic(errors.Wrapf(err, "cannot run goimports for apis folder: %s", string(o)))
 	}
-	if err := exec.Command("bash", "-c", "goimports -w $(find internal -iname 'zz_*')").Run(); err != nil {
-		panic(errors.Wrap(err, "cannot run goimports for internal folder"))
+	fmt.Println("running goimports internal")
+	if o, err := exec.Command("bash", "-c", "goimports -w $(find internal -iname 'zz_*')").CombinedOutput(); err != nil {
+		panic(errors.Wrapf(err, "cannot run goimports for internal folder: %s", string(o)))
 	}
 	fmt.Printf("\nGenerated %d resources!\n", count)
 }

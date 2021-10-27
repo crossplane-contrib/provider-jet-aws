@@ -25,10 +25,10 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type EgressObservation struct {
+type SecurityGroupEgressObservation struct {
 }
 
-type EgressParameters struct {
+type SecurityGroupEgressParameters struct {
 
 	// +kubebuilder:validation:Optional
 	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks,omitempty"`
@@ -65,10 +65,10 @@ type EgressParameters struct {
 	ToPort *int64 `json:"toPort" tf:"to_port,omitempty"`
 }
 
-type IngressObservation struct {
+type SecurityGroupIngressObservation struct {
 }
 
-type IngressParameters struct {
+type SecurityGroupIngressParameters struct {
 
 	// +kubebuilder:validation:Optional
 	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks,omitempty"`
@@ -119,10 +119,10 @@ type SecurityGroupParameters struct {
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Egress []EgressParameters `json:"egress,omitempty" tf:"egress,omitempty"`
+	Egress []SecurityGroupEgressParameters `json:"egress,omitempty" tf:"egress,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Ingress []IngressParameters `json:"ingress,omitempty" tf:"ingress,omitempty"`
+	Ingress []SecurityGroupIngressParameters `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`

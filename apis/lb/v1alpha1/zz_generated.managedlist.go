@@ -19,6 +19,15 @@ package v1alpha1
 
 import resource "github.com/crossplane/crossplane-runtime/pkg/resource"
 
+// GetItems of this CookieStickinessPolicyList.
+func (l *CookieStickinessPolicyList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this LBListenerList.
 func (l *LBListenerList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -46,8 +55,35 @@ func (l *LBTargetGroupList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this ListenerCertificateList.
+func (l *ListenerCertificateList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ListenerRuleList.
+func (l *ListenerRuleList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this LoadBalancerList.
 func (l *LoadBalancerList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this SslNegotiationPolicyList.
+func (l *SslNegotiationPolicyList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

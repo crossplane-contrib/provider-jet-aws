@@ -19,6 +19,62 @@ package v1alpha1
 
 import xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 
+// GetCondition of this CookieStickinessPolicy.
+func (mg *CookieStickinessPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this CookieStickinessPolicy.
+func (mg *CookieStickinessPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this CookieStickinessPolicy.
+func (mg *CookieStickinessPolicy) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this CookieStickinessPolicy.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *CookieStickinessPolicy) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this CookieStickinessPolicy.
+func (mg *CookieStickinessPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this CookieStickinessPolicy.
+func (mg *CookieStickinessPolicy) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this CookieStickinessPolicy.
+func (mg *CookieStickinessPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this CookieStickinessPolicy.
+func (mg *CookieStickinessPolicy) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this CookieStickinessPolicy.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *CookieStickinessPolicy) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this CookieStickinessPolicy.
+func (mg *CookieStickinessPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this LBListener.
 func (mg *LBListener) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -187,6 +243,118 @@ func (mg *LBTargetGroupAttachment) SetWriteConnectionSecretToReference(r *xpv1.S
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this ListenerCertificate.
+func (mg *ListenerCertificate) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ListenerCertificate.
+func (mg *ListenerCertificate) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this ListenerCertificate.
+func (mg *ListenerCertificate) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this ListenerCertificate.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *ListenerCertificate) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this ListenerCertificate.
+func (mg *ListenerCertificate) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ListenerCertificate.
+func (mg *ListenerCertificate) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ListenerCertificate.
+func (mg *ListenerCertificate) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this ListenerCertificate.
+func (mg *ListenerCertificate) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this ListenerCertificate.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *ListenerCertificate) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ListenerCertificate.
+func (mg *ListenerCertificate) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ListenerRule.
+func (mg *ListenerRule) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ListenerRule.
+func (mg *ListenerRule) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this ListenerRule.
+func (mg *ListenerRule) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this ListenerRule.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *ListenerRule) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this ListenerRule.
+func (mg *ListenerRule) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ListenerRule.
+func (mg *ListenerRule) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ListenerRule.
+func (mg *ListenerRule) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this ListenerRule.
+func (mg *ListenerRule) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this ListenerRule.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *ListenerRule) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ListenerRule.
+func (mg *ListenerRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this LoadBalancer.
 func (mg *LoadBalancer) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -240,5 +408,61 @@ func (mg *LoadBalancer) SetProviderReference(r *xpv1.Reference) {
 
 // SetWriteConnectionSecretToReference of this LoadBalancer.
 func (mg *LoadBalancer) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this SslNegotiationPolicy.
+func (mg *SslNegotiationPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this SslNegotiationPolicy.
+func (mg *SslNegotiationPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this SslNegotiationPolicy.
+func (mg *SslNegotiationPolicy) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this SslNegotiationPolicy.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *SslNegotiationPolicy) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this SslNegotiationPolicy.
+func (mg *SslNegotiationPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this SslNegotiationPolicy.
+func (mg *SslNegotiationPolicy) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this SslNegotiationPolicy.
+func (mg *SslNegotiationPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this SslNegotiationPolicy.
+func (mg *SslNegotiationPolicy) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this SslNegotiationPolicy.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *SslNegotiationPolicy) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this SslNegotiationPolicy.
+func (mg *SslNegotiationPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }

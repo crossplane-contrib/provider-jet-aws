@@ -338,7 +338,28 @@ type InstanceMarketOptionsParameters struct {
 	MarketType *string `json:"marketType,omitempty" tf:"market_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SpotOptions []SpotOptionsParameters `json:"spotOptions,omitempty" tf:"spot_options,omitempty"`
+	SpotOptions []InstanceMarketOptionsSpotOptionsParameters `json:"spotOptions,omitempty" tf:"spot_options,omitempty"`
+}
+
+type InstanceMarketOptionsSpotOptionsObservation struct {
+}
+
+type InstanceMarketOptionsSpotOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	BlockDurationMinutes *int64 `json:"blockDurationMinutes,omitempty" tf:"block_duration_minutes,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	InstanceInterruptionBehavior *string `json:"instanceInterruptionBehavior,omitempty" tf:"instance_interruption_behavior,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	MaxPrice *string `json:"maxPrice,omitempty" tf:"max_price,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SpotInstanceType *string `json:"spotInstanceType,omitempty" tf:"spot_instance_type,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ValidUntil *string `json:"validUntil,omitempty" tf:"valid_until,omitempty"`
 }
 
 type LicenseSpecificationObservation struct {
@@ -456,27 +477,6 @@ type PlacementParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tenancy *string `json:"tenancy,omitempty" tf:"tenancy,omitempty"`
-}
-
-type SpotOptionsObservation struct {
-}
-
-type SpotOptionsParameters struct {
-
-	// +kubebuilder:validation:Optional
-	BlockDurationMinutes *int64 `json:"blockDurationMinutes,omitempty" tf:"block_duration_minutes,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	InstanceInterruptionBehavior *string `json:"instanceInterruptionBehavior,omitempty" tf:"instance_interruption_behavior,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	MaxPrice *string `json:"maxPrice,omitempty" tf:"max_price,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SpotInstanceType *string `json:"spotInstanceType,omitempty" tf:"spot_instance_type,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	ValidUntil *string `json:"validUntil,omitempty" tf:"valid_until,omitempty"`
 }
 
 type TagSpecificationsObservation struct {

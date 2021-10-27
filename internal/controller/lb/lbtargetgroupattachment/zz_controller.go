@@ -30,6 +30,7 @@ import (
 	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
 	"sigs.k8s.io/controller-runtime/pkg/controller"
 
+	"github.com/crossplane-contrib/terrajet/pkg/config"
 	tjcontroller "github.com/crossplane-contrib/terrajet/pkg/controller"
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
@@ -41,7 +42,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terra
 	name := managed.ControllerName(v1alpha1.LBTargetGroupAttachmentGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.LBTargetGroupAttachmentGroupVersionKind),
-		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s)),
+		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s, config.Store.GetForResource("aws_lb_target_group_attachment"))),
 		managed.WithLogger(l.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
 		managed.WithFinalizer(terraform.NewWorkspaceFinalizer(ws, xpresource.NewAPIFinalizer(mgr.GetClient(), managed.FinalizerName))),

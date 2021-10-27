@@ -30,6 +30,7 @@ import (
 	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
 	"sigs.k8s.io/controller-runtime/pkg/controller"
 
+	"github.com/crossplane-contrib/terrajet/pkg/config"
 	tjcontroller "github.com/crossplane-contrib/terrajet/pkg/controller"
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
@@ -41,8 +42,8 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terra
 	name := managed.ControllerName(v1alpha1.DBInstanceGroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.DBInstanceGroupVersionKind),
-		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s,
-			tjcontroller.UseAsync(),
+		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s, config.Store.GetForResource("aws_db_instance"),
+			tjcontroller.WithCallbackProvider(tjcontroller.NewAPICallbacks(mgr, xpresource.ManagedKind(v1alpha1.DBInstanceGroupVersionKind))),
 		)),
 		managed.WithLogger(l.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),

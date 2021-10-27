@@ -19,6 +19,15 @@ package v1alpha1
 
 import resource "github.com/crossplane/crossplane-runtime/pkg/resource"
 
+// GetItems of this LifecyclePolicyList.
+func (l *LifecyclePolicyList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this PublicRepositoryList.
 func (l *PublicRepositoryList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -28,8 +37,35 @@ func (l *PublicRepositoryList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this RegistryPolicyList.
+func (l *RegistryPolicyList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this ReplicationConfigurationList.
+func (l *ReplicationConfigurationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this RepositoryList.
 func (l *RepositoryList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this RepositoryPolicyList.
+func (l *RepositoryPolicyList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

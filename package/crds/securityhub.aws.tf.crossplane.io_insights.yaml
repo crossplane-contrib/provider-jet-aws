@@ -1,0 +1,1331 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.6.2
+  creationTimestamp: null
+  name: insights.securityhub.aws.tf.crossplane.io
+spec:
+  group: securityhub.aws.tf.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - tfaws
+    kind: Insight
+    listKind: InsightList
+    plural: insights
+    singular: insight
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: Insight is the Schema for the Insights API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: InsightSpec defines the desired state of Insight
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource.
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  filters:
+                    items:
+                      properties:
+                        awsAccountId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        companyName:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        complianceStatus:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        confidence:
+                          items:
+                            properties:
+                              eq:
+                                type: string
+                              gte:
+                                type: string
+                              lte:
+                                type: string
+                            type: object
+                          type: array
+                        createdAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        criticality:
+                          items:
+                            properties:
+                              eq:
+                                type: string
+                              gte:
+                                type: string
+                              lte:
+                                type: string
+                            type: object
+                          type: array
+                        description:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        findingProviderFieldsConfidence:
+                          items:
+                            properties:
+                              eq:
+                                type: string
+                              gte:
+                                type: string
+                              lte:
+                                type: string
+                            type: object
+                          type: array
+                        findingProviderFieldsCriticality:
+                          items:
+                            properties:
+                              eq:
+                                type: string
+                              gte:
+                                type: string
+                              lte:
+                                type: string
+                            type: object
+                          type: array
+                        findingProviderFieldsRelatedFindingsId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        findingProviderFieldsRelatedFindingsProductArn:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        findingProviderFieldsSeverityLabel:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        findingProviderFieldsSeverityOriginal:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        findingProviderFieldsTypes:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        firstObservedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        generatorId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        id:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        keyword:
+                          items:
+                            properties:
+                              value:
+                                type: string
+                            required:
+                            - value
+                            type: object
+                          type: array
+                        lastObservedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        malwareName:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        malwarePath:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        malwareState:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        malwareType:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        networkDestinationDomain:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        networkDestinationIpv4:
+                          items:
+                            properties:
+                              cidr:
+                                type: string
+                            required:
+                            - cidr
+                            type: object
+                          type: array
+                        networkDestinationIpv6:
+                          items:
+                            properties:
+                              cidr:
+                                type: string
+                            required:
+                            - cidr
+                            type: object
+                          type: array
+                        networkDestinationPort:
+                          items:
+                            properties:
+                              eq:
+                                type: string
+                              gte:
+                                type: string
+                              lte:
+                                type: string
+                            type: object
+                          type: array
+                        networkDirection:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        networkProtocol:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        networkSourceDomain:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        networkSourceIpv4:
+                          items:
+                            properties:
+                              cidr:
+                                type: string
+                            required:
+                            - cidr
+                            type: object
+                          type: array
+                        networkSourceIpv6:
+                          items:
+                            properties:
+                              cidr:
+                                type: string
+                            required:
+                            - cidr
+                            type: object
+                          type: array
+                        networkSourceMac:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        networkSourcePort:
+                          items:
+                            properties:
+                              eq:
+                                type: string
+                              gte:
+                                type: string
+                              lte:
+                                type: string
+                            type: object
+                          type: array
+                        noteText:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        noteUpdatedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        noteUpdatedBy:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        processLaunchedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        processName:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        processParentPid:
+                          items:
+                            properties:
+                              eq:
+                                type: string
+                              gte:
+                                type: string
+                              lte:
+                                type: string
+                            type: object
+                          type: array
+                        processPath:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        processPid:
+                          items:
+                            properties:
+                              eq:
+                                type: string
+                              gte:
+                                type: string
+                              lte:
+                                type: string
+                            type: object
+                          type: array
+                        processTerminatedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        productArn:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        productFields:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              key:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - key
+                            - value
+                            type: object
+                          type: array
+                        productName:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        recommendationText:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        recordState:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        relatedFindingsId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        relatedFindingsProductArn:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceIamInstanceProfileArn:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceImageId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceIpv4Addresses:
+                          items:
+                            properties:
+                              cidr:
+                                type: string
+                            required:
+                            - cidr
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceIpv6Addresses:
+                          items:
+                            properties:
+                              cidr:
+                                type: string
+                            required:
+                            - cidr
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceKeyName:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceLaunchedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceSubnetId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceType:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsEc2InstanceVpcId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsIamAccessKeyCreatedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        resourceAwsIamAccessKeyStatus:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsIamAccessKeyUserName:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsS3BucketOwnerId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceAwsS3BucketOwnerName:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceContainerImageId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceContainerImageName:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceContainerLaunchedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        resourceContainerName:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceDetailsOther:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              key:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - key
+                            - value
+                            type: object
+                          type: array
+                        resourceId:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourcePartition:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceRegion:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        resourceTags:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              key:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - key
+                            - value
+                            type: object
+                          type: array
+                        resourceType:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        severityLabel:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        sourceUrl:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        threatIntelIndicatorCategory:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        threatIntelIndicatorLastObservedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        threatIntelIndicatorSource:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        threatIntelIndicatorSourceUrl:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        threatIntelIndicatorType:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        threatIntelIndicatorValue:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        title:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        type:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        updatedAt:
+                          items:
+                            properties:
+                              dateRange:
+                                items:
+                                  properties:
+                                    unit:
+                                      type: string
+                                    value:
+                                      format: int64
+                                      type: integer
+                                  required:
+                                  - unit
+                                  - value
+                                  type: object
+                                type: array
+                              end:
+                                type: string
+                              start:
+                                type: string
+                            type: object
+                          type: array
+                        userDefinedValues:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              key:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - key
+                            - value
+                            type: object
+                          type: array
+                        verificationState:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                        workflowStatus:
+                          items:
+                            properties:
+                              comparison:
+                                type: string
+                              value:
+                                type: string
+                            required:
+                            - comparison
+                            - value
+                            type: object
+                          type: array
+                      type: object
+                    type: array
+                  groupByAttribute:
+                    type: string
+                  name:
+                    type: string
+                  region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
+                    type: string
+                required:
+                - filters
+                - groupByAttribute
+                - name
+                - region
+                type: object
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+          status:
+            description: InsightStatus defines the observed state of Insight.
+            properties:
+              atProvider:
+                properties:
+                  arn:
+                    type: string
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
