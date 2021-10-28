@@ -6,30 +6,27 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-func init() {
-	config.Store.SetForResource("aws_autoscaling_group", config.Resource{
-		Kind:         "AutoscalingGroup",
-		ExternalName: config.NameAsIdentifier,
-		References: map[string]config.Reference{
-			"vpc_zone_identifier": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
-			},
-			"target_group_arns": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
-			},
-		},
-		UseAsync: true,
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_autoscaling_group", func(r *config.Resource) {
+		r.Kind = "AutoscalingGroup"
+		r.ExternalName = config.NameAsIdentifier
+		r.References["vpc_zone_identifier"] = config.Reference{
+			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+		}
+		r.References["target_group_arns"] = config.Reference{
+			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
+		}
+
+		r.UseAsync = true
 	})
-	config.Store.SetForResource("aws_autoscaling_attachment", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"autoscaling_group_name": {
-				Type: "AutoscalingGroup",
-			},
-			"alb_target_group_arn": {
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
-				Extractor: common.PathARNExtractor,
-			},
-		},
+	p.AddResourceConfigurator("aws_autoscaling_attachment", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["autoscaling_group_name"] = config.Reference{
+			Type: "AutoscalingGroup",
+		}
+		r.References["alb_target_group_arn"] = config.Reference{
+			Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
+			Extractor: common.PathARNExtractor,
+		}
 	})
 }

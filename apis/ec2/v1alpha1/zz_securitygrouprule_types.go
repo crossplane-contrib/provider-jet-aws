@@ -53,8 +53,15 @@ type SecurityGroupRuleParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
-	// +kubebuilder:validation:Required
-	SecurityGroupID *string `json:"securityGroupId" tf:"security_group_id,omitempty"`
+	// +crossplane:generate:reference:type=SecurityGroup
+	// +kubebuilder:validation:Optional
+	SecurityGroupID *string `json:"securityGroupId,omitempty" tf:"security_group_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupIDRef *v1.Reference `json:"securityGroupIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupIDSelector *v1.Selector `json:"securityGroupIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Self *bool `json:"self,omitempty" tf:"self,omitempty"`

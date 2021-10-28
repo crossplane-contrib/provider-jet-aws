@@ -22,305 +22,295 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-func init() {
-	config.Store.SetForResource("aws_instance", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"subnet_id": {
-				Type: "Subnet",
-			},
-			"vpc_security_group_ids": {
-				Type: "SecurityGroup",
-			},
-			"security_groups": {
-				Type: "SecurityGroup",
-			},
-			"root_block_device[*].kms_key_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
-			},
-			"network_interface[*].network_interface_id": {
-				Type: "EC2NetworkInterface",
-			},
-			"ebs_block_device[*].kms_key_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
-			},
-		},
-		LateInitializer: config.LateInitializer{
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_instance", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["subnet_id"] = config.Reference{
+			Type: "Subnet",
+		}
+		r.References["vpc_security_group_ids"] = config.Reference{
+			Type: "SecurityGroup",
+		}
+		r.References["security_groups"] = config.Reference{
+			Type: "SecurityGroup",
+		}
+		r.References["root_block_device.kms_key_id"] = config.Reference{
+			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+		}
+		r.References["network_interface.network_interface_id"] = config.Reference{
+			Type: "EC2NetworkInterface",
+		}
+		r.References["ebs_block_device.kms_key_id"] = config.Reference{
+			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+		}
+		r.LateInitializer = config.LateInitializer{
 			// NOTE(muvaf): These are ignored because they conflict with each other.
 			// See the following for more details: https://github.com/crossplane-contrib/terrajet/issues/107
 			IgnoredFields: []string{
-				"SubnetID",
-				"NetworkInterface",
-				"PrivateIP",
-				"SourceDestCheck",
+				"subnet_id",
+				"network_interface",
+				"private_ip",
+				"source_dest_check",
 			},
-		},
+		}
 	})
-	config.Store.SetForResource("aws_eip", config.Resource{
-		Kind:         "ElasticIP",
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"instance": {
-				Type: "Instance",
-			},
-		},
+	p.AddResourceConfigurator("aws_eip", func(r *config.Resource) {
+		r.Kind = "ElasticIP"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["instance"] = config.Reference{
+			Type: "Instance",
+		}
 
-		UseAsync: true,
+		r.UseAsync = true
 	})
 
-	config.Store.SetForResource("aws_ec2_transit_gateway", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
+	p.AddResourceConfigurator("aws_ec2_transit_gateway", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
 	})
 
-	config.Store.SetForResource("aws_ec2_transit_gateway_route", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"transit_gateway_attachment_id": {
-				Type: "TransitGatewayVpcAttachment",
-			},
-			"transit_gateway_route_table_id": {
-				Type: "TransitGatewayRouteTable",
-			},
-		},
+	p.AddResourceConfigurator("aws_ec2_transit_gateway_route", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["transit_gateway_attachment_id"] = config.Reference{
+			Type: "TransitGatewayVpcAttachment",
+		}
+		r.References["transit_gateway_route_table_id"] = config.Reference{
+			Type: "TransitGatewayRouteTable",
+		}
 	})
 
-	config.Store.SetForResource("aws_ec2_transit_gateway_route_table", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"transit_gateway_id": {
-				Type: "TransitGateway",
-			},
-		},
-	})
-	config.Store.SetForResource("aws_ec2_transit_gateway_route_table_association", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"transit_gateway_attachment_id": {
-				Type: "TransitGatewayVpcAttachment",
-			},
-			"transit_gateway_route_table_id": {
-				Type: "TransitGatewayRouteTable",
-			},
-		},
-	})
-	config.Store.SetForResource("aws_ec2_transit_gateway_vpc_attachment", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"subnet_ids": {
-				Type: "Subnet",
-			},
-			"transit_gateway_id": {
-				Type: "TransitGateway",
-			},
-			"vpc_id": {
-				Type: "VPC",
-			},
-		},
-	})
-	config.Store.SetForResource("aws_ec2_transit_gateway_vpc_attachment_accepter", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"transit_gateway_attachment_id": {
-				Type: "TransitGatewayVpcAttachment",
-			},
-		},
+	p.AddResourceConfigurator("aws_ec2_transit_gateway_route_table", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["transit_gateway_id"] = config.Reference{
+			Type: "TransitGateway",
+		}
 	})
 
-	config.Store.SetForResource("aws_launch_template", config.Resource{
+	p.AddResourceConfigurator("aws_ec2_transit_gateway_route_table_association", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["transit_gateway_attachment_id"] = config.Reference{
+			Type: "TransitGatewayVpcAttachment",
+		}
+		r.References["transit_gateway_route_table_id"] = config.Reference{
+			Type: "TransitGatewayRouteTable",
+		}
+	})
+
+	p.AddResourceConfigurator("aws_ec2_transit_gateway_vpc_attachment", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["subnet_ids"] = config.Reference{
+			Type: "Subnet",
+		}
+		r.References["transit_gateway_id"] = config.Reference{
+			Type: "TransitGateway",
+		}
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
+	})
+
+	p.AddResourceConfigurator("aws_ec2_transit_gateway_vpc_attachment_accepter", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["transit_gateway_attachment_id"] = config.Reference{
+			Type: "TransitGatewayVpcAttachment",
+		}
+	})
+
+	p.AddResourceConfigurator("aws_launch_template", func(r *config.Resource) {
 		// Note(turkenh): Kind as "LaunchTemplate" fails with:
 		// panic: cannot generate crd: cannot build types for LaunchTemplate:
 		//  cannot build the types: cannot generate parameters type name of
 		//  LaunchTemplate: could not generate a unique name for
 		//  LaunchTemplateParameters
-		Kind: "EC2LaunchTemplate",
+		r.Kind = "EC2LaunchTemplate"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["security_group_names"] = config.Reference{
+			Type: "SecurityGroup",
+		}
+		r.References["vpc_security_group_ids"] = config.Reference{
+			Type: "SecurityGroup",
+		}
+		r.References["block_device_mappings.ebs.kms_key_id"] = config.Reference{
+			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+		}
+		r.References["iam_instance_profile.arn"] = config.Reference{
+			Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.InstanceProfile",
+			Extractor: common.PathARNExtractor,
+		}
+		r.References["iam_instance_profile.name"] = config.Reference{
+			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.InstanceProfile",
+		}
+		r.References["network_interfaces.network_interface_id"] = config.Reference{
+			Type: "EC2NetworkInterface",
+		}
+		r.References["network_interfaces.security_groups"] = config.Reference{
+			Type: "SecurityGroup",
+		}
+		r.References["network_interfaces.subnet_id"] = config.Reference{
+			Type: "Subnet",
+		}
+	})
 
-		ExternalName: config.IdentifierFromProvider,
+	p.AddResourceConfigurator("aws_vpc", func(r *config.Resource) {
+		r.Kind = "VPC"
+		r.ExternalName = config.IdentifierFromProvider
+	})
 
-		References: map[string]config.Reference{
-			"security_group_names": {
-				Type: "SecurityGroup",
-			},
-			"vpc_security_group_ids": {
-				Type: "SecurityGroup",
-			},
-			"block_device_mappings[*].ebs[*].kms_key_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
-			},
-			"iam_instance_profile[*].arn": {
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.InstanceProfile",
-				Extractor: common.PathARNExtractor,
-			},
-			"iam_instance_profile[*].name": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.InstanceProfile",
-			},
-			"network_interfaces[*].network_interface_id": {
-				Type: "EC2NetworkInterface",
-			},
-			"network_interfaces[*].security_groups": {
-				Type: "SecurityGroup",
-			},
-			"network_interfaces[*].subnet_id": {
-				Type: "Subnet",
-			},
-		},
+	p.AddResourceConfigurator("aws_vpc_endpoint", func(r *config.Resource) {
+		r.Kind = "VpcEndpoint"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
+		r.References["subnet_ids"] = config.Reference{
+			Type: "Subnet",
+		}
+		r.References["security_group_ids"] = config.Reference{
+			Type: "SecurityGroup",
+		}
+		r.References["route_table_ids"] = config.Reference{
+			Type: "RouteTable",
+		}
 	})
-	config.Store.SetForResource("aws_vpc", config.Resource{
-		Kind:         "VPC",
-		ExternalName: config.IdentifierFromProvider,
-	})
-	config.Store.SetForResource("aws_vpc_endpoint", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"vpc_id": {
-				Type: "VPC",
-			},
-			"subnet_ids": {
-				Type: "Subnet",
-			},
-			"security_group_ids": {
-				Type: "SecurityGroup",
-			},
-			"route_table_ids": {
-				Type: "RouteTable",
-			},
-		},
-	})
-	config.Store.SetForResource("aws_subnet", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"vpc_id": {
-				Type: "VPC",
-			},
-		},
-		LateInitializer: config.LateInitializer{
+
+	p.AddResourceConfigurator("aws_subnet", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
+		r.LateInitializer = config.LateInitializer{
 			// NOTE(muvaf): Conflicts with AvailabilityZone. See the following
 			// for more details: https://github.com/crossplane-contrib/terrajet/issues/107
 			IgnoredFields: []string{
-				"AvailabilityZoneID",
+				"availability_zone_id",
 			},
-		},
+		}
 	})
-	config.Store.SetForResource("aws_network_interface", config.Resource{
-		Kind:         "EC2NetworkInterface",
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"vpc_id": {
-				Type: "VPC",
-			},
-			"subnet_id": {
-				Type: "Subnet",
-			},
-			"security_groups": {
-				Type: "SecurityGroup",
-			},
-			"attachment[*].instance": {
-				Type: "Instance",
-			},
-		},
-		LateInitializer: config.LateInitializer{
+
+	p.AddResourceConfigurator("aws_network_interface", func(r *config.Resource) {
+		r.Kind = "EC2NetworkInterface"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
+		r.References["subnet_id"] = config.Reference{
+			Type: "Subnet",
+		}
+		r.References["security_groups"] = config.Reference{
+			Type: "SecurityGroup",
+		}
+		r.References["attachment.instance"] = config.Reference{
+			Type: "Instance",
+		}
+		r.LateInitializer = config.LateInitializer{
 			IgnoredFields: []string{
-				"InterfaceType",
+				"interface_type",
 			},
-		},
+		}
 	})
-	config.Store.SetForResource("aws_security_group", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"vpc_id": {
-				Type: "VPC",
-			},
-			"egress[*].security_groups": {
-				Type: "SecurityGroup",
-			},
-			"ingress[*].security_groups": {
-				Type: "SecurityGroup",
-			},
-		},
+
+	p.AddResourceConfigurator("aws_security_group", func(r *config.Resource) {
+		r.Kind = "SecurityGroup"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
+		r.References["egress.security_groups"] = config.Reference{
+			Type: "SecurityGroup",
+		}
+		r.References["ingress.security_groups"] = config.Reference{
+			Type: "SecurityGroup",
+		}
 	})
-	config.Store.SetForResource("aws_vpc_ipv4_cidr_block_association", config.Resource{
-		Kind:         "IPv4CIDRBlockAssociation",
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"vpc_id": {
-				Type: "VPC",
-			},
-		},
+
+	p.AddResourceConfigurator("aws_security_group_rule", func(r *config.Resource) {
+		r.Kind = "SecurityGroupRule"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["security_group_id"] = config.Reference{
+			Type: "SecurityGroup",
+		}
 	})
-	config.Store.SetForResource("aws_vpc_peering_connection", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"vpc_id": {
-				Type: "VPC",
-			},
-			"peer_vpc_id": {
-				Type: "VPC",
-			},
-		},
+
+	p.AddResourceConfigurator("aws_vpc_ipv4_cidr_block_association", func(r *config.Resource) {
+		r.Kind = "IPv4CIDRBlockAssociation"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
 	})
-	config.Store.SetForResource("aws_route", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"route_table_id": {
-				Type: "RouteTable",
-			},
-			"instance_id": {
-				Type: "Instance",
-			},
-			"network_interface_id": {
-				Type: "EC2NetworkInterface",
-			},
-			"transit_gateway_id": {
-				Type: "TransitGateway",
-			},
-			"vpc_peering_connection_id": {
-				Type: "VpcPeeringConnection",
-			},
-			"vpc_endpoint_id": {
-				Type: "VpcEndpoint",
-			},
-		},
-		UseAsync: true,
+
+	p.AddResourceConfigurator("aws_vpc_peering_connection", func(r *config.Resource) {
+		r.Kind = "VpcPeeringConnection"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
+		r.References["peer_vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
 	})
-	config.Store.SetForResource("aws_route_table", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"vpc_id": {
-				Type: "VPC",
-			},
-			"route[*].vpc_peering_connection_id": {
-				Type: "VpcPeeringConnection",
-			},
-			"route[*].vpc_endpoint_id": {
-				Type: "VpcEndpoint",
-			},
-			"route[*].network_interface_id": {
-				Type: "EC2NetworkInterface",
-			},
-			"route[*].instance_id": {
-				Type: "Instance",
-			},
-		},
+
+	p.AddResourceConfigurator("aws_route", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["route_table_id"] = config.Reference{
+			Type: "RouteTable",
+		}
+		r.References["instance_id"] = config.Reference{
+			Type: "Instance",
+		}
+		r.References["network_interface_id"] = config.Reference{
+			Type: "EC2NetworkInterface",
+		}
+		r.References["transit_gateway_id"] = config.Reference{
+			Type: "TransitGateway",
+		}
+		r.References["vpc_peering_connection_id"] = config.Reference{
+			Type: "VpcPeeringConnection",
+		}
+		r.References["vpc_endpoint_id"] = config.Reference{
+			Type: "VpcEndpoint",
+		}
+		r.UseAsync = true
 	})
-	config.Store.SetForResource("aws_route_table_association", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"subnet_id": {
-				Type: "Subnet",
-			},
-			"route_table_id": {
-				Type: "RouteTable",
-			},
-		},
+
+	p.AddResourceConfigurator("aws_route_table", func(r *config.Resource) {
+		r.Kind = "RouteTable"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
+
+		r.References["route.vpc_peering_connection_id"] = config.Reference{
+			Type: "VpcPeeringConnection",
+		}
+		r.References["route.vpc_endpoint_id"] = config.Reference{
+			Type: "VpcEndpoint",
+		}
+		r.References["route.network_interface_id"] = config.Reference{
+			Type: "EC2NetworkInterface",
+		}
+		r.References["route.instance_id"] = config.Reference{
+			Type: "Instance",
+		}
 	})
-	config.Store.SetForResource("aws_ec2_transit_gateway_route_table_propagation", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"transit_gateway_attachment_id": {
-				Type: "TransitGatewayVpcAttachment",
-			},
-			"transit_gateway_route_table_id": {
-				Type: "TransitGatewayRouteTable",
-			},
-		},
+
+	p.AddResourceConfigurator("aws_route_table_association", func(r *config.Resource) {
+		r.Kind = "RouteTableAssociation"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["subnet_id"] = config.Reference{
+			Type: "Subnet",
+		}
+		r.References["route_table_id"] = config.Reference{
+			Type: "RouteTable",
+		}
+	})
+
+	p.AddResourceConfigurator("aws_ec2_transit_gateway_route_table_propagation", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["transit_gateway_attachment_id"] = config.Reference{
+			Type: "TransitGatewayVpcAttachment",
+		}
+		r.References["transit_gateway_route_table_id"] = config.Reference{
+			Type: "TransitGatewayRouteTable",
+		}
 	})
 }
