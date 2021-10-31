@@ -1,0 +1,52 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: testing
+spec:
+  backoffLimit: 0
+  completions: 1
+  parallelism: 1
+  template:
+    spec:
+      serviceAccountName: crd-creator
+      containers:
+      - name: test
+        image: muvaf/scale-test:v1.3-single
+        env:
+          - name: SERVICE_ACCOUNT_TOKEN_PATH
+            value: /var/run/secrets/kubernetes.io/serviceaccount/token
+          - name: KUBERNETES_CA_CERT_PATH
+            value: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      restartPolicy: Never
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: crd-creator
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  # "namespace" omitted since ClusterRoles are not namespaced
+  name: crd-creator
+rules:
+  - apiGroups: ["apiextensions.k8s.io"]
+    #
+    # at the HTTP level, the name of the resource for accessing Secret
+    # objects is "secrets"
+    resources: ["customresourcedefinitions"]
+    verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+# This cluster role binding allows anyone in the "manager" group to read secrets in any namespace.
+kind: ClusterRoleBinding
+metadata:
+  name: crd-creator-binding
+subjects:
+  - kind: ServiceAccount
+    name: crd-creator # Name is case sensitive
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: crd-creator
+  apiGroup: rbac.authorization.k8s.io
