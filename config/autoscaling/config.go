@@ -6,7 +6,7 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-func Configure(p config.Provider) {
+func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_autoscaling_group", func(r *config.Resource) {
 		r.Kind = "AutoscalingGroup"
 		r.ExternalName = config.NameAsIdentifier

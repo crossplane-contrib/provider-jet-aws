@@ -22,7 +22,7 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-func Configure(p config.Provider) {
+func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_instance", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_id"] = config.Reference{

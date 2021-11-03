@@ -85,7 +85,6 @@ import (
 	dbinstance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/dbinstance"
 	dbparametergroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/rds/dbparametergroup"
 	bucket "github.com/crossplane-contrib/provider-tf-aws/internal/controller/s3/bucket"
-	tfaws "github.com/crossplane-contrib/provider-tf-aws/internal/controller/tfaws"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -138,7 +137,6 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		service.Setup,
 		subnet.Setup,
 		taskdefinition.Setup,
-		tfaws.Setup,
 		transitgateway.Setup,
 		transitgatewayroute.Setup,
 		transitgatewayroutetable.Setup,

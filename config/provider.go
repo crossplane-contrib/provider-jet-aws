@@ -124,9 +124,9 @@ var skipList = []string{
 }
 
 // GetProvider returns provider configuration
-func GetProvider() tjconfig.Provider {
+func GetProvider() *tjconfig.Provider {
 	pc := tjconfig.NewProvider(
-		tf.Provider(), resourcePrefix, "github.com/crossplane-contrib/provider-tf-aws",
+		tf.Provider().ResourcesMap, resourcePrefix, "github.com/crossplane-contrib/provider-tf-aws",
 		tjconfig.WithIncludeList(includedResources),
 		tjconfig.WithSkipList(skipList),
 	)
@@ -154,7 +154,7 @@ func GetProvider() tjconfig.Provider {
 
 		if resource.Group != "iam" {
 			pc.AddResourceConfigurator(name, func(r *tjconfig.Resource) {
-				r.Terraform.Schema["region"] = regionSchema
+				r.TerraformResource.Schema["region"] = regionSchema
 			})
 		}
 
@@ -162,14 +162,14 @@ func GetProvider() tjconfig.Provider {
 		// default tags in TF, which is not something we support. So, we don't
 		// need it as a parameter while "tags" is already in place.
 		pc.AddResourceConfigurator(name, func(r *tjconfig.Resource) {
-			if t, ok := r.Terraform.Schema["tags_all"]; ok {
+			if t, ok := r.TerraformResource.Schema["tags_all"]; ok {
 				t.Computed = true
 				t.Optional = false
 			}
 		})
 	}
 
-	for _, configure := range []func(provider tjconfig.Provider){
+	for _, configure := range []func(provider *tjconfig.Provider){
 		// add custom config functions
 		autoscaling.Configure,
 		ec2.Configure,
@@ -177,6 +177,7 @@ func GetProvider() tjconfig.Provider {
 		configure(pc)
 	}
 
+	pc.ConfigureResources()
 	return pc
 }
 
