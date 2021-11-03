@@ -129,45 +129,44 @@ func GetProvider() *tjconfig.Provider {
 		tf.Provider().ResourcesMap, resourcePrefix, "github.com/crossplane-contrib/provider-tf-aws",
 		tjconfig.WithIncludeList(includedResources),
 		tjconfig.WithSkipList(skipList),
-	)
+		tjconfig.WithDefaultResourceFn(func(name string, terraformResource *schema.Resource) *tjconfig.Resource {
+			r := tjconfig.DefaultResource(name, terraformResource)
 
-	for name, resource := range pc.Resources {
-		switch {
-		case strings.HasPrefix(name, "aws_security_group") ||
-			strings.HasPrefix(name, "aws_subnet") ||
-			strings.HasPrefix(name, "aws_network") ||
-			strings.HasPrefix(name, "aws_eip") ||
-			strings.HasPrefix(name, "aws_launch_template") ||
-			strings.HasPrefix(name, "aws_route") ||
-			strings.HasPrefix(name, "aws_instance") ||
-			strings.HasPrefix(name, "aws_vpc"):
-			pc.AddResourceConfigurator(name, resourceGroupConfigurator("ec2"))
-		case resource.Group == "vpc":
-			pc.AddResourceConfigurator(name, resourceGroupConfigurator("ec2"))
-		case name == "aws_lb":
-			pc.AddResourceConfigurator(name, resourceGroupConfigurator("lb"))
-		case strings.Contains(name, "aws_db_"):
-			pc.AddResourceConfigurator(name, resourceGroupConfigurator("rds"))
-		case strings.Contains(name, "aws_ecrpublic_repository"):
-			pc.AddResourceConfigurator(name, resourceGroupConfigurator("ecr"))
-		}
-
-		if resource.Group != "iam" {
-			pc.AddResourceConfigurator(name, func(r *tjconfig.Resource) {
+			switch {
+			case strings.HasPrefix(name, "aws_security_group") ||
+				strings.HasPrefix(name, "aws_subnet") ||
+				strings.HasPrefix(name, "aws_network") ||
+				strings.HasPrefix(name, "aws_eip") ||
+				strings.HasPrefix(name, "aws_launch_template") ||
+				strings.HasPrefix(name, "aws_route") ||
+				strings.HasPrefix(name, "aws_instance") ||
+				strings.HasPrefix(name, "aws_vpc"):
+				r.Group = "ec2"
+			case r.Group == "vpc":
+				r.Group = "ec2"
+			case name == "aws_lb":
+				r.Group = "lb"
+			case strings.Contains(name, "aws_db_"):
+				r.Group = "rds"
+			case strings.Contains(name, "aws_ecrpublic_repository"):
+				r.Group = "ecr"
+			}
+			// Add region to the spec of all resources except iam group which
+			// does not have a region notion.
+			if r.Group != "iam" {
 				r.TerraformResource.Schema["region"] = regionSchema
-			})
-		}
-
-		// tags_all is used only in tfstate to accumulate provider-wide
-		// default tags in TF, which is not something we support. So, we don't
-		// need it as a parameter while "tags" is already in place.
-		pc.AddResourceConfigurator(name, func(r *tjconfig.Resource) {
+			}
+			// tags_all is used only in tfstate to accumulate provider-wide
+			// default tags in TF, which is not something we support. So, we don't
+			// need it as a parameter while "tags" is already in place.
 			if t, ok := r.TerraformResource.Schema["tags_all"]; ok {
 				t.Computed = true
 				t.Optional = false
 			}
-		})
-	}
+
+			return r
+		}),
+	)
 
 	for _, configure := range []func(provider *tjconfig.Provider){
 		// add custom config functions
@@ -192,11 +191,5 @@ func getRegionSchema() *schema.Schema {
 		Type:        schema.TypeString,
 		Required:    true,
 		Description: comment.String(),
-	}
-}
-
-func resourceGroupConfigurator(group string) tjconfig.ResourceConfiguratorFn {
-	return func(r *tjconfig.Resource) {
-		r.Group = group
 	}
 }
