@@ -4445,6 +4445,16 @@ func (in *SecurityGroupRuleParameters) DeepCopyInto(out *SecurityGroupRuleParame
 		*out = new(string)
 		**out = **in
 	}
+	if in.SecurityGroupIDRef != nil {
+		in, out := &in.SecurityGroupIDRef, &out.SecurityGroupIDRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.SecurityGroupIDSelector != nil {
+		in, out := &in.SecurityGroupIDSelector, &out.SecurityGroupIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.Self != nil {
 		in, out := &in.Self, &out.Self
 		*out = new(bool)

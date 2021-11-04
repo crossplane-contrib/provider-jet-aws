@@ -156,6 +156,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc_endpoint", func(r *config.Resource) {
+		r.Kind = "VpcEndpoint"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -208,6 +209,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_security_group", func(r *config.Resource) {
+		r.Kind = "SecurityGroup"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -216,6 +218,14 @@ func Configure(p *config.Provider) {
 			Type: "SecurityGroup",
 		}
 		r.References["ingress.security_groups"] = config.Reference{
+			Type: "SecurityGroup",
+		}
+	})
+
+	p.AddResourceConfigurator("aws_security_group_rule", func(r *config.Resource) {
+		r.Kind = "SecurityGroupRule"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["security_group_id"] = config.Reference{
 			Type: "SecurityGroup",
 		}
 	})
@@ -229,6 +239,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc_peering_connection", func(r *config.Resource) {
+		r.Kind = "VpcPeeringConnection"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -262,6 +273,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_route_table", func(r *config.Resource) {
+		r.Kind = "RouteTable"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -282,6 +294,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_route_table_association", func(r *config.Resource) {
+		r.Kind = "RouteTableAssociation"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_id"] = config.Reference{
 			Type: "Subnet",

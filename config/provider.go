@@ -19,19 +19,19 @@ var regionSchema = getRegionSchema()
 
 var includedResources = []string{
 
-	/*	// VPC
-		"aws_vpc$",
-		"aws_security_group$",
-		"aws_security_group_rule$",
-		"aws_subnet$",
-		"aws_network_interface$",
-		"aws_route$",
-		"aws_route_table$",
-		"aws_vpc_endpoint$",
-		"aws_vpc_ipv4_cidr_block_association$",
-		"aws_vpc_peering_connection$",
-		"aws_route_table_association$",
-
+	// VPC
+	"aws_vpc$",
+	"aws_security_group$",
+	"aws_security_group_rule$",
+	"aws_subnet$",
+	"aws_network_interface$",
+	"aws_route$",
+	"aws_route_table$",
+	"aws_vpc_endpoint$",
+	"aws_vpc_ipv4_cidr_block_association$",
+	"aws_vpc_peering_connection$",
+	"aws_route_table_association$",
+	/*
 		// Elastic Load Balancing v2 (ALB/NLB)
 		"aws_lb$",
 		"aws_lb_listener$",
