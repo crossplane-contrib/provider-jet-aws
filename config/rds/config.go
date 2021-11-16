@@ -20,6 +20,7 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
+// Configure adds configurations for rds group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_rds_cluster", func(r *config.Resource) {
 		r.Kind = "DBCluster"

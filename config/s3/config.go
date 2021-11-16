@@ -22,6 +22,7 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
+// Configure adds configurations for s3 group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_rds_cluster", func(r *config.Resource) {
 		r.ExternalName = config.ExternalName{

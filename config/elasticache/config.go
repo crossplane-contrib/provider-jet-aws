@@ -20,6 +20,7 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
+// Configure adds configurations for elasticache group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_elasticache_parameter_group", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider

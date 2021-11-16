@@ -20,6 +20,7 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
+// Configure adds configurations for ebs group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ebs_volume", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider

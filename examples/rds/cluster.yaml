@@ -1,5 +1,5 @@
 apiVersion: rds.aws.tf.crossplane.io/v1alpha1
-kind: Cluster
+kind: DBCluster
 metadata:
   name: sample-cluster
 spec:

@@ -22,6 +22,7 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
+// Configure adds configurations for iam group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_iam_access_key", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider

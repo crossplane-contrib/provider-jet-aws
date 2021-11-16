@@ -1,7 +1,25 @@
+/*
+Copyright 2021 The Crossplane Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
 package config
 
 import (
 	"strings"
+
+	"github.com/crossplane-contrib/provider-tf-aws/config/ecs"
 
 	"github.com/crossplane-contrib/terrajet/pkg/types/comments"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -137,41 +155,7 @@ func GetProvider() *tjconfig.Provider {
 		tf.Provider().ResourcesMap, resourcePrefix, "github.com/crossplane-contrib/provider-tf-aws",
 		tjconfig.WithIncludeList(includedResources),
 		tjconfig.WithSkipList(skipList),
-		tjconfig.WithDefaultResourceFn(func(name string, terraformResource *schema.Resource) *tjconfig.Resource {
-			r := tjconfig.DefaultResource(name, terraformResource)
-
-			switch {
-			case strings.HasPrefix(name, "aws_security_group") ||
-				strings.HasPrefix(name, "aws_subnet") ||
-				strings.HasPrefix(name, "aws_network") ||
-				strings.HasPrefix(name, "aws_eip") ||
-				strings.HasPrefix(name, "aws_launch_template") ||
-				strings.HasPrefix(name, "aws_route") ||
-				strings.HasPrefix(name, "aws_instance") ||
-				strings.HasPrefix(name, "aws_vpc"):
-				r.Group = "ec2"
-			case r.Group == "vpc":
-				r.Group = "ec2"
-			case name == "aws_lb":
-				r.Group = "lb"
-			case strings.Contains(name, "aws_db_"):
-				r.Group = "rds"
-			}
-			// Add region to the spec of all resources except iam group which
-			// does not have a region notion.
-			if r.Group != "iam" {
-				r.TerraformResource.Schema["region"] = regionSchema
-			}
-			// tags_all is used only in tfstate to accumulate provider-wide
-			// default tags in TF, which is not something we support. So, we don't
-			// need it as a parameter while "tags" is already in place.
-			if t, ok := r.TerraformResource.Schema["tags_all"]; ok {
-				t.Computed = true
-				t.Optional = false
-			}
-
-			return r
-		}),
+		tjconfig.WithDefaultResourceFn(DefaultResource),
 	)
 
 	for _, configure := range []func(provider *tjconfig.Provider){
@@ -180,6 +164,7 @@ func GetProvider() *tjconfig.Provider {
 		ec2.Configure,
 		ecr.Configure,
 		ecrpublic.Configure,
+		ecs.Configure,
 		eks.Configure,
 		elasticache.Configure,
 		elasticloadbalancing.Configure,
@@ -193,6 +178,45 @@ func GetProvider() *tjconfig.Provider {
 
 	pc.ConfigureResources()
 	return pc
+}
+
+// DefaultResource returns a base resource configuration for AWS resources.
+func DefaultResource(name string, terraformResource *schema.Resource) *tjconfig.Resource { // nolint:gocyclo
+	// NOTE(muvaf): gocyclo is disabled because this function is mostly for if
+	// conditions that are easy to grasp.
+	r := tjconfig.DefaultResource(name, terraformResource)
+
+	switch {
+	case strings.HasPrefix(name, "aws_security_group") ||
+		strings.HasPrefix(name, "aws_subnet") ||
+		strings.HasPrefix(name, "aws_network") ||
+		strings.HasPrefix(name, "aws_eip") ||
+		strings.HasPrefix(name, "aws_launch_template") ||
+		strings.HasPrefix(name, "aws_route") ||
+		strings.HasPrefix(name, "aws_instance") ||
+		strings.HasPrefix(name, "aws_vpc"):
+		r.Group = "ec2"
+	case r.Group == "vpc":
+		r.Group = "ec2"
+	case name == "aws_lb_":
+		r.Group = "elasticloadbalancing"
+	case strings.Contains(name, "aws_db_"):
+		r.Group = "rds"
+	}
+	// Add region to the spec of all resources except iam group which
+	// does not have a region notion.
+	if r.Group != "iam" {
+		r.TerraformResource.Schema["region"] = regionSchema
+	}
+	// tags_all is used only in tfstate to accumulate provider-wide
+	// default tags in TF, which is not something we support. So, we don't
+	// need it as a parameter while "tags" is already in place.
+	if t, ok := r.TerraformResource.Schema["tags_all"]; ok {
+		t.Computed = true
+		t.Optional = false
+	}
+
+	return r
 }
 
 func getRegionSchema() *schema.Schema {

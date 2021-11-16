@@ -22,6 +22,7 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
+// Configure adds configurations for ec2 group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_instance", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider
@@ -38,7 +39,7 @@ func Configure(p *config.Provider) {
 			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
 		}
 		r.References["network_interface.network_interface_id"] = config.Reference{
-			Type: "EC2NetworkInterface",
+			Type: "NetworkInterface",
 		}
 		r.References["ebs_block_device.kms_key_id"] = config.Reference{
 			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
@@ -71,7 +72,7 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_route", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
-			Type: "TransitGatewayVpcAttachment",
+			Type: "TransitGatewayVPCAttachment",
 		}
 		r.References["transit_gateway_route_table_id"] = config.Reference{
 			Type: "TransitGatewayRouteTable",
@@ -88,7 +89,7 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_route_table_association", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
-			Type: "TransitGatewayVpcAttachment",
+			Type: "TransitGatewayVPCAttachment",
 		}
 		r.References["transit_gateway_route_table_id"] = config.Reference{
 			Type: "TransitGatewayRouteTable",
@@ -96,6 +97,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_vpc_attachment", func(r *config.Resource) {
+		r.Kind = "TransitGatewayVPCAttachment"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_ids"] = config.Reference{
 			Type: "Subnet",
@@ -109,9 +111,10 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_vpc_attachment_accepter", func(r *config.Resource) {
+		r.Kind = "TransitGatewayVPCAttachmentAccepter"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
-			Type: "TransitGatewayVpcAttachment",
+			Type: "TransitGatewayVPCAttachment",
 		}
 	})
 
@@ -140,7 +143,7 @@ func Configure(p *config.Provider) {
 			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.InstanceProfile",
 		}
 		r.References["network_interfaces.network_interface_id"] = config.Reference{
-			Type: "EC2NetworkInterface",
+			Type: "NetworkInterface",
 		}
 		r.References["network_interfaces.security_groups"] = config.Reference{
 			Type: "SecurityGroup",
@@ -156,7 +159,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc_endpoint", func(r *config.Resource) {
-		r.Kind = "VpcEndpoint"
+		r.Kind = "VPCEndpoint"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -187,7 +190,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_network_interface", func(r *config.Resource) {
-		r.Kind = "EC2NetworkInterface"
+		r.Kind = "NetworkInterface"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -239,7 +242,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc_peering_connection", func(r *config.Resource) {
-		r.Kind = "VpcPeeringConnection"
+		r.Kind = "VPCPeeringConnection"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -258,16 +261,16 @@ func Configure(p *config.Provider) {
 			Type: "Instance",
 		}
 		r.References["network_interface_id"] = config.Reference{
-			Type: "EC2NetworkInterface",
+			Type: "NetworkInterface",
 		}
 		r.References["transit_gateway_id"] = config.Reference{
 			Type: "TransitGateway",
 		}
 		r.References["vpc_peering_connection_id"] = config.Reference{
-			Type: "VpcPeeringConnection",
+			Type: "VPCPeeringConnection",
 		}
 		r.References["vpc_endpoint_id"] = config.Reference{
-			Type: "VpcEndpoint",
+			Type: "VPCEndpoint",
 		}
 		r.UseAsync = true
 	})
@@ -280,13 +283,13 @@ func Configure(p *config.Provider) {
 		}
 
 		r.References["route.vpc_peering_connection_id"] = config.Reference{
-			Type: "VpcPeeringConnection",
+			Type: "VPCPeeringConnection",
 		}
 		r.References["route.vpc_endpoint_id"] = config.Reference{
-			Type: "VpcEndpoint",
+			Type: "VPCEndpoint",
 		}
 		r.References["route.network_interface_id"] = config.Reference{
-			Type: "EC2NetworkInterface",
+			Type: "NetworkInterface",
 		}
 		r.References["route.instance_id"] = config.Reference{
 			Type: "Instance",
@@ -307,7 +310,7 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_route_table_propagation", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
-			Type: "TransitGatewayVpcAttachment",
+			Type: "TransitGatewayVPCAttachment",
 		}
 		r.References["transit_gateway_route_table_id"] = config.Reference{
 			Type: "TransitGatewayRouteTable",

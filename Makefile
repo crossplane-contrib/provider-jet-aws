@@ -74,16 +74,6 @@ crds.clean:
 	@find package/crds -name '*.yaml.sed' -delete || $(FAIL)
 	@$(OK) cleaned generated CRDs
 
-terrajet.clean:
-	@$(INFO) cleaning generated Terrajet files
-	@rm -f apis/zz_*.go
-	@rm -f apis/*/zz_*.go
-	@rm -f apis/*/*/zz_*.go
-	@rm -f internal/controller/zz_*.go
-	@rm -f internal/controller/*/*/zz_*.go
-	@$(OK) cleaned generated Terrajet files
-
-generate.init: terrajet.clean
 generate.done: crds.clean
 
 # Update the submodules, such as the common build scripts.

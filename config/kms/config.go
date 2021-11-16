@@ -20,6 +20,7 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
+// Configure adds configurations for kms group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_kms_key", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider

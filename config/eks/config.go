@@ -22,6 +22,7 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
+// Configure adds configurations for eks group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_eks_cluster", func(r *config.Resource) {
 		r.References = config.References{
