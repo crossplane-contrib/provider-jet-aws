@@ -19,12 +19,9 @@ package config
 import (
 	"strings"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config/ecs"
-
 	"github.com/crossplane-contrib/terrajet/pkg/types/comments"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/pkg/errors"
-	tf "github.com/terraform-providers/terraform-provider-aws/aws"
 
 	tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
 
@@ -33,6 +30,7 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/ec2"
 	"github.com/crossplane-contrib/provider-tf-aws/config/ecr"
 	"github.com/crossplane-contrib/provider-tf-aws/config/ecrpublic"
+	"github.com/crossplane-contrib/provider-tf-aws/config/ecs"
 	"github.com/crossplane-contrib/provider-tf-aws/config/eks"
 	"github.com/crossplane-contrib/provider-tf-aws/config/elasticache"
 	"github.com/crossplane-contrib/provider-tf-aws/config/elasticloadbalancing"
@@ -150,9 +148,9 @@ var skipList = []string{
 }
 
 // GetProvider returns provider configuration
-func GetProvider() *tjconfig.Provider {
+func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 	pc := tjconfig.NewProvider(
-		tf.Provider().ResourcesMap, resourcePrefix, "github.com/crossplane-contrib/provider-tf-aws",
+		tfProvider.ResourcesMap, resourcePrefix, "github.com/crossplane-contrib/provider-tf-aws",
 		tjconfig.WithIncludeList(includedResources),
 		tjconfig.WithSkipList(skipList),
 		tjconfig.WithDefaultResourceFn(DefaultResource),

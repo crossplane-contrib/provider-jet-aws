@@ -26,6 +26,9 @@ limitations under the License.
 //go:generate bash -c "rm -rf $(find . -iname 'zz_*')"
 //go:generate bash -c "rm -rf $(find ../internal/controller -iname 'zz_*')"
 
+// NOTE(muvaf): Some of Terraform AWS provider files have "!generate" build tag
+// that prevent us from using it for generator program.
+
 // Run Terrajet generator
 //go:generate go run ../cmd/generator/main.go ..
 

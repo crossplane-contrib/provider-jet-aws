@@ -21,19 +21,21 @@ import (
 	"os"
 	"path/filepath"
 
+	tf "github.com/terraform-providers/terraform-provider-aws/aws"
+
 	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 
 	"github.com/crossplane-contrib/provider-tf-aws/config"
 )
 
 func main() {
-	rootDir := os.Args[1]
-	if rootDir == "" {
+	if len(os.Args) < 2 || os.Args[1] == "" {
 		panic("root directory is required to be given as argument")
 	}
+	rootDir := os.Args[1]
 	absRootDir, err := filepath.Abs(rootDir)
 	if err != nil {
 		panic(fmt.Sprintf("cannot calculate the absolute path with %s", rootDir))
 	}
-	pipeline.Run(config.GetProvider(), absRootDir)
+	pipeline.Run(config.GetProvider(tf.Provider()), absRootDir)
 }
