@@ -14,7 +14,7 @@ func Configure(p *config.Provider) {
 			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 		}
 		r.References["target_group_arns"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
+			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
 		}
 
 		r.UseAsync = true
@@ -25,7 +25,7 @@ func Configure(p *config.Provider) {
 			Type: "AutoscalingGroup",
 		}
 		r.References["alb_target_group_arn"] = config.Reference{
-			Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
+			Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
 			Extractor: common.PathARNExtractor,
 		}
 	})

@@ -20,9 +20,10 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
-func init() {
-	config.Store.SetForResource("aws_rds_cluster", config.Resource{
-		ExternalName: config.ExternalName{
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_rds_cluster", func(r *config.Resource) {
+		r.Kind = "DBCluster"
+		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["cluster_identifier"] = name
 			},
@@ -30,23 +31,25 @@ func init() {
 				"cluster_identifier",
 				"cluster_identifier_prefix",
 			},
-		},
-		References: config.References{
-			"s3_import[*].bucket_name": {
+		}
+		r.References = config.References{
+			"s3_import.bucket_name": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
 			},
 			"vpc_security_group_ids": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
 			},
-			"restore_to_point_in_time[*].source_cluster_identifier": {
+			"restore_to_point_in_time.source_cluster_identifier": {
 				Type: "Cluster",
 			},
-		},
-		UseAsync: true,
+		}
+		r.UseAsync = true
 	})
-	config.Store.SetForResource("aws_db_instance", config.Resource{
-		Kind: "DBInstance",
-		ExternalName: config.ExternalName{
+
+	p.AddResourceConfigurator("aws_db_instance", func(r *config.Resource) {
+		r.Kind = "DBInstance"
+		r.Group = "rds"
+		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["identifier"] = name
 			},
@@ -54,12 +57,12 @@ func init() {
 				"identifier",
 				"identifier_prefix",
 			},
-		},
-		References: config.References{
-			"restore_to_point_in_time[*].source_db_instance_identifier": {
+		}
+		r.References = config.References{
+			"restore_to_point_in_time.source_db_instance_identifier": {
 				Type: "DBInstance",
 			},
-			"s3_import[*].bucket_name": {
+			"s3_import.bucket_name": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
 			},
 			"kms_key_id": {
@@ -68,7 +71,7 @@ func init() {
 			"performance_insights_kms_key_id": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
 			},
-			"restore_to_point_in_time[*].source_cluster_identifier": {
+			"restore_to_point_in_time.source_cluster_identifier": {
 				Type: "Cluster",
 			},
 			"security_group_names": {
@@ -80,11 +83,11 @@ func init() {
 			"parameter_group_name": {
 				Type: "DBParameterGroup",
 			},
-		},
-		UseAsync: true,
+		}
+		r.UseAsync = true
 	})
-	config.Store.SetForResource("aws_db_parameter_group", config.Resource{
-		Kind:         "DBParameterGroup",
-		ExternalName: config.NameAsIdentifier,
+	p.AddResourceConfigurator("aws_db_parameter_group", func(r *config.Resource) {
+		r.Kind = "DBParameterGroup"
+		r.Group = "rds"
 	})
 }

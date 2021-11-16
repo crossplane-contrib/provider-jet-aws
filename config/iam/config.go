@@ -22,61 +22,54 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-func init() {
-	config.Store.SetForResource("aws_iam_access_key", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_iam_access_key", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"user": config.Reference{
 				Type: "User",
 			},
-		},
+		}
 	})
 
-	config.Store.SetForResource("aws_iam_group", config.Resource{
-		// Cannot use kind "Group" since it conflict with generated constant
-		// name in group version info
-		Kind:         "IAMGroup",
-		ExternalName: config.NameAsIdentifier,
-	})
-
-	config.Store.SetForResource("aws_iam_group_policy", config.Resource{
-		ExternalName: config.NameAsIdentifier,
-		References: config.References{
+	p.AddResourceConfigurator("aws_iam_group_policy", func(r *config.Resource) {
+		r.ExternalName = config.NameAsIdentifier
+		r.References = config.References{
 			"group": config.Reference{
-				Type: "IAMGroup",
+				Type: "Group",
 			},
-		},
+		}
 	})
 
-	config.Store.SetForResource("aws_iam_group_policy_attachment", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+	p.AddResourceConfigurator("aws_iam_group_policy_attachment", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"group": config.Reference{
-				Type: "IAMGroup",
+				Type: "Group",
 			},
 			"policy_arn": config.Reference{
 				Type:      "Policy",
 				Extractor: common.PathARNExtractor,
 			},
-		},
+		}
 	})
 
-	config.Store.SetForResource("aws_iam_instance_profile", config.Resource{
-		ExternalName: config.NameAsIdentifier,
-		References: config.References{
+	p.AddResourceConfigurator("aws_iam_instance_profile", func(r *config.Resource) {
+		r.ExternalName = config.NameAsIdentifier
+		r.References = config.References{
 			"role": config.Reference{
 				Type: "Role",
 			},
-		},
+		}
 	})
 
-	config.Store.SetForResource("aws_iam_policy", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
+	p.AddResourceConfigurator("aws_iam_policy", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
 	})
 
-	config.Store.SetForResource("aws_iam_policy_attachment", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+	p.AddResourceConfigurator("aws_iam_policy_attachment", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"users": config.Reference{
 				Type: "User",
 			},
@@ -84,25 +77,18 @@ func init() {
 				Type: "Role",
 			},
 			"groups": config.Reference{
-				Type: "IAMGroup",
+				Type: "Group",
 			},
 			"policy_arn": config.Reference{
 				Type:      "Policy",
 				Extractor: common.PathARNExtractor,
 			},
-		},
+		}
 	})
 
-	config.Store.SetForResource("aws_iam_role", config.Resource{
-		ExternalName: config.NameAsIdentifier,
-	})
-
-	config.Store.SetForResource("aws_iam_role_policy", config.Resource{
-		ExternalName: config.NameAsIdentifier,
-	})
-	config.Store.SetForResource("aws_iam_role_policy_attachment", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+	p.AddResourceConfigurator("aws_iam_role_policy_attachment", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"role": config.Reference{
 				Type: "Role",
 			},
@@ -110,36 +96,33 @@ func init() {
 				Type:      "Policy",
 				Extractor: common.PathARNExtractor,
 			},
-		},
+		}
 	})
 
-	config.Store.SetForResource("aws_iam_user", config.Resource{
-		ExternalName: config.NameAsIdentifier,
-	})
-
-	config.Store.SetForResource("aws_iam_user_group_membership", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+	p.AddResourceConfigurator("aws_iam_user_group_membership", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"user": config.Reference{
 				Type: "User",
 			},
 			"groups": config.Reference{
-				Type: "IAMGroup",
+				Type: "Group",
 			},
-		},
+		}
 	})
 
-	config.Store.SetForResource("aws_iam_user_policy", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+	p.AddResourceConfigurator("aws_iam_user_policy", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"user": config.Reference{
 				Type: "User",
 			},
-		},
+		}
 	})
-	config.Store.SetForResource("aws_iam_user_policy_attachment", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+
+	p.AddResourceConfigurator("aws_iam_user_policy_attachment", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"user": config.Reference{
 				Type: "User",
 			},
@@ -147,6 +130,6 @@ func init() {
 				Type:      "Policy",
 				Extractor: common.PathARNExtractor,
 			},
-		},
+		}
 	})
 }

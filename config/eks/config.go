@@ -22,10 +22,9 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-func init() {
-	config.Store.SetForResource("aws_eks_cluster", config.Resource{
-		ExternalName: config.NameAsIdentifier,
-		References: config.References{
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_eks_cluster", func(r *config.Resource) {
+		r.References = config.References{
 			"role_arn": {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
@@ -36,11 +35,11 @@ func init() {
 			"vpc_config[*].security_group_ids": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
 			},
-		},
-		UseAsync: true,
+		}
+		r.UseAsync = true
 	})
-	config.Store.SetForResource("aws_eks_node_group", config.Resource{
-		ExternalName: config.ExternalName{
+	p.AddResourceConfigurator("aws_eks_node_group", func(r *config.Resource) {
+		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["node_group_name"] = name
 			},
@@ -48,8 +47,8 @@ func init() {
 				"node_group_name",
 				"node_group_name_prefix",
 			},
-		},
-		References: config.References{
+		}
+		r.References = config.References{
 			"cluster_name": {
 				Type: "Cluster",
 			},
@@ -63,27 +62,29 @@ func init() {
 			"subnet_ids": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
-		},
-		UseAsync: true,
+		}
+		r.UseAsync = true
 	})
-	config.Store.SetForResource("aws_eks_identity_provider_config", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+	p.AddResourceConfigurator("aws_eks_identity_provider_config", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"cluster_name": {
 				Type: "Cluster",
 			},
-		},
+		}
 	})
-	config.Store.SetForResource("aws_eks_fargate_profile", config.Resource{
-		ExternalName: config.ExternalName{
+
+	p.AddResourceConfigurator("aws_eks_fargate_profile", func(r *config.Resource) {
+		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["fargate_profile_name"] = name
 			},
 			OmittedFields: []string{
 				"fargate_profile_name",
 			},
-		},
-		References: config.References{
+		}
+
+		r.References = config.References{
 			"cluster_name": {
 				Type: "Cluster",
 			},
@@ -94,11 +95,11 @@ func init() {
 			"subnet_ids": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
-		},
+		}
 	})
-	config.Store.SetForResource("aws_eks_addon", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+	p.AddResourceConfigurator("aws_eks_addon", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"cluster_name": {
 				Type: "Cluster",
 			},
@@ -106,6 +107,6 @@ func init() {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
-		},
+		}
 	})
 }

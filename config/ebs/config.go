@@ -20,13 +20,13 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
-func init() {
-	config.Store.SetForResource("aws_ebs_volume", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_ebs_volume", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = map[string]config.Reference{
 			"kms_key_id": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
 			},
-		},
+		}
 	})
 }

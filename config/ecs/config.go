@@ -6,16 +6,11 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-func init() {
-
-	config.Store.SetForResource("aws_ecs_cluster", config.Resource{
-		// Note(turkenh): Seems like we have a case that breaks our
-		// assumption that "id" field always used to import resource and
-		// should be set as external-id. Here we could import the resource
-		// with "name" but id contains "arn".
-		// https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster
-		ExternalName: config.NameAsIdentifier,
-		References: config.References{
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_ecs_cluster", func(r *config.Resource) {
+		// todo: use new ID operation overrides because ID is ARN.
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"capacity_providers": config.Reference{
 				Type: "CapacityProvider",
 			},
@@ -25,13 +20,13 @@ func init() {
 			"log_configuration[*].s3_bucket_name": config.Reference{
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
 			},
-		},
-		UseAsync: true,
+		}
+		r.UseAsync = true
 	})
 
-	config.Store.SetForResource("aws_ecs_service", config.Resource{
-		ExternalName: config.NameAsIdentifier,
-		References: config.References{
+	p.AddResourceConfigurator("aws_ecs_service", func(r *config.Resource) {
+		r.ExternalName = config.NameAsIdentifier
+		r.References = config.References{
 			"cluster": config.Reference{
 				Type:      "Cluster",
 				Extractor: common.PathARNExtractor,
@@ -46,24 +41,23 @@ func init() {
 			"network_configuration[*].security_groups": config.Reference{
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
 			},
-		},
-
-		UseAsync: true,
+		}
+		r.UseAsync = true
 	})
 
-	config.Store.SetForResource("aws_ecs_capacity_provider", config.Resource{
-		ExternalName: config.NameAsIdentifier,
-		References: config.References{
+	p.AddResourceConfigurator("aws_ecs_capacity_provider", func(r *config.Resource) {
+		r.ExternalName = config.NameAsIdentifier
+		r.References = config.References{
 			"auto_scaling_group_provider[*].auto_scaling_group_arn": config.Reference{
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1.AutoscalingGroup",
 				Extractor: common.PathARNExtractor,
 			},
-		},
+		}
 	})
 
-	config.Store.SetForResource("aws_ecs_tag", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+	p.AddResourceConfigurator("aws_ecs_tag", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			// Note(turkenh): This reference could correspond multiple types as
 			// per documentation, any ecs resource: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_tag#resource_arn
 			// However, we could only reference to one type.
@@ -71,16 +65,15 @@ func init() {
 				Type:      "Cluster",
 				Extractor: common.PathARNExtractor,
 			},
-		},
+		}
 	})
-
-	config.Store.SetForResource("aws_ecs_task_definition", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: config.References{
+	p.AddResourceConfigurator("aws_ecs_task_definition", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
 			"execution_role_arn": config.Reference{
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
-		},
+		}
 	})
 }
