@@ -28,15 +28,6 @@ func (l *EC2LaunchTemplateList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this EC2NetworkInterfaceList.
-func (l *EC2NetworkInterfaceList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
 // GetItems of this ElasticIPList.
 func (l *ElasticIPList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -57,6 +48,15 @@ func (l *IPv4CIDRBlockAssociationList) GetItems() []resource.Managed {
 
 // GetItems of this InstanceList.
 func (l *InstanceList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this NetworkInterfaceList.
+func (l *NetworkInterfaceList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -163,8 +163,8 @@ func (l *TransitGatewayRouteTablePropagationList) GetItems() []resource.Managed 
 	return items
 }
 
-// GetItems of this TransitGatewayVpcAttachmentAccepterList.
-func (l *TransitGatewayVpcAttachmentAccepterList) GetItems() []resource.Managed {
+// GetItems of this TransitGatewayVPCAttachmentAccepterList.
+func (l *TransitGatewayVPCAttachmentAccepterList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -172,8 +172,17 @@ func (l *TransitGatewayVpcAttachmentAccepterList) GetItems() []resource.Managed 
 	return items
 }
 
-// GetItems of this TransitGatewayVpcAttachmentList.
-func (l *TransitGatewayVpcAttachmentList) GetItems() []resource.Managed {
+// GetItems of this TransitGatewayVPCAttachmentList.
+func (l *TransitGatewayVPCAttachmentList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VPCEndpointList.
+func (l *VPCEndpointList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -190,17 +199,8 @@ func (l *VPCList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this VpcEndpointList.
-func (l *VpcEndpointList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this VpcPeeringConnectionList.
-func (l *VpcPeeringConnectionList) GetItems() []resource.Managed {
+// GetItems of this VPCPeeringConnectionList.
+func (l *VPCPeeringConnectionList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

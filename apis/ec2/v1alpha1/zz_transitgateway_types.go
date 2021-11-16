@@ -108,10 +108,10 @@ type TransitGatewayList struct {
 
 // Repository type metadata.
 var (
-	TransitGatewayKind             = "TransitGateway"
-	TransitGatewayGroupKind        = schema.GroupKind{Group: Group, Kind: TransitGatewayKind}.String()
-	TransitGatewayKindAPIVersion   = TransitGatewayKind + "." + GroupVersion.String()
-	TransitGatewayGroupVersionKind = GroupVersion.WithKind(TransitGatewayKind)
+	TransitGateway_Kind             = "TransitGateway"
+	TransitGateway_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: TransitGateway_Kind}.String()
+	TransitGateway_KindAPIVersion   = TransitGateway_Kind + "." + CRDGroupVersion.String()
+	TransitGateway_GroupVersionKind = CRDGroupVersion.WithKind(TransitGateway_Kind)
 )
 
 func init() {

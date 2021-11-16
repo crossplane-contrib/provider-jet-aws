@@ -327,7 +327,7 @@ type NetworkInterfaceParameters struct {
 	// +kubebuilder:validation:Required
 	DeviceIndex *int64 `json:"deviceIndex" tf:"device_index,omitempty"`
 
-	// +crossplane:generate:reference:type=EC2NetworkInterface
+	// +crossplane:generate:reference:type=NetworkInterface
 	// +kubebuilder:validation:Optional
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
 
@@ -417,10 +417,10 @@ type InstanceList struct {
 
 // Repository type metadata.
 var (
-	InstanceKind             = "Instance"
-	InstanceGroupKind        = schema.GroupKind{Group: Group, Kind: InstanceKind}.String()
-	InstanceKindAPIVersion   = InstanceKind + "." + GroupVersion.String()
-	InstanceGroupVersionKind = GroupVersion.WithKind(InstanceKind)
+	Instance_Kind             = "Instance"
+	Instance_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Instance_Kind}.String()
+	Instance_KindAPIVersion   = Instance_Kind + "." + CRDGroupVersion.String()
+	Instance_GroupVersionKind = CRDGroupVersion.WithKind(Instance_Kind)
 )
 
 func init() {

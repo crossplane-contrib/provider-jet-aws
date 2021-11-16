@@ -118,10 +118,10 @@ type VPCList struct {
 
 // Repository type metadata.
 var (
-	VPCKind             = "VPC"
-	VPCGroupKind        = schema.GroupKind{Group: Group, Kind: VPCKind}.String()
-	VPCKindAPIVersion   = VPCKind + "." + GroupVersion.String()
-	VPCGroupVersionKind = GroupVersion.WithKind(VPCKind)
+	VPC_Kind             = "VPC"
+	VPC_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: VPC_Kind}.String()
+	VPC_KindAPIVersion   = VPC_Kind + "." + CRDGroupVersion.String()
+	VPC_GroupVersionKind = CRDGroupVersion.WithKind(VPC_Kind)
 )
 
 func init() {

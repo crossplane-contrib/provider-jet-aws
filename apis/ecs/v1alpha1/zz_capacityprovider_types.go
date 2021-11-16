@@ -30,16 +30,8 @@ type AutoScalingGroupProviderObservation struct {
 
 type AutoScalingGroupProviderParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1.AutoscalingGroup
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
-	// +kubebuilder:validation:Optional
-	AutoScalingGroupArn *string `json:"autoScalingGroupArn,omitempty" tf:"auto_scaling_group_arn,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	AutoScalingGroupArnRef *v1.Reference `json:"autoScalingGroupArnRef,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	AutoScalingGroupArnSelector *v1.Selector `json:"autoScalingGroupArnSelector,omitempty" tf:"-"`
+	// +kubebuilder:validation:Required
+	AutoScalingGroupArn *string `json:"autoScalingGroupArn" tf:"auto_scaling_group_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ManagedScaling []ManagedScalingParameters `json:"managedScaling,omitempty" tf:"managed_scaling,omitempty"`
@@ -128,10 +120,10 @@ type CapacityProviderList struct {
 
 // Repository type metadata.
 var (
-	CapacityProviderKind             = "CapacityProvider"
-	CapacityProviderGroupKind        = schema.GroupKind{Group: Group, Kind: CapacityProviderKind}.String()
-	CapacityProviderKindAPIVersion   = CapacityProviderKind + "." + GroupVersion.String()
-	CapacityProviderGroupVersionKind = GroupVersion.WithKind(CapacityProviderKind)
+	CapacityProvider_Kind             = "CapacityProvider"
+	CapacityProvider_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: CapacityProvider_Kind}.String()
+	CapacityProvider_KindAPIVersion   = CapacityProvider_Kind + "." + CRDGroupVersion.String()
+	CapacityProvider_GroupVersionKind = CRDGroupVersion.WithKind(CapacityProvider_Kind)
 )
 
 func init() {

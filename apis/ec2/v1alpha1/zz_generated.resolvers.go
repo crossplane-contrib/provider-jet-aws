@@ -98,8 +98,8 @@ func (mg *EC2LaunchTemplate) ResolveReferences(ctx context.Context, c client.Rea
 			Reference:    mg.Spec.ForProvider.NetworkInterfaces[i3].NetworkInterfaceIDRef,
 			Selector:     mg.Spec.ForProvider.NetworkInterfaces[i3].NetworkInterfaceIDSelector,
 			To: reference.To{
-				List:    &EC2NetworkInterfaceList{},
-				Managed: &EC2NetworkInterface{},
+				List:    &NetworkInterfaceList{},
+				Managed: &NetworkInterface{},
 			},
 		})
 		if err != nil {
@@ -176,67 +176,6 @@ func (mg *EC2LaunchTemplate) ResolveReferences(ctx context.Context, c client.Rea
 	}
 	mg.Spec.ForProvider.VpcSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.VpcSecurityGroupIdsRefs = mrsp.ResolvedReferences
-
-	return nil
-}
-
-// ResolveReferences of this EC2NetworkInterface.
-func (mg *EC2NetworkInterface) ResolveReferences(ctx context.Context, c client.Reader) error {
-	r := reference.NewAPIResolver(c, mg)
-
-	var rsp reference.ResolutionResponse
-	var mrsp reference.MultiResolutionResponse
-	var err error
-
-	for i3 := 0; i3 < len(mg.Spec.ForProvider.Attachment); i3++ {
-		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Attachment[i3].Instance),
-			Extract:      reference.ExternalName(),
-			Reference:    mg.Spec.ForProvider.Attachment[i3].InstanceRef,
-			Selector:     mg.Spec.ForProvider.Attachment[i3].InstanceSelector,
-			To: reference.To{
-				List:    &InstanceList{},
-				Managed: &Instance{},
-			},
-		})
-		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.Attachment[i3].Instance")
-		}
-		mg.Spec.ForProvider.Attachment[i3].Instance = reference.ToPtrValue(rsp.ResolvedValue)
-		mg.Spec.ForProvider.Attachment[i3].InstanceRef = rsp.ResolvedReference
-
-	}
-	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.SecurityGroups),
-		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.SecurityGroupsRefs,
-		Selector:      mg.Spec.ForProvider.SecurityGroupsSelector,
-		To: reference.To{
-			List:    &SecurityGroupList{},
-			Managed: &SecurityGroup{},
-		},
-	})
-	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.SecurityGroups")
-	}
-	mg.Spec.ForProvider.SecurityGroups = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.SecurityGroupsRefs = mrsp.ResolvedReferences
-
-	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SubnetID),
-		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.SubnetIDRef,
-		Selector:     mg.Spec.ForProvider.SubnetIDSelector,
-		To: reference.To{
-			List:    &SubnetList{},
-			Managed: &Subnet{},
-		},
-	})
-	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.SubnetID")
-	}
-	mg.Spec.ForProvider.SubnetID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.SubnetIDRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -326,8 +265,8 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 			Reference:    mg.Spec.ForProvider.NetworkInterface[i3].NetworkInterfaceIDRef,
 			Selector:     mg.Spec.ForProvider.NetworkInterface[i3].NetworkInterfaceIDSelector,
 			To: reference.To{
-				List:    &EC2NetworkInterfaceList{},
-				Managed: &EC2NetworkInterface{},
+				List:    &NetworkInterfaceList{},
+				Managed: &NetworkInterface{},
 			},
 		})
 		if err != nil {
@@ -406,6 +345,67 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	return nil
 }
 
+// ResolveReferences of this NetworkInterface.
+func (mg *NetworkInterface) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var mrsp reference.MultiResolutionResponse
+	var err error
+
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.Attachment); i3++ {
+		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Attachment[i3].Instance),
+			Extract:      reference.ExternalName(),
+			Reference:    mg.Spec.ForProvider.Attachment[i3].InstanceRef,
+			Selector:     mg.Spec.ForProvider.Attachment[i3].InstanceSelector,
+			To: reference.To{
+				List:    &InstanceList{},
+				Managed: &Instance{},
+			},
+		})
+		if err != nil {
+			return errors.Wrap(err, "mg.Spec.ForProvider.Attachment[i3].Instance")
+		}
+		mg.Spec.ForProvider.Attachment[i3].Instance = reference.ToPtrValue(rsp.ResolvedValue)
+		mg.Spec.ForProvider.Attachment[i3].InstanceRef = rsp.ResolvedReference
+
+	}
+	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.SecurityGroups),
+		Extract:       reference.ExternalName(),
+		References:    mg.Spec.ForProvider.SecurityGroupsRefs,
+		Selector:      mg.Spec.ForProvider.SecurityGroupsSelector,
+		To: reference.To{
+			List:    &SecurityGroupList{},
+			Managed: &SecurityGroup{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SecurityGroups")
+	}
+	mg.Spec.ForProvider.SecurityGroups = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.SecurityGroupsRefs = mrsp.ResolvedReferences
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SubnetID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.SubnetIDRef,
+		Selector:     mg.Spec.ForProvider.SubnetIDSelector,
+		To: reference.To{
+			List:    &SubnetList{},
+			Managed: &Subnet{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SubnetID")
+	}
+	mg.Spec.ForProvider.SubnetID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.SubnetIDRef = rsp.ResolvedReference
+
+	return nil
+}
+
 // ResolveReferences of this Route.
 func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
@@ -435,8 +435,8 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 		Reference:    mg.Spec.ForProvider.NetworkInterfaceIDRef,
 		Selector:     mg.Spec.ForProvider.NetworkInterfaceIDSelector,
 		To: reference.To{
-			List:    &EC2NetworkInterfaceList{},
-			Managed: &EC2NetworkInterface{},
+			List:    &NetworkInterfaceList{},
+			Managed: &NetworkInterface{},
 		},
 	})
 	if err != nil {
@@ -483,8 +483,8 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 		Reference:    mg.Spec.ForProvider.VpcEndpointIDRef,
 		Selector:     mg.Spec.ForProvider.VpcEndpointIDSelector,
 		To: reference.To{
-			List:    &VpcEndpointList{},
-			Managed: &VpcEndpoint{},
+			List:    &VPCEndpointList{},
+			Managed: &VPCEndpoint{},
 		},
 	})
 	if err != nil {
@@ -499,8 +499,8 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 		Reference:    mg.Spec.ForProvider.VpcPeeringConnectionIDRef,
 		Selector:     mg.Spec.ForProvider.VpcPeeringConnectionIDSelector,
 		To: reference.To{
-			List:    &VpcPeeringConnectionList{},
-			Managed: &VpcPeeringConnection{},
+			List:    &VPCPeeringConnectionList{},
+			Managed: &VPCPeeringConnection{},
 		},
 	})
 	if err != nil {
@@ -544,8 +544,8 @@ func (mg *RouteTable) ResolveReferences(ctx context.Context, c client.Reader) er
 			Reference:    mg.Spec.ForProvider.Route[i3].NetworkInterfaceIDRef,
 			Selector:     mg.Spec.ForProvider.Route[i3].NetworkInterfaceIDSelector,
 			To: reference.To{
-				List:    &EC2NetworkInterfaceList{},
-				Managed: &EC2NetworkInterface{},
+				List:    &NetworkInterfaceList{},
+				Managed: &NetworkInterface{},
 			},
 		})
 		if err != nil {
@@ -562,8 +562,8 @@ func (mg *RouteTable) ResolveReferences(ctx context.Context, c client.Reader) er
 			Reference:    mg.Spec.ForProvider.Route[i3].VpcEndpointIDRef,
 			Selector:     mg.Spec.ForProvider.Route[i3].VpcEndpointIDSelector,
 			To: reference.To{
-				List:    &VpcEndpointList{},
-				Managed: &VpcEndpoint{},
+				List:    &VPCEndpointList{},
+				Managed: &VPCEndpoint{},
 			},
 		})
 		if err != nil {
@@ -580,8 +580,8 @@ func (mg *RouteTable) ResolveReferences(ctx context.Context, c client.Reader) er
 			Reference:    mg.Spec.ForProvider.Route[i3].VpcPeeringConnectionIDRef,
 			Selector:     mg.Spec.ForProvider.Route[i3].VpcPeeringConnectionIDSelector,
 			To: reference.To{
-				List:    &VpcPeeringConnectionList{},
-				Managed: &VpcPeeringConnection{},
+				List:    &VPCPeeringConnectionList{},
+				Managed: &VPCPeeringConnection{},
 			},
 		})
 		if err != nil {
@@ -780,8 +780,8 @@ func (mg *TransitGatewayRoute) ResolveReferences(ctx context.Context, c client.R
 		Reference:    mg.Spec.ForProvider.TransitGatewayAttachmentIDRef,
 		Selector:     mg.Spec.ForProvider.TransitGatewayAttachmentIDSelector,
 		To: reference.To{
-			List:    &TransitGatewayVpcAttachmentList{},
-			Managed: &TransitGatewayVpcAttachment{},
+			List:    &TransitGatewayVPCAttachmentList{},
+			Managed: &TransitGatewayVPCAttachment{},
 		},
 	})
 	if err != nil {
@@ -848,8 +848,8 @@ func (mg *TransitGatewayRouteTableAssociation) ResolveReferences(ctx context.Con
 		Reference:    mg.Spec.ForProvider.TransitGatewayAttachmentIDRef,
 		Selector:     mg.Spec.ForProvider.TransitGatewayAttachmentIDSelector,
 		To: reference.To{
-			List:    &TransitGatewayVpcAttachmentList{},
-			Managed: &TransitGatewayVpcAttachment{},
+			List:    &TransitGatewayVPCAttachmentList{},
+			Managed: &TransitGatewayVPCAttachment{},
 		},
 	})
 	if err != nil {
@@ -890,8 +890,8 @@ func (mg *TransitGatewayRouteTablePropagation) ResolveReferences(ctx context.Con
 		Reference:    mg.Spec.ForProvider.TransitGatewayAttachmentIDRef,
 		Selector:     mg.Spec.ForProvider.TransitGatewayAttachmentIDSelector,
 		To: reference.To{
-			List:    &TransitGatewayVpcAttachmentList{},
-			Managed: &TransitGatewayVpcAttachment{},
+			List:    &TransitGatewayVPCAttachmentList{},
+			Managed: &TransitGatewayVPCAttachment{},
 		},
 	})
 	if err != nil {
@@ -919,8 +919,8 @@ func (mg *TransitGatewayRouteTablePropagation) ResolveReferences(ctx context.Con
 	return nil
 }
 
-// ResolveReferences of this TransitGatewayVpcAttachment.
-func (mg *TransitGatewayVpcAttachment) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this TransitGatewayVPCAttachment.
+func (mg *TransitGatewayVPCAttachment) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -978,8 +978,8 @@ func (mg *TransitGatewayVpcAttachment) ResolveReferences(ctx context.Context, c 
 	return nil
 }
 
-// ResolveReferences of this TransitGatewayVpcAttachmentAccepter.
-func (mg *TransitGatewayVpcAttachmentAccepter) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this TransitGatewayVPCAttachmentAccepter.
+func (mg *TransitGatewayVPCAttachmentAccepter) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -991,8 +991,8 @@ func (mg *TransitGatewayVpcAttachmentAccepter) ResolveReferences(ctx context.Con
 		Reference:    mg.Spec.ForProvider.TransitGatewayAttachmentIDRef,
 		Selector:     mg.Spec.ForProvider.TransitGatewayAttachmentIDSelector,
 		To: reference.To{
-			List:    &TransitGatewayVpcAttachmentList{},
-			Managed: &TransitGatewayVpcAttachment{},
+			List:    &TransitGatewayVPCAttachmentList{},
+			Managed: &TransitGatewayVPCAttachment{},
 		},
 	})
 	if err != nil {
@@ -1004,8 +1004,8 @@ func (mg *TransitGatewayVpcAttachmentAccepter) ResolveReferences(ctx context.Con
 	return nil
 }
 
-// ResolveReferences of this VpcEndpoint.
-func (mg *VpcEndpoint) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this VPCEndpoint.
+func (mg *VPCEndpoint) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -1079,8 +1079,8 @@ func (mg *VpcEndpoint) ResolveReferences(ctx context.Context, c client.Reader) e
 	return nil
 }
 
-// ResolveReferences of this VpcPeeringConnection.
-func (mg *VpcPeeringConnection) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this VPCPeeringConnection.
+func (mg *VPCPeeringConnection) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse

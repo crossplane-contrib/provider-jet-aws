@@ -129,10 +129,10 @@ type FargateProfileList struct {
 
 // Repository type metadata.
 var (
-	FargateProfileKind             = "FargateProfile"
-	FargateProfileGroupKind        = schema.GroupKind{Group: Group, Kind: FargateProfileKind}.String()
-	FargateProfileKindAPIVersion   = FargateProfileKind + "." + GroupVersion.String()
-	FargateProfileGroupVersionKind = GroupVersion.WithKind(FargateProfileKind)
+	FargateProfile_Kind             = "FargateProfile"
+	FargateProfile_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: FargateProfile_Kind}.String()
+	FargateProfile_KindAPIVersion   = FargateProfile_Kind + "." + CRDGroupVersion.String()
+	FargateProfile_GroupVersionKind = CRDGroupVersion.WithKind(FargateProfile_Kind)
 )
 
 func init() {

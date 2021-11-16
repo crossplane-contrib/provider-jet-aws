@@ -34,7 +34,7 @@ type DNSEntryObservation struct {
 type DNSEntryParameters struct {
 }
 
-type VpcEndpointObservation struct {
+type VPCEndpointObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
 	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks,omitempty"`
@@ -54,7 +54,7 @@ type VpcEndpointObservation struct {
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
-type VpcEndpointParameters struct {
+type VPCEndpointParameters struct {
 
 	// +kubebuilder:validation:Optional
 	AutoAccept *bool `json:"autoAccept,omitempty" tf:"auto_accept,omitempty"`
@@ -120,51 +120,51 @@ type VpcEndpointParameters struct {
 	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
 
-// VpcEndpointSpec defines the desired state of VpcEndpoint
-type VpcEndpointSpec struct {
+// VPCEndpointSpec defines the desired state of VPCEndpoint
+type VPCEndpointSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     VpcEndpointParameters `json:"forProvider"`
+	ForProvider     VPCEndpointParameters `json:"forProvider"`
 }
 
-// VpcEndpointStatus defines the observed state of VpcEndpoint.
-type VpcEndpointStatus struct {
+// VPCEndpointStatus defines the observed state of VPCEndpoint.
+type VPCEndpointStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        VpcEndpointObservation `json:"atProvider,omitempty"`
+	AtProvider        VPCEndpointObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// VpcEndpoint is the Schema for the VpcEndpoints API
+// VPCEndpoint is the Schema for the VPCEndpoints API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type VpcEndpoint struct {
+type VPCEndpoint struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              VpcEndpointSpec   `json:"spec"`
-	Status            VpcEndpointStatus `json:"status,omitempty"`
+	Spec              VPCEndpointSpec   `json:"spec"`
+	Status            VPCEndpointStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// VpcEndpointList contains a list of VpcEndpoints
-type VpcEndpointList struct {
+// VPCEndpointList contains a list of VPCEndpoints
+type VPCEndpointList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []VpcEndpoint `json:"items"`
+	Items           []VPCEndpoint `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	VpcEndpointKind             = "VpcEndpoint"
-	VpcEndpointGroupKind        = schema.GroupKind{Group: Group, Kind: VpcEndpointKind}.String()
-	VpcEndpointKindAPIVersion   = VpcEndpointKind + "." + GroupVersion.String()
-	VpcEndpointGroupVersionKind = GroupVersion.WithKind(VpcEndpointKind)
+	VPCEndpoint_Kind             = "VPCEndpoint"
+	VPCEndpoint_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: VPCEndpoint_Kind}.String()
+	VPCEndpoint_KindAPIVersion   = VPCEndpoint_Kind + "." + CRDGroupVersion.String()
+	VPCEndpoint_GroupVersionKind = CRDGroupVersion.WithKind(VPCEndpoint_Kind)
 )
 
 func init() {
-	SchemeBuilder.Register(&VpcEndpoint{}, &VpcEndpointList{})
+	SchemeBuilder.Register(&VPCEndpoint{}, &VPCEndpointList{})
 }

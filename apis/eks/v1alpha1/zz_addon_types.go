@@ -115,10 +115,10 @@ type AddonList struct {
 
 // Repository type metadata.
 var (
-	AddonKind             = "Addon"
-	AddonGroupKind        = schema.GroupKind{Group: Group, Kind: AddonKind}.String()
-	AddonKindAPIVersion   = AddonKind + "." + GroupVersion.String()
-	AddonGroupVersionKind = GroupVersion.WithKind(AddonKind)
+	Addon_Kind             = "Addon"
+	Addon_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Addon_Kind}.String()
+	Addon_KindAPIVersion   = Addon_Kind + "." + CRDGroupVersion.String()
+	Addon_GroupVersionKind = CRDGroupVersion.WithKind(Addon_Kind)
 )
 
 func init() {

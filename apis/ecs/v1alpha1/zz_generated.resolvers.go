@@ -19,43 +19,12 @@ package v1alpha1
 
 import (
 	"context"
-	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1"
-	v1alpha12 "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1"
-	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
+	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1"
 	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
-
-// ResolveReferences of this CapacityProvider.
-func (mg *CapacityProvider) ResolveReferences(ctx context.Context, c client.Reader) error {
-	r := reference.NewAPIResolver(c, mg)
-
-	var rsp reference.ResolutionResponse
-	var err error
-
-	for i3 := 0; i3 < len(mg.Spec.ForProvider.AutoScalingGroupProvider); i3++ {
-		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.AutoScalingGroupProvider[i3].AutoScalingGroupArn),
-			Extract:      common.ARNExtractor(),
-			Reference:    mg.Spec.ForProvider.AutoScalingGroupProvider[i3].AutoScalingGroupArnRef,
-			Selector:     mg.Spec.ForProvider.AutoScalingGroupProvider[i3].AutoScalingGroupArnSelector,
-			To: reference.To{
-				List:    &v1alpha1.AutoscalingGroupList{},
-				Managed: &v1alpha1.AutoscalingGroup{},
-			},
-		})
-		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.AutoScalingGroupProvider[i3].AutoScalingGroupArn")
-		}
-		mg.Spec.ForProvider.AutoScalingGroupProvider[i3].AutoScalingGroupArn = reference.ToPtrValue(rsp.ResolvedValue)
-		mg.Spec.ForProvider.AutoScalingGroupProvider[i3].AutoScalingGroupArnRef = rsp.ResolvedReference
-
-	}
-
-	return nil
-}
 
 // ResolveReferences of this Cluster.
 func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error {
@@ -88,7 +57,6 @@ func (mg *Service) ResolveReferences(ctx context.Context, c client.Reader) error
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
-	var mrsp reference.MultiResolutionResponse
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -113,8 +81,8 @@ func (mg *Service) ResolveReferences(ctx context.Context, c client.Reader) error
 		Reference:    mg.Spec.ForProvider.IamRoleRef,
 		Selector:     mg.Spec.ForProvider.IamRoleSelector,
 		To: reference.To{
-			List:    &v1alpha11.RoleList{},
-			Managed: &v1alpha11.Role{},
+			List:    &v1alpha1.RoleList{},
+			Managed: &v1alpha1.Role{},
 		},
 	})
 	if err != nil {
@@ -122,43 +90,6 @@ func (mg *Service) ResolveReferences(ctx context.Context, c client.Reader) error
 	}
 	mg.Spec.ForProvider.IamRole = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.IamRoleRef = rsp.ResolvedReference
-
-	for i3 := 0; i3 < len(mg.Spec.ForProvider.NetworkConfiguration); i3++ {
-		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroups),
-			Extract:       reference.ExternalName(),
-			References:    mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupsRefs,
-			Selector:      mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupsSelector,
-			To: reference.To{
-				List:    &v1alpha12.SecurityGroupList{},
-				Managed: &v1alpha12.SecurityGroup{},
-			},
-		})
-		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroups")
-		}
-		mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroups = reference.ToPtrValues(mrsp.ResolvedValues)
-		mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupsRefs = mrsp.ResolvedReferences
-
-	}
-	for i3 := 0; i3 < len(mg.Spec.ForProvider.NetworkConfiguration); i3++ {
-		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.NetworkConfiguration[i3].Subnets),
-			Extract:       reference.ExternalName(),
-			References:    mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetsRefs,
-			Selector:      mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetsSelector,
-			To: reference.To{
-				List:    &v1alpha12.SubnetList{},
-				Managed: &v1alpha12.Subnet{},
-			},
-		})
-		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.NetworkConfiguration[i3].Subnets")
-		}
-		mg.Spec.ForProvider.NetworkConfiguration[i3].Subnets = reference.ToPtrValues(mrsp.ResolvedValues)
-		mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetsRefs = mrsp.ResolvedReferences
-
-	}
 
 	return nil
 }
@@ -176,8 +107,8 @@ func (mg *TaskDefinition) ResolveReferences(ctx context.Context, c client.Reader
 		Reference:    mg.Spec.ForProvider.ExecutionRoleArnRef,
 		Selector:     mg.Spec.ForProvider.ExecutionRoleArnSelector,
 		To: reference.To{
-			List:    &v1alpha11.RoleList{},
-			Managed: &v1alpha11.Role{},
+			List:    &v1alpha1.RoleList{},
+			Managed: &v1alpha1.Role{},
 		},
 	})
 	if err != nil {

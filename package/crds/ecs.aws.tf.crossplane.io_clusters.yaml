@@ -135,6 +135,8 @@ spec:
                       - capacityProvider
                       type: object
                     type: array
+                  name:
+                    type: string
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
@@ -156,6 +158,7 @@ spec:
                       type: string
                     type: object
                 required:
+                - name
                 - region
                 type: object
               providerConfigRef:

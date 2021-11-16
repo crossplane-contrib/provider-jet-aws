@@ -64,8 +64,8 @@ func (mg *GroupPolicy) ResolveReferences(ctx context.Context, c client.Reader) e
 		Reference:    mg.Spec.ForProvider.GroupRef,
 		Selector:     mg.Spec.ForProvider.GroupSelector,
 		To: reference.To{
-			List:    &IAMGroupList{},
-			Managed: &IAMGroup{},
+			List:    &GroupList{},
+			Managed: &Group{},
 		},
 	})
 	if err != nil {
@@ -90,8 +90,8 @@ func (mg *GroupPolicyAttachment) ResolveReferences(ctx context.Context, c client
 		Reference:    mg.Spec.ForProvider.GroupRef,
 		Selector:     mg.Spec.ForProvider.GroupSelector,
 		To: reference.To{
-			List:    &IAMGroupList{},
-			Managed: &IAMGroup{},
+			List:    &GroupList{},
+			Managed: &Group{},
 		},
 	})
 	if err != nil {
@@ -159,8 +159,8 @@ func (mg *PolicyAttachment) ResolveReferences(ctx context.Context, c client.Read
 		References:    mg.Spec.ForProvider.GroupsRefs,
 		Selector:      mg.Spec.ForProvider.GroupsSelector,
 		To: reference.To{
-			List:    &IAMGroupList{},
-			Managed: &IAMGroup{},
+			List:    &GroupList{},
+			Managed: &Group{},
 		},
 	})
 	if err != nil {
@@ -276,8 +276,8 @@ func (mg *UserGroupMembership) ResolveReferences(ctx context.Context, c client.R
 		References:    mg.Spec.ForProvider.GroupsRefs,
 		Selector:      mg.Spec.ForProvider.GroupsSelector,
 		To: reference.To{
-			List:    &IAMGroupList{},
-			Managed: &IAMGroup{},
+			List:    &GroupList{},
+			Managed: &Group{},
 		},
 	})
 	if err != nil {

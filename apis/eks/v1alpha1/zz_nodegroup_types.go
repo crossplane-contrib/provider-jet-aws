@@ -143,15 +143,8 @@ type RemoteAccessParameters struct {
 	// +kubebuilder:validation:Optional
 	Ec2SSHKey *string `json:"ec2SshKey,omitempty" tf:"ec2_ssh_key,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
 	SourceSecurityGroupIds []*string `json:"sourceSecurityGroupIds,omitempty" tf:"source_security_group_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SourceSecurityGroupIdsRefs []v1.Reference `json:"sourceSecurityGroupIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SourceSecurityGroupIdsSelector *v1.Selector `json:"sourceSecurityGroupIdsSelector,omitempty" tf:"-"`
 }
 
 type ResourcesObservation struct {
@@ -232,10 +225,10 @@ type NodeGroupList struct {
 
 // Repository type metadata.
 var (
-	NodeGroupKind             = "NodeGroup"
-	NodeGroupGroupKind        = schema.GroupKind{Group: Group, Kind: NodeGroupKind}.String()
-	NodeGroupKindAPIVersion   = NodeGroupKind + "." + GroupVersion.String()
-	NodeGroupGroupVersionKind = GroupVersion.WithKind(NodeGroupKind)
+	NodeGroup_Kind             = "NodeGroup"
+	NodeGroup_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: NodeGroup_Kind}.String()
+	NodeGroup_KindAPIVersion   = NodeGroup_Kind + "." + CRDGroupVersion.String()
+	NodeGroup_GroupVersionKind = CRDGroupVersion.WithKind(NodeGroup_Kind)
 )
 
 func init() {

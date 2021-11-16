@@ -93,10 +93,10 @@ type AccessKeyList struct {
 
 // Repository type metadata.
 var (
-	AccessKeyKind             = "AccessKey"
-	AccessKeyGroupKind        = schema.GroupKind{Group: Group, Kind: AccessKeyKind}.String()
-	AccessKeyKindAPIVersion   = AccessKeyKind + "." + GroupVersion.String()
-	AccessKeyGroupVersionKind = GroupVersion.WithKind(AccessKeyKind)
+	AccessKey_Kind             = "AccessKey"
+	AccessKey_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: AccessKey_Kind}.String()
+	AccessKey_KindAPIVersion   = AccessKey_Kind + "." + CRDGroupVersion.String()
+	AccessKey_GroupVersionKind = CRDGroupVersion.WithKind(AccessKey_Kind)
 )
 
 func init() {

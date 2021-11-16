@@ -30,7 +30,7 @@ type GroupPolicyAttachmentObservation struct {
 
 type GroupPolicyAttachmentParameters struct {
 
-	// +crossplane:generate:reference:type=IAMGroup
+	// +crossplane:generate:reference:type=Group
 	// +kubebuilder:validation:Optional
 	Group *string `json:"group,omitempty" tf:"group,omitempty"`
 
@@ -91,10 +91,10 @@ type GroupPolicyAttachmentList struct {
 
 // Repository type metadata.
 var (
-	GroupPolicyAttachmentKind             = "GroupPolicyAttachment"
-	GroupPolicyAttachmentGroupKind        = schema.GroupKind{Group: Group, Kind: GroupPolicyAttachmentKind}.String()
-	GroupPolicyAttachmentKindAPIVersion   = GroupPolicyAttachmentKind + "." + GroupVersion.String()
-	GroupPolicyAttachmentGroupVersionKind = GroupVersion.WithKind(GroupPolicyAttachmentKind)
+	GroupPolicyAttachment_Kind             = "GroupPolicyAttachment"
+	GroupPolicyAttachment_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: GroupPolicyAttachment_Kind}.String()
+	GroupPolicyAttachment_KindAPIVersion   = GroupPolicyAttachment_Kind + "." + CRDGroupVersion.String()
+	GroupPolicyAttachment_GroupVersionKind = CRDGroupVersion.WithKind(GroupPolicyAttachment_Kind)
 )
 
 func init() {

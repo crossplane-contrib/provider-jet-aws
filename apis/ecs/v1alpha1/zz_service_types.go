@@ -87,25 +87,11 @@ type NetworkConfigurationParameters struct {
 	// +kubebuilder:validation:Optional
 	AssignPublicIP *bool `json:"assignPublicIp,omitempty" tf:"assign_public_ip,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
 	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	SecurityGroupsRefs []v1.Reference `json:"securityGroupsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupsSelector *v1.Selector `json:"securityGroupsSelector,omitempty" tf:"-"`
-
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet
-	// +kubebuilder:validation:Optional
-	Subnets []*string `json:"subnets,omitempty" tf:"subnets,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SubnetsRefs []v1.Reference `json:"subnetsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SubnetsSelector *v1.Selector `json:"subnetsSelector,omitempty" tf:"-"`
+	// +kubebuilder:validation:Required
+	Subnets []*string `json:"subnets" tf:"subnets,omitempty"`
 }
 
 type OrderedPlacementStrategyObservation struct {
@@ -289,10 +275,10 @@ type ServiceList struct {
 
 // Repository type metadata.
 var (
-	ServiceKind             = "Service"
-	ServiceGroupKind        = schema.GroupKind{Group: Group, Kind: ServiceKind}.String()
-	ServiceKindAPIVersion   = ServiceKind + "." + GroupVersion.String()
-	ServiceGroupVersionKind = GroupVersion.WithKind(ServiceKind)
+	Service_Kind             = "Service"
+	Service_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Service_Kind}.String()
+	Service_KindAPIVersion   = Service_Kind + "." + CRDGroupVersion.String()
+	Service_GroupVersionKind = CRDGroupVersion.WithKind(Service_Kind)
 )
 
 func init() {

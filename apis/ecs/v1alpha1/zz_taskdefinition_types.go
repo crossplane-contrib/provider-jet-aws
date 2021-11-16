@@ -286,10 +286,10 @@ type TaskDefinitionList struct {
 
 // Repository type metadata.
 var (
-	TaskDefinitionKind             = "TaskDefinition"
-	TaskDefinitionGroupKind        = schema.GroupKind{Group: Group, Kind: TaskDefinitionKind}.String()
-	TaskDefinitionKindAPIVersion   = TaskDefinitionKind + "." + GroupVersion.String()
-	TaskDefinitionGroupVersionKind = GroupVersion.WithKind(TaskDefinitionKind)
+	TaskDefinition_Kind             = "TaskDefinition"
+	TaskDefinition_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: TaskDefinition_Kind}.String()
+	TaskDefinition_KindAPIVersion   = TaskDefinition_Kind + "." + CRDGroupVersion.String()
+	TaskDefinition_GroupVersionKind = CRDGroupVersion.WithKind(TaskDefinition_Kind)
 )
 
 func init() {

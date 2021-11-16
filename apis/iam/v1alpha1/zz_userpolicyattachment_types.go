@@ -91,10 +91,10 @@ type UserPolicyAttachmentList struct {
 
 // Repository type metadata.
 var (
-	UserPolicyAttachmentKind             = "UserPolicyAttachment"
-	UserPolicyAttachmentGroupKind        = schema.GroupKind{Group: Group, Kind: UserPolicyAttachmentKind}.String()
-	UserPolicyAttachmentKindAPIVersion   = UserPolicyAttachmentKind + "." + GroupVersion.String()
-	UserPolicyAttachmentGroupVersionKind = GroupVersion.WithKind(UserPolicyAttachmentKind)
+	UserPolicyAttachment_Kind             = "UserPolicyAttachment"
+	UserPolicyAttachment_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: UserPolicyAttachment_Kind}.String()
+	UserPolicyAttachment_KindAPIVersion   = UserPolicyAttachment_Kind + "." + CRDGroupVersion.String()
+	UserPolicyAttachment_GroupVersionKind = CRDGroupVersion.WithKind(UserPolicyAttachment_Kind)
 )
 
 func init() {

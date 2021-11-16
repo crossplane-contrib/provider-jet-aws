@@ -25,23 +25,23 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
-// GetTerraformResourceType returns Terraform resource type for this TransitGatewayVpcAttachment
-func (mg *TransitGatewayVpcAttachment) GetTerraformResourceType() string {
+// GetTerraformResourceType returns Terraform resource type for this TransitGatewayVPCAttachment
+func (mg *TransitGatewayVPCAttachment) GetTerraformResourceType() string {
 	return "aws_ec2_transit_gateway_vpc_attachment"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this TransitGatewayVpcAttachment
-func (tr *TransitGatewayVpcAttachment) GetTerraformResourceIDField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this TransitGatewayVPCAttachment
+func (tr *TransitGatewayVPCAttachment) GetTerraformResourceIDField() string {
 	return "id"
 }
 
-// GetConnectionDetailsMapping for this TransitGatewayVpcAttachment
-func (tr *TransitGatewayVpcAttachment) GetConnectionDetailsMapping() map[string]string {
+// GetConnectionDetailsMapping for this TransitGatewayVPCAttachment
+func (tr *TransitGatewayVPCAttachment) GetConnectionDetailsMapping() map[string]string {
 	return nil
 }
 
-// GetObservation of this TransitGatewayVpcAttachment
-func (tr *TransitGatewayVpcAttachment) GetObservation() (map[string]interface{}, error) {
+// GetObservation of this TransitGatewayVPCAttachment
+func (tr *TransitGatewayVPCAttachment) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
@@ -50,8 +50,8 @@ func (tr *TransitGatewayVpcAttachment) GetObservation() (map[string]interface{},
 	return base, json.TFParser.Unmarshal(o, &base)
 }
 
-// SetObservation for this TransitGatewayVpcAttachment
-func (tr *TransitGatewayVpcAttachment) SetObservation(obs map[string]interface{}) error {
+// SetObservation for this TransitGatewayVPCAttachment
+func (tr *TransitGatewayVPCAttachment) SetObservation(obs map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(obs)
 	if err != nil {
 		return err
@@ -59,8 +59,8 @@ func (tr *TransitGatewayVpcAttachment) SetObservation(obs map[string]interface{}
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
-// GetParameters of this TransitGatewayVpcAttachment
-func (tr *TransitGatewayVpcAttachment) GetParameters() (map[string]interface{}, error) {
+// GetParameters of this TransitGatewayVPCAttachment
+func (tr *TransitGatewayVPCAttachment) GetParameters() (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
@@ -69,8 +69,8 @@ func (tr *TransitGatewayVpcAttachment) GetParameters() (map[string]interface{}, 
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
-// SetParameters for this TransitGatewayVpcAttachment
-func (tr *TransitGatewayVpcAttachment) SetParameters(params map[string]interface{}) error {
+// SetParameters for this TransitGatewayVPCAttachment
+func (tr *TransitGatewayVPCAttachment) SetParameters(params map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(params)
 	if err != nil {
 		return err
@@ -78,10 +78,10 @@ func (tr *TransitGatewayVpcAttachment) SetParameters(params map[string]interface
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }
 
-// LateInitialize this TransitGatewayVpcAttachment using its observed tfState.
+// LateInitialize this TransitGatewayVPCAttachment using its observed tfState.
 // returns True if there are any spec changes for the resource.
-func (tr *TransitGatewayVpcAttachment) LateInitialize(attrs []byte) (bool, error) {
-	params := &TransitGatewayVpcAttachmentParameters{}
+func (tr *TransitGatewayVPCAttachment) LateInitialize(attrs []byte) (bool, error) {
+	params := &TransitGatewayVPCAttachmentParameters{}
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
@@ -92,6 +92,6 @@ func (tr *TransitGatewayVpcAttachment) LateInitialize(attrs []byte) (bool, error
 }
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
-func (tr *TransitGatewayVpcAttachment) GetTerraformSchemaVersion() int {
+func (tr *TransitGatewayVPCAttachment) GetTerraformSchemaVersion() int {
 	return 0
 }

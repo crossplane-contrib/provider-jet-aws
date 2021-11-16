@@ -88,16 +88,6 @@ func (in *AutoScalingGroupProviderParameters) DeepCopyInto(out *AutoScalingGroup
 		*out = new(string)
 		**out = **in
 	}
-	if in.AutoScalingGroupArnRef != nil {
-		in, out := &in.AutoScalingGroupArnRef, &out.AutoScalingGroupArnRef
-		*out = new(v1.Reference)
-		**out = **in
-	}
-	if in.AutoScalingGroupArnSelector != nil {
-		in, out := &in.AutoScalingGroupArnSelector, &out.AutoScalingGroupArnSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
-	}
 	if in.ManagedScaling != nil {
 		in, out := &in.ManagedScaling, &out.ManagedScaling
 		*out = make([]ManagedScalingParameters, len(*in))
@@ -468,6 +458,11 @@ func (in *ClusterParameters) DeepCopyInto(out *ClusterParameters) {
 		for i := range *in {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
+	}
+	if in.Name != nil {
+		in, out := &in.Name, &out.Name
+		*out = new(string)
+		**out = **in
 	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
@@ -1234,16 +1229,6 @@ func (in *NetworkConfigurationParameters) DeepCopyInto(out *NetworkConfiguration
 			}
 		}
 	}
-	if in.SecurityGroupsRefs != nil {
-		in, out := &in.SecurityGroupsRefs, &out.SecurityGroupsRefs
-		*out = make([]v1.Reference, len(*in))
-		copy(*out, *in)
-	}
-	if in.SecurityGroupsSelector != nil {
-		in, out := &in.SecurityGroupsSelector, &out.SecurityGroupsSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
-	}
 	if in.Subnets != nil {
 		in, out := &in.Subnets, &out.Subnets
 		*out = make([]*string, len(*in))
@@ -1254,16 +1239,6 @@ func (in *NetworkConfigurationParameters) DeepCopyInto(out *NetworkConfiguration
 				**out = **in
 			}
 		}
-	}
-	if in.SubnetsRefs != nil {
-		in, out := &in.SubnetsRefs, &out.SubnetsRefs
-		*out = make([]v1.Reference, len(*in))
-		copy(*out, *in)
-	}
-	if in.SubnetsSelector != nil {
-		in, out := &in.SubnetsSelector, &out.SubnetsSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 }
 

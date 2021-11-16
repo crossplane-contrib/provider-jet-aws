@@ -39,6 +39,9 @@ type ParameterGroupParameters struct {
 	// +kubebuilder:validation:Required
 	Family *string `json:"family" tf:"family,omitempty"`
 
+	// +kubebuilder:validation:Required
+	Name *string `json:"name" tf:"name,omitempty"`
+
 	// +kubebuilder:validation:Optional
 	Parameter []ParameterParameters `json:"parameter,omitempty" tf:"parameter,omitempty"`
 
@@ -102,10 +105,10 @@ type ParameterGroupList struct {
 
 // Repository type metadata.
 var (
-	ParameterGroupKind             = "ParameterGroup"
-	ParameterGroupGroupKind        = schema.GroupKind{Group: Group, Kind: ParameterGroupKind}.String()
-	ParameterGroupKindAPIVersion   = ParameterGroupKind + "." + GroupVersion.String()
-	ParameterGroupGroupVersionKind = GroupVersion.WithKind(ParameterGroupKind)
+	ParameterGroup_Kind             = "ParameterGroup"
+	ParameterGroup_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: ParameterGroup_Kind}.String()
+	ParameterGroup_KindAPIVersion   = ParameterGroup_Kind + "." + CRDGroupVersion.String()
+	ParameterGroup_GroupVersionKind = CRDGroupVersion.WithKind(ParameterGroup_Kind)
 )
 
 func init() {

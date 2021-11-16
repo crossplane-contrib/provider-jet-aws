@@ -12,8 +12,8 @@ spec:
     - crossplane
     - managed
     - tfaws
-    kind: TransitGatewayVpcAttachment
-    listKind: TransitGatewayVpcAttachmentList
+    kind: TransitGatewayVPCAttachment
+    listKind: TransitGatewayVPCAttachmentList
     plural: transitgatewayvpcattachments
     singular: transitgatewayvpcattachment
   scope: Cluster
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: TransitGatewayVpcAttachment is the Schema for the TransitGatewayVpcAttachments
+        description: TransitGatewayVPCAttachment is the Schema for the TransitGatewayVPCAttachments
           API
         properties:
           apiVersion:
@@ -50,8 +50,8 @@ spec:
           metadata:
             type: object
           spec:
-            description: TransitGatewayVpcAttachmentSpec defines the desired state
-              of TransitGatewayVpcAttachment
+            description: TransitGatewayVPCAttachmentSpec defines the desired state
+              of TransitGatewayVPCAttachment
             properties:
               deletionPolicy:
                 default: Delete
@@ -209,8 +209,8 @@ spec:
             - forProvider
             type: object
           status:
-            description: TransitGatewayVpcAttachmentStatus defines the observed state
-              of TransitGatewayVpcAttachment.
+            description: TransitGatewayVPCAttachmentStatus defines the observed state
+              of TransitGatewayVPCAttachment.
             properties:
               atProvider:
                 properties:

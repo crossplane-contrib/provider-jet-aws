@@ -38,7 +38,7 @@ type TransitGatewayRouteTableAssociationParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
-	// +crossplane:generate:reference:type=TransitGatewayVpcAttachment
+	// +crossplane:generate:reference:type=TransitGatewayVPCAttachment
 	// +kubebuilder:validation:Optional
 	TransitGatewayAttachmentID *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id,omitempty"`
 
@@ -98,10 +98,10 @@ type TransitGatewayRouteTableAssociationList struct {
 
 // Repository type metadata.
 var (
-	TransitGatewayRouteTableAssociationKind             = "TransitGatewayRouteTableAssociation"
-	TransitGatewayRouteTableAssociationGroupKind        = schema.GroupKind{Group: Group, Kind: TransitGatewayRouteTableAssociationKind}.String()
-	TransitGatewayRouteTableAssociationKindAPIVersion   = TransitGatewayRouteTableAssociationKind + "." + GroupVersion.String()
-	TransitGatewayRouteTableAssociationGroupVersionKind = GroupVersion.WithKind(TransitGatewayRouteTableAssociationKind)
+	TransitGatewayRouteTableAssociation_Kind             = "TransitGatewayRouteTableAssociation"
+	TransitGatewayRouteTableAssociation_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: TransitGatewayRouteTableAssociation_Kind}.String()
+	TransitGatewayRouteTableAssociation_KindAPIVersion   = TransitGatewayRouteTableAssociation_Kind + "." + CRDGroupVersion.String()
+	TransitGatewayRouteTableAssociation_GroupVersionKind = CRDGroupVersion.WithKind(TransitGatewayRouteTableAssociation_Kind)
 )
 
 func init() {

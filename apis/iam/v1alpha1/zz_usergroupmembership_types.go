@@ -30,7 +30,7 @@ type UserGroupMembershipObservation struct {
 
 type UserGroupMembershipParameters struct {
 
-	// +crossplane:generate:reference:type=IAMGroup
+	// +crossplane:generate:reference:type=Group
 	// +kubebuilder:validation:Optional
 	Groups []*string `json:"groups,omitempty" tf:"groups,omitempty"`
 
@@ -90,10 +90,10 @@ type UserGroupMembershipList struct {
 
 // Repository type metadata.
 var (
-	UserGroupMembershipKind             = "UserGroupMembership"
-	UserGroupMembershipGroupKind        = schema.GroupKind{Group: Group, Kind: UserGroupMembershipKind}.String()
-	UserGroupMembershipKindAPIVersion   = UserGroupMembershipKind + "." + GroupVersion.String()
-	UserGroupMembershipGroupVersionKind = GroupVersion.WithKind(UserGroupMembershipKind)
+	UserGroupMembership_Kind             = "UserGroupMembership"
+	UserGroupMembership_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: UserGroupMembership_Kind}.String()
+	UserGroupMembership_KindAPIVersion   = UserGroupMembership_Kind + "." + CRDGroupVersion.String()
+	UserGroupMembership_GroupVersionKind = CRDGroupVersion.WithKind(UserGroupMembership_Kind)
 )
 
 func init() {

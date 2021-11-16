@@ -336,10 +336,10 @@ type DBInstanceList struct {
 
 // Repository type metadata.
 var (
-	DBInstanceKind             = "DBInstance"
-	DBInstanceGroupKind        = schema.GroupKind{Group: Group, Kind: DBInstanceKind}.String()
-	DBInstanceKindAPIVersion   = DBInstanceKind + "." + GroupVersion.String()
-	DBInstanceGroupVersionKind = GroupVersion.WithKind(DBInstanceKind)
+	DBInstance_Kind             = "DBInstance"
+	DBInstance_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: DBInstance_Kind}.String()
+	DBInstance_KindAPIVersion   = DBInstance_Kind + "." + CRDGroupVersion.String()
+	DBInstance_GroupVersionKind = CRDGroupVersion.WithKind(DBInstance_Kind)
 )
 
 func init() {

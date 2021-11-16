@@ -99,7 +99,7 @@ type RouteTableRouteParameters struct {
 	// +kubebuilder:validation:Optional
 	NatGatewayID *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id,omitempty"`
 
-	// +crossplane:generate:reference:type=EC2NetworkInterface
+	// +crossplane:generate:reference:type=NetworkInterface
 	// +kubebuilder:validation:Optional
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
 
@@ -112,7 +112,7 @@ type RouteTableRouteParameters struct {
 	// +kubebuilder:validation:Optional
 	TransitGatewayID *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id,omitempty"`
 
-	// +crossplane:generate:reference:type=VpcEndpoint
+	// +crossplane:generate:reference:type=VPCEndpoint
 	// +kubebuilder:validation:Optional
 	VpcEndpointID *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id,omitempty"`
 
@@ -122,7 +122,7 @@ type RouteTableRouteParameters struct {
 	// +kubebuilder:validation:Optional
 	VpcEndpointIDSelector *v1.Selector `json:"vpcEndpointIdSelector,omitempty" tf:"-"`
 
-	// +crossplane:generate:reference:type=VpcPeeringConnection
+	// +crossplane:generate:reference:type=VPCPeeringConnection
 	// +kubebuilder:validation:Optional
 	VpcPeeringConnectionID *string `json:"vpcPeeringConnectionId,omitempty" tf:"vpc_peering_connection_id,omitempty"`
 
@@ -172,10 +172,10 @@ type RouteTableList struct {
 
 // Repository type metadata.
 var (
-	RouteTableKind             = "RouteTable"
-	RouteTableGroupKind        = schema.GroupKind{Group: Group, Kind: RouteTableKind}.String()
-	RouteTableKindAPIVersion   = RouteTableKind + "." + GroupVersion.String()
-	RouteTableGroupVersionKind = GroupVersion.WithKind(RouteTableKind)
+	RouteTable_Kind             = "RouteTable"
+	RouteTable_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: RouteTable_Kind}.String()
+	RouteTable_KindAPIVersion   = RouteTable_Kind + "." + CRDGroupVersion.String()
+	RouteTable_GroupVersionKind = CRDGroupVersion.WithKind(RouteTable_Kind)
 )
 
 func init() {

@@ -148,25 +148,11 @@ type VpcConfigParameters struct {
 	// +kubebuilder:validation:Optional
 	PublicAccessCidrs []*string `json:"publicAccessCidrs,omitempty" tf:"public_access_cidrs,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup
 	// +kubebuilder:validation:Optional
 	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	SecurityGroupIdsRefs []v1.Reference `json:"securityGroupIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupIdsSelector *v1.Selector `json:"securityGroupIdsSelector,omitempty" tf:"-"`
-
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet
-	// +kubebuilder:validation:Optional
-	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsRefs []v1.Reference `json:"subnetIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsSelector *v1.Selector `json:"subnetIdsSelector,omitempty" tf:"-"`
+	// +kubebuilder:validation:Required
+	SubnetIds []*string `json:"subnetIds" tf:"subnet_ids,omitempty"`
 }
 
 // ClusterSpec defines the desired state of Cluster
@@ -208,10 +194,10 @@ type ClusterList struct {
 
 // Repository type metadata.
 var (
-	ClusterKind             = "Cluster"
-	ClusterGroupKind        = schema.GroupKind{Group: Group, Kind: ClusterKind}.String()
-	ClusterKindAPIVersion   = ClusterKind + "." + GroupVersion.String()
-	ClusterGroupVersionKind = GroupVersion.WithKind(ClusterKind)
+	Cluster_Kind             = "Cluster"
+	Cluster_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Cluster_Kind}.String()
+	Cluster_KindAPIVersion   = Cluster_Kind + "." + CRDGroupVersion.String()
+	Cluster_GroupVersionKind = CRDGroupVersion.WithKind(Cluster_Kind)
 )
 
 func init() {

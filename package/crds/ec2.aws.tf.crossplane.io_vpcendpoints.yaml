@@ -12,8 +12,8 @@ spec:
     - crossplane
     - managed
     - tfaws
-    kind: VpcEndpoint
-    listKind: VpcEndpointList
+    kind: VPCEndpoint
+    listKind: VPCEndpointList
     plural: vpcendpoints
     singular: vpcendpoint
   scope: Cluster
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: VpcEndpoint is the Schema for the VpcEndpoints API
+        description: VPCEndpoint is the Schema for the VPCEndpoints API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: VpcEndpointSpec defines the desired state of VpcEndpoint
+            description: VPCEndpointSpec defines the desired state of VPCEndpoint
             properties:
               deletionPolicy:
                 default: Delete
@@ -241,7 +241,7 @@ spec:
             - forProvider
             type: object
           status:
-            description: VpcEndpointStatus defines the observed state of VpcEndpoint.
+            description: VPCEndpointStatus defines the observed state of VPCEndpoint.
             properties:
               atProvider:
                 properties:

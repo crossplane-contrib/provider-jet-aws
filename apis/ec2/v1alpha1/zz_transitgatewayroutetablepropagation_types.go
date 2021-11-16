@@ -38,7 +38,7 @@ type TransitGatewayRouteTablePropagationParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
-	// +crossplane:generate:reference:type=TransitGatewayVpcAttachment
+	// +crossplane:generate:reference:type=TransitGatewayVPCAttachment
 	// +kubebuilder:validation:Optional
 	TransitGatewayAttachmentID *string `json:"transitGatewayAttachmentId,omitempty" tf:"transit_gateway_attachment_id,omitempty"`
 
@@ -98,10 +98,10 @@ type TransitGatewayRouteTablePropagationList struct {
 
 // Repository type metadata.
 var (
-	TransitGatewayRouteTablePropagationKind             = "TransitGatewayRouteTablePropagation"
-	TransitGatewayRouteTablePropagationGroupKind        = schema.GroupKind{Group: Group, Kind: TransitGatewayRouteTablePropagationKind}.String()
-	TransitGatewayRouteTablePropagationKindAPIVersion   = TransitGatewayRouteTablePropagationKind + "." + GroupVersion.String()
-	TransitGatewayRouteTablePropagationGroupVersionKind = GroupVersion.WithKind(TransitGatewayRouteTablePropagationKind)
+	TransitGatewayRouteTablePropagation_Kind             = "TransitGatewayRouteTablePropagation"
+	TransitGatewayRouteTablePropagation_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: TransitGatewayRouteTablePropagation_Kind}.String()
+	TransitGatewayRouteTablePropagation_KindAPIVersion   = TransitGatewayRouteTablePropagation_Kind + "." + CRDGroupVersion.String()
+	TransitGatewayRouteTablePropagation_GroupVersionKind = CRDGroupVersion.WithKind(TransitGatewayRouteTablePropagation_Kind)
 )
 
 func init() {

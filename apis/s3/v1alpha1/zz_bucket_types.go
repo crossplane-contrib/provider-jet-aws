@@ -39,16 +39,8 @@ type ApplyServerSideEncryptionByDefaultObservation struct {
 
 type ApplyServerSideEncryptionByDefaultParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	KmsMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	KmsMasterKeyIDRef *v1.Reference `json:"kmsMasterKeyIdRef,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	KmsMasterKeyIDSelector *v1.Selector `json:"kmsMasterKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	SseAlgorithm *string `json:"sseAlgorithm" tf:"sse_algorithm,omitempty"`
@@ -72,6 +64,12 @@ type BucketParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Bucket *string `json:"bucket,omitempty" tf:"bucket,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	BucketPrefix *string `json:"bucketPrefix,omitempty" tf:"bucket_prefix,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	CorsRule []CorsRuleParameters `json:"corsRule,omitempty" tf:"cors_rule,omitempty"`
@@ -481,10 +479,10 @@ type BucketList struct {
 
 // Repository type metadata.
 var (
-	BucketKind             = "Bucket"
-	BucketGroupKind        = schema.GroupKind{Group: Group, Kind: BucketKind}.String()
-	BucketKindAPIVersion   = BucketKind + "." + GroupVersion.String()
-	BucketGroupVersionKind = GroupVersion.WithKind(BucketKind)
+	Bucket_Kind             = "Bucket"
+	Bucket_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Bucket_Kind}.String()
+	Bucket_KindAPIVersion   = Bucket_Kind + "." + CRDGroupVersion.String()
+	Bucket_GroupVersionKind = CRDGroupVersion.WithKind(Bucket_Kind)
 )
 
 func init() {

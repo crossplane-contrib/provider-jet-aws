@@ -91,10 +91,10 @@ type RolePolicyAttachmentList struct {
 
 // Repository type metadata.
 var (
-	RolePolicyAttachmentKind             = "RolePolicyAttachment"
-	RolePolicyAttachmentGroupKind        = schema.GroupKind{Group: Group, Kind: RolePolicyAttachmentKind}.String()
-	RolePolicyAttachmentKindAPIVersion   = RolePolicyAttachmentKind + "." + GroupVersion.String()
-	RolePolicyAttachmentGroupVersionKind = GroupVersion.WithKind(RolePolicyAttachmentKind)
+	RolePolicyAttachment_Kind             = "RolePolicyAttachment"
+	RolePolicyAttachment_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: RolePolicyAttachment_Kind}.String()
+	RolePolicyAttachment_KindAPIVersion   = RolePolicyAttachment_Kind + "." + CRDGroupVersion.String()
+	RolePolicyAttachment_GroupVersionKind = CRDGroupVersion.WithKind(RolePolicyAttachment_Kind)
 )
 
 func init() {

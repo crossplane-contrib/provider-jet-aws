@@ -25,23 +25,23 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
-// GetTerraformResourceType returns Terraform resource type for this VpcPeeringConnection
-func (mg *VpcPeeringConnection) GetTerraformResourceType() string {
+// GetTerraformResourceType returns Terraform resource type for this VPCPeeringConnection
+func (mg *VPCPeeringConnection) GetTerraformResourceType() string {
 	return "aws_vpc_peering_connection"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this VpcPeeringConnection
-func (tr *VpcPeeringConnection) GetTerraformResourceIDField() string {
+// GetTerraformResourceIDField returns Terraform identifier field for this VPCPeeringConnection
+func (tr *VPCPeeringConnection) GetTerraformResourceIDField() string {
 	return "id"
 }
 
-// GetConnectionDetailsMapping for this VpcPeeringConnection
-func (tr *VpcPeeringConnection) GetConnectionDetailsMapping() map[string]string {
+// GetConnectionDetailsMapping for this VPCPeeringConnection
+func (tr *VPCPeeringConnection) GetConnectionDetailsMapping() map[string]string {
 	return nil
 }
 
-// GetObservation of this VpcPeeringConnection
-func (tr *VpcPeeringConnection) GetObservation() (map[string]interface{}, error) {
+// GetObservation of this VPCPeeringConnection
+func (tr *VPCPeeringConnection) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
@@ -50,8 +50,8 @@ func (tr *VpcPeeringConnection) GetObservation() (map[string]interface{}, error)
 	return base, json.TFParser.Unmarshal(o, &base)
 }
 
-// SetObservation for this VpcPeeringConnection
-func (tr *VpcPeeringConnection) SetObservation(obs map[string]interface{}) error {
+// SetObservation for this VPCPeeringConnection
+func (tr *VPCPeeringConnection) SetObservation(obs map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(obs)
 	if err != nil {
 		return err
@@ -59,8 +59,8 @@ func (tr *VpcPeeringConnection) SetObservation(obs map[string]interface{}) error
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
-// GetParameters of this VpcPeeringConnection
-func (tr *VpcPeeringConnection) GetParameters() (map[string]interface{}, error) {
+// GetParameters of this VPCPeeringConnection
+func (tr *VPCPeeringConnection) GetParameters() (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
@@ -69,8 +69,8 @@ func (tr *VpcPeeringConnection) GetParameters() (map[string]interface{}, error) 
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
-// SetParameters for this VpcPeeringConnection
-func (tr *VpcPeeringConnection) SetParameters(params map[string]interface{}) error {
+// SetParameters for this VPCPeeringConnection
+func (tr *VPCPeeringConnection) SetParameters(params map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(params)
 	if err != nil {
 		return err
@@ -78,10 +78,10 @@ func (tr *VpcPeeringConnection) SetParameters(params map[string]interface{}) err
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }
 
-// LateInitialize this VpcPeeringConnection using its observed tfState.
+// LateInitialize this VPCPeeringConnection using its observed tfState.
 // returns True if there are any spec changes for the resource.
-func (tr *VpcPeeringConnection) LateInitialize(attrs []byte) (bool, error) {
-	params := &VpcPeeringConnectionParameters{}
+func (tr *VPCPeeringConnection) LateInitialize(attrs []byte) (bool, error) {
+	params := &VPCPeeringConnectionParameters{}
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
@@ -92,6 +92,6 @@ func (tr *VpcPeeringConnection) LateInitialize(attrs []byte) (bool, error) {
 }
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
-func (tr *VpcPeeringConnection) GetTerraformSchemaVersion() int {
+func (tr *VPCPeeringConnection) GetTerraformSchemaVersion() int {
 	return 0
 }

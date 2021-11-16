@@ -93,10 +93,10 @@ type InstanceProfileList struct {
 
 // Repository type metadata.
 var (
-	InstanceProfileKind             = "InstanceProfile"
-	InstanceProfileGroupKind        = schema.GroupKind{Group: Group, Kind: InstanceProfileKind}.String()
-	InstanceProfileKindAPIVersion   = InstanceProfileKind + "." + GroupVersion.String()
-	InstanceProfileGroupVersionKind = GroupVersion.WithKind(InstanceProfileKind)
+	InstanceProfile_Kind             = "InstanceProfile"
+	InstanceProfile_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: InstanceProfile_Kind}.String()
+	InstanceProfile_KindAPIVersion   = InstanceProfile_Kind + "." + CRDGroupVersion.String()
+	InstanceProfile_GroupVersionKind = CRDGroupVersion.WithKind(InstanceProfile_Kind)
 )
 
 func init() {

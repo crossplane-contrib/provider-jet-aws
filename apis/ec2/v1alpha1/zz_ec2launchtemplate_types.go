@@ -394,7 +394,7 @@ type NetworkInterfacesParameters struct {
 	// +kubebuilder:validation:Optional
 	InterfaceType *string `json:"interfaceType,omitempty" tf:"interface_type,omitempty"`
 
-	// +crossplane:generate:reference:type=EC2NetworkInterface
+	// +crossplane:generate:reference:type=NetworkInterface
 	// +kubebuilder:validation:Optional
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
 
@@ -530,10 +530,10 @@ type EC2LaunchTemplateList struct {
 
 // Repository type metadata.
 var (
-	EC2LaunchTemplateKind             = "EC2LaunchTemplate"
-	EC2LaunchTemplateGroupKind        = schema.GroupKind{Group: Group, Kind: EC2LaunchTemplateKind}.String()
-	EC2LaunchTemplateKindAPIVersion   = EC2LaunchTemplateKind + "." + GroupVersion.String()
-	EC2LaunchTemplateGroupVersionKind = GroupVersion.WithKind(EC2LaunchTemplateKind)
+	EC2LaunchTemplate_Kind             = "EC2LaunchTemplate"
+	EC2LaunchTemplate_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: EC2LaunchTemplate_Kind}.String()
+	EC2LaunchTemplate_KindAPIVersion   = EC2LaunchTemplate_Kind + "." + CRDGroupVersion.String()
+	EC2LaunchTemplate_GroupVersionKind = CRDGroupVersion.WithKind(EC2LaunchTemplate_Kind)
 )
 
 func init() {

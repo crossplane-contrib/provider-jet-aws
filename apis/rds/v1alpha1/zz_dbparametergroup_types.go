@@ -105,10 +105,10 @@ type DBParameterGroupList struct {
 
 // Repository type metadata.
 var (
-	DBParameterGroupKind             = "DBParameterGroup"
-	DBParameterGroupGroupKind        = schema.GroupKind{Group: Group, Kind: DBParameterGroupKind}.String()
-	DBParameterGroupKindAPIVersion   = DBParameterGroupKind + "." + GroupVersion.String()
-	DBParameterGroupGroupVersionKind = GroupVersion.WithKind(DBParameterGroupKind)
+	DBParameterGroup_Kind             = "DBParameterGroup"
+	DBParameterGroup_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: DBParameterGroup_Kind}.String()
+	DBParameterGroup_KindAPIVersion   = DBParameterGroup_Kind + "." + CRDGroupVersion.String()
+	DBParameterGroup_GroupVersionKind = CRDGroupVersion.WithKind(DBParameterGroup_Kind)
 )
 
 func init() {

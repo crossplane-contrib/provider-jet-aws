@@ -116,10 +116,10 @@ type SecurityGroupRuleList struct {
 
 // Repository type metadata.
 var (
-	SecurityGroupRuleKind             = "SecurityGroupRule"
-	SecurityGroupRuleGroupKind        = schema.GroupKind{Group: Group, Kind: SecurityGroupRuleKind}.String()
-	SecurityGroupRuleKindAPIVersion   = SecurityGroupRuleKind + "." + GroupVersion.String()
-	SecurityGroupRuleGroupVersionKind = GroupVersion.WithKind(SecurityGroupRuleKind)
+	SecurityGroupRule_Kind             = "SecurityGroupRule"
+	SecurityGroupRule_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: SecurityGroupRule_Kind}.String()
+	SecurityGroupRule_KindAPIVersion   = SecurityGroupRule_Kind + "." + CRDGroupVersion.String()
+	SecurityGroupRule_GroupVersionKind = CRDGroupVersion.WithKind(SecurityGroupRule_Kind)
 )
 
 func init() {

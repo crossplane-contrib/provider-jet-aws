@@ -28,16 +28,16 @@ import (
 
 // Package type metadata.
 const (
-	Group   = "ecr.aws.tf.crossplane.io"
-	Version = "v1alpha1"
+	CRDGroup   = "ecr.aws.tf.crossplane.io"
+	CRDVersion = "v1alpha1"
 )
 
 var (
-	// GroupVersion is the API Group Version used to register the objects
-	GroupVersion = schema.GroupVersion{Group: Group, Version: Version}
+	// CRDGroupVersion is the API Group Version used to register the objects
+	CRDGroupVersion = schema.GroupVersion{Group: CRDGroup, Version: CRDVersion}
 
 	// SchemeBuilder is used to add go types to the GroupVersionKind scheme
-	SchemeBuilder = &scheme.Builder{GroupVersion: GroupVersion}
+	SchemeBuilder = &scheme.Builder{GroupVersion: CRDGroupVersion}
 
 	// AddToScheme adds the types in this group-version to the given scheme.
 	AddToScheme = SchemeBuilder.AddToScheme

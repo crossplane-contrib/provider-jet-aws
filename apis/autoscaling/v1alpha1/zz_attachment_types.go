@@ -30,7 +30,7 @@ type AttachmentObservation struct {
 
 type AttachmentParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	AlbTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn,omitempty"`
@@ -99,10 +99,10 @@ type AttachmentList struct {
 
 // Repository type metadata.
 var (
-	AttachmentKind             = "Attachment"
-	AttachmentGroupKind        = schema.GroupKind{Group: Group, Kind: AttachmentKind}.String()
-	AttachmentKindAPIVersion   = AttachmentKind + "." + GroupVersion.String()
-	AttachmentGroupVersionKind = GroupVersion.WithKind(AttachmentKind)
+	Attachment_Kind             = "Attachment"
+	Attachment_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Attachment_Kind}.String()
+	Attachment_KindAPIVersion   = Attachment_Kind + "." + CRDGroupVersion.String()
+	Attachment_GroupVersionKind = CRDGroupVersion.WithKind(Attachment_Kind)
 )
 
 func init() {

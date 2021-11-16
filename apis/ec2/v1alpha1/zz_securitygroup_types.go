@@ -191,10 +191,10 @@ type SecurityGroupList struct {
 
 // Repository type metadata.
 var (
-	SecurityGroupKind             = "SecurityGroup"
-	SecurityGroupGroupKind        = schema.GroupKind{Group: Group, Kind: SecurityGroupKind}.String()
-	SecurityGroupKindAPIVersion   = SecurityGroupKind + "." + GroupVersion.String()
-	SecurityGroupGroupVersionKind = GroupVersion.WithKind(SecurityGroupKind)
+	SecurityGroup_Kind             = "SecurityGroup"
+	SecurityGroup_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: SecurityGroup_Kind}.String()
+	SecurityGroup_KindAPIVersion   = SecurityGroup_Kind + "." + CRDGroupVersion.String()
+	SecurityGroup_GroupVersionKind = CRDGroupVersion.WithKind(SecurityGroup_Kind)
 )
 
 func init() {

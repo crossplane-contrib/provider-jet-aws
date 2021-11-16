@@ -55,13 +55,13 @@ type RequesterParameters struct {
 	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link,omitempty"`
 }
 
-type VpcPeeringConnectionObservation struct {
+type VPCPeeringConnectionObservation struct {
 	AcceptStatus *string `json:"acceptStatus,omitempty" tf:"accept_status,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
-type VpcPeeringConnectionParameters struct {
+type VPCPeeringConnectionParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Accepter []AccepterParameters `json:"accepter,omitempty" tf:"accepter,omitempty"`
@@ -107,51 +107,51 @@ type VpcPeeringConnectionParameters struct {
 	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
 
-// VpcPeeringConnectionSpec defines the desired state of VpcPeeringConnection
-type VpcPeeringConnectionSpec struct {
+// VPCPeeringConnectionSpec defines the desired state of VPCPeeringConnection
+type VPCPeeringConnectionSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     VpcPeeringConnectionParameters `json:"forProvider"`
+	ForProvider     VPCPeeringConnectionParameters `json:"forProvider"`
 }
 
-// VpcPeeringConnectionStatus defines the observed state of VpcPeeringConnection.
-type VpcPeeringConnectionStatus struct {
+// VPCPeeringConnectionStatus defines the observed state of VPCPeeringConnection.
+type VPCPeeringConnectionStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        VpcPeeringConnectionObservation `json:"atProvider,omitempty"`
+	AtProvider        VPCPeeringConnectionObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// VpcPeeringConnection is the Schema for the VpcPeeringConnections API
+// VPCPeeringConnection is the Schema for the VPCPeeringConnections API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type VpcPeeringConnection struct {
+type VPCPeeringConnection struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              VpcPeeringConnectionSpec   `json:"spec"`
-	Status            VpcPeeringConnectionStatus `json:"status,omitempty"`
+	Spec              VPCPeeringConnectionSpec   `json:"spec"`
+	Status            VPCPeeringConnectionStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// VpcPeeringConnectionList contains a list of VpcPeeringConnections
-type VpcPeeringConnectionList struct {
+// VPCPeeringConnectionList contains a list of VPCPeeringConnections
+type VPCPeeringConnectionList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []VpcPeeringConnection `json:"items"`
+	Items           []VPCPeeringConnection `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	VpcPeeringConnectionKind             = "VpcPeeringConnection"
-	VpcPeeringConnectionGroupKind        = schema.GroupKind{Group: Group, Kind: VpcPeeringConnectionKind}.String()
-	VpcPeeringConnectionKindAPIVersion   = VpcPeeringConnectionKind + "." + GroupVersion.String()
-	VpcPeeringConnectionGroupVersionKind = GroupVersion.WithKind(VpcPeeringConnectionKind)
+	VPCPeeringConnection_Kind             = "VPCPeeringConnection"
+	VPCPeeringConnection_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: VPCPeeringConnection_Kind}.String()
+	VPCPeeringConnection_KindAPIVersion   = VPCPeeringConnection_Kind + "." + CRDGroupVersion.String()
+	VPCPeeringConnection_GroupVersionKind = CRDGroupVersion.WithKind(VPCPeeringConnection_Kind)
 )
 
 func init() {
-	SchemeBuilder.Register(&VpcPeeringConnection{}, &VpcPeeringConnectionList{})
+	SchemeBuilder.Register(&VPCPeeringConnection{}, &VPCPeeringConnectionList{})
 }

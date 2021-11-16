@@ -88,10 +88,10 @@ type IPv4CIDRBlockAssociationList struct {
 
 // Repository type metadata.
 var (
-	IPv4CIDRBlockAssociationKind             = "IPv4CIDRBlockAssociation"
-	IPv4CIDRBlockAssociationGroupKind        = schema.GroupKind{Group: Group, Kind: IPv4CIDRBlockAssociationKind}.String()
-	IPv4CIDRBlockAssociationKindAPIVersion   = IPv4CIDRBlockAssociationKind + "." + GroupVersion.String()
-	IPv4CIDRBlockAssociationGroupVersionKind = GroupVersion.WithKind(IPv4CIDRBlockAssociationKind)
+	IPv4CIDRBlockAssociation_Kind             = "IPv4CIDRBlockAssociation"
+	IPv4CIDRBlockAssociation_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: IPv4CIDRBlockAssociation_Kind}.String()
+	IPv4CIDRBlockAssociation_KindAPIVersion   = IPv4CIDRBlockAssociation_Kind + "." + CRDGroupVersion.String()
+	IPv4CIDRBlockAssociation_GroupVersionKind = CRDGroupVersion.WithKind(IPv4CIDRBlockAssociation_Kind)
 )
 
 func init() {
