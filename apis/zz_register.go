@@ -22,7 +22,7 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1autoscaling "github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1"
+	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1"
 	v1alpha1ebs "github.com/crossplane-contrib/provider-tf-aws/apis/ebs/v1alpha1"
 	v1alpha1ec2 "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1"
 	v1alpha1ecr "github.com/crossplane-contrib/provider-tf-aws/apis/ecr/v1alpha1"
@@ -35,14 +35,13 @@ import (
 	v1alpha1kms "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1"
 	v1alpha1rds "github.com/crossplane-contrib/provider-tf-aws/apis/rds/v1alpha1"
 	v1alpha1s3 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
-	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
+	v1alpha1apis "github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
 )
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
-		v1alpha1autoscaling.SchemeBuilder.AddToScheme,
 		v1alpha1ebs.SchemeBuilder.AddToScheme,
 		v1alpha1ec2.SchemeBuilder.AddToScheme,
 		v1alpha1ecr.SchemeBuilder.AddToScheme,
@@ -55,6 +54,7 @@ func init() {
 		v1alpha1kms.SchemeBuilder.AddToScheme,
 		v1alpha1rds.SchemeBuilder.AddToScheme,
 		v1alpha1s3.SchemeBuilder.AddToScheme,
+		v1alpha1apis.SchemeBuilder.AddToScheme,
 	)
 }
 
