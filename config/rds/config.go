@@ -49,7 +49,7 @@ func Configure(p *config.Provider) {
 
 	p.AddResourceConfigurator("aws_db_instance", func(r *config.Resource) {
 		r.Kind = "DBInstance"
-		r.Group = "rds"
+		r.ShortGroup = "rds"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["identifier"] = name
@@ -89,6 +89,6 @@ func Configure(p *config.Provider) {
 	})
 	p.AddResourceConfigurator("aws_db_parameter_group", func(r *config.Resource) {
 		r.Kind = "DBParameterGroup"
-		r.Group = "rds"
+		r.ShortGroup = "rds"
 	})
 }

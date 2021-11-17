@@ -24,7 +24,7 @@ import (
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_lb", func(r *config.Resource) {
 		r.Kind = "LoadBalancer"
-		r.Group = "elasticloadbalancing"
+		r.ShortGroup = "elasticloadbalancing"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"security_groups": {
@@ -45,7 +45,7 @@ func Configure(p *config.Provider) {
 
 	p.AddResourceConfigurator("aws_lb_listener", func(r *config.Resource) {
 		r.Kind = "LoadBalancerListener"
-		r.Group = "elasticloadbalancing"
+		r.ShortGroup = "elasticloadbalancing"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"load_balancer_arn": {
@@ -61,7 +61,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_lb_target_group", func(r *config.Resource) {
-		r.Group = "elasticloadbalancing"
+		r.ShortGroup = "elasticloadbalancing"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"vpc_id": {
@@ -70,7 +70,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_lb_target_group_attachment", func(r *config.Resource) {
-		r.Group = "elasticloadbalancing"
+		r.ShortGroup = "elasticloadbalancing"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"target_group_arn": {

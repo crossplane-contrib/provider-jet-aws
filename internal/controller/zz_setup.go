@@ -49,14 +49,14 @@ import (
 	vpc "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/vpc"
 	vpcendpoint "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/vpcendpoint"
 	vpcpeeringconnection "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/vpcpeeringconnection"
-	repository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/repository"
-	repositoryecrpublic "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecrpublic/repository"
+	repositoryecr "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecr/repository"
+	repository "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecrpublic/repository"
 	capacityprovider "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/capacityprovider"
-	clusterecs "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
+	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/cluster"
 	service "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/service"
 	taskdefinition "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ecs/taskdefinition"
 	addon "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/addon"
-	cluster "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
+	clustereks "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/cluster"
 	fargateprofile "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/fargateprofile"
 	identityproviderconfig "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/identityproviderconfig"
 	nodegroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/eks/nodegroup"
@@ -100,7 +100,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		bucket.Setup,
 		capacityprovider.Setup,
 		cluster.Setup,
-		clusterecs.Setup,
+		clustereks.Setup,
 		clusterelasticache.Setup,
 		dbcluster.Setup,
 		dbinstance.Setup,
@@ -126,7 +126,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		providerconfig.Setup,
 		replicationgroup.Setup,
 		repository.Setup,
-		repositoryecrpublic.Setup,
+		repositoryecr.Setup,
 		role.Setup,
 		rolepolicy.Setup,
 		rolepolicyattachment.Setup,

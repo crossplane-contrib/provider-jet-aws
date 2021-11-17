@@ -193,17 +193,17 @@ func DefaultResource(name string, terraformResource *schema.Resource) *tjconfig.
 		strings.HasPrefix(name, "aws_route") ||
 		strings.HasPrefix(name, "aws_instance") ||
 		strings.HasPrefix(name, "aws_vpc"):
-		r.Group = "ec2"
-	case r.Group == "vpc":
-		r.Group = "ec2"
+		r.ShortGroup = "ec2"
+	case r.ShortGroup == "vpc":
+		r.ShortGroup = "ec2"
 	case name == "aws_lb_":
-		r.Group = "elasticloadbalancing"
+		r.ShortGroup = "elasticloadbalancing"
 	case strings.Contains(name, "aws_db_"):
-		r.Group = "rds"
+		r.ShortGroup = "rds"
 	}
 	// Add region to the spec of all resources except iam group which
 	// does not have a region notion.
-	if r.Group != "iam" {
+	if r.ShortGroup != "iam" {
 		r.TerraformResource.Schema["region"] = regionSchema
 	}
 	// tags_all is used only in tfstate to accumulate provider-wide
