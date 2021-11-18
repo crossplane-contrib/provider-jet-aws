@@ -27,10 +27,14 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"security_groups": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				RefFieldName:      "SecurityGroupRefs",
+				SelectorFieldName: "SecurityGroupSelector",
 			},
 			"subnets": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				RefFieldName:      "SubnetRefs",
+				SelectorFieldName: "SubnetSelector",
 			},
 			"access_logs.bucket": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",

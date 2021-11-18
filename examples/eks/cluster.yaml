@@ -10,7 +10,7 @@ spec:
     roleArnRef:
       name: sample-eks-cluster
     vpcConfig:
-      - subnetIdsRefs:
+      - subnetIdRefs:
           - name: sample-subnet1
           - name: sample-subnet2
   writeConnectionSecretToRef:

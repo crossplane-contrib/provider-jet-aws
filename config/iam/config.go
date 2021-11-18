@@ -72,13 +72,19 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"users": config.Reference{
-				Type: "User",
+				Type:              "User",
+				RefFieldName:      "UserRefs",
+				SelectorFieldName: "UserSelector",
 			},
 			"roles": config.Reference{
-				Type: "Role",
+				Type:              "Role",
+				RefFieldName:      "RoleRefs",
+				SelectorFieldName: "RoleSelector",
 			},
 			"groups": config.Reference{
-				Type: "Group",
+				Type:              "Group",
+				RefFieldName:      "GroupRefs",
+				SelectorFieldName: "GroupSelector",
 			},
 			"policy_arn": config.Reference{
 				Type:      "Policy",
@@ -107,7 +113,9 @@ func Configure(p *config.Provider) {
 				Type: "User",
 			},
 			"groups": config.Reference{
-				Type: "Group",
+				Type:              "Group",
+				RefFieldName:      "GroupRefs",
+				SelectorFieldName: "GroupSelector",
 			},
 		}
 	})

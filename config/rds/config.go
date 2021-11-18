@@ -38,7 +38,9 @@ func Configure(p *config.Provider) {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
 			},
 			"vpc_security_group_ids": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				RefFieldName:      "VpcSecurityGroupIdRefs",
+				SelectorFieldName: "VpcSecurityGroupIdSelector",
 			},
 			"restore_to_point_in_time.source_cluster_identifier": {
 				Type: "Cluster",
@@ -75,10 +77,14 @@ func Configure(p *config.Provider) {
 				Type: "Cluster",
 			},
 			"security_group_names": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				RefFieldName:      "SecurityGroupNameRefs",
+				SelectorFieldName: "SecurityGroupNameSelector",
 			},
 			"vpc_security_group_ids": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				RefFieldName:      "VpcSecurityGroupIdRefs",
+				SelectorFieldName: "VpcSecurityGroupIdSelector",
 			},
 			"parameter_group_name": {
 				Type: "DBParameterGroup",

@@ -30,10 +30,15 @@ func Configure(p *config.Provider) {
 			Type: "Subnet",
 		}
 		r.References["vpc_security_group_ids"] = config.Reference{
-			Type: "SecurityGroup",
+			Type:              "SecurityGroup",
+			RefFieldName:      "SecurityGroupIdRefs",
+			SelectorFieldName: "SecurityGroupIdSelector",
 		}
 		r.References["security_groups"] = config.Reference{
 			Type: "SecurityGroup",
+
+			RefFieldName:      "SecurityGroupRefs",
+			SelectorFieldName: "SecurityGroupSelector",
 		}
 		r.References["root_block_device.kms_key_id"] = config.Reference{
 			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
@@ -100,7 +105,9 @@ func Configure(p *config.Provider) {
 		r.Kind = "TransitGatewayVPCAttachment"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_ids"] = config.Reference{
-			Type: "Subnet",
+			Type:              "Subnet",
+			RefFieldName:      "SubnetIdRefs",
+			SelectorFieldName: "SubnetIdSelector",
 		}
 		r.References["transit_gateway_id"] = config.Reference{
 			Type: "TransitGateway",
@@ -124,13 +131,18 @@ func Configure(p *config.Provider) {
 		//  cannot build the types: cannot generate parameters type name of
 		//  LaunchTemplate: could not generate a unique name for
 		//  LaunchTemplateParameters
-		r.Kind = "EC2LaunchTemplate"
+		r.Kind = "LaunchTemplate"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["security_group_names"] = config.Reference{
-			Type: "SecurityGroup",
+			Type:              "SecurityGroup",
+			RefFieldName:      "SecurityGroupNameRefs",
+			SelectorFieldName: "SecurityGroupNameSelector",
 		}
 		r.References["vpc_security_group_ids"] = config.Reference{
 			Type: "SecurityGroup",
+
+			RefFieldName:      "VpcSecurityGroupIdRefs",
+			SelectorFieldName: "VpcSecurityGroupIdSelector",
 		}
 		r.References["block_device_mappings.ebs.kms_key_id"] = config.Reference{
 			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
@@ -146,7 +158,9 @@ func Configure(p *config.Provider) {
 			Type: "NetworkInterface",
 		}
 		r.References["network_interfaces.security_groups"] = config.Reference{
-			Type: "SecurityGroup",
+			Type:              "SecurityGroup",
+			RefFieldName:      "SecurityGroupRefs",
+			SelectorFieldName: "SecurityGroupSelector",
 		}
 		r.References["network_interfaces.subnet_id"] = config.Reference{
 			Type: "Subnet",
@@ -165,13 +179,19 @@ func Configure(p *config.Provider) {
 			Type: "VPC",
 		}
 		r.References["subnet_ids"] = config.Reference{
-			Type: "Subnet",
+			Type:              "Subnet",
+			RefFieldName:      "SubnetIdRefs",
+			SelectorFieldName: "SubnetIdSelector",
 		}
 		r.References["security_group_ids"] = config.Reference{
-			Type: "SecurityGroup",
+			Type:              "SecurityGroup",
+			RefFieldName:      "SecurityGroupIdRefs",
+			SelectorFieldName: "SecurityGroupIdSelector",
 		}
 		r.References["route_table_ids"] = config.Reference{
-			Type: "RouteTable",
+			Type:              "RouteTable",
+			RefFieldName:      "RouteTableIdRefs",
+			SelectorFieldName: "RouteTableIdSelector",
 		}
 	})
 
@@ -199,7 +219,9 @@ func Configure(p *config.Provider) {
 			Type: "Subnet",
 		}
 		r.References["security_groups"] = config.Reference{
-			Type: "SecurityGroup",
+			Type:              "SecurityGroup",
+			RefFieldName:      "SecurityGroupRefs",
+			SelectorFieldName: "SecurityGroupSelector",
 		}
 		r.References["attachment.instance"] = config.Reference{
 			Type: "Instance",
@@ -218,10 +240,14 @@ func Configure(p *config.Provider) {
 			Type: "VPC",
 		}
 		r.References["egress.security_groups"] = config.Reference{
-			Type: "SecurityGroup",
+			Type:              "SecurityGroup",
+			RefFieldName:      "SecurityGroupRefs",
+			SelectorFieldName: "SecurityGroupSelector",
 		}
 		r.References["ingress.security_groups"] = config.Reference{
-			Type: "SecurityGroup",
+			Type:              "SecurityGroup",
+			RefFieldName:      "SecurityGroupRefs",
+			SelectorFieldName: "SecurityGroupSelector",
 		}
 	})
 

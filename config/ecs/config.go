@@ -53,10 +53,14 @@ func Configure(p *config.Provider) {
 				Extractor: common.PathARNExtractor,
 			},
 			"network_configuration.subnets": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				RefFieldName:      "SubnetRefs",
+				SelectorFieldName: "SubnetSelector",
 			},
 			"network_configuration.security_groups": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				RefFieldName:      "SecurityGroupRefs",
+				SelectorFieldName: "SecurityGroupSelector",
 			},
 		}
 		r.UseAsync = true
