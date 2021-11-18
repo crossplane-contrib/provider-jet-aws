@@ -286,7 +286,11 @@ func (in *DBClusterParameters) DeepCopyInto(out *DBClusterParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	out.MasterPasswordSecretRef = in.MasterPasswordSecretRef
+	if in.MasterPasswordSecretRef != nil {
+		in, out := &in.MasterPasswordSecretRef, &out.MasterPasswordSecretRef
+		*out = new(v1.SecretKeySelector)
+		**out = **in
+	}
 	if in.MasterUsername != nil {
 		in, out := &in.MasterUsername, &out.MasterUsername
 		*out = new(string)
@@ -869,7 +873,11 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
-	out.PasswordSecretRef = in.PasswordSecretRef
+	if in.PasswordSecretRef != nil {
+		in, out := &in.PasswordSecretRef, &out.PasswordSecretRef
+		*out = new(v1.SecretKeySelector)
+		**out = **in
+	}
 	if in.PerformanceInsightsEnabled != nil {
 		in, out := &in.PerformanceInsightsEnabled, &out.PerformanceInsightsEnabled
 		*out = new(bool)

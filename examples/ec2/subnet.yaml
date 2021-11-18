@@ -1,4 +1,4 @@
-apiVersion: ec2.aws.tf.crossplane.io/v1alpha1
+apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
 kind: Subnet
 metadata:
   name: sample-subnet1
@@ -10,7 +10,7 @@ spec:
       name: sample-vpc
     cidrBlock: 172.16.10.0/24
 ---
-apiVersion: ec2.aws.tf.crossplane.io/v1alpha1
+apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
 kind: Subnet
 metadata:
   name: sample-subnet2

@@ -1,4 +1,4 @@
-apiVersion: ecr.aws.tf.crossplane.io/v1alpha1
+apiVersion: ecr.aws.jet.crossplane.io/v1alpha1
 kind: Repository
 metadata:
   name: sample-repository

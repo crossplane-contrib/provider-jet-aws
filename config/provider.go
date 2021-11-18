@@ -21,19 +21,19 @@ import (
 
 	tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config/autoscaling"
-	"github.com/crossplane-contrib/provider-tf-aws/config/ebs"
-	"github.com/crossplane-contrib/provider-tf-aws/config/ec2"
-	"github.com/crossplane-contrib/provider-tf-aws/config/ecr"
-	"github.com/crossplane-contrib/provider-tf-aws/config/ecrpublic"
-	"github.com/crossplane-contrib/provider-tf-aws/config/ecs"
-	"github.com/crossplane-contrib/provider-tf-aws/config/eks"
-	"github.com/crossplane-contrib/provider-tf-aws/config/elasticache"
-	"github.com/crossplane-contrib/provider-tf-aws/config/elasticloadbalancing"
-	"github.com/crossplane-contrib/provider-tf-aws/config/iam"
-	"github.com/crossplane-contrib/provider-tf-aws/config/kms"
-	"github.com/crossplane-contrib/provider-tf-aws/config/rds"
-	"github.com/crossplane-contrib/provider-tf-aws/config/s3"
+	"github.com/crossplane-contrib/provider-jet-aws/config/autoscaling"
+	"github.com/crossplane-contrib/provider-jet-aws/config/ebs"
+	"github.com/crossplane-contrib/provider-jet-aws/config/ec2"
+	"github.com/crossplane-contrib/provider-jet-aws/config/ecr"
+	"github.com/crossplane-contrib/provider-jet-aws/config/ecrpublic"
+	"github.com/crossplane-contrib/provider-jet-aws/config/ecs"
+	"github.com/crossplane-contrib/provider-jet-aws/config/eks"
+	"github.com/crossplane-contrib/provider-jet-aws/config/elasticache"
+	"github.com/crossplane-contrib/provider-jet-aws/config/elasticloadbalancing"
+	"github.com/crossplane-contrib/provider-jet-aws/config/iam"
+	"github.com/crossplane-contrib/provider-jet-aws/config/kms"
+	"github.com/crossplane-contrib/provider-jet-aws/config/rds"
+	"github.com/crossplane-contrib/provider-jet-aws/config/s3"
 )
 
 var includedResources = []string{
@@ -142,7 +142,9 @@ var skipList = []string{
 // GetProvider returns provider configuration
 func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 	pc := tjconfig.NewProvider(
-		tfProvider.ResourcesMap, "aws", "github.com/crossplane-contrib/provider-tf-aws",
+		tfProvider.ResourcesMap, "aws", "github.com/crossplane-contrib/provider-jet-aws",
+		tjconfig.WithShortName("awsjet"),
+		tjconfig.WithRootGroup("aws.jet.crossplane.io"),
 		tjconfig.WithIncludeList(includedResources),
 		tjconfig.WithSkipList(skipList),
 		tjconfig.WithDefaultResourceFn(DefaultResource(

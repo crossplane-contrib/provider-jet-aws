@@ -1,4 +1,4 @@
-apiVersion: rds.aws.tf.crossplane.io/v1alpha1
+apiVersion: rds.aws.jet.crossplane.io/v1alpha1
 kind: DBParameterGroup
 metadata:
   name: example-dbparametergroup

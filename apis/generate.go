@@ -23,10 +23,10 @@ limitations under the License.
 //go:generate rm -rf ../package/crds
 
 // Remove generated files
-//go:generate find . -iname 'zz_*' -delete
-//go:generate find . -type d -empty -delete
-//go:generate find ../internal/controller -iname 'zz_*' -delete
-//go:generate find ../internal/controller -type d -empty -delete
+//go:generate bash -c "find . -iname 'zz_*' -delete"
+//go:generate bash -c "find . -type d -empty -delete"
+//go:generate bash -c "find ../internal/controller -iname 'zz_*' -delete"
+//go:generate bash -c "find ../internal/controller -type d -empty -delete"
 
 // NOTE(muvaf): Some of Terraform AWS provider files have "!generate" build tag
 // that prevent us from using it for generator program.

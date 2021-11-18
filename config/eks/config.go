@@ -19,7 +19,7 @@ package eks
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config/common"
+	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for eks group.
@@ -27,16 +27,16 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_eks_cluster", func(r *config.Resource) {
 		r.References = config.References{
 			"role_arn": {
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
 			"vpc_config.subnet_ids": {
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
 				RefFieldName:      "SubnetIdRefs",
 				SelectorFieldName: "SubnetIdSelector",
 			},
 			"vpc_config.security_group_ids": {
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
 				RefFieldName:      "SecurityGroupIdRefs",
 				SelectorFieldName: "SecurityGroupIdSelector",
 			},
@@ -58,16 +58,16 @@ func Configure(p *config.Provider) {
 				Type: "Cluster",
 			},
 			"node_role_arn": {
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
 			"remote_access.source_security_group_ids": {
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
 				RefFieldName:      "SourceSecurityGroupIdRefs",
 				SelectorFieldName: "SourceSecurityGroupIdSelector",
 			},
 			"subnet_ids": {
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
 				RefFieldName:      "SubnetIdRefs",
 				SelectorFieldName: "SubnetIdSelector",
 			},
@@ -98,11 +98,11 @@ func Configure(p *config.Provider) {
 				Type: "Cluster",
 			},
 			"pod_execution_role_arn": {
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
 			"subnet_ids": {
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
 				RefFieldName:      "SubnetIdRefs",
 				SelectorFieldName: "SubnetIdSelector",
 			},
@@ -115,7 +115,7 @@ func Configure(p *config.Provider) {
 				Type: "Cluster",
 			},
 			"service_account_role_arn": {
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
 		}

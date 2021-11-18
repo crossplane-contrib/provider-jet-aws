@@ -19,7 +19,7 @@ package autoscaling
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config/common"
+	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for autoscaling group.
@@ -27,10 +27,10 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_autoscaling_group", func(r *config.Resource) {
 		r.Kind = "AutoscalingGroup"
 		r.References["vpc_zone_identifier"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
 		}
 		r.References["target_group_arns"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
+			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
 		}
 
 		r.UseAsync = true
@@ -41,7 +41,7 @@ func Configure(p *config.Provider) {
 			Type: "AutoscalingGroup",
 		}
 		r.References["alb_target_group_arn"] = config.Reference{
-			Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
+			Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
 			Extractor: common.PathARNExtractor,
 		}
 	})

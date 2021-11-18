@@ -27,20 +27,20 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"security_groups": {
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
 				RefFieldName:      "SecurityGroupRefs",
 				SelectorFieldName: "SecurityGroupSelector",
 			},
 			"subnets": {
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
 				RefFieldName:      "SubnetRefs",
 				SelectorFieldName: "SubnetSelector",
 			},
 			"access_logs.bucket": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha1.Bucket",
 			},
 			"subnet_mapping.subnet_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
 			},
 		}
 		r.UseAsync = true
@@ -66,7 +66,7 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"vpc_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.VPC",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.VPC",
 			},
 		}
 	})

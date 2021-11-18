@@ -19,7 +19,7 @@ package ecs
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config/common"
+	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for ecs group.
@@ -32,10 +32,10 @@ func Configure(p *config.Provider) {
 				Type: "CapacityProvider",
 			},
 			"execute_command_configuration.kms_key_id": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
 			},
 			"log_configuration.s3_bucket_name": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha1.Bucket",
 			},
 		}
 		r.UseAsync = true
@@ -49,16 +49,16 @@ func Configure(p *config.Provider) {
 				Extractor: common.PathARNExtractor,
 			},
 			"iam_role": config.Reference{
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
 			"network_configuration.subnets": config.Reference{
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
 				RefFieldName:      "SubnetRefs",
 				SelectorFieldName: "SubnetSelector",
 			},
 			"network_configuration.security_groups": config.Reference{
-				Type:              "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
 				RefFieldName:      "SecurityGroupRefs",
 				SelectorFieldName: "SecurityGroupSelector",
 			},
@@ -70,7 +70,7 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.NameAsIdentifier
 		r.References = config.References{
 			"auto_scaling_group_provider.auto_scaling_group_arn": config.Reference{
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1.AutoscalingGroup",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha1.AutoscalingGroup",
 				Extractor: common.PathARNExtractor,
 			},
 		}
@@ -92,7 +92,7 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"execution_role_arn": config.Reference{
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
 		}

@@ -29,10 +29,10 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
-	"github.com/crossplane-contrib/provider-tf-aws/apis"
-	"github.com/crossplane-contrib/provider-tf-aws/config"
-	"github.com/crossplane-contrib/provider-tf-aws/internal/clients"
-	"github.com/crossplane-contrib/provider-tf-aws/internal/controller"
+	"github.com/crossplane-contrib/provider-jet-aws/apis"
+	"github.com/crossplane-contrib/provider-jet-aws/config"
+	"github.com/crossplane-contrib/provider-jet-aws/internal/clients"
+	"github.com/crossplane-contrib/provider-jet-aws/internal/controller"
 )
 
 func main() {
@@ -48,7 +48,7 @@ func main() {
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
 	zl := zap.New(zap.UseDevMode(*debug))
-	log := logging.NewLogrLogger(zl.WithName("provider-tf-aws"))
+	log := logging.NewLogrLogger(zl.WithName("provider-jet-aws"))
 	if *debug {
 		// The controller-runtime runs with a no-op logger by default. It is
 		// *very* verbose even at info level, so we only provide it a real
@@ -63,7 +63,7 @@ func main() {
 
 	mgr, err := ctrl.NewManager(cfg, ctrl.Options{
 		LeaderElection:   *leaderElection,
-		LeaderElectionID: "crossplane-leader-election-provider-tf-aws",
+		LeaderElectionID: "crossplane-leader-election-provider-jet-aws",
 		SyncPeriod:       syncPeriod,
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")
