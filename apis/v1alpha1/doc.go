@@ -14,8 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// Package v1alpha1 contains the core resources of the tf aws provider.
+// Package v1alpha1 contains the core resources of the aws jet provider.
 // +kubebuilder:object:generate=true
-// +groupName=aws.tf.crossplane.io
+// +groupName=aws.jet.crossplane.io
 // +versionName=v1alpha1
 package v1alpha1

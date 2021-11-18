@@ -24,7 +24,7 @@ import (
 
 const (
 	// SelfPackagePath is the golang path for this package.
-	SelfPackagePath = "github.com/crossplane-contrib/provider-tf-aws/config/common"
+	SelfPackagePath = "github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
 
 var (

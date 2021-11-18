@@ -7,7 +7,7 @@ type: Opaque
 data:
   credentials: <REPLACEME>
 ---
-apiVersion: aws.tf.crossplane.io/v1alpha1
+apiVersion: aws.jet.crossplane.io/v1alpha1
 kind: ProviderConfig
 metadata:
   name: default

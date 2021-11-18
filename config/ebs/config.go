@@ -26,7 +26,7 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = map[string]config.Reference{
 			"kms_key_id": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
 			},
 		}
 	})

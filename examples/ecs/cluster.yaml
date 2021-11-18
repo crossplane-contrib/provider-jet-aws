@@ -1,4 +1,4 @@
-apiVersion: ecs.aws.tf.crossplane.io/v1alpha1
+apiVersion: ecs.aws.jet.crossplane.io/v1alpha1
 kind: Cluster
 metadata:
   name: sample-cluster

@@ -1,4 +1,4 @@
-apiVersion: iam.aws.tf.crossplane.io/v1alpha1
+apiVersion: iam.aws.jet.crossplane.io/v1alpha1
 kind: Role
 metadata:
   name: sample-eks-cluster

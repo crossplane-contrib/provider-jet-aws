@@ -25,7 +25,7 @@ import (
 
 	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config"
+	"github.com/crossplane-contrib/provider-jet-aws/config"
 )
 
 func main() {

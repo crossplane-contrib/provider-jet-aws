@@ -19,7 +19,7 @@ package s3
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-tf-aws/config/common"
+	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for s3 group.
@@ -36,7 +36,7 @@ func Configure(p *config.Provider) {
 		}
 		r.References = config.References{
 			"server_side_encryption_configuration.rule.apply_server_side_encryption_by_default.kms_master_key_id": {
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
 				Extractor: common.PathARNExtractor,
 			},
 		}

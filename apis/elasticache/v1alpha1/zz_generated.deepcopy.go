@@ -807,7 +807,11 @@ func (in *ReplicationGroupParameters) DeepCopyInto(out *ReplicationGroupParamete
 		*out = new(bool)
 		**out = **in
 	}
-	out.AuthTokenSecretRef = in.AuthTokenSecretRef
+	if in.AuthTokenSecretRef != nil {
+		in, out := &in.AuthTokenSecretRef, &out.AuthTokenSecretRef
+		*out = new(v1.SecretKeySelector)
+		**out = **in
+	}
 	if in.AutoMinorVersionUpgrade != nil {
 		in, out := &in.AutoMinorVersionUpgrade, &out.AutoMinorVersionUpgrade
 		*out = new(bool)

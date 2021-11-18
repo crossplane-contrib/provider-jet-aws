@@ -11,7 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package tfaws
+package awsjet
 
 import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
@@ -27,7 +27,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/reconciler/providerconfig"
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
 
-	"github.com/crossplane-contrib/provider-tf-aws/apis/v1alpha1"
+	"github.com/crossplane-contrib/provider-jet-aws/apis/v1alpha1"
 )
 
 // Setup adds a controller that reconciles ProviderConfigs by accounting for

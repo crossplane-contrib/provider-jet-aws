@@ -1,4 +1,4 @@
-apiVersion: iam.aws.tf.crossplane.io/v1alpha1
+apiVersion: iam.aws.jet.crossplane.io/v1alpha1
 kind: RolePolicyAttachment
 metadata:
   name: sample-cluster-policy
@@ -8,7 +8,7 @@ spec:
     roleRef:
       name: sample-eks-cluster
 ---
-apiVersion: iam.aws.tf.crossplane.io/v1alpha1
+apiVersion: iam.aws.jet.crossplane.io/v1alpha1
 kind: RolePolicyAttachment
 metadata:
   name: sample-vpc-resource-controller

@@ -1,7 +1,7 @@
 # ====================================================================================
 # Setup Project
 
-PROJECT_NAME := provider-tf-aws
+PROJECT_NAME := provider-jet-aws
 PROJECT_REPO := github.com/crossplane-contrib/$(PROJECT_NAME)
 
 PLATFORMS ?= linux_amd64 linux_arm64
@@ -44,7 +44,7 @@ GO111MODULE = on
 # Setup Images
 
 DOCKER_REGISTRY := crossplane
-IMAGES = provider-tf-aws provider-tf-aws-controller
+IMAGES = provider-jet-aws provider-jet-aws-controller
 -include build/makelib/image.mk
 
 # ====================================================================================
