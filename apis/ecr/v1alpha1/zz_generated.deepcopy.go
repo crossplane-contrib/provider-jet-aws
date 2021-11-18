@@ -21,6 +21,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"github.com/crossplane/crossplane-runtime/apis/common/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 )
 
@@ -51,6 +52,16 @@ func (in *EncryptionConfigurationParameters) DeepCopyInto(out *EncryptionConfigu
 		in, out := &in.KmsKey, &out.KmsKey
 		*out = new(string)
 		**out = **in
+	}
+	if in.KmsKeyRef != nil {
+		in, out := &in.KmsKeyRef, &out.KmsKeyRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.KmsKeySelector != nil {
+		in, out := &in.KmsKeySelector, &out.KmsKeySelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 }
 

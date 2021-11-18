@@ -30,11 +30,6 @@ func (mg *AccessKey) GetTerraformResourceType() string {
 	return "aws_iam_access_key"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this AccessKey
-func (tr *AccessKey) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this AccessKey
 func (tr *AccessKey) GetConnectionDetailsMapping() map[string]string {
 	return map[string]string{"secret": "status.atProvider.secret", "ses_smtp_password_v4": "status.atProvider.sesSMTPPasswordV4"}

@@ -64,180 +64,6 @@ type CapacityReservationSpecificationCapacityReservationTargetParameters struct 
 	CapacityReservationID *string `json:"capacityReservationId,omitempty" tf:"capacity_reservation_id,omitempty"`
 }
 
-type EC2LaunchTemplateCapacityReservationSpecificationObservation struct {
-}
-
-type EC2LaunchTemplateCapacityReservationSpecificationParameters struct {
-
-	// +kubebuilder:validation:Optional
-	CapacityReservationPreference *string `json:"capacityReservationPreference,omitempty" tf:"capacity_reservation_preference,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	CapacityReservationTarget []CapacityReservationSpecificationCapacityReservationTargetParameters `json:"capacityReservationTarget,omitempty" tf:"capacity_reservation_target,omitempty"`
-}
-
-type EC2LaunchTemplateCreditSpecificationObservation struct {
-}
-
-type EC2LaunchTemplateCreditSpecificationParameters struct {
-
-	// +kubebuilder:validation:Optional
-	CPUCredits *string `json:"cpuCredits,omitempty" tf:"cpu_credits,omitempty"`
-}
-
-type EC2LaunchTemplateEnclaveOptionsObservation struct {
-}
-
-type EC2LaunchTemplateEnclaveOptionsParameters struct {
-
-	// +kubebuilder:validation:Optional
-	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
-}
-
-type EC2LaunchTemplateMetadataOptionsObservation struct {
-}
-
-type EC2LaunchTemplateMetadataOptionsParameters struct {
-
-	// +kubebuilder:validation:Optional
-	HTTPEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	HTTPPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	HTTPTokens *string `json:"httpTokens,omitempty" tf:"http_tokens,omitempty"`
-}
-
-type EC2LaunchTemplateObservation struct {
-	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
-
-	LatestVersion *int64 `json:"latestVersion,omitempty" tf:"latest_version,omitempty"`
-
-	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
-}
-
-type EC2LaunchTemplateParameters struct {
-
-	// +kubebuilder:validation:Optional
-	BlockDeviceMappings []BlockDeviceMappingsParameters `json:"blockDeviceMappings,omitempty" tf:"block_device_mappings,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	CPUOptions []CPUOptionsParameters `json:"cpuOptions,omitempty" tf:"cpu_options,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	CapacityReservationSpecification []EC2LaunchTemplateCapacityReservationSpecificationParameters `json:"capacityReservationSpecification,omitempty" tf:"capacity_reservation_specification,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	CreditSpecification []EC2LaunchTemplateCreditSpecificationParameters `json:"creditSpecification,omitempty" tf:"credit_specification,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	DefaultVersion *int64 `json:"defaultVersion,omitempty" tf:"default_version,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	DisableAPITermination *bool `json:"disableApiTermination,omitempty" tf:"disable_api_termination,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	EbsOptimized *string `json:"ebsOptimized,omitempty" tf:"ebs_optimized,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	ElasticGpuSpecifications []ElasticGpuSpecificationsParameters `json:"elasticGpuSpecifications,omitempty" tf:"elastic_gpu_specifications,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	ElasticInferenceAccelerator []ElasticInferenceAcceleratorParameters `json:"elasticInferenceAccelerator,omitempty" tf:"elastic_inference_accelerator,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	EnclaveOptions []EC2LaunchTemplateEnclaveOptionsParameters `json:"enclaveOptions,omitempty" tf:"enclave_options,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	HibernationOptions []HibernationOptionsParameters `json:"hibernationOptions,omitempty" tf:"hibernation_options,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	IamInstanceProfile []IamInstanceProfileParameters `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	ImageID *string `json:"imageId,omitempty" tf:"image_id,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	InstanceInitiatedShutdownBehavior *string `json:"instanceInitiatedShutdownBehavior,omitempty" tf:"instance_initiated_shutdown_behavior,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	InstanceMarketOptions []InstanceMarketOptionsParameters `json:"instanceMarketOptions,omitempty" tf:"instance_market_options,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	KernelID *string `json:"kernelId,omitempty" tf:"kernel_id,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	KeyName *string `json:"keyName,omitempty" tf:"key_name,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	LicenseSpecification []LicenseSpecificationParameters `json:"licenseSpecification,omitempty" tf:"license_specification,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	MetadataOptions []EC2LaunchTemplateMetadataOptionsParameters `json:"metadataOptions,omitempty" tf:"metadata_options,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	Monitoring []MonitoringParameters `json:"monitoring,omitempty" tf:"monitoring,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	Name *string `json:"name,omitempty" tf:"name,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	NetworkInterfaces []NetworkInterfacesParameters `json:"networkInterfaces,omitempty" tf:"network_interfaces,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	Placement []PlacementParameters `json:"placement,omitempty" tf:"placement,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	RAMDiskID *string `json:"ramDiskId,omitempty" tf:"ram_disk_id,omitempty"`
-
-	// Region is the region you'd like your resource to be created in.
-	// +terrajet:crd:field:TFTag=-
-	// +kubebuilder:validation:Required
-	Region *string `json:"region" tf:"-"`
-
-	// +crossplane:generate:reference:type=SecurityGroup
-	// +kubebuilder:validation:Optional
-	SecurityGroupNames []*string `json:"securityGroupNames,omitempty" tf:"security_group_names,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupNamesRefs []v1.Reference `json:"securityGroupNamesRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupNamesSelector *v1.Selector `json:"securityGroupNamesSelector,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	TagSpecifications []TagSpecificationsParameters `json:"tagSpecifications,omitempty" tf:"tag_specifications,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	UpdateDefaultVersion *bool `json:"updateDefaultVersion,omitempty" tf:"update_default_version,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	UserData *string `json:"userData,omitempty" tf:"user_data,omitempty"`
-
-	// +crossplane:generate:reference:type=SecurityGroup
-	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIdsRefs []v1.Reference `json:"vpcSecurityGroupIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIdsSelector *v1.Selector `json:"vpcSecurityGroupIdsSelector,omitempty" tf:"-"`
-}
-
 type EbsObservation struct {
 }
 
@@ -341,6 +167,184 @@ type InstanceMarketOptionsParameters struct {
 	SpotOptions []SpotOptionsParameters `json:"spotOptions,omitempty" tf:"spot_options,omitempty"`
 }
 
+type LaunchTemplateCapacityReservationSpecificationObservation struct {
+}
+
+type LaunchTemplateCapacityReservationSpecificationParameters struct {
+
+	// +kubebuilder:validation:Optional
+	CapacityReservationPreference *string `json:"capacityReservationPreference,omitempty" tf:"capacity_reservation_preference,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CapacityReservationTarget []CapacityReservationSpecificationCapacityReservationTargetParameters `json:"capacityReservationTarget,omitempty" tf:"capacity_reservation_target,omitempty"`
+}
+
+type LaunchTemplateCreditSpecificationObservation struct {
+}
+
+type LaunchTemplateCreditSpecificationParameters struct {
+
+	// +kubebuilder:validation:Optional
+	CPUCredits *string `json:"cpuCredits,omitempty" tf:"cpu_credits,omitempty"`
+}
+
+type LaunchTemplateEnclaveOptionsObservation struct {
+}
+
+type LaunchTemplateEnclaveOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+}
+
+type LaunchTemplateMetadataOptionsObservation struct {
+}
+
+type LaunchTemplateMetadataOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	HTTPEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HTTPPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HTTPTokens *string `json:"httpTokens,omitempty" tf:"http_tokens,omitempty"`
+}
+
+type LaunchTemplateObservation_2 struct {
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
+	LatestVersion *int64 `json:"latestVersion,omitempty" tf:"latest_version,omitempty"`
+
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
+}
+
+type LaunchTemplateParameters_2 struct {
+
+	// +kubebuilder:validation:Optional
+	BlockDeviceMappings []BlockDeviceMappingsParameters `json:"blockDeviceMappings,omitempty" tf:"block_device_mappings,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CPUOptions []CPUOptionsParameters `json:"cpuOptions,omitempty" tf:"cpu_options,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CapacityReservationSpecification []LaunchTemplateCapacityReservationSpecificationParameters `json:"capacityReservationSpecification,omitempty" tf:"capacity_reservation_specification,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CreditSpecification []LaunchTemplateCreditSpecificationParameters `json:"creditSpecification,omitempty" tf:"credit_specification,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	DefaultVersion *int64 `json:"defaultVersion,omitempty" tf:"default_version,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	DisableAPITermination *bool `json:"disableApiTermination,omitempty" tf:"disable_api_termination,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	EbsOptimized *string `json:"ebsOptimized,omitempty" tf:"ebs_optimized,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ElasticGpuSpecifications []ElasticGpuSpecificationsParameters `json:"elasticGpuSpecifications,omitempty" tf:"elastic_gpu_specifications,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ElasticInferenceAccelerator []ElasticInferenceAcceleratorParameters `json:"elasticInferenceAccelerator,omitempty" tf:"elastic_inference_accelerator,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	EnclaveOptions []LaunchTemplateEnclaveOptionsParameters `json:"enclaveOptions,omitempty" tf:"enclave_options,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HibernationOptions []HibernationOptionsParameters `json:"hibernationOptions,omitempty" tf:"hibernation_options,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IamInstanceProfile []IamInstanceProfileParameters `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ImageID *string `json:"imageId,omitempty" tf:"image_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	InstanceInitiatedShutdownBehavior *string `json:"instanceInitiatedShutdownBehavior,omitempty" tf:"instance_initiated_shutdown_behavior,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	InstanceMarketOptions []InstanceMarketOptionsParameters `json:"instanceMarketOptions,omitempty" tf:"instance_market_options,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	KernelID *string `json:"kernelId,omitempty" tf:"kernel_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	KeyName *string `json:"keyName,omitempty" tf:"key_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	LicenseSpecification []LicenseSpecificationParameters `json:"licenseSpecification,omitempty" tf:"license_specification,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	MetadataOptions []LaunchTemplateMetadataOptionsParameters `json:"metadataOptions,omitempty" tf:"metadata_options,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Monitoring []MonitoringParameters `json:"monitoring,omitempty" tf:"monitoring,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NetworkInterfaces []NetworkInterfacesParameters `json:"networkInterfaces,omitempty" tf:"network_interfaces,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Placement []PlacementParameters `json:"placement,omitempty" tf:"placement,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	RAMDiskID *string `json:"ramDiskId,omitempty" tf:"ram_disk_id,omitempty"`
+
+	// Region is the region you'd like your resource to be created in.
+	// +terrajet:crd:field:TFTag=-
+	// +kubebuilder:validation:Required
+	Region *string `json:"region" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupNameRefs []v1.Reference `json:"securityGroupNameRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupNameSelector *v1.Selector `json:"securityGroupNameSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SecurityGroupNameRefs
+	// +crossplane:generate:reference:selectorFieldName=SecurityGroupNameSelector
+	// +kubebuilder:validation:Optional
+	SecurityGroupNames []*string `json:"securityGroupNames,omitempty" tf:"security_group_names,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	TagSpecifications []TagSpecificationsParameters `json:"tagSpecifications,omitempty" tf:"tag_specifications,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	UpdateDefaultVersion *bool `json:"updateDefaultVersion,omitempty" tf:"update_default_version,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	UserData *string `json:"userData,omitempty" tf:"user_data,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	VpcSecurityGroupIdRefs []v1.Reference `json:"vpcSecurityGroupIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	VpcSecurityGroupIdSelector *v1.Selector `json:"vpcSecurityGroupIdSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=SecurityGroup
+	// +crossplane:generate:reference:refFieldName=VpcSecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=VpcSecurityGroupIdSelector
+	// +kubebuilder:validation:Optional
+	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
+}
+
 type LicenseSpecificationObservation struct {
 }
 
@@ -407,15 +411,17 @@ type NetworkInterfacesParameters struct {
 	// +kubebuilder:validation:Optional
 	PrivateIPAddress *string `json:"privateIpAddress,omitempty" tf:"private_ip_address,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	SecurityGroupRefs []v1.Reference `json:"securityGroupRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupSelector *v1.Selector `json:"securityGroupSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SecurityGroupRefs
+	// +crossplane:generate:reference:selectorFieldName=SecurityGroupSelector
 	// +kubebuilder:validation:Optional
 	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupsRefs []v1.Reference `json:"securityGroupsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupsSelector *v1.Selector `json:"securityGroupsSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=Subnet
 	// +kubebuilder:validation:Optional
@@ -491,51 +497,51 @@ type TagSpecificationsParameters struct {
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
-// EC2LaunchTemplateSpec defines the desired state of EC2LaunchTemplate
-type EC2LaunchTemplateSpec struct {
+// LaunchTemplateSpec defines the desired state of LaunchTemplate
+type LaunchTemplateSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     EC2LaunchTemplateParameters `json:"forProvider"`
+	ForProvider     LaunchTemplateParameters_2 `json:"forProvider"`
 }
 
-// EC2LaunchTemplateStatus defines the observed state of EC2LaunchTemplate.
-type EC2LaunchTemplateStatus struct {
+// LaunchTemplateStatus defines the observed state of LaunchTemplate.
+type LaunchTemplateStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        EC2LaunchTemplateObservation `json:"atProvider,omitempty"`
+	AtProvider        LaunchTemplateObservation_2 `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// EC2LaunchTemplate is the Schema for the EC2LaunchTemplates API
+// LaunchTemplate is the Schema for the LaunchTemplates API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type EC2LaunchTemplate struct {
+type LaunchTemplate struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              EC2LaunchTemplateSpec   `json:"spec"`
-	Status            EC2LaunchTemplateStatus `json:"status,omitempty"`
+	Spec              LaunchTemplateSpec   `json:"spec"`
+	Status            LaunchTemplateStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// EC2LaunchTemplateList contains a list of EC2LaunchTemplates
-type EC2LaunchTemplateList struct {
+// LaunchTemplateList contains a list of LaunchTemplates
+type LaunchTemplateList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []EC2LaunchTemplate `json:"items"`
+	Items           []LaunchTemplate `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	EC2LaunchTemplate_Kind             = "EC2LaunchTemplate"
-	EC2LaunchTemplate_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: EC2LaunchTemplate_Kind}.String()
-	EC2LaunchTemplate_KindAPIVersion   = EC2LaunchTemplate_Kind + "." + CRDGroupVersion.String()
-	EC2LaunchTemplate_GroupVersionKind = CRDGroupVersion.WithKind(EC2LaunchTemplate_Kind)
+	LaunchTemplate_Kind             = "LaunchTemplate"
+	LaunchTemplate_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: LaunchTemplate_Kind}.String()
+	LaunchTemplate_KindAPIVersion   = LaunchTemplate_Kind + "." + CRDGroupVersion.String()
+	LaunchTemplate_GroupVersionKind = CRDGroupVersion.WithKind(LaunchTemplate_Kind)
 )
 
 func init() {
-	SchemeBuilder.Register(&EC2LaunchTemplate{}, &EC2LaunchTemplateList{})
+	SchemeBuilder.Register(&LaunchTemplate{}, &LaunchTemplateList{})
 }

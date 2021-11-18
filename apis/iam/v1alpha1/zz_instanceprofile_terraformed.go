@@ -30,11 +30,6 @@ func (mg *InstanceProfile) GetTerraformResourceType() string {
 	return "aws_iam_instance_profile"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this InstanceProfile
-func (tr *InstanceProfile) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this InstanceProfile
 func (tr *InstanceProfile) GetConnectionDetailsMapping() map[string]string {
 	return nil

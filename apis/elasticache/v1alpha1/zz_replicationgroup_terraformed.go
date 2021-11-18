@@ -30,11 +30,6 @@ func (mg *ReplicationGroup) GetTerraformResourceType() string {
 	return "aws_elasticache_replication_group"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this ReplicationGroup
-func (tr *ReplicationGroup) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this ReplicationGroup
 func (tr *ReplicationGroup) GetConnectionDetailsMapping() map[string]string {
 	return map[string]string{"auth_token": "spec.forProvider.authTokenSecretRef"}

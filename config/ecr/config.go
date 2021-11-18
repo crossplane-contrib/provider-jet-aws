@@ -31,5 +31,7 @@ func Configure(p *config.Provider) {
 				Extractor: common.PathARNExtractor,
 			},
 		}
+		// Deletion takes a while.
+		r.UseAsync = true
 	})
 }

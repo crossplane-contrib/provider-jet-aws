@@ -63,11 +63,7 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  groups:
-                    items:
-                      type: string
-                    type: array
-                  groupsRefs:
+                  groupRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -78,7 +74,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  groupsSelector:
+                  groupSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -92,6 +88,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  groups:
+                    items:
+                      type: string
+                    type: array
                   user:
                     type: string
                   userRef:

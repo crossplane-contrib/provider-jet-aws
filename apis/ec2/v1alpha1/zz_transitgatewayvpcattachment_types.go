@@ -47,15 +47,17 @@ type TransitGatewayVPCAttachmentParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
+	SubnetIdRefs []v1.Reference `json:"subnetIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SubnetIdSelector *v1.Selector `json:"subnetIdSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=Subnet
+	// +crossplane:generate:reference:refFieldName=SubnetIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SubnetIdSelector
 	// +kubebuilder:validation:Optional
 	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsRefs []v1.Reference `json:"subnetIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsSelector *v1.Selector `json:"subnetIdsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`

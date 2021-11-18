@@ -67,12 +67,34 @@ spec:
                       properties:
                         bucket:
                           type: string
+                        bucketRef:
+                          description: A Reference to a named object.
+                          properties:
+                            name:
+                              description: Name of the referenced object.
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        bucketSelector:
+                          description: A Selector selects an object.
+                          properties:
+                            matchControllerRef:
+                              description: MatchControllerRef ensures an object with
+                                the same controller reference as the selecting object
+                                is selected.
+                              type: boolean
+                            matchLabels:
+                              additionalProperties:
+                                type: string
+                              description: MatchLabels ensures an object with matching
+                                labels is selected.
+                              type: object
+                          type: object
                         enabled:
                           type: boolean
                         prefix:
                           type: string
-                      required:
-                      - bucket
                       type: object
                     type: array
                   customerOwnedIpv4Pool:
@@ -102,11 +124,7 @@ spec:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  securityGroups:
-                    items:
-                      type: string
-                    type: array
-                  securityGroupsRefs:
+                  securityGroupRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -117,7 +135,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  securityGroupsSelector:
+                  securityGroupSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -131,6 +149,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  securityGroups:
+                    items:
+                      type: string
+                    type: array
                   subnetMapping:
                     items:
                       properties:
@@ -142,15 +164,33 @@ spec:
                           type: string
                         subnetId:
                           type: string
-                      required:
-                      - subnetId
+                        subnetIdRef:
+                          description: A Reference to a named object.
+                          properties:
+                            name:
+                              description: Name of the referenced object.
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        subnetIdSelector:
+                          description: A Selector selects an object.
+                          properties:
+                            matchControllerRef:
+                              description: MatchControllerRef ensures an object with
+                                the same controller reference as the selecting object
+                                is selected.
+                              type: boolean
+                            matchLabels:
+                              additionalProperties:
+                                type: string
+                              description: MatchLabels ensures an object with matching
+                                labels is selected.
+                              type: object
+                          type: object
                       type: object
                     type: array
-                  subnets:
-                    items:
-                      type: string
-                    type: array
-                  subnetsRefs:
+                  subnetRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -161,7 +201,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  subnetsSelector:
+                  subnetSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -175,6 +215,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  subnets:
+                    items:
+                      type: string
+                    type: array
                   tags:
                     additionalProperties:
                       type: string

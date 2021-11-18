@@ -30,11 +30,6 @@ func (mg *UserGroupMembership) GetTerraformResourceType() string {
 	return "aws_iam_user_group_membership"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this UserGroupMembership
-func (tr *UserGroupMembership) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this UserGroupMembership
 func (tr *UserGroupMembership) GetConnectionDetailsMapping() map[string]string {
 	return nil

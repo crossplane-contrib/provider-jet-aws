@@ -4,7 +4,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.2
   creationTimestamp: null
-  name: ec2launchtemplates.ec2.aws.tf.crossplane.io
+  name: launchtemplates.ec2.aws.tf.crossplane.io
 spec:
   group: ec2.aws.tf.crossplane.io
   names:
@@ -12,10 +12,10 @@ spec:
     - crossplane
     - managed
     - tfaws
-    kind: EC2LaunchTemplate
-    listKind: EC2LaunchTemplateList
-    plural: ec2launchtemplates
-    singular: ec2launchtemplate
+    kind: LaunchTemplate
+    listKind: LaunchTemplateList
+    plural: launchtemplates
+    singular: launchtemplate
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: EC2LaunchTemplate is the Schema for the EC2LaunchTemplates API
+        description: LaunchTemplate is the Schema for the LaunchTemplates API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: EC2LaunchTemplateSpec defines the desired state of EC2LaunchTemplate
+            description: LaunchTemplateSpec defines the desired state of LaunchTemplate
             properties:
               deletionPolicy:
                 default: Delete
@@ -376,11 +376,7 @@ spec:
                           type: object
                         privateIpAddress:
                           type: string
-                        securityGroups:
-                          items:
-                            type: string
-                          type: array
-                        securityGroupsRefs:
+                        securityGroupRefs:
                           items:
                             description: A Reference to a named object.
                             properties:
@@ -391,7 +387,7 @@ spec:
                             - name
                             type: object
                           type: array
-                        securityGroupsSelector:
+                        securityGroupSelector:
                           description: A Selector selects an object.
                           properties:
                             matchControllerRef:
@@ -406,6 +402,10 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
+                        securityGroups:
+                          items:
+                            type: string
+                          type: array
                         subnetId:
                           type: string
                         subnetIdRef:
@@ -462,11 +462,7 @@ spec:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  securityGroupNames:
-                    items:
-                      type: string
-                    type: array
-                  securityGroupNamesRefs:
+                  securityGroupNameRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -477,7 +473,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  securityGroupNamesSelector:
+                  securityGroupNameSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -491,6 +487,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  securityGroupNames:
+                    items:
+                      type: string
+                    type: array
                   tagSpecifications:
                     items:
                       properties:
@@ -510,11 +510,7 @@ spec:
                     type: boolean
                   userData:
                     type: string
-                  vpcSecurityGroupIds:
-                    items:
-                      type: string
-                    type: array
-                  vpcSecurityGroupIdsRefs:
+                  vpcSecurityGroupIdRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -525,7 +521,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  vpcSecurityGroupIdsSelector:
+                  vpcSecurityGroupIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -539,6 +535,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  vpcSecurityGroupIds:
+                    items:
+                      type: string
+                    type: array
                 required:
                 - region
                 type: object
@@ -587,7 +587,7 @@ spec:
             - forProvider
             type: object
           status:
-            description: EC2LaunchTemplateStatus defines the observed state of EC2LaunchTemplate.
+            description: LaunchTemplateStatus defines the observed state of LaunchTemplate.
             properties:
               atProvider:
                 properties:

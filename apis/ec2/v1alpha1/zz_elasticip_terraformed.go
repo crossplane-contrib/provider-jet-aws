@@ -30,11 +30,6 @@ func (mg *ElasticIP) GetTerraformResourceType() string {
 	return "aws_eip"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this ElasticIP
-func (tr *ElasticIP) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this ElasticIP
 func (tr *ElasticIP) GetConnectionDetailsMapping() map[string]string {
 	return nil

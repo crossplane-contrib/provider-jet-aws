@@ -25,23 +25,18 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
 )
 
-// GetTerraformResourceType returns Terraform resource type for this EC2LaunchTemplate
-func (mg *EC2LaunchTemplate) GetTerraformResourceType() string {
+// GetTerraformResourceType returns Terraform resource type for this LaunchTemplate
+func (mg *LaunchTemplate) GetTerraformResourceType() string {
 	return "aws_launch_template"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this EC2LaunchTemplate
-func (tr *EC2LaunchTemplate) GetTerraformResourceIDField() string {
-	return "id"
-}
-
-// GetConnectionDetailsMapping for this EC2LaunchTemplate
-func (tr *EC2LaunchTemplate) GetConnectionDetailsMapping() map[string]string {
+// GetConnectionDetailsMapping for this LaunchTemplate
+func (tr *LaunchTemplate) GetConnectionDetailsMapping() map[string]string {
 	return nil
 }
 
-// GetObservation of this EC2LaunchTemplate
-func (tr *EC2LaunchTemplate) GetObservation() (map[string]interface{}, error) {
+// GetObservation of this LaunchTemplate
+func (tr *LaunchTemplate) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
@@ -50,8 +45,8 @@ func (tr *EC2LaunchTemplate) GetObservation() (map[string]interface{}, error) {
 	return base, json.TFParser.Unmarshal(o, &base)
 }
 
-// SetObservation for this EC2LaunchTemplate
-func (tr *EC2LaunchTemplate) SetObservation(obs map[string]interface{}) error {
+// SetObservation for this LaunchTemplate
+func (tr *LaunchTemplate) SetObservation(obs map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(obs)
 	if err != nil {
 		return err
@@ -59,8 +54,8 @@ func (tr *EC2LaunchTemplate) SetObservation(obs map[string]interface{}) error {
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
-// GetParameters of this EC2LaunchTemplate
-func (tr *EC2LaunchTemplate) GetParameters() (map[string]interface{}, error) {
+// GetParameters of this LaunchTemplate
+func (tr *LaunchTemplate) GetParameters() (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
@@ -69,8 +64,8 @@ func (tr *EC2LaunchTemplate) GetParameters() (map[string]interface{}, error) {
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
-// SetParameters for this EC2LaunchTemplate
-func (tr *EC2LaunchTemplate) SetParameters(params map[string]interface{}) error {
+// SetParameters for this LaunchTemplate
+func (tr *LaunchTemplate) SetParameters(params map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(params)
 	if err != nil {
 		return err
@@ -78,10 +73,10 @@ func (tr *EC2LaunchTemplate) SetParameters(params map[string]interface{}) error 
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }
 
-// LateInitialize this EC2LaunchTemplate using its observed tfState.
+// LateInitialize this LaunchTemplate using its observed tfState.
 // returns True if there are any spec changes for the resource.
-func (tr *EC2LaunchTemplate) LateInitialize(attrs []byte) (bool, error) {
-	params := &EC2LaunchTemplateParameters{}
+func (tr *LaunchTemplate) LateInitialize(attrs []byte) (bool, error) {
+	params := &LaunchTemplateParameters{}
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
@@ -92,6 +87,6 @@ func (tr *EC2LaunchTemplate) LateInitialize(attrs []byte) (bool, error) {
 }
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
-func (tr *EC2LaunchTemplate) GetTerraformSchemaVersion() int {
+func (tr *LaunchTemplate) GetTerraformSchemaVersion() int {
 	return 0
 }

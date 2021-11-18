@@ -30,11 +30,6 @@ func (mg *Cluster) GetTerraformResourceType() string {
 	return "aws_ecs_cluster"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Cluster
-func (tr *Cluster) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Cluster
 func (tr *Cluster) GetConnectionDetailsMapping() map[string]string {
 	return nil

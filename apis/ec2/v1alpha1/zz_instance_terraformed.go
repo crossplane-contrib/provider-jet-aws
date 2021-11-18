@@ -30,11 +30,6 @@ func (mg *Instance) GetTerraformResourceType() string {
 	return "aws_instance"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Instance
-func (tr *Instance) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Instance
 func (tr *Instance) GetConnectionDetailsMapping() map[string]string {
 	return nil

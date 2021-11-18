@@ -153,6 +153,32 @@ spec:
                       properties:
                         ec2SshKey:
                           type: string
+                        sourceSecurityGroupIdRefs:
+                          items:
+                            description: A Reference to a named object.
+                            properties:
+                              name:
+                                description: Name of the referenced object.
+                                type: string
+                            required:
+                            - name
+                            type: object
+                          type: array
+                        sourceSecurityGroupIdSelector:
+                          description: A Selector selects an object.
+                          properties:
+                            matchControllerRef:
+                              description: MatchControllerRef ensures an object with
+                                the same controller reference as the selecting object
+                                is selected.
+                              type: boolean
+                            matchLabels:
+                              additionalProperties:
+                                type: string
+                              description: MatchLabels ensures an object with matching
+                                labels is selected.
+                              type: object
+                          type: object
                         sourceSecurityGroupIds:
                           items:
                             type: string
@@ -177,11 +203,7 @@ spec:
                       - minSize
                       type: object
                     type: array
-                  subnetIds:
-                    items:
-                      type: string
-                    type: array
-                  subnetIdsRefs:
+                  subnetIdRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -192,7 +214,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  subnetIdsSelector:
+                  subnetIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -206,6 +228,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  subnetIds:
+                    items:
+                      type: string
+                    type: array
                   tags:
                     additionalProperties:
                       type: string

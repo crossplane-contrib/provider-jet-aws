@@ -31,5 +31,7 @@ func Configure(p *config.Provider) {
 				"repository_name",
 			},
 		}
+		// Deletion takes a while.
+		r.UseAsync = true
 	})
 }

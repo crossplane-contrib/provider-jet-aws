@@ -30,11 +30,6 @@ func (mg *Repository) GetTerraformResourceType() string {
 	return "aws_ecrpublic_repository"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Repository
-func (tr *Repository) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Repository
 func (tr *Repository) GetConnectionDetailsMapping() map[string]string {
 	return nil

@@ -33,8 +33,16 @@ type EncryptionConfigurationParameters struct {
 	// +kubebuilder:validation:Optional
 	EncryptionType *string `json:"encryptionType,omitempty" tf:"encryption_type,omitempty"`
 
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key
+	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	KmsKey *string `json:"kmsKey,omitempty" tf:"kms_key,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	KmsKeyRef *v1.Reference `json:"kmsKeyRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	KmsKeySelector *v1.Selector `json:"kmsKeySelector,omitempty" tf:"-"`
 }
 
 type ImageScanningConfigurationObservation struct {

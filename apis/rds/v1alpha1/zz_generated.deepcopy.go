@@ -929,6 +929,16 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
+	if in.SecurityGroupNameRefs != nil {
+		in, out := &in.SecurityGroupNameRefs, &out.SecurityGroupNameRefs
+		*out = make([]v1.Reference, len(*in))
+		copy(*out, *in)
+	}
+	if in.SecurityGroupNameSelector != nil {
+		in, out := &in.SecurityGroupNameSelector, &out.SecurityGroupNameSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.SecurityGroupNames != nil {
 		in, out := &in.SecurityGroupNames, &out.SecurityGroupNames
 		*out = make([]*string, len(*in))
@@ -939,16 +949,6 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 				**out = **in
 			}
 		}
-	}
-	if in.SecurityGroupNamesRefs != nil {
-		in, out := &in.SecurityGroupNamesRefs, &out.SecurityGroupNamesRefs
-		*out = make([]v1.Reference, len(*in))
-		copy(*out, *in)
-	}
-	if in.SecurityGroupNamesSelector != nil {
-		in, out := &in.SecurityGroupNamesSelector, &out.SecurityGroupNamesSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.SkipFinalSnapshot != nil {
 		in, out := &in.SkipFinalSnapshot, &out.SkipFinalSnapshot
@@ -995,6 +995,16 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.VpcSecurityGroupIdRefs != nil {
+		in, out := &in.VpcSecurityGroupIdRefs, &out.VpcSecurityGroupIdRefs
+		*out = make([]v1.Reference, len(*in))
+		copy(*out, *in)
+	}
+	if in.VpcSecurityGroupIdSelector != nil {
+		in, out := &in.VpcSecurityGroupIdSelector, &out.VpcSecurityGroupIdSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.VpcSecurityGroupIds != nil {
 		in, out := &in.VpcSecurityGroupIds, &out.VpcSecurityGroupIds
 		*out = make([]*string, len(*in))
@@ -1005,16 +1015,6 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 				**out = **in
 			}
 		}
-	}
-	if in.VpcSecurityGroupIdsRefs != nil {
-		in, out := &in.VpcSecurityGroupIdsRefs, &out.VpcSecurityGroupIdsRefs
-		*out = make([]v1.Reference, len(*in))
-		copy(*out, *in)
-	}
-	if in.VpcSecurityGroupIdsSelector != nil {
-		in, out := &in.VpcSecurityGroupIdsSelector, &out.VpcSecurityGroupIdsSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 }
 

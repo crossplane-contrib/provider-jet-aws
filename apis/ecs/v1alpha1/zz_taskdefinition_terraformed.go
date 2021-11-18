@@ -30,11 +30,6 @@ func (mg *TaskDefinition) GetTerraformResourceType() string {
 	return "aws_ecs_task_definition"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this TaskDefinition
-func (tr *TaskDefinition) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this TaskDefinition
 func (tr *TaskDefinition) GetConnectionDetailsMapping() map[string]string {
 	return nil

@@ -70,38 +70,44 @@ type VPCEndpointParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
+	RouteTableIdRefs []v1.Reference `json:"routeTableIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	RouteTableIdSelector *v1.Selector `json:"routeTableIdSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=RouteTable
+	// +crossplane:generate:reference:refFieldName=RouteTableIdRefs
+	// +crossplane:generate:reference:selectorFieldName=RouteTableIdSelector
 	// +kubebuilder:validation:Optional
 	RouteTableIds []*string `json:"routeTableIds,omitempty" tf:"route_table_ids,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RouteTableIdsRefs []v1.Reference `json:"routeTableIdsRefs,omitempty" tf:"-"`
+	SecurityGroupIdRefs []v1.Reference `json:"securityGroupIdRefs,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	RouteTableIdsSelector *v1.Selector `json:"routeTableIdsSelector,omitempty" tf:"-"`
+	SecurityGroupIdSelector *v1.Selector `json:"securityGroupIdSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SecurityGroupIdSelector
 	// +kubebuilder:validation:Optional
 	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupIdsRefs []v1.Reference `json:"securityGroupIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupIdsSelector *v1.Selector `json:"securityGroupIdsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	ServiceName *string `json:"serviceName" tf:"service_name,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	SubnetIdRefs []v1.Reference `json:"subnetIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SubnetIdSelector *v1.Selector `json:"subnetIdSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=Subnet
+	// +crossplane:generate:reference:refFieldName=SubnetIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SubnetIdSelector
 	// +kubebuilder:validation:Optional
 	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsRefs []v1.Reference `json:"subnetIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsSelector *v1.Selector `json:"subnetIdsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`

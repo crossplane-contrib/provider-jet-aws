@@ -30,11 +30,6 @@ func (mg *IPv4CIDRBlockAssociation) GetTerraformResourceType() string {
 	return "aws_vpc_ipv4_cidr_block_association"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this IPv4CIDRBlockAssociation
-func (tr *IPv4CIDRBlockAssociation) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this IPv4CIDRBlockAssociation
 func (tr *IPv4CIDRBlockAssociation) GetConnectionDetailsMapping() map[string]string {
 	return nil

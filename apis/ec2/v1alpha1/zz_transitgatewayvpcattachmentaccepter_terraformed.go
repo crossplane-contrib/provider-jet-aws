@@ -30,11 +30,6 @@ func (mg *TransitGatewayVPCAttachmentAccepter) GetTerraformResourceType() string
 	return "aws_ec2_transit_gateway_vpc_attachment_accepter"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this TransitGatewayVPCAttachmentAccepter
-func (tr *TransitGatewayVPCAttachmentAccepter) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this TransitGatewayVPCAttachmentAccepter
 func (tr *TransitGatewayVPCAttachmentAccepter) GetConnectionDetailsMapping() map[string]string {
 	return nil

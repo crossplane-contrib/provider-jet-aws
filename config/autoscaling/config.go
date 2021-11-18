@@ -26,7 +26,6 @@ import (
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_autoscaling_group", func(r *config.Resource) {
 		r.Kind = "AutoscalingGroup"
-		r.ExternalName = config.NameAsIdentifier
 		r.References["vpc_zone_identifier"] = config.Reference{
 			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 		}

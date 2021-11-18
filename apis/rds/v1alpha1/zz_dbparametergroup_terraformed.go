@@ -30,11 +30,6 @@ func (mg *DBParameterGroup) GetTerraformResourceType() string {
 	return "aws_db_parameter_group"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this DBParameterGroup
-func (tr *DBParameterGroup) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this DBParameterGroup
 func (tr *DBParameterGroup) GetConnectionDetailsMapping() map[string]string {
 	return nil

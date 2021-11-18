@@ -30,11 +30,6 @@ func (mg *NetworkInterface) GetTerraformResourceType() string {
 	return "aws_network_interface"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this NetworkInterface
-func (tr *NetworkInterface) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this NetworkInterface
 func (tr *NetworkInterface) GetConnectionDetailsMapping() map[string]string {
 	return nil

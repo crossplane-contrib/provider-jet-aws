@@ -149,10 +149,28 @@ type VpcConfigParameters struct {
 	PublicAccessCidrs []*string `json:"publicAccessCidrs,omitempty" tf:"public_access_cidrs,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	SecurityGroupIdRefs []v1.Reference `json:"securityGroupIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupIdSelector *v1.Selector `json:"securityGroupIdSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SecurityGroupIdSelector
+	// +kubebuilder:validation:Optional
 	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids,omitempty"`
 
-	// +kubebuilder:validation:Required
-	SubnetIds []*string `json:"subnetIds" tf:"subnet_ids,omitempty"`
+	// +kubebuilder:validation:Optional
+	SubnetIdRefs []v1.Reference `json:"subnetIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SubnetIdSelector *v1.Selector `json:"subnetIdSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet
+	// +crossplane:generate:reference:refFieldName=SubnetIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SubnetIdSelector
+	// +kubebuilder:validation:Optional
+	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
 }
 
 // ClusterSpec defines the desired state of Cluster

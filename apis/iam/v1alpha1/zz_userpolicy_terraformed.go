@@ -30,11 +30,6 @@ func (mg *UserPolicy) GetTerraformResourceType() string {
 	return "aws_iam_user_policy"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this UserPolicy
-func (tr *UserPolicy) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this UserPolicy
 func (tr *UserPolicy) GetConnectionDetailsMapping() map[string]string {
 	return nil

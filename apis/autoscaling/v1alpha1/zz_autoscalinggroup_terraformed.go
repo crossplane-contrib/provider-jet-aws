@@ -30,11 +30,6 @@ func (mg *AutoscalingGroup) GetTerraformResourceType() string {
 	return "aws_autoscaling_group"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this AutoscalingGroup
-func (tr *AutoscalingGroup) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this AutoscalingGroup
 func (tr *AutoscalingGroup) GetConnectionDetailsMapping() map[string]string {
 	return nil

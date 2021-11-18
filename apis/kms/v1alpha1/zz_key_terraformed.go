@@ -30,11 +30,6 @@ func (mg *Key) GetTerraformResourceType() string {
 	return "aws_kms_key"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Key
-func (tr *Key) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Key
 func (tr *Key) GetConnectionDetailsMapping() map[string]string {
 	return nil

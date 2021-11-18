@@ -30,11 +30,6 @@ func (mg *TransitGatewayRouteTablePropagation) GetTerraformResourceType() string
 	return "aws_ec2_transit_gateway_route_table_propagation"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this TransitGatewayRouteTablePropagation
-func (tr *TransitGatewayRouteTablePropagation) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this TransitGatewayRouteTablePropagation
 func (tr *TransitGatewayRouteTablePropagation) GetConnectionDetailsMapping() map[string]string {
 	return nil

@@ -30,11 +30,6 @@ func (mg *FargateProfile) GetTerraformResourceType() string {
 	return "aws_eks_fargate_profile"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this FargateProfile
-func (tr *FargateProfile) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this FargateProfile
 func (tr *FargateProfile) GetConnectionDetailsMapping() map[string]string {
 	return nil

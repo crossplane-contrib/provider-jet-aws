@@ -30,11 +30,6 @@ func (mg *SecurityGroup) GetTerraformResourceType() string {
 	return "aws_security_group"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this SecurityGroup
-func (tr *SecurityGroup) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this SecurityGroup
 func (tr *SecurityGroup) GetConnectionDetailsMapping() map[string]string {
 	return nil

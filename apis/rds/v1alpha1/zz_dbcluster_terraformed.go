@@ -30,11 +30,6 @@ func (mg *DBCluster) GetTerraformResourceType() string {
 	return "aws_rds_cluster"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this DBCluster
-func (tr *DBCluster) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this DBCluster
 func (tr *DBCluster) GetConnectionDetailsMapping() map[string]string {
 	return map[string]string{"master_password": "spec.forProvider.masterPasswordSecretRef"}

@@ -30,11 +30,6 @@ func (mg *VPCPeeringConnection) GetTerraformResourceType() string {
 	return "aws_vpc_peering_connection"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this VPCPeeringConnection
-func (tr *VPCPeeringConnection) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this VPCPeeringConnection
 func (tr *VPCPeeringConnection) GetConnectionDetailsMapping() map[string]string {
 	return nil

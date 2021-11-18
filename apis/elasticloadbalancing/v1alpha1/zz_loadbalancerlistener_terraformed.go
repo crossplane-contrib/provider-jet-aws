@@ -30,11 +30,6 @@ func (mg *LoadBalancerListener) GetTerraformResourceType() string {
 	return "aws_lb_listener"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this LoadBalancerListener
-func (tr *LoadBalancerListener) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this LoadBalancerListener
 func (tr *LoadBalancerListener) GetConnectionDetailsMapping() map[string]string {
 	return map[string]string{"default_action[*].authenticate_oidc[*].client_secret": "spec.forProvider.defaultAction[*].authenticateOidc[*].clientSecretSecretRef"}

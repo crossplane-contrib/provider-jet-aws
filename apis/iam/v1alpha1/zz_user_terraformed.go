@@ -30,11 +30,6 @@ func (mg *User) GetTerraformResourceType() string {
 	return "aws_iam_user"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this User
-func (tr *User) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this User
 func (tr *User) GetConnectionDetailsMapping() map[string]string {
 	return nil

@@ -30,11 +30,6 @@ func (mg *TargetGroup) GetTerraformResourceType() string {
 	return "aws_lb_target_group"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this TargetGroup
-func (tr *TargetGroup) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this TargetGroup
 func (tr *TargetGroup) GetConnectionDetailsMapping() map[string]string {
 	return nil

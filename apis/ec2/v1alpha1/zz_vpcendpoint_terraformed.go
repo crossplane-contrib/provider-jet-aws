@@ -30,11 +30,6 @@ func (mg *VPCEndpoint) GetTerraformResourceType() string {
 	return "aws_vpc_endpoint"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this VPCEndpoint
-func (tr *VPCEndpoint) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this VPCEndpoint
 func (tr *VPCEndpoint) GetConnectionDetailsMapping() map[string]string {
 	return nil

@@ -30,11 +30,6 @@ func (mg *CapacityProvider) GetTerraformResourceType() string {
 	return "aws_ecs_capacity_provider"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this CapacityProvider
-func (tr *CapacityProvider) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this CapacityProvider
 func (tr *CapacityProvider) GetConnectionDetailsMapping() map[string]string {
 	return nil

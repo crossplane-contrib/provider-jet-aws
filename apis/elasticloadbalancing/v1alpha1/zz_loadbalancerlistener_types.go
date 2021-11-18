@@ -117,8 +117,15 @@ type DefaultActionParameters struct {
 	// +kubebuilder:validation:Optional
 	Redirect []RedirectParameters `json:"redirect,omitempty" tf:"redirect,omitempty"`
 
+	// +crossplane:generate:reference:type=TargetGroup
 	// +kubebuilder:validation:Optional
 	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	TargetGroupArnRef *v1.Reference `json:"targetGroupArnRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	TargetGroupArnSelector *v1.Selector `json:"targetGroupArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	Type *string `json:"type" tf:"type,omitempty"`
@@ -237,8 +244,15 @@ type TargetGroupObservation struct {
 
 type TargetGroupParameters struct {
 
-	// +kubebuilder:validation:Required
-	Arn *string `json:"arn" tf:"arn,omitempty"`
+	// +crossplane:generate:reference:type=TargetGroup
+	// +kubebuilder:validation:Optional
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ArnRef *v1.Reference `json:"arnRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	ArnSelector *v1.Selector `json:"arnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Weight *int64 `json:"weight,omitempty" tf:"weight,omitempty"`

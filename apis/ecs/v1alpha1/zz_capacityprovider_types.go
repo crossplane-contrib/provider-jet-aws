@@ -30,8 +30,16 @@ type AutoScalingGroupProviderObservation struct {
 
 type AutoScalingGroupProviderParameters struct {
 
-	// +kubebuilder:validation:Required
-	AutoScalingGroupArn *string `json:"autoScalingGroupArn" tf:"auto_scaling_group_arn,omitempty"`
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1.AutoscalingGroup
+	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-tf-aws/config/common.ARNExtractor()
+	// +kubebuilder:validation:Optional
+	AutoScalingGroupArn *string `json:"autoScalingGroupArn,omitempty" tf:"auto_scaling_group_arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	AutoScalingGroupArnRef *v1.Reference `json:"autoScalingGroupArnRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	AutoScalingGroupArnSelector *v1.Selector `json:"autoScalingGroupArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	ManagedScaling []ManagedScalingParameters `json:"managedScaling,omitempty" tf:"managed_scaling,omitempty"`

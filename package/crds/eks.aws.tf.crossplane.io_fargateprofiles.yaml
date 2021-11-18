@@ -129,11 +129,7 @@ spec:
                       - namespace
                       type: object
                     type: array
-                  subnetIds:
-                    items:
-                      type: string
-                    type: array
-                  subnetIdsRefs:
+                  subnetIdRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -144,7 +140,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  subnetIdsSelector:
+                  subnetIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -158,6 +154,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  subnetIds:
+                    items:
+                      type: string
+                    type: array
                   tags:
                     additionalProperties:
                       type: string

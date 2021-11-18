@@ -28,10 +28,10 @@ import (
 	attachment "github.com/crossplane-contrib/provider-tf-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/crossplane-contrib/provider-tf-aws/internal/controller/autoscaling/autoscalinggroup"
 	volume "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ebs/volume"
-	ec2launchtemplate "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ec2launchtemplate"
 	elasticip "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/elasticip"
 	instance "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/instance"
 	ipv4cidrblockassociation "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/ipv4cidrblockassociation"
+	launchtemplate "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/launchtemplate"
 	networkinterface "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/networkinterface"
 	route "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/route"
 	routetable "github.com/crossplane-contrib/provider-tf-aws/internal/controller/ec2/routetable"
@@ -96,10 +96,10 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		attachment.Setup,
 		autoscalinggroup.Setup,
 		volume.Setup,
-		ec2launchtemplate.Setup,
 		elasticip.Setup,
 		instance.Setup,
 		ipv4cidrblockassociation.Setup,
+		launchtemplate.Setup,
 		networkinterface.Setup,
 		route.Setup,
 		routetable.Setup,

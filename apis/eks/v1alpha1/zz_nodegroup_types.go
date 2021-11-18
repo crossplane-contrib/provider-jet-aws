@@ -115,15 +115,17 @@ type NodeGroupParameters struct {
 	// +kubebuilder:validation:Required
 	ScalingConfig []ScalingConfigParameters `json:"scalingConfig" tf:"scaling_config,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	SubnetIdRefs []v1.Reference `json:"subnetIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SubnetIdSelector *v1.Selector `json:"subnetIdSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet
+	// +crossplane:generate:reference:refFieldName=SubnetIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SubnetIdSelector
 	// +kubebuilder:validation:Optional
 	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsRefs []v1.Reference `json:"subnetIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsSelector *v1.Selector `json:"subnetIdsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -143,6 +145,15 @@ type RemoteAccessParameters struct {
 	// +kubebuilder:validation:Optional
 	Ec2SSHKey *string `json:"ec2SshKey,omitempty" tf:"ec2_ssh_key,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	SourceSecurityGroupIdRefs []v1.Reference `json:"sourceSecurityGroupIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SourceSecurityGroupIdSelector *v1.Selector `json:"sourceSecurityGroupIdSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SourceSecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SourceSecurityGroupIdSelector
 	// +kubebuilder:validation:Optional
 	SourceSecurityGroupIds []*string `json:"sourceSecurityGroupIds,omitempty" tf:"source_security_group_ids,omitempty"`
 }

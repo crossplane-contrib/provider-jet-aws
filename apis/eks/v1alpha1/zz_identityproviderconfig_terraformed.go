@@ -30,11 +30,6 @@ func (mg *IdentityProviderConfig) GetTerraformResourceType() string {
 	return "aws_eks_identity_provider_config"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this IdentityProviderConfig
-func (tr *IdentityProviderConfig) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this IdentityProviderConfig
 func (tr *IdentityProviderConfig) GetConnectionDetailsMapping() map[string]string {
 	return nil

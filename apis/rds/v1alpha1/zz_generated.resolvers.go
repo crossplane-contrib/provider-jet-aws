@@ -122,8 +122,8 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.SecurityGroupNames),
 		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.SecurityGroupNamesRefs,
-		Selector:      mg.Spec.ForProvider.SecurityGroupNamesSelector,
+		References:    mg.Spec.ForProvider.SecurityGroupNameRefs,
+		Selector:      mg.Spec.ForProvider.SecurityGroupNameSelector,
 		To: reference.To{
 			List:    &v1alpha12.SecurityGroupList{},
 			Managed: &v1alpha12.SecurityGroup{},
@@ -133,13 +133,13 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 		return errors.Wrap(err, "mg.Spec.ForProvider.SecurityGroupNames")
 	}
 	mg.Spec.ForProvider.SecurityGroupNames = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.SecurityGroupNamesRefs = mrsp.ResolvedReferences
+	mg.Spec.ForProvider.SecurityGroupNameRefs = mrsp.ResolvedReferences
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VpcSecurityGroupIds),
 		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.VpcSecurityGroupIdsRefs,
-		Selector:      mg.Spec.ForProvider.VpcSecurityGroupIdsSelector,
+		References:    mg.Spec.ForProvider.VpcSecurityGroupIdRefs,
+		Selector:      mg.Spec.ForProvider.VpcSecurityGroupIdSelector,
 		To: reference.To{
 			List:    &v1alpha12.SecurityGroupList{},
 			Managed: &v1alpha12.SecurityGroup{},
@@ -149,7 +149,7 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 		return errors.Wrap(err, "mg.Spec.ForProvider.VpcSecurityGroupIds")
 	}
 	mg.Spec.ForProvider.VpcSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.VpcSecurityGroupIdsRefs = mrsp.ResolvedReferences
+	mg.Spec.ForProvider.VpcSecurityGroupIdRefs = mrsp.ResolvedReferences
 
 	return nil
 }

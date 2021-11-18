@@ -156,8 +156,8 @@ func (mg *PolicyAttachment) ResolveReferences(ctx context.Context, c client.Read
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.Groups),
 		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.GroupsRefs,
-		Selector:      mg.Spec.ForProvider.GroupsSelector,
+		References:    mg.Spec.ForProvider.GroupRefs,
+		Selector:      mg.Spec.ForProvider.GroupSelector,
 		To: reference.To{
 			List:    &GroupList{},
 			Managed: &Group{},
@@ -167,7 +167,7 @@ func (mg *PolicyAttachment) ResolveReferences(ctx context.Context, c client.Read
 		return errors.Wrap(err, "mg.Spec.ForProvider.Groups")
 	}
 	mg.Spec.ForProvider.Groups = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.GroupsRefs = mrsp.ResolvedReferences
+	mg.Spec.ForProvider.GroupRefs = mrsp.ResolvedReferences
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PolicyArn),
@@ -188,8 +188,8 @@ func (mg *PolicyAttachment) ResolveReferences(ctx context.Context, c client.Read
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.Roles),
 		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.RolesRefs,
-		Selector:      mg.Spec.ForProvider.RolesSelector,
+		References:    mg.Spec.ForProvider.RoleRefs,
+		Selector:      mg.Spec.ForProvider.RoleSelector,
 		To: reference.To{
 			List:    &RoleList{},
 			Managed: &Role{},
@@ -199,13 +199,13 @@ func (mg *PolicyAttachment) ResolveReferences(ctx context.Context, c client.Read
 		return errors.Wrap(err, "mg.Spec.ForProvider.Roles")
 	}
 	mg.Spec.ForProvider.Roles = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.RolesRefs = mrsp.ResolvedReferences
+	mg.Spec.ForProvider.RoleRefs = mrsp.ResolvedReferences
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.Users),
 		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.UsersRefs,
-		Selector:      mg.Spec.ForProvider.UsersSelector,
+		References:    mg.Spec.ForProvider.UserRefs,
+		Selector:      mg.Spec.ForProvider.UserSelector,
 		To: reference.To{
 			List:    &UserList{},
 			Managed: &User{},
@@ -215,7 +215,7 @@ func (mg *PolicyAttachment) ResolveReferences(ctx context.Context, c client.Read
 		return errors.Wrap(err, "mg.Spec.ForProvider.Users")
 	}
 	mg.Spec.ForProvider.Users = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.UsersRefs = mrsp.ResolvedReferences
+	mg.Spec.ForProvider.UserRefs = mrsp.ResolvedReferences
 
 	return nil
 }
@@ -273,8 +273,8 @@ func (mg *UserGroupMembership) ResolveReferences(ctx context.Context, c client.R
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.Groups),
 		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.GroupsRefs,
-		Selector:      mg.Spec.ForProvider.GroupsSelector,
+		References:    mg.Spec.ForProvider.GroupRefs,
+		Selector:      mg.Spec.ForProvider.GroupSelector,
 		To: reference.To{
 			List:    &GroupList{},
 			Managed: &Group{},
@@ -284,7 +284,7 @@ func (mg *UserGroupMembership) ResolveReferences(ctx context.Context, c client.R
 		return errors.Wrap(err, "mg.Spec.ForProvider.Groups")
 	}
 	mg.Spec.ForProvider.Groups = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.GroupsRefs = mrsp.ResolvedReferences
+	mg.Spec.ForProvider.GroupRefs = mrsp.ResolvedReferences
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.User),
