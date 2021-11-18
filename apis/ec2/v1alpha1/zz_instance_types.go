@@ -237,15 +237,23 @@ type InstanceParameters struct {
 	// +kubebuilder:validation:Optional
 	SecondaryPrivateIps []*string `json:"secondaryPrivateIps,omitempty" tf:"secondary_private_ips,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	SecurityGroupIdRefs []v1.Reference `json:"securityGroupIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupIdSelector *v1.Selector `json:"securityGroupIdSelector,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupRefs []v1.Reference `json:"securityGroupRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupSelector *v1.Selector `json:"securityGroupSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SecurityGroupRefs
+	// +crossplane:generate:reference:selectorFieldName=SecurityGroupSelector
 	// +kubebuilder:validation:Optional
 	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupsRefs []v1.Reference `json:"securityGroupsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupsSelector *v1.Selector `json:"securityGroupsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	SourceDestCheck *bool `json:"sourceDestCheck,omitempty" tf:"source_dest_check,omitempty"`
@@ -276,14 +284,10 @@ type InstanceParameters struct {
 	VolumeTags map[string]*string `json:"volumeTags,omitempty" tf:"volume_tags,omitempty"`
 
 	// +crossplane:generate:reference:type=SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SecurityGroupIdSelector
 	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIdsRefs []v1.Reference `json:"vpcSecurityGroupIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIdsSelector *v1.Selector `json:"vpcSecurityGroupIdsSelector,omitempty" tf:"-"`
 }
 
 type LaunchTemplateObservation struct {
@@ -327,7 +331,7 @@ type NetworkInterfaceParameters struct {
 	// +kubebuilder:validation:Required
 	DeviceIndex *int64 `json:"deviceIndex" tf:"device_index,omitempty"`
 
-	// +crossplane:generate:reference:type=EC2NetworkInterface
+	// +crossplane:generate:reference:type=NetworkInterface
 	// +kubebuilder:validation:Optional
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
 
@@ -417,10 +421,10 @@ type InstanceList struct {
 
 // Repository type metadata.
 var (
-	InstanceKind             = "Instance"
-	InstanceGroupKind        = schema.GroupKind{Group: Group, Kind: InstanceKind}.String()
-	InstanceKindAPIVersion   = InstanceKind + "." + GroupVersion.String()
-	InstanceGroupVersionKind = GroupVersion.WithKind(InstanceKind)
+	Instance_Kind             = "Instance"
+	Instance_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Instance_Kind}.String()
+	Instance_KindAPIVersion   = Instance_Kind + "." + CRDGroupVersion.String()
+	Instance_GroupVersionKind = CRDGroupVersion.WithKind(Instance_Kind)
 )
 
 func init() {

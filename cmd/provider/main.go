@@ -22,15 +22,15 @@ import (
 
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
+	tf "github.com/terraform-providers/terraform-provider-aws/aws"
 	"gopkg.in/alecthomas/kingpin.v2"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/crossplane-contrib/terrajet/pkg/config"
 	"github.com/crossplane-contrib/terrajet/pkg/terraform"
 
 	"github.com/crossplane-contrib/provider-tf-aws/apis"
-	_ "github.com/crossplane-contrib/provider-tf-aws/config"
+	"github.com/crossplane-contrib/provider-tf-aws/config"
 	"github.com/crossplane-contrib/provider-tf-aws/internal/clients"
 	"github.com/crossplane-contrib/provider-tf-aws/internal/controller"
 )
@@ -67,11 +67,11 @@ func main() {
 		SyncPeriod:       syncPeriod,
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")
-	ws := terraform.NewWorkspaceStore(&config.Store, log)
+	ws := terraform.NewWorkspaceStore(log)
 	setup := clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion)
 
 	rl := ratelimiter.NewGlobal(ratelimiter.DefaultGlobalRPS)
 	kingpin.FatalIfError(apis.AddToScheme(mgr.GetScheme()), "Cannot add AWS APIs to scheme")
-	kingpin.FatalIfError(controller.Setup(mgr, log, rl, setup, ws, 1), "Cannot setup AWS controllers")
+	kingpin.FatalIfError(controller.Setup(mgr, log, rl, setup, ws, config.GetProvider(tf.Provider()), 1), "Cannot setup AWS controllers")
 	kingpin.FatalIfError(mgr.Start(ctrl.SetupSignalHandler()), "Cannot start controller manager")
 }

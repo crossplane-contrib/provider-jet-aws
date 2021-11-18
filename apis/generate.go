@@ -22,6 +22,18 @@ limitations under the License.
 // Remove existing CRDs
 //go:generate rm -rf ../package/crds
 
+// Remove generated files
+//go:generate find . -iname 'zz_*' -delete
+//go:generate find . -type d -empty -delete
+//go:generate find ../internal/controller -iname 'zz_*' -delete
+//go:generate find ../internal/controller -type d -empty -delete
+
+// NOTE(muvaf): Some of Terraform AWS provider files have "!generate" build tag
+// that prevent us from using it for generator program.
+
+// Run Terrajet generator
+//go:generate go run ../cmd/generator/main.go ..
+
 // Generate deepcopy methodsets and CRD manifests
 //go:generate go run -tags generate sigs.k8s.io/controller-tools/cmd/controller-gen object:headerFile=../hack/boilerplate.go.txt paths=./... crd:trivialVersions=true,allowDangerousTypes=true,crdVersions=v1 output:artifacts:config=../package/crds
 

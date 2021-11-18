@@ -86,11 +86,7 @@ spec:
                           type: array
                         protocol:
                           type: string
-                        securityGroups:
-                          items:
-                            type: string
-                          type: array
-                        securityGroupsRefs:
+                        securityGroupRefs:
                           items:
                             description: A Reference to a named object.
                             properties:
@@ -101,7 +97,7 @@ spec:
                             - name
                             type: object
                           type: array
-                        securityGroupsSelector:
+                        securityGroupSelector:
                           description: A Selector selects an object.
                           properties:
                             matchControllerRef:
@@ -116,6 +112,10 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
+                        securityGroups:
+                          items:
+                            type: string
+                          type: array
                         self:
                           type: boolean
                         toPort:
@@ -149,11 +149,7 @@ spec:
                           type: array
                         protocol:
                           type: string
-                        securityGroups:
-                          items:
-                            type: string
-                          type: array
-                        securityGroupsRefs:
+                        securityGroupRefs:
                           items:
                             description: A Reference to a named object.
                             properties:
@@ -164,7 +160,7 @@ spec:
                             - name
                             type: object
                           type: array
-                        securityGroupsSelector:
+                        securityGroupSelector:
                           description: A Selector selects an object.
                           properties:
                             matchControllerRef:
@@ -179,6 +175,10 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
+                        securityGroups:
+                          items:
+                            type: string
+                          type: array
                         self:
                           type: boolean
                         toPort:

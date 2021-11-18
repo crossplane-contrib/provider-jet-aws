@@ -30,15 +30,17 @@ type UserGroupMembershipObservation struct {
 
 type UserGroupMembershipParameters struct {
 
-	// +crossplane:generate:reference:type=IAMGroup
+	// +kubebuilder:validation:Optional
+	GroupRefs []v1.Reference `json:"groupRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	GroupSelector *v1.Selector `json:"groupSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=Group
+	// +crossplane:generate:reference:refFieldName=GroupRefs
+	// +crossplane:generate:reference:selectorFieldName=GroupSelector
 	// +kubebuilder:validation:Optional
 	Groups []*string `json:"groups,omitempty" tf:"groups,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	GroupsRefs []v1.Reference `json:"groupsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	GroupsSelector *v1.Selector `json:"groupsSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=User
 	// +kubebuilder:validation:Optional
@@ -90,10 +92,10 @@ type UserGroupMembershipList struct {
 
 // Repository type metadata.
 var (
-	UserGroupMembershipKind             = "UserGroupMembership"
-	UserGroupMembershipGroupKind        = schema.GroupKind{Group: Group, Kind: UserGroupMembershipKind}.String()
-	UserGroupMembershipKindAPIVersion   = UserGroupMembershipKind + "." + GroupVersion.String()
-	UserGroupMembershipGroupVersionKind = GroupVersion.WithKind(UserGroupMembershipKind)
+	UserGroupMembership_Kind             = "UserGroupMembership"
+	UserGroupMembership_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: UserGroupMembership_Kind}.String()
+	UserGroupMembership_KindAPIVersion   = UserGroupMembership_Kind + "." + CRDGroupVersion.String()
+	UserGroupMembership_GroupVersionKind = CRDGroupVersion.WithKind(UserGroupMembership_Kind)
 )
 
 func init() {

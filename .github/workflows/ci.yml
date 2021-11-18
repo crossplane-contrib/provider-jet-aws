@@ -100,6 +100,9 @@ jobs:
         with:
           go-version: ${{ env.GO_VERSION }}
 
+      - name: Install goimports
+        run: go get golang.org/x/tools/cmd/goimports
+
       - name: Find the Go Build Cache
         id: go
         run: echo "::set-output name=cache::$(go env GOCACHE)"

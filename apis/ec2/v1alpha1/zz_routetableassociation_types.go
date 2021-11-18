@@ -98,10 +98,10 @@ type RouteTableAssociationList struct {
 
 // Repository type metadata.
 var (
-	RouteTableAssociationKind             = "RouteTableAssociation"
-	RouteTableAssociationGroupKind        = schema.GroupKind{Group: Group, Kind: RouteTableAssociationKind}.String()
-	RouteTableAssociationKindAPIVersion   = RouteTableAssociationKind + "." + GroupVersion.String()
-	RouteTableAssociationGroupVersionKind = GroupVersion.WithKind(RouteTableAssociationKind)
+	RouteTableAssociation_Kind             = "RouteTableAssociation"
+	RouteTableAssociation_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: RouteTableAssociation_Kind}.String()
+	RouteTableAssociation_KindAPIVersion   = RouteTableAssociation_Kind + "." + CRDGroupVersion.String()
+	RouteTableAssociation_GroupVersionKind = CRDGroupVersion.WithKind(RouteTableAssociation_Kind)
 )
 
 func init() {

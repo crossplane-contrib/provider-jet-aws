@@ -30,11 +30,6 @@ func (mg *Role) GetTerraformResourceType() string {
 	return "aws_iam_role"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Role
-func (tr *Role) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Role
 func (tr *Role) GetConnectionDetailsMapping() map[string]string {
 	return nil

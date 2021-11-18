@@ -107,10 +107,10 @@ type KeyList struct {
 
 // Repository type metadata.
 var (
-	KeyKind             = "Key"
-	KeyGroupKind        = schema.GroupKind{Group: Group, Kind: KeyKind}.String()
-	KeyKindAPIVersion   = KeyKind + "." + GroupVersion.String()
-	KeyGroupVersionKind = GroupVersion.WithKind(KeyKind)
+	Key_Kind             = "Key"
+	Key_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Key_Kind}.String()
+	Key_KindAPIVersion   = Key_Kind + "." + CRDGroupVersion.String()
+	Key_GroupVersionKind = CRDGroupVersion.WithKind(Key_Kind)
 )
 
 func init() {

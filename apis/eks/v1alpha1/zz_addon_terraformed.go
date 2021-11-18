@@ -30,11 +30,6 @@ func (mg *Addon) GetTerraformResourceType() string {
 	return "aws_eks_addon"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Addon
-func (tr *Addon) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Addon
 func (tr *Addon) GetConnectionDetailsMapping() map[string]string {
 	return nil

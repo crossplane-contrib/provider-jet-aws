@@ -22,9 +22,10 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-func init() {
-	config.Store.SetForResource("aws_s3_bucket", config.Resource{
-		ExternalName: config.ExternalName{
+// Configure adds configurations for s3 group.
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_rds_cluster", func(r *config.Resource) {
+		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["bucket"] = name
 			},
@@ -32,12 +33,12 @@ func init() {
 				"bucket",
 				"bucket_prefix",
 			},
-		},
-		References: map[string]config.Reference{
-			"server_side_encryption_configuration[*].rule[*].apply_server_side_encryption_by_default[*].kms_master_key_id": {
+		}
+		r.References = config.References{
+			"server_side_encryption_configuration.rule.apply_server_side_encryption_by_default.kms_master_key_id": {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
 				Extractor: common.PathARNExtractor,
 			},
-		},
+		}
 	})
 }

@@ -30,11 +30,6 @@ func (mg *Service) GetTerraformResourceType() string {
 	return "aws_ecs_service"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Service
-func (tr *Service) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Service
 func (tr *Service) GetConnectionDetailsMapping() map[string]string {
 	return nil

@@ -1,5 +1,5 @@
-apiVersion: ecr.aws.tf.crossplane.io/v1alpha1
-kind: PublicRepository
+apiVersion: ecrpublic.aws.tf.crossplane.io/v1alpha1
+kind: Repository
 metadata:
   name: sample-repository
 spec:

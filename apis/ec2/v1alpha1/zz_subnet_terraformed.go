@@ -30,11 +30,6 @@ func (mg *Subnet) GetTerraformResourceType() string {
 	return "aws_subnet"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Subnet
-func (tr *Subnet) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Subnet
 func (tr *Subnet) GetConnectionDetailsMapping() map[string]string {
 	return nil

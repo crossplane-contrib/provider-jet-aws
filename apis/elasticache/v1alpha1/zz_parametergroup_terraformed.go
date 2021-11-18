@@ -30,11 +30,6 @@ func (mg *ParameterGroup) GetTerraformResourceType() string {
 	return "aws_elasticache_parameter_group"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this ParameterGroup
-func (tr *ParameterGroup) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this ParameterGroup
 func (tr *ParameterGroup) GetConnectionDetailsMapping() map[string]string {
 	return nil

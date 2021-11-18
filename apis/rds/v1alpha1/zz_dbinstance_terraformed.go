@@ -30,11 +30,6 @@ func (mg *DBInstance) GetTerraformResourceType() string {
 	return "aws_db_instance"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this DBInstance
-func (tr *DBInstance) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this DBInstance
 func (tr *DBInstance) GetConnectionDetailsMapping() map[string]string {
 	return map[string]string{"password": "spec.forProvider.passwordSecretRef"}

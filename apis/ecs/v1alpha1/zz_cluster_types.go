@@ -49,6 +49,9 @@ type ClusterParameters struct {
 	// +kubebuilder:validation:Optional
 	DefaultCapacityProviderStrategy []DefaultCapacityProviderStrategyParameters `json:"defaultCapacityProviderStrategy,omitempty" tf:"default_capacity_provider_strategy,omitempty"`
 
+	// +kubebuilder:validation:Required
+	Name *string `json:"name" tf:"name,omitempty"`
+
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
@@ -172,10 +175,10 @@ type ClusterList struct {
 
 // Repository type metadata.
 var (
-	ClusterKind             = "Cluster"
-	ClusterGroupKind        = schema.GroupKind{Group: Group, Kind: ClusterKind}.String()
-	ClusterKindAPIVersion   = ClusterKind + "." + GroupVersion.String()
-	ClusterGroupVersionKind = GroupVersion.WithKind(ClusterKind)
+	Cluster_Kind             = "Cluster"
+	Cluster_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Cluster_Kind}.String()
+	Cluster_KindAPIVersion   = Cluster_Kind + "." + CRDGroupVersion.String()
+	Cluster_GroupVersionKind = CRDGroupVersion.WithKind(Cluster_Kind)
 )
 
 func init() {

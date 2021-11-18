@@ -322,11 +322,7 @@ spec:
                       - sourceEngineVersion
                       type: object
                     type: array
-                  securityGroupNames:
-                    items:
-                      type: string
-                    type: array
-                  securityGroupNamesRefs:
+                  securityGroupNameRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -337,7 +333,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  securityGroupNamesSelector:
+                  securityGroupNameSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -351,6 +347,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  securityGroupNames:
+                    items:
+                      type: string
+                    type: array
                   skipFinalSnapshot:
                     type: boolean
                   snapshotIdentifier:
@@ -367,11 +367,7 @@ spec:
                     type: string
                   username:
                     type: string
-                  vpcSecurityGroupIds:
-                    items:
-                      type: string
-                    type: array
-                  vpcSecurityGroupIdsRefs:
+                  vpcSecurityGroupIdRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -382,7 +378,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  vpcSecurityGroupIdsSelector:
+                  vpcSecurityGroupIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -396,6 +392,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  vpcSecurityGroupIds:
+                    items:
+                      type: string
+                    type: array
                 required:
                 - instanceClass
                 - region

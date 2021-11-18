@@ -19,76 +19,13 @@ package v1alpha1
 
 import (
 	"context"
-	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1"
-	v1alpha12 "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1"
-	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
+	v1alpha12 "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1"
+	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1"
+	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
-
-// ResolveReferences of this Cluster.
-func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error {
-	r := reference.NewAPIResolver(c, mg)
-
-	var rsp reference.ResolutionResponse
-	var mrsp reference.MultiResolutionResponse
-	var err error
-
-	for i3 := 0; i3 < len(mg.Spec.ForProvider.RestoreToPointInTime); i3++ {
-		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifier),
-			Extract:      reference.ExternalName(),
-			Reference:    mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifierRef,
-			Selector:     mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifierSelector,
-			To: reference.To{
-				List:    &ClusterList{},
-				Managed: &Cluster{},
-			},
-		})
-		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifier")
-		}
-		mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
-		mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceClusterIdentifierRef = rsp.ResolvedReference
-
-	}
-	for i3 := 0; i3 < len(mg.Spec.ForProvider.S3Import); i3++ {
-		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.S3Import[i3].BucketName),
-			Extract:      reference.ExternalName(),
-			Reference:    mg.Spec.ForProvider.S3Import[i3].BucketNameRef,
-			Selector:     mg.Spec.ForProvider.S3Import[i3].BucketNameSelector,
-			To: reference.To{
-				List:    &v1alpha1.BucketList{},
-				Managed: &v1alpha1.Bucket{},
-			},
-		})
-		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.S3Import[i3].BucketName")
-		}
-		mg.Spec.ForProvider.S3Import[i3].BucketName = reference.ToPtrValue(rsp.ResolvedValue)
-		mg.Spec.ForProvider.S3Import[i3].BucketNameRef = rsp.ResolvedReference
-
-	}
-	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VpcSecurityGroupIds),
-		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.VpcSecurityGroupIdsRefs,
-		Selector:      mg.Spec.ForProvider.VpcSecurityGroupIdsSelector,
-		To: reference.To{
-			List:    &v1alpha11.SecurityGroupList{},
-			Managed: &v1alpha11.SecurityGroup{},
-		},
-	})
-	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.VpcSecurityGroupIds")
-	}
-	mg.Spec.ForProvider.VpcSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.VpcSecurityGroupIdsRefs = mrsp.ResolvedReferences
-
-	return nil
-}
 
 // ResolveReferences of this DBInstance.
 func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) error {
@@ -104,8 +41,8 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 		Reference:    mg.Spec.ForProvider.KmsKeyIDRef,
 		Selector:     mg.Spec.ForProvider.KmsKeyIDSelector,
 		To: reference.To{
-			List:    &v1alpha12.KeyList{},
-			Managed: &v1alpha12.Key{},
+			List:    &v1alpha1.KeyList{},
+			Managed: &v1alpha1.Key{},
 		},
 	})
 	if err != nil {
@@ -136,8 +73,8 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 		Reference:    mg.Spec.ForProvider.PerformanceInsightsKmsKeyIDRef,
 		Selector:     mg.Spec.ForProvider.PerformanceInsightsKmsKeyIDSelector,
 		To: reference.To{
-			List:    &v1alpha12.KeyList{},
-			Managed: &v1alpha12.Key{},
+			List:    &v1alpha1.KeyList{},
+			Managed: &v1alpha1.Key{},
 		},
 	})
 	if err != nil {
@@ -171,8 +108,8 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 			Reference:    mg.Spec.ForProvider.S3Import[i3].BucketNameRef,
 			Selector:     mg.Spec.ForProvider.S3Import[i3].BucketNameSelector,
 			To: reference.To{
-				List:    &v1alpha1.BucketList{},
-				Managed: &v1alpha1.Bucket{},
+				List:    &v1alpha11.BucketList{},
+				Managed: &v1alpha11.Bucket{},
 			},
 		})
 		if err != nil {
@@ -185,34 +122,34 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.SecurityGroupNames),
 		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.SecurityGroupNamesRefs,
-		Selector:      mg.Spec.ForProvider.SecurityGroupNamesSelector,
+		References:    mg.Spec.ForProvider.SecurityGroupNameRefs,
+		Selector:      mg.Spec.ForProvider.SecurityGroupNameSelector,
 		To: reference.To{
-			List:    &v1alpha11.SecurityGroupList{},
-			Managed: &v1alpha11.SecurityGroup{},
+			List:    &v1alpha12.SecurityGroupList{},
+			Managed: &v1alpha12.SecurityGroup{},
 		},
 	})
 	if err != nil {
 		return errors.Wrap(err, "mg.Spec.ForProvider.SecurityGroupNames")
 	}
 	mg.Spec.ForProvider.SecurityGroupNames = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.SecurityGroupNamesRefs = mrsp.ResolvedReferences
+	mg.Spec.ForProvider.SecurityGroupNameRefs = mrsp.ResolvedReferences
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VpcSecurityGroupIds),
 		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.VpcSecurityGroupIdsRefs,
-		Selector:      mg.Spec.ForProvider.VpcSecurityGroupIdsSelector,
+		References:    mg.Spec.ForProvider.VpcSecurityGroupIdRefs,
+		Selector:      mg.Spec.ForProvider.VpcSecurityGroupIdSelector,
 		To: reference.To{
-			List:    &v1alpha11.SecurityGroupList{},
-			Managed: &v1alpha11.SecurityGroup{},
+			List:    &v1alpha12.SecurityGroupList{},
+			Managed: &v1alpha12.SecurityGroup{},
 		},
 	})
 	if err != nil {
 		return errors.Wrap(err, "mg.Spec.ForProvider.VpcSecurityGroupIds")
 	}
 	mg.Spec.ForProvider.VpcSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.VpcSecurityGroupIdsRefs = mrsp.ResolvedReferences
+	mg.Spec.ForProvider.VpcSecurityGroupIdRefs = mrsp.ResolvedReferences
 
 	return nil
 }

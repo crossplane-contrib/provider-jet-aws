@@ -114,7 +114,7 @@ type AutoscalingGroupParameters struct {
 	// +kubebuilder:validation:Optional
 	Tags []map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup
 	// +kubebuilder:validation:Optional
 	TargetGroupArns []*string `json:"targetGroupArns,omitempty" tf:"target_group_arns,omitempty"`
 
@@ -378,10 +378,10 @@ type AutoscalingGroupList struct {
 
 // Repository type metadata.
 var (
-	AutoscalingGroupKind             = "AutoscalingGroup"
-	AutoscalingGroupGroupKind        = schema.GroupKind{Group: Group, Kind: AutoscalingGroupKind}.String()
-	AutoscalingGroupKindAPIVersion   = AutoscalingGroupKind + "." + GroupVersion.String()
-	AutoscalingGroupGroupVersionKind = GroupVersion.WithKind(AutoscalingGroupKind)
+	AutoscalingGroup_Kind             = "AutoscalingGroup"
+	AutoscalingGroup_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: AutoscalingGroup_Kind}.String()
+	AutoscalingGroup_KindAPIVersion   = AutoscalingGroup_Kind + "." + CRDGroupVersion.String()
+	AutoscalingGroup_GroupVersionKind = CRDGroupVersion.WithKind(AutoscalingGroup_Kind)
 )
 
 func init() {

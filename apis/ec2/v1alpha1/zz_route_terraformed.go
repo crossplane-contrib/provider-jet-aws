@@ -30,11 +30,6 @@ func (mg *Route) GetTerraformResourceType() string {
 	return "aws_route"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Route
-func (tr *Route) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Route
 func (tr *Route) GetConnectionDetailsMapping() map[string]string {
 	return nil

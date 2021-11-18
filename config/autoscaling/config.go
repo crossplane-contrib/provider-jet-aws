@@ -1,3 +1,19 @@
+/*
+Copyright 2021 The Crossplane Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
 package autoscaling
 
 import (
@@ -6,30 +22,27 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/common"
 )
 
-func init() {
-	config.Store.SetForResource("aws_autoscaling_group", config.Resource{
-		Kind:         "AutoscalingGroup",
-		ExternalName: config.NameAsIdentifier,
-		References: map[string]config.Reference{
-			"vpc_zone_identifier": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
-			},
-			"target_group_arns": {
-				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
-			},
-		},
-		UseAsync: true,
+// Configure adds configurations for autoscaling group.
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_autoscaling_group", func(r *config.Resource) {
+		r.Kind = "AutoscalingGroup"
+		r.References["vpc_zone_identifier"] = config.Reference{
+			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
+		}
+		r.References["target_group_arns"] = config.Reference{
+			Type: "github.com/crossplane-contrib/provider-tf-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
+		}
+
+		r.UseAsync = true
 	})
-	config.Store.SetForResource("aws_autoscaling_attachment", config.Resource{
-		ExternalName: config.IdentifierFromProvider,
-		References: map[string]config.Reference{
-			"autoscaling_group_name": {
-				Type: "AutoscalingGroup",
-			},
-			"alb_target_group_arn": {
-				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1.LBTargetGroup",
-				Extractor: common.PathARNExtractor,
-			},
-		},
+	p.AddResourceConfigurator("aws_autoscaling_attachment", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["autoscaling_group_name"] = config.Reference{
+			Type: "AutoscalingGroup",
+		}
+		r.References["alb_target_group_arn"] = config.Reference{
+			Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
+			Extractor: common.PathARNExtractor,
+		}
 	})
 }

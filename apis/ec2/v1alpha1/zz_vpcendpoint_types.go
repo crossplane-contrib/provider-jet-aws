@@ -34,7 +34,7 @@ type DNSEntryObservation struct {
 type DNSEntryParameters struct {
 }
 
-type VpcEndpointObservation struct {
+type VPCEndpointObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
 	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks,omitempty"`
@@ -54,7 +54,7 @@ type VpcEndpointObservation struct {
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
-type VpcEndpointParameters struct {
+type VPCEndpointParameters struct {
 
 	// +kubebuilder:validation:Optional
 	AutoAccept *bool `json:"autoAccept,omitempty" tf:"auto_accept,omitempty"`
@@ -70,38 +70,44 @@ type VpcEndpointParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
+	RouteTableIdRefs []v1.Reference `json:"routeTableIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	RouteTableIdSelector *v1.Selector `json:"routeTableIdSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=RouteTable
+	// +crossplane:generate:reference:refFieldName=RouteTableIdRefs
+	// +crossplane:generate:reference:selectorFieldName=RouteTableIdSelector
 	// +kubebuilder:validation:Optional
 	RouteTableIds []*string `json:"routeTableIds,omitempty" tf:"route_table_ids,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RouteTableIdsRefs []v1.Reference `json:"routeTableIdsRefs,omitempty" tf:"-"`
+	SecurityGroupIdRefs []v1.Reference `json:"securityGroupIdRefs,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	RouteTableIdsSelector *v1.Selector `json:"routeTableIdsSelector,omitempty" tf:"-"`
+	SecurityGroupIdSelector *v1.Selector `json:"securityGroupIdSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SecurityGroupIdSelector
 	// +kubebuilder:validation:Optional
 	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupIdsRefs []v1.Reference `json:"securityGroupIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupIdsSelector *v1.Selector `json:"securityGroupIdsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	ServiceName *string `json:"serviceName" tf:"service_name,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	SubnetIdRefs []v1.Reference `json:"subnetIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SubnetIdSelector *v1.Selector `json:"subnetIdSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=Subnet
+	// +crossplane:generate:reference:refFieldName=SubnetIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SubnetIdSelector
 	// +kubebuilder:validation:Optional
 	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsRefs []v1.Reference `json:"subnetIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsSelector *v1.Selector `json:"subnetIdsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -120,51 +126,51 @@ type VpcEndpointParameters struct {
 	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
 
-// VpcEndpointSpec defines the desired state of VpcEndpoint
-type VpcEndpointSpec struct {
+// VPCEndpointSpec defines the desired state of VPCEndpoint
+type VPCEndpointSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     VpcEndpointParameters `json:"forProvider"`
+	ForProvider     VPCEndpointParameters `json:"forProvider"`
 }
 
-// VpcEndpointStatus defines the observed state of VpcEndpoint.
-type VpcEndpointStatus struct {
+// VPCEndpointStatus defines the observed state of VPCEndpoint.
+type VPCEndpointStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        VpcEndpointObservation `json:"atProvider,omitempty"`
+	AtProvider        VPCEndpointObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// VpcEndpoint is the Schema for the VpcEndpoints API
+// VPCEndpoint is the Schema for the VPCEndpoints API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type VpcEndpoint struct {
+type VPCEndpoint struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              VpcEndpointSpec   `json:"spec"`
-	Status            VpcEndpointStatus `json:"status,omitempty"`
+	Spec              VPCEndpointSpec   `json:"spec"`
+	Status            VPCEndpointStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// VpcEndpointList contains a list of VpcEndpoints
-type VpcEndpointList struct {
+// VPCEndpointList contains a list of VPCEndpoints
+type VPCEndpointList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []VpcEndpoint `json:"items"`
+	Items           []VPCEndpoint `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	VpcEndpointKind             = "VpcEndpoint"
-	VpcEndpointGroupKind        = schema.GroupKind{Group: Group, Kind: VpcEndpointKind}.String()
-	VpcEndpointKindAPIVersion   = VpcEndpointKind + "." + GroupVersion.String()
-	VpcEndpointGroupVersionKind = GroupVersion.WithKind(VpcEndpointKind)
+	VPCEndpoint_Kind             = "VPCEndpoint"
+	VPCEndpoint_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: VPCEndpoint_Kind}.String()
+	VPCEndpoint_KindAPIVersion   = VPCEndpoint_Kind + "." + CRDGroupVersion.String()
+	VPCEndpoint_GroupVersionKind = CRDGroupVersion.WithKind(VPCEndpoint_Kind)
 )
 
 func init() {
-	SchemeBuilder.Register(&VpcEndpoint{}, &VpcEndpointList{})
+	SchemeBuilder.Register(&VPCEndpoint{}, &VPCEndpointList{})
 }

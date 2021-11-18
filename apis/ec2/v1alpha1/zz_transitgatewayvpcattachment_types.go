@@ -25,13 +25,13 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type TransitGatewayVpcAttachmentObservation struct {
+type TransitGatewayVPCAttachmentObservation struct {
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 
 	VpcOwnerID *string `json:"vpcOwnerId,omitempty" tf:"vpc_owner_id,omitempty"`
 }
 
-type TransitGatewayVpcAttachmentParameters struct {
+type TransitGatewayVPCAttachmentParameters struct {
 
 	// +kubebuilder:validation:Optional
 	ApplianceModeSupport *string `json:"applianceModeSupport,omitempty" tf:"appliance_mode_support,omitempty"`
@@ -47,15 +47,17 @@ type TransitGatewayVpcAttachmentParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
+	// +kubebuilder:validation:Optional
+	SubnetIdRefs []v1.Reference `json:"subnetIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SubnetIdSelector *v1.Selector `json:"subnetIdSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=Subnet
+	// +crossplane:generate:reference:refFieldName=SubnetIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SubnetIdSelector
 	// +kubebuilder:validation:Optional
 	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsRefs []v1.Reference `json:"subnetIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SubnetIdsSelector *v1.Selector `json:"subnetIdsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -87,51 +89,51 @@ type TransitGatewayVpcAttachmentParameters struct {
 	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
 
-// TransitGatewayVpcAttachmentSpec defines the desired state of TransitGatewayVpcAttachment
-type TransitGatewayVpcAttachmentSpec struct {
+// TransitGatewayVPCAttachmentSpec defines the desired state of TransitGatewayVPCAttachment
+type TransitGatewayVPCAttachmentSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     TransitGatewayVpcAttachmentParameters `json:"forProvider"`
+	ForProvider     TransitGatewayVPCAttachmentParameters `json:"forProvider"`
 }
 
-// TransitGatewayVpcAttachmentStatus defines the observed state of TransitGatewayVpcAttachment.
-type TransitGatewayVpcAttachmentStatus struct {
+// TransitGatewayVPCAttachmentStatus defines the observed state of TransitGatewayVPCAttachment.
+type TransitGatewayVPCAttachmentStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        TransitGatewayVpcAttachmentObservation `json:"atProvider,omitempty"`
+	AtProvider        TransitGatewayVPCAttachmentObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// TransitGatewayVpcAttachment is the Schema for the TransitGatewayVpcAttachments API
+// TransitGatewayVPCAttachment is the Schema for the TransitGatewayVPCAttachments API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,tfaws}
-type TransitGatewayVpcAttachment struct {
+type TransitGatewayVPCAttachment struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              TransitGatewayVpcAttachmentSpec   `json:"spec"`
-	Status            TransitGatewayVpcAttachmentStatus `json:"status,omitempty"`
+	Spec              TransitGatewayVPCAttachmentSpec   `json:"spec"`
+	Status            TransitGatewayVPCAttachmentStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// TransitGatewayVpcAttachmentList contains a list of TransitGatewayVpcAttachments
-type TransitGatewayVpcAttachmentList struct {
+// TransitGatewayVPCAttachmentList contains a list of TransitGatewayVPCAttachments
+type TransitGatewayVPCAttachmentList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []TransitGatewayVpcAttachment `json:"items"`
+	Items           []TransitGatewayVPCAttachment `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	TransitGatewayVpcAttachmentKind             = "TransitGatewayVpcAttachment"
-	TransitGatewayVpcAttachmentGroupKind        = schema.GroupKind{Group: Group, Kind: TransitGatewayVpcAttachmentKind}.String()
-	TransitGatewayVpcAttachmentKindAPIVersion   = TransitGatewayVpcAttachmentKind + "." + GroupVersion.String()
-	TransitGatewayVpcAttachmentGroupVersionKind = GroupVersion.WithKind(TransitGatewayVpcAttachmentKind)
+	TransitGatewayVPCAttachment_Kind             = "TransitGatewayVPCAttachment"
+	TransitGatewayVPCAttachment_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: TransitGatewayVPCAttachment_Kind}.String()
+	TransitGatewayVPCAttachment_KindAPIVersion   = TransitGatewayVPCAttachment_Kind + "." + CRDGroupVersion.String()
+	TransitGatewayVPCAttachment_GroupVersionKind = CRDGroupVersion.WithKind(TransitGatewayVPCAttachment_Kind)
 )
 
 func init() {
-	SchemeBuilder.Register(&TransitGatewayVpcAttachment{}, &TransitGatewayVpcAttachmentList{})
+	SchemeBuilder.Register(&TransitGatewayVPCAttachment{}, &TransitGatewayVPCAttachmentList{})
 }

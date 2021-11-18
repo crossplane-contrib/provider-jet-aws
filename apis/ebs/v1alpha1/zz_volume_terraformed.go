@@ -30,11 +30,6 @@ func (mg *Volume) GetTerraformResourceType() string {
 	return "aws_ebs_volume"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Volume
-func (tr *Volume) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Volume
 func (tr *Volume) GetConnectionDetailsMapping() map[string]string {
 	return nil

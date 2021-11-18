@@ -127,8 +127,8 @@ func (mg *Service) ResolveReferences(ctx context.Context, c client.Reader) error
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroups),
 			Extract:       reference.ExternalName(),
-			References:    mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupsRefs,
-			Selector:      mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupsSelector,
+			References:    mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupRefs,
+			Selector:      mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupSelector,
 			To: reference.To{
 				List:    &v1alpha12.SecurityGroupList{},
 				Managed: &v1alpha12.SecurityGroup{},
@@ -138,15 +138,15 @@ func (mg *Service) ResolveReferences(ctx context.Context, c client.Reader) error
 			return errors.Wrap(err, "mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroups")
 		}
 		mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroups = reference.ToPtrValues(mrsp.ResolvedValues)
-		mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupsRefs = mrsp.ResolvedReferences
+		mg.Spec.ForProvider.NetworkConfiguration[i3].SecurityGroupRefs = mrsp.ResolvedReferences
 
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.NetworkConfiguration); i3++ {
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.NetworkConfiguration[i3].Subnets),
 			Extract:       reference.ExternalName(),
-			References:    mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetsRefs,
-			Selector:      mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetsSelector,
+			References:    mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetRefs,
+			Selector:      mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetSelector,
 			To: reference.To{
 				List:    &v1alpha12.SubnetList{},
 				Managed: &v1alpha12.Subnet{},
@@ -156,7 +156,7 @@ func (mg *Service) ResolveReferences(ctx context.Context, c client.Reader) error
 			return errors.Wrap(err, "mg.Spec.ForProvider.NetworkConfiguration[i3].Subnets")
 		}
 		mg.Spec.ForProvider.NetworkConfiguration[i3].Subnets = reference.ToPtrValues(mrsp.ResolvedValues)
-		mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetsRefs = mrsp.ResolvedReferences
+		mg.Spec.ForProvider.NetworkConfiguration[i3].SubnetRefs = mrsp.ResolvedReferences
 
 	}
 

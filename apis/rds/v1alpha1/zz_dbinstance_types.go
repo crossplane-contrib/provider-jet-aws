@@ -202,15 +202,17 @@ type DBInstanceParameters struct {
 	// +kubebuilder:validation:Optional
 	S3Import []S3ImportParameters `json:"s3Import,omitempty" tf:"s3_import,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	SecurityGroupNameRefs []v1.Reference `json:"securityGroupNameRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupNameSelector *v1.Selector `json:"securityGroupNameSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SecurityGroupNameRefs
+	// +crossplane:generate:reference:selectorFieldName=SecurityGroupNameSelector
 	// +kubebuilder:validation:Optional
 	SecurityGroupNames []*string `json:"securityGroupNames,omitempty" tf:"security_group_names,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupNamesRefs []v1.Reference `json:"securityGroupNamesRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	SecurityGroupNamesSelector *v1.Selector `json:"securityGroupNamesSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot,omitempty"`
@@ -233,15 +235,17 @@ type DBInstanceParameters struct {
 	// +kubebuilder:validation:Optional
 	Username *string `json:"username,omitempty" tf:"username,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	VpcSecurityGroupIdRefs []v1.Reference `json:"vpcSecurityGroupIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	VpcSecurityGroupIdSelector *v1.Selector `json:"vpcSecurityGroupIdSelector,omitempty" tf:"-"`
+
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup
+	// +crossplane:generate:reference:refFieldName=VpcSecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=VpcSecurityGroupIdSelector
 	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIdsRefs []v1.Reference `json:"vpcSecurityGroupIdsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIdsSelector *v1.Selector `json:"vpcSecurityGroupIdsSelector,omitempty" tf:"-"`
 }
 
 type RestoreToPointInTimeObservation struct {
@@ -336,10 +340,10 @@ type DBInstanceList struct {
 
 // Repository type metadata.
 var (
-	DBInstanceKind             = "DBInstance"
-	DBInstanceGroupKind        = schema.GroupKind{Group: Group, Kind: DBInstanceKind}.String()
-	DBInstanceKindAPIVersion   = DBInstanceKind + "." + GroupVersion.String()
-	DBInstanceGroupVersionKind = GroupVersion.WithKind(DBInstanceKind)
+	DBInstance_Kind             = "DBInstance"
+	DBInstance_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: DBInstance_Kind}.String()
+	DBInstance_KindAPIVersion   = DBInstance_Kind + "." + CRDGroupVersion.String()
+	DBInstance_GroupVersionKind = CRDGroupVersion.WithKind(DBInstance_Kind)
 )
 
 func init() {

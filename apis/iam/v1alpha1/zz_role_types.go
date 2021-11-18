@@ -116,10 +116,10 @@ type RoleList struct {
 
 // Repository type metadata.
 var (
-	RoleKind             = "Role"
-	RoleGroupKind        = schema.GroupKind{Group: Group, Kind: RoleKind}.String()
-	RoleKindAPIVersion   = RoleKind + "." + GroupVersion.String()
-	RoleGroupVersionKind = GroupVersion.WithKind(RoleKind)
+	Role_Kind             = "Role"
+	Role_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Role_Kind}.String()
+	Role_KindAPIVersion   = Role_Kind + "." + CRDGroupVersion.String()
+	Role_GroupVersionKind = CRDGroupVersion.WithKind(Role_Kind)
 )
 
 func init() {

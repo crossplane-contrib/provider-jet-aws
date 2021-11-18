@@ -12,8 +12,8 @@ spec:
     - crossplane
     - managed
     - tfaws
-    kind: VpcPeeringConnection
-    listKind: VpcPeeringConnectionList
+    kind: VPCPeeringConnection
+    listKind: VPCPeeringConnectionList
     plural: vpcpeeringconnections
     singular: vpcpeeringconnection
   scope: Cluster
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: VpcPeeringConnection is the Schema for the VpcPeeringConnections
+        description: VPCPeeringConnection is the Schema for the VPCPeeringConnections
           API
         properties:
           apiVersion:
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: VpcPeeringConnectionSpec defines the desired state of VpcPeeringConnection
+            description: VPCPeeringConnectionSpec defines the desired state of VPCPeeringConnection
             properties:
               deletionPolicy:
                 default: Delete
@@ -197,8 +197,8 @@ spec:
             - forProvider
             type: object
           status:
-            description: VpcPeeringConnectionStatus defines the observed state of
-              VpcPeeringConnection.
+            description: VPCPeeringConnectionStatus defines the observed state of
+              VPCPeeringConnection.
             properties:
               atProvider:
                 properties:

@@ -126,10 +126,10 @@ type IdentityProviderConfigList struct {
 
 // Repository type metadata.
 var (
-	IdentityProviderConfigKind             = "IdentityProviderConfig"
-	IdentityProviderConfigGroupKind        = schema.GroupKind{Group: Group, Kind: IdentityProviderConfigKind}.String()
-	IdentityProviderConfigKindAPIVersion   = IdentityProviderConfigKind + "." + GroupVersion.String()
-	IdentityProviderConfigGroupVersionKind = GroupVersion.WithKind(IdentityProviderConfigKind)
+	IdentityProviderConfig_Kind             = "IdentityProviderConfig"
+	IdentityProviderConfig_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: IdentityProviderConfig_Kind}.String()
+	IdentityProviderConfig_KindAPIVersion   = IdentityProviderConfig_Kind + "." + CRDGroupVersion.String()
+	IdentityProviderConfig_GroupVersionKind = CRDGroupVersion.WithKind(IdentityProviderConfig_Kind)
 )
 
 func init() {

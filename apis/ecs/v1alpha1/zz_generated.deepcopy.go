@@ -469,6 +469,11 @@ func (in *ClusterParameters) DeepCopyInto(out *ClusterParameters) {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
+	if in.Name != nil {
+		in, out := &in.Name, &out.Name
+		*out = new(string)
+		**out = **in
+	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
 		*out = new(string)
@@ -1223,6 +1228,16 @@ func (in *NetworkConfigurationParameters) DeepCopyInto(out *NetworkConfiguration
 		*out = new(bool)
 		**out = **in
 	}
+	if in.SecurityGroupRefs != nil {
+		in, out := &in.SecurityGroupRefs, &out.SecurityGroupRefs
+		*out = make([]v1.Reference, len(*in))
+		copy(*out, *in)
+	}
+	if in.SecurityGroupSelector != nil {
+		in, out := &in.SecurityGroupSelector, &out.SecurityGroupSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.SecurityGroups != nil {
 		in, out := &in.SecurityGroups, &out.SecurityGroups
 		*out = make([]*string, len(*in))
@@ -1234,13 +1249,13 @@ func (in *NetworkConfigurationParameters) DeepCopyInto(out *NetworkConfiguration
 			}
 		}
 	}
-	if in.SecurityGroupsRefs != nil {
-		in, out := &in.SecurityGroupsRefs, &out.SecurityGroupsRefs
+	if in.SubnetRefs != nil {
+		in, out := &in.SubnetRefs, &out.SubnetRefs
 		*out = make([]v1.Reference, len(*in))
 		copy(*out, *in)
 	}
-	if in.SecurityGroupsSelector != nil {
-		in, out := &in.SecurityGroupsSelector, &out.SecurityGroupsSelector
+	if in.SubnetSelector != nil {
+		in, out := &in.SubnetSelector, &out.SubnetSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -1254,16 +1269,6 @@ func (in *NetworkConfigurationParameters) DeepCopyInto(out *NetworkConfiguration
 				**out = **in
 			}
 		}
-	}
-	if in.SubnetsRefs != nil {
-		in, out := &in.SubnetsRefs, &out.SubnetsRefs
-		*out = make([]v1.Reference, len(*in))
-		copy(*out, *in)
-	}
-	if in.SubnetsSelector != nil {
-		in, out := &in.SubnetsSelector, &out.SubnetsSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 }
 

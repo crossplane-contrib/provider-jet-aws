@@ -118,10 +118,10 @@ type VolumeList struct {
 
 // Repository type metadata.
 var (
-	VolumeKind             = "Volume"
-	VolumeGroupKind        = schema.GroupKind{Group: Group, Kind: VolumeKind}.String()
-	VolumeKindAPIVersion   = VolumeKind + "." + GroupVersion.String()
-	VolumeGroupVersionKind = GroupVersion.WithKind(VolumeKind)
+	Volume_Kind             = "Volume"
+	Volume_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Volume_Kind}.String()
+	Volume_KindAPIVersion   = Volume_Kind + "." + CRDGroupVersion.String()
+	Volume_GroupVersionKind = CRDGroupVersion.WithKind(Volume_Kind)
 )
 
 func init() {

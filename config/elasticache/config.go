@@ -20,37 +20,37 @@ import (
 	"github.com/crossplane-contrib/terrajet/pkg/config"
 )
 
-func init() {
-
-	config.Store.SetForResource("aws_elasticache_parameter_group", config.Resource{
-		ExternalName: config.NameAsIdentifier,
+// Configure adds configurations for elasticache group.
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("aws_elasticache_parameter_group", func(r *config.Resource) {
+		r.ExternalName = config.IdentifierFromProvider
 	})
 
-	config.Store.SetForResource("aws_elasticache_cluster", config.Resource{
-		ExternalName: config.ExternalName{
+	p.AddResourceConfigurator("aws_elasticache_cluster", func(r *config.Resource) {
+		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["cluster_id"] = name
 			},
 			OmittedFields: []string{
 				"cluster_id",
 			},
-		},
-		References: config.References{
+		}
+		r.References = config.References{
 			"parameter_group_name": config.Reference{
 				Type: "ParameterGroup",
 			},
-		},
-		UseAsync: true,
+		}
+		r.UseAsync = true
 	})
 
-	config.Store.SetForResource("aws_elasticache_replication_group", config.Resource{
-		ExternalName: config.ExternalName{
+	p.AddResourceConfigurator("aws_elasticache_replication_group", func(r *config.Resource) {
+		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["replication_group_id"] = name
 			},
 			OmittedFields: []string{
 				"replication_group_id",
 			},
-		},
+		}
 	})
 }

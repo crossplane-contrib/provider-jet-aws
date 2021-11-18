@@ -30,11 +30,6 @@ func (mg *Bucket) GetTerraformResourceType() string {
 	return "aws_s3_bucket"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Bucket
-func (tr *Bucket) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Bucket
 func (tr *Bucket) GetConnectionDetailsMapping() map[string]string {
 	return nil

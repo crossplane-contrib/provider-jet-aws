@@ -1,5 +1,5 @@
 apiVersion: ec2.aws.tf.crossplane.io/v1alpha1
-kind: EC2NetworkInterface
+kind: NetworkInterface
 metadata:
   name: sample-ni
 spec:

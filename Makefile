@@ -65,7 +65,7 @@ fallthrough: submodules
 # - generated file
 cobertura:
 	@cat $(GO_TEST_OUTPUT)/coverage.txt | \
-		grep -v zz_generated.deepcopy | \
+		grep -v zz_ | \
 		$(GOCOVER_COBERTURA) > $(GO_TEST_OUTPUT)/cobertura-coverage.xml
 
 crds.clean:
@@ -75,19 +75,6 @@ crds.clean:
 	@$(OK) cleaned generated CRDs
 
 generate.done: crds.clean
-
-terrajet.run:
-	@go run cmd/generator/main.go
-	@make generate
-
-# todo(turkenh): clean up whole apis and internal/control directories once we
-# figured out where to keep non generated files inside there dirs
-terrajet.clean:
-	@rm -f apis/zz_*.go
-	@rm -f apis/*/zz_*.go
-	@rm -f apis/*/*/zz_*.go
-	@rm -f internal/controller/zz_*.go
-	@rm -f internal/controller/*/*/zz_*.go
 
 # Update the submodules, such as the common build scripts.
 submodules:

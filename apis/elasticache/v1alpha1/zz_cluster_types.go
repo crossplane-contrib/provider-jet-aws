@@ -172,10 +172,10 @@ type ClusterList struct {
 
 // Repository type metadata.
 var (
-	ClusterKind             = "Cluster"
-	ClusterGroupKind        = schema.GroupKind{Group: Group, Kind: ClusterKind}.String()
-	ClusterKindAPIVersion   = ClusterKind + "." + GroupVersion.String()
-	ClusterGroupVersionKind = GroupVersion.WithKind(ClusterKind)
+	Cluster_Kind             = "Cluster"
+	Cluster_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Cluster_Kind}.String()
+	Cluster_KindAPIVersion   = Cluster_Kind + "." + CRDGroupVersion.String()
+	Cluster_GroupVersionKind = CRDGroupVersion.WithKind(Cluster_Kind)
 )
 
 func init() {

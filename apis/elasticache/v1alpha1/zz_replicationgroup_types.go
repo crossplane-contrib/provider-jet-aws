@@ -189,10 +189,10 @@ type ReplicationGroupList struct {
 
 // Repository type metadata.
 var (
-	ReplicationGroupKind             = "ReplicationGroup"
-	ReplicationGroupGroupKind        = schema.GroupKind{Group: Group, Kind: ReplicationGroupKind}.String()
-	ReplicationGroupKindAPIVersion   = ReplicationGroupKind + "." + GroupVersion.String()
-	ReplicationGroupGroupVersionKind = GroupVersion.WithKind(ReplicationGroupKind)
+	ReplicationGroup_Kind             = "ReplicationGroup"
+	ReplicationGroup_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: ReplicationGroup_Kind}.String()
+	ReplicationGroup_KindAPIVersion   = ReplicationGroup_Kind + "." + CRDGroupVersion.String()
+	ReplicationGroup_GroupVersionKind = CRDGroupVersion.WithKind(ReplicationGroup_Kind)
 )
 
 func init() {

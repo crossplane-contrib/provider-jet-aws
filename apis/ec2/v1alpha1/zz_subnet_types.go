@@ -122,10 +122,10 @@ type SubnetList struct {
 
 // Repository type metadata.
 var (
-	SubnetKind             = "Subnet"
-	SubnetGroupKind        = schema.GroupKind{Group: Group, Kind: SubnetKind}.String()
-	SubnetKindAPIVersion   = SubnetKind + "." + GroupVersion.String()
-	SubnetGroupVersionKind = GroupVersion.WithKind(SubnetKind)
+	Subnet_Kind             = "Subnet"
+	Subnet_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Subnet_Kind}.String()
+	Subnet_KindAPIVersion   = Subnet_Kind + "." + CRDGroupVersion.String()
+	Subnet_GroupVersionKind = CRDGroupVersion.WithKind(Subnet_Kind)
 )
 
 func init() {

@@ -21,7 +21,6 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"github.com/crossplane/crossplane-runtime/apis/common/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 )
 
@@ -82,16 +81,6 @@ func (in *ApplyServerSideEncryptionByDefaultParameters) DeepCopyInto(out *ApplyS
 		in, out := &in.KmsMasterKeyID, &out.KmsMasterKeyID
 		*out = new(string)
 		**out = **in
-	}
-	if in.KmsMasterKeyIDRef != nil {
-		in, out := &in.KmsMasterKeyIDRef, &out.KmsMasterKeyIDRef
-		*out = new(v1.Reference)
-		**out = **in
-	}
-	if in.KmsMasterKeyIDSelector != nil {
-		in, out := &in.KmsMasterKeyIDSelector, &out.KmsMasterKeyIDSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.SseAlgorithm != nil {
 		in, out := &in.SseAlgorithm, &out.SseAlgorithm
@@ -224,6 +213,16 @@ func (in *BucketParameters) DeepCopyInto(out *BucketParameters) {
 	}
 	if in.Arn != nil {
 		in, out := &in.Arn, &out.Arn
+		*out = new(string)
+		**out = **in
+	}
+	if in.Bucket != nil {
+		in, out := &in.Bucket, &out.Bucket
+		*out = new(string)
+		**out = **in
+	}
+	if in.BucketPrefix != nil {
+		in, out := &in.BucketPrefix, &out.BucketPrefix
 		*out = new(string)
 		**out = **in
 	}

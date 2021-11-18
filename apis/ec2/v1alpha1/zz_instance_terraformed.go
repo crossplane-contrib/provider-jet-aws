@@ -30,11 +30,6 @@ func (mg *Instance) GetTerraformResourceType() string {
 	return "aws_instance"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this Instance
-func (tr *Instance) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this Instance
 func (tr *Instance) GetConnectionDetailsMapping() map[string]string {
 	return nil
@@ -86,10 +81,10 @@ func (tr *Instance) LateInitialize(attrs []byte) (bool, error) {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
 	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
-	opts = append(opts, resource.WithNameFilter("SubnetID"))
 	opts = append(opts, resource.WithNameFilter("NetworkInterface"))
 	opts = append(opts, resource.WithNameFilter("PrivateIP"))
 	opts = append(opts, resource.WithNameFilter("SourceDestCheck"))
+	opts = append(opts, resource.WithNameFilter("SubnetID"))
 
 	li := resource.NewGenericLateInitializer(opts...)
 	return li.LateInitialize(&tr.Spec.ForProvider, params)

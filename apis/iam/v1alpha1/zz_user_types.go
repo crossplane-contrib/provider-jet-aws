@@ -88,10 +88,10 @@ type UserList struct {
 
 // Repository type metadata.
 var (
-	UserKind             = "User"
-	UserGroupKind        = schema.GroupKind{Group: Group, Kind: UserKind}.String()
-	UserKindAPIVersion   = UserKind + "." + GroupVersion.String()
-	UserGroupVersionKind = GroupVersion.WithKind(UserKind)
+	User_Kind             = "User"
+	User_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: User_Kind}.String()
+	User_KindAPIVersion   = User_Kind + "." + CRDGroupVersion.String()
+	User_GroupVersionKind = CRDGroupVersion.WithKind(User_Kind)
 )
 
 func init() {

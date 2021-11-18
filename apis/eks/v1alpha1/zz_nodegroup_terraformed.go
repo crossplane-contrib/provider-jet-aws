@@ -30,11 +30,6 @@ func (mg *NodeGroup) GetTerraformResourceType() string {
 	return "aws_eks_node_group"
 }
 
-// GetTerraformResourceIDField returns Terraform identifier field for this NodeGroup
-func (tr *NodeGroup) GetTerraformResourceIDField() string {
-	return "id"
-}
-
 // GetConnectionDetailsMapping for this NodeGroup
 func (tr *NodeGroup) GetConnectionDetailsMapping() map[string]string {
 	return nil

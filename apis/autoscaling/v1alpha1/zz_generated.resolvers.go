@@ -20,7 +20,7 @@ package v1alpha1
 import (
 	"context"
 	v1alpha11 "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1"
-	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/lb/v1alpha1"
+	v1alpha1 "github.com/crossplane-contrib/provider-tf-aws/apis/elasticloadbalancing/v1alpha1"
 	common "github.com/crossplane-contrib/provider-tf-aws/config/common"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
@@ -40,8 +40,8 @@ func (mg *Attachment) ResolveReferences(ctx context.Context, c client.Reader) er
 		Reference:    mg.Spec.ForProvider.AlbTargetGroupArnRef,
 		Selector:     mg.Spec.ForProvider.AlbTargetGroupArnSelector,
 		To: reference.To{
-			List:    &v1alpha1.LBTargetGroupList{},
-			Managed: &v1alpha1.LBTargetGroup{},
+			List:    &v1alpha1.TargetGroupList{},
+			Managed: &v1alpha1.TargetGroup{},
 		},
 	})
 	if err != nil {
@@ -82,8 +82,8 @@ func (mg *AutoscalingGroup) ResolveReferences(ctx context.Context, c client.Read
 		References:    mg.Spec.ForProvider.TargetGroupArnsRefs,
 		Selector:      mg.Spec.ForProvider.TargetGroupArnsSelector,
 		To: reference.To{
-			List:    &v1alpha1.LBTargetGroupList{},
-			Managed: &v1alpha1.LBTargetGroup{},
+			List:    &v1alpha1.TargetGroupList{},
+			Managed: &v1alpha1.TargetGroup{},
 		},
 	})
 	if err != nil {

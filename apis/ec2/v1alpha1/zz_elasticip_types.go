@@ -128,10 +128,10 @@ type ElasticIPList struct {
 
 // Repository type metadata.
 var (
-	ElasticIPKind             = "ElasticIP"
-	ElasticIPGroupKind        = schema.GroupKind{Group: Group, Kind: ElasticIPKind}.String()
-	ElasticIPKindAPIVersion   = ElasticIPKind + "." + GroupVersion.String()
-	ElasticIPGroupVersionKind = GroupVersion.WithKind(ElasticIPKind)
+	ElasticIP_Kind             = "ElasticIP"
+	ElasticIP_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: ElasticIP_Kind}.String()
+	ElasticIP_KindAPIVersion   = ElasticIP_Kind + "." + CRDGroupVersion.String()
+	ElasticIP_GroupVersionKind = CRDGroupVersion.WithKind(ElasticIP_Kind)
 )
 
 func init() {

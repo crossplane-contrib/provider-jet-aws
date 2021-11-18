@@ -128,10 +128,10 @@ type CapacityProviderList struct {
 
 // Repository type metadata.
 var (
-	CapacityProviderKind             = "CapacityProvider"
-	CapacityProviderGroupKind        = schema.GroupKind{Group: Group, Kind: CapacityProviderKind}.String()
-	CapacityProviderKindAPIVersion   = CapacityProviderKind + "." + GroupVersion.String()
-	CapacityProviderGroupVersionKind = GroupVersion.WithKind(CapacityProviderKind)
+	CapacityProvider_Kind             = "CapacityProvider"
+	CapacityProvider_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: CapacityProvider_Kind}.String()
+	CapacityProvider_KindAPIVersion   = CapacityProvider_Kind + "." + CRDGroupVersion.String()
+	CapacityProvider_GroupVersionKind = CRDGroupVersion.WithKind(CapacityProvider_Kind)
 )
 
 func init() {
