@@ -17,11 +17,7 @@ limitations under the License.
 package config
 
 import (
-	"strings"
-
-	"github.com/crossplane-contrib/terrajet/pkg/types/comments"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/pkg/errors"
 
 	tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
 
@@ -39,10 +35,6 @@ import (
 	"github.com/crossplane-contrib/provider-tf-aws/config/rds"
 	"github.com/crossplane-contrib/provider-tf-aws/config/s3"
 )
-
-const resourcePrefix = "aws"
-
-var regionSchema = getRegionSchema()
 
 var includedResources = []string{
 	// VPC
@@ -150,10 +142,14 @@ var skipList = []string{
 // GetProvider returns provider configuration
 func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 	pc := tjconfig.NewProvider(
-		tfProvider.ResourcesMap, resourcePrefix, "github.com/crossplane-contrib/provider-tf-aws",
+		tfProvider.ResourcesMap, "aws", "github.com/crossplane-contrib/provider-tf-aws",
 		tjconfig.WithIncludeList(includedResources),
 		tjconfig.WithSkipList(skipList),
-		tjconfig.WithDefaultResourceFn(DefaultResource),
+		tjconfig.WithDefaultResourceFn(DefaultResource(
+			GroupOverrides(),
+			RegionAddition(),
+			TagsAllRemoval(),
+		)),
 	)
 
 	for _, configure := range []func(provider *tjconfig.Provider){
@@ -178,55 +174,10 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 	return pc
 }
 
-// DefaultResource returns a base resource configuration for AWS resources.
-func DefaultResource(name string, terraformResource *schema.Resource) *tjconfig.Resource { // nolint:gocyclo
-	// NOTE(muvaf): gocyclo is disabled because this function is mostly for if
-	// conditions that are easy to grasp.
-	r := tjconfig.DefaultResource(name, terraformResource)
-
-	switch {
-	case strings.HasPrefix(name, "aws_security_group") ||
-		strings.HasPrefix(name, "aws_subnet") ||
-		strings.HasPrefix(name, "aws_network") ||
-		strings.HasPrefix(name, "aws_eip") ||
-		strings.HasPrefix(name, "aws_launch_template") ||
-		strings.HasPrefix(name, "aws_route") ||
-		strings.HasPrefix(name, "aws_instance") ||
-		strings.HasPrefix(name, "aws_vpc"):
-		r.ShortGroup = "ec2"
-	case r.ShortGroup == "vpc":
-		r.ShortGroup = "ec2"
-	case name == "aws_lb_":
-		r.ShortGroup = "elasticloadbalancing"
-	case strings.Contains(name, "aws_db_"):
-		r.ShortGroup = "rds"
-	}
-	// Add region to the spec of all resources except iam group which
-	// does not have a region notion.
-	if r.ShortGroup != "iam" {
-		r.TerraformResource.Schema["region"] = regionSchema
-	}
-	// tags_all is used only in tfstate to accumulate provider-wide
-	// default tags in TF, which is not something we support. So, we don't
-	// need it as a parameter while "tags" is already in place.
-	if t, ok := r.TerraformResource.Schema["tags_all"]; ok {
-		t.Computed = true
-		t.Optional = false
-	}
-
-	return r
-}
-
-func getRegionSchema() *schema.Schema {
-	c := "Region is the region you'd like your resource to be created in.\n"
-
-	comment, err := comments.New(c, comments.WithTFTag("-"))
-	if err != nil {
-		panic(errors.Wrap(err, "cannot build comment for region"))
-	}
-	return &schema.Schema{
-		Type:        schema.TypeString,
-		Required:    true,
-		Description: comment.String(),
+// DefaultResource returns a DefaultResoruceFn that makes sure the original
+// DefaultResource call is made with given options here.
+func DefaultResource(opts ...tjconfig.ResourceOption) tjconfig.DefaultResourceFn {
+	return func(name string, terraformResource *schema.Resource, orgOpts ...tjconfig.ResourceOption) *tjconfig.Resource {
+		return tjconfig.DefaultResource(name, terraformResource, append(orgOpts, opts...)...)
 	}
 }

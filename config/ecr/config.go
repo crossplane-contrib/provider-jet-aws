@@ -26,7 +26,7 @@ import (
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ecr_repository", func(r *config.Resource) {
 		r.References = map[string]config.Reference{
-			"encryption_configuration[*].kms_key": {
+			"encryption_configuration.kms_key": {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
 				Extractor: common.PathARNExtractor,
 			},

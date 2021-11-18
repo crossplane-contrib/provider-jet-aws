@@ -24,7 +24,6 @@ import (
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_lb", func(r *config.Resource) {
 		r.Kind = "LoadBalancer"
-		r.ShortGroup = "elasticloadbalancing"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"security_groups": {
@@ -33,10 +32,10 @@ func Configure(p *config.Provider) {
 			"subnets": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
-			"access_logs[*].bucket": {
+			"access_logs.bucket": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
 			},
-			"subnet_mapping[*].subnet_id": {
+			"subnet_mapping.subnet_id": {
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
 		}
@@ -45,23 +44,21 @@ func Configure(p *config.Provider) {
 
 	p.AddResourceConfigurator("aws_lb_listener", func(r *config.Resource) {
 		r.Kind = "LoadBalancerListener"
-		r.ShortGroup = "elasticloadbalancing"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"load_balancer_arn": {
 				Type: "LoadBalancer",
 			},
-			"default_action[*].target_group_arn": {
+			"default_action.target_group_arn": {
 				Type: "TargetGroup",
 			},
-			"default_action[*].forward[*].target_group[*].arn": {
+			"default_action.forward.target_group.arn": {
 				Type: "TargetGroup",
 			},
 		}
 	})
 
 	p.AddResourceConfigurator("aws_lb_target_group", func(r *config.Resource) {
-		r.ShortGroup = "elasticloadbalancing"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"vpc_id": {
@@ -70,7 +67,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_lb_target_group_attachment", func(r *config.Resource) {
-		r.ShortGroup = "elasticloadbalancing"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"target_group_arn": {

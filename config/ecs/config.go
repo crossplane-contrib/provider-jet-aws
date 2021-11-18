@@ -31,10 +31,10 @@ func Configure(p *config.Provider) {
 			"capacity_providers": config.Reference{
 				Type: "CapacityProvider",
 			},
-			"execute_command_configuration[*].kms_key_id": config.Reference{
+			"execute_command_configuration.kms_key_id": config.Reference{
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/kms/v1alpha1.Key",
 			},
-			"log_configuration[*].s3_bucket_name": config.Reference{
+			"log_configuration.s3_bucket_name": config.Reference{
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/s3/v1alpha1.Bucket",
 			},
 		}
@@ -52,10 +52,10 @@ func Configure(p *config.Provider) {
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/iam/v1alpha1.Role",
 				Extractor: common.PathARNExtractor,
 			},
-			"network_configuration[*].subnets": config.Reference{
+			"network_configuration.subnets": config.Reference{
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.Subnet",
 			},
-			"network_configuration[*].security_groups": config.Reference{
+			"network_configuration.security_groups": config.Reference{
 				Type: "github.com/crossplane-contrib/provider-tf-aws/apis/ec2/v1alpha1.SecurityGroup",
 			},
 		}
@@ -65,7 +65,7 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ecs_capacity_provider", func(r *config.Resource) {
 		r.ExternalName = config.NameAsIdentifier
 		r.References = config.References{
-			"auto_scaling_group_provider[*].auto_scaling_group_arn": config.Reference{
+			"auto_scaling_group_provider.auto_scaling_group_arn": config.Reference{
 				Type:      "github.com/crossplane-contrib/provider-tf-aws/apis/autoscaling/v1alpha1.AutoscalingGroup",
 				Extractor: common.PathARNExtractor,
 			},
