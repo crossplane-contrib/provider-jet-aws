@@ -19,6 +19,678 @@ package v1alpha1
 
 import xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 
+// GetCondition of this Acl.
+func (mg *Acl) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this Acl.
+func (mg *Acl) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this Acl.
+func (mg *Acl) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this Acl.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *Acl) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this Acl.
+func (mg *Acl) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this Acl.
+func (mg *Acl) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this Acl.
+func (mg *Acl) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this Acl.
+func (mg *Acl) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this Acl.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *Acl) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this Acl.
+func (mg *Acl) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this AclRule.
+func (mg *AclRule) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this AclRule.
+func (mg *AclRule) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this AclRule.
+func (mg *AclRule) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this AclRule.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *AclRule) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this AclRule.
+func (mg *AclRule) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this AclRule.
+func (mg *AclRule) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this AclRule.
+func (mg *AclRule) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this AclRule.
+func (mg *AclRule) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this AclRule.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *AclRule) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this AclRule.
+func (mg *AclRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this Association.
+func (mg *Association) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this Association.
+func (mg *Association) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this Association.
+func (mg *Association) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this Association.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *Association) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this Association.
+func (mg *Association) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this Association.
+func (mg *Association) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this Association.
+func (mg *Association) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this Association.
+func (mg *Association) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this Association.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *Association) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this Association.
+func (mg *Association) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this AvailabilityZoneGroup.
+func (mg *AvailabilityZoneGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this AvailabilityZoneGroup.
+func (mg *AvailabilityZoneGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this AvailabilityZoneGroup.
+func (mg *AvailabilityZoneGroup) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this AvailabilityZoneGroup.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *AvailabilityZoneGroup) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this AvailabilityZoneGroup.
+func (mg *AvailabilityZoneGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this AvailabilityZoneGroup.
+func (mg *AvailabilityZoneGroup) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this AvailabilityZoneGroup.
+func (mg *AvailabilityZoneGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this AvailabilityZoneGroup.
+func (mg *AvailabilityZoneGroup) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this AvailabilityZoneGroup.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *AvailabilityZoneGroup) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this AvailabilityZoneGroup.
+func (mg *AvailabilityZoneGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this CapacityReservation.
+func (mg *CapacityReservation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this CapacityReservation.
+func (mg *CapacityReservation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this CapacityReservation.
+func (mg *CapacityReservation) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this CapacityReservation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *CapacityReservation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this CapacityReservation.
+func (mg *CapacityReservation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this CapacityReservation.
+func (mg *CapacityReservation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this CapacityReservation.
+func (mg *CapacityReservation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this CapacityReservation.
+func (mg *CapacityReservation) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this CapacityReservation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *CapacityReservation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this CapacityReservation.
+func (mg *CapacityReservation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this CarrierGateway.
+func (mg *CarrierGateway) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this CarrierGateway.
+func (mg *CarrierGateway) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this CarrierGateway.
+func (mg *CarrierGateway) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this CarrierGateway.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *CarrierGateway) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this CarrierGateway.
+func (mg *CarrierGateway) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this CarrierGateway.
+func (mg *CarrierGateway) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this CarrierGateway.
+func (mg *CarrierGateway) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this CarrierGateway.
+func (mg *CarrierGateway) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this CarrierGateway.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *CarrierGateway) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this CarrierGateway.
+func (mg *CarrierGateway) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ClientVpnAuthorizationRule.
+func (mg *ClientVpnAuthorizationRule) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ClientVpnAuthorizationRule.
+func (mg *ClientVpnAuthorizationRule) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this ClientVpnAuthorizationRule.
+func (mg *ClientVpnAuthorizationRule) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this ClientVpnAuthorizationRule.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *ClientVpnAuthorizationRule) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this ClientVpnAuthorizationRule.
+func (mg *ClientVpnAuthorizationRule) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ClientVpnAuthorizationRule.
+func (mg *ClientVpnAuthorizationRule) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ClientVpnAuthorizationRule.
+func (mg *ClientVpnAuthorizationRule) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this ClientVpnAuthorizationRule.
+func (mg *ClientVpnAuthorizationRule) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this ClientVpnAuthorizationRule.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *ClientVpnAuthorizationRule) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ClientVpnAuthorizationRule.
+func (mg *ClientVpnAuthorizationRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ClientVpnEndpoint.
+func (mg *ClientVpnEndpoint) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ClientVpnEndpoint.
+func (mg *ClientVpnEndpoint) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this ClientVpnEndpoint.
+func (mg *ClientVpnEndpoint) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this ClientVpnEndpoint.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *ClientVpnEndpoint) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this ClientVpnEndpoint.
+func (mg *ClientVpnEndpoint) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ClientVpnEndpoint.
+func (mg *ClientVpnEndpoint) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ClientVpnEndpoint.
+func (mg *ClientVpnEndpoint) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this ClientVpnEndpoint.
+func (mg *ClientVpnEndpoint) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this ClientVpnEndpoint.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *ClientVpnEndpoint) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ClientVpnEndpoint.
+func (mg *ClientVpnEndpoint) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ClientVpnNetworkAssociation.
+func (mg *ClientVpnNetworkAssociation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ClientVpnNetworkAssociation.
+func (mg *ClientVpnNetworkAssociation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this ClientVpnNetworkAssociation.
+func (mg *ClientVpnNetworkAssociation) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this ClientVpnNetworkAssociation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *ClientVpnNetworkAssociation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this ClientVpnNetworkAssociation.
+func (mg *ClientVpnNetworkAssociation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ClientVpnNetworkAssociation.
+func (mg *ClientVpnNetworkAssociation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ClientVpnNetworkAssociation.
+func (mg *ClientVpnNetworkAssociation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this ClientVpnNetworkAssociation.
+func (mg *ClientVpnNetworkAssociation) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this ClientVpnNetworkAssociation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *ClientVpnNetworkAssociation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ClientVpnNetworkAssociation.
+func (mg *ClientVpnNetworkAssociation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ClientVpnRoute.
+func (mg *ClientVpnRoute) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ClientVpnRoute.
+func (mg *ClientVpnRoute) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this ClientVpnRoute.
+func (mg *ClientVpnRoute) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this ClientVpnRoute.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *ClientVpnRoute) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this ClientVpnRoute.
+func (mg *ClientVpnRoute) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ClientVpnRoute.
+func (mg *ClientVpnRoute) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ClientVpnRoute.
+func (mg *ClientVpnRoute) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this ClientVpnRoute.
+func (mg *ClientVpnRoute) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this ClientVpnRoute.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *ClientVpnRoute) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ClientVpnRoute.
+func (mg *ClientVpnRoute) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this DhcpOptions.
+func (mg *DhcpOptions) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this DhcpOptions.
+func (mg *DhcpOptions) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this DhcpOptions.
+func (mg *DhcpOptions) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this DhcpOptions.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *DhcpOptions) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this DhcpOptions.
+func (mg *DhcpOptions) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this DhcpOptions.
+func (mg *DhcpOptions) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this DhcpOptions.
+func (mg *DhcpOptions) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this DhcpOptions.
+func (mg *DhcpOptions) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this DhcpOptions.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *DhcpOptions) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this DhcpOptions.
+func (mg *DhcpOptions) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this DhcpOptionsAssociation.
+func (mg *DhcpOptionsAssociation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this DhcpOptionsAssociation.
+func (mg *DhcpOptionsAssociation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this DhcpOptionsAssociation.
+func (mg *DhcpOptionsAssociation) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this DhcpOptionsAssociation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *DhcpOptionsAssociation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this DhcpOptionsAssociation.
+func (mg *DhcpOptionsAssociation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this DhcpOptionsAssociation.
+func (mg *DhcpOptionsAssociation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this DhcpOptionsAssociation.
+func (mg *DhcpOptionsAssociation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this DhcpOptionsAssociation.
+func (mg *DhcpOptionsAssociation) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this DhcpOptionsAssociation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *DhcpOptionsAssociation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this DhcpOptionsAssociation.
+func (mg *DhcpOptionsAssociation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this ElasticIP.
 func (mg *ElasticIP) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -72,6 +744,342 @@ func (mg *ElasticIP) SetProviderReference(r *xpv1.Reference) {
 
 // SetWriteConnectionSecretToReference of this ElasticIP.
 func (mg *ElasticIP) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this EndpointConnectionNotification.
+func (mg *EndpointConnectionNotification) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EndpointConnectionNotification.
+func (mg *EndpointConnectionNotification) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this EndpointConnectionNotification.
+func (mg *EndpointConnectionNotification) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this EndpointConnectionNotification.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *EndpointConnectionNotification) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this EndpointConnectionNotification.
+func (mg *EndpointConnectionNotification) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EndpointConnectionNotification.
+func (mg *EndpointConnectionNotification) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EndpointConnectionNotification.
+func (mg *EndpointConnectionNotification) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this EndpointConnectionNotification.
+func (mg *EndpointConnectionNotification) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this EndpointConnectionNotification.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *EndpointConnectionNotification) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this EndpointConnectionNotification.
+func (mg *EndpointConnectionNotification) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this EndpointRouteTableAssociation.
+func (mg *EndpointRouteTableAssociation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EndpointRouteTableAssociation.
+func (mg *EndpointRouteTableAssociation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this EndpointRouteTableAssociation.
+func (mg *EndpointRouteTableAssociation) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this EndpointRouteTableAssociation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *EndpointRouteTableAssociation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this EndpointRouteTableAssociation.
+func (mg *EndpointRouteTableAssociation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EndpointRouteTableAssociation.
+func (mg *EndpointRouteTableAssociation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EndpointRouteTableAssociation.
+func (mg *EndpointRouteTableAssociation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this EndpointRouteTableAssociation.
+func (mg *EndpointRouteTableAssociation) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this EndpointRouteTableAssociation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *EndpointRouteTableAssociation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this EndpointRouteTableAssociation.
+func (mg *EndpointRouteTableAssociation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this EndpointService.
+func (mg *EndpointService) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EndpointService.
+func (mg *EndpointService) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this EndpointService.
+func (mg *EndpointService) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this EndpointService.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *EndpointService) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this EndpointService.
+func (mg *EndpointService) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EndpointService.
+func (mg *EndpointService) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EndpointService.
+func (mg *EndpointService) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this EndpointService.
+func (mg *EndpointService) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this EndpointService.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *EndpointService) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this EndpointService.
+func (mg *EndpointService) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this EndpointServiceAllowedPrincipal.
+func (mg *EndpointServiceAllowedPrincipal) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EndpointServiceAllowedPrincipal.
+func (mg *EndpointServiceAllowedPrincipal) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this EndpointServiceAllowedPrincipal.
+func (mg *EndpointServiceAllowedPrincipal) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this EndpointServiceAllowedPrincipal.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *EndpointServiceAllowedPrincipal) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this EndpointServiceAllowedPrincipal.
+func (mg *EndpointServiceAllowedPrincipal) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EndpointServiceAllowedPrincipal.
+func (mg *EndpointServiceAllowedPrincipal) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EndpointServiceAllowedPrincipal.
+func (mg *EndpointServiceAllowedPrincipal) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this EndpointServiceAllowedPrincipal.
+func (mg *EndpointServiceAllowedPrincipal) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this EndpointServiceAllowedPrincipal.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *EndpointServiceAllowedPrincipal) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this EndpointServiceAllowedPrincipal.
+func (mg *EndpointServiceAllowedPrincipal) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this EndpointSubnetAssociation.
+func (mg *EndpointSubnetAssociation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EndpointSubnetAssociation.
+func (mg *EndpointSubnetAssociation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this EndpointSubnetAssociation.
+func (mg *EndpointSubnetAssociation) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this EndpointSubnetAssociation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *EndpointSubnetAssociation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this EndpointSubnetAssociation.
+func (mg *EndpointSubnetAssociation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EndpointSubnetAssociation.
+func (mg *EndpointSubnetAssociation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EndpointSubnetAssociation.
+func (mg *EndpointSubnetAssociation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this EndpointSubnetAssociation.
+func (mg *EndpointSubnetAssociation) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this EndpointSubnetAssociation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *EndpointSubnetAssociation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this EndpointSubnetAssociation.
+func (mg *EndpointSubnetAssociation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this Fleet.
+func (mg *Fleet) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this Fleet.
+func (mg *Fleet) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this Fleet.
+func (mg *Fleet) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this Fleet.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *Fleet) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this Fleet.
+func (mg *Fleet) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this Fleet.
+func (mg *Fleet) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this Fleet.
+func (mg *Fleet) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this Fleet.
+func (mg *Fleet) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this Fleet.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *Fleet) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this Fleet.
+func (mg *Fleet) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
@@ -187,6 +1195,118 @@ func (mg *Instance) SetWriteConnectionSecretToReference(r *xpv1.SecretReference)
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this InterfaceAttachment.
+func (mg *InterfaceAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this InterfaceAttachment.
+func (mg *InterfaceAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this InterfaceAttachment.
+func (mg *InterfaceAttachment) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this InterfaceAttachment.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *InterfaceAttachment) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this InterfaceAttachment.
+func (mg *InterfaceAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this InterfaceAttachment.
+func (mg *InterfaceAttachment) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this InterfaceAttachment.
+func (mg *InterfaceAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this InterfaceAttachment.
+func (mg *InterfaceAttachment) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this InterfaceAttachment.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *InterfaceAttachment) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this InterfaceAttachment.
+func (mg *InterfaceAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this InterfaceSgAttachment.
+func (mg *InterfaceSgAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this InterfaceSgAttachment.
+func (mg *InterfaceSgAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this InterfaceSgAttachment.
+func (mg *InterfaceSgAttachment) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this InterfaceSgAttachment.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *InterfaceSgAttachment) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this InterfaceSgAttachment.
+func (mg *InterfaceSgAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this InterfaceSgAttachment.
+func (mg *InterfaceSgAttachment) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this InterfaceSgAttachment.
+func (mg *InterfaceSgAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this InterfaceSgAttachment.
+func (mg *InterfaceSgAttachment) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this InterfaceSgAttachment.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *InterfaceSgAttachment) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this InterfaceSgAttachment.
+func (mg *InterfaceSgAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this LaunchTemplate.
 func (mg *LaunchTemplate) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -240,6 +1360,230 @@ func (mg *LaunchTemplate) SetProviderReference(r *xpv1.Reference) {
 
 // SetWriteConnectionSecretToReference of this LaunchTemplate.
 func (mg *LaunchTemplate) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this LocalGatewayRoute.
+func (mg *LocalGatewayRoute) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this LocalGatewayRoute.
+func (mg *LocalGatewayRoute) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this LocalGatewayRoute.
+func (mg *LocalGatewayRoute) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this LocalGatewayRoute.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *LocalGatewayRoute) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this LocalGatewayRoute.
+func (mg *LocalGatewayRoute) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this LocalGatewayRoute.
+func (mg *LocalGatewayRoute) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this LocalGatewayRoute.
+func (mg *LocalGatewayRoute) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this LocalGatewayRoute.
+func (mg *LocalGatewayRoute) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this LocalGatewayRoute.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *LocalGatewayRoute) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this LocalGatewayRoute.
+func (mg *LocalGatewayRoute) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this LocalGatewayRouteTableVpcAssociation.
+func (mg *LocalGatewayRouteTableVpcAssociation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this LocalGatewayRouteTableVpcAssociation.
+func (mg *LocalGatewayRouteTableVpcAssociation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this LocalGatewayRouteTableVpcAssociation.
+func (mg *LocalGatewayRouteTableVpcAssociation) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this LocalGatewayRouteTableVpcAssociation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *LocalGatewayRouteTableVpcAssociation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this LocalGatewayRouteTableVpcAssociation.
+func (mg *LocalGatewayRouteTableVpcAssociation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this LocalGatewayRouteTableVpcAssociation.
+func (mg *LocalGatewayRouteTableVpcAssociation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this LocalGatewayRouteTableVpcAssociation.
+func (mg *LocalGatewayRouteTableVpcAssociation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this LocalGatewayRouteTableVpcAssociation.
+func (mg *LocalGatewayRouteTableVpcAssociation) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this LocalGatewayRouteTableVpcAssociation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *LocalGatewayRouteTableVpcAssociation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this LocalGatewayRouteTableVpcAssociation.
+func (mg *LocalGatewayRouteTableVpcAssociation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this MainRouteTableAssociation.
+func (mg *MainRouteTableAssociation) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this MainRouteTableAssociation.
+func (mg *MainRouteTableAssociation) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this MainRouteTableAssociation.
+func (mg *MainRouteTableAssociation) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this MainRouteTableAssociation.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *MainRouteTableAssociation) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this MainRouteTableAssociation.
+func (mg *MainRouteTableAssociation) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this MainRouteTableAssociation.
+func (mg *MainRouteTableAssociation) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this MainRouteTableAssociation.
+func (mg *MainRouteTableAssociation) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this MainRouteTableAssociation.
+func (mg *MainRouteTableAssociation) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this MainRouteTableAssociation.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *MainRouteTableAssociation) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this MainRouteTableAssociation.
+func (mg *MainRouteTableAssociation) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this ManagedPrefixList.
+func (mg *ManagedPrefixList) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this ManagedPrefixList.
+func (mg *ManagedPrefixList) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this ManagedPrefixList.
+func (mg *ManagedPrefixList) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this ManagedPrefixList.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *ManagedPrefixList) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this ManagedPrefixList.
+func (mg *ManagedPrefixList) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this ManagedPrefixList.
+func (mg *ManagedPrefixList) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this ManagedPrefixList.
+func (mg *ManagedPrefixList) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this ManagedPrefixList.
+func (mg *ManagedPrefixList) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this ManagedPrefixList.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *ManagedPrefixList) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this ManagedPrefixList.
+func (mg *ManagedPrefixList) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
@@ -352,6 +1696,62 @@ func (mg *PeeringConnectionAccepter) SetProviderReference(r *xpv1.Reference) {
 
 // SetWriteConnectionSecretToReference of this PeeringConnectionAccepter.
 func (mg *PeeringConnectionAccepter) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this PeeringConnectionOptions.
+func (mg *PeeringConnectionOptions) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this PeeringConnectionOptions.
+func (mg *PeeringConnectionOptions) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this PeeringConnectionOptions.
+func (mg *PeeringConnectionOptions) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this PeeringConnectionOptions.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *PeeringConnectionOptions) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this PeeringConnectionOptions.
+func (mg *PeeringConnectionOptions) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this PeeringConnectionOptions.
+func (mg *PeeringConnectionOptions) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this PeeringConnectionOptions.
+func (mg *PeeringConnectionOptions) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this PeeringConnectionOptions.
+func (mg *PeeringConnectionOptions) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this PeeringConnectionOptions.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *PeeringConnectionOptions) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this PeeringConnectionOptions.
+func (mg *PeeringConnectionOptions) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
@@ -691,6 +2091,286 @@ func (mg *Subnet) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this Tag.
+func (mg *Tag) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this Tag.
+func (mg *Tag) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this Tag.
+func (mg *Tag) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this Tag.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *Tag) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this Tag.
+func (mg *Tag) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this Tag.
+func (mg *Tag) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this Tag.
+func (mg *Tag) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this Tag.
+func (mg *Tag) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this Tag.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *Tag) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this Tag.
+func (mg *Tag) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this TrafficMirrorFilter.
+func (mg *TrafficMirrorFilter) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this TrafficMirrorFilter.
+func (mg *TrafficMirrorFilter) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this TrafficMirrorFilter.
+func (mg *TrafficMirrorFilter) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this TrafficMirrorFilter.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *TrafficMirrorFilter) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this TrafficMirrorFilter.
+func (mg *TrafficMirrorFilter) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this TrafficMirrorFilter.
+func (mg *TrafficMirrorFilter) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this TrafficMirrorFilter.
+func (mg *TrafficMirrorFilter) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this TrafficMirrorFilter.
+func (mg *TrafficMirrorFilter) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this TrafficMirrorFilter.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *TrafficMirrorFilter) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this TrafficMirrorFilter.
+func (mg *TrafficMirrorFilter) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this TrafficMirrorFilterRule.
+func (mg *TrafficMirrorFilterRule) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this TrafficMirrorFilterRule.
+func (mg *TrafficMirrorFilterRule) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this TrafficMirrorFilterRule.
+func (mg *TrafficMirrorFilterRule) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this TrafficMirrorFilterRule.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *TrafficMirrorFilterRule) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this TrafficMirrorFilterRule.
+func (mg *TrafficMirrorFilterRule) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this TrafficMirrorFilterRule.
+func (mg *TrafficMirrorFilterRule) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this TrafficMirrorFilterRule.
+func (mg *TrafficMirrorFilterRule) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this TrafficMirrorFilterRule.
+func (mg *TrafficMirrorFilterRule) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this TrafficMirrorFilterRule.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *TrafficMirrorFilterRule) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this TrafficMirrorFilterRule.
+func (mg *TrafficMirrorFilterRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this TrafficMirrorSession.
+func (mg *TrafficMirrorSession) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this TrafficMirrorSession.
+func (mg *TrafficMirrorSession) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this TrafficMirrorSession.
+func (mg *TrafficMirrorSession) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this TrafficMirrorSession.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *TrafficMirrorSession) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this TrafficMirrorSession.
+func (mg *TrafficMirrorSession) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this TrafficMirrorSession.
+func (mg *TrafficMirrorSession) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this TrafficMirrorSession.
+func (mg *TrafficMirrorSession) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this TrafficMirrorSession.
+func (mg *TrafficMirrorSession) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this TrafficMirrorSession.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *TrafficMirrorSession) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this TrafficMirrorSession.
+func (mg *TrafficMirrorSession) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this TrafficMirrorTarget.
+func (mg *TrafficMirrorTarget) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this TrafficMirrorTarget.
+func (mg *TrafficMirrorTarget) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this TrafficMirrorTarget.
+func (mg *TrafficMirrorTarget) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this TrafficMirrorTarget.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *TrafficMirrorTarget) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this TrafficMirrorTarget.
+func (mg *TrafficMirrorTarget) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this TrafficMirrorTarget.
+func (mg *TrafficMirrorTarget) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this TrafficMirrorTarget.
+func (mg *TrafficMirrorTarget) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this TrafficMirrorTarget.
+func (mg *TrafficMirrorTarget) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this TrafficMirrorTarget.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *TrafficMirrorTarget) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this TrafficMirrorTarget.
+func (mg *TrafficMirrorTarget) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this TransitGateway.
 func (mg *TransitGateway) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -744,6 +2424,174 @@ func (mg *TransitGateway) SetProviderReference(r *xpv1.Reference) {
 
 // SetWriteConnectionSecretToReference of this TransitGateway.
 func (mg *TransitGateway) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this TransitGatewayPeeringAttachment.
+func (mg *TransitGatewayPeeringAttachment) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this TransitGatewayPeeringAttachment.
+func (mg *TransitGatewayPeeringAttachment) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this TransitGatewayPeeringAttachment.
+func (mg *TransitGatewayPeeringAttachment) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this TransitGatewayPeeringAttachment.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *TransitGatewayPeeringAttachment) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this TransitGatewayPeeringAttachment.
+func (mg *TransitGatewayPeeringAttachment) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this TransitGatewayPeeringAttachment.
+func (mg *TransitGatewayPeeringAttachment) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this TransitGatewayPeeringAttachment.
+func (mg *TransitGatewayPeeringAttachment) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this TransitGatewayPeeringAttachment.
+func (mg *TransitGatewayPeeringAttachment) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this TransitGatewayPeeringAttachment.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *TransitGatewayPeeringAttachment) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this TransitGatewayPeeringAttachment.
+func (mg *TransitGatewayPeeringAttachment) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this TransitGatewayPeeringAttachmentAccepter.
+func (mg *TransitGatewayPeeringAttachmentAccepter) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this TransitGatewayPeeringAttachmentAccepter.
+func (mg *TransitGatewayPeeringAttachmentAccepter) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this TransitGatewayPeeringAttachmentAccepter.
+func (mg *TransitGatewayPeeringAttachmentAccepter) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this TransitGatewayPeeringAttachmentAccepter.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *TransitGatewayPeeringAttachmentAccepter) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this TransitGatewayPeeringAttachmentAccepter.
+func (mg *TransitGatewayPeeringAttachmentAccepter) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this TransitGatewayPeeringAttachmentAccepter.
+func (mg *TransitGatewayPeeringAttachmentAccepter) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this TransitGatewayPeeringAttachmentAccepter.
+func (mg *TransitGatewayPeeringAttachmentAccepter) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this TransitGatewayPeeringAttachmentAccepter.
+func (mg *TransitGatewayPeeringAttachmentAccepter) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this TransitGatewayPeeringAttachmentAccepter.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *TransitGatewayPeeringAttachmentAccepter) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this TransitGatewayPeeringAttachmentAccepter.
+func (mg *TransitGatewayPeeringAttachmentAccepter) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this TransitGatewayPrefixListReference.
+func (mg *TransitGatewayPrefixListReference) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this TransitGatewayPrefixListReference.
+func (mg *TransitGatewayPrefixListReference) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this TransitGatewayPrefixListReference.
+func (mg *TransitGatewayPrefixListReference) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this TransitGatewayPrefixListReference.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *TransitGatewayPrefixListReference) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this TransitGatewayPrefixListReference.
+func (mg *TransitGatewayPrefixListReference) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this TransitGatewayPrefixListReference.
+func (mg *TransitGatewayPrefixListReference) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this TransitGatewayPrefixListReference.
+func (mg *TransitGatewayPrefixListReference) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this TransitGatewayPrefixListReference.
+func (mg *TransitGatewayPrefixListReference) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this TransitGatewayPrefixListReference.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *TransitGatewayPrefixListReference) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this TransitGatewayPrefixListReference.
+func (mg *TransitGatewayPrefixListReference) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 

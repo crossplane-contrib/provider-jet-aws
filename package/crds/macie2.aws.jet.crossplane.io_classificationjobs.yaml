@@ -1,0 +1,334 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.6.2
+  creationTimestamp: null
+  name: classificationjobs.macie2.aws.jet.crossplane.io
+spec:
+  group: macie2.aws.jet.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - awsjet
+    kind: ClassificationJob
+    listKind: ClassificationJobList
+    plural: classificationjobs
+    singular: classificationjob
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: ClassificationJob is the Schema for the ClassificationJobs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: ClassificationJobSpec defines the desired state of ClassificationJob
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource.
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  customDataIdentifierIds:
+                    items:
+                      type: string
+                    type: array
+                  description:
+                    type: string
+                  initialRun:
+                    type: boolean
+                  jobStatus:
+                    type: string
+                  jobType:
+                    type: string
+                  name:
+                    type: string
+                  region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
+                    type: string
+                  s3JobDefinition:
+                    items:
+                      properties:
+                        bucketDefinitions:
+                          items:
+                            properties:
+                              accountId:
+                                type: string
+                              buckets:
+                                items:
+                                  type: string
+                                type: array
+                            required:
+                            - accountId
+                            - buckets
+                            type: object
+                          type: array
+                        scoping:
+                          items:
+                            properties:
+                              excludes:
+                                items:
+                                  properties:
+                                    and:
+                                      items:
+                                        properties:
+                                          simpleScopeTerm:
+                                            items:
+                                              properties:
+                                                comparator:
+                                                  type: string
+                                                key:
+                                                  type: string
+                                                values:
+                                                  items:
+                                                    type: string
+                                                  type: array
+                                              type: object
+                                            type: array
+                                          tagScopeTerm:
+                                            items:
+                                              properties:
+                                                comparator:
+                                                  type: string
+                                                key:
+                                                  type: string
+                                                tagValues:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                                target:
+                                                  type: string
+                                              type: object
+                                            type: array
+                                        type: object
+                                      type: array
+                                  type: object
+                                type: array
+                              includes:
+                                items:
+                                  properties:
+                                    and:
+                                      items:
+                                        properties:
+                                          simpleScopeTerm:
+                                            items:
+                                              properties:
+                                                comparator:
+                                                  type: string
+                                                key:
+                                                  type: string
+                                                values:
+                                                  items:
+                                                    type: string
+                                                  type: array
+                                              type: object
+                                            type: array
+                                          tagScopeTerm:
+                                            items:
+                                              properties:
+                                                comparator:
+                                                  type: string
+                                                key:
+                                                  type: string
+                                                tagValues:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                                target:
+                                                  type: string
+                                              type: object
+                                            type: array
+                                        type: object
+                                      type: array
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                      type: object
+                    type: array
+                  samplingPercentage:
+                    format: int64
+                    type: integer
+                  scheduleFrequency:
+                    items:
+                      properties:
+                        dailySchedule:
+                          type: boolean
+                        monthlySchedule:
+                          format: int64
+                          type: integer
+                        weeklySchedule:
+                          type: string
+                      type: object
+                    type: array
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                required:
+                - jobType
+                - region
+                - s3JobDefinition
+                type: object
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+          status:
+            description: ClassificationJobStatus defines the observed state of ClassificationJob.
+            properties:
+              atProvider:
+                properties:
+                  createdAt:
+                    type: string
+                  jobArn:
+                    type: string
+                  jobId:
+                    type: string
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  userPausedDetails:
+                    items:
+                      properties:
+                        jobExpiresAt:
+                          type: string
+                        jobImminentExpirationHealthEventArn:
+                          type: string
+                        jobPausedAt:
+                          type: string
+                      type: object
+                    type: array
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
