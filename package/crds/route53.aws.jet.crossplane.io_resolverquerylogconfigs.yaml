@@ -65,6 +65,8 @@ spec:
                 properties:
                   destinationArn:
                     type: string
+                  name:
+                    type: string
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
@@ -75,6 +77,7 @@ spec:
                     type: object
                 required:
                 - destinationArn
+                - name
                 - region
                 type: object
               providerConfigRef:

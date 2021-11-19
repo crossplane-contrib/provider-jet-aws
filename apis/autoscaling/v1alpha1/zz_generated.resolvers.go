@@ -77,22 +77,6 @@ func (mg *AutoscalingGroup) ResolveReferences(ctx context.Context, c client.Read
 	var err error
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.TargetGroupArns),
-		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.TargetGroupArnsRefs,
-		Selector:      mg.Spec.ForProvider.TargetGroupArnsSelector,
-		To: reference.To{
-			List:    &v1alpha1.TargetGroupList{},
-			Managed: &v1alpha1.TargetGroup{},
-		},
-	})
-	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.TargetGroupArns")
-	}
-	mg.Spec.ForProvider.TargetGroupArns = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.TargetGroupArnsRefs = mrsp.ResolvedReferences
-
-	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VpcZoneIdentifier),
 		Extract:       reference.ExternalName(),
 		References:    mg.Spec.ForProvider.VpcZoneIdentifierRefs,

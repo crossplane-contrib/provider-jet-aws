@@ -22,6 +22,8 @@ import (
 	tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config/autoscaling"
+	"github.com/crossplane-contrib/provider-jet-aws/config/cloudformation"
+	"github.com/crossplane-contrib/provider-jet-aws/config/config"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ebs"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ec2"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ecr"
@@ -37,7 +39,8 @@ import (
 	"github.com/crossplane-contrib/provider-jet-aws/config/s3"
 )
 
-var includedResources = []string{
+// IncludedResources lists all resource patterns included in small set release.
+var IncludedResources = []string{
 	// Elastic Load Balancing v2 (ALB/NLB)
 	"aws_lb$",
 	"aws_lb_listener$",
@@ -134,11 +137,17 @@ var includedResources = []string{
 // These resources cannot be generated because of their suffixes colliding with
 // kubebuilder-accepted type suffixes.
 var skipList = []string{
-	"aws_config_configuration_recorder_status$",
 	"aws_waf_rule_group$",
 	"aws_wafregional_rule_group$",
-	"aws_shield_protection_group$",
-	"aws_kinesis_analytics_application$",
+	"aws_glue_connection$",             // See https://github.com/crossplane-contrib/terrajet/issues/100
+	"aws_mwaa_environment$",            // See https://github.com/crossplane-contrib/terrajet/issues/100
+	"aws_ecs_tag$",                     // tags are already managed by ecs resources.
+	"aws_alb$",                         // identical with aws_lb
+	"aws_alb_target_group_attachment$", // identical with aws_lb_target_group_attachment
+	"aws_iam_policy_attachment$",       // identical with aws_iam_*_policy_attachment resources.
+	"aws_iam_group_policy$",            // identical with aws_iam_*_policy_attachment resources.
+	"aws_iam_role_policy$",             // identical with aws_iam_*_policy_attachment resources.
+	"aws_iam_user_policy$",             // identical with aws_iam_*_policy_attachment resources.
 }
 
 // GetProvider returns provider configuration
@@ -147,17 +156,21 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 		tfProvider.ResourcesMap, "aws", "github.com/crossplane-contrib/provider-jet-aws",
 		tjconfig.WithShortName("awsjet"),
 		tjconfig.WithRootGroup("aws.jet.crossplane.io"),
-		tjconfig.WithIncludeList(includedResources),
+		tjconfig.WithIncludeList(IncludedResources),
 		tjconfig.WithSkipList(skipList),
 		tjconfig.WithDefaultResourceFn(DefaultResource(
 			GroupOverrides(),
 			RegionAddition(),
 			TagsAllRemoval(),
+			IdentifierAssignedByAWS(),
+			NamePrefixRemoval(),
 		)),
 	)
 
 	for _, configure := range []func(provider *tjconfig.Provider){
 		autoscaling.Configure,
+		cloudformation.Configure,
+		config.Configure,
 		ebs.Configure,
 		ec2.Configure,
 		ecr.Configure,

@@ -14,19 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package ebs
+package cloudformation
 
-import (
-	"github.com/crossplane-contrib/terrajet/pkg/config"
-)
+import tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
 
-// Configure adds configurations for ebs group.
-func Configure(p *config.Provider) {
-	p.AddResourceConfigurator("aws_ebs_volume", func(r *config.Resource) {
-		r.References = map[string]config.Reference{
-			"kms_key_id": {
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
-			},
-		}
+// Configure configures cloudformation resources.
+func Configure(p *tjconfig.Provider) {
+	p.AddResourceConfigurator("aws_cloudformation_type", func(r *tjconfig.Resource) {
+		r.Kind = "CloudFormationType"
 	})
 }

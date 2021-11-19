@@ -17,7 +17,12 @@ limitations under the License.
 package ecs
 
 import (
+	"context"
+	"path/filepath"
+	"strings"
+
 	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/pkg/errors"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
@@ -25,8 +30,7 @@ import (
 // Configure adds configurations for ecs group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ecs_cluster", func(r *config.Resource) {
-		// todo: use new ID operation overrides because ID is ARN.
-		r.ExternalName = config.IdentifierFromProvider
+		r.ExternalName = config.NameAsIdentifier
 		r.References = config.References{
 			"capacity_providers": config.Reference{
 				Type: "CapacityProvider",
@@ -43,6 +47,21 @@ func Configure(p *config.Provider) {
 
 	p.AddResourceConfigurator("aws_ecs_service", func(r *config.Resource) {
 		r.ExternalName = config.NameAsIdentifier
+		r.ExternalName.GetExternalNameFn = func(tfstate map[string]interface{}) (string, error) {
+			// cluster-name/service-name
+			w := strings.Split(tfstate["id"].(string), "/")
+			if len(w) != 2 {
+				return "", errors.New("external name should have the following format: cluster-name/service-name")
+			}
+			return w[len(w)-1], nil
+		}
+		r.ExternalName.GetIDFn = func(_ context.Context, externalName string, parameters map[string]interface{}, _ map[string]interface{}) (string, error) {
+			cl, ok := parameters["cluster"].(string)
+			if !ok {
+				return "", errors.New("cannot generate id without cluster paramater")
+			}
+			return filepath.Join(cl, externalName), nil
+		}
 		r.References = config.References{
 			"cluster": config.Reference{
 				Type:      "Cluster",
@@ -76,18 +95,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 
-	p.AddResourceConfigurator("aws_ecs_tag", func(r *config.Resource) {
-		r.ExternalName = config.IdentifierFromProvider
-		r.References = config.References{
-			// Note(turkenh): This reference could correspond multiple types as
-			// per documentation, any ecs resource: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_tag#resource_arn
-			// However, we could only reference to one type.
-			"resource_arn": config.Reference{
-				Type:      "Cluster",
-				Extractor: common.PathARNExtractor,
-			},
-		}
-	})
 	p.AddResourceConfigurator("aws_ecs_task_definition", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{

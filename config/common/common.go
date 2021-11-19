@@ -48,3 +48,22 @@ func ARNExtractor() reference.ExtractValueFn {
 		return r
 	}
 }
+
+// func GetExternalNameFromARN() config.GetExternalNameFn {
+//	return func(tfstate map[string]interface{}) (string, error) {
+//		arn, ok := tfstate["id"].(string)
+//		if !ok || arn == "" {
+//			return "", errors.New("cannot get id from tfstate")
+//		}
+//		// arn:partition:service:region:account-id:resource-id
+//		// arn:partition:service:region:account-id:resource-type/resource-id
+//		// arn:partition:service:region:account-id:resource-type:resource-id
+//		w := strings.Split(arn, ":")
+//		name := w[len(w)-1]
+//		if strings.Contains(name, "/") {
+//			ids := strings.Split(name, "/")
+//			return ids[len(ids)-1], nil
+//		}
+//		return name, nil
+//	}
+// }

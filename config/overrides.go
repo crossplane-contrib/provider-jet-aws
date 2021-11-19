@@ -28,23 +28,24 @@ import (
 
 // GroupMap contains all overrides we'd like to make to the default group search.
 var GroupMap = map[string]string{
-	"^aws_security_group.*":   "ec2",
-	"^aws_subnet.*":           "ec2",
-	"^aws_network_.*":         "ec2",
-	"^aws_eip_.*":             "ec2",
-	"^aws_eip$":               "ec2",
-	"^aws_launch_template_.*": "ec2",
-	"^aws_launch_template$":   "ec2",
-	"^aws_route_.*":           "ec2",
-	"^aws_route$":             "ec2",
-	"^aws_instance_.*":        "ec2",
-	"^aws_instance$":          "ec2",
-	"^aws_vpc_.*":             "ec2",
-	"^aws_vpc$":               "ec2",
-	"^aws_lb_.*":              "elasticloadbalancing",
-	"^aws_lb$":                "elasticloadbalancing",
-	"^aws_db_.*":              "rds",
-	"^aws_db$":                "rds",
+	"^aws_security_group.*":    "ec2",
+	"^aws_subnet.*":            "ec2",
+	"^aws_network_.*":          "ec2",
+	"^aws_eip_.*":              "ec2",
+	"^aws_eip$":                "ec2",
+	"^aws_launch_template_.*":  "ec2",
+	"^aws_launch_template$":    "ec2",
+	"^aws_route_.*":            "ec2",
+	"^aws_route$":              "ec2",
+	"^aws_main_route_table_.*": "ec2",
+	"^aws_instance_.*":         "ec2",
+	"^aws_instance$":           "ec2",
+	"^aws_vpc_.*":              "ec2",
+	"^aws_vpc$":                "ec2",
+	"^aws_lb_.*":               "elasticloadbalancing",
+	"^aws_lb$":                 "elasticloadbalancing",
+	"^aws_db_.*":               "rds",
+	"^aws_db$":                 "rds",
 }
 
 // GroupOverrides overrides the group of the resource if it matches expressions
@@ -86,6 +87,28 @@ func TagsAllRemoval() tjconfig.ResourceOption {
 			t.Computed = true
 			t.Optional = false
 		}
+	}
+}
+
+// IdentifierAssignedByAWS will work for all AWS types because even if the ID
+// is assigned by user, we'll see it in the TF State ID.
+// The resource-specific configurations should override this whenever possible.
+func IdentifierAssignedByAWS() tjconfig.ResourceOption {
+	return func(r *tjconfig.Resource) {
+		r.ExternalName = tjconfig.IdentifierFromProvider
+	}
+}
+
+// NamePrefixRemoval makes sure we remove name_prefix from all since it is mostly
+// for Terraform functionality.
+func NamePrefixRemoval() tjconfig.ResourceOption {
+	return func(r *tjconfig.Resource) {
+		for _, f := range r.ExternalName.OmittedFields {
+			if f == "name_prefix" {
+				return
+			}
+		}
+		r.ExternalName.OmittedFields = append(r.ExternalName.OmittedFields, "name_prefix")
 	}
 }
 

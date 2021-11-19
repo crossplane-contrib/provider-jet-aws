@@ -39,9 +39,6 @@ type ParameterGroupParameters struct {
 	// +kubebuilder:validation:Required
 	Family *string `json:"family" tf:"family,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
-
 	// +kubebuilder:validation:Optional
 	Parameter []ParameterParameters `json:"parameter,omitempty" tf:"parameter,omitempty"`
 

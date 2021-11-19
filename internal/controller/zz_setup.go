@@ -72,17 +72,13 @@ import (
 	targetgroupattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticloadbalancing/targetgroupattachment"
 	accesskey "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/accesskey"
 	group "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/group"
-	grouppolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/grouppolicy"
 	grouppolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/grouppolicyattachment"
 	instanceprofile "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/instanceprofile"
 	policy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/policy"
-	policyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/policyattachment"
 	role "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/role"
-	rolepolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/rolepolicy"
 	rolepolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/rolepolicyattachment"
 	useriam "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/user"
 	usergroupmembership "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/usergroupmembership"
-	userpolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/userpolicy"
 	userpolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/userpolicyattachment"
 	key "github.com/crossplane-contrib/provider-jet-aws/internal/controller/kms/key"
 	providerconfig "github.com/crossplane-contrib/provider-jet-aws/internal/controller/providerconfig"
@@ -163,17 +159,13 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		targetgroupattachment.Setup,
 		accesskey.Setup,
 		group.Setup,
-		grouppolicy.Setup,
 		grouppolicyattachment.Setup,
 		instanceprofile.Setup,
 		policy.Setup,
-		policyattachment.Setup,
 		role.Setup,
-		rolepolicy.Setup,
 		rolepolicyattachment.Setup,
 		useriam.Setup,
 		usergroupmembership.Setup,
-		userpolicy.Setup,
 		userpolicyattachment.Setup,
 		key.Setup,
 		providerconfig.Setup,

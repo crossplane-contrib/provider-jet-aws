@@ -71,8 +71,15 @@ type ElasticIPParameters struct {
 	// +kubebuilder:validation:Optional
 	NetworkBorderGroup *string `json:"networkBorderGroup,omitempty" tf:"network_border_group,omitempty"`
 
+	// +crossplane:generate:reference:type=NetworkInterface
 	// +kubebuilder:validation:Optional
 	NetworkInterface *string `json:"networkInterface,omitempty" tf:"network_interface,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NetworkInterfaceRef *v1.Reference `json:"networkInterfaceRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	NetworkInterfaceSelector *v1.Selector `json:"networkInterfaceSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	PublicIPv4Pool *string `json:"publicIpv4Pool,omitempty" tf:"public_ipv4_pool,omitempty"`

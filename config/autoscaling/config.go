@@ -26,14 +26,21 @@ import (
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_autoscaling_group", func(r *config.Resource) {
 		r.Kind = "AutoscalingGroup"
+		r.ExternalName = config.NameAsIdentifier
 		r.References["vpc_zone_identifier"] = config.Reference{
 			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
 		}
-		r.References["target_group_arns"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
-		}
-
 		r.UseAsync = true
+
+		// Managed by Attachment resource.
+		if s, ok := r.TerraformResource.Schema["load_balancers"]; ok {
+			s.Optional = false
+			s.Computed = true
+		}
+		if s, ok := r.TerraformResource.Schema["target_group_arns"]; ok {
+			s.Optional = false
+			s.Computed = true
+		}
 	})
 	p.AddResourceConfigurator("aws_autoscaling_attachment", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider

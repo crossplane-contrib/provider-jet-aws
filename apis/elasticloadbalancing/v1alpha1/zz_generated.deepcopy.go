@@ -889,11 +889,6 @@ func (in *LoadBalancerParameters) DeepCopyInto(out *LoadBalancerParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.NamePrefix != nil {
-		in, out := &in.NamePrefix, &out.NamePrefix
-		*out = new(string)
-		**out = **in
-	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
 		*out = new(string)
@@ -1508,11 +1503,6 @@ func (in *TargetGroupParameters_2) DeepCopyInto(out *TargetGroupParameters_2) {
 	}
 	if in.Name != nil {
 		in, out := &in.Name, &out.Name
-		*out = new(string)
-		**out = **in
-	}
-	if in.NamePrefix != nil {
-		in, out := &in.NamePrefix, &out.NamePrefix
 		*out = new(string)
 		**out = **in
 	}

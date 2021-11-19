@@ -63,10 +63,14 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_eip", func(r *config.Resource) {
 		r.Kind = "ElasticIP"
 		r.ExternalName = config.IdentifierFromProvider
-		r.References["instance"] = config.Reference{
-			Type: "Instance",
+		r.References = config.References{
+			"instance": config.Reference{
+				Type: "Instance",
+			},
+			"network_interface": config.Reference{
+				Type: "NetworkInterface",
+			},
 		}
-
 		r.UseAsync = true
 	})
 
@@ -126,11 +130,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_launch_template", func(r *config.Resource) {
-		// Note(turkenh): Kind as "LaunchTemplate" fails with:
-		// panic: cannot generate crd: cannot build types for LaunchTemplate:
-		//  cannot build the types: cannot generate parameters type name of
-		//  LaunchTemplate: could not generate a unique name for
-		//  LaunchTemplateParameters
 		r.Kind = "LaunchTemplate"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["security_group_names"] = config.Reference{
@@ -327,6 +326,17 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_id"] = config.Reference{
 			Type: "Subnet",
+		}
+		r.References["route_table_id"] = config.Reference{
+			Type: "RouteTable",
+		}
+	})
+
+	p.AddResourceConfigurator("aws_main_route_table_association", func(r *config.Resource) {
+		r.Kind = "MainRouteTableAssociation"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
 		}
 		r.References["route_table_id"] = config.Reference{
 			Type: "RouteTable",

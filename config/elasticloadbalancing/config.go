@@ -25,6 +25,7 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_lb", func(r *config.Resource) {
 		r.Kind = "LoadBalancer"
 		r.ExternalName = config.IdentifierFromProvider
+		r.ExternalName.OmittedFields = append(r.ExternalName.OmittedFields, "name_prefix")
 		r.References = config.References{
 			"security_groups": {
 				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
@@ -64,10 +65,16 @@ func Configure(p *config.Provider) {
 
 	p.AddResourceConfigurator("aws_lb_target_group", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider
+		r.ExternalName.OmittedFields = append(r.ExternalName.OmittedFields, "name_prefix")
 		r.References = config.References{
 			"vpc_id": {
 				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.VPC",
 			},
+		}
+		if s, ok := r.TerraformResource.Schema["name"]; ok {
+			s.Optional = false
+			s.ForceNew = true
+			s.Computed = false
 		}
 	})
 	p.AddResourceConfigurator("aws_lb_target_group_attachment", func(r *config.Resource) {
