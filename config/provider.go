@@ -134,11 +134,8 @@ var includedResources = []string{
 // These resources cannot be generated because of their suffixes colliding with
 // kubebuilder-accepted type suffixes.
 var skipList = []string{
-	"aws_config_configuration_recorder_status$",
 	"aws_waf_rule_group$",
 	"aws_wafregional_rule_group$",
-	"aws_shield_protection_group$",
-	"aws_kinesis_analytics_application$",
 }
 
 // GetProvider returns provider configuration
@@ -147,12 +144,13 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 		tfProvider.ResourcesMap, "aws", "github.com/crossplane-contrib/provider-jet-aws",
 		tjconfig.WithShortName("awsjet"),
 		tjconfig.WithRootGroup("aws.jet.crossplane.io"),
-		tjconfig.WithIncludeList(includedResources),
+		// tjconfig.WithIncludeList(includedResources),
 		tjconfig.WithSkipList(skipList),
 		tjconfig.WithDefaultResourceFn(DefaultResource(
 			GroupOverrides(),
 			RegionAddition(),
 			TagsAllRemoval(),
+			IdentifierAssignedByAWS(),
 		)),
 	)
 

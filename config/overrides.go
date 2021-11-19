@@ -89,6 +89,15 @@ func TagsAllRemoval() tjconfig.ResourceOption {
 	}
 }
 
+// IdentifierAssignedByAWS will work for all AWS types because even if the ID
+// is assigned by user, we'll see it in the TF State ID.
+// The resource-specific configurations should override this whenever possible.
+func IdentifierAssignedByAWS() tjconfig.ResourceOption {
+	return func(r *tjconfig.Resource) {
+		r.ExternalName = tjconfig.IdentifierFromProvider
+	}
+}
+
 func matches(name string, regexes map[string]string) (string, bool) {
 	for k, v := range regexes {
 		ok, err := regexp.MatchString(k, name)
