@@ -910,6 +910,16 @@ func (in *ElasticIPParameters) DeepCopyInto(out *ElasticIPParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.NetworkInterfaceRef != nil {
+		in, out := &in.NetworkInterfaceRef, &out.NetworkInterfaceRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.NetworkInterfaceSelector != nil {
+		in, out := &in.NetworkInterfaceSelector, &out.NetworkInterfaceSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.PublicIPv4Pool != nil {
 		in, out := &in.PublicIPv4Pool, &out.PublicIPv4Pool
 		*out = new(string)

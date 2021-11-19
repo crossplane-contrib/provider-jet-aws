@@ -62,8 +62,6 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  addonName:
-                    type: string
                   addonVersion:
                     type: string
                   clusterName:
@@ -127,7 +125,6 @@ spec:
                       type: string
                     type: object
                 required:
-                - addonName
                 - region
                 type: object
               providerConfigRef:

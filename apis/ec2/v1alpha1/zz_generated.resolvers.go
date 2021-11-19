@@ -50,6 +50,22 @@ func (mg *ElasticIP) ResolveReferences(ctx context.Context, c client.Reader) err
 	mg.Spec.ForProvider.Instance = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.InstanceRef = rsp.ResolvedReference
 
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.NetworkInterface),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.NetworkInterfaceRef,
+		Selector:     mg.Spec.ForProvider.NetworkInterfaceSelector,
+		To: reference.To{
+			List:    &NetworkInterfaceList{},
+			Managed: &NetworkInterface{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.NetworkInterface")
+	}
+	mg.Spec.ForProvider.NetworkInterface = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.NetworkInterfaceRef = rsp.ResolvedReference
+
 	return nil
 }
 

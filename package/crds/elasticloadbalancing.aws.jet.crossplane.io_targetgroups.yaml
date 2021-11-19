@@ -98,8 +98,6 @@ spec:
                     type: string
                   name:
                     type: string
-                  namePrefix:
-                    type: string
                   port:
                     format: int64
                     type: integer
@@ -166,6 +164,7 @@ spec:
                         type: object
                     type: object
                 required:
+                - name
                 - region
                 type: object
               providerConfigRef:

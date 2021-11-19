@@ -49,9 +49,6 @@ type ClusterParameters struct {
 	// +kubebuilder:validation:Optional
 	DefaultCapacityProviderStrategy []DefaultCapacityProviderStrategyParameters `json:"defaultCapacityProviderStrategy,omitempty" tf:"default_capacity_provider_strategy,omitempty"`
 
-	// +kubebuilder:validation:Required
-	Name *string `json:"name" tf:"name,omitempty"`
-
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required

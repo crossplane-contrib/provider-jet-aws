@@ -46,26 +46,8 @@ func (l *GroupPolicyAttachmentList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this GroupPolicyList.
-func (l *GroupPolicyList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
 // GetItems of this InstanceProfileList.
 func (l *InstanceProfileList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this PolicyAttachmentList.
-func (l *PolicyAttachmentList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -100,15 +82,6 @@ func (l *RolePolicyAttachmentList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this RolePolicyList.
-func (l *RolePolicyList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
 // GetItems of this UserGroupMembershipList.
 func (l *UserGroupMembershipList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -129,15 +102,6 @@ func (l *UserList) GetItems() []resource.Managed {
 
 // GetItems of this UserPolicyAttachmentList.
 func (l *UserPolicyAttachmentList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this UserPolicyList.
-func (l *UserPolicyList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

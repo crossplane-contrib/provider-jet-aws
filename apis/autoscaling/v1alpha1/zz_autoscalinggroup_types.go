@@ -27,6 +27,10 @@ import (
 
 type AutoscalingGroupObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
+	LoadBalancers []*string `json:"loadBalancers,omitempty" tf:"load_balancers,omitempty"`
+
+	TargetGroupArns []*string `json:"targetGroupArns,omitempty" tf:"target_group_arns,omitempty"`
 }
 
 type AutoscalingGroupParameters struct {
@@ -71,9 +75,6 @@ type AutoscalingGroupParameters struct {
 	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate,omitempty" tf:"launch_template,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	LoadBalancers []*string `json:"loadBalancers,omitempty" tf:"load_balancers,omitempty"`
-
-	// +kubebuilder:validation:Optional
 	MaxInstanceLifetime *int64 `json:"maxInstanceLifetime,omitempty" tf:"max_instance_lifetime,omitempty"`
 
 	// +kubebuilder:validation:Required
@@ -113,16 +114,6 @@ type AutoscalingGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags []map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
-
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup
-	// +kubebuilder:validation:Optional
-	TargetGroupArns []*string `json:"targetGroupArns,omitempty" tf:"target_group_arns,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	TargetGroupArnsRefs []v1.Reference `json:"targetGroupArnsRefs,omitempty" tf:"-"`
-
-	// +kubebuilder:validation:Optional
-	TargetGroupArnsSelector *v1.Selector `json:"targetGroupArnsSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	TerminationPolicies []*string `json:"terminationPolicies,omitempty" tf:"termination_policies,omitempty"`

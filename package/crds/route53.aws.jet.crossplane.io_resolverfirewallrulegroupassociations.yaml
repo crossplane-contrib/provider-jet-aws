@@ -68,6 +68,8 @@ spec:
                     type: string
                   mutationProtection:
                     type: string
+                  name:
+                    type: string
                   priority:
                     format: int64
                     type: integer
@@ -83,6 +85,7 @@ spec:
                     type: string
                 required:
                 - firewallRuleGroupId
+                - name
                 - priority
                 - region
                 - vpcId

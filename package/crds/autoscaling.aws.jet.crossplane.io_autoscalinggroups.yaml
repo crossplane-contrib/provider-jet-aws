@@ -146,10 +146,6 @@ spec:
                           type: string
                       type: object
                     type: array
-                  loadBalancers:
-                    items:
-                      type: string
-                    type: array
                   maxInstanceLifetime:
                     format: int64
                     type: integer
@@ -264,35 +260,6 @@ spec:
                         type: string
                       type: object
                     type: array
-                  targetGroupArns:
-                    items:
-                      type: string
-                    type: array
-                  targetGroupArnsRefs:
-                    items:
-                      description: A Reference to a named object.
-                      properties:
-                        name:
-                          description: Name of the referenced object.
-                          type: string
-                      required:
-                      - name
-                      type: object
-                    type: array
-                  targetGroupArnsSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
-                          type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
                   terminationPolicies:
                     items:
                       type: string
@@ -400,6 +367,14 @@ spec:
                 properties:
                   arn:
                     type: string
+                  loadBalancers:
+                    items:
+                      type: string
+                    type: array
+                  targetGroupArns:
+                    items:
+                      type: string
+                    type: array
                 type: object
               conditions:
                 description: Conditions of the resource.

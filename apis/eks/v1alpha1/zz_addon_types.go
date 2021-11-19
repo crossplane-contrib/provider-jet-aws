@@ -37,9 +37,6 @@ type AddonObservation struct {
 
 type AddonParameters struct {
 
-	// +kubebuilder:validation:Required
-	AddonName *string `json:"addonName" tf:"addon_name,omitempty"`
-
 	// +kubebuilder:validation:Optional
 	AddonVersion *string `json:"addonVersion,omitempty" tf:"addon_version,omitempty"`
 
