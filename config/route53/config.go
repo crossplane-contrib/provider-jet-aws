@@ -45,7 +45,8 @@ func Configure(p *config.Provider) {
 				Type: "Zone",
 			},
 			"key_management_service_arn": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
+				Extractor: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.KMSKeyARN()",
 			},
 		}
 	})

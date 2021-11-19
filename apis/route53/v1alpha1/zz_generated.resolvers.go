@@ -77,7 +77,7 @@ func (mg *KeySigningKey) ResolveReferences(ctx context.Context, c client.Reader)
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.KeyManagementServiceArn),
-		Extract:      reference.ExternalName(),
+		Extract:      v1alpha1.KMSKeyARN(),
 		Reference:    mg.Spec.ForProvider.KeyManagementServiceArnRef,
 		Selector:     mg.Spec.ForProvider.KeyManagementServiceArnSelector,
 		To: reference.To{

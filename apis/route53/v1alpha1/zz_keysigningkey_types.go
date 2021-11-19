@@ -60,6 +60,7 @@ type KeySigningKeyParameters struct {
 	HostedZoneIDSelector *v1.Selector `json:"hostedZoneIdSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key
+	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.KMSKeyARN()
 	// +kubebuilder:validation:Optional
 	KeyManagementServiceArn *string `json:"keyManagementServiceArn,omitempty" tf:"key_management_service_arn,omitempty"`
 

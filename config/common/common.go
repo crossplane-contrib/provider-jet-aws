@@ -25,9 +25,7 @@ import (
 const (
 	// SelfPackagePath is the golang path for this package.
 	SelfPackagePath = "github.com/crossplane-contrib/provider-jet-aws/config/common"
-)
 
-var (
 	// PathARNExtractor is the golang path to ARNExtractor function
 	// in this package.
 	PathARNExtractor = SelfPackagePath + ".ARNExtractor()"
