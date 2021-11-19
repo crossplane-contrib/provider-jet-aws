@@ -53,4 +53,37 @@ func Configure(p *config.Provider) {
 			},
 		}
 	})
+
+	p.AddResourceConfigurator("aws_elasticache_user", func(r *config.Resource) {
+		r.ExternalName = config.ExternalName{
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["user_id"] = name
+			},
+			OmittedFields: []string{
+				"user_id",
+			},
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
+		}
+	})
+
+	p.AddResourceConfigurator("aws_elasticache_user_group", func(r *config.Resource) {
+		r.ExternalName = config.ExternalName{
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["user_group_id"] = name
+			},
+			OmittedFields: []string{
+				"user_group_id",
+			},
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
+		}
+		r.References = config.References{
+			"user_ids": config.Reference{
+				Type:              "User",
+				RefFieldName:      "UserIdRefs",
+				SelectorFieldName: "UserIdSelector",
+			},
+		}
+	})
 }
