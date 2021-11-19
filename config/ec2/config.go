@@ -333,6 +333,17 @@ func Configure(p *config.Provider) {
 		}
 	})
 
+	p.AddResourceConfigurator("aws_main_route_table_association", func(r *config.Resource) {
+		r.Kind = "MainRouteTableAssociation"
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["vpc_id"] = config.Reference{
+			Type: "VPC",
+		}
+		r.References["route_table_id"] = config.Reference{
+			Type: "RouteTable",
+		}
+	})
+
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_route_table_propagation", func(r *config.Resource) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
