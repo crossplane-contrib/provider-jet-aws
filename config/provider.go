@@ -33,23 +33,11 @@ import (
 	"github.com/crossplane-contrib/provider-jet-aws/config/iam"
 	"github.com/crossplane-contrib/provider-jet-aws/config/kms"
 	"github.com/crossplane-contrib/provider-jet-aws/config/rds"
+	"github.com/crossplane-contrib/provider-jet-aws/config/route53"
 	"github.com/crossplane-contrib/provider-jet-aws/config/s3"
 )
 
 var includedResources = []string{
-	// VPC
-	"aws_vpc$",
-	"aws_security_group$",
-	"aws_security_group_rule$",
-	"aws_subnet$",
-	"aws_network_interface$",
-	"aws_route$",
-	"aws_route_table$",
-	"aws_vpc_endpoint$",
-	"aws_vpc_ipv4_cidr_block_association$",
-	"aws_vpc_peering_connection$",
-	"aws_route_table_association$",
-
 	// Elastic Load Balancing v2 (ALB/NLB)
 	"aws_lb$",
 	"aws_lb_listener$",
@@ -72,6 +60,8 @@ var includedResources = []string{
 	"aws_elasticache_cluster$",
 	"aws_elasticache_parameter_group$",
 	"aws_elasticache_replication_group$",
+	"aws_elasticache_user$",
+	"aws_elasticache_user_group$",
 
 	// ECS
 	"aws_ecs_cluster$",
@@ -95,6 +85,18 @@ var includedResources = []string{
 	"aws_ec2_transit_gateway_vpc_attachment$",
 	"aws_ec2_transit_gateway_vpc_attachment_accepter$",
 	"aws_ec2_transit_gateway_route_table_propagation$",
+	"aws_vpc$",
+	"aws_security_group$",
+	"aws_security_group_rule$",
+	"aws_subnet$",
+	"aws_network_interface$",
+	"aws_route$",
+	"aws_route_table$",
+	"aws_vpc_endpoint$",
+	"aws_vpc_ipv4_cidr_block_association$",
+	"aws_vpc_peering_connection$",
+	"aws_route_table_association$",
+	"aws_vpc_peering_connection_accepter$",
 
 	// IAM
 	"aws_iam_access_key$",
@@ -124,18 +126,18 @@ var includedResources = []string{
 
 	// EBS
 	"aws_ebs_volume$",
+
+	// Route53
+	"aws_route53_.*",
 }
 
 // These resources cannot be generated because of their suffixes colliding with
 // kubebuilder-accepted type suffixes.
 var skipList = []string{
 	"aws_config_configuration_recorder_status$",
-	"aws_vpc_peering_connection_accepter$",
-	"aws_elasticache_user_group$",
 	"aws_waf_rule_group$",
 	"aws_wafregional_rule_group$",
 	"aws_shield_protection_group$",
-	"aws_route53_resolver_firewall_rule_group$",
 	"aws_kinesis_analytics_application$",
 }
 
@@ -168,6 +170,7 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 		kms.Configure,
 		rds.Configure,
 		s3.Configure,
+		route53.Configure,
 	} {
 		configure(pc)
 	}
