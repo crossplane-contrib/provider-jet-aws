@@ -156,7 +156,7 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 		tfProvider.ResourcesMap, "aws", "github.com/crossplane-contrib/provider-jet-aws",
 		tjconfig.WithShortName("awsjet"),
 		tjconfig.WithRootGroup("aws.jet.crossplane.io"),
-		//tjconfig.WithIncludeList(IncludedResources),
+		// tjconfig.WithIncludeList(IncludedResources),
 		tjconfig.WithSkipList(skipList),
 		tjconfig.WithDefaultResourceFn(DefaultResource(
 			GroupOverrides(),
