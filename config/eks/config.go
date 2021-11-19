@@ -17,14 +17,20 @@ limitations under the License.
 package eks
 
 import (
+	"context"
+	"fmt"
+	"strings"
+
 	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/pkg/errors"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for eks group.
-func Configure(p *config.Provider) {
+func Configure(p *config.Provider) { // nolint:gocyclo
 	p.AddResourceConfigurator("aws_eks_cluster", func(r *config.Resource) {
+		r.ExternalName = config.NameAsIdentifier
 		r.References = config.References{
 			"role_arn": {
 				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
@@ -52,6 +58,8 @@ func Configure(p *config.Provider) {
 				"node_group_name",
 				"node_group_name_prefix",
 			},
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
 		}
 		r.References = config.References{
 			"cluster_name": {
@@ -91,6 +99,25 @@ func Configure(p *config.Provider) {
 			OmittedFields: []string{
 				"fargate_profile_name",
 			},
+			GetIDFn: func(_ context.Context, externalName string, parameters map[string]interface{}, _ map[string]interface{}) (string, error) {
+				cl, ok := parameters["cluster_name"].(string)
+				if !ok || cl == "" {
+					return "", errors.New("cannot get cluster_name from parameters")
+				}
+				return fmt.Sprintf("%s:%s", cl, externalName), nil
+			},
+			GetExternalNameFn: func(tfstate map[string]interface{}) (string, error) {
+				id, ok := tfstate["id"].(string)
+				if !ok || id == "" {
+					return "", errors.New("cannot get id from tfstate")
+				}
+				// my_cluster:my_fargate_profile
+				w := strings.Split(id, ":")
+				if len(w) != 2 {
+					return "", errors.New("format of id should be my_cluster:my_fargate_profile")
+				}
+				return w[len(w)-1], nil
+			},
 		}
 
 		r.References = config.References{
@@ -109,7 +136,33 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_eks_addon", func(r *config.Resource) {
-		r.ExternalName = config.IdentifierFromProvider
+		r.ExternalName = config.ExternalName{
+			SetIdentifierArgumentFn: func(base map[string]interface{}, externalName string) {
+				base["addon_name"] = externalName
+			},
+			OmittedFields: []string{
+				"addon_name",
+			},
+			GetIDFn: func(_ context.Context, externalName string, parameters map[string]interface{}, _ map[string]interface{}) (string, error) {
+				cl, ok := parameters["cluster_name"].(string)
+				if !ok || cl == "" {
+					return "", errors.New("cannot get cluster_name from parameters")
+				}
+				return fmt.Sprintf("%s:%s", cl, externalName), nil
+			},
+			GetExternalNameFn: func(tfstate map[string]interface{}) (string, error) {
+				id, ok := tfstate["id"].(string)
+				if !ok || id == "" {
+					return "", errors.New("cannot get id from tfstate")
+				}
+				// my_cluster:my_fargate_profile
+				w := strings.Split(id, ":")
+				if len(w) != 2 {
+					return "", errors.New("format of id should be my_cluster:my_fargate_profile")
+				}
+				return w[len(w)-1], nil
+			},
+		}
 		r.References = config.References{
 			"cluster_name": {
 				Type: "Cluster",

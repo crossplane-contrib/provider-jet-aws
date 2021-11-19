@@ -95,7 +95,6 @@ var IncludedResources = []string{
 	"aws_network_interface$",
 	"aws_route$",
 	"aws_route_table$",
-	"aws_main_route_table_association$",
 	"aws_vpc_endpoint$",
 	"aws_vpc_ipv4_cidr_block_association$",
 	"aws_vpc_peering_connection$",
@@ -140,8 +139,15 @@ var IncludedResources = []string{
 var skipList = []string{
 	"aws_waf_rule_group$",
 	"aws_wafregional_rule_group$",
-	"aws_glue_connection$",  // See https://github.com/crossplane-contrib/terrajet/issues/100
-	"aws_mwaa_environment$", // See https://github.com/crossplane-contrib/terrajet/issues/100
+	"aws_glue_connection$",             // See https://github.com/crossplane-contrib/terrajet/issues/100
+	"aws_mwaa_environment$",            // See https://github.com/crossplane-contrib/terrajet/issues/100
+	"aws_ecs_tag$",                     // tags are already managed by ecs resources.
+	"aws_alb$",                         // identical with aws_lb
+	"aws_alb_target_group_attachment$", // identical with aws_lb_target_group_attachment
+	"aws_iam_policy_attachment$",       // identical with aws_iam_*_policy_attachment resources.
+	"aws_iam_group_policy$",            // identical with aws_iam_*_policy_attachment resources.
+	"aws_iam_role_policy$",             // identical with aws_iam_*_policy_attachment resources.
+	"aws_iam_user_policy$",             // identical with aws_iam_*_policy_attachment resources.
 }
 
 // GetProvider returns provider configuration
@@ -157,6 +163,7 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 			RegionAddition(),
 			TagsAllRemoval(),
 			IdentifierAssignedByAWS(),
+			NamePrefixRemoval(),
 		)),
 	)
 

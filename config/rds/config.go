@@ -32,6 +32,8 @@ func Configure(p *config.Provider) {
 				"cluster_identifier",
 				"cluster_identifier_prefix",
 			},
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
 		}
 		r.References = config.References{
 			"s3_import.bucket_name": {
@@ -59,6 +61,8 @@ func Configure(p *config.Provider) {
 				"identifier",
 				"identifier_prefix",
 			},
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
 		}
 		r.References = config.References{
 			"restore_to_point_in_time.source_db_instance_identifier": {
@@ -94,5 +98,6 @@ func Configure(p *config.Provider) {
 	})
 	p.AddResourceConfigurator("aws_db_parameter_group", func(r *config.Resource) {
 		r.Kind = "DBParameterGroup"
+		r.ExternalName = config.NameAsIdentifier
 	})
 }

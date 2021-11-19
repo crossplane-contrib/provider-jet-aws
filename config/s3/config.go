@@ -33,6 +33,8 @@ func Configure(p *config.Provider) {
 				"bucket",
 				"bucket_prefix",
 			},
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
 		}
 		r.References = config.References{
 			"server_side_encryption_configuration.rule.apply_server_side_encryption_by_default.kms_master_key_id": {

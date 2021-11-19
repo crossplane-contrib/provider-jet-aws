@@ -25,6 +25,7 @@ import (
 // Configure adds configurations for ecrs group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ecr_repository", func(r *config.Resource) {
+		r.ExternalName = config.NameAsIdentifier
 		r.References = map[string]config.Reference{
 			"encryption_configuration.kms_key": {
 				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",

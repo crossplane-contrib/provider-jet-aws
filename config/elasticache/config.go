@@ -23,7 +23,7 @@ import (
 // Configure adds configurations for elasticache group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_elasticache_parameter_group", func(r *config.Resource) {
-		r.ExternalName = config.IdentifierFromProvider
+		r.ExternalName = config.NameAsIdentifier
 	})
 
 	p.AddResourceConfigurator("aws_elasticache_cluster", func(r *config.Resource) {
@@ -34,6 +34,8 @@ func Configure(p *config.Provider) {
 			OmittedFields: []string{
 				"cluster_id",
 			},
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
 		}
 		r.References = config.References{
 			"parameter_group_name": config.Reference{
@@ -51,6 +53,8 @@ func Configure(p *config.Provider) {
 			OmittedFields: []string{
 				"replication_group_id",
 			},
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
 		}
 	})
 

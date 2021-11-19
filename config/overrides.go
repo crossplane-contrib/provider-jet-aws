@@ -99,6 +99,19 @@ func IdentifierAssignedByAWS() tjconfig.ResourceOption {
 	}
 }
 
+// NamePrefixRemoval makes sure we remove name_prefix from all since it is mostly
+// for Terraform functionality.
+func NamePrefixRemoval() tjconfig.ResourceOption {
+	return func(r *tjconfig.Resource) {
+		for _, f := range r.ExternalName.OmittedFields {
+			if f == "name_prefix" {
+				return
+			}
+		}
+		r.ExternalName.OmittedFields = append(r.ExternalName.OmittedFields, "name_prefix")
+	}
+}
+
 func matches(name string, regexes map[string]string) (string, bool) {
 	for k, v := range regexes {
 		ok, err := regexp.MatchString(k, name)

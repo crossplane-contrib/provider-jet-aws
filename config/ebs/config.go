@@ -23,7 +23,6 @@ import (
 // Configure adds configurations for ebs group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ebs_volume", func(r *config.Resource) {
-		r.ExternalName = config.IdentifierFromProvider
 		r.References = map[string]config.Reference{
 			"kms_key_id": {
 				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
