@@ -33,6 +33,7 @@ import (
 	ipv4cidrblockassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/ipv4cidrblockassociation"
 	launchtemplate "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/launchtemplate"
 	networkinterface "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/networkinterface"
+	peeringconnectionaccepter "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/peeringconnectionaccepter"
 	route "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/route"
 	routetable "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/routetable"
 	routetableassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/routetableassociation"
@@ -63,6 +64,8 @@ import (
 	clusterelasticache "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/replicationgroup"
+	user "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/user"
+	usergroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/usergroup"
 	loadbalancer "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticloadbalancing/loadbalancer"
 	loadbalancerlistener "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticloadbalancing/loadbalancerlistener"
 	targetgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticloadbalancing/targetgroup"
@@ -77,7 +80,7 @@ import (
 	role "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/role"
 	rolepolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/rolepolicy"
 	rolepolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/rolepolicyattachment"
-	user "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/user"
+	useriam "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/user"
 	usergroupmembership "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/usergroupmembership"
 	userpolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/userpolicy"
 	userpolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/userpolicyattachment"
@@ -86,6 +89,26 @@ import (
 	dbcluster "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/dbcluster"
 	dbinstance "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/dbinstance"
 	dbparametergroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/dbparametergroup"
+	delegationset "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/delegationset"
+	healthcheck "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/healthcheck"
+	hostedzonednssec "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/hostedzonednssec"
+	keysigningkey "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/keysigningkey"
+	querylog "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/querylog"
+	record "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/record"
+	resolverdnssecconfig "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverdnssecconfig"
+	resolverendpoint "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverendpoint"
+	resolverfirewallconfig "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverfirewallconfig"
+	resolverfirewalldomainlist "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverfirewalldomainlist"
+	resolverfirewallrule "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverfirewallrule"
+	resolverfirewallrulegroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverfirewallrulegroup"
+	resolverfirewallrulegroupassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverfirewallrulegroupassociation"
+	resolverquerylogconfig "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverquerylogconfig"
+	resolverquerylogconfigassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverquerylogconfigassociation"
+	resolverrule "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverrule"
+	resolverruleassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/resolverruleassociation"
+	vpcassociationauthorization "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/vpcassociationauthorization"
+	zone "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/zone"
+	zoneassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/zoneassociation"
 	bucket "github.com/crossplane-contrib/provider-jet-aws/internal/controller/s3/bucket"
 )
 
@@ -101,6 +124,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		ipv4cidrblockassociation.Setup,
 		launchtemplate.Setup,
 		networkinterface.Setup,
+		peeringconnectionaccepter.Setup,
 		route.Setup,
 		routetable.Setup,
 		routetableassociation.Setup,
@@ -131,6 +155,8 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		clusterelasticache.Setup,
 		parametergroup.Setup,
 		replicationgroup.Setup,
+		user.Setup,
+		usergroup.Setup,
 		loadbalancer.Setup,
 		loadbalancerlistener.Setup,
 		targetgroup.Setup,
@@ -145,7 +171,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		role.Setup,
 		rolepolicy.Setup,
 		rolepolicyattachment.Setup,
-		user.Setup,
+		useriam.Setup,
 		usergroupmembership.Setup,
 		userpolicy.Setup,
 		userpolicyattachment.Setup,
@@ -154,6 +180,26 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		dbcluster.Setup,
 		dbinstance.Setup,
 		dbparametergroup.Setup,
+		delegationset.Setup,
+		healthcheck.Setup,
+		hostedzonednssec.Setup,
+		keysigningkey.Setup,
+		querylog.Setup,
+		record.Setup,
+		resolverdnssecconfig.Setup,
+		resolverendpoint.Setup,
+		resolverfirewallconfig.Setup,
+		resolverfirewalldomainlist.Setup,
+		resolverfirewallrule.Setup,
+		resolverfirewallrulegroup.Setup,
+		resolverfirewallrulegroupassociation.Setup,
+		resolverquerylogconfig.Setup,
+		resolverquerylogconfigassociation.Setup,
+		resolverrule.Setup,
+		resolverruleassociation.Setup,
+		vpcassociationauthorization.Setup,
+		zone.Setup,
+		zoneassociation.Setup,
 		bucket.Setup,
 	} {
 		if err := setup(mgr, l, wl, ps, ws, cfg, concurrency); err != nil {

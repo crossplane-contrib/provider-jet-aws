@@ -49,3 +49,29 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	return nil
 }
+
+// ResolveReferences of this UserGroup.
+func (mg *UserGroup) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var mrsp reference.MultiResolutionResponse
+	var err error
+
+	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.UserIds),
+		Extract:       reference.ExternalName(),
+		References:    mg.Spec.ForProvider.UserIdRefs,
+		Selector:      mg.Spec.ForProvider.UserIdSelector,
+		To: reference.To{
+			List:    &UserList{},
+			Managed: &User{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.UserIds")
+	}
+	mg.Spec.ForProvider.UserIds = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.UserIdRefs = mrsp.ResolvedReferences
+
+	return nil
+}

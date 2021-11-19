@@ -299,6 +299,62 @@ func (mg *NetworkInterface) SetWriteConnectionSecretToReference(r *xpv1.SecretRe
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this PeeringConnectionAccepter.
+func (mg *PeeringConnectionAccepter) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this PeeringConnectionAccepter.
+func (mg *PeeringConnectionAccepter) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this PeeringConnectionAccepter.
+func (mg *PeeringConnectionAccepter) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this PeeringConnectionAccepter.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *PeeringConnectionAccepter) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetWriteConnectionSecretToReference of this PeeringConnectionAccepter.
+func (mg *PeeringConnectionAccepter) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this PeeringConnectionAccepter.
+func (mg *PeeringConnectionAccepter) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this PeeringConnectionAccepter.
+func (mg *PeeringConnectionAccepter) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this PeeringConnectionAccepter.
+func (mg *PeeringConnectionAccepter) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this PeeringConnectionAccepter.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *PeeringConnectionAccepter) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetWriteConnectionSecretToReference of this PeeringConnectionAccepter.
+func (mg *PeeringConnectionAccepter) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this Route.
 func (mg *Route) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
