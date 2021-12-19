@@ -1,7 +1,7 @@
 apiVersion: rds.aws.jet.crossplane.io/v1alpha1
-kind: DBParameterGroup
+kind: ParameterGroup
 metadata:
-  name: example-dbparametergroup
+  name: example-parametergroup
 spec:
   forProvider:
     region: us-east-1

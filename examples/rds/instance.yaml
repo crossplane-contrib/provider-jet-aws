@@ -1,5 +1,5 @@
 apiVersion: rds.aws.jet.crossplane.io/v1alpha1
-kind: DBInstance
+kind: Instance
 metadata:
   name: example-dbinstance
 spec:
