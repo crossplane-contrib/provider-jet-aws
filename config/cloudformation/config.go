@@ -16,7 +16,7 @@ limitations under the License.
 
 package cloudformation
 
-import tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
+import tjconfig "github.com/crossplane/terrajet/pkg/config"
 
 // Configure configures cloudformation resources.
 func Configure(p *tjconfig.Provider) {

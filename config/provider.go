@@ -19,7 +19,7 @@ package config
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
+	tjconfig "github.com/crossplane/terrajet/pkg/config"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config/autoscaling"
 	"github.com/crossplane-contrib/provider-jet-aws/config/cloudformation"
@@ -139,8 +139,8 @@ var IncludedResources = []string{
 var skipList = []string{
 	"aws_waf_rule_group$",
 	"aws_wafregional_rule_group$",
-	"aws_glue_connection$",             // See https://github.com/crossplane-contrib/terrajet/issues/100
-	"aws_mwaa_environment$",            // See https://github.com/crossplane-contrib/terrajet/issues/100
+	"aws_glue_connection$",             // See https://github.com/crossplane/terrajet/issues/100
+	"aws_mwaa_environment$",            // See https://github.com/crossplane/terrajet/issues/100
 	"aws_ecs_tag$",                     // tags are already managed by ecs resources.
 	"aws_alb$",                         // identical with aws_lb
 	"aws_alb_target_group_attachment$", // identical with aws_lb_target_group_attachment

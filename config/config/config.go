@@ -1,6 +1,6 @@
 package config
 
-import tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
+import tjconfig "github.com/crossplane/terrajet/pkg/config"
 
 // Configure configures resources in config group.
 func Configure(p *tjconfig.Provider) {

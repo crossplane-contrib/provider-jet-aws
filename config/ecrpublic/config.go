@@ -17,7 +17,7 @@ limitations under the License.
 package ecrpublic
 
 import (
-	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane/terrajet/pkg/config"
 )
 
 // Configure adds configurations for ecrpublic group.

@@ -29,7 +29,7 @@ configuration for the resource.
     package $GROUP
 
     import (
-      "github.com/crossplane-contrib/terrajet/pkg/config"
+      "github.com/crossplane/terrajet/pkg/config"
     )
       
     func init() {
@@ -349,7 +349,7 @@ you will want/need to customize late-initialization behaviour. Thus,
 Terrajet provides an extensible [late-initialization customization API] 
 that controls late-initialization behaviour.
 
-The associated resource struct is defined [here](https://github.com/crossplane-contrib/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/config/resource.go#L91) as follows:
+The associated resource struct is defined [here](https://github.com/crossplane/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/config/resource.go#L91) as follows:
 ```go
 // LateInitializer represents configurations that control
 // late-initialization behaviour
@@ -424,7 +424,7 @@ one of the mutually exclusive fields during late-initialization.
 
 [comment]: <> (References)
 
-[Terrajet]: https://github.com/crossplane-contrib/terrajet
+[Terrajet]: https://github.com/crossplane/terrajet
 [generator main.go]: /cmd/generator/main.go
 [aws_iam_access_key]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key
 [this line]: https://github.com/crossplane-contrib/provider-jet-aws/blob/d2c0024f18b5760e4d2222c405ad0501c63ee0b2/cmd/generator/main.go#L108
@@ -436,7 +436,7 @@ one of the mutually exclusive fields during late-initialization.
 [Late Initialization Behavior]: #late-initialization-behavior
 [the external name documentation]: https://crossplane.io/docs/v1.4/concepts/managed-resources.html#external-name
 [import section]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key#import
-[the struct that holds the External Name configuration]: https://github.com/crossplane-contrib/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/config/resource.go#L58
+[the struct that holds the External Name configuration]: https://github.com/crossplane/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/config/resource.go#L58
 [aws_vpc]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
 [import section of aws_vpc]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc#import
 [arguments list]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc#argument-reference
@@ -449,7 +449,7 @@ one of the mutually exclusive fields during late-initialization.
 [handle dependencies]: https://crossplane.io/docs/v1.4/concepts/managed-resources.html#dependencies
 [user]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key#user
 [generate reference resolution methods]: https://github.com/crossplane/crossplane-tools/pull/35
-[configuration]: https://github.com/crossplane-contrib/terrajet/blob/24f186f45e70808768aa0b7abd4fa82e4f446f3f/pkg/config/field.go#L5
+[configuration]: https://github.com/crossplane/terrajet/blob/24f186f45e70808768aa0b7abd4fa82e4f446f3f/pkg/config/field.go#L5
 [iam_access_key]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key#argument-reference
 [Referencing]: https://github.com/crossplane-contrib/provider-jet-aws/blob/5509c10d768622c3631615947cf7b18086a58aa3/config/ebs/config.go#L27-L31
 [kms key]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume#kms_key_id
@@ -457,7 +457,7 @@ one of the mutually exclusive fields during late-initialization.
 [aws_rds_cluster]: https://github.com/crossplane-contrib/provider-jet-aws/blob/5509c10d768622c3631615947cf7b18086a58aa3/config/rds/config.go#L50
 [s3_import field is a list]: https://github.com/hashicorp/terraform-provider-aws/blob/fce7062f70caa92a78bca629ffe441c088456418/aws/resource_aws_rds_cluster.go#L287
 [connection details]: https://crossplane.io/docs/v1.4/concepts/managed-resources.html#connection-details
-[handle sensitive fields]: https://github.com/crossplane-contrib/terrajet/pull/77
-[add additional keys with custom values]: https://github.com/crossplane-contrib/terrajet/pull/121
-[`external.Observe`]: https://github.com/crossplane-contrib/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/controller/external.go#L177
-[late-initialization customization API]: https://github.com/crossplane-contrib/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/resource/lateinit.go#L50
+[handle sensitive fields]: https://github.com/crossplane/terrajet/pull/77
+[add additional keys with custom values]: https://github.com/crossplane/terrajet/pull/121
+[`external.Observe`]: https://github.com/crossplane/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/controller/external.go#L177
+[late-initialization customization API]: https://github.com/crossplane/terrajet/blob/c9e21387298d8ed59fcd71c7f753ec401a3383a5/pkg/resource/lateinit.go#L50
