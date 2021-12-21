@@ -1,21 +1,23 @@
-apiVersion: appmesh.aws.jet.crossplane.io/v1alpha1
-kind: Route
-metadata:
-  name: example
-spec:
-  forProvider:
-    meshName: ${aws_appmesh_mesh.simple.id}
-    name: serviceB-route
-    spec:
-    - httpRoute:
-      - action:
-        - weightedTarget:
-          - virtualNode: serviceBv1
-            weight: 90
-          - virtualNode: serviceBv1
-            weight: 10
-        match:
-        - prefix: /
-    virtualRouterName: serviceB
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: appmesh.aws.jet.crossplane.io/v1alpha1
+#kind: Route
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    meshName: ${aws_appmesh_mesh.simple.id}
+#    name: serviceB-route
+#    spec:
+#    - httpRoute:
+#      - action:
+#        - weightedTarget:
+#          - virtualNode: serviceBv1
+#            weight: 90
+#          - virtualNode: serviceBv1
+#            weight: 10
+#        match:
+#        - prefix: /
+#    virtualRouterName: serviceB
+#  providerConfigRef:
+#    name: example

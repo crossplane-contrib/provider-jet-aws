@@ -1,24 +1,26 @@
-apiVersion: iam.aws.jet.crossplane.io/v1alpha1
-kind: Role
-metadata:
-  name: example
-spec:
-  forProvider:
-    assumeRolePolicy: |-
-      ${jsonencode({
-          Version = "2012-10-17"
-          Statement = [
-            {
-              Action = "sts:AssumeRole"
-              Effect = "Allow"
-              Sid    = ""
-              Principal = {
-                Service = "ec2.amazonaws.com"
-              }
-            },
-          ]
-        })}
-    tags:
-      tag-key: tag-value
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: iam.aws.jet.crossplane.io/v1alpha2
+#kind: Role
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    assumeRolePolicy: |-
+#      ${jsonencode({
+#          Version = "2012-10-17"
+#          Statement = [
+#            {
+#              Action = "sts:AssumeRole"
+#              Effect = "Allow"
+#              Sid    = ""
+#              Principal = {
+#                Service = "ec2.amazonaws.com"
+#              }
+#            },
+#          ]
+#        })}
+#    tags:
+#      tag-key: tag-value
+#  providerConfigRef:
+#    name: example

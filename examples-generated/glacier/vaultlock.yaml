@@ -1,11 +1,13 @@
-apiVersion: glacier.aws.jet.crossplane.io/v1alpha1
-kind: VaultLock
-metadata:
-  name: example
-spec:
-  forProvider:
-    completeLock: false
-    policy: ${data.aws_iam_policy_document.example.json}
-    vaultName: MyArchive
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: glacier.aws.jet.crossplane.io/v1alpha1
+#kind: VaultLock
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    completeLock: false
+#    policy: ${data.aws_iam_policy_document.example.json}
+#    vaultName: MyArchive
+#  providerConfigRef:
+#    name: example

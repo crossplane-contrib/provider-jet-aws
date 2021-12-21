@@ -1,13 +1,15 @@
-apiVersion: kms.aws.jet.crossplane.io/v1alpha1
-kind: Ciphertext
-metadata:
-  name: example
-spec:
-  forProvider:
-    keyId: ${aws_kms_key.oauth_config.key_id}
-    plaintextSecretRef:
-      key: example-key
-      name: example-secret
-      namespace: crossplane-system
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: kms.aws.jet.crossplane.io/v1alpha1
+#kind: Ciphertext
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    keyId: ${aws_kms_key.oauth_config.key_id}
+#    plaintextSecretRef:
+#      key: example-key
+#      name: example-secret
+#      namespace: crossplane-system
+#  providerConfigRef:
+#    name: example

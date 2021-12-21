@@ -1,19 +1,21 @@
-apiVersion: imagebuilder.aws.jet.crossplane.io/v1alpha1
-kind: ImageRecipe
-metadata:
-  name: example
-spec:
-  forProvider:
-    blockDeviceMapping:
-    - deviceName: /dev/xvdb
-      ebs:
-      - deleteOnTermination: true
-        volumeSize: 100
-        volumeType: gp2
-    component:
-    - componentArn: ${aws_imagebuilder_component.example.arn}
-    name: example
-    parentImage: arn:${data.aws_partition.current.partition}:imagebuilder:${data.aws_region.current.name}:aws:image/amazon-linux-2-x86/x.x.x
-    version: 1.0.0
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: imagebuilder.aws.jet.crossplane.io/v1alpha1
+#kind: ImageRecipe
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    blockDeviceMapping:
+#    - deviceName: /dev/xvdb
+#      ebs:
+#      - deleteOnTermination: true
+#        volumeSize: 100
+#        volumeType: gp2
+#    component:
+#    - componentArn: ${aws_imagebuilder_component.example.arn}
+#    name: example
+#    parentImage: arn:${data.aws_partition.current.partition}:imagebuilder:${data.aws_region.current.name}:aws:image/amazon-linux-2-x86/x.x.x
+#    version: 1.0.0
+#  providerConfigRef:
+#    name: example

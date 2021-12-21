@@ -1,14 +1,16 @@
-apiVersion: neptune.aws.jet.crossplane.io/v1alpha1
-kind: ClusterParameterGroup
-metadata:
-  name: example
-spec:
-  forProvider:
-    description: neptune cluster parameter group
-    family: neptune1
-    name: example
-    parameter:
-    - name: neptune_enable_audit_log
-      value: 1
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: neptune.aws.jet.crossplane.io/v1alpha1
+#kind: ClusterParameterGroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    description: neptune cluster parameter group
+#    family: neptune1
+#    name: example
+#    parameter:
+#    - name: neptune_enable_audit_log
+#      value: 1
+#  providerConfigRef:
+#    name: example

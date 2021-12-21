@@ -1,17 +1,19 @@
-apiVersion: athena.aws.jet.crossplane.io/v1alpha1
-kind: Workgroup
-metadata:
-  name: example
-spec:
-  forProvider:
-    configuration:
-    - enforceWorkgroupConfiguration: true
-      publishCloudwatchMetricsEnabled: true
-      resultConfiguration:
-      - encryptionConfiguration:
-        - encryptionOption: SSE_KMS
-          kmsKeyArn: ${aws_kms_key.example.arn}
-        outputLocation: my-tf-test-bucket
-    name: example
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: athena.aws.jet.crossplane.io/v1alpha1
+#kind: Workgroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    configuration:
+#    - enforceWorkgroupConfiguration: true
+#      publishCloudwatchMetricsEnabled: true
+#      resultConfiguration:
+#      - encryptionConfiguration:
+#        - encryptionOption: SSE_KMS
+#          kmsKeyArn: ${aws_kms_key.example.arn}
+#        outputLocation: s3://${aws_s3_bucket.example.bucket}/output/
+#    name: example
+#  providerConfigRef:
+#    name: example

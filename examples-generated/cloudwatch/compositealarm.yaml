@@ -1,15 +1,17 @@
-apiVersion: cloudwatch.aws.jet.crossplane.io/v1alpha1
-kind: CompositeAlarm
-metadata:
-  name: example
-spec:
-  forProvider:
-    alarmActions: ${aws_sns_topic.example.arn}
-    alarmDescription: This is a composite alarm!
-    alarmName: example-composite-alarm
-    alarmRule: |
-      ALARM(${aws_cloudwatch_metric_alarm.alpha.alarm_name}) OR
-      ALARM(${aws_cloudwatch_metric_alarm.bravo.alarm_name})
-    okActions: ${aws_sns_topic.example.arn}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: cloudwatch.aws.jet.crossplane.io/v1alpha1
+#kind: CompositeAlarm
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    alarmActions: ${aws_sns_topic.example.arn}
+#    alarmDescription: This is a composite alarm!
+#    alarmName: example-composite-alarm
+#    alarmRule: |
+#      ALARM(${aws_cloudwatch_metric_alarm.alpha.alarm_name}) OR
+#      ALARM(${aws_cloudwatch_metric_alarm.bravo.alarm_name})
+#    okActions: ${aws_sns_topic.example.arn}
+#  providerConfigRef:
+#    name: example

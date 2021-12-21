@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: elbv2.aws.jet.crossplane.io/v1alpha1
+#kind: LBListenerCertificate
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    certificateArn: ${aws_acm_certificate.example.arn}
+#    listenerArn: ${aws_lb_listener.front_end.arn}
+#  providerConfigRef:
+#    name: example

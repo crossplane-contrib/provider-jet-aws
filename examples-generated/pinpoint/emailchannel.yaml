@@ -1,11 +1,14 @@
-apiVersion: pinpoint.aws.jet.crossplane.io/v1alpha1
-kind: EmailChannel
-metadata:
-  name: example
-spec:
-  forProvider:
-    applicationId: ${aws_pinpoint_app.app.application_id}
-    fromAddress: user@example.com
-    roleArn: ${aws_iam_role.role.arn}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: pinpoint.aws.jet.crossplane.io/v1alpha1
+#kind: EmailChannel
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    applicationId: ${aws_pinpoint_app.app.application_id}
+#    fromAddress: user@example.com
+#    roleArnRef:
+#      name: example
+#  providerConfigRef:
+#    name: example

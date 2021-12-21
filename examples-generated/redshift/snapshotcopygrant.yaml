@@ -1,9 +1,11 @@
-apiVersion: redshift.aws.jet.crossplane.io/v1alpha1
-kind: SnapshotCopyGrant
-metadata:
-  name: example
-spec:
-  forProvider:
-    snapshotCopyGrantName: my-grant
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: redshift.aws.jet.crossplane.io/v1alpha1
+#kind: SnapshotCopyGrant
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    snapshotCopyGrantName: my-grant
+#  providerConfigRef:
+#    name: example

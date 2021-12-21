@@ -1,11 +1,13 @@
-apiVersion: elasticache.aws.jet.crossplane.io/v1alpha1
-kind: SubnetGroup
-metadata:
-  name: example
-spec:
-  forProvider:
-    name: tf-test-cache-subnet
-    subnetIds:
-    - ${aws_subnet.foo.id}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: elasticache.aws.jet.crossplane.io/v1alpha1
+#kind: SubnetGroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: tf-test-cache-subnet
+#    subnetIdRefs:
+#    - name: example
+#  providerConfigRef:
+#    name: example

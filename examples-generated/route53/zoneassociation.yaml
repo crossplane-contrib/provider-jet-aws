@@ -1,12 +1,14 @@
-apiVersion: route53.aws.jet.crossplane.io/v1alpha1
-kind: ZoneAssociation
-metadata:
-  name: example
-spec:
-  forProvider:
-    vpcIdRef:
-      name: example
-    zoneIdRef:
-      name: example
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: route53.aws.jet.crossplane.io/v1alpha2
+#kind: ZoneAssociation
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    vpcidRef:
+#      name: example
+#    zoneIdRef:
+#      name: example
+#  providerConfigRef:
+#    name: example

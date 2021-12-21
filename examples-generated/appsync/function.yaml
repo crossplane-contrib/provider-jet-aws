@@ -1,26 +1,28 @@
-apiVersion: appsync.aws.jet.crossplane.io/v1alpha1
-kind: Function
-metadata:
-  name: example
-spec:
-  forProvider:
-    apiId: ${aws_appsync_graphql_api.example.id}
-    dataSource: tf_appsync_example
-    name: example
-    requestMappingTemplate: |
-      {
-          "version": "2018-05-29",
-          "method": "GET",
-          "resourcePath": "/",
-          "params":{
-              "headers": $utils.http.copyheaders($ctx.request.headers)
-          }
-      }
-    responseMappingTemplate: |
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: appsync.aws.jet.crossplane.io/v1alpha1
+#kind: Function
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    apiId: ${aws_appsync_graphql_api.example.id}
+#    dataSource: tf_appsync_example
+#    name: example
+#    requestMappingTemplate: |
+#      {
+#          "version": "2018-05-29",
+#          "method": "GET",
+#          "resourcePath": "/",
+#          "params":{
+#              "headers": $utils.http.copyheaders($ctx.request.headers)
+#          }
+#      }
+#    responseMappingTemplate: |
       #if($ctx.result.statusCode == 200)
-          $ctx.result.body
+#          $ctx.result.body
       #else
-          $utils.appendError($ctx.result.body, $ctx.result.statusCode)
+#          $utils.appendError($ctx.result.body, $ctx.result.statusCode)
       #end
-  providerConfigRef:
-    name: example
+#  providerConfigRef:
+#    name: example

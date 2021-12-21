@@ -1,9 +1,11 @@
-apiVersion: servicecatalog.aws.jet.crossplane.io/v1alpha1
-kind: OrganizationsAccess
-metadata:
-  name: example
-spec:
-  forProvider:
-    enabled: "true"
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: servicecatalog.aws.jet.crossplane.io/v1alpha1
+#kind: OrganizationsAccess
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    enabled: "true"
+#  providerConfigRef:
+#    name: example

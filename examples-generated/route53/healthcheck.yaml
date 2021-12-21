@@ -1,16 +1,18 @@
-apiVersion: route53.aws.jet.crossplane.io/v1alpha1
-kind: HealthCheck
-metadata:
-  name: example
-spec:
-  forProvider:
-    failureThreshold: "5"
-    fqdn: example.com
-    port: 80
-    requestInterval: "30"
-    resourcePath: /
-    tags:
-      Name: tf-test-health-check
-    type: HTTP
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: route53.aws.jet.crossplane.io/v1alpha2
+#kind: HealthCheck
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    failureThreshold: "5"
+#    fqdn: example.com
+#    port: 80
+#    requestInterval: "30"
+#    resourcePath: /
+#    tags:
+#      Name: tf-test-health-check
+#    type: HTTP
+#  providerConfigRef:
+#    name: example

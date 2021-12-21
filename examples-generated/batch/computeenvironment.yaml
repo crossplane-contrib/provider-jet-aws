@@ -1,24 +1,24 @@
-apiVersion: batch.aws.jet.crossplane.io/v1alpha1
-kind: ComputeEnvironment
-metadata:
-  name: example
-spec:
-  forProvider:
-    computeEnvironmentName: sample
-    computeResources:
-    - instanceRole: ${aws_iam_instance_profile.ecs_instance_role.arn}
-      instanceType:
-      - c4.large
-      maxVcpus: 16
-      minVcpus: 0
-      securityGroupIds:
-      - ${aws_security_group.sample.id}
-      subnets:
-      - ${aws_subnet.sample.id}
-      type: EC2
-    depends_on:
-    - ${aws_iam_role_policy_attachment.aws_batch_service_role}
-    serviceRole: ${aws_iam_role.aws_batch_service_role.arn}
-    type: MANAGED
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: batch.aws.jet.crossplane.io/v1alpha1
+#kind: ComputeEnvironment
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    computeEnvironmentName: sample
+#    computeResources:
+#    - instanceRole: ${aws_iam_instance_profile.ecs_instance_role.arn}
+#      instanceType:
+#      - c4.large
+#      maxVcpus: 16
+#      minVcpus: 0
+#      securityGroupIds:
+#      - ${aws_security_group.sample.id}
+#      subnets:
+#      - ${aws_subnet.sample.id}
+#      type: EC2
+#    serviceRole: ${aws_iam_role.aws_batch_service_role.arn}
+#    type: MANAGED
+#  providerConfigRef:
+#    name: example

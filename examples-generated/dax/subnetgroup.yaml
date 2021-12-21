@@ -1,12 +1,13 @@
-apiVersion: dax.aws.jet.crossplane.io/v1alpha1
-kind: SubnetGroup
-metadata:
-  name: example
-spec:
-  forProvider:
-    name: example
-    subnetIds:
-    - ${aws_subnet.example1.id}
-    - ${aws_subnet.example2.id}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: dax.aws.jet.crossplane.io/v1alpha1
+#kind: SubnetGroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: example
+#    subnetIdRefs:
+#    - name: example
+#  providerConfigRef:
+#    name: example

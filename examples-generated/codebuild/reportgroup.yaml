@@ -1,18 +1,20 @@
-apiVersion: codebuild.aws.jet.crossplane.io/v1alpha1
-kind: ReportGroup
-metadata:
-  name: example
-spec:
-  forProvider:
-    exportConfig:
-    - s3Destination:
-      - bucket: ${aws_s3_bucket.example.id}
-        encryptionDisabled: false
-        encryptionKey: ${aws_kms_key.example.arn}
-        packaging: NONE
-        path: /some
-      type: S3
-    name: my test report group
-    type: TEST
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: codebuild.aws.jet.crossplane.io/v1alpha1
+#kind: ReportGroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    exportConfig:
+#    - s3Destination:
+#      - bucket: ${aws_s3_bucket.example.id}
+#        encryptionDisabled: false
+#        encryptionKey: ${aws_kms_key.example.arn}
+#        packaging: NONE
+#        path: /some
+#      type: S3
+#    name: my test report group
+#    type: TEST
+#  providerConfigRef:
+#    name: example

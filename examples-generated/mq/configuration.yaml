@@ -1,21 +1,23 @@
-apiVersion: mq.aws.jet.crossplane.io/v1alpha1
-kind: Configuration
-metadata:
-  name: example
-spec:
-  forProvider:
-    data: |
-      <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-      <broker xmlns="http://activemq.apache.org/schema/core">
-        <plugins>
-          <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
-          <statisticsBrokerPlugin/>
-          <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
-        </plugins>
-      </broker>
-    description: Example Configuration
-    engineType: ActiveMQ
-    engineVersion: 5.15.0
-    name: example
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: mq.aws.jet.crossplane.io/v1alpha1
+#kind: Configuration
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    data: |
+#      <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+#      <broker xmlns="http://activemq.apache.org/schema/core">
+#        <plugins>
+#          <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
+#          <statisticsBrokerPlugin/>
+#          <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+#        </plugins>
+#      </broker>
+#    description: Example Configuration
+#    engineType: ActiveMQ
+#    engineVersion: 5.15.0
+#    name: example
+#  providerConfigRef:
+#    name: example

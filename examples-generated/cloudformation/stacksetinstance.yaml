@@ -1,11 +1,13 @@
-apiVersion: cloudformation.aws.jet.crossplane.io/v1alpha1
-kind: StackSetInstance
-metadata:
-  name: example
-spec:
-  forProvider:
-    accountId: "123456789012"
-    region: us-east-1
-    stackSetName: example
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: cloudformation.aws.jet.crossplane.io/v1alpha1
+#kind: StackSetInstance
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    accountId: "123456789012"
+#    region: us-east-1
+#    stackSetName: example
+#  providerConfigRef:
+#    name: example

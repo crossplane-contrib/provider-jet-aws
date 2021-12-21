@@ -1,17 +1,17 @@
-apiVersion: macie2.aws.jet.crossplane.io/v1alpha1
-kind: ClassificationJob
-metadata:
-  name: example
-spec:
-  forProvider:
-    depends_on:
-    - ${aws_macie2_account.test}
-    jobType: ONE_TIME
-    name: NAME OF THE CLASSIFICATION JOB
-    s3JobDefinition:
-    - bucketDefinitions:
-      - accountId: ACCOUNT ID
-        buckets:
-        - S3 BUCKET NAME
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: macie2.aws.jet.crossplane.io/v1alpha1
+#kind: ClassificationJob
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    jobType: ONE_TIME
+#    name: NAME OF THE CLASSIFICATION JOB
+#    s3JobDefinition:
+#    - bucketDefinitions:
+#      - accountId: ACCOUNT ID
+#        buckets:
+#        - S3 BUCKET NAME
+#  providerConfigRef:
+#    name: example

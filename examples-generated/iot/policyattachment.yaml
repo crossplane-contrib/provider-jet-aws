@@ -1,10 +1,12 @@
-apiVersion: iot.aws.jet.crossplane.io/v1alpha1
-kind: PolicyAttachment
-metadata:
-  name: example
-spec:
-  forProvider:
-    policy: PubSubToAnyTopic
-    target: ${aws_iot_certificate.cert.arn}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: iot.aws.jet.crossplane.io/v1alpha1
+#kind: PolicyAttachment
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    policy: PubSubToAnyTopic
+#    target: ${aws_iot_certificate.cert.arn}
+#  providerConfigRef:
+#    name: example

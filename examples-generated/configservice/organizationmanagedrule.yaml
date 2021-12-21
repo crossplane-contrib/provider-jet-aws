@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: configservice.aws.jet.crossplane.io/v1alpha1
+#kind: OrganizationManagedRule
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: example
+#    ruleIdentifier: IAM_PASSWORD_POLICY
+#  providerConfigRef:
+#    name: example

@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: configservice.aws.jet.crossplane.io/v1alpha1
+#kind: AWSConfigurationRecorderStatus
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    isEnabled: true
+#    name: example
+#  providerConfigRef:
+#    name: example

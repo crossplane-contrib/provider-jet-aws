@@ -1,10 +1,12 @@
-apiVersion: ram.aws.jet.crossplane.io/v1alpha1
-kind: PrincipalAssociation
-metadata:
-  name: example
-spec:
-  forProvider:
-    principal: "111111111111"
-    resourceShareArn: ${aws_ram_resource_share.example.arn}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: ram.aws.jet.crossplane.io/v1alpha1
+#kind: PrincipalAssociation
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    principal: "111111111111"
+#    resourceShareArn: ${aws_ram_resource_share.example.arn}
+#  providerConfigRef:
+#    name: example

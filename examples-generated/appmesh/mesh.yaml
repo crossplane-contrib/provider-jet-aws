@@ -1,9 +1,11 @@
-apiVersion: appmesh.aws.jet.crossplane.io/v1alpha1
-kind: Mesh
-metadata:
-  name: example
-spec:
-  forProvider:
-    name: simpleapp
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: appmesh.aws.jet.crossplane.io/v1alpha1
+#kind: Mesh
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: simpleapp
+#  providerConfigRef:
+#    name: example

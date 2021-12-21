@@ -1,13 +1,15 @@
-apiVersion: neptune.aws.jet.crossplane.io/v1alpha1
-kind: ClusterInstance
-metadata:
-  name: example
-spec:
-  forProvider:
-    applyImmediately: true
-    clusterIdentifier: ${aws_neptune_cluster.default.id}
-    count: 2
-    engine: neptune
-    instanceClass: db.r4.large
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: neptune.aws.jet.crossplane.io/v1alpha1
+#kind: ClusterInstance
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    applyImmediately: true
+#    clusterIdentifier: ${aws_neptune_cluster.default.id}
+#    count: 2
+#    engine: neptune
+#    instanceClass: db.r4.large
+#  providerConfigRef:
+#    name: example

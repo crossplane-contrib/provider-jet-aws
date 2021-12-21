@@ -1,11 +1,13 @@
-apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
-kind: VPCEndpoint
-metadata:
-  name: example
-spec:
-  forProvider:
-    serviceName: com.amazonaws.us-west-2.s3
-    vpcIdRef:
-      name: example
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: ec2.aws.jet.crossplane.io/v1alpha2
+#kind: VPCEndpoint
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    serviceName: com.amazonaws.us-west-2.s3
+#    vpcidRef:
+#      name: example
+#  providerConfigRef:
+#    name: example

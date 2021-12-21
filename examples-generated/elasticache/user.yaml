@@ -1,15 +1,17 @@
-apiVersion: elasticache.aws.jet.crossplane.io/v1alpha1
-kind: User
-metadata:
-  name: example
-spec:
-  forProvider:
-    accessString: on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield
-      -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius
-      -georadiusbymember
-    engine: REDIS
-    passwords:
-    - password123456789
-    userName: testUserName
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: elasticache.aws.jet.crossplane.io/v1alpha2
+#kind: User
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    accessString: on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield
+#      -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius
+#      -georadiusbymember
+#    engine: REDIS
+#    passwords:
+#    - password123456789
+#    userName: testUserName
+#  providerConfigRef:
+#    name: example

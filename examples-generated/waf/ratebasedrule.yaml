@@ -1,18 +1,18 @@
-apiVersion: waf.aws.jet.crossplane.io/v1alpha1
-kind: RateBasedRule
-metadata:
-  name: example
-spec:
-  forProvider:
-    depends_on:
-    - ${aws_waf_ipset.ipset}
-    metricName: tfWAFRule
-    name: tfWAFRule
-    predicates:
-    - dataId: ${aws_waf_ipset.ipset.id}
-      negated: false
-      type: IPMatch
-    rateKey: IP
-    rateLimit: 100
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: waf.aws.jet.crossplane.io/v1alpha1
+#kind: RateBasedRule
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    metricName: tfWAFRule
+#    name: tfWAFRule
+#    predicates:
+#    - dataId: ${aws_waf_ipset.ipset.id}
+#      negated: false
+#      type: IPMatch
+#    rateKey: IP
+#    rateLimit: 100
+#  providerConfigRef:
+#    name: example

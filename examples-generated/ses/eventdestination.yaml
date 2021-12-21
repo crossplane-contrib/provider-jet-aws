@@ -1,18 +1,20 @@
-apiVersion: ses.aws.jet.crossplane.io/v1alpha1
-kind: EventDestination
-metadata:
-  name: example
-spec:
-  forProvider:
-    cloudwatchDestination:
-    - defaultValue: default
-      dimensionName: dimension
-      valueSource: emailHeader
-    configurationSetName: some-configuration-set-test
-    enabled: true
-    matchingTypes:
-    - bounce
-    - send
-    name: event-destination-cloudwatch
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: ses.aws.jet.crossplane.io/v1alpha1
+#kind: EventDestination
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    cloudwatchDestination:
+#    - defaultValue: default
+#      dimensionName: dimension
+#      valueSource: emailHeader
+#    configurationSetName: some-configuration-set-test
+#    enabled: true
+#    matchingTypes:
+#    - bounce
+#    - send
+#    name: event-destination-cloudwatch
+#  providerConfigRef:
+#    name: example

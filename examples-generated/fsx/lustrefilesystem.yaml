@@ -1,12 +1,14 @@
-apiVersion: fsx.aws.jet.crossplane.io/v1alpha1
-kind: LustreFileSystem
-metadata:
-  name: example
-spec:
-  forProvider:
-    importPath: my-tf-test-bucket
-    storageCapacity: 1200
-    subnetIds:
-    - ${aws_subnet.example.id}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: fsx.aws.jet.crossplane.io/v1alpha1
+#kind: LustreFileSystem
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    importPath: s3://${aws_s3_bucket.example.bucket}
+#    storageCapacity: 1200
+#    subnetIdRefs:
+#    - name: example
+#  providerConfigRef:
+#    name: example

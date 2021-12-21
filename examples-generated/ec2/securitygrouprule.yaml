@@ -1,18 +1,20 @@
-apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
-kind: SecurityGroupRule
-metadata:
-  name: example
-spec:
-  forProvider:
-    cidrBlocks:
-    - ${aws_vpc.example.cidr_block}
-    fromPort: 0
-    ipv6CidrBlocks:
-    - ${aws_vpc.example.ipv6_cidr_block}
-    protocol: tcp
-    securityGroupIdRef:
-      name: example
-    toPort: 65535
-    type: ingress
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: ec2.aws.jet.crossplane.io/v1alpha2
+#kind: SecurityGroupRule
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    cidrBlocks:
+#    - ${aws_vpc.example.cidr_block}
+#    fromPort: 0
+#    ipv6CidrBlocks:
+#    - ${aws_vpc.example.ipv6_cidr_block}
+#    protocol: tcp
+#    securityGroupIdRef:
+#      name: example
+#    toPort: 65535
+#    type: ingress
+#  providerConfigRef:
+#    name: example

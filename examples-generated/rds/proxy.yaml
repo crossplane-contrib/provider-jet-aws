@@ -1,26 +1,29 @@
-apiVersion: rds.aws.jet.crossplane.io/v1alpha1
-kind: Proxy
-metadata:
-  name: example
-spec:
-  forProvider:
-    auth:
-    - authScheme: SECRETS
-      description: example
-      iamAuth: DISABLED
-      secretArn: ${aws_secretsmanager_secret.example.arn}
-    debugLogging: false
-    engineFamily: MYSQL
-    idleClientTimeout: 1800
-    name: example
-    requireTls: true
-    roleArn: ${aws_iam_role.example.arn}
-    tags:
-      Key: value
-      Name: example
-    vpcSecurityGroupIds:
-    - ${aws_security_group.example.id}
-    vpcSubnetIds:
-    - ${aws_subnet.example.id}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: rds.aws.jet.crossplane.io/v1alpha1
+#kind: Proxy
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    auth:
+#    - authScheme: SECRETS
+#      description: example
+#      iamAuth: DISABLED
+#      secretArn: ${aws_secretsmanager_secret.example.arn}
+#    debugLogging: false
+#    engineFamily: MYSQL
+#    idleClientTimeout: 1800
+#    name: example
+#    requireTls: true
+#    roleArnRef:
+#      name: example
+#    tags:
+#      Key: value
+#      Name: example
+#    vpcSecurityGroupIdRefs:
+#    - name: example
+#    vpcSubnetIds:
+#    - ${aws_subnet.example.id}
+#  providerConfigRef:
+#    name: example

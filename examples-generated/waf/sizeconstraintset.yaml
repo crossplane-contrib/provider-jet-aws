@@ -1,15 +1,17 @@
-apiVersion: waf.aws.jet.crossplane.io/v1alpha1
-kind: SizeConstraintSet
-metadata:
-  name: example
-spec:
-  forProvider:
-    name: tfsize_constraints
-    sizeConstraints:
-    - comparisonOperator: EQ
-      fieldToMatch:
-      - type: BODY
-      size: "4096"
-      textTransformation: NONE
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: waf.aws.jet.crossplane.io/v1alpha1
+#kind: SizeConstraintSet
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: tfsize_constraints
+#    sizeConstraints:
+#    - comparisonOperator: EQ
+#      fieldToMatch:
+#      - type: BODY
+#      size: "4096"
+#      textTransformation: NONE
+#  providerConfigRef:
+#    name: example

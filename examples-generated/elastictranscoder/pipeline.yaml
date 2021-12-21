@@ -1,17 +1,19 @@
-apiVersion: elastictranscoder.aws.jet.crossplane.io/v1alpha1
-kind: Pipeline
-metadata:
-  name: example
-spec:
-  forProvider:
-    contentConfig:
-    - bucket: my-tf-test-bucket
-      storageClass: Standard
-    inputBucket: my-tf-test-bucket
-    name: aws_elastictranscoder_pipeline_tf_test_
-    role: ${aws_iam_role.test_role.arn}
-    thumbnailConfig:
-    - bucket: my-tf-test-bucket
-      storageClass: Standard
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: elastictranscoder.aws.jet.crossplane.io/v1alpha1
+#kind: Pipeline
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    contentConfig:
+#    - bucket: ${aws_s3_bucket.content_bucket.bucket}
+#      storageClass: Standard
+#    inputBucket: ${aws_s3_bucket.input_bucket.bucket}
+#    name: aws_elastictranscoder_pipeline_tf_test_
+#    role: ${aws_iam_role.test_role.arn}
+#    thumbnailConfig:
+#    - bucket: ${aws_s3_bucket.thumb_bucket.bucket}
+#      storageClass: Standard
+#  providerConfigRef:
+#    name: example

@@ -1,24 +1,26 @@
-apiVersion: rds.aws.jet.crossplane.io/v1alpha1
-kind: EventSubscription
-metadata:
-  name: example
-spec:
-  forProvider:
-    eventCategories:
-    - availability
-    - deletion
-    - failover
-    - failure
-    - low storage
-    - maintenance
-    - notification
-    - read replica
-    - recovery
-    - restoration
-    name: rds-event-sub
-    snsTopic: ${aws_sns_topic.default.arn}
-    sourceIds:
-    - ${aws_db_instance.default.id}
-    sourceType: db-instance
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: rds.aws.jet.crossplane.io/v1alpha1
+#kind: EventSubscription
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    eventCategories:
+#    - availability
+#    - deletion
+#    - failover
+#    - failure
+#    - low storage
+#    - maintenance
+#    - notification
+#    - read replica
+#    - recovery
+#    - restoration
+#    name: rds-event-sub
+#    snsTopic: ${aws_sns_topic.default.arn}
+#    sourceIds:
+#    - ${aws_db_instance.default.id}
+#    sourceType: db-instance
+#  providerConfigRef:
+#    name: example

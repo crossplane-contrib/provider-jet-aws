@@ -1,13 +1,15 @@
-apiVersion: imagebuilder.aws.jet.crossplane.io/v1alpha1
-kind: ImagePipeline
-metadata:
-  name: example
-spec:
-  forProvider:
-    imageRecipeArn: ${aws_imagebuilder_image_recipe.example.arn}
-    infrastructureConfigurationArn: ${aws_imagebuilder_infrastructure_configuration.example.arn}
-    name: example
-    schedule:
-    - scheduleExpression: cron(0 0 * * ? *)
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: imagebuilder.aws.jet.crossplane.io/v1alpha1
+#kind: ImagePipeline
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    imageRecipeArn: ${aws_imagebuilder_image_recipe.example.arn}
+#    infrastructureConfigurationArn: ${aws_imagebuilder_infrastructure_configuration.example.arn}
+#    name: example
+#    schedule:
+#    - scheduleExpression: cron(0 0 * * ? *)
+#  providerConfigRef:
+#    name: example

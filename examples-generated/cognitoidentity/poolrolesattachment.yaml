@@ -1,0 +1,22 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: cognitoidentity.aws.jet.crossplane.io/v1alpha1
+#kind: PoolRolesAttachment
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    identityPoolId: ${aws_cognito_identity_pool.main.id}
+#    roleMapping:
+#    - ambiguousRoleResolution: AuthenticatedRole
+#      identityProvider: graph.facebook.com
+#      mappingRule:
+#      - claim: isAdmin
+#        matchType: Equals
+#        roleArn: ${aws_iam_role.authenticated.arn}
+#        value: paid
+#      type: Rules
+#    roles:
+#      authenticated: ${aws_iam_role.authenticated.arn}
+#  providerConfigRef:
+#    name: example

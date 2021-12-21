@@ -1,10 +1,12 @@
-apiVersion: iam.aws.jet.crossplane.io/v1alpha1
-kind: SamlProvider
-metadata:
-  name: example
-spec:
-  forProvider:
-    name: myprovider
-    samlMetadataDocument: ${file("saml-metadata.xml")}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: iam.aws.jet.crossplane.io/v1alpha1
+#kind: SAMLProvider
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: myprovider
+#    samlMetadataDocument: ${file("saml-metadata.xml")}
+#  providerConfigRef:
+#    name: example

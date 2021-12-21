@@ -1,22 +1,24 @@
-apiVersion: networkfirewall.aws.jet.crossplane.io/v1alpha1
-kind: RuleGroup
-metadata:
-  name: example
-spec:
-  forProvider:
-    capacity: 100
-    name: example
-    ruleGroup:
-    - rulesSource:
-      - rulesSourceList:
-        - generatedRulesType: DENYLIST
-          targetTypes:
-          - HTTP_HOST
-          targets:
-          - test.example.com
-    tags:
-      Tag1: Value1
-      Tag2: Value2
-    type: STATEFUL
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: networkfirewall.aws.jet.crossplane.io/v1alpha1
+#kind: RuleGroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    capacity: 100
+#    name: example
+#    ruleGroup:
+#    - rulesSource:
+#      - rulesSourceList:
+#        - generatedRulesType: DENYLIST
+#          targetTypes:
+#          - HTTP_HOST
+#          targets:
+#          - test.example.com
+#    tags:
+#      Tag1: Value1
+#      Tag2: Value2
+#    type: STATEFUL
+#  providerConfigRef:
+#    name: example

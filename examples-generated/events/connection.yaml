@@ -1,0 +1,20 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: events.aws.jet.crossplane.io/v1alpha1
+#kind: Connection
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    authParameters:
+#    - apiKey:
+#      - key: x-signature
+#        valueSecretRef:
+#          key: example-key
+#          name: example-secret
+#          namespace: crossplane-system
+#    authorizationType: API_KEY
+#    description: A connection description
+#    name: ngrok-connection
+#  providerConfigRef:
+#    name: example

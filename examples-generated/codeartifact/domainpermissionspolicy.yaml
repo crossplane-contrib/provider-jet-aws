@@ -1,21 +1,23 @@
-apiVersion: codeartifact.aws.jet.crossplane.io/v1alpha1
-kind: DomainPermissionsPolicy
-metadata:
-  name: example
-spec:
-  forProvider:
-    domain: example
-    policyDocument: |
-      {
-          "Version": "2012-10-17",
-          "Statement": [
-              {
-                  "Action": "codeartifact:CreateRepository",
-                  "Effect": "Allow",
-                  "Principal": "*",
-                  "Resource": "${aws_codeartifact_domain.example.arn}"
-              }
-          ]
-      }
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: codeartifact.aws.jet.crossplane.io/v1alpha1
+#kind: DomainPermissionsPolicy
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    domain: example
+#    policyDocument: |
+#      {
+#          "Version": "2012-10-17",
+#          "Statement": [
+#              {
+#                  "Action": "codeartifact:CreateRepository",
+#                  "Effect": "Allow",
+#                  "Principal": "*",
+#                  "Resource": "${aws_codeartifact_domain.example.arn}"
+#              }
+#          ]
+#      }
+#  providerConfigRef:
+#    name: example

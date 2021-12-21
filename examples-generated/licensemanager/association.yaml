@@ -1,10 +1,12 @@
-apiVersion: licensemanager.aws.jet.crossplane.io/v1alpha1
-kind: Association
-metadata:
-  name: example
-spec:
-  forProvider:
-    licenseConfigurationArn: ${aws_licensemanager_license_configuration.example.arn}
-    resourceArn: ${aws_instance.example.arn}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: licensemanager.aws.jet.crossplane.io/v1alpha1
+#kind: Association
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    licenseConfigurationArn: ${aws_licensemanager_license_configuration.example.arn}
+#    resourceArn: ${aws_instance.example.arn}
+#  providerConfigRef:
+#    name: example

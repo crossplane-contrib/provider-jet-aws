@@ -1,25 +1,27 @@
-apiVersion: s3control.aws.jet.crossplane.io/v1alpha1
-kind: BucketPolicy
-metadata:
-  name: example
-spec:
-  forProvider:
-    bucket: ${aws_s3control_bucket.example.arn}
-    policy: |-
-      ${jsonencode({
-          Id = "testBucketPolicy"
-          Statement = [
-            {
-              Action = "s3-outposts:PutBucketLifecycleConfiguration"
-              Effect = "Deny"
-              Principal = {
-                AWS = "*"
-              }
-              Resource = aws_s3control_bucket.example.arn
-              Sid      = "statement1"
-            }
-          ]
-          Version = "2012-10-17"
-        })}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: s3control.aws.jet.crossplane.io/v1alpha1
+#kind: BucketPolicy
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    bucket: ${aws_s3control_bucket.example.arn}
+#    policy: |-
+#      ${jsonencode({
+#          Id = "testBucketPolicy"
+#          Statement = [
+#            {
+#              Action = "s3-outposts:PutBucketLifecycleConfiguration"
+#              Effect = "Deny"
+#              Principal = {
+#                AWS = "*"
+#              }
+#              Resource = aws_s3control_bucket.example.arn
+#              Sid      = "statement1"
+#            }
+#          ]
+#          Version = "2012-10-17"
+#        })}
+#  providerConfigRef:
+#    name: example

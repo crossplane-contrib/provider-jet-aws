@@ -1,12 +1,14 @@
-apiVersion: wafregional.aws.jet.crossplane.io/v1alpha1
-kind: RegexPatternSet
-metadata:
-  name: example
-spec:
-  forProvider:
-    name: example
-    regexPatternStrings:
-    - one
-    - two
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: wafregional.aws.jet.crossplane.io/v1alpha1
+#kind: RegexPatternSet
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: example
+#    regexPatternStrings:
+#    - one
+#    - two
+#  providerConfigRef:
+#    name: example

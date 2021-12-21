@@ -1,19 +1,21 @@
-apiVersion: dms.aws.jet.crossplane.io/v1alpha1
-kind: EventSubscription
-metadata:
-  name: example
-spec:
-  forProvider:
-    enabled: true
-    eventCategories:
-    - creation
-    - failure
-    name: my-favorite-event-subscription
-    snsTopicArn: ${aws_sns_topic.example.arn}
-    sourceIds:
-    - ${aws_dms_replication_task.example.replication_task_id}
-    sourceType: replication-task
-    tags:
-      Name: example
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: dms.aws.jet.crossplane.io/v1alpha1
+#kind: EventSubscription
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    enabled: true
+#    eventCategories:
+#    - creation
+#    - failure
+#    name: my-favorite-event-subscription
+#    snsTopicArn: ${aws_sns_topic.example.arn}
+#    sourceIds:
+#    - ${aws_dms_replication_task.example.replication_task_id}
+#    sourceType: replication-task
+#    tags:
+#      Name: example
+#  providerConfigRef:
+#    name: example

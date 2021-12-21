@@ -1,17 +1,19 @@
-apiVersion: workspaces.aws.jet.crossplane.io/v1alpha1
-kind: IpGroup
-metadata:
-  name: example
-spec:
-  forProvider:
-    description: Contractors IP access control group
-    name: Contractors
-    rules:
-    - description: NY
-      source: 150.24.14.0/24
-    - description: LA
-      source: 125.191.14.85/32
-    - description: STL
-      source: 44.98.100.0/24
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: workspaces.aws.jet.crossplane.io/v1alpha1
+#kind: IPGroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    description: Contractors IP access control group
+#    name: Contractors
+#    rules:
+#    - description: NY
+#      source: 150.24.14.0/24
+#    - description: LA
+#      source: 125.191.14.85/32
+#    - description: STL
+#      source: 44.98.100.0/24
+#  providerConfigRef:
+#    name: example

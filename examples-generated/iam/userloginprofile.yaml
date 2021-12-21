@@ -1,10 +1,12 @@
-apiVersion: iam.aws.jet.crossplane.io/v1alpha1
-kind: UserLoginProfile
-metadata:
-  name: example
-spec:
-  forProvider:
-    pgpKey: keybase:some_person_that_exists
-    user: ${aws_iam_user.example.name}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: iam.aws.jet.crossplane.io/v1alpha1
+#kind: UserLoginProfile
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    pgpKey: keybase:some_person_that_exists
+#    user: ${aws_iam_user.example.name}
+#  providerConfigRef:
+#    name: example

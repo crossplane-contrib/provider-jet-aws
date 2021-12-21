@@ -1,0 +1,16 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: apigateway.aws.jet.crossplane.io/v1alpha1
+#kind: DocumentationPart
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    location:
+#    - method: GET
+#      path: /example
+#      type: METHOD
+#    properties: '{"description":"Example description"}'
+#    restApiId: ${aws_api_gateway_rest_api.example.id}
+#  providerConfigRef:
+#    name: example

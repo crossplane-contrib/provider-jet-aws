@@ -1,14 +1,16 @@
-apiVersion: codecommit.aws.jet.crossplane.io/v1alpha1
-kind: Trigger
-metadata:
-  name: example
-spec:
-  forProvider:
-    repositoryName: ${aws_codecommit_repository.test.repository_name}
-    trigger:
-    - destinationArn: ${aws_sns_topic.test.arn}
-      events:
-      - all
-      name: all
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: codecommit.aws.jet.crossplane.io/v1alpha1
+#kind: Trigger
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    repositoryName: ${aws_codecommit_repository.test.repository_name}
+#    trigger:
+#    - destinationArn: ${aws_sns_topic.test.arn}
+#      events:
+#      - all
+#      name: all
+#  providerConfigRef:
+#    name: example

@@ -1,12 +1,15 @@
-apiVersion: storagegateway.aws.jet.crossplane.io/v1alpha1
-kind: SmbFileShare
-metadata:
-  name: example
-spec:
-  forProvider:
-    authentication: ActiveDirectory
-    gatewayArn: ${aws_storagegateway_gateway.example.arn}
-    locationArn: ${aws_s3_bucket.example.arn}
-    roleArn: ${aws_iam_role.example.arn}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: storagegateway.aws.jet.crossplane.io/v1alpha1
+#kind: SMBFileShare
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    authentication: ActiveDirectory
+#    gatewayArn: ${aws_storagegateway_gateway.example.arn}
+#    locationArn: ${aws_s3_bucket.example.arn}
+#    roleArnRef:
+#      name: example
+#  providerConfigRef:
+#    name: example

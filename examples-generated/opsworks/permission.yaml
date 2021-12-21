@@ -1,13 +1,15 @@
-apiVersion: opsworks.aws.jet.crossplane.io/v1alpha1
-kind: Permission
-metadata:
-  name: example
-spec:
-  forProvider:
-    allowSsh: true
-    allowSudo: true
-    level: iam_only
-    stackId: ${aws_opsworks_stack.stack.id}
-    userArn: ${aws_iam_user.user.arn}
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: opsworks.aws.jet.crossplane.io/v1alpha1
+#kind: Permission
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    allowSsh: true
+#    allowSudo: true
+#    level: iam_only
+#    stackId: ${aws_opsworks_stack.stack.id}
+#    userArn: ${aws_iam_user.user.arn}
+#  providerConfigRef:
+#    name: example

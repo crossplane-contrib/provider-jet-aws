@@ -1,18 +1,20 @@
-apiVersion: wafregional.aws.jet.crossplane.io/v1alpha1
-kind: WebAcl
-metadata:
-  name: example
-spec:
-  forProvider:
-    defaultAction:
-    - type: ALLOW
-    metricName: tfWebACL
-    name: tfWebACL
-    rule:
-    - action:
-      - type: BLOCK
-      priority: 1
-      ruleId: ${aws_wafregional_rule.wafrule.id}
-      type: REGULAR
-  providerConfigRef:
-    name: example
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: wafregional.aws.jet.crossplane.io/v1alpha1
+#kind: WebACL
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    defaultAction:
+#    - type: ALLOW
+#    metricName: tfWebACL
+#    name: tfWebACL
+#    rule:
+#    - action:
+#      - type: BLOCK
+#      priority: 1
+#      ruleId: ${aws_wafregional_rule.wafrule.id}
+#      type: REGULAR
+#  providerConfigRef:
+#    name: example
