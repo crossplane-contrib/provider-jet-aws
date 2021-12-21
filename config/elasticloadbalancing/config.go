@@ -50,13 +50,13 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"load_balancer_arn": {
-				Type: "LoadBalancer",
+				Type: "LB",
 			},
 			"default_action.target_group_arn": {
-				Type: "TargetGroup",
+				Type: "LBTargetGroup",
 			},
 			"default_action.forward.target_group.arn": {
-				Type: "TargetGroup",
+				Type: "LBTargetGroup",
 			},
 		}
 	})
@@ -79,7 +79,7 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"target_group_arn": {
-				Type: "TargetGroup",
+				Type: "LBTargetGroup",
 			},
 		}
 	})

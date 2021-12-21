@@ -47,7 +47,7 @@ func Configure(p *config.Provider) {
 			Type: "AutoscalingGroup",
 		}
 		r.References["alb_target_group_arn"] = config.Reference{
-			Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha1.TargetGroup",
+			Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha1.LBTargetGroup",
 			Extractor: common.PathARNExtractor,
 		}
 	})

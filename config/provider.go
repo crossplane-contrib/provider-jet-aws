@@ -155,7 +155,7 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 		tjconfig.WithIncludeList(IncludedResources),
 		tjconfig.WithSkipList(skipList),
 		tjconfig.WithDefaultResourceFn(DefaultResource(
-			GroupOverrides(),
+			GroupKindOverrides(),
 			KindOverrides(),
 			RegionAddition(),
 			TagsAllRemoval(),
