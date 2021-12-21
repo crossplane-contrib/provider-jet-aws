@@ -1,0 +1,11 @@
+apiVersion: ecs.aws.jet.crossplane.io/v1alpha1
+kind: Cluster
+metadata:
+  name: example
+spec:
+  forProvider:
+    setting:
+    - name: containerInsights
+      value: enabled
+  providerConfigRef:
+    name: example

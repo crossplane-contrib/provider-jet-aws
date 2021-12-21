@@ -1,0 +1,9 @@
+apiVersion: ebs.aws.jet.crossplane.io/v1alpha1
+kind: DefaultKmsKey
+metadata:
+  name: example
+spec:
+  forProvider:
+    keyArn: ${aws_kms_key.example.arn}
+  providerConfigRef:
+    name: example

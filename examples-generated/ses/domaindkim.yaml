@@ -1,0 +1,9 @@
+apiVersion: ses.aws.jet.crossplane.io/v1alpha1
+kind: DomainDkim
+metadata:
+  name: example
+spec:
+  forProvider:
+    domain: example.com
+  providerConfigRef:
+    name: example

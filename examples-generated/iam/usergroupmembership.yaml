@@ -1,0 +1,12 @@
+apiVersion: iam.aws.jet.crossplane.io/v1alpha1
+kind: UserGroupMembership
+metadata:
+  name: example
+spec:
+  forProvider:
+    groupRefs:
+    - name: example
+    userRef:
+      name: example
+  providerConfigRef:
+    name: example

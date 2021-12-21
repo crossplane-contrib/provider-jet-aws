@@ -1,0 +1,16 @@
+apiVersion: networkfirewall.aws.jet.crossplane.io/v1alpha1
+kind: LoggingConfiguration
+metadata:
+  name: example
+spec:
+  forProvider:
+    firewallArn: ${aws_networkfirewall_firewall.example.arn}
+    loggingConfiguration:
+    - logDestinationConfig:
+      - logDestination:
+          bucketName: my-tf-test-bucket
+          prefix: /example
+        logDestinationType: S3
+        logType: FLOW
+  providerConfigRef:
+    name: example

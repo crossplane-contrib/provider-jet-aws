@@ -1,0 +1,10 @@
+apiVersion: vpn.aws.jet.crossplane.io/v1alpha1
+kind: GatewayAttachment
+metadata:
+  name: example
+spec:
+  forProvider:
+    vpcId: ${aws_vpc.network.id}
+    vpnGatewayId: ${aws_vpn_gateway.vpn.id}
+  providerConfigRef:
+    name: example

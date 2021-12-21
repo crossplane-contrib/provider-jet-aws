@@ -1,0 +1,12 @@
+apiVersion: ssm.aws.jet.crossplane.io/v1alpha1
+kind: ResourceDataSync
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: foo
+    s3Destination:
+    - bucketName: my-tf-test-bucket
+      region: ${aws_s3_bucket.hoge.region}
+  providerConfigRef:
+    name: example

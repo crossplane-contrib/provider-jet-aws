@@ -1,0 +1,13 @@
+apiVersion: wafregional.aws.jet.crossplane.io/v1alpha1
+kind: SqlInjectionMatchSet
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: tf-sql_injection_match_set
+    sqlInjectionMatchTuple:
+    - fieldToMatch:
+      - type: QUERY_STRING
+      textTransformation: URL_DECODE
+  providerConfigRef:
+    name: example

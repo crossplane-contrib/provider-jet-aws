@@ -1,0 +1,9 @@
+apiVersion: cloudwatch.aws.jet.crossplane.io/v1alpha1
+kind: EventBus
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: chat-messages
+  providerConfigRef:
+    name: example

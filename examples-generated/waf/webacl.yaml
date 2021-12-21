@@ -1,0 +1,21 @@
+apiVersion: waf.aws.jet.crossplane.io/v1alpha1
+kind: WebAcl
+metadata:
+  name: example
+spec:
+  forProvider:
+    defaultAction:
+    - type: ALLOW
+    depends_on:
+    - ${aws_waf_ipset.ipset}
+    - ${aws_waf_rule.wafrule}
+    metricName: tfWebACL
+    name: tfWebACL
+    rules:
+    - action:
+      - type: BLOCK
+      priority: 1
+      ruleId: ${aws_waf_rule.wafrule.id}
+      type: REGULAR
+  providerConfigRef:
+    name: example

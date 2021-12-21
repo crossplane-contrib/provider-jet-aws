@@ -1,0 +1,14 @@
+apiVersion: load.aws.jet.crossplane.io/v1alpha1
+kind: BalancerPolicy
+metadata:
+  name: example
+spec:
+  forProvider:
+    loadBalancerName: foobar-terraform-elb
+    policyAttribute:
+    - name: PublicKey
+      value: ${file("wu-tang-pubkey")}
+    policyName: wu-tang-ca-pubkey-policy
+    policyTypeName: PublicKeyPolicyType
+  providerConfigRef:
+    name: example

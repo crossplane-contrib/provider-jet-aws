@@ -1,0 +1,15 @@
+apiVersion: macie2.aws.jet.crossplane.io/v1alpha1
+kind: Member
+metadata:
+  name: example
+spec:
+  forProvider:
+    accountId: AWS ACCOUNT ID
+    depends_on:
+    - ${aws_macie2_account.example}
+    email: EMAIL
+    invitationDisableEmailNotification: true
+    invitationMessage: Message of the invitation
+    invite: true
+  providerConfigRef:
+    name: example

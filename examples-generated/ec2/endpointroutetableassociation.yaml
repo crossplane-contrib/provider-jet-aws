@@ -1,0 +1,10 @@
+apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
+kind: EndpointRouteTableAssociation
+metadata:
+  name: example
+spec:
+  forProvider:
+    routeTableId: ${aws_route_table.example.id}
+    vpcEndpointId: ${aws_vpc_endpoint.example.id}
+  providerConfigRef:
+    name: example

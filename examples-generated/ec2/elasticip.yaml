@@ -1,0 +1,11 @@
+apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
+kind: ElasticIP
+metadata:
+  name: example
+spec:
+  forProvider:
+    instanceRef:
+      name: example
+    vpc: true
+  providerConfigRef:
+    name: example

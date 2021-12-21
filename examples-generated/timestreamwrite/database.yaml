@@ -1,0 +1,9 @@
+apiVersion: timestreamwrite.aws.jet.crossplane.io/v1alpha1
+kind: Database
+metadata:
+  name: example
+spec:
+  forProvider:
+    databaseName: database-example
+  providerConfigRef:
+    name: example

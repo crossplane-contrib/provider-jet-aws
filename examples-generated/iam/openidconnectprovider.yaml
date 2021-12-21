@@ -1,0 +1,12 @@
+apiVersion: iam.aws.jet.crossplane.io/v1alpha1
+kind: OpenidConnectProvider
+metadata:
+  name: example
+spec:
+  forProvider:
+    clientIdList:
+    - 266362248691-342342xasdasdasda-apps.googleusercontent.com
+    thumbprintList: []
+    url: https://accounts.google.com
+  providerConfigRef:
+    name: example

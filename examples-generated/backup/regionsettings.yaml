@@ -1,0 +1,17 @@
+apiVersion: backup.aws.jet.crossplane.io/v1alpha1
+kind: RegionSettings
+metadata:
+  name: example
+spec:
+  forProvider:
+    resourceTypeOptInPreference:
+      Aurora: true
+      DynamoDB: true
+      EBS: true
+      EC2: true
+      EFS: true
+      FSx: true
+      RDS: true
+      Storage Gateway: true
+  providerConfigRef:
+    name: example

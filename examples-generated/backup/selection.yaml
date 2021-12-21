@@ -1,0 +1,9 @@
+apiVersion: backup.aws.jet.crossplane.io/v1alpha1
+kind: Selection
+metadata:
+  name: example
+spec:
+  forProvider:
+    iamRoleArn: ${aws_iam_role.example.arn}
+  providerConfigRef:
+    name: example

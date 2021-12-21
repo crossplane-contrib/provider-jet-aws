@@ -1,0 +1,12 @@
+apiVersion: ebs.aws.jet.crossplane.io/v1alpha1
+kind: Volume
+metadata:
+  name: example
+spec:
+  forProvider:
+    availabilityZone: us-west-2a
+    size: 40
+    tags:
+      Name: HelloWorld
+  providerConfigRef:
+    name: example

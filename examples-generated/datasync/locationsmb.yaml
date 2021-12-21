@@ -1,0 +1,17 @@
+apiVersion: datasync.aws.jet.crossplane.io/v1alpha1
+kind: LocationSmb
+metadata:
+  name: example
+spec:
+  forProvider:
+    agentArns:
+    - ${aws_datasync_agent.example.arn}
+    passwordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: crossplane-system
+    serverHostname: smb.example.com
+    subdirectory: /exported/path
+    user: Guest
+  providerConfigRef:
+    name: example

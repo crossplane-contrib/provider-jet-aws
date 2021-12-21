@@ -1,0 +1,26 @@
+apiVersion: imagebuilder.aws.jet.crossplane.io/v1alpha1
+kind: InfrastructureConfiguration
+metadata:
+  name: example
+spec:
+  forProvider:
+    description: example description
+    instanceProfileName: ${aws_iam_instance_profile.example.name}
+    instanceTypes:
+    - t2.nano
+    - t3.micro
+    keyPair: ${aws_key_pair.example.key_name}
+    logging:
+    - s3Logs:
+      - s3BucketName: my-tf-test-bucket
+        s3KeyPrefix: logs
+    name: example
+    securityGroupIds:
+    - ${aws_security_group.example.id}
+    snsTopicArn: ${aws_sns_topic.example.arn}
+    subnetId: ${aws_subnet.main.id}
+    tags:
+      foo: bar
+    terminateInstanceOnFailure: true
+  providerConfigRef:
+    name: example

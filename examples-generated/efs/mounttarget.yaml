@@ -1,0 +1,10 @@
+apiVersion: efs.aws.jet.crossplane.io/v1alpha1
+kind: MountTarget
+metadata:
+  name: example
+spec:
+  forProvider:
+    fileSystemId: ${aws_efs_file_system.foo.id}
+    subnetId: ${aws_subnet.alpha.id}
+  providerConfigRef:
+    name: example

@@ -1,0 +1,10 @@
+apiVersion: route53.aws.jet.crossplane.io/v1alpha1
+kind: ResolverQueryLogConfigAssociation
+metadata:
+  name: example
+spec:
+  forProvider:
+    resolverQueryLogConfigId: ${aws_route53_resolver_query_log_config.example.id}
+    resourceId: ${aws_vpc.example.id}
+  providerConfigRef:
+    name: example

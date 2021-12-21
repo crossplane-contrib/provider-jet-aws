@@ -1,0 +1,12 @@
+apiVersion: glue.aws.jet.crossplane.io/v1alpha1
+kind: Job
+metadata:
+  name: example
+spec:
+  forProvider:
+    command:
+    - scriptLocation: my-tf-test-bucket
+    name: example
+    roleArn: ${aws_iam_role.example.arn}
+  providerConfigRef:
+    name: example

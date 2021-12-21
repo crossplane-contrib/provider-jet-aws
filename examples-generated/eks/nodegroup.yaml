@@ -1,0 +1,24 @@
+apiVersion: eks.aws.jet.crossplane.io/v1alpha1
+kind: NodeGroup
+metadata:
+  name: example
+spec:
+  forProvider:
+    clusterNameRef:
+      name: example
+    depends_on:
+    - ${aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy}
+    - ${aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy}
+    - ${aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly}
+    nodeRoleArnRef:
+      name: example
+    scalingConfig:
+    - desiredSize: 1
+      maxSize: 1
+      minSize: 1
+    subnetIdRefs:
+      name: example
+    update_config:
+    - max_unavailable: 2
+  providerConfigRef:
+    name: example

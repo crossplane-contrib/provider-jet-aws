@@ -1,0 +1,12 @@
+apiVersion: sagemaker.aws.jet.crossplane.io/v1alpha1
+kind: AppImageConfig
+metadata:
+  name: example
+spec:
+  forProvider:
+    appImageConfigName: example
+    kernelGatewayImageConfig:
+    - kernelSpec:
+      - name: example
+  providerConfigRef:
+    name: example

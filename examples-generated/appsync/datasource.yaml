@@ -1,0 +1,14 @@
+apiVersion: appsync.aws.jet.crossplane.io/v1alpha1
+kind: Datasource
+metadata:
+  name: example
+spec:
+  forProvider:
+    apiId: ${aws_appsync_graphql_api.example.id}
+    dynamodbConfig:
+    - tableName: GameScores
+    name: tf_appsync_example
+    serviceRoleArn: ${aws_iam_role.example.arn}
+    type: AMAZON_DYNAMODB
+  providerConfigRef:
+    name: example

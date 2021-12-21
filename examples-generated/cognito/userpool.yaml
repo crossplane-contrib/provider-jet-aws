@@ -1,0 +1,9 @@
+apiVersion: cognito.aws.jet.crossplane.io/v1alpha1
+kind: UserPool
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: mypool
+  providerConfigRef:
+    name: example

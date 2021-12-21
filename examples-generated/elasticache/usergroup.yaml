@@ -1,0 +1,11 @@
+apiVersion: elasticache.aws.jet.crossplane.io/v1alpha1
+kind: UserGroup
+metadata:
+  name: example
+spec:
+  forProvider:
+    engine: REDIS
+    userIdRefs:
+    - name: example
+  providerConfigRef:
+    name: example

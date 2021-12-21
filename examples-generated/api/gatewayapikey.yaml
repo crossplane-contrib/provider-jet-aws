@@ -1,0 +1,9 @@
+apiVersion: api.aws.jet.crossplane.io/v1alpha1
+kind: GatewayApiKey
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: demo
+  providerConfigRef:
+    name: example

@@ -1,0 +1,13 @@
+apiVersion: datasync.aws.jet.crossplane.io/v1alpha1
+kind: LocationNfs
+metadata:
+  name: example
+spec:
+  forProvider:
+    onPremConfig:
+    - agentArns:
+      - ${aws_datasync_agent.example.arn}
+    serverHostname: nfs.example.com
+    subdirectory: /exported/path
+  providerConfigRef:
+    name: example

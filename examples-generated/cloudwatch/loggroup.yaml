@@ -1,0 +1,12 @@
+apiVersion: cloudwatch.aws.jet.crossplane.io/v1alpha1
+kind: LogGroup
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: Yada
+    tags:
+      Application: serviceA
+      Environment: production
+  providerConfigRef:
+    name: example

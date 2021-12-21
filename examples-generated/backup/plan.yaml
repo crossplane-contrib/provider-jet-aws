@@ -1,0 +1,17 @@
+apiVersion: backup.aws.jet.crossplane.io/v1alpha1
+kind: Plan
+metadata:
+  name: example
+spec:
+  forProvider:
+    advancedBackupSetting:
+    - backupOptions:
+        WindowsVSS: enabled
+      resourceType: EC2
+    name: tf_example_backup_plan
+    rule:
+    - ruleName: tf_example_backup_rule
+      schedule: cron(0 12 * * ? *)
+      targetVaultName: example_backup_vault
+  providerConfigRef:
+    name: example

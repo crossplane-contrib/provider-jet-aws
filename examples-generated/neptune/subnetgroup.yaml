@@ -1,0 +1,14 @@
+apiVersion: neptune.aws.jet.crossplane.io/v1alpha1
+kind: SubnetGroup
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: main
+    subnetIds:
+    - ${aws_subnet.frontend.id}
+    - ${aws_subnet.backend.id}
+    tags:
+      Name: My neptune subnet group
+  providerConfigRef:
+    name: example

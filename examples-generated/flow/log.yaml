@@ -1,0 +1,12 @@
+apiVersion: flow.aws.jet.crossplane.io/v1alpha1
+kind: Log
+metadata:
+  name: example
+spec:
+  forProvider:
+    iamRoleArn: ${aws_iam_role.example.arn}
+    logDestination: ${aws_cloudwatch_log_group.example.arn}
+    trafficType: ALL
+    vpcId: ${aws_vpc.example.id}
+  providerConfigRef:
+    name: example

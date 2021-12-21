@@ -1,0 +1,12 @@
+apiVersion: ebs.aws.jet.crossplane.io/v1alpha1
+kind: SnapshotCopy
+metadata:
+  name: example
+spec:
+  forProvider:
+    sourceRegion: us-west-2
+    sourceSnapshotId: ${aws_ebs_snapshot.example_snapshot.id}
+    tags:
+      Name: HelloWorld_copy_snap
+  providerConfigRef:
+    name: example

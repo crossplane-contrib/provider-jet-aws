@@ -1,0 +1,12 @@
+apiVersion: config.aws.jet.crossplane.io/v1alpha1
+kind: DeliveryChannel
+metadata:
+  name: example
+spec:
+  forProvider:
+    depends_on:
+    - ${aws_config_configuration_recorder.foo}
+    name: example
+    s3BucketName: my-tf-test-bucket
+  providerConfigRef:
+    name: example

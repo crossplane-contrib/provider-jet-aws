@@ -1,0 +1,13 @@
+apiVersion: elasticloadbalancing.aws.jet.crossplane.io/v1alpha1
+kind: TargetGroup
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: tf-example-lb-tg
+    port: 80
+    protocol: HTTP
+    vpcIdRef:
+      name: example
+  providerConfigRef:
+    name: example

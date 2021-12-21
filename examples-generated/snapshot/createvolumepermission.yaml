@@ -1,0 +1,10 @@
+apiVersion: snapshot.aws.jet.crossplane.io/v1alpha1
+kind: CreateVolumePermission
+metadata:
+  name: example
+spec:
+  forProvider:
+    accountId: "12345678"
+    snapshotId: ${aws_ebs_snapshot.example_snapshot.id}
+  providerConfigRef:
+    name: example

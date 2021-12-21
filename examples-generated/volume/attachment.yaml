@@ -1,0 +1,11 @@
+apiVersion: volume.aws.jet.crossplane.io/v1alpha1
+kind: Attachment
+metadata:
+  name: example
+spec:
+  forProvider:
+    deviceName: /dev/sdh
+    instanceId: ${aws_instance.web.id}
+    volumeId: ${aws_ebs_volume.example.id}
+  providerConfigRef:
+    name: example

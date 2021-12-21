@@ -1,0 +1,10 @@
+apiVersion: wafregional.aws.jet.crossplane.io/v1alpha1
+kind: WebAclAssociation
+metadata:
+  name: example
+spec:
+  forProvider:
+    resourceArn: ${aws_alb.foo.arn}
+    webAclId: ${aws_wafregional_web_acl.foo.id}
+  providerConfigRef:
+    name: example

@@ -1,0 +1,17 @@
+apiVersion: pinpoint.aws.jet.crossplane.io/v1alpha1
+kind: ApnsVoipChannel
+metadata:
+  name: example
+spec:
+  forProvider:
+    applicationId: ${aws_pinpoint_app.app.application_id}
+    certificateSecretRef:
+      key: attribute.pem")
+      name: example-
+      namespace: crossplane-system
+    privateKeySecretRef:
+      key: attribute.key")
+      name: example-
+      namespace: crossplane-system
+  providerConfigRef:
+    name: example

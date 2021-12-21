@@ -1,0 +1,12 @@
+apiVersion: lex.aws.jet.crossplane.io/v1alpha1
+kind: BotAlias
+metadata:
+  name: example
+spec:
+  forProvider:
+    botName: OrderFlowers
+    botVersion: "1"
+    description: Production Version of the OrderFlowers Bot.
+    name: OrderFlowersProd
+  providerConfigRef:
+    name: example

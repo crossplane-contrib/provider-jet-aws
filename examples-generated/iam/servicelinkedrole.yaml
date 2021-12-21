@@ -1,0 +1,9 @@
+apiVersion: iam.aws.jet.crossplane.io/v1alpha1
+kind: ServiceLinkedRole
+metadata:
+  name: example
+spec:
+  forProvider:
+    awsServiceName: elasticbeanstalk.amazonaws.com
+  providerConfigRef:
+    name: example

@@ -1,0 +1,14 @@
+apiVersion: pinpoint.aws.jet.crossplane.io/v1alpha1
+kind: App
+metadata:
+  name: example
+spec:
+  forProvider:
+    limits:
+    - maximumDuration: 600
+    name: test-app
+    quietTime:
+    - end: "06:00"
+      start: "00:00"
+  providerConfigRef:
+    name: example

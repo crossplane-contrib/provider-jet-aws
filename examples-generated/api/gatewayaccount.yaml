@@ -1,0 +1,9 @@
+apiVersion: api.aws.jet.crossplane.io/v1alpha1
+kind: GatewayAccount
+metadata:
+  name: example
+spec:
+  forProvider:
+    cloudwatchRoleArn: ${aws_iam_role.cloudwatch.arn}
+  providerConfigRef:
+    name: example

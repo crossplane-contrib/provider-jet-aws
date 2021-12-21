@@ -1,0 +1,13 @@
+apiVersion: elastic.aws.jet.crossplane.io/v1alpha1
+kind: BeanstalkApplicationVersion
+metadata:
+  name: example
+spec:
+  forProvider:
+    application: tf-test-name
+    bucket: ${aws_s3_bucket.default.id}
+    description: application version created by terraform
+    key: ${aws_s3_bucket_object.default.id}
+    name: tf-test-version-label
+  providerConfigRef:
+    name: example

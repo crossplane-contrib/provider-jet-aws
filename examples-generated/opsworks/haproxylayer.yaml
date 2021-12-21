@@ -1,0 +1,10 @@
+apiVersion: opsworks.aws.jet.crossplane.io/v1alpha1
+kind: HaproxyLayer
+metadata:
+  name: example
+spec:
+  forProvider:
+    stackId: ${aws_opsworks_stack.main.id}
+    statsPassword: foobarbaz
+  providerConfigRef:
+    name: example

@@ -1,0 +1,12 @@
+apiVersion: iam.aws.jet.crossplane.io/v1alpha1
+kind: GroupPolicyAttachment
+metadata:
+  name: example
+spec:
+  forProvider:
+    groupRef:
+      name: example
+    policyArnRef:
+      name: example
+  providerConfigRef:
+    name: example

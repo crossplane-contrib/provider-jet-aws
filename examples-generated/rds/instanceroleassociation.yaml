@@ -1,0 +1,11 @@
+apiVersion: rds.aws.jet.crossplane.io/v1alpha1
+kind: InstanceRoleAssociation
+metadata:
+  name: example
+spec:
+  forProvider:
+    dbInstanceIdentifier: ${aws_db_instance.example.id}
+    featureName: S3_INTEGRATION
+    roleArn: ${aws_iam_role.example.arn}
+  providerConfigRef:
+    name: example

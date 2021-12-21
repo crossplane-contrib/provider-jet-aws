@@ -1,0 +1,16 @@
+apiVersion: synthetics.aws.jet.crossplane.io/v1alpha1
+kind: Canary
+metadata:
+  name: example
+spec:
+  forProvider:
+    artifactS3Location: s3://some-bucket/
+    executionRoleArn: some-role
+    handler: exports.handler
+    name: some-canary
+    runtimeVersion: syn-1.0
+    schedule:
+    - expression: rate(0 minute)
+    zipFile: test-fixtures/lambdatest.zip
+  providerConfigRef:
+    name: example

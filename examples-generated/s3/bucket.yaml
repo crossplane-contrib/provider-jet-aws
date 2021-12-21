@@ -1,0 +1,13 @@
+apiVersion: s3.aws.jet.crossplane.io/v1alpha1
+kind: Bucket
+metadata:
+  name: example
+spec:
+  forProvider:
+    acl: private
+    bucket: my-tf-test-bucket
+    tags:
+      Environment: Dev
+      Name: My bucket
+  providerConfigRef:
+    name: example

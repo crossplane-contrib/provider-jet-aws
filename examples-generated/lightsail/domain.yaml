@@ -1,0 +1,9 @@
+apiVersion: lightsail.aws.jet.crossplane.io/v1alpha1
+kind: Domain
+metadata:
+  name: example
+spec:
+  forProvider:
+    domainName: mydomain.com
+  providerConfigRef:
+    name: example

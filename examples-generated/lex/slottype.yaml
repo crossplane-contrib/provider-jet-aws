@@ -1,0 +1,21 @@
+apiVersion: lex.aws.jet.crossplane.io/v1alpha1
+kind: SlotType
+metadata:
+  name: example
+spec:
+  forProvider:
+    createVersion: true
+    description: Types of flowers to order
+    enumerationValue:
+    - synonyms:
+      - Lirium
+      - Martagon
+      value: lilies
+    - synonyms:
+      - Eduardoregelia
+      - Podonix
+      value: tulips
+    name: FlowerTypes
+    valueSelectionStrategy: ORIGINAL_VALUE
+  providerConfigRef:
+    name: example

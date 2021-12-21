@@ -1,0 +1,11 @@
+apiVersion: elasticache.aws.jet.crossplane.io/v1alpha1
+kind: SubnetGroup
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: tf-test-cache-subnet
+    subnetIds:
+    - ${aws_subnet.foo.id}
+  providerConfigRef:
+    name: example

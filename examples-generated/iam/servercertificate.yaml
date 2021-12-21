@@ -1,0 +1,14 @@
+apiVersion: iam.aws.jet.crossplane.io/v1alpha1
+kind: ServerCertificate
+metadata:
+  name: example
+spec:
+  forProvider:
+    certificateBody: ${file("self-ca-cert.pem")}
+    name: some_test_cert
+    privateKeySecretRef:
+      key: example-key
+      name: example-secret
+      namespace: crossplane-system
+  providerConfigRef:
+    name: example

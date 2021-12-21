@@ -1,0 +1,17 @@
+apiVersion: sagemaker.aws.jet.crossplane.io/v1alpha1
+kind: FeatureGroup
+metadata:
+  name: example
+spec:
+  forProvider:
+    eventTimeFeatureName: example
+    featureDefinition:
+    - featureName: example
+      featureType: String
+    featureGroupName: example
+    onlineStoreConfig:
+    - enableOnlineStore: true
+    recordIdentifierFeatureName: example
+    roleArn: ${aws_iam_role.test.arn}
+  providerConfigRef:
+    name: example

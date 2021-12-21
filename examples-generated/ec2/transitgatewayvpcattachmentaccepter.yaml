@@ -1,0 +1,12 @@
+apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
+kind: TransitGatewayVPCAttachmentAccepter
+metadata:
+  name: example
+spec:
+  forProvider:
+    tags:
+      Name: Example cross-account attachment
+    transitGatewayAttachmentIdRef:
+      name: example
+  providerConfigRef:
+    name: example

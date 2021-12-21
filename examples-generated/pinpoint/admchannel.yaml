@@ -1,0 +1,18 @@
+apiVersion: pinpoint.aws.jet.crossplane.io/v1alpha1
+kind: AdmChannel
+metadata:
+  name: example
+spec:
+  forProvider:
+    applicationId: ${aws_pinpoint_app.app.application_id}
+    clientIDSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: crossplane-system
+    clientSecretSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: crossplane-system
+    enabled: true
+  providerConfigRef:
+    name: example

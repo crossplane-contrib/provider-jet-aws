@@ -1,0 +1,11 @@
+apiVersion: securityhub.aws.jet.crossplane.io/v1alpha1
+kind: StandardsSubscription
+metadata:
+  name: example
+spec:
+  forProvider:
+    depends_on:
+    - ${aws_securityhub_account.example}
+    standardsArn: arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0
+  providerConfigRef:
+    name: example

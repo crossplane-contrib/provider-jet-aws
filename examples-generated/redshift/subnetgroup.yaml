@@ -1,0 +1,14 @@
+apiVersion: redshift.aws.jet.crossplane.io/v1alpha1
+kind: SubnetGroup
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: foo
+    subnetIds:
+    - ${aws_subnet.foo.id}
+    - ${aws_subnet.bar.id}
+    tags:
+      environment: Production
+  providerConfigRef:
+    name: example

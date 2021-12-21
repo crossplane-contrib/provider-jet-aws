@@ -1,0 +1,10 @@
+apiVersion: ami.aws.jet.crossplane.io/v1alpha1
+kind: LaunchPermission
+metadata:
+  name: example
+spec:
+  forProvider:
+    accountId: "123456789012"
+    imageId: ami-12345678
+  providerConfigRef:
+    name: example

@@ -1,0 +1,12 @@
+apiVersion: quicksight.aws.jet.crossplane.io/v1alpha1
+kind: User
+metadata:
+  name: example
+spec:
+  forProvider:
+    email: author@example.com
+    identityType: IAM
+    userName: an-author
+    userRole: AUTHOR
+  providerConfigRef:
+    name: example

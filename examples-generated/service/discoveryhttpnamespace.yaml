@@ -1,0 +1,10 @@
+apiVersion: service.aws.jet.crossplane.io/v1alpha1
+kind: DiscoveryHttpNamespace
+metadata:
+  name: example
+spec:
+  forProvider:
+    description: example
+    name: development
+  providerConfigRef:
+    name: example

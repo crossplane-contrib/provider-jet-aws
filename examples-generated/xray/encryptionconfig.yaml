@@ -1,0 +1,9 @@
+apiVersion: xray.aws.jet.crossplane.io/v1alpha1
+kind: EncryptionConfig
+metadata:
+  name: example
+spec:
+  forProvider:
+    type: NONE
+  providerConfigRef:
+    name: example

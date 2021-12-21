@@ -1,0 +1,10 @@
+apiVersion: appsync.aws.jet.crossplane.io/v1alpha1
+kind: GraphqlApi
+metadata:
+  name: example
+spec:
+  forProvider:
+    authenticationType: API_KEY
+    name: example
+  providerConfigRef:
+    name: example

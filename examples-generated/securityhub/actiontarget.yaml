@@ -1,0 +1,13 @@
+apiVersion: securityhub.aws.jet.crossplane.io/v1alpha1
+kind: ActionTarget
+metadata:
+  name: example
+spec:
+  forProvider:
+    depends_on:
+    - ${aws_securityhub_account.example}
+    description: This is custom action sends selected findings to chat
+    identifier: SendToChat
+    name: Send notification to chat
+  providerConfigRef:
+    name: example

@@ -1,0 +1,11 @@
+apiVersion: transfer.aws.jet.crossplane.io/v1alpha1
+kind: SshKey
+metadata:
+  name: example
+spec:
+  forProvider:
+    body: '... SSH key ...'
+    serverId: ${aws_transfer_server.example.id}
+    userName: ${aws_transfer_user.example.user_name}
+  providerConfigRef:
+    name: example

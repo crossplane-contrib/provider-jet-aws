@@ -1,0 +1,10 @@
+apiVersion: glue.aws.jet.crossplane.io/v1alpha1
+kind: DevEndpoint
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: foo
+    roleArn: ${aws_iam_role.example.arn}
+  providerConfigRef:
+    name: example

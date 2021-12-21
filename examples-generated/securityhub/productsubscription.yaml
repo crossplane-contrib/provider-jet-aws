@@ -1,0 +1,11 @@
+apiVersion: securityhub.aws.jet.crossplane.io/v1alpha1
+kind: ProductSubscription
+metadata:
+  name: example
+spec:
+  forProvider:
+    depends_on:
+    - ${aws_securityhub_account.example}
+    productArn: arn:aws:securityhub:${data.aws_region.current.name}:733251395267:product/alertlogic/althreatmanagement
+  providerConfigRef:
+    name: example

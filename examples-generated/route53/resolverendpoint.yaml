@@ -1,0 +1,19 @@
+apiVersion: route53.aws.jet.crossplane.io/v1alpha1
+kind: ResolverEndpoint
+metadata:
+  name: example
+spec:
+  forProvider:
+    direction: INBOUND
+    ipAddress:
+    - subnetId: ${aws_subnet.sn1.id}
+    - ip: 10.0.64.4
+      subnetId: ${aws_subnet.sn2.id}
+    name: foo
+    securityGroupIds:
+    - ${aws_security_group.sg1.id}
+    - ${aws_security_group.sg2.id}
+    tags:
+      Environment: Prod
+  providerConfigRef:
+    name: example

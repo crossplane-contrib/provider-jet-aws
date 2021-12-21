@@ -1,0 +1,19 @@
+apiVersion: glue.aws.jet.crossplane.io/v1alpha1
+kind: MlTransform
+metadata:
+  name: example
+spec:
+  forProvider:
+    depends_on:
+    - ${aws_iam_role_policy_attachment.test}
+    inputRecordTables:
+    - databaseName: ${aws_glue_catalog_table.test.database_name}
+      tableName: MyCatalogTable
+    name: example
+    parameters:
+    - findMatchesParameters:
+      - primaryKeyColumnName: my_column_1
+      transformType: FIND_MATCHES
+    roleArn: ${aws_iam_role.test.arn}
+  providerConfigRef:
+    name: example

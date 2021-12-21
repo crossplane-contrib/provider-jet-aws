@@ -1,0 +1,11 @@
+apiVersion: egress.aws.jet.crossplane.io/v1alpha1
+kind: OnlyInternetGateway
+metadata:
+  name: example
+spec:
+  forProvider:
+    tags:
+      Name: main
+    vpcId: ${aws_vpc.example.id}
+  providerConfigRef:
+    name: example

@@ -1,0 +1,15 @@
+apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
+kind: Route
+metadata:
+  name: example
+spec:
+  forProvider:
+    depends_on:
+    - ${aws_route_table.testing}
+    destinationCidrBlock: 10.0.1.0/22
+    routeTableIdRef:
+      name: example
+    vpcPeeringConnectionIdRef:
+      name: example
+  providerConfigRef:
+    name: example

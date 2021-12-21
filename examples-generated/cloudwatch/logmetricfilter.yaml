@@ -1,0 +1,15 @@
+apiVersion: cloudwatch.aws.jet.crossplane.io/v1alpha1
+kind: LogMetricFilter
+metadata:
+  name: example
+spec:
+  forProvider:
+    logGroupName: Yada
+    metricTransformation:
+    - name: EventCount
+      namespace: YourNamespace
+      value: "1"
+    name: MyAppAccessCount
+    pattern: ""
+  providerConfigRef:
+    name: example

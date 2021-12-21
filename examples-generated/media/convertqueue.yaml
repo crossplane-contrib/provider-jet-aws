@@ -1,0 +1,9 @@
+apiVersion: media.aws.jet.crossplane.io/v1alpha1
+kind: ConvertQueue
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: tf-test-queue
+  providerConfigRef:
+    name: example

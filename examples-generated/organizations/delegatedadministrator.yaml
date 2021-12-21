@@ -1,0 +1,10 @@
+apiVersion: organizations.aws.jet.crossplane.io/v1alpha1
+kind: DelegatedAdministrator
+metadata:
+  name: example
+spec:
+  forProvider:
+    accountId: AWS ACCOUNT ID
+    servicePrincipal: Service principal
+  providerConfigRef:
+    name: example

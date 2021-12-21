@@ -1,0 +1,10 @@
+apiVersion: xray.aws.jet.crossplane.io/v1alpha1
+kind: Group
+metadata:
+  name: example
+spec:
+  forProvider:
+    filterExpression: responsetime > 5
+    groupName: example
+  providerConfigRef:
+    name: example

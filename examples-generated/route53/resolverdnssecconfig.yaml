@@ -1,0 +1,9 @@
+apiVersion: route53.aws.jet.crossplane.io/v1alpha1
+kind: ResolverDnssecConfig
+metadata:
+  name: example
+spec:
+  forProvider:
+    resourceId: ${aws_vpc.example.id}
+  providerConfigRef:
+    name: example

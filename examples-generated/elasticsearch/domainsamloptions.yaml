@@ -1,0 +1,14 @@
+apiVersion: elasticsearch.aws.jet.crossplane.io/v1alpha1
+kind: DomainSamlOptions
+metadata:
+  name: example
+spec:
+  forProvider:
+    domainName: ${aws_elasticsearch_domain.example.domain_name}
+    samlOptions:
+    - enabled: true
+      idp:
+      - entityId: https://example.com
+        metadataContent: ${file("./saml-metadata.xml")}
+  providerConfigRef:
+    name: example

@@ -1,0 +1,12 @@
+apiVersion: storagegateway.aws.jet.crossplane.io/v1alpha1
+kind: CachedIscsiVolume
+metadata:
+  name: example
+spec:
+  forProvider:
+    gatewayArn: ${aws_storagegateway_cache.example.gateway_arn}
+    networkInterfaceId: ${aws_instance.example.private_ip}
+    targetName: example
+    volumeSizeInBytes: 5368709120
+  providerConfigRef:
+    name: example

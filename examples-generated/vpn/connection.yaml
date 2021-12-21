@@ -1,0 +1,11 @@
+apiVersion: vpn.aws.jet.crossplane.io/v1alpha1
+kind: Connection
+metadata:
+  name: example
+spec:
+  forProvider:
+    customerGatewayId: ${aws_customer_gateway.example.id}
+    transitGatewayId: ${aws_ec2_transit_gateway.example.id}
+    type: ipsec.1
+  providerConfigRef:
+    name: example

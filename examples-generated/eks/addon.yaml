@@ -1,0 +1,10 @@
+apiVersion: eks.aws.jet.crossplane.io/v1alpha1
+kind: Addon
+metadata:
+  name: example
+spec:
+  forProvider:
+    clusterNameRef:
+      name: example
+  providerConfigRef:
+    name: example

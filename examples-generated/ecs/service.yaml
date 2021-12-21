@@ -1,0 +1,26 @@
+apiVersion: ecs.aws.jet.crossplane.io/v1alpha1
+kind: Service
+metadata:
+  name: example
+spec:
+  forProvider:
+    clusterRef:
+      name: example
+    depends_on:
+    - ${aws_iam_role_policy.foo}
+    desiredCount: 3
+    iamRoleRef:
+      name: example
+    loadBalancer:
+    - containerName: mongo
+      containerPort: 8080
+      targetGroupArn: ${aws_lb_target_group.foo.arn}
+    orderedPlacementStrategy:
+    - field: cpu
+      type: binpack
+    placementConstraints:
+    - expression: attribute:ecs.availability-zone in [us-west-2a, us-west-2b]
+      type: memberOf
+    taskDefinition: ${aws_ecs_task_definition.mongo.arn}
+  providerConfigRef:
+    name: example

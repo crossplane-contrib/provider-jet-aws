@@ -1,0 +1,10 @@
+apiVersion: cloudwatch.aws.jet.crossplane.io/v1alpha1
+kind: LogResourcePolicy
+metadata:
+  name: example
+spec:
+  forProvider:
+    policyDocument: ${data.aws_iam_policy_document.elasticsearch-log-publishing-policy.json}
+    policyName: elasticsearch-log-publishing-policy
+  providerConfigRef:
+    name: example

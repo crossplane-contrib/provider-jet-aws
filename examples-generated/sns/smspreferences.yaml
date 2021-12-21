@@ -1,0 +1,8 @@
+apiVersion: sns.aws.jet.crossplane.io/v1alpha1
+kind: SmsPreferences
+metadata:
+  name: example
+spec:
+  forProvider: {}
+  providerConfigRef:
+    name: example

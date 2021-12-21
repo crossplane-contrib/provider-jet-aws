@@ -1,0 +1,10 @@
+apiVersion: spot.aws.jet.crossplane.io/v1alpha1
+kind: DatafeedSubscription
+metadata:
+  name: example
+spec:
+  forProvider:
+    bucket: my-tf-test-bucket
+    prefix: my_subdirectory
+  providerConfigRef:
+    name: example

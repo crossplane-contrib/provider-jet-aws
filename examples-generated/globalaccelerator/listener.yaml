@@ -1,0 +1,14 @@
+apiVersion: globalaccelerator.aws.jet.crossplane.io/v1alpha1
+kind: Listener
+metadata:
+  name: example
+spec:
+  forProvider:
+    acceleratorArn: ${aws_globalaccelerator_accelerator.example.id}
+    clientAffinity: SOURCE_IP
+    portRange:
+    - fromPort: 80
+      toPort: 80
+    protocol: TCP
+  providerConfigRef:
+    name: example

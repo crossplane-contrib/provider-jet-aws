@@ -1,0 +1,13 @@
+apiVersion: guardduty.aws.jet.crossplane.io/v1alpha1
+kind: InviteAccepter
+metadata:
+  name: example
+spec:
+  forProvider:
+    depends_on:
+    - ${aws_guardduty_member.member}
+    detectorId: ${aws_guardduty_detector.member.id}
+    masterAccountId: ${aws_guardduty_detector.primary.account_id}
+    provider: ${aws.member}
+  providerConfigRef:
+    name: example

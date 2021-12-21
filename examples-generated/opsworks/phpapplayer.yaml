@@ -1,0 +1,9 @@
+apiVersion: opsworks.aws.jet.crossplane.io/v1alpha1
+kind: PhpAppLayer
+metadata:
+  name: example
+spec:
+  forProvider:
+    stackId: ${aws_opsworks_stack.main.id}
+  providerConfigRef:
+    name: example

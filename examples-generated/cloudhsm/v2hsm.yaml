@@ -1,0 +1,10 @@
+apiVersion: cloudhsm.aws.jet.crossplane.io/v1alpha1
+kind: V2Hsm
+metadata:
+  name: example
+spec:
+  forProvider:
+    clusterId: ${data.aws_cloudhsm_v2_cluster.cluster.cluster_id}
+    subnetId: ${data.aws_cloudhsm_v2_cluster.cluster.subnet_ids[0]}
+  providerConfigRef:
+    name: example

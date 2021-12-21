@@ -1,0 +1,11 @@
+apiVersion: vpn.aws.jet.crossplane.io/v1alpha1
+kind: Gateway
+metadata:
+  name: example
+spec:
+  forProvider:
+    tags:
+      Name: main
+    vpcId: ${aws_vpc.main.id}
+  providerConfigRef:
+    name: example

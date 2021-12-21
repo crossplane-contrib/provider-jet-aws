@@ -1,0 +1,10 @@
+apiVersion: s3.aws.jet.crossplane.io/v1alpha1
+kind: BucketMetric
+metadata:
+  name: example
+spec:
+  forProvider:
+    bucket: my-tf-test-bucket
+    name: EntireBucket
+  providerConfigRef:
+    name: example

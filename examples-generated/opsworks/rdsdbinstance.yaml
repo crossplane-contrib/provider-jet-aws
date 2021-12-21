@@ -1,0 +1,15 @@
+apiVersion: opsworks.aws.jet.crossplane.io/v1alpha1
+kind: RdsDbInstance
+metadata:
+  name: example
+spec:
+  forProvider:
+    dbPasswordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: crossplane-system
+    dbUser: someUser
+    rdsDbInstanceArn: ${aws_db_instance.my_instance.arn}
+    stackId: ${aws_opsworks_stack.my_stack.id}
+  providerConfigRef:
+    name: example

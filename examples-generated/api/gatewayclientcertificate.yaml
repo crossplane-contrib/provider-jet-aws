@@ -1,0 +1,9 @@
+apiVersion: api.aws.jet.crossplane.io/v1alpha1
+kind: GatewayClientCertificate
+metadata:
+  name: example
+spec:
+  forProvider:
+    description: My client certificate
+  providerConfigRef:
+    name: example

@@ -1,0 +1,33 @@
+apiVersion: efs.aws.jet.crossplane.io/v1alpha1
+kind: FileSystemPolicy
+metadata:
+  name: example
+spec:
+  forProvider:
+    fileSystemId: ${aws_efs_file_system.fs.id}
+    policy: |
+      {
+          "Version": "2012-10-17",
+          "Id": "ExamplePolicy01",
+          "Statement": [
+              {
+                  "Sid": "ExampleStatement01",
+                  "Effect": "Allow",
+                  "Principal": {
+                      "AWS": "*"
+                  },
+                  "Resource": "${aws_efs_file_system.test.arn}",
+                  "Action": [
+                      "elasticfilesystem:ClientMount",
+                      "elasticfilesystem:ClientWrite"
+                  ],
+                  "Condition": {
+                      "Bool": {
+                          "aws:SecureTransport": "true"
+                      }
+                  }
+              }
+          ]
+      }
+  providerConfigRef:
+    name: example

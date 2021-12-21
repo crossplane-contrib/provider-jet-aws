@@ -1,0 +1,16 @@
+apiVersion: dynamodb.aws.jet.crossplane.io/v1alpha1
+kind: GlobalTable
+metadata:
+  name: example
+spec:
+  forProvider:
+    depends_on:
+    - ${aws_dynamodb_table.us-east-1}
+    - ${aws_dynamodb_table.us-west-2}
+    name: myTable
+    provider: ${aws.us-east-1}
+    replica:
+    - regionName: us-east-1
+    - regionName: us-west-2
+  providerConfigRef:
+    name: example

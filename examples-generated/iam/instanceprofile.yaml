@@ -1,0 +1,10 @@
+apiVersion: iam.aws.jet.crossplane.io/v1alpha1
+kind: InstanceProfile
+metadata:
+  name: example
+spec:
+  forProvider:
+    roleRef:
+      name: example
+  providerConfigRef:
+    name: example

@@ -1,0 +1,14 @@
+apiVersion: apigatewayv2.aws.jet.crossplane.io/v1alpha1
+kind: VpcLink
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: example
+    securityGroupIds:
+    - ${data.aws_security_group.example.id}
+    subnetIds: ${data.aws_subnet_ids.example.ids}
+    tags:
+      Usage: example
+  providerConfigRef:
+    name: example

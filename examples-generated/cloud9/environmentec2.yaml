@@ -1,0 +1,10 @@
+apiVersion: cloud9.aws.jet.crossplane.io/v1alpha1
+kind: EnvironmentEc2
+metadata:
+  name: example
+spec:
+  forProvider:
+    instanceType: t2.micro
+    name: example-env
+  providerConfigRef:
+    name: example

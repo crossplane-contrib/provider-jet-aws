@@ -1,0 +1,9 @@
+apiVersion: sfn.aws.jet.crossplane.io/v1alpha1
+kind: Activity
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: my-activity
+  providerConfigRef:
+    name: example

@@ -1,0 +1,10 @@
+apiVersion: sagemaker.aws.jet.crossplane.io/v1alpha1
+kind: Image
+metadata:
+  name: example
+spec:
+  forProvider:
+    imageName: example
+    roleArn: ${aws_iam_role.test.arn}
+  providerConfigRef:
+    name: example

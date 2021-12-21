@@ -1,0 +1,15 @@
+apiVersion: elasticache.aws.jet.crossplane.io/v1alpha1
+kind: User
+metadata:
+  name: example
+spec:
+  forProvider:
+    accessString: on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield
+      -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius
+      -georadiusbymember
+    engine: REDIS
+    passwords:
+    - password123456789
+    userName: testUserName
+  providerConfigRef:
+    name: example

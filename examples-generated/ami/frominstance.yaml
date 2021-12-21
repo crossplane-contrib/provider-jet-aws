@@ -1,0 +1,10 @@
+apiVersion: ami.aws.jet.crossplane.io/v1alpha1
+kind: FromInstance
+metadata:
+  name: example
+spec:
+  forProvider:
+    name: terraform-example
+    sourceInstanceId: i-xxxxxxxx
+  providerConfigRef:
+    name: example

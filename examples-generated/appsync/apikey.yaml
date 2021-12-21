@@ -1,0 +1,10 @@
+apiVersion: appsync.aws.jet.crossplane.io/v1alpha1
+kind: ApiKey
+metadata:
+  name: example
+spec:
+  forProvider:
+    apiId: ${aws_appsync_graphql_api.example.id}
+    expires: "2018-05-03T04:00:00Z"
+  providerConfigRef:
+    name: example

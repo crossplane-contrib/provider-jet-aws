@@ -1,0 +1,10 @@
+apiVersion: backup.aws.jet.crossplane.io/v1alpha1
+kind: Vault
+metadata:
+  name: example
+spec:
+  forProvider:
+    kmsKeyArn: ${aws_kms_key.example.arn}
+    name: example_backup_vault
+  providerConfigRef:
+    name: example

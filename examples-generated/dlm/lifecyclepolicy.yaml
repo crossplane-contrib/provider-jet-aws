@@ -1,0 +1,28 @@
+apiVersion: dlm.aws.jet.crossplane.io/v1alpha1
+kind: LifecyclePolicy
+metadata:
+  name: example
+spec:
+  forProvider:
+    description: example DLM lifecycle policy
+    executionRoleArn: ${aws_iam_role.dlm_lifecycle_role.arn}
+    policyDetails:
+    - resourceTypes:
+      - VOLUME
+      schedule:
+      - copyTags: false
+        createRule:
+        - interval: 24
+          intervalUnit: HOURS
+          times:
+          - "23:45"
+        name: 2 weeks of daily snapshots
+        retainRule:
+        - count: 14
+        tagsToAdd:
+          SnapshotCreator: DLM
+      targetTags:
+        Snapshot: "true"
+    state: ENABLED
+  providerConfigRef:
+    name: example
