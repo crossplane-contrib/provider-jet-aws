@@ -156,6 +156,8 @@ spec:
                     type: boolean
                   defaultPropagationRouteTable:
                     type: boolean
+                  id:
+                    type: string
                   tagsAll:
                     additionalProperties:
                       type: string

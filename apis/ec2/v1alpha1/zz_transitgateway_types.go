@@ -30,6 +30,8 @@ type TransitGatewayObservation struct {
 
 	AssociationDefaultRouteTableID *string `json:"associationDefaultRouteTableId,omitempty" tf:"association_default_route_table_id,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id,omitempty"`
 
 	PropagationDefaultRouteTableID *string `json:"propagationDefaultRouteTableId,omitempty" tf:"propagation_default_route_table_id,omitempty"`
@@ -66,7 +68,7 @@ type TransitGatewayParameters struct {
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpnEcmpSupport *string `json:"vpnEcmpSupport,omitempty" tf:"vpn_ecmp_support,omitempty"`
+	VPNEcmpSupport *string `json:"vpnEcmpSupport,omitempty" tf:"vpn_ecmp_support,omitempty"`
 }
 
 // TransitGatewaySpec defines the desired state of TransitGateway

@@ -34,7 +34,7 @@ type BlockDeviceMappingsParameters struct {
 	DeviceName *string `json:"deviceName,omitempty" tf:"device_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Ebs []EbsParameters `json:"ebs,omitempty" tf:"ebs,omitempty"`
+	EBS []EBSParameters `json:"ebs,omitempty" tf:"ebs,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	NoDevice *string `json:"noDevice,omitempty" tf:"no_device,omitempty"`
@@ -64,10 +64,10 @@ type CapacityReservationSpecificationCapacityReservationTargetParameters struct 
 	CapacityReservationID *string `json:"capacityReservationId,omitempty" tf:"capacity_reservation_id,omitempty"`
 }
 
-type EbsObservation struct {
+type EBSObservation struct {
 }
 
-type EbsParameters struct {
+type EBSParameters struct {
 
 	// +kubebuilder:validation:Optional
 	DeleteOnTermination *string `json:"deleteOnTermination,omitempty" tf:"delete_on_termination,omitempty"`
@@ -80,13 +80,13 @@ type EbsParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
+	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
+	KMSKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
+	KMSKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id,omitempty"`
@@ -128,10 +128,10 @@ type HibernationOptionsParameters struct {
 	Configured *bool `json:"configured" tf:"configured,omitempty"`
 }
 
-type IamInstanceProfileObservation struct {
+type IAMInstanceProfileObservation struct {
 }
 
-type IamInstanceProfileParameters struct {
+type IAMInstanceProfileParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.InstanceProfile
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
@@ -215,6 +215,8 @@ type LaunchTemplateMetadataOptionsParameters struct {
 type LaunchTemplateObservation_2 struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	LatestVersion *int64 `json:"latestVersion,omitempty" tf:"latest_version,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
@@ -244,7 +246,7 @@ type LaunchTemplateParameters_2 struct {
 	DisableAPITermination *bool `json:"disableApiTermination,omitempty" tf:"disable_api_termination,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EbsOptimized *string `json:"ebsOptimized,omitempty" tf:"ebs_optimized,omitempty"`
+	EBSOptimized *string `json:"ebsOptimized,omitempty" tf:"ebs_optimized,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ElasticGpuSpecifications []ElasticGpuSpecificationsParameters `json:"elasticGpuSpecifications,omitempty" tf:"elastic_gpu_specifications,omitempty"`
@@ -259,7 +261,7 @@ type LaunchTemplateParameters_2 struct {
 	HibernationOptions []HibernationOptionsParameters `json:"hibernationOptions,omitempty" tf:"hibernation_options,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IamInstanceProfile []IamInstanceProfileParameters `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile,omitempty"`
+	IAMInstanceProfile []IAMInstanceProfileParameters `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ImageID *string `json:"imageId,omitempty" tf:"image_id,omitempty"`
@@ -332,17 +334,17 @@ type LaunchTemplateParameters_2 struct {
 	// +kubebuilder:validation:Optional
 	UserData *string `json:"userData,omitempty" tf:"user_data,omitempty"`
 
+	// +crossplane:generate:reference:type=SecurityGroup
+	// +crossplane:generate:reference:refFieldName=VpcSecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=VpcSecurityGroupIdSelector
+	// +kubebuilder:validation:Optional
+	VPCSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
+
 	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIdRefs []v1.Reference `json:"vpcSecurityGroupIdRefs,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIdSelector *v1.Selector `json:"vpcSecurityGroupIdSelector,omitempty" tf:"-"`
-
-	// +crossplane:generate:reference:type=SecurityGroup
-	// +crossplane:generate:reference:refFieldName=VpcSecurityGroupIdRefs
-	// +crossplane:generate:reference:selectorFieldName=VpcSecurityGroupIdSelector
-	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
 }
 
 type LicenseSpecificationObservation struct {

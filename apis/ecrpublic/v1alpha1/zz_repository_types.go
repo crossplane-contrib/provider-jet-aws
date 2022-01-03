@@ -52,6 +52,8 @@ type CatalogDataParameters struct {
 type RepositoryObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	RegistryID *string `json:"registryId,omitempty" tf:"registry_id,omitempty"`
 
 	RepositoryURI *string `json:"repositoryUri,omitempty" tf:"repository_uri,omitempty"`

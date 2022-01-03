@@ -36,6 +36,8 @@ type ElasticIPObservation struct {
 
 	Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	PrivateDNS *string `json:"privateDns,omitempty" tf:"private_dns,omitempty"`
 
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
@@ -93,7 +95,7 @@ type ElasticIPParameters struct {
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Vpc *bool `json:"vpc,omitempty" tf:"vpc,omitempty"`
+	VPC *bool `json:"vpc,omitempty" tf:"vpc,omitempty"`
 }
 
 // ElasticIPSpec defines the desired state of ElasticIP

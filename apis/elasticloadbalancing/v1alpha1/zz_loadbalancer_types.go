@@ -54,9 +54,11 @@ type LoadBalancerObservation struct {
 
 	DNSName *string `json:"dnsName,omitempty" tf:"dns_name,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	ZoneID *string `json:"zoneId,omitempty" tf:"zone_id,omitempty"`
 }

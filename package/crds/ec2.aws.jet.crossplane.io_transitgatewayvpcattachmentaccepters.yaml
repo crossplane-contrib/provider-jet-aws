@@ -158,6 +158,8 @@ spec:
                     type: string
                   dnsSupport:
                     type: string
+                  id:
+                    type: string
                   ipv6Support:
                     type: string
                   subnetIds:

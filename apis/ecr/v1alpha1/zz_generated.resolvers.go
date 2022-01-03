@@ -35,20 +35,20 @@ func (mg *Repository) ResolveReferences(ctx context.Context, c client.Reader) er
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.EncryptionConfiguration); i3++ {
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EncryptionConfiguration[i3].KmsKey),
+			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EncryptionConfiguration[i3].KMSKey),
 			Extract:      common.ARNExtractor(),
-			Reference:    mg.Spec.ForProvider.EncryptionConfiguration[i3].KmsKeyRef,
-			Selector:     mg.Spec.ForProvider.EncryptionConfiguration[i3].KmsKeySelector,
+			Reference:    mg.Spec.ForProvider.EncryptionConfiguration[i3].KMSKeyRef,
+			Selector:     mg.Spec.ForProvider.EncryptionConfiguration[i3].KMSKeySelector,
 			To: reference.To{
 				List:    &v1alpha1.KeyList{},
 				Managed: &v1alpha1.Key{},
 			},
 		})
 		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.EncryptionConfiguration[i3].KmsKey")
+			return errors.Wrap(err, "mg.Spec.ForProvider.EncryptionConfiguration[i3].KMSKey")
 		}
-		mg.Spec.ForProvider.EncryptionConfiguration[i3].KmsKey = reference.ToPtrValue(rsp.ResolvedValue)
-		mg.Spec.ForProvider.EncryptionConfiguration[i3].KmsKeyRef = rsp.ResolvedReference
+		mg.Spec.ForProvider.EncryptionConfiguration[i3].KMSKey = reference.ToPtrValue(rsp.ResolvedValue)
+		mg.Spec.ForProvider.EncryptionConfiguration[i3].KMSKeyRef = rsp.ResolvedReference
 
 	}
 

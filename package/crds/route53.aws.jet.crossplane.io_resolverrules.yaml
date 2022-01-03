@@ -146,6 +146,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   ownerId:
                     type: string
                   shareStatus:

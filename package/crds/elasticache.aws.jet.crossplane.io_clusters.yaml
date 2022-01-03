@@ -220,6 +220,8 @@ spec:
                     type: string
                   engineVersionActual:
                     type: string
+                  id:
+                    type: string
                   tagsAll:
                     additionalProperties:
                       type: string

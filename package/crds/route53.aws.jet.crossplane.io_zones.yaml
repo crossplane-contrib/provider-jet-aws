@@ -106,7 +106,9 @@ spec:
                       properties:
                         vpcId:
                           type: string
-                        vpcIdRef:
+                        vpcRegion:
+                          type: string
+                        vpcidRef:
                           description: A Reference to a named object.
                           properties:
                             name:
@@ -115,7 +117,7 @@ spec:
                           required:
                           - name
                           type: object
-                        vpcIdSelector:
+                        vpcidSelector:
                           description: A Selector selects an object.
                           properties:
                             matchControllerRef:
@@ -130,8 +132,6 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
-                        vpcRegion:
-                          type: string
                       type: object
                     type: array
                 required:
@@ -187,6 +187,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  id:
+                    type: string
                   nameServers:
                     items:
                       type: string

@@ -35,20 +35,20 @@ func (mg *Attachment) ResolveReferences(ctx context.Context, c client.Reader) er
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.AlbTargetGroupArn),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ALBTargetGroupArn),
 		Extract:      common.ARNExtractor(),
-		Reference:    mg.Spec.ForProvider.AlbTargetGroupArnRef,
-		Selector:     mg.Spec.ForProvider.AlbTargetGroupArnSelector,
+		Reference:    mg.Spec.ForProvider.ALBTargetGroupArnRef,
+		Selector:     mg.Spec.ForProvider.ALBTargetGroupArnSelector,
 		To: reference.To{
 			List:    &v1alpha1.TargetGroupList{},
 			Managed: &v1alpha1.TargetGroup{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.AlbTargetGroupArn")
+		return errors.Wrap(err, "mg.Spec.ForProvider.ALBTargetGroupArn")
 	}
-	mg.Spec.ForProvider.AlbTargetGroupArn = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.AlbTargetGroupArnRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.ALBTargetGroupArn = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.ALBTargetGroupArnRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.AutoscalingGroupName),
@@ -77,20 +77,20 @@ func (mg *AutoscalingGroup) ResolveReferences(ctx context.Context, c client.Read
 	var err error
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VpcZoneIdentifier),
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VPCZoneIdentifier),
 		Extract:       reference.ExternalName(),
-		References:    mg.Spec.ForProvider.VpcZoneIdentifierRefs,
-		Selector:      mg.Spec.ForProvider.VpcZoneIdentifierSelector,
+		References:    mg.Spec.ForProvider.VPCZoneIdentifierRefs,
+		Selector:      mg.Spec.ForProvider.VPCZoneIdentifierSelector,
 		To: reference.To{
 			List:    &v1alpha11.SubnetList{},
 			Managed: &v1alpha11.Subnet{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.VpcZoneIdentifier")
+		return errors.Wrap(err, "mg.Spec.ForProvider.VPCZoneIdentifier")
 	}
-	mg.Spec.ForProvider.VpcZoneIdentifier = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.VpcZoneIdentifierRefs = mrsp.ResolvedReferences
+	mg.Spec.ForProvider.VPCZoneIdentifier = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.VPCZoneIdentifierRefs = mrsp.ResolvedReferences
 
 	return nil
 }

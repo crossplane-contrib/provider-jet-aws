@@ -367,6 +367,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   tagsAll:
                     additionalProperties:
                       type: string

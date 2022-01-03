@@ -457,6 +457,8 @@ spec:
                     type: string
                   hostedZoneId:
                     type: string
+                  id:
+                    type: string
                   latestRestorableTime:
                     type: string
                   replicas:

@@ -169,7 +169,7 @@ spec:
                     type: string
                   vpcId:
                     type: string
-                  vpcIdRef:
+                  vpcidRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -178,7 +178,7 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcIdSelector:
+                  vpcidSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -260,6 +260,8 @@ spec:
                           type: string
                       type: object
                     type: array
+                  id:
+                    type: string
                   networkInterfaceIds:
                     items:
                       type: string

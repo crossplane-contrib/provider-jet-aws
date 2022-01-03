@@ -22,8 +22,8 @@ import (
 
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 
-	tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
-	"github.com/crossplane-contrib/terrajet/pkg/terraform"
+	tjconfig "github.com/crossplane/terrajet/pkg/config"
+	"github.com/crossplane/terrajet/pkg/terraform"
 
 	attachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/autoscalinggroup"

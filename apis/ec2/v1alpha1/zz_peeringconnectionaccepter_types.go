@@ -31,27 +31,29 @@ type PeeringConnectionAccepterAccepterObservation struct {
 type PeeringConnectionAccepterAccepterParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc,omitempty"`
+	AllowClassicLinkToRemoteVPC *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AllowRemoteVpcDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution,omitempty"`
+	AllowRemoteVPCDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link,omitempty"`
+	AllowVPCToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link,omitempty"`
 }
 
 type PeeringConnectionAccepterObservation struct {
 	AcceptStatus *string `json:"acceptStatus,omitempty" tf:"accept_status,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	PeerOwnerID *string `json:"peerOwnerId,omitempty" tf:"peer_owner_id,omitempty"`
 
 	PeerRegion *string `json:"peerRegion,omitempty" tf:"peer_region,omitempty"`
 
-	PeerVpcID *string `json:"peerVpcId,omitempty" tf:"peer_vpc_id,omitempty"`
+	PeerVPCID *string `json:"peerVpcId,omitempty" tf:"peer_vpc_id,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 }
 
 type PeeringConnectionAccepterParameters struct {
@@ -74,7 +76,7 @@ type PeeringConnectionAccepterParameters struct {
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Required
-	VpcPeeringConnectionID *string `json:"vpcPeeringConnectionId" tf:"vpc_peering_connection_id,omitempty"`
+	VPCPeeringConnectionID *string `json:"vpcPeeringConnectionId" tf:"vpc_peering_connection_id,omitempty"`
 }
 
 type PeeringConnectionAccepterRequesterObservation struct {
@@ -83,13 +85,13 @@ type PeeringConnectionAccepterRequesterObservation struct {
 type PeeringConnectionAccepterRequesterParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc,omitempty"`
+	AllowClassicLinkToRemoteVPC *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AllowRemoteVpcDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution,omitempty"`
+	AllowRemoteVPCDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link,omitempty"`
+	AllowVPCToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link,omitempty"`
 }
 
 // PeeringConnectionAccepterSpec defines the desired state of PeeringConnectionAccepter

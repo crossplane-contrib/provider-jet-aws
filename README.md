@@ -1,7 +1,7 @@
 # Terrajet AWS Provider
 
 `provider-jet-aws` is a [Crossplane](https://crossplane.io/) provider that is
-built using [Terrajet](https://github.com/crossplane-contrib/terrajet) code
+built using [Terrajet](https://github.com/crossplane/terrajet) code
 generation tools and exposes XRM-conformant managed resources for
 [Amazon AWS](https://aws.amazon.com/).
 

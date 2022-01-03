@@ -30,6 +30,8 @@ type AddonObservation struct {
 
 	CreatedAt *string `json:"createdAt,omitempty" tf:"created_at,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	ModifiedAt *string `json:"modifiedAt,omitempty" tf:"modified_at,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`

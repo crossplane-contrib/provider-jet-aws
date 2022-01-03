@@ -116,6 +116,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   uniqueId:
                     type: string
                 type: object

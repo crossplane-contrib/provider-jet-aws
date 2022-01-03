@@ -17,7 +17,7 @@ limitations under the License.
 package ec2
 
 import (
-	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane/terrajet/pkg/config"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
@@ -51,7 +51,7 @@ func Configure(p *config.Provider) {
 		}
 		r.LateInitializer = config.LateInitializer{
 			// NOTE(muvaf): These are ignored because they conflict with each other.
-			// See the following for more details: https://github.com/crossplane-contrib/terrajet/issues/107
+			// See the following for more details: https://github.com/crossplane/terrajet/issues/107
 			IgnoredFields: []string{
 				"subnet_id",
 				"network_interface",
@@ -201,7 +201,7 @@ func Configure(p *config.Provider) {
 		}
 		r.LateInitializer = config.LateInitializer{
 			// NOTE(muvaf): Conflicts with AvailabilityZone. See the following
-			// for more details: https://github.com/crossplane-contrib/terrajet/issues/107
+			// for more details: https://github.com/crossplane/terrajet/issues/107
 			IgnoredFields: []string{
 				"availability_zone_id",
 			},

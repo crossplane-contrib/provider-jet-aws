@@ -179,20 +179,20 @@ func (mg *TargetGroup) ResolveReferences(ctx context.Context, c client.Reader) e
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VpcIDRef,
-		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		Reference:    mg.Spec.ForProvider.VPCIDRef,
+		Selector:     mg.Spec.ForProvider.VPCIDSelector,
 		To: reference.To{
 			List:    &v1alpha11.VPCList{},
 			Managed: &v1alpha11.VPC{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
-	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
 
 	return nil
 }

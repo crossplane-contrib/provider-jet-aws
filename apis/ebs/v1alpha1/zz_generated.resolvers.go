@@ -33,20 +33,20 @@ func (mg *Volume) ResolveReferences(ctx context.Context, c client.Reader) error 
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.KmsKeyID),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.KMSKeyID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.KmsKeyIDRef,
-		Selector:     mg.Spec.ForProvider.KmsKeyIDSelector,
+		Reference:    mg.Spec.ForProvider.KMSKeyIDRef,
+		Selector:     mg.Spec.ForProvider.KMSKeyIDSelector,
 		To: reference.To{
 			List:    &v1alpha1.KeyList{},
 			Managed: &v1alpha1.Key{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.KmsKeyID")
+		return errors.Wrap(err, "mg.Spec.ForProvider.KMSKeyID")
 	}
-	mg.Spec.ForProvider.KmsKeyID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.KmsKeyIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.KMSKeyID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.KMSKeyIDRef = rsp.ResolvedReference
 
 	return nil
 }

@@ -168,6 +168,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   registryId:
                     type: string
                   repositoryUrl:

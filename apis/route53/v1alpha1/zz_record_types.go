@@ -75,6 +75,8 @@ type LatencyRoutingPolicyParameters struct {
 
 type RecordObservation struct {
 	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn,omitempty"`
+
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 }
 
 type RecordParameters struct {

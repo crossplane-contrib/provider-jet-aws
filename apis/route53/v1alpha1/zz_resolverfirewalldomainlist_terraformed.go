@@ -21,8 +21,8 @@ package v1alpha1
 import (
 	"github.com/pkg/errors"
 
-	"github.com/crossplane-contrib/terrajet/pkg/resource"
-	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
+	"github.com/crossplane/terrajet/pkg/resource"
+	"github.com/crossplane/terrajet/pkg/resource/json"
 )
 
 // GetTerraformResourceType returns Terraform resource type for this ResolverFirewallDomainList
@@ -52,6 +52,14 @@ func (tr *ResolverFirewallDomainList) SetObservation(obs map[string]interface{})
 		return err
 	}
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this ResolverFirewallDomainList
+func (tr *ResolverFirewallDomainList) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
 }
 
 // GetParameters of this ResolverFirewallDomainList

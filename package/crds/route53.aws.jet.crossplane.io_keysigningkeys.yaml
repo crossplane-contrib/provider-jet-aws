@@ -187,6 +187,8 @@ spec:
                   flag:
                     format: int64
                     type: integer
+                  id:
+                    type: string
                   keyTag:
                     format: int64
                     type: integer

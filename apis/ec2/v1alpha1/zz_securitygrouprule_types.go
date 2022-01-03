@@ -26,6 +26,7 @@ import (
 )
 
 type SecurityGroupRuleObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 }
 
 type SecurityGroupRuleParameters struct {

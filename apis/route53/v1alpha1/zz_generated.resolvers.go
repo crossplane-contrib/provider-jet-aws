@@ -26,8 +26,8 @@ import (
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-// ResolveReferences of this HostedZoneDnssec.
-func (mg *HostedZoneDnssec) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this HostedZoneDNSSEC.
+func (mg *HostedZoneDNSSEC) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -136,28 +136,28 @@ func (mg *Record) ResolveReferences(ctx context.Context, c client.Reader) error 
 	return nil
 }
 
-// ResolveReferences of this VpcAssociationAuthorization.
-func (mg *VpcAssociationAuthorization) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this VPCAssociationAuthorization.
+func (mg *VPCAssociationAuthorization) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VpcIDRef,
-		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		Reference:    mg.Spec.ForProvider.VPCIDRef,
+		Selector:     mg.Spec.ForProvider.VPCIDSelector,
 		To: reference.To{
 			List:    &v1alpha11.VPCList{},
 			Managed: &v1alpha11.VPC{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
-	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ZoneID),
@@ -201,22 +201,22 @@ func (mg *Zone) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.DelegationSetID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.DelegationSetIDRef = rsp.ResolvedReference
 
-	for i3 := 0; i3 < len(mg.Spec.ForProvider.Vpc); i3++ {
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.VPC); i3++ {
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Vpc[i3].VpcID),
+			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPC[i3].VPCID),
 			Extract:      reference.ExternalName(),
-			Reference:    mg.Spec.ForProvider.Vpc[i3].VpcIDRef,
-			Selector:     mg.Spec.ForProvider.Vpc[i3].VpcIDSelector,
+			Reference:    mg.Spec.ForProvider.VPC[i3].VPCIDRef,
+			Selector:     mg.Spec.ForProvider.VPC[i3].VPCIDSelector,
 			To: reference.To{
 				List:    &v1alpha11.VPCList{},
 				Managed: &v1alpha11.VPC{},
 			},
 		})
 		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.Vpc[i3].VpcID")
+			return errors.Wrap(err, "mg.Spec.ForProvider.VPC[i3].VPCID")
 		}
-		mg.Spec.ForProvider.Vpc[i3].VpcID = reference.ToPtrValue(rsp.ResolvedValue)
-		mg.Spec.ForProvider.Vpc[i3].VpcIDRef = rsp.ResolvedReference
+		mg.Spec.ForProvider.VPC[i3].VPCID = reference.ToPtrValue(rsp.ResolvedValue)
+		mg.Spec.ForProvider.VPC[i3].VPCIDRef = rsp.ResolvedReference
 
 	}
 
@@ -231,20 +231,20 @@ func (mg *ZoneAssociation) ResolveReferences(ctx context.Context, c client.Reade
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VpcID),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VpcIDRef,
-		Selector:     mg.Spec.ForProvider.VpcIDSelector,
+		Reference:    mg.Spec.ForProvider.VPCIDRef,
+		Selector:     mg.Spec.ForProvider.VPCIDSelector,
 		To: reference.To{
 			List:    &v1alpha11.VPCList{},
 			Managed: &v1alpha11.VPC{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.VpcID")
+		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
-	mg.Spec.ForProvider.VpcID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VpcIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ZoneID),

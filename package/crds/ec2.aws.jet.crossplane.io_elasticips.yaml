@@ -194,6 +194,8 @@ spec:
                     type: string
                   domain:
                     type: string
+                  id:
+                    type: string
                   privateDns:
                     type: string
                   privateIp:

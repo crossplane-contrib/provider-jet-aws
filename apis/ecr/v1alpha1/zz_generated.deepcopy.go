@@ -48,18 +48,18 @@ func (in *EncryptionConfigurationParameters) DeepCopyInto(out *EncryptionConfigu
 		*out = new(string)
 		**out = **in
 	}
-	if in.KmsKey != nil {
-		in, out := &in.KmsKey, &out.KmsKey
+	if in.KMSKey != nil {
+		in, out := &in.KMSKey, &out.KMSKey
 		*out = new(string)
 		**out = **in
 	}
-	if in.KmsKeyRef != nil {
-		in, out := &in.KmsKeyRef, &out.KmsKeyRef
+	if in.KMSKeyRef != nil {
+		in, out := &in.KMSKeyRef, &out.KMSKeyRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.KmsKeySelector != nil {
-		in, out := &in.KmsKeySelector, &out.KmsKeySelector
+	if in.KMSKeySelector != nil {
+		in, out := &in.KMSKeySelector, &out.KMSKeySelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -174,6 +174,11 @@ func (in *RepositoryObservation) DeepCopyInto(out *RepositoryObservation) {
 	*out = *in
 	if in.Arn != nil {
 		in, out := &in.Arn, &out.Arn
+		*out = new(string)
+		**out = **in
+	}
+	if in.ID != nil {
+		in, out := &in.ID, &out.ID
 		*out = new(string)
 		**out = **in
 	}

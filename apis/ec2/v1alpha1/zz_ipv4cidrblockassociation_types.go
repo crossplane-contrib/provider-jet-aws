@@ -26,6 +26,7 @@ import (
 )
 
 type IPv4CIDRBlockAssociationObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 }
 
 type IPv4CIDRBlockAssociationParameters struct {
@@ -40,13 +41,13 @@ type IPv4CIDRBlockAssociationParameters struct {
 
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
+	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
+	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
 }
 
 // IPv4CIDRBlockAssociationSpec defines the desired state of IPv4CIDRBlockAssociation

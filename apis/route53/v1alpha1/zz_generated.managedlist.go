@@ -37,8 +37,8 @@ func (l *HealthCheckList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this HostedZoneDnssecList.
-func (l *HostedZoneDnssecList) GetItems() []resource.Managed {
+// GetItems of this HostedZoneDNSSECList.
+func (l *HostedZoneDNSSECList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -73,8 +73,8 @@ func (l *RecordList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this ResolverDnssecConfigList.
-func (l *ResolverDnssecConfigList) GetItems() []resource.Managed {
+// GetItems of this ResolverDNSSECConfigList.
+func (l *ResolverDNSSECConfigList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -172,8 +172,8 @@ func (l *ResolverRuleList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this VpcAssociationAuthorizationList.
-func (l *VpcAssociationAuthorizationList) GetItems() []resource.Managed {
+// GetItems of this VPCAssociationAuthorizationList.
+func (l *VPCAssociationAuthorizationList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

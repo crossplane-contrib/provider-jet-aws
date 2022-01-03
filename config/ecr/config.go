@@ -17,7 +17,7 @@ limitations under the License.
 package ecr
 
 import (
-	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane/terrajet/pkg/config"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )

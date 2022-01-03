@@ -40,7 +40,7 @@ type ApplyServerSideEncryptionByDefaultObservation struct {
 type ApplyServerSideEncryptionByDefaultParameters struct {
 
 	// +kubebuilder:validation:Optional
-	KmsMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id,omitempty"`
+	KMSMasterKeyID *string `json:"kmsMasterKeyId,omitempty" tf:"kms_master_key_id,omitempty"`
 
 	// +kubebuilder:validation:Required
 	SseAlgorithm *string `json:"sseAlgorithm" tf:"sse_algorithm,omitempty"`
@@ -50,6 +50,8 @@ type BucketObservation struct {
 	BucketDomainName *string `json:"bucketDomainName,omitempty" tf:"bucket_domain_name,omitempty"`
 
 	BucketRegionalDomainName *string `json:"bucketRegionalDomainName,omitempty" tf:"bucket_regional_domain_name,omitempty"`
+
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
@@ -176,7 +178,7 @@ type DestinationParameters struct {
 	Bucket *string `json:"bucket" tf:"bucket,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ReplicaKmsKeyID *string `json:"replicaKmsKeyId,omitempty" tf:"replica_kms_key_id,omitempty"`
+	ReplicaKMSKeyID *string `json:"replicaKmsKeyId,omitempty" tf:"replica_kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class,omitempty"`
@@ -383,13 +385,13 @@ type SourceSelectionCriteriaObservation struct {
 type SourceSelectionCriteriaParameters struct {
 
 	// +kubebuilder:validation:Optional
-	SseKmsEncryptedObjects []SseKmsEncryptedObjectsParameters `json:"sseKmsEncryptedObjects,omitempty" tf:"sse_kms_encrypted_objects,omitempty"`
+	SseKMSEncryptedObjects []SseKMSEncryptedObjectsParameters `json:"sseKmsEncryptedObjects,omitempty" tf:"sse_kms_encrypted_objects,omitempty"`
 }
 
-type SseKmsEncryptedObjectsObservation struct {
+type SseKMSEncryptedObjectsObservation struct {
 }
 
-type SseKmsEncryptedObjectsParameters struct {
+type SseKMSEncryptedObjectsParameters struct {
 
 	// +kubebuilder:validation:Required
 	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`

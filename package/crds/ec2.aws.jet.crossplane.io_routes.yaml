@@ -284,6 +284,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  id:
+                    type: string
                   instanceOwnerId:
                     type: string
                   origin:

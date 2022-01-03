@@ -41,6 +41,8 @@ type ClusterObservation struct {
 
 	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	Identity []IdentityObservation `json:"identity,omitempty" tf:"identity,omitempty"`
 
 	PlatformVersion *string `json:"platformVersion,omitempty" tf:"platform_version,omitempty"`
@@ -80,11 +82,11 @@ type ClusterParameters struct {
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
+	// +kubebuilder:validation:Required
+	VPCConfig []VPCConfigParameters `json:"vpcConfig" tf:"vpc_config,omitempty"`
+
 	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version,omitempty"`
-
-	// +kubebuilder:validation:Required
-	VpcConfig []VpcConfigParameters `json:"vpcConfig" tf:"vpc_config,omitempty"`
 }
 
 type EncryptionConfigObservation struct {
@@ -131,13 +133,13 @@ type ProviderParameters struct {
 	KeyArn *string `json:"keyArn" tf:"key_arn,omitempty"`
 }
 
-type VpcConfigObservation struct {
+type VPCConfigObservation struct {
 	ClusterSecurityGroupID *string `json:"clusterSecurityGroupId,omitempty" tf:"cluster_security_group_id,omitempty"`
 
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 }
 
-type VpcConfigParameters struct {
+type VPCConfigParameters struct {
 
 	// +kubebuilder:validation:Optional
 	EndpointPrivateAccess *bool `json:"endpointPrivateAccess,omitempty" tf:"endpoint_private_access,omitempty"`

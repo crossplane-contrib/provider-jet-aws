@@ -138,7 +138,7 @@ spec:
                     type: object
                   vpcId:
                     type: string
-                  vpcIdRef:
+                  vpcidRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -147,7 +147,7 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcIdSelector:
+                  vpcidSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -214,6 +214,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  id:
+                    type: string
                   tagsAll:
                     additionalProperties:
                       type: string

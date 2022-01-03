@@ -26,6 +26,8 @@ import (
 )
 
 type RouteObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	InstanceOwnerID *string `json:"instanceOwnerId,omitempty" tf:"instance_owner_id,omitempty"`
 
 	Origin *string `json:"origin,omitempty" tf:"origin,omitempty"`
@@ -67,7 +69,7 @@ type RouteParameters struct {
 	LocalGatewayID *string `json:"localGatewayId,omitempty" tf:"local_gateway_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NatGatewayID *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id,omitempty"`
+	NATGatewayID *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id,omitempty"`
 
 	// +crossplane:generate:reference:type=NetworkInterface
 	// +kubebuilder:validation:Optional
@@ -106,23 +108,23 @@ type RouteParameters struct {
 
 	// +crossplane:generate:reference:type=VPCEndpoint
 	// +kubebuilder:validation:Optional
-	VpcEndpointID *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id,omitempty"`
+	VPCEndpointID *string `json:"vpcEndpointId,omitempty" tf:"vpc_endpoint_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcEndpointIDRef *v1.Reference `json:"vpcEndpointIdRef,omitempty" tf:"-"`
+	VPCEndpointIDRef *v1.Reference `json:"vpcEndpointIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcEndpointIDSelector *v1.Selector `json:"vpcEndpointIdSelector,omitempty" tf:"-"`
+	VPCEndpointIDSelector *v1.Selector `json:"vpcEndpointIdSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=VPCPeeringConnection
 	// +kubebuilder:validation:Optional
-	VpcPeeringConnectionID *string `json:"vpcPeeringConnectionId,omitempty" tf:"vpc_peering_connection_id,omitempty"`
+	VPCPeeringConnectionID *string `json:"vpcPeeringConnectionId,omitempty" tf:"vpc_peering_connection_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcPeeringConnectionIDRef *v1.Reference `json:"vpcPeeringConnectionIdRef,omitempty" tf:"-"`
+	VPCPeeringConnectionIDRef *v1.Reference `json:"vpcPeeringConnectionIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcPeeringConnectionIDSelector *v1.Selector `json:"vpcPeeringConnectionIdSelector,omitempty" tf:"-"`
+	VPCPeeringConnectionIDSelector *v1.Selector `json:"vpcPeeringConnectionIdSelector,omitempty" tf:"-"`
 }
 
 // RouteSpec defines the desired state of Route

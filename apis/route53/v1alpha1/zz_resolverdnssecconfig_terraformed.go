@@ -21,22 +21,22 @@ package v1alpha1
 import (
 	"github.com/pkg/errors"
 
-	"github.com/crossplane-contrib/terrajet/pkg/resource"
-	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
+	"github.com/crossplane/terrajet/pkg/resource"
+	"github.com/crossplane/terrajet/pkg/resource/json"
 )
 
-// GetTerraformResourceType returns Terraform resource type for this ResolverDnssecConfig
-func (mg *ResolverDnssecConfig) GetTerraformResourceType() string {
+// GetTerraformResourceType returns Terraform resource type for this ResolverDNSSECConfig
+func (mg *ResolverDNSSECConfig) GetTerraformResourceType() string {
 	return "aws_route53_resolver_dnssec_config"
 }
 
-// GetConnectionDetailsMapping for this ResolverDnssecConfig
-func (tr *ResolverDnssecConfig) GetConnectionDetailsMapping() map[string]string {
+// GetConnectionDetailsMapping for this ResolverDNSSECConfig
+func (tr *ResolverDNSSECConfig) GetConnectionDetailsMapping() map[string]string {
 	return nil
 }
 
-// GetObservation of this ResolverDnssecConfig
-func (tr *ResolverDnssecConfig) GetObservation() (map[string]interface{}, error) {
+// GetObservation of this ResolverDNSSECConfig
+func (tr *ResolverDNSSECConfig) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
@@ -45,8 +45,8 @@ func (tr *ResolverDnssecConfig) GetObservation() (map[string]interface{}, error)
 	return base, json.TFParser.Unmarshal(o, &base)
 }
 
-// SetObservation for this ResolverDnssecConfig
-func (tr *ResolverDnssecConfig) SetObservation(obs map[string]interface{}) error {
+// SetObservation for this ResolverDNSSECConfig
+func (tr *ResolverDNSSECConfig) SetObservation(obs map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(obs)
 	if err != nil {
 		return err
@@ -54,8 +54,16 @@ func (tr *ResolverDnssecConfig) SetObservation(obs map[string]interface{}) error
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
-// GetParameters of this ResolverDnssecConfig
-func (tr *ResolverDnssecConfig) GetParameters() (map[string]interface{}, error) {
+// GetID returns ID of underlying Terraform resource of this ResolverDNSSECConfig
+func (tr *ResolverDNSSECConfig) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this ResolverDNSSECConfig
+func (tr *ResolverDNSSECConfig) GetParameters() (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
@@ -64,8 +72,8 @@ func (tr *ResolverDnssecConfig) GetParameters() (map[string]interface{}, error) 
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
-// SetParameters for this ResolverDnssecConfig
-func (tr *ResolverDnssecConfig) SetParameters(params map[string]interface{}) error {
+// SetParameters for this ResolverDNSSECConfig
+func (tr *ResolverDNSSECConfig) SetParameters(params map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(params)
 	if err != nil {
 		return err
@@ -73,10 +81,10 @@ func (tr *ResolverDnssecConfig) SetParameters(params map[string]interface{}) err
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }
 
-// LateInitialize this ResolverDnssecConfig using its observed tfState.
+// LateInitialize this ResolverDNSSECConfig using its observed tfState.
 // returns True if there are any spec changes for the resource.
-func (tr *ResolverDnssecConfig) LateInitialize(attrs []byte) (bool, error) {
-	params := &ResolverDnssecConfigParameters{}
+func (tr *ResolverDNSSECConfig) LateInitialize(attrs []byte) (bool, error) {
+	params := &ResolverDNSSECConfigParameters{}
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
@@ -87,6 +95,6 @@ func (tr *ResolverDnssecConfig) LateInitialize(attrs []byte) (bool, error) {
 }
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
-func (tr *ResolverDnssecConfig) GetTerraformSchemaVersion() int {
+func (tr *ResolverDNSSECConfig) GetTerraformSchemaVersion() int {
 	return 0
 }

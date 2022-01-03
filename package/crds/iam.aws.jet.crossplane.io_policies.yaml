@@ -130,6 +130,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   policyId:
                     type: string
                   tagsAll:

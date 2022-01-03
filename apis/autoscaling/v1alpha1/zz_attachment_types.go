@@ -26,6 +26,7 @@ import (
 )
 
 type AttachmentObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 }
 
 type AttachmentParameters struct {
@@ -33,13 +34,13 @@ type AttachmentParameters struct {
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
-	AlbTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn,omitempty"`
+	ALBTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AlbTargetGroupArnRef *v1.Reference `json:"albTargetGroupArnRef,omitempty" tf:"-"`
+	ALBTargetGroupArnRef *v1.Reference `json:"albTargetGroupArnRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	AlbTargetGroupArnSelector *v1.Selector `json:"albTargetGroupArnSelector,omitempty" tf:"-"`
+	ALBTargetGroupArnSelector *v1.Selector `json:"albTargetGroupArnSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=AutoscalingGroup
 	// +kubebuilder:validation:Optional
@@ -52,7 +53,7 @@ type AttachmentParameters struct {
 	AutoscalingGroupNameSelector *v1.Selector `json:"autoscalingGroupNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Elb *string `json:"elb,omitempty" tf:"elb,omitempty"`
+	ELB *string `json:"elb,omitempty" tf:"elb,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-

@@ -34,6 +34,8 @@ type DBInstanceObservation struct {
 
 	HostedZoneID *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	LatestRestorableTime *string `json:"latestRestorableTime,omitempty" tf:"latest_restorable_time,omitempty"`
 
 	Replicas []*string `json:"replicas,omitempty" tf:"replicas,omitempty"`
@@ -69,7 +71,7 @@ type DBInstanceParameters struct {
 	BackupWindow *string `json:"backupWindow,omitempty" tf:"backup_window,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	CaCertIdentifier *string `json:"caCertIdentifier,omitempty" tf:"ca_cert_identifier,omitempty"`
+	CACertIdentifier *string `json:"caCertIdentifier,omitempty" tf:"ca_cert_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	CharacterSetName *string `json:"characterSetName,omitempty" tf:"character_set_name,omitempty"`
@@ -93,7 +95,7 @@ type DBInstanceParameters struct {
 	Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DomainIamRoleName *string `json:"domainIamRoleName,omitempty" tf:"domain_iam_role_name,omitempty"`
+	DomainIAMRoleName *string `json:"domainIamRoleName,omitempty" tf:"domain_iam_role_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	EnabledCloudwatchLogsExports []*string `json:"enabledCloudwatchLogsExports,omitempty" tf:"enabled_cloudwatch_logs_exports,omitempty"`
@@ -108,7 +110,7 @@ type DBInstanceParameters struct {
 	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IamDatabaseAuthenticationEnabled *bool `json:"iamDatabaseAuthenticationEnabled,omitempty" tf:"iam_database_authentication_enabled,omitempty"`
+	IAMDatabaseAuthenticationEnabled *bool `json:"iamDatabaseAuthenticationEnabled,omitempty" tf:"iam_database_authentication_enabled,omitempty"`
 
 	// +kubebuilder:validation:Required
 	InstanceClass *string `json:"instanceClass" tf:"instance_class,omitempty"`
@@ -118,13 +120,13 @@ type DBInstanceParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
+	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
+	KMSKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
+	KMSKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	LicenseModel *string `json:"licenseModel,omitempty" tf:"license_model,omitempty"`
@@ -171,13 +173,13 @@ type DBInstanceParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key
 	// +kubebuilder:validation:Optional
-	PerformanceInsightsKmsKeyID *string `json:"performanceInsightsKmsKeyId,omitempty" tf:"performance_insights_kms_key_id,omitempty"`
+	PerformanceInsightsKMSKeyID *string `json:"performanceInsightsKmsKeyId,omitempty" tf:"performance_insights_kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PerformanceInsightsKmsKeyIDRef *v1.Reference `json:"performanceInsightsKmsKeyIdRef,omitempty" tf:"-"`
+	PerformanceInsightsKMSKeyIDRef *v1.Reference `json:"performanceInsightsKmsKeyIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	PerformanceInsightsKmsKeyIDSelector *v1.Selector `json:"performanceInsightsKmsKeyIdSelector,omitempty" tf:"-"`
+	PerformanceInsightsKMSKeyIDSelector *v1.Selector `json:"performanceInsightsKmsKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	PerformanceInsightsRetentionPeriod *int64 `json:"performanceInsightsRetentionPeriod,omitempty" tf:"performance_insights_retention_period,omitempty"`
@@ -235,17 +237,17 @@ type DBInstanceParameters struct {
 	// +kubebuilder:validation:Optional
 	Username *string `json:"username,omitempty" tf:"username,omitempty"`
 
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup
+	// +crossplane:generate:reference:refFieldName=VpcSecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=VpcSecurityGroupIdSelector
+	// +kubebuilder:validation:Optional
+	VPCSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
+
 	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIdRefs []v1.Reference `json:"vpcSecurityGroupIdRefs,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	VpcSecurityGroupIdSelector *v1.Selector `json:"vpcSecurityGroupIdSelector,omitempty" tf:"-"`
-
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup
-	// +crossplane:generate:reference:refFieldName=VpcSecurityGroupIdRefs
-	// +crossplane:generate:reference:selectorFieldName=VpcSecurityGroupIdSelector
-	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
 }
 
 type RestoreToPointInTimeObservation struct {

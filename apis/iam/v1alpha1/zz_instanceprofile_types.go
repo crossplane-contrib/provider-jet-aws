@@ -30,6 +30,8 @@ type InstanceProfileObservation struct {
 
 	CreateDate *string `json:"createDate,omitempty" tf:"create_date,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 
 	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id,omitempty"`

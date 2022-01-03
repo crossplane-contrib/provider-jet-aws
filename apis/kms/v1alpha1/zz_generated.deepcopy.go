@@ -91,6 +91,11 @@ func (in *KeyObservation) DeepCopyInto(out *KeyObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ID != nil {
+		in, out := &in.ID, &out.ID
+		*out = new(string)
+		**out = **in
+	}
 	if in.KeyID != nil {
 		in, out := &in.KeyID, &out.KeyID
 		*out = new(string)

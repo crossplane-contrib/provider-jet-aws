@@ -19,11 +19,11 @@ package config
 import (
 	"regexp"
 
-	"github.com/crossplane-contrib/terrajet/pkg/types/comments"
+	"github.com/crossplane/terrajet/pkg/types/comments"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/pkg/errors"
 
-	tjconfig "github.com/crossplane-contrib/terrajet/pkg/config"
+	tjconfig "github.com/crossplane/terrajet/pkg/config"
 )
 
 // GroupMap contains all overrides we'd like to make to the default group search.

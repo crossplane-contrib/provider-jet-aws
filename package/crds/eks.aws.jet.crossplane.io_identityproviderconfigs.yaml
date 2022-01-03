@@ -179,6 +179,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   status:
                     type: string
                   tagsAll:

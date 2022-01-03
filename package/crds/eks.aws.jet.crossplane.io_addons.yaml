@@ -180,6 +180,8 @@ spec:
                     type: string
                   createdAt:
                     type: string
+                  id:
+                    type: string
                   modifiedAt:
                     type: string
                   tagsAll:

@@ -23,7 +23,7 @@ import (
 
 	tf "github.com/terraform-providers/terraform-provider-aws/aws"
 
-	"github.com/crossplane-contrib/terrajet/pkg/pipeline"
+	"github.com/crossplane/terrajet/pkg/pipeline"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config"
 )

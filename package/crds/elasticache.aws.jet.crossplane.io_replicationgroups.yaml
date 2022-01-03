@@ -225,6 +225,8 @@ spec:
                     type: string
                   engineVersionActual:
                     type: string
+                  id:
+                    type: string
                   memberClusters:
                     items:
                       type: string

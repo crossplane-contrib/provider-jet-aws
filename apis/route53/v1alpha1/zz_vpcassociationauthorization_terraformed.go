@@ -21,22 +21,22 @@ package v1alpha1
 import (
 	"github.com/pkg/errors"
 
-	"github.com/crossplane-contrib/terrajet/pkg/resource"
-	"github.com/crossplane-contrib/terrajet/pkg/resource/json"
+	"github.com/crossplane/terrajet/pkg/resource"
+	"github.com/crossplane/terrajet/pkg/resource/json"
 )
 
-// GetTerraformResourceType returns Terraform resource type for this VpcAssociationAuthorization
-func (mg *VpcAssociationAuthorization) GetTerraformResourceType() string {
+// GetTerraformResourceType returns Terraform resource type for this VPCAssociationAuthorization
+func (mg *VPCAssociationAuthorization) GetTerraformResourceType() string {
 	return "aws_route53_vpc_association_authorization"
 }
 
-// GetConnectionDetailsMapping for this VpcAssociationAuthorization
-func (tr *VpcAssociationAuthorization) GetConnectionDetailsMapping() map[string]string {
+// GetConnectionDetailsMapping for this VPCAssociationAuthorization
+func (tr *VPCAssociationAuthorization) GetConnectionDetailsMapping() map[string]string {
 	return nil
 }
 
-// GetObservation of this VpcAssociationAuthorization
-func (tr *VpcAssociationAuthorization) GetObservation() (map[string]interface{}, error) {
+// GetObservation of this VPCAssociationAuthorization
+func (tr *VPCAssociationAuthorization) GetObservation() (map[string]interface{}, error) {
 	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
 	if err != nil {
 		return nil, err
@@ -45,8 +45,8 @@ func (tr *VpcAssociationAuthorization) GetObservation() (map[string]interface{},
 	return base, json.TFParser.Unmarshal(o, &base)
 }
 
-// SetObservation for this VpcAssociationAuthorization
-func (tr *VpcAssociationAuthorization) SetObservation(obs map[string]interface{}) error {
+// SetObservation for this VPCAssociationAuthorization
+func (tr *VPCAssociationAuthorization) SetObservation(obs map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(obs)
 	if err != nil {
 		return err
@@ -54,8 +54,16 @@ func (tr *VpcAssociationAuthorization) SetObservation(obs map[string]interface{}
 	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
 }
 
-// GetParameters of this VpcAssociationAuthorization
-func (tr *VpcAssociationAuthorization) GetParameters() (map[string]interface{}, error) {
+// GetID returns ID of underlying Terraform resource of this VPCAssociationAuthorization
+func (tr *VPCAssociationAuthorization) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VPCAssociationAuthorization
+func (tr *VPCAssociationAuthorization) GetParameters() (map[string]interface{}, error) {
 	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
 	if err != nil {
 		return nil, err
@@ -64,8 +72,8 @@ func (tr *VpcAssociationAuthorization) GetParameters() (map[string]interface{}, 
 	return base, json.TFParser.Unmarshal(p, &base)
 }
 
-// SetParameters for this VpcAssociationAuthorization
-func (tr *VpcAssociationAuthorization) SetParameters(params map[string]interface{}) error {
+// SetParameters for this VPCAssociationAuthorization
+func (tr *VPCAssociationAuthorization) SetParameters(params map[string]interface{}) error {
 	p, err := json.TFParser.Marshal(params)
 	if err != nil {
 		return err
@@ -73,10 +81,10 @@ func (tr *VpcAssociationAuthorization) SetParameters(params map[string]interface
 	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
 }
 
-// LateInitialize this VpcAssociationAuthorization using its observed tfState.
+// LateInitialize this VPCAssociationAuthorization using its observed tfState.
 // returns True if there are any spec changes for the resource.
-func (tr *VpcAssociationAuthorization) LateInitialize(attrs []byte) (bool, error) {
-	params := &VpcAssociationAuthorizationParameters{}
+func (tr *VPCAssociationAuthorization) LateInitialize(attrs []byte) (bool, error) {
+	params := &VPCAssociationAuthorizationParameters{}
 	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
@@ -87,6 +95,6 @@ func (tr *VpcAssociationAuthorization) LateInitialize(attrs []byte) (bool, error
 }
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
-func (tr *VpcAssociationAuthorization) GetTerraformSchemaVersion() int {
+func (tr *VPCAssociationAuthorization) GetTerraformSchemaVersion() int {
 	return 0
 }

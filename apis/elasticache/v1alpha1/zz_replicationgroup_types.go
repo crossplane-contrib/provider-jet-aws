@@ -46,6 +46,8 @@ type ReplicationGroupObservation struct {
 
 	EngineVersionActual *string `json:"engineVersionActual,omitempty" tf:"engine_version_actual,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	MemberClusters []*string `json:"memberClusters,omitempty" tf:"member_clusters,omitempty"`
 
 	PrimaryEndpointAddress *string `json:"primaryEndpointAddress,omitempty" tf:"primary_endpoint_address,omitempty"`
@@ -91,7 +93,7 @@ type ReplicationGroupParameters struct {
 	GlobalReplicationGroupID *string `json:"globalReplicationGroupId,omitempty" tf:"global_replication_group_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
+	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window,omitempty"`

@@ -31,13 +31,13 @@ type AccepterObservation struct {
 type AccepterParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc,omitempty"`
+	AllowClassicLinkToRemoteVPC *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AllowRemoteVpcDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution,omitempty"`
+	AllowRemoteVPCDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link,omitempty"`
+	AllowVPCToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link,omitempty"`
 }
 
 type RequesterObservation struct {
@@ -46,17 +46,19 @@ type RequesterObservation struct {
 type RequesterParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AllowClassicLinkToRemoteVpc *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc,omitempty"`
+	AllowClassicLinkToRemoteVPC *bool `json:"allowClassicLinkToRemoteVpc,omitempty" tf:"allow_classic_link_to_remote_vpc,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AllowRemoteVpcDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution,omitempty"`
+	AllowRemoteVPCDNSResolution *bool `json:"allowRemoteVpcDnsResolution,omitempty" tf:"allow_remote_vpc_dns_resolution,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	AllowVpcToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link,omitempty"`
+	AllowVPCToRemoteClassicLink *bool `json:"allowVpcToRemoteClassicLink,omitempty" tf:"allow_vpc_to_remote_classic_link,omitempty"`
 }
 
 type VPCPeeringConnectionObservation struct {
 	AcceptStatus *string `json:"acceptStatus,omitempty" tf:"accept_status,omitempty"`
+
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
@@ -77,13 +79,13 @@ type VPCPeeringConnectionParameters struct {
 
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
-	PeerVpcID *string `json:"peerVpcId,omitempty" tf:"peer_vpc_id,omitempty"`
+	PeerVPCID *string `json:"peerVpcId,omitempty" tf:"peer_vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PeerVpcIDRef *v1.Reference `json:"peerVpcIdRef,omitempty" tf:"-"`
+	PeerVPCIDRef *v1.Reference `json:"peerVpcidRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	PeerVpcIDSelector *v1.Selector `json:"peerVpcIdSelector,omitempty" tf:"-"`
+	PeerVPCIDSelector *v1.Selector `json:"peerVpcidSelector,omitempty" tf:"-"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
@@ -98,13 +100,13 @@ type VPCPeeringConnectionParameters struct {
 
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
+	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
+	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
 }
 
 // VPCPeeringConnectionSpec defines the desired state of VPCPeeringConnection

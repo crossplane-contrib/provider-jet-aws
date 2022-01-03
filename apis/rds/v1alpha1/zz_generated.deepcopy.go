@@ -112,6 +112,11 @@ func (in *DBClusterObservation) DeepCopyInto(out *DBClusterObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ID != nil {
+		in, out := &in.ID, &out.ID
+		*out = new(string)
+		**out = **in
+	}
 	if in.ReaderEndpoint != nil {
 		in, out := &in.ReaderEndpoint, &out.ReaderEndpoint
 		*out = new(string)
@@ -265,13 +270,13 @@ func (in *DBClusterParameters) DeepCopyInto(out *DBClusterParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.IamDatabaseAuthenticationEnabled != nil {
-		in, out := &in.IamDatabaseAuthenticationEnabled, &out.IamDatabaseAuthenticationEnabled
+	if in.IAMDatabaseAuthenticationEnabled != nil {
+		in, out := &in.IAMDatabaseAuthenticationEnabled, &out.IAMDatabaseAuthenticationEnabled
 		*out = new(bool)
 		**out = **in
 	}
-	if in.IamRoles != nil {
-		in, out := &in.IamRoles, &out.IamRoles
+	if in.IAMRoles != nil {
+		in, out := &in.IAMRoles, &out.IAMRoles
 		*out = make([]*string, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
@@ -281,8 +286,8 @@ func (in *DBClusterParameters) DeepCopyInto(out *DBClusterParameters) {
 			}
 		}
 	}
-	if in.KmsKeyID != nil {
-		in, out := &in.KmsKeyID, &out.KmsKeyID
+	if in.KMSKeyID != nil {
+		in, out := &in.KMSKeyID, &out.KMSKeyID
 		*out = new(string)
 		**out = **in
 	}
@@ -377,8 +382,8 @@ func (in *DBClusterParameters) DeepCopyInto(out *DBClusterParameters) {
 			(*out)[key] = outVal
 		}
 	}
-	if in.VpcSecurityGroupIds != nil {
-		in, out := &in.VpcSecurityGroupIds, &out.VpcSecurityGroupIds
+	if in.VPCSecurityGroupIds != nil {
+		in, out := &in.VPCSecurityGroupIds, &out.VPCSecurityGroupIds
 		*out = make([]*string, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
@@ -621,6 +626,11 @@ func (in *DBInstanceObservation) DeepCopyInto(out *DBInstanceObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ID != nil {
+		in, out := &in.ID, &out.ID
+		*out = new(string)
+		**out = **in
+	}
 	if in.LatestRestorableTime != nil {
 		in, out := &in.LatestRestorableTime, &out.LatestRestorableTime
 		*out = new(string)
@@ -712,8 +722,8 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.CaCertIdentifier != nil {
-		in, out := &in.CaCertIdentifier, &out.CaCertIdentifier
+	if in.CACertIdentifier != nil {
+		in, out := &in.CACertIdentifier, &out.CACertIdentifier
 		*out = new(string)
 		**out = **in
 	}
@@ -752,8 +762,8 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.DomainIamRoleName != nil {
-		in, out := &in.DomainIamRoleName, &out.DomainIamRoleName
+	if in.DomainIAMRoleName != nil {
+		in, out := &in.DomainIAMRoleName, &out.DomainIAMRoleName
 		*out = new(string)
 		**out = **in
 	}
@@ -783,8 +793,8 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.IamDatabaseAuthenticationEnabled != nil {
-		in, out := &in.IamDatabaseAuthenticationEnabled, &out.IamDatabaseAuthenticationEnabled
+	if in.IAMDatabaseAuthenticationEnabled != nil {
+		in, out := &in.IAMDatabaseAuthenticationEnabled, &out.IAMDatabaseAuthenticationEnabled
 		*out = new(bool)
 		**out = **in
 	}
@@ -798,18 +808,18 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 		*out = new(int64)
 		**out = **in
 	}
-	if in.KmsKeyID != nil {
-		in, out := &in.KmsKeyID, &out.KmsKeyID
+	if in.KMSKeyID != nil {
+		in, out := &in.KMSKeyID, &out.KMSKeyID
 		*out = new(string)
 		**out = **in
 	}
-	if in.KmsKeyIDRef != nil {
-		in, out := &in.KmsKeyIDRef, &out.KmsKeyIDRef
+	if in.KMSKeyIDRef != nil {
+		in, out := &in.KMSKeyIDRef, &out.KMSKeyIDRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.KmsKeyIDSelector != nil {
-		in, out := &in.KmsKeyIDSelector, &out.KmsKeyIDSelector
+	if in.KMSKeyIDSelector != nil {
+		in, out := &in.KMSKeyIDSelector, &out.KMSKeyIDSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -883,18 +893,18 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 		*out = new(bool)
 		**out = **in
 	}
-	if in.PerformanceInsightsKmsKeyID != nil {
-		in, out := &in.PerformanceInsightsKmsKeyID, &out.PerformanceInsightsKmsKeyID
+	if in.PerformanceInsightsKMSKeyID != nil {
+		in, out := &in.PerformanceInsightsKMSKeyID, &out.PerformanceInsightsKMSKeyID
 		*out = new(string)
 		**out = **in
 	}
-	if in.PerformanceInsightsKmsKeyIDRef != nil {
-		in, out := &in.PerformanceInsightsKmsKeyIDRef, &out.PerformanceInsightsKmsKeyIDRef
+	if in.PerformanceInsightsKMSKeyIDRef != nil {
+		in, out := &in.PerformanceInsightsKMSKeyIDRef, &out.PerformanceInsightsKMSKeyIDRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.PerformanceInsightsKmsKeyIDSelector != nil {
-		in, out := &in.PerformanceInsightsKmsKeyIDSelector, &out.PerformanceInsightsKmsKeyIDSelector
+	if in.PerformanceInsightsKMSKeyIDSelector != nil {
+		in, out := &in.PerformanceInsightsKMSKeyIDSelector, &out.PerformanceInsightsKMSKeyIDSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -1003,6 +1013,17 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.VPCSecurityGroupIds != nil {
+		in, out := &in.VPCSecurityGroupIds, &out.VPCSecurityGroupIds
+		*out = make([]*string, len(*in))
+		for i := range *in {
+			if (*in)[i] != nil {
+				in, out := &(*in)[i], &(*out)[i]
+				*out = new(string)
+				**out = **in
+			}
+		}
+	}
 	if in.VpcSecurityGroupIdRefs != nil {
 		in, out := &in.VpcSecurityGroupIdRefs, &out.VpcSecurityGroupIdRefs
 		*out = make([]v1.Reference, len(*in))
@@ -1012,17 +1033,6 @@ func (in *DBInstanceParameters) DeepCopyInto(out *DBInstanceParameters) {
 		in, out := &in.VpcSecurityGroupIdSelector, &out.VpcSecurityGroupIdSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
-	}
-	if in.VpcSecurityGroupIds != nil {
-		in, out := &in.VpcSecurityGroupIds, &out.VpcSecurityGroupIds
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
 	}
 }
 
@@ -1134,6 +1144,11 @@ func (in *DBParameterGroupObservation) DeepCopyInto(out *DBParameterGroupObserva
 	*out = *in
 	if in.Arn != nil {
 		in, out := &in.Arn, &out.Arn
+		*out = new(string)
+		**out = **in
+	}
+	if in.ID != nil {
+		in, out := &in.ID, &out.ID
 		*out = new(string)
 		**out = **in
 	}

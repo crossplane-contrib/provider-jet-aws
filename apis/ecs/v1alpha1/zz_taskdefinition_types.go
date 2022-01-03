@@ -34,7 +34,7 @@ type AuthorizationConfigParameters struct {
 	AccessPointID *string `json:"accessPointId,omitempty" tf:"access_point_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Iam *string `json:"iam,omitempty" tf:"iam,omitempty"`
+	IAM *string `json:"iam,omitempty" tf:"iam,omitempty"`
 }
 
 type DockerVolumeConfigurationObservation struct {
@@ -58,10 +58,10 @@ type DockerVolumeConfigurationParameters struct {
 	Scope *string `json:"scope,omitempty" tf:"scope,omitempty"`
 }
 
-type EfsVolumeConfigurationObservation struct {
+type EFSVolumeConfigurationObservation struct {
 }
 
-type EfsVolumeConfigurationParameters struct {
+type EFSVolumeConfigurationParameters struct {
 
 	// +kubebuilder:validation:Optional
 	AuthorizationConfig []AuthorizationConfigParameters `json:"authorizationConfig,omitempty" tf:"authorization_config,omitempty"`
@@ -88,10 +88,10 @@ type EphemeralStorageParameters struct {
 	SizeInGib *int64 `json:"sizeInGib" tf:"size_in_gib,omitempty"`
 }
 
-type FsxWindowsFileServerVolumeConfigurationAuthorizationConfigObservation struct {
+type FSXWindowsFileServerVolumeConfigurationAuthorizationConfigObservation struct {
 }
 
-type FsxWindowsFileServerVolumeConfigurationAuthorizationConfigParameters struct {
+type FSXWindowsFileServerVolumeConfigurationAuthorizationConfigParameters struct {
 
 	// +kubebuilder:validation:Required
 	CredentialsParameter *string `json:"credentialsParameter" tf:"credentials_parameter,omitempty"`
@@ -100,13 +100,13 @@ type FsxWindowsFileServerVolumeConfigurationAuthorizationConfigParameters struct
 	Domain *string `json:"domain" tf:"domain,omitempty"`
 }
 
-type FsxWindowsFileServerVolumeConfigurationObservation struct {
+type FSXWindowsFileServerVolumeConfigurationObservation struct {
 }
 
-type FsxWindowsFileServerVolumeConfigurationParameters struct {
+type FSXWindowsFileServerVolumeConfigurationParameters struct {
 
 	// +kubebuilder:validation:Required
-	AuthorizationConfig []FsxWindowsFileServerVolumeConfigurationAuthorizationConfigParameters `json:"authorizationConfig" tf:"authorization_config,omitempty"`
+	AuthorizationConfig []FSXWindowsFileServerVolumeConfigurationAuthorizationConfigParameters `json:"authorizationConfig" tf:"authorization_config,omitempty"`
 
 	// +kubebuilder:validation:Required
 	FileSystemID *string `json:"fileSystemId" tf:"file_system_id,omitempty"`
@@ -144,6 +144,8 @@ type ProxyConfigurationParameters struct {
 
 type TaskDefinitionObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	Revision *int64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
@@ -235,10 +237,10 @@ type VolumeParameters struct {
 	DockerVolumeConfiguration []DockerVolumeConfigurationParameters `json:"dockerVolumeConfiguration,omitempty" tf:"docker_volume_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EfsVolumeConfiguration []EfsVolumeConfigurationParameters `json:"efsVolumeConfiguration,omitempty" tf:"efs_volume_configuration,omitempty"`
+	EFSVolumeConfiguration []EFSVolumeConfigurationParameters `json:"efsVolumeConfiguration,omitempty" tf:"efs_volume_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	FsxWindowsFileServerVolumeConfiguration []FsxWindowsFileServerVolumeConfigurationParameters `json:"fsxWindowsFileServerVolumeConfiguration,omitempty" tf:"fsx_windows_file_server_volume_configuration,omitempty"`
+	FSXWindowsFileServerVolumeConfiguration []FSXWindowsFileServerVolumeConfigurationParameters `json:"fsxWindowsFileServerVolumeConfiguration,omitempty" tf:"fsx_windows_file_server_volume_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	HostPath *string `json:"hostPath,omitempty" tf:"host_path,omitempty"`

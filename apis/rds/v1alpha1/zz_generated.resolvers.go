@@ -36,20 +36,20 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.KmsKeyID),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.KMSKeyID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.KmsKeyIDRef,
-		Selector:     mg.Spec.ForProvider.KmsKeyIDSelector,
+		Reference:    mg.Spec.ForProvider.KMSKeyIDRef,
+		Selector:     mg.Spec.ForProvider.KMSKeyIDSelector,
 		To: reference.To{
 			List:    &v1alpha1.KeyList{},
 			Managed: &v1alpha1.Key{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.KmsKeyID")
+		return errors.Wrap(err, "mg.Spec.ForProvider.KMSKeyID")
 	}
-	mg.Spec.ForProvider.KmsKeyID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.KmsKeyIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.KMSKeyID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.KMSKeyIDRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ParameterGroupName),
@@ -68,20 +68,20 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.ParameterGroupNameRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PerformanceInsightsKmsKeyID),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PerformanceInsightsKMSKeyID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.PerformanceInsightsKmsKeyIDRef,
-		Selector:     mg.Spec.ForProvider.PerformanceInsightsKmsKeyIDSelector,
+		Reference:    mg.Spec.ForProvider.PerformanceInsightsKMSKeyIDRef,
+		Selector:     mg.Spec.ForProvider.PerformanceInsightsKMSKeyIDSelector,
 		To: reference.To{
 			List:    &v1alpha1.KeyList{},
 			Managed: &v1alpha1.Key{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.PerformanceInsightsKmsKeyID")
+		return errors.Wrap(err, "mg.Spec.ForProvider.PerformanceInsightsKMSKeyID")
 	}
-	mg.Spec.ForProvider.PerformanceInsightsKmsKeyID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.PerformanceInsightsKmsKeyIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.PerformanceInsightsKMSKeyID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.PerformanceInsightsKMSKeyIDRef = rsp.ResolvedReference
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.RestoreToPointInTime); i3++ {
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -136,7 +136,7 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.SecurityGroupNameRefs = mrsp.ResolvedReferences
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VpcSecurityGroupIds),
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VPCSecurityGroupIds),
 		Extract:       reference.ExternalName(),
 		References:    mg.Spec.ForProvider.VpcSecurityGroupIdRefs,
 		Selector:      mg.Spec.ForProvider.VpcSecurityGroupIdSelector,
@@ -146,9 +146,9 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.VpcSecurityGroupIds")
+		return errors.Wrap(err, "mg.Spec.ForProvider.VPCSecurityGroupIds")
 	}
-	mg.Spec.ForProvider.VpcSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.VPCSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.VpcSecurityGroupIdRefs = mrsp.ResolvedReferences
 
 	return nil

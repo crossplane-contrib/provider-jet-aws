@@ -92,6 +92,11 @@ func (in *VolumeObservation) DeepCopyInto(out *VolumeObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ID != nil {
+		in, out := &in.ID, &out.ID
+		*out = new(string)
+		**out = **in
+	}
 	if in.TagsAll != nil {
 		in, out := &in.TagsAll, &out.TagsAll
 		*out = make(map[string]*string, len(*in))
@@ -137,18 +142,18 @@ func (in *VolumeParameters) DeepCopyInto(out *VolumeParameters) {
 		*out = new(int64)
 		**out = **in
 	}
-	if in.KmsKeyID != nil {
-		in, out := &in.KmsKeyID, &out.KmsKeyID
+	if in.KMSKeyID != nil {
+		in, out := &in.KMSKeyID, &out.KMSKeyID
 		*out = new(string)
 		**out = **in
 	}
-	if in.KmsKeyIDRef != nil {
-		in, out := &in.KmsKeyIDRef, &out.KmsKeyIDRef
+	if in.KMSKeyIDRef != nil {
+		in, out := &in.KMSKeyIDRef, &out.KMSKeyIDRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.KmsKeyIDSelector != nil {
-		in, out := &in.KmsKeyIDSelector, &out.KmsKeyIDSelector
+	if in.KMSKeyIDSelector != nil {
+		in, out := &in.KMSKeyIDSelector, &out.KMSKeyIDSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}

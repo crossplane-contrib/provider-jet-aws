@@ -28,6 +28,8 @@ import (
 type AutoscalingGroupObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	LoadBalancers []*string `json:"loadBalancers,omitempty" tf:"load_balancers,omitempty"`
 
 	TargetGroupArns []*string `json:"targetGroupArns,omitempty" tf:"target_group_arns,omitempty"`
@@ -84,7 +86,7 @@ type AutoscalingGroupParameters struct {
 	MetricsGranularity *string `json:"metricsGranularity,omitempty" tf:"metrics_granularity,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MinElbCapacity *int64 `json:"minElbCapacity,omitempty" tf:"min_elb_capacity,omitempty"`
+	MinELBCapacity *int64 `json:"minElbCapacity,omitempty" tf:"min_elb_capacity,omitempty"`
 
 	// +kubebuilder:validation:Required
 	MinSize *int64 `json:"minSize" tf:"min_size,omitempty"`
@@ -120,19 +122,19 @@ type AutoscalingGroupParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet
 	// +kubebuilder:validation:Optional
-	VpcZoneIdentifier []*string `json:"vpcZoneIdentifier,omitempty" tf:"vpc_zone_identifier,omitempty"`
+	VPCZoneIdentifier []*string `json:"vpcZoneIdentifier,omitempty" tf:"vpc_zone_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcZoneIdentifierRefs []v1.Reference `json:"vpcZoneIdentifierRefs,omitempty" tf:"-"`
+	VPCZoneIdentifierRefs []v1.Reference `json:"vpcZoneIdentifierRefs,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcZoneIdentifierSelector *v1.Selector `json:"vpcZoneIdentifierSelector,omitempty" tf:"-"`
+	VPCZoneIdentifierSelector *v1.Selector `json:"vpcZoneIdentifierSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	WaitForCapacityTimeout *string `json:"waitForCapacityTimeout,omitempty" tf:"wait_for_capacity_timeout,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	WaitForElbCapacity *int64 `json:"waitForElbCapacity,omitempty" tf:"wait_for_elb_capacity,omitempty"`
+	WaitForELBCapacity *int64 `json:"waitForElbCapacity,omitempty" tf:"wait_for_elb_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	WarmPool []WarmPoolParameters `json:"warmPool,omitempty" tf:"warm_pool,omitempty"`

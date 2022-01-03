@@ -17,7 +17,7 @@ limitations under the License.
 package kms
 
 import (
-	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane/terrajet/pkg/config"
 )
 
 // Configure adds configurations for kms group.

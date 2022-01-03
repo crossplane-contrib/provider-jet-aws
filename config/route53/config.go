@@ -19,7 +19,7 @@ package route53
 import (
 	"strings"
 
-	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane/terrajet/pkg/config"
 )
 
 // Configure route53 resources.

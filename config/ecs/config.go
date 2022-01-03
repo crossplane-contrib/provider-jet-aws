@@ -21,7 +21,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/crossplane-contrib/terrajet/pkg/config"
+	"github.com/crossplane/terrajet/pkg/config"
 	"github.com/pkg/errors"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config/common"
