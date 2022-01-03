@@ -26,6 +26,7 @@ import (
 )
 
 type ResolverRuleAssociationObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 }
 
 type ResolverRuleAssociationParameters struct {
@@ -42,7 +43,7 @@ type ResolverRuleAssociationParameters struct {
 	ResolverRuleID *string `json:"resolverRuleId" tf:"resolver_rule_id,omitempty"`
 
 	// +kubebuilder:validation:Required
-	VpcID *string `json:"vpcId" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId" tf:"vpc_id,omitempty"`
 }
 
 // ResolverRuleAssociationSpec defines the desired state of ResolverRuleAssociation

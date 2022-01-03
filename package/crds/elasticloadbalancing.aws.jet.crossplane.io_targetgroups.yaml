@@ -140,7 +140,7 @@ spec:
                     type: string
                   vpcId:
                     type: string
-                  vpcIdRef:
+                  vpcidRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -149,7 +149,7 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcIdSelector:
+                  vpcidSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -219,6 +219,8 @@ spec:
                   arn:
                     type: string
                   arnSuffix:
+                    type: string
+                  id:
                     type: string
                   tagsAll:
                     additionalProperties:

@@ -307,6 +307,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   resources:
                     items:
                       properties:

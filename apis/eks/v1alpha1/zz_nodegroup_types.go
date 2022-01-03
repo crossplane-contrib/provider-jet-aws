@@ -50,6 +50,8 @@ type LaunchTemplateParameters struct {
 type NodeGroupObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	Resources []ResourcesObservation `json:"resources,omitempty" tf:"resources,omitempty"`
 
 	Status *string `json:"status,omitempty" tf:"status,omitempty"`
@@ -60,7 +62,7 @@ type NodeGroupObservation struct {
 type NodeGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AmiType *string `json:"amiType,omitempty" tf:"ami_type,omitempty"`
+	AMIType *string `json:"amiType,omitempty" tf:"ami_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	CapacityType *string `json:"capacityType,omitempty" tf:"capacity_type,omitempty"`
@@ -143,7 +145,7 @@ type RemoteAccessObservation struct {
 type RemoteAccessParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Ec2SSHKey *string `json:"ec2SshKey,omitempty" tf:"ec2_ssh_key,omitempty"`
+	EC2SSHKey *string `json:"ec2SshKey,omitempty" tf:"ec2_ssh_key,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SourceSecurityGroupIdRefs []v1.Reference `json:"sourceSecurityGroupIdRefs,omitempty" tf:"-"`

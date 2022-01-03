@@ -26,6 +26,7 @@ import (
 )
 
 type RouteTableAssociationObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 }
 
 type RouteTableAssociationParameters struct {

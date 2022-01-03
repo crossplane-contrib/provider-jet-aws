@@ -36,6 +36,8 @@ type DBClusterObservation struct {
 
 	HostedZoneID *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	ReaderEndpoint *string `json:"readerEndpoint,omitempty" tf:"reader_endpoint,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
@@ -104,13 +106,13 @@ type DBClusterParameters struct {
 	GlobalClusterIdentifier *string `json:"globalClusterIdentifier,omitempty" tf:"global_cluster_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IamDatabaseAuthenticationEnabled *bool `json:"iamDatabaseAuthenticationEnabled,omitempty" tf:"iam_database_authentication_enabled,omitempty"`
+	IAMDatabaseAuthenticationEnabled *bool `json:"iamDatabaseAuthenticationEnabled,omitempty" tf:"iam_database_authentication_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IamRoles []*string `json:"iamRoles,omitempty" tf:"iam_roles,omitempty"`
+	IAMRoles []*string `json:"iamRoles,omitempty" tf:"iam_roles,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
+	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MasterPasswordSecretRef *v1.SecretKeySelector `json:"masterPasswordSecretRef,omitempty" tf:"-"`
@@ -160,7 +162,7 @@ type DBClusterParameters struct {
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
+	VPCSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
 }
 
 type DBClusterRestoreToPointInTimeObservation struct {

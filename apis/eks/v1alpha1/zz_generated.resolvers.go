@@ -93,40 +93,40 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.RoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RoleArnRef = rsp.ResolvedReference
 
-	for i3 := 0; i3 < len(mg.Spec.ForProvider.VpcConfig); i3++ {
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.VPCConfig); i3++ {
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VpcConfig[i3].SecurityGroupIds),
+			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VPCConfig[i3].SecurityGroupIds),
 			Extract:       reference.ExternalName(),
-			References:    mg.Spec.ForProvider.VpcConfig[i3].SecurityGroupIdRefs,
-			Selector:      mg.Spec.ForProvider.VpcConfig[i3].SecurityGroupIdSelector,
+			References:    mg.Spec.ForProvider.VPCConfig[i3].SecurityGroupIdRefs,
+			Selector:      mg.Spec.ForProvider.VPCConfig[i3].SecurityGroupIdSelector,
 			To: reference.To{
 				List:    &v1alpha11.SecurityGroupList{},
 				Managed: &v1alpha11.SecurityGroup{},
 			},
 		})
 		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.VpcConfig[i3].SecurityGroupIds")
+			return errors.Wrap(err, "mg.Spec.ForProvider.VPCConfig[i3].SecurityGroupIds")
 		}
-		mg.Spec.ForProvider.VpcConfig[i3].SecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
-		mg.Spec.ForProvider.VpcConfig[i3].SecurityGroupIdRefs = mrsp.ResolvedReferences
+		mg.Spec.ForProvider.VPCConfig[i3].SecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
+		mg.Spec.ForProvider.VPCConfig[i3].SecurityGroupIdRefs = mrsp.ResolvedReferences
 
 	}
-	for i3 := 0; i3 < len(mg.Spec.ForProvider.VpcConfig); i3++ {
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.VPCConfig); i3++ {
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VpcConfig[i3].SubnetIds),
+			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VPCConfig[i3].SubnetIds),
 			Extract:       reference.ExternalName(),
-			References:    mg.Spec.ForProvider.VpcConfig[i3].SubnetIdRefs,
-			Selector:      mg.Spec.ForProvider.VpcConfig[i3].SubnetIdSelector,
+			References:    mg.Spec.ForProvider.VPCConfig[i3].SubnetIdRefs,
+			Selector:      mg.Spec.ForProvider.VPCConfig[i3].SubnetIdSelector,
 			To: reference.To{
 				List:    &v1alpha11.SubnetList{},
 				Managed: &v1alpha11.Subnet{},
 			},
 		})
 		if err != nil {
-			return errors.Wrap(err, "mg.Spec.ForProvider.VpcConfig[i3].SubnetIds")
+			return errors.Wrap(err, "mg.Spec.ForProvider.VPCConfig[i3].SubnetIds")
 		}
-		mg.Spec.ForProvider.VpcConfig[i3].SubnetIds = reference.ToPtrValues(mrsp.ResolvedValues)
-		mg.Spec.ForProvider.VpcConfig[i3].SubnetIdRefs = mrsp.ResolvedReferences
+		mg.Spec.ForProvider.VPCConfig[i3].SubnetIds = reference.ToPtrValues(mrsp.ResolvedValues)
+		mg.Spec.ForProvider.VPCConfig[i3].SubnetIdRefs = mrsp.ResolvedReferences
 
 	}
 

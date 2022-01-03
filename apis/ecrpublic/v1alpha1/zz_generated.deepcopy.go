@@ -163,6 +163,11 @@ func (in *RepositoryObservation) DeepCopyInto(out *RepositoryObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ID != nil {
+		in, out := &in.ID, &out.ID
+		*out = new(string)
+		**out = **in
+	}
 	if in.RegistryID != nil {
 		in, out := &in.RegistryID, &out.RegistryID
 		*out = new(string)

@@ -12,8 +12,8 @@ spec:
     - crossplane
     - managed
     - awsjet
-    kind: HostedZoneDnssec
-    listKind: HostedZoneDnssecList
+    kind: HostedZoneDNSSEC
+    listKind: HostedZoneDNSSECList
     plural: hostedzonednssecs
     singular: hostedzonednssec
   scope: Cluster
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: HostedZoneDnssec is the Schema for the HostedZoneDnssecs API
+        description: HostedZoneDNSSEC is the Schema for the HostedZoneDNSSECs API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -49,7 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: HostedZoneDnssecSpec defines the desired state of HostedZoneDnssec
+            description: HostedZoneDNSSECSpec defines the desired state of HostedZoneDNSSEC
             properties:
               deletionPolicy:
                 default: Delete
@@ -141,9 +141,12 @@ spec:
             - forProvider
             type: object
           status:
-            description: HostedZoneDnssecStatus defines the observed state of HostedZoneDnssec.
+            description: HostedZoneDNSSECStatus defines the observed state of HostedZoneDNSSEC.
             properties:
               atProvider:
+                properties:
+                  id:
+                    type: string
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -203,7 +203,7 @@ spec:
                     type: object
                   vpcId:
                     type: string
-                  vpcIdRef:
+                  vpcidRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -212,7 +212,7 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcIdSelector:
+                  vpcidSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -279,6 +279,8 @@ spec:
               atProvider:
                 properties:
                   arn:
+                    type: string
+                  id:
                     type: string
                   ownerId:
                     type: string

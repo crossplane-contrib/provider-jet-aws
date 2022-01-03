@@ -41,7 +41,9 @@ type IPAddressParameters struct {
 type ResolverEndpointObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
-	HostVpcID *string `json:"hostVpcId,omitempty" tf:"host_vpc_id,omitempty"`
+	HostVPCID *string `json:"hostVpcId,omitempty" tf:"host_vpc_id,omitempty"`
+
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }

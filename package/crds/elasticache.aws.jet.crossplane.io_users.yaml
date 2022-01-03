@@ -139,6 +139,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  id:
+                    type: string
                   tagsAll:
                     additionalProperties:
                       type: string

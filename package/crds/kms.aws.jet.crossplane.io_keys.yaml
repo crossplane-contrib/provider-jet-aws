@@ -141,6 +141,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   keyId:
                     type: string
                   tagsAll:

@@ -125,6 +125,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  id:
+                    type: string
                   ownerId:
                     type: string
                 type: object

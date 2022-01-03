@@ -68,7 +68,9 @@ spec:
                     type: string
                   vpcId:
                     type: string
-                  vpcIdRef:
+                  vpcRegion:
+                    type: string
+                  vpcidRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -77,7 +79,7 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcIdSelector:
+                  vpcidSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -91,8 +93,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  vpcRegion:
-                    type: string
                   zoneId:
                     type: string
                   zoneIdRef:
@@ -170,6 +170,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  id:
+                    type: string
                   owningAccount:
                     type: string
                 type: object

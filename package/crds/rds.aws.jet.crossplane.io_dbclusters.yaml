@@ -282,6 +282,8 @@ spec:
                     type: string
                   hostedZoneId:
                     type: string
+                  id:
+                    type: string
                   readerEndpoint:
                     type: string
                   tagsAll:

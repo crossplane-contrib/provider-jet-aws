@@ -141,6 +141,8 @@ spec:
                     type: string
                   associationDefaultRouteTableId:
                     type: string
+                  id:
+                    type: string
                   ownerId:
                     type: string
                   propagationDefaultRouteTableId:

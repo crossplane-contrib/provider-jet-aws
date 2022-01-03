@@ -474,6 +474,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   instanceState:
                     type: string
                   outpostArn:

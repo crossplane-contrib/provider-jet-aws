@@ -26,6 +26,8 @@ import (
 )
 
 type ResolverFirewallConfigObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id,omitempty"`
 }
 

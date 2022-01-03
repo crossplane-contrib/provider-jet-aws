@@ -32,6 +32,8 @@ type AccessKeyObservation struct {
 
 	EncryptedSesSMTPPasswordV4 *string `json:"encryptedSesSmtpPasswordV4,omitempty" tf:"encrypted_ses_smtp_password_v4,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	KeyFingerprint *string `json:"keyFingerprint,omitempty" tf:"key_fingerprint,omitempty"`
 }
 

@@ -32,6 +32,8 @@ type TransitGatewayRouteTableObservation struct {
 
 	DefaultPropagationRouteTable *bool `json:"defaultPropagationRouteTable,omitempty" tf:"default_propagation_route_table,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 

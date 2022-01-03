@@ -73,7 +73,7 @@ type LoadBalancerParameters struct {
 	ContainerPort *int64 `json:"containerPort" tf:"container_port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ElbName *string `json:"elbName,omitempty" tf:"elb_name,omitempty"`
+	ELBName *string `json:"elbName,omitempty" tf:"elb_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	TargetGroupArn *string `json:"targetGroupArn,omitempty" tf:"target_group_arn,omitempty"`
@@ -137,6 +137,8 @@ type PlacementConstraintsParameters struct {
 }
 
 type ServiceObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
@@ -186,13 +188,13 @@ type ServiceParameters struct {
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
-	IamRole *string `json:"iamRole,omitempty" tf:"iam_role,omitempty"`
+	IAMRole *string `json:"iamRole,omitempty" tf:"iam_role,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IamRoleRef *v1.Reference `json:"iamRoleRef,omitempty" tf:"-"`
+	IAMRoleRef *v1.Reference `json:"iamRoleRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	IamRoleSelector *v1.Selector `json:"iamRoleSelector,omitempty" tf:"-"`
+	IAMRoleSelector *v1.Selector `json:"iamRoleSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	LaunchType *string `json:"launchType,omitempty" tf:"launch_type,omitempty"`

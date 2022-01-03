@@ -12,8 +12,8 @@ spec:
     - crossplane
     - managed
     - awsjet
-    kind: VpcAssociationAuthorization
-    listKind: VpcAssociationAuthorizationList
+    kind: VPCAssociationAuthorization
+    listKind: VPCAssociationAuthorizationList
     plural: vpcassociationauthorizations
     singular: vpcassociationauthorization
   scope: Cluster
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: VpcAssociationAuthorization is the Schema for the VpcAssociationAuthorizations
+        description: VPCAssociationAuthorization is the Schema for the VPCAssociationAuthorizations
           API
         properties:
           apiVersion:
@@ -50,8 +50,8 @@ spec:
           metadata:
             type: object
           spec:
-            description: VpcAssociationAuthorizationSpec defines the desired state
-              of VpcAssociationAuthorization
+            description: VPCAssociationAuthorizationSpec defines the desired state
+              of VPCAssociationAuthorization
             properties:
               deletionPolicy:
                 default: Delete
@@ -70,7 +70,9 @@ spec:
                     type: string
                   vpcId:
                     type: string
-                  vpcIdRef:
+                  vpcRegion:
+                    type: string
+                  vpcidRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -79,7 +81,7 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcIdSelector:
+                  vpcidSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -93,8 +95,6 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  vpcRegion:
-                    type: string
                   zoneId:
                     type: string
                   zoneIdRef:
@@ -168,10 +168,13 @@ spec:
             - forProvider
             type: object
           status:
-            description: VpcAssociationAuthorizationStatus defines the observed state
-              of VpcAssociationAuthorization.
+            description: VPCAssociationAuthorizationStatus defines the observed state
+              of VPCAssociationAuthorization.
             properties:
               atProvider:
+                properties:
+                  id:
+                    type: string
                 type: object
               conditions:
                 description: Conditions of the resource.

@@ -148,6 +148,8 @@ spec:
                     type: string
                   hostVpcId:
                     type: string
+                  id:
+                    type: string
                   tagsAll:
                     additionalProperties:
                       type: string

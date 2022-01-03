@@ -26,6 +26,8 @@ import (
 )
 
 type UserObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 

@@ -30,6 +30,8 @@ type TransitGatewayVPCAttachmentAccepterObservation struct {
 
 	DNSSupport *string `json:"dnsSupport,omitempty" tf:"dns_support,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	IPv6Support *string `json:"ipv6Support,omitempty" tf:"ipv6_support,omitempty"`
 
 	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
@@ -38,9 +40,9 @@ type TransitGatewayVPCAttachmentAccepterObservation struct {
 
 	TransitGatewayID *string `json:"transitGatewayId,omitempty" tf:"transit_gateway_id,omitempty"`
 
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
-	VpcOwnerID *string `json:"vpcOwnerId,omitempty" tf:"vpc_owner_id,omitempty"`
+	VPCOwnerID *string `json:"vpcOwnerId,omitempty" tf:"vpc_owner_id,omitempty"`
 }
 
 type TransitGatewayVPCAttachmentAccepterParameters struct {

@@ -25,10 +25,11 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type VpcAssociationAuthorizationObservation struct {
+type VPCAssociationAuthorizationObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 }
 
-type VpcAssociationAuthorizationParameters struct {
+type VPCAssociationAuthorizationParameters struct {
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
@@ -37,16 +38,16 @@ type VpcAssociationAuthorizationParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.VPC
 	// +kubebuilder:validation:Optional
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
+	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
+	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region,omitempty"`
+	VPCRegion *string `json:"vpcRegion,omitempty" tf:"vpc_region,omitempty"`
 
 	// +crossplane:generate:reference:type=Zone
 	// +kubebuilder:validation:Optional
@@ -59,51 +60,51 @@ type VpcAssociationAuthorizationParameters struct {
 	ZoneIDSelector *v1.Selector `json:"zoneIdSelector,omitempty" tf:"-"`
 }
 
-// VpcAssociationAuthorizationSpec defines the desired state of VpcAssociationAuthorization
-type VpcAssociationAuthorizationSpec struct {
+// VPCAssociationAuthorizationSpec defines the desired state of VPCAssociationAuthorization
+type VPCAssociationAuthorizationSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     VpcAssociationAuthorizationParameters `json:"forProvider"`
+	ForProvider     VPCAssociationAuthorizationParameters `json:"forProvider"`
 }
 
-// VpcAssociationAuthorizationStatus defines the observed state of VpcAssociationAuthorization.
-type VpcAssociationAuthorizationStatus struct {
+// VPCAssociationAuthorizationStatus defines the observed state of VPCAssociationAuthorization.
+type VPCAssociationAuthorizationStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        VpcAssociationAuthorizationObservation `json:"atProvider,omitempty"`
+	AtProvider        VPCAssociationAuthorizationObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// VpcAssociationAuthorization is the Schema for the VpcAssociationAuthorizations API
+// VPCAssociationAuthorization is the Schema for the VPCAssociationAuthorizations API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,awsjet}
-type VpcAssociationAuthorization struct {
+type VPCAssociationAuthorization struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              VpcAssociationAuthorizationSpec   `json:"spec"`
-	Status            VpcAssociationAuthorizationStatus `json:"status,omitempty"`
+	Spec              VPCAssociationAuthorizationSpec   `json:"spec"`
+	Status            VPCAssociationAuthorizationStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// VpcAssociationAuthorizationList contains a list of VpcAssociationAuthorizations
-type VpcAssociationAuthorizationList struct {
+// VPCAssociationAuthorizationList contains a list of VPCAssociationAuthorizations
+type VPCAssociationAuthorizationList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []VpcAssociationAuthorization `json:"items"`
+	Items           []VPCAssociationAuthorization `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	VpcAssociationAuthorization_Kind             = "VpcAssociationAuthorization"
-	VpcAssociationAuthorization_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: VpcAssociationAuthorization_Kind}.String()
-	VpcAssociationAuthorization_KindAPIVersion   = VpcAssociationAuthorization_Kind + "." + CRDGroupVersion.String()
-	VpcAssociationAuthorization_GroupVersionKind = CRDGroupVersion.WithKind(VpcAssociationAuthorization_Kind)
+	VPCAssociationAuthorization_Kind             = "VPCAssociationAuthorization"
+	VPCAssociationAuthorization_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: VPCAssociationAuthorization_Kind}.String()
+	VPCAssociationAuthorization_KindAPIVersion   = VPCAssociationAuthorization_Kind + "." + CRDGroupVersion.String()
+	VPCAssociationAuthorization_GroupVersionKind = CRDGroupVersion.WithKind(VPCAssociationAuthorization_Kind)
 )
 
 func init() {
-	SchemeBuilder.Register(&VpcAssociationAuthorization{}, &VpcAssociationAuthorizationList{})
+	SchemeBuilder.Register(&VPCAssociationAuthorization{}, &VPCAssociationAuthorizationList{})
 }

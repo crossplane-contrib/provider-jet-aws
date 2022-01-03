@@ -28,6 +28,8 @@ import (
 type ResolverQueryLogConfigObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id,omitempty"`
 
 	ShareStatus *string `json:"shareStatus,omitempty" tf:"share_status,omitempty"`

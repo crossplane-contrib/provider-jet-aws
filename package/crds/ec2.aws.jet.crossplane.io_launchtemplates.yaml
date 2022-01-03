@@ -593,6 +593,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   latestVersion:
                     format: int64
                     type: integer

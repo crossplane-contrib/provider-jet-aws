@@ -12,8 +12,8 @@ spec:
     - crossplane
     - managed
     - awsjet
-    kind: ResolverDnssecConfig
-    listKind: ResolverDnssecConfigList
+    kind: ResolverDNSSECConfig
+    listKind: ResolverDNSSECConfigList
     plural: resolverdnssecconfigs
     singular: resolverdnssecconfig
   scope: Cluster
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: ResolverDnssecConfig is the Schema for the ResolverDnssecConfigs
+        description: ResolverDNSSECConfig is the Schema for the ResolverDNSSECConfigs
           API
         properties:
           apiVersion:
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ResolverDnssecConfigSpec defines the desired state of ResolverDnssecConfig
+            description: ResolverDNSSECConfigSpec defines the desired state of ResolverDNSSECConfig
             properties:
               deletionPolicy:
                 default: Delete
@@ -118,8 +118,8 @@ spec:
             - forProvider
             type: object
           status:
-            description: ResolverDnssecConfigStatus defines the observed state of
-              ResolverDnssecConfig.
+            description: ResolverDNSSECConfigStatus defines the observed state of
+              ResolverDNSSECConfig.
             properties:
               atProvider:
                 properties:

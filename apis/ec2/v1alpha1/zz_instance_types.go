@@ -55,11 +55,11 @@ type CreditSpecificationParameters struct {
 	CPUCredits *string `json:"cpuCredits,omitempty" tf:"cpu_credits,omitempty"`
 }
 
-type EbsBlockDeviceObservation struct {
+type EBSBlockDeviceObservation struct {
 	VolumeID *string `json:"volumeId,omitempty" tf:"volume_id,omitempty"`
 }
 
-type EbsBlockDeviceParameters struct {
+type EBSBlockDeviceParameters struct {
 
 	// +kubebuilder:validation:Optional
 	DeleteOnTermination *bool `json:"deleteOnTermination,omitempty" tf:"delete_on_termination,omitempty"`
@@ -75,13 +75,13 @@ type EbsBlockDeviceParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
+	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
+	KMSKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
+	KMSKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id,omitempty"`
@@ -126,6 +126,8 @@ type EphemeralBlockDeviceParameters struct {
 type InstanceObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	InstanceState *string `json:"instanceState,omitempty" tf:"instance_state,omitempty"`
 
 	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn,omitempty"`
@@ -146,7 +148,7 @@ type InstanceObservation struct {
 type InstanceParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Ami *string `json:"ami,omitempty" tf:"ami,omitempty"`
+	AMI *string `json:"ami,omitempty" tf:"ami,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	AssociatePublicIPAddress *bool `json:"associatePublicIpAddress,omitempty" tf:"associate_public_ip_address,omitempty"`
@@ -170,10 +172,10 @@ type InstanceParameters struct {
 	DisableAPITermination *bool `json:"disableApiTermination,omitempty" tf:"disable_api_termination,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EbsBlockDevice []EbsBlockDeviceParameters `json:"ebsBlockDevice,omitempty" tf:"ebs_block_device,omitempty"`
+	EBSBlockDevice []EBSBlockDeviceParameters `json:"ebsBlockDevice,omitempty" tf:"ebs_block_device,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	EbsOptimized *bool `json:"ebsOptimized,omitempty" tf:"ebs_optimized,omitempty"`
+	EBSOptimized *bool `json:"ebsOptimized,omitempty" tf:"ebs_optimized,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	EnclaveOptions []EnclaveOptionsParameters `json:"enclaveOptions,omitempty" tf:"enclave_options,omitempty"`
@@ -191,13 +193,13 @@ type InstanceParameters struct {
 	HostID *string `json:"hostId,omitempty" tf:"host_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	IAMInstanceProfile *string `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	IPv6AddressCount *int64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	IPv6Addresses []*string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	IamInstanceProfile *string `json:"iamInstanceProfile,omitempty" tf:"iam_instance_profile,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	InstanceInitiatedShutdownBehavior *string `json:"instanceInitiatedShutdownBehavior,omitempty" tf:"instance_initiated_shutdown_behavior,omitempty"`
@@ -280,14 +282,14 @@ type InstanceParameters struct {
 	// +kubebuilder:validation:Optional
 	UserDataBase64 *string `json:"userDataBase64,omitempty" tf:"user_data_base64,omitempty"`
 
-	// +kubebuilder:validation:Optional
-	VolumeTags map[string]*string `json:"volumeTags,omitempty" tf:"volume_tags,omitempty"`
-
 	// +crossplane:generate:reference:type=SecurityGroup
 	// +crossplane:generate:reference:refFieldName=SecurityGroupIdRefs
 	// +crossplane:generate:reference:selectorFieldName=SecurityGroupIdSelector
 	// +kubebuilder:validation:Optional
-	VpcSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
+	VPCSecurityGroupIds []*string `json:"vpcSecurityGroupIds,omitempty" tf:"vpc_security_group_ids,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	VolumeTags map[string]*string `json:"volumeTags,omitempty" tf:"volume_tags,omitempty"`
 }
 
 type LaunchTemplateObservation struct {
@@ -361,13 +363,13 @@ type RootBlockDeviceParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
+	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
+	KMSKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
+	KMSKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`

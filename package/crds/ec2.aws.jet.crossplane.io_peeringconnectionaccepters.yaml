@@ -154,6 +154,8 @@ spec:
                 properties:
                   acceptStatus:
                     type: string
+                  id:
+                    type: string
                   peerOwnerId:
                     type: string
                   peerRegion:

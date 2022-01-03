@@ -41,6 +41,8 @@ type VPCEndpointObservation struct {
 
 	DNSEntry []DNSEntryObservation `json:"dnsEntry,omitempty" tf:"dns_entry,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	NetworkInterfaceIds []*string `json:"networkInterfaceIds,omitempty" tf:"network_interface_ids,omitempty"`
 
 	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id,omitempty"`
@@ -113,17 +115,17 @@ type VPCEndpointParameters struct {
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcEndpointType *string `json:"vpcEndpointType,omitempty" tf:"vpc_endpoint_type,omitempty"`
+	VPCEndpointType *string `json:"vpcEndpointType,omitempty" tf:"vpc_endpoint_type,omitempty"`
 
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
+	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
+	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
 }
 
 // VPCEndpointSpec defines the desired state of VPCEndpoint

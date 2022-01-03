@@ -25,10 +25,11 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type HostedZoneDnssecObservation struct {
+type HostedZoneDNSSECObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 }
 
-type HostedZoneDnssecParameters struct {
+type HostedZoneDNSSECParameters struct {
 
 	// +crossplane:generate:reference:type=Zone
 	// +kubebuilder:validation:Optional
@@ -49,51 +50,51 @@ type HostedZoneDnssecParameters struct {
 	SigningStatus *string `json:"signingStatus,omitempty" tf:"signing_status,omitempty"`
 }
 
-// HostedZoneDnssecSpec defines the desired state of HostedZoneDnssec
-type HostedZoneDnssecSpec struct {
+// HostedZoneDNSSECSpec defines the desired state of HostedZoneDNSSEC
+type HostedZoneDNSSECSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     HostedZoneDnssecParameters `json:"forProvider"`
+	ForProvider     HostedZoneDNSSECParameters `json:"forProvider"`
 }
 
-// HostedZoneDnssecStatus defines the observed state of HostedZoneDnssec.
-type HostedZoneDnssecStatus struct {
+// HostedZoneDNSSECStatus defines the observed state of HostedZoneDNSSEC.
+type HostedZoneDNSSECStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        HostedZoneDnssecObservation `json:"atProvider,omitempty"`
+	AtProvider        HostedZoneDNSSECObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// HostedZoneDnssec is the Schema for the HostedZoneDnssecs API
+// HostedZoneDNSSEC is the Schema for the HostedZoneDNSSECs API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,awsjet}
-type HostedZoneDnssec struct {
+type HostedZoneDNSSEC struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              HostedZoneDnssecSpec   `json:"spec"`
-	Status            HostedZoneDnssecStatus `json:"status,omitempty"`
+	Spec              HostedZoneDNSSECSpec   `json:"spec"`
+	Status            HostedZoneDNSSECStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// HostedZoneDnssecList contains a list of HostedZoneDnssecs
-type HostedZoneDnssecList struct {
+// HostedZoneDNSSECList contains a list of HostedZoneDNSSECs
+type HostedZoneDNSSECList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []HostedZoneDnssec `json:"items"`
+	Items           []HostedZoneDNSSEC `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	HostedZoneDnssec_Kind             = "HostedZoneDnssec"
-	HostedZoneDnssec_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: HostedZoneDnssec_Kind}.String()
-	HostedZoneDnssec_KindAPIVersion   = HostedZoneDnssec_Kind + "." + CRDGroupVersion.String()
-	HostedZoneDnssec_GroupVersionKind = CRDGroupVersion.WithKind(HostedZoneDnssec_Kind)
+	HostedZoneDNSSEC_Kind             = "HostedZoneDNSSEC"
+	HostedZoneDNSSEC_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: HostedZoneDNSSEC_Kind}.String()
+	HostedZoneDNSSEC_KindAPIVersion   = HostedZoneDNSSEC_Kind + "." + CRDGroupVersion.String()
+	HostedZoneDNSSEC_GroupVersionKind = CRDGroupVersion.WithKind(HostedZoneDNSSEC_Kind)
 )
 
 func init() {
-	SchemeBuilder.Register(&HostedZoneDnssec{}, &HostedZoneDnssecList{})
+	SchemeBuilder.Register(&HostedZoneDNSSEC{}, &HostedZoneDNSSECList{})
 }

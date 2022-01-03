@@ -49,6 +49,8 @@ type ClusterObservation struct {
 
 	EngineVersionActual *string `json:"engineVersionActual,omitempty" tf:"engine_version_actual,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 

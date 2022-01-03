@@ -126,6 +126,9 @@ spec:
               state of ResolverQueryLogConfigAssociation.
             properties:
               atProvider:
+                properties:
+                  id:
+                    type: string
                 type: object
               conditions:
                 description: Conditions of the resource.

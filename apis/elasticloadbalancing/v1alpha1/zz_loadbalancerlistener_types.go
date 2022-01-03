@@ -161,6 +161,8 @@ type ForwardParameters struct {
 type LoadBalancerListenerObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
@@ -197,7 +199,7 @@ type LoadBalancerListenerParameters struct {
 	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	SslPolicy *string `json:"sslPolicy,omitempty" tf:"ssl_policy,omitempty"`
+	SSLPolicy *string `json:"sslPolicy,omitempty" tf:"ssl_policy,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`

@@ -28,6 +28,8 @@ import (
 type VolumeObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
@@ -44,13 +46,13 @@ type VolumeParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
+	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
+	KMSKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	KmsKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
+	KMSKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	MultiAttachEnabled *bool `json:"multiAttachEnabled,omitempty" tf:"multi_attach_enabled,omitempty"`

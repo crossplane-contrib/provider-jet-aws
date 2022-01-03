@@ -299,6 +299,8 @@ spec:
                 properties:
                   arn:
                     type: string
+                  id:
+                    type: string
                   revision:
                     format: int64
                     type: integer

@@ -28,6 +28,8 @@ import (
 type ResolverFirewallRuleGroupAssociationObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
@@ -54,7 +56,7 @@ type ResolverFirewallRuleGroupAssociationParameters struct {
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +kubebuilder:validation:Required
-	VpcID *string `json:"vpcId" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId" tf:"vpc_id,omitempty"`
 }
 
 // ResolverFirewallRuleGroupAssociationSpec defines the desired state of ResolverFirewallRuleGroupAssociation

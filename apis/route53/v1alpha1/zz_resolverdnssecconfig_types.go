@@ -25,7 +25,7 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type ResolverDnssecConfigObservation struct {
+type ResolverDNSSECConfigObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
@@ -35,7 +35,7 @@ type ResolverDnssecConfigObservation struct {
 	ValidationStatus *string `json:"validationStatus,omitempty" tf:"validation_status,omitempty"`
 }
 
-type ResolverDnssecConfigParameters struct {
+type ResolverDNSSECConfigParameters struct {
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
@@ -46,51 +46,51 @@ type ResolverDnssecConfigParameters struct {
 	ResourceID *string `json:"resourceId" tf:"resource_id,omitempty"`
 }
 
-// ResolverDnssecConfigSpec defines the desired state of ResolverDnssecConfig
-type ResolverDnssecConfigSpec struct {
+// ResolverDNSSECConfigSpec defines the desired state of ResolverDNSSECConfig
+type ResolverDNSSECConfigSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     ResolverDnssecConfigParameters `json:"forProvider"`
+	ForProvider     ResolverDNSSECConfigParameters `json:"forProvider"`
 }
 
-// ResolverDnssecConfigStatus defines the observed state of ResolverDnssecConfig.
-type ResolverDnssecConfigStatus struct {
+// ResolverDNSSECConfigStatus defines the observed state of ResolverDNSSECConfig.
+type ResolverDNSSECConfigStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        ResolverDnssecConfigObservation `json:"atProvider,omitempty"`
+	AtProvider        ResolverDNSSECConfigObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// ResolverDnssecConfig is the Schema for the ResolverDnssecConfigs API
+// ResolverDNSSECConfig is the Schema for the ResolverDNSSECConfigs API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,awsjet}
-type ResolverDnssecConfig struct {
+type ResolverDNSSECConfig struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              ResolverDnssecConfigSpec   `json:"spec"`
-	Status            ResolverDnssecConfigStatus `json:"status,omitempty"`
+	Spec              ResolverDNSSECConfigSpec   `json:"spec"`
+	Status            ResolverDNSSECConfigStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// ResolverDnssecConfigList contains a list of ResolverDnssecConfigs
-type ResolverDnssecConfigList struct {
+// ResolverDNSSECConfigList contains a list of ResolverDNSSECConfigs
+type ResolverDNSSECConfigList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []ResolverDnssecConfig `json:"items"`
+	Items           []ResolverDNSSECConfig `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	ResolverDnssecConfig_Kind             = "ResolverDnssecConfig"
-	ResolverDnssecConfig_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: ResolverDnssecConfig_Kind}.String()
-	ResolverDnssecConfig_KindAPIVersion   = ResolverDnssecConfig_Kind + "." + CRDGroupVersion.String()
-	ResolverDnssecConfig_GroupVersionKind = CRDGroupVersion.WithKind(ResolverDnssecConfig_Kind)
+	ResolverDNSSECConfig_Kind             = "ResolverDNSSECConfig"
+	ResolverDNSSECConfig_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: ResolverDNSSECConfig_Kind}.String()
+	ResolverDNSSECConfig_KindAPIVersion   = ResolverDNSSECConfig_Kind + "." + CRDGroupVersion.String()
+	ResolverDNSSECConfig_GroupVersionKind = CRDGroupVersion.WithKind(ResolverDNSSECConfig_Kind)
 )
 
 func init() {
-	SchemeBuilder.Register(&ResolverDnssecConfig{}, &ResolverDnssecConfigList{})
+	SchemeBuilder.Register(&ResolverDNSSECConfig{}, &ResolverDNSSECConfigList{})
 }

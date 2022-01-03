@@ -108,20 +108,20 @@ func (mg *Service) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.ClusterRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.IamRole),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.IAMRole),
 		Extract:      common.ARNExtractor(),
-		Reference:    mg.Spec.ForProvider.IamRoleRef,
-		Selector:     mg.Spec.ForProvider.IamRoleSelector,
+		Reference:    mg.Spec.ForProvider.IAMRoleRef,
+		Selector:     mg.Spec.ForProvider.IAMRoleSelector,
 		To: reference.To{
 			List:    &v1alpha11.RoleList{},
 			Managed: &v1alpha11.Role{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.IamRole")
+		return errors.Wrap(err, "mg.Spec.ForProvider.IAMRole")
 	}
-	mg.Spec.ForProvider.IamRole = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.IamRoleRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.IAMRole = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.IAMRoleRef = rsp.ResolvedReference
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.NetworkConfiguration); i3++ {
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{

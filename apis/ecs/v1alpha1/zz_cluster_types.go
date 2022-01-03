@@ -28,6 +28,8 @@ import (
 type ClusterObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
@@ -91,7 +93,7 @@ type ExecuteCommandConfigurationObservation struct {
 type ExecuteCommandConfigurationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	KmsKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
+	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	LogConfiguration []LogConfigurationParameters `json:"logConfiguration,omitempty" tf:"log_configuration,omitempty"`

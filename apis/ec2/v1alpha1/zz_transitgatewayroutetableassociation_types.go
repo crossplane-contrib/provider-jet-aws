@@ -26,6 +26,8 @@ import (
 )
 
 type TransitGatewayRouteTableAssociationObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	ResourceID *string `json:"resourceId,omitempty" tf:"resource_id,omitempty"`
 
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type,omitempty"`

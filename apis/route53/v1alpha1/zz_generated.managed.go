@@ -131,59 +131,59 @@ func (mg *HealthCheck) SetWriteConnectionSecretToReference(r *xpv1.SecretReferen
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this HostedZoneDnssec.
-func (mg *HostedZoneDnssec) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this HostedZoneDNSSEC.
+func (mg *HostedZoneDNSSEC) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this HostedZoneDnssec.
-func (mg *HostedZoneDnssec) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this HostedZoneDNSSEC.
+func (mg *HostedZoneDNSSEC) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this HostedZoneDnssec.
-func (mg *HostedZoneDnssec) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this HostedZoneDNSSEC.
+func (mg *HostedZoneDNSSEC) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this HostedZoneDnssec.
+GetProviderReference of this HostedZoneDNSSEC.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *HostedZoneDnssec) GetProviderReference() *xpv1.Reference {
+func (mg *HostedZoneDNSSEC) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this HostedZoneDnssec.
-func (mg *HostedZoneDnssec) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this HostedZoneDNSSEC.
+func (mg *HostedZoneDNSSEC) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this HostedZoneDnssec.
-func (mg *HostedZoneDnssec) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this HostedZoneDNSSEC.
+func (mg *HostedZoneDNSSEC) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this HostedZoneDnssec.
-func (mg *HostedZoneDnssec) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this HostedZoneDNSSEC.
+func (mg *HostedZoneDNSSEC) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this HostedZoneDnssec.
-func (mg *HostedZoneDnssec) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this HostedZoneDNSSEC.
+func (mg *HostedZoneDNSSEC) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this HostedZoneDnssec.
+SetProviderReference of this HostedZoneDNSSEC.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *HostedZoneDnssec) SetProviderReference(r *xpv1.Reference) {
+func (mg *HostedZoneDNSSEC) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this HostedZoneDnssec.
-func (mg *HostedZoneDnssec) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this HostedZoneDNSSEC.
+func (mg *HostedZoneDNSSEC) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
@@ -355,59 +355,59 @@ func (mg *Record) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this ResolverDnssecConfig.
-func (mg *ResolverDnssecConfig) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this ResolverDNSSECConfig.
+func (mg *ResolverDNSSECConfig) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this ResolverDnssecConfig.
-func (mg *ResolverDnssecConfig) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this ResolverDNSSECConfig.
+func (mg *ResolverDNSSECConfig) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this ResolverDnssecConfig.
-func (mg *ResolverDnssecConfig) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this ResolverDNSSECConfig.
+func (mg *ResolverDNSSECConfig) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this ResolverDnssecConfig.
+GetProviderReference of this ResolverDNSSECConfig.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *ResolverDnssecConfig) GetProviderReference() *xpv1.Reference {
+func (mg *ResolverDNSSECConfig) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this ResolverDnssecConfig.
-func (mg *ResolverDnssecConfig) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this ResolverDNSSECConfig.
+func (mg *ResolverDNSSECConfig) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this ResolverDnssecConfig.
-func (mg *ResolverDnssecConfig) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this ResolverDNSSECConfig.
+func (mg *ResolverDNSSECConfig) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this ResolverDnssecConfig.
-func (mg *ResolverDnssecConfig) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this ResolverDNSSECConfig.
+func (mg *ResolverDNSSECConfig) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this ResolverDnssecConfig.
-func (mg *ResolverDnssecConfig) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this ResolverDNSSECConfig.
+func (mg *ResolverDNSSECConfig) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this ResolverDnssecConfig.
+SetProviderReference of this ResolverDNSSECConfig.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *ResolverDnssecConfig) SetProviderReference(r *xpv1.Reference) {
+func (mg *ResolverDNSSECConfig) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this ResolverDnssecConfig.
-func (mg *ResolverDnssecConfig) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this ResolverDNSSECConfig.
+func (mg *ResolverDNSSECConfig) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
@@ -971,59 +971,59 @@ func (mg *ResolverRuleAssociation) SetWriteConnectionSecretToReference(r *xpv1.S
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this VpcAssociationAuthorization.
-func (mg *VpcAssociationAuthorization) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this VPCAssociationAuthorization.
+func (mg *VPCAssociationAuthorization) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this VpcAssociationAuthorization.
-func (mg *VpcAssociationAuthorization) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this VPCAssociationAuthorization.
+func (mg *VPCAssociationAuthorization) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this VpcAssociationAuthorization.
-func (mg *VpcAssociationAuthorization) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this VPCAssociationAuthorization.
+func (mg *VPCAssociationAuthorization) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this VpcAssociationAuthorization.
+GetProviderReference of this VPCAssociationAuthorization.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *VpcAssociationAuthorization) GetProviderReference() *xpv1.Reference {
+func (mg *VPCAssociationAuthorization) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this VpcAssociationAuthorization.
-func (mg *VpcAssociationAuthorization) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this VPCAssociationAuthorization.
+func (mg *VPCAssociationAuthorization) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this VpcAssociationAuthorization.
-func (mg *VpcAssociationAuthorization) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this VPCAssociationAuthorization.
+func (mg *VPCAssociationAuthorization) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this VpcAssociationAuthorization.
-func (mg *VpcAssociationAuthorization) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this VPCAssociationAuthorization.
+func (mg *VPCAssociationAuthorization) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this VpcAssociationAuthorization.
-func (mg *VpcAssociationAuthorization) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this VPCAssociationAuthorization.
+func (mg *VPCAssociationAuthorization) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this VpcAssociationAuthorization.
+SetProviderReference of this VPCAssociationAuthorization.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *VpcAssociationAuthorization) SetProviderReference(r *xpv1.Reference) {
+func (mg *VPCAssociationAuthorization) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this VpcAssociationAuthorization.
-func (mg *VpcAssociationAuthorization) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this VPCAssociationAuthorization.
+func (mg *VPCAssociationAuthorization) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 

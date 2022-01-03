@@ -38,6 +38,8 @@ type KeySigningKeyObservation struct {
 
 	Flag *int64 `json:"flag,omitempty" tf:"flag,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	KeyTag *int64 `json:"keyTag,omitempty" tf:"key_tag,omitempty"`
 
 	PublicKey *string `json:"publicKey,omitempty" tf:"public_key,omitempty"`

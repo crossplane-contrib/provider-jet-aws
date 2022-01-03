@@ -46,6 +46,8 @@ type AttachmentParameters struct {
 }
 
 type NetworkInterfaceObservation_2 struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
 
 	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn,omitempty"`

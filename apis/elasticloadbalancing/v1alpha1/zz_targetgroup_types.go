@@ -63,6 +63,8 @@ type TargetGroupObservation_2 struct {
 
 	ArnSuffix *string `json:"arnSuffix,omitempty" tf:"arn_suffix,omitempty"`
 
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
@@ -117,13 +119,13 @@ type TargetGroupParameters_2 struct {
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.VPC
 	// +kubebuilder:validation:Optional
-	VpcID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
+	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VpcIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
+	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
 }
 
 type TargetGroupStickinessObservation struct {
