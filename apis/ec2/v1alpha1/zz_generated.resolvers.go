@@ -27,8 +27,34 @@ import (
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-// ResolveReferences of this ElasticIP.
-func (mg *ElasticIP) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this EBSVolume.
+func (mg *EBSVolume) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.KMSKeyID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.KMSKeyIDRef,
+		Selector:     mg.Spec.ForProvider.KMSKeyIDSelector,
+		To: reference.To{
+			List:    &v1alpha1.KeyList{},
+			Managed: &v1alpha1.Key{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.KMSKeyID")
+	}
+	mg.Spec.ForProvider.KMSKeyID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.KMSKeyIDRef = rsp.ResolvedReference
+
+	return nil
+}
+
+// ResolveReferences of this EIP.
+func (mg *EIP) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -65,32 +91,6 @@ func (mg *ElasticIP) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	mg.Spec.ForProvider.NetworkInterface = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.NetworkInterfaceRef = rsp.ResolvedReference
-
-	return nil
-}
-
-// ResolveReferences of this IPv4CIDRBlockAssociation.
-func (mg *IPv4CIDRBlockAssociation) ResolveReferences(ctx context.Context, c client.Reader) error {
-	r := reference.NewAPIResolver(c, mg)
-
-	var rsp reference.ResolutionResponse
-	var err error
-
-	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
-		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
-		To: reference.To{
-			List:    &VPCList{},
-			Managed: &VPC{},
-		},
-	})
-	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
-	}
-	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -1075,6 +1075,32 @@ func (mg *VPCEndpoint) ResolveReferences(ctx context.Context, c client.Reader) e
 	}
 	mg.Spec.ForProvider.SubnetIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.SubnetIdRefs = mrsp.ResolvedReferences
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VPCIDRef,
+		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
+	}
+	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+
+	return nil
+}
+
+// ResolveReferences of this VPCIPv4CidrBlockAssociation.
+func (mg *VPCIPv4CidrBlockAssociation) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),

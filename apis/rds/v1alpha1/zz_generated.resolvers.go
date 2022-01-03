@@ -27,8 +27,8 @@ import (
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-// ResolveReferences of this DBInstance.
-func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this Instance.
+func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -57,8 +57,8 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 		Reference:    mg.Spec.ForProvider.ParameterGroupNameRef,
 		Selector:     mg.Spec.ForProvider.ParameterGroupNameSelector,
 		To: reference.To{
-			List:    &DBParameterGroupList{},
-			Managed: &DBParameterGroup{},
+			List:    &ParameterGroupList{},
+			Managed: &ParameterGroup{},
 		},
 	})
 	if err != nil {
@@ -90,8 +90,8 @@ func (mg *DBInstance) ResolveReferences(ctx context.Context, c client.Reader) er
 			Reference:    mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceDBInstanceIdentifierRef,
 			Selector:     mg.Spec.ForProvider.RestoreToPointInTime[i3].SourceDBInstanceIdentifierSelector,
 			To: reference.To{
-				List:    &DBInstanceList{},
-				Managed: &DBInstance{},
+				List:    &InstanceList{},
+				Managed: &Instance{},
 			},
 		})
 		if err != nil {
