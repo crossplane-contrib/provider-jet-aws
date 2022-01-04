@@ -25,7 +25,6 @@ import (
 // Configure adds configurations for autoscaling group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_autoscaling_group", func(r *config.Resource) {
-		r.Kind = "AutoscalingGroup"
 		r.ExternalName = config.NameAsIdentifier
 		r.References["vpc_zone_identifier"] = config.Reference{
 			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
@@ -48,7 +47,7 @@ func Configure(p *config.Provider) {
 			Type: "AutoscalingGroup",
 		}
 		r.References["alb_target_group_arn"] = config.Reference{
-			Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup",
+			Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha1.LBTargetGroup",
 			Extractor: common.PathARNExtractor,
 		}
 	})

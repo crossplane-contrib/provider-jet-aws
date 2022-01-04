@@ -23,7 +23,6 @@ import (
 // Configure adds configurations for rds group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_rds_cluster", func(r *config.Resource) {
-		r.Kind = "DBCluster"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["cluster_identifier"] = name
@@ -52,7 +51,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_db_instance", func(r *config.Resource) {
-		r.Kind = "DBInstance"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["identifier"] = name
@@ -66,7 +64,7 @@ func Configure(p *config.Provider) {
 		}
 		r.References = config.References{
 			"restore_to_point_in_time.source_db_instance_identifier": {
-				Type: "DBInstance",
+				Type: "Instance",
 			},
 			"s3_import.bucket_name": {
 				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha1.Bucket",
@@ -91,13 +89,12 @@ func Configure(p *config.Provider) {
 				SelectorFieldName: "VpcSecurityGroupIdSelector",
 			},
 			"parameter_group_name": {
-				Type: "DBParameterGroup",
+				Type: "ParameterGroup",
 			},
 		}
 		r.UseAsync = true
 	})
 	p.AddResourceConfigurator("aws_db_parameter_group", func(r *config.Resource) {
-		r.Kind = "DBParameterGroup"
 		r.ExternalName = config.NameAsIdentifier
 	})
 }

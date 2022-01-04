@@ -23,7 +23,6 @@ import (
 // Configure adds configurations for elasticloadbalancing group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_lb", func(r *config.Resource) {
-		r.Kind = "LoadBalancer"
 		r.ExternalName = config.IdentifierFromProvider
 		r.ExternalName.OmittedFields = append(r.ExternalName.OmittedFields, "name_prefix")
 		r.References = config.References{
@@ -48,17 +47,16 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_lb_listener", func(r *config.Resource) {
-		r.Kind = "LoadBalancerListener"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"load_balancer_arn": {
-				Type: "LoadBalancer",
+				Type: "LB",
 			},
 			"default_action.target_group_arn": {
-				Type: "TargetGroup",
+				Type: "LBTargetGroup",
 			},
 			"default_action.forward.target_group.arn": {
-				Type: "TargetGroup",
+				Type: "LBTargetGroup",
 			},
 		}
 	})
@@ -81,7 +79,7 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"target_group_arn": {
-				Type: "TargetGroup",
+				Type: "LBTargetGroup",
 			},
 		}
 	})

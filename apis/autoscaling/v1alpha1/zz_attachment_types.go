@@ -31,7 +31,7 @@ type AttachmentObservation struct {
 
 type AttachmentParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/elasticloadbalancing/v1alpha1.TargetGroup
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha1.LBTargetGroup
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	ALBTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn,omitempty"`

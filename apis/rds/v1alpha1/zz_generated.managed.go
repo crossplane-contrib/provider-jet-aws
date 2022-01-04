@@ -19,170 +19,170 @@ package v1alpha1
 
 import xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 
-// GetCondition of this DBCluster.
-func (mg *DBCluster) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this Cluster.
+func (mg *Cluster) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this DBCluster.
-func (mg *DBCluster) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this Cluster.
+func (mg *Cluster) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this DBCluster.
-func (mg *DBCluster) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this Cluster.
+func (mg *Cluster) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this DBCluster.
+GetProviderReference of this Cluster.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *DBCluster) GetProviderReference() *xpv1.Reference {
+func (mg *Cluster) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this DBCluster.
-func (mg *DBCluster) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this Cluster.
+func (mg *Cluster) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this DBCluster.
-func (mg *DBCluster) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this Cluster.
+func (mg *Cluster) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this DBCluster.
-func (mg *DBCluster) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this Cluster.
+func (mg *Cluster) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this DBCluster.
-func (mg *DBCluster) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this Cluster.
+func (mg *Cluster) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this DBCluster.
+SetProviderReference of this Cluster.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *DBCluster) SetProviderReference(r *xpv1.Reference) {
+func (mg *Cluster) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this DBCluster.
-func (mg *DBCluster) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this Cluster.
+func (mg *Cluster) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this DBInstance.
-func (mg *DBInstance) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this Instance.
+func (mg *Instance) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this DBInstance.
-func (mg *DBInstance) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this Instance.
+func (mg *Instance) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this DBInstance.
-func (mg *DBInstance) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this Instance.
+func (mg *Instance) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this DBInstance.
+GetProviderReference of this Instance.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *DBInstance) GetProviderReference() *xpv1.Reference {
+func (mg *Instance) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this DBInstance.
-func (mg *DBInstance) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this Instance.
+func (mg *Instance) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this DBInstance.
-func (mg *DBInstance) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this Instance.
+func (mg *Instance) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this DBInstance.
-func (mg *DBInstance) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this Instance.
+func (mg *Instance) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this DBInstance.
-func (mg *DBInstance) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this Instance.
+func (mg *Instance) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this DBInstance.
+SetProviderReference of this Instance.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *DBInstance) SetProviderReference(r *xpv1.Reference) {
+func (mg *Instance) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this DBInstance.
-func (mg *DBInstance) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this Instance.
+func (mg *Instance) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
-// GetCondition of this DBParameterGroup.
-func (mg *DBParameterGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+// GetCondition of this ParameterGroup.
+func (mg *ParameterGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
-// GetDeletionPolicy of this DBParameterGroup.
-func (mg *DBParameterGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+// GetDeletionPolicy of this ParameterGroup.
+func (mg *ParameterGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
-// GetProviderConfigReference of this DBParameterGroup.
-func (mg *DBParameterGroup) GetProviderConfigReference() *xpv1.Reference {
+// GetProviderConfigReference of this ParameterGroup.
+func (mg *ParameterGroup) GetProviderConfigReference() *xpv1.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 /*
-GetProviderReference of this DBParameterGroup.
+GetProviderReference of this ParameterGroup.
 Deprecated: Use GetProviderConfigReference.
 */
-func (mg *DBParameterGroup) GetProviderReference() *xpv1.Reference {
+func (mg *ParameterGroup) GetProviderReference() *xpv1.Reference {
 	return mg.Spec.ProviderReference
 }
 
-// GetWriteConnectionSecretToReference of this DBParameterGroup.
-func (mg *DBParameterGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+// GetWriteConnectionSecretToReference of this ParameterGroup.
+func (mg *ParameterGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
-// SetConditions of this DBParameterGroup.
-func (mg *DBParameterGroup) SetConditions(c ...xpv1.Condition) {
+// SetConditions of this ParameterGroup.
+func (mg *ParameterGroup) SetConditions(c ...xpv1.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
-// SetDeletionPolicy of this DBParameterGroup.
-func (mg *DBParameterGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+// SetDeletionPolicy of this ParameterGroup.
+func (mg *ParameterGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
-// SetProviderConfigReference of this DBParameterGroup.
-func (mg *DBParameterGroup) SetProviderConfigReference(r *xpv1.Reference) {
+// SetProviderConfigReference of this ParameterGroup.
+func (mg *ParameterGroup) SetProviderConfigReference(r *xpv1.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 /*
-SetProviderReference of this DBParameterGroup.
+SetProviderReference of this ParameterGroup.
 Deprecated: Use SetProviderConfigReference.
 */
-func (mg *DBParameterGroup) SetProviderReference(r *xpv1.Reference) {
+func (mg *ParameterGroup) SetProviderReference(r *xpv1.Reference) {
 	mg.Spec.ProviderReference = r
 }
 
-// SetWriteConnectionSecretToReference of this DBParameterGroup.
-func (mg *DBParameterGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+// SetWriteConnectionSecretToReference of this ParameterGroup.
+func (mg *ParameterGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }

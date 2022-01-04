@@ -61,7 +61,6 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_eip", func(r *config.Resource) {
-		r.Kind = "ElasticIP"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"instance": config.Reference{
@@ -106,7 +105,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_vpc_attachment", func(r *config.Resource) {
-		r.Kind = "TransitGatewayVPCAttachment"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_ids"] = config.Reference{
 			Type:              "Subnet",
@@ -122,7 +120,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_vpc_attachment_accepter", func(r *config.Resource) {
-		r.Kind = "TransitGatewayVPCAttachmentAccepter"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
 			Type: "TransitGatewayVPCAttachment",
@@ -130,7 +127,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_launch_template", func(r *config.Resource) {
-		r.Kind = "LaunchTemplate"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["security_group_names"] = config.Reference{
 			Type:              "SecurityGroup",
@@ -167,12 +163,10 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc", func(r *config.Resource) {
-		r.Kind = "VPC"
 		r.ExternalName = config.IdentifierFromProvider
 	})
 
 	p.AddResourceConfigurator("aws_vpc_endpoint", func(r *config.Resource) {
-		r.Kind = "VPCEndpoint"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -209,7 +203,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_network_interface", func(r *config.Resource) {
-		r.Kind = "NetworkInterface"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -233,7 +226,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_security_group", func(r *config.Resource) {
-		r.Kind = "SecurityGroup"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -251,7 +243,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_security_group_rule", func(r *config.Resource) {
-		r.Kind = "SecurityGroupRule"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["security_group_id"] = config.Reference{
 			Type: "SecurityGroup",
@@ -259,7 +250,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc_ipv4_cidr_block_association", func(r *config.Resource) {
-		r.Kind = "IPv4CIDRBlockAssociation"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -267,7 +257,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc_peering_connection", func(r *config.Resource) {
-		r.Kind = "VPCPeeringConnection"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -301,7 +290,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_route_table", func(r *config.Resource) {
-		r.Kind = "RouteTable"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -322,7 +310,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_route_table_association", func(r *config.Resource) {
-		r.Kind = "RouteTableAssociation"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_id"] = config.Reference{
 			Type: "Subnet",
@@ -333,7 +320,6 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_main_route_table_association", func(r *config.Resource) {
-		r.Kind = "MainRouteTableAssociation"
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",

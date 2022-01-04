@@ -20,7 +20,7 @@ package v1alpha1
 import (
 	"context"
 	v1alpha11 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1"
-	v1alpha1 "github.com/crossplane-contrib/provider-jet-aws/apis/elasticloadbalancing/v1alpha1"
+	v1alpha1 "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha1"
 	common "github.com/crossplane-contrib/provider-jet-aws/config/common"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
@@ -40,8 +40,8 @@ func (mg *Attachment) ResolveReferences(ctx context.Context, c client.Reader) er
 		Reference:    mg.Spec.ForProvider.ALBTargetGroupArnRef,
 		Selector:     mg.Spec.ForProvider.ALBTargetGroupArnSelector,
 		To: reference.To{
-			List:    &v1alpha1.TargetGroupList{},
-			Managed: &v1alpha1.TargetGroup{},
+			List:    &v1alpha1.LBTargetGroupList{},
+			Managed: &v1alpha1.LBTargetGroup{},
 		},
 	})
 	if err != nil {

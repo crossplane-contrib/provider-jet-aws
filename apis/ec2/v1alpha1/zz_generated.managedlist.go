@@ -19,8 +19,8 @@ package v1alpha1
 
 import resource "github.com/crossplane/crossplane-runtime/pkg/resource"
 
-// GetItems of this ElasticIPList.
-func (l *ElasticIPList) GetItems() []resource.Managed {
+// GetItems of this EBSVolumeList.
+func (l *EBSVolumeList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -28,8 +28,8 @@ func (l *ElasticIPList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this IPv4CIDRBlockAssociationList.
-func (l *IPv4CIDRBlockAssociationList) GetItems() []resource.Managed {
+// GetItems of this EIPList.
+func (l *EIPList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -57,15 +57,6 @@ func (l *LaunchTemplateList) GetItems() []resource.Managed {
 
 // GetItems of this NetworkInterfaceList.
 func (l *NetworkInterfaceList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this PeeringConnectionAccepterList.
-func (l *PeeringConnectionAccepterList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -199,8 +190,26 @@ func (l *VPCEndpointList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this VPCIPv4CidrBlockAssociationList.
+func (l *VPCIPv4CidrBlockAssociationList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this VPCList.
 func (l *VPCList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VPCPeeringConnectionAccepterList.
+func (l *VPCPeeringConnectionAccepterList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
