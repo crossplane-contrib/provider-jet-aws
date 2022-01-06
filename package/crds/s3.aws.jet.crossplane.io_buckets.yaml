@@ -31,7 +31,7 @@ spec:
     - jsonPath: .metadata.creationTimestamp
       name: AGE
       type: date
-    name: v1alpha1
+    name: v1alpha2
     schema:
       openAPIV3Schema:
         description: Bucket is the Schema for the Buckets API
@@ -67,10 +67,6 @@ spec:
                   acl:
                     type: string
                   arn:
-                    type: string
-                  bucket:
-                    type: string
-                  bucketPrefix:
                     type: string
                   corsRule:
                     items:
@@ -326,6 +322,30 @@ spec:
                                   properties:
                                     kmsMasterKeyId:
                                       type: string
+                                    kmsMasterKeyIdRef:
+                                      description: A Reference to a named object.
+                                      properties:
+                                        name:
+                                          description: Name of the referenced object.
+                                          type: string
+                                      required:
+                                      - name
+                                      type: object
+                                    kmsMasterKeyIdSelector:
+                                      description: A Selector selects an object.
+                                      properties:
+                                        matchControllerRef:
+                                          description: MatchControllerRef ensures
+                                            an object with the same controller reference
+                                            as the selecting object is selected.
+                                          type: boolean
+                                        matchLabels:
+                                          additionalProperties:
+                                            type: string
+                                          description: MatchLabels ensures an object
+                                            with matching labels is selected.
+                                          type: object
+                                      type: object
                                     sseAlgorithm:
                                       type: string
                                   required:

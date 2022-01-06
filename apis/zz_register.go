@@ -22,40 +22,40 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha1"
-	v1alpha1ec2 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1"
-	v1alpha1ecr "github.com/crossplane-contrib/provider-jet-aws/apis/ecr/v1alpha1"
-	v1alpha1ecrpublic "github.com/crossplane-contrib/provider-jet-aws/apis/ecrpublic/v1alpha1"
-	v1alpha1ecs "github.com/crossplane-contrib/provider-jet-aws/apis/ecs/v1alpha1"
-	v1alpha1eks "github.com/crossplane-contrib/provider-jet-aws/apis/eks/v1alpha1"
-	v1alpha1elasticache "github.com/crossplane-contrib/provider-jet-aws/apis/elasticache/v1alpha1"
-	v1alpha1elbv2 "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha1"
-	v1alpha1iam "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1"
-	v1alpha1kms "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1"
-	v1alpha1rds "github.com/crossplane-contrib/provider-jet-aws/apis/rds/v1alpha1"
-	v1alpha1route53 "github.com/crossplane-contrib/provider-jet-aws/apis/route53/v1alpha1"
-	v1alpha1route53resolver "github.com/crossplane-contrib/provider-jet-aws/apis/route53resolver/v1alpha1"
-	v1alpha1s3 "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha1"
+	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha2"
+	v1alpha2ec2 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
+	v1alpha2ecr "github.com/crossplane-contrib/provider-jet-aws/apis/ecr/v1alpha2"
+	v1alpha2ecrpublic "github.com/crossplane-contrib/provider-jet-aws/apis/ecrpublic/v1alpha2"
+	v1alpha2ecs "github.com/crossplane-contrib/provider-jet-aws/apis/ecs/v1alpha2"
+	v1alpha2eks "github.com/crossplane-contrib/provider-jet-aws/apis/eks/v1alpha2"
+	v1alpha2elasticache "github.com/crossplane-contrib/provider-jet-aws/apis/elasticache/v1alpha2"
+	v1alpha2elbv2 "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha2"
+	v1alpha2iam "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2"
+	v1alpha2kms "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2"
+	v1alpha2rds "github.com/crossplane-contrib/provider-jet-aws/apis/rds/v1alpha2"
+	v1alpha2route53 "github.com/crossplane-contrib/provider-jet-aws/apis/route53/v1alpha2"
+	v1alpha1 "github.com/crossplane-contrib/provider-jet-aws/apis/route53resolver/v1alpha1"
+	v1alpha2s3 "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha2"
 	v1alpha1apis "github.com/crossplane-contrib/provider-jet-aws/apis/v1alpha1"
 )
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
+		v1alpha2.SchemeBuilder.AddToScheme,
+		v1alpha2ec2.SchemeBuilder.AddToScheme,
+		v1alpha2ecr.SchemeBuilder.AddToScheme,
+		v1alpha2ecrpublic.SchemeBuilder.AddToScheme,
+		v1alpha2ecs.SchemeBuilder.AddToScheme,
+		v1alpha2eks.SchemeBuilder.AddToScheme,
+		v1alpha2elasticache.SchemeBuilder.AddToScheme,
+		v1alpha2elbv2.SchemeBuilder.AddToScheme,
+		v1alpha2iam.SchemeBuilder.AddToScheme,
+		v1alpha2kms.SchemeBuilder.AddToScheme,
+		v1alpha2rds.SchemeBuilder.AddToScheme,
+		v1alpha2route53.SchemeBuilder.AddToScheme,
 		v1alpha1.SchemeBuilder.AddToScheme,
-		v1alpha1ec2.SchemeBuilder.AddToScheme,
-		v1alpha1ecr.SchemeBuilder.AddToScheme,
-		v1alpha1ecrpublic.SchemeBuilder.AddToScheme,
-		v1alpha1ecs.SchemeBuilder.AddToScheme,
-		v1alpha1eks.SchemeBuilder.AddToScheme,
-		v1alpha1elasticache.SchemeBuilder.AddToScheme,
-		v1alpha1elbv2.SchemeBuilder.AddToScheme,
-		v1alpha1iam.SchemeBuilder.AddToScheme,
-		v1alpha1kms.SchemeBuilder.AddToScheme,
-		v1alpha1rds.SchemeBuilder.AddToScheme,
-		v1alpha1route53.SchemeBuilder.AddToScheme,
-		v1alpha1route53resolver.SchemeBuilder.AddToScheme,
-		v1alpha1s3.SchemeBuilder.AddToScheme,
+		v1alpha2s3.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
 	)
 }

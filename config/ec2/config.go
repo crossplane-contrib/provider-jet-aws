@@ -25,6 +25,7 @@ import (
 // Configure adds configurations for ec2 group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_instance", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_id"] = config.Reference{
 			Type: "Subnet",
@@ -41,13 +42,13 @@ func Configure(p *config.Provider) {
 			SelectorFieldName: "SecurityGroupSelector",
 		}
 		r.References["root_block_device.kms_key_id"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
+			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 		}
 		r.References["network_interface.network_interface_id"] = config.Reference{
 			Type: "NetworkInterface",
 		}
 		r.References["ebs_block_device.kms_key_id"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
+			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 		}
 		r.LateInitializer = config.LateInitializer{
 			// NOTE(muvaf): These are ignored because they conflict with each other.
@@ -61,6 +62,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_eip", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"instance": config.Reference{
@@ -74,10 +76,12 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_route", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
 			Type: "TransitGatewayVPCAttachment",
@@ -88,6 +92,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_route_table", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_id"] = config.Reference{
 			Type: "TransitGateway",
@@ -95,6 +100,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_route_table_association", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
 			Type: "TransitGatewayVPCAttachment",
@@ -105,6 +111,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_vpc_attachment", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_ids"] = config.Reference{
 			Type:              "Subnet",
@@ -120,6 +127,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_vpc_attachment_accepter", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
 			Type: "TransitGatewayVPCAttachment",
@@ -127,6 +135,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_launch_template", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["security_group_names"] = config.Reference{
 			Type:              "SecurityGroup",
@@ -140,14 +149,14 @@ func Configure(p *config.Provider) {
 			SelectorFieldName: "VpcSecurityGroupIdSelector",
 		}
 		r.References["block_device_mappings.ebs.kms_key_id"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
+			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 		}
 		r.References["iam_instance_profile.arn"] = config.Reference{
-			Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.InstanceProfile",
+			Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.InstanceProfile",
 			Extractor: common.PathARNExtractor,
 		}
 		r.References["iam_instance_profile.name"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.InstanceProfile",
+			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.InstanceProfile",
 		}
 		r.References["network_interfaces.network_interface_id"] = config.Reference{
 			Type: "NetworkInterface",
@@ -163,10 +172,12 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 	})
 
 	p.AddResourceConfigurator("aws_vpc_endpoint", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -189,6 +200,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_subnet", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -203,6 +215,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_network_interface", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -226,6 +239,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_security_group", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -243,6 +257,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_security_group_rule", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["security_group_id"] = config.Reference{
 			Type: "SecurityGroup",
@@ -250,6 +265,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc_ipv4_cidr_block_association", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -257,6 +273,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_vpc_peering_connection", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -267,6 +284,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_route", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["route_table_id"] = config.Reference{
 			Type: "RouteTable",
@@ -290,6 +308,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_route_table", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -310,6 +329,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_route_table_association", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["subnet_id"] = config.Reference{
 			Type: "Subnet",
@@ -320,6 +340,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_main_route_table_association", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["vpc_id"] = config.Reference{
 			Type: "VPC",
@@ -330,6 +351,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ec2_transit_gateway_route_table_propagation", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References["transit_gateway_attachment_id"] = config.Reference{
 			Type: "TransitGatewayVPCAttachment",

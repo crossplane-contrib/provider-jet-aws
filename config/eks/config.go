@@ -30,19 +30,20 @@ import (
 // Configure adds configurations for eks group.
 func Configure(p *config.Provider) { // nolint:gocyclo
 	p.AddResourceConfigurator("aws_eks_cluster", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 		r.References = config.References{
 			"role_arn": {
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
 				Extractor: common.PathARNExtractor,
 			},
 			"vpc_config.subnet_ids": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
 				RefFieldName:      "SubnetIdRefs",
 				SelectorFieldName: "SubnetIdSelector",
 			},
 			"vpc_config.security_group_ids": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
 				RefFieldName:      "SecurityGroupIdRefs",
 				SelectorFieldName: "SecurityGroupIdSelector",
 			},
@@ -50,6 +51,7 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 		r.UseAsync = true
 	})
 	p.AddResourceConfigurator("aws_eks_node_group", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["node_group_name"] = name
@@ -66,16 +68,16 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 				Type: "Cluster",
 			},
 			"node_role_arn": {
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
 				Extractor: common.PathARNExtractor,
 			},
 			"remote_access.source_security_group_ids": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
 				RefFieldName:      "SourceSecurityGroupIdRefs",
 				SelectorFieldName: "SourceSecurityGroupIdSelector",
 			},
 			"subnet_ids": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
 				RefFieldName:      "SubnetIdRefs",
 				SelectorFieldName: "SubnetIdSelector",
 			},
@@ -83,6 +85,7 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 		r.UseAsync = true
 	})
 	p.AddResourceConfigurator("aws_eks_identity_provider_config", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"cluster_name": {
@@ -92,6 +95,7 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 	})
 
 	p.AddResourceConfigurator("aws_eks_fargate_profile", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["fargate_profile_name"] = name
@@ -125,17 +129,18 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 				Type: "Cluster",
 			},
 			"pod_execution_role_arn": {
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
 				Extractor: common.PathARNExtractor,
 			},
 			"subnet_ids": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
 				RefFieldName:      "SubnetIdRefs",
 				SelectorFieldName: "SubnetIdSelector",
 			},
 		}
 	})
 	p.AddResourceConfigurator("aws_eks_addon", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, externalName string) {
 				base["addon_name"] = externalName
@@ -168,7 +173,7 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 				Type: "Cluster",
 			},
 			"service_account_role_arn": {
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
 				Extractor: common.PathARNExtractor,
 			},
 		}

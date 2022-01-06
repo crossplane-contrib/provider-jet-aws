@@ -29,6 +29,10 @@ const (
 	// PathARNExtractor is the golang path to ARNExtractor function
 	// in this package.
 	PathARNExtractor = SelfPackagePath + ".ARNExtractor()"
+
+	// VersionV1Alpha2 is used as minimum version for all manually configured
+	// resources.
+	VersionV1Alpha2 = "v1alpha2"
 )
 
 // ARNExtractor extracts ARN of the resources from "status.atProvider.arn" which

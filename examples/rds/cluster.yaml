@@ -1,4 +1,4 @@
-apiVersion: rds.aws.jet.crossplane.io/v1alpha1
+apiVersion: rds.aws.jet.crossplane.io/v1alpha2
 kind: Cluster
 metadata:
   name: sample-cluster

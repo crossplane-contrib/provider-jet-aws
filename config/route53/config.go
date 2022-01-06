@@ -20,17 +20,22 @@ import (
 	"strings"
 
 	"github.com/crossplane/terrajet/pkg/config"
+
+	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
 
 // Configure route53 resources.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_route53_delegation_set", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 	})
 	p.AddResourceConfigurator("aws_route53_health_check", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 	})
 	p.AddResourceConfigurator("aws_route53_hosted_zone_dnssec", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"hosted_zone_id": config.Reference{
@@ -39,18 +44,20 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_key_signing_key", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"hosted_zone_id": config.Reference{
 				Type: "Zone",
 			},
 			"key_management_service_arn": config.Reference{
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
-				Extractor: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.KMSKeyARN()",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
+				Extractor: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.KMSKeyARN()",
 			},
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_query_log", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"hosted_zone_id": config.Reference{
@@ -59,6 +66,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_record", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"zone_id": config.Reference{
@@ -70,6 +78,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_vpc_association_authorization", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.ExternalName.SetIdentifierArgumentFn = func(base map[string]interface{}, externalName string) {
 			words := strings.Split(externalName, ":")
@@ -84,22 +93,24 @@ func Configure(p *config.Provider) {
 				Type: "Zone",
 			},
 			"vpc_id": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.VPC",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC",
 			},
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_zone", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"delegation_set_id": config.Reference{
 				Type: "DelegationSet",
 			},
 			"vpc.vpc_id": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.VPC",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC",
 			},
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_zone_association", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		// Z123456ABCDEFG:vpc-12345678
 		// Z123456ABCDEFG:vpc-12345678:us-east-2
@@ -118,7 +129,7 @@ func Configure(p *config.Provider) {
 				Type: "Zone",
 			},
 			"vpc_id": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.VPC",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC",
 			},
 		}
 	})

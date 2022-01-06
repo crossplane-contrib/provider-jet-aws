@@ -30,22 +30,24 @@ import (
 // Configure adds configurations for ecs group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ecs_cluster", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 		r.References = config.References{
 			"capacity_providers": config.Reference{
 				Type: "CapacityProvider",
 			},
 			"execute_command_configuration.kms_key_id": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 			},
 			"log_configuration.s3_bucket_name": config.Reference{
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha1.Bucket",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha2.Bucket",
 			},
 		}
 		r.UseAsync = true
 	})
 
 	p.AddResourceConfigurator("aws_ecs_service", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 		r.ExternalName.GetExternalNameFn = func(tfstate map[string]interface{}) (string, error) {
 			// cluster-name/service-name
@@ -68,16 +70,16 @@ func Configure(p *config.Provider) {
 				Extractor: common.PathARNExtractor,
 			},
 			"iam_role": config.Reference{
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
 				Extractor: common.PathARNExtractor,
 			},
 			"network_configuration.subnets": config.Reference{
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.Subnet",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
 				RefFieldName:      "SubnetRefs",
 				SelectorFieldName: "SubnetSelector",
 			},
 			"network_configuration.security_groups": config.Reference{
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
 				RefFieldName:      "SecurityGroupRefs",
 				SelectorFieldName: "SecurityGroupSelector",
 			},
@@ -86,20 +88,22 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_ecs_capacity_provider", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 		r.References = config.References{
 			"auto_scaling_group_provider.auto_scaling_group_arn": config.Reference{
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha1.AutoscalingGroup",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha2.AutoscalingGroup",
 				Extractor: common.PathARNExtractor,
 			},
 		}
 	})
 
 	p.AddResourceConfigurator("aws_ecs_task_definition", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"execution_role_arn": config.Reference{
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha1.Role",
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
 				Extractor: common.PathARNExtractor,
 			},
 		}

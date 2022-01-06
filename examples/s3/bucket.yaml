@@ -1,4 +1,4 @@
-apiVersion: s3.aws.jet.crossplane.io/v1alpha1
+apiVersion: s3.aws.jet.crossplane.io/v1alpha2
 kind: Bucket
 metadata:
   name: sample-bucket
