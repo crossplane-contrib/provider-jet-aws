@@ -51,8 +51,17 @@ type EndpointParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
-	// +kubebuilder:validation:Required
-	SecurityGroupIds []*string `json:"securityGroupIds" tf:"security_group_ids,omitempty"`
+	// +kubebuilder:validation:Optional
+	SecurityGroupIdRefs []v1.Reference `json:"securityGroupIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SecurityGroupIdSelector *v1.Selector `json:"securityGroupIdSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup
+	// +crossplane:generate:reference:refFieldName=SecurityGroupIdRefs
+	// +crossplane:generate:reference:selectorFieldName=SecurityGroupIdSelector
+	// +kubebuilder:validation:Optional
+	SecurityGroupIds []*string `json:"securityGroupIds,omitempty" tf:"security_group_ids,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`

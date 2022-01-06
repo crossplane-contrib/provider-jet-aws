@@ -875,6 +875,16 @@ func (in *ReplicationGroupParameters) DeepCopyInto(out *ReplicationGroupParamete
 		*out = new(string)
 		**out = **in
 	}
+	if in.KMSKeyIDRef != nil {
+		in, out := &in.KMSKeyIDRef, &out.KMSKeyIDRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.KMSKeyIDSelector != nil {
+		in, out := &in.KMSKeyIDSelector, &out.KMSKeyIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.MaintenanceWindow != nil {
 		in, out := &in.MaintenanceWindow, &out.MaintenanceWindow
 		*out = new(string)
@@ -919,6 +929,16 @@ func (in *ReplicationGroupParameters) DeepCopyInto(out *ReplicationGroupParamete
 		in, out := &in.ReplicationGroupDescription, &out.ReplicationGroupDescription
 		*out = new(string)
 		**out = **in
+	}
+	if in.SecurityGroupIdRefs != nil {
+		in, out := &in.SecurityGroupIdRefs, &out.SecurityGroupIdRefs
+		*out = make([]v1.Reference, len(*in))
+		copy(*out, *in)
+	}
+	if in.SecurityGroupIdSelector != nil {
+		in, out := &in.SecurityGroupIdSelector, &out.SecurityGroupIdSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SecurityGroupIds != nil {
 		in, out := &in.SecurityGroupIds, &out.SecurityGroupIds

@@ -55,8 +55,15 @@ type FirewallRuleGroupAssociationParameters struct {
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// +kubebuilder:validation:Required
-	VPCID *string `json:"vpcId" tf:"vpc_id,omitempty"`
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC
+	// +kubebuilder:validation:Optional
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
 }
 
 // FirewallRuleGroupAssociationSpec defines the desired state of FirewallRuleGroupAssociation

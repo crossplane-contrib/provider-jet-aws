@@ -437,6 +437,16 @@ func (in *AutoscalingGroupParameters) DeepCopyInto(out *AutoscalingGroupParamete
 		*out = new(string)
 		**out = **in
 	}
+	if in.ServiceLinkedRoleArnRef != nil {
+		in, out := &in.ServiceLinkedRoleArnRef, &out.ServiceLinkedRoleArnRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.ServiceLinkedRoleArnSelector != nil {
+		in, out := &in.ServiceLinkedRoleArnSelector, &out.ServiceLinkedRoleArnSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.SuspendedProcesses != nil {
 		in, out := &in.SuspendedProcesses, &out.SuspendedProcesses
 		*out = make([]*string, len(*in))

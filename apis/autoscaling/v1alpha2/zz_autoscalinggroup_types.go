@@ -105,8 +105,16 @@ type AutoscalingGroupParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role
+	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	ServiceLinkedRoleArn *string `json:"serviceLinkedRoleArn,omitempty" tf:"service_linked_role_arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ServiceLinkedRoleArnRef *v1.Reference `json:"serviceLinkedRoleArnRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	ServiceLinkedRoleArnSelector *v1.Selector `json:"serviceLinkedRoleArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	SuspendedProcesses []*string `json:"suspendedProcesses,omitempty" tf:"suspended_processes,omitempty"`

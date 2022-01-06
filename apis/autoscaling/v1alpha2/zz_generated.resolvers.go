@@ -19,8 +19,9 @@ package v1alpha2
 
 import (
 	"context"
-	v1alpha21 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
+	v1alpha22 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
 	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha2"
+	v1alpha21 "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2"
 	common "github.com/crossplane-contrib/provider-jet-aws/config/common"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
@@ -73,8 +74,25 @@ func (mg *Attachment) ResolveReferences(ctx context.Context, c client.Reader) er
 func (mg *AutoscalingGroup) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
+	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ServiceLinkedRoleArn),
+		Extract:      common.ARNExtractor(),
+		Reference:    mg.Spec.ForProvider.ServiceLinkedRoleArnRef,
+		Selector:     mg.Spec.ForProvider.ServiceLinkedRoleArnSelector,
+		To: reference.To{
+			List:    &v1alpha21.RoleList{},
+			Managed: &v1alpha21.Role{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.ServiceLinkedRoleArn")
+	}
+	mg.Spec.ForProvider.ServiceLinkedRoleArn = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.ServiceLinkedRoleArnRef = rsp.ResolvedReference
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VPCZoneIdentifier),
@@ -82,8 +100,8 @@ func (mg *AutoscalingGroup) ResolveReferences(ctx context.Context, c client.Read
 		References:    mg.Spec.ForProvider.VPCZoneIdentifierRefs,
 		Selector:      mg.Spec.ForProvider.VPCZoneIdentifierSelector,
 		To: reference.To{
-			List:    &v1alpha21.SubnetList{},
-			Managed: &v1alpha21.Subnet{},
+			List:    &v1alpha22.SubnetList{},
+			Managed: &v1alpha22.Subnet{},
 		},
 	})
 	if err != nil {
