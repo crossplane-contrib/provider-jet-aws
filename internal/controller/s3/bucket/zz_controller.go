@@ -34,25 +34,24 @@ import (
 	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
 	"github.com/crossplane/terrajet/pkg/terraform"
 
-	v1alpha1 "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha1"
+	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha2"
 )
 
 // Setup adds a controller that reconciles Bucket managed resources.
 func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terraform.SetupFn, ws *terraform.WorkspaceStore, cfg *tjconfig.Provider, concurrency int) error {
-	name := managed.ControllerName(v1alpha1.Bucket_GroupVersionKind.String())
+	name := managed.ControllerName(v1alpha2.Bucket_GroupVersionKind.String())
 	r := managed.NewReconciler(mgr,
-		xpresource.ManagedKind(v1alpha1.Bucket_GroupVersionKind),
+		xpresource.ManagedKind(v1alpha2.Bucket_GroupVersionKind),
 		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s, cfg.Resources["aws_s3_bucket"])),
 		managed.WithLogger(l.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
 		managed.WithFinalizer(terraform.NewWorkspaceFinalizer(ws, xpresource.NewAPIFinalizer(mgr.GetClient(), managed.FinalizerName))),
 		managed.WithTimeout(3*time.Minute),
-		managed.WithInitializers(),
 	)
 
 	return ctrl.NewControllerManagedBy(mgr).
 		Named(name).
 		WithOptions(controller.Options{RateLimiter: rl, MaxConcurrentReconciles: concurrency}).
-		For(&v1alpha1.Bucket{}).
+		For(&v1alpha2.Bucket{}).
 		Complete(r)
 }

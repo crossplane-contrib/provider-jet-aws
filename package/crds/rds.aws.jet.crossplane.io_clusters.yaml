@@ -31,7 +31,7 @@ spec:
     - jsonPath: .metadata.creationTimestamp
       name: AGE
       type: date
-    name: v1alpha1
+    name: v1alpha2
     schema:
       openAPIV3Schema:
         description: Cluster is the Schema for the Clusters API
@@ -76,10 +76,6 @@ spec:
                   backupRetentionPeriod:
                     format: int64
                     type: integer
-                  clusterIdentifier:
-                    type: string
-                  clusterIdentifierPrefix:
-                    type: string
                   clusterMembers:
                     items:
                       type: string
@@ -160,10 +156,32 @@ spec:
                           type: string
                         sourceClusterIdentifier:
                           type: string
+                        sourceClusterIdentifierRef:
+                          description: A Reference to a named object.
+                          properties:
+                            name:
+                              description: Name of the referenced object.
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        sourceClusterIdentifierSelector:
+                          description: A Selector selects an object.
+                          properties:
+                            matchControllerRef:
+                              description: MatchControllerRef ensures an object with
+                                the same controller reference as the selecting object
+                                is selected.
+                              type: boolean
+                            matchLabels:
+                              additionalProperties:
+                                type: string
+                              description: MatchLabels ensures an object with matching
+                                labels is selected.
+                              type: object
+                          type: object
                         useLatestRestorableTime:
                           type: boolean
-                      required:
-                      - sourceClusterIdentifier
                       type: object
                     type: array
                   s3Import:
@@ -171,6 +189,30 @@ spec:
                       properties:
                         bucketName:
                           type: string
+                        bucketNameRef:
+                          description: A Reference to a named object.
+                          properties:
+                            name:
+                              description: Name of the referenced object.
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        bucketNameSelector:
+                          description: A Selector selects an object.
+                          properties:
+                            matchControllerRef:
+                              description: MatchControllerRef ensures an object with
+                                the same controller reference as the selecting object
+                                is selected.
+                              type: boolean
+                            matchLabels:
+                              additionalProperties:
+                                type: string
+                              description: MatchLabels ensures an object with matching
+                                labels is selected.
+                              type: object
+                          type: object
                         bucketPrefix:
                           type: string
                         ingestionRole:
@@ -180,7 +222,6 @@ spec:
                         sourceEngineVersion:
                           type: string
                       required:
-                      - bucketName
                       - ingestionRole
                       - sourceEngine
                       - sourceEngineVersion
@@ -215,6 +256,31 @@ spec:
                   tags:
                     additionalProperties:
                       type: string
+                    type: object
+                  vpcSecurityGroupIdRefs:
+                    items:
+                      description: A Reference to a named object.
+                      properties:
+                        name:
+                          description: Name of the referenced object.
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
+                  vpcSecurityGroupIdSelector:
+                    description: A Selector selects an object.
+                    properties:
+                      matchControllerRef:
+                        description: MatchControllerRef ensures an object with the
+                          same controller reference as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
                     type: object
                   vpcSecurityGroupIds:
                     items:
