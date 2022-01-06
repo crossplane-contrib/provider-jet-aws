@@ -23,6 +23,7 @@ import (
 // Configure adds configurations for kms group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_kms_key", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.IdentifierFromProvider
 	})
 }

@@ -23,6 +23,7 @@ import (
 // Configure adds configurations for rds group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_rds_cluster", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["cluster_identifier"] = name
@@ -36,10 +37,10 @@ func Configure(p *config.Provider) {
 		}
 		r.References = config.References{
 			"s3_import.bucket_name": {
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha1.Bucket",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha2.Bucket",
 			},
 			"vpc_security_group_ids": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
 				RefFieldName:      "VpcSecurityGroupIdRefs",
 				SelectorFieldName: "VpcSecurityGroupIdSelector",
 			},
@@ -51,6 +52,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_db_instance", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["identifier"] = name
@@ -67,24 +69,24 @@ func Configure(p *config.Provider) {
 				Type: "Instance",
 			},
 			"s3_import.bucket_name": {
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha1.Bucket",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha2.Bucket",
 			},
 			"kms_key_id": {
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 			},
 			"performance_insights_kms_key_id": {
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha1.Key",
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 			},
 			"restore_to_point_in_time.source_cluster_identifier": {
 				Type: "Cluster",
 			},
 			"security_group_names": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
 				RefFieldName:      "SecurityGroupNameRefs",
 				SelectorFieldName: "SecurityGroupNameSelector",
 			},
 			"vpc_security_group_ids": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha1.SecurityGroup",
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
 				RefFieldName:      "VpcSecurityGroupIdRefs",
 				SelectorFieldName: "VpcSecurityGroupIdSelector",
 			},
@@ -95,6 +97,7 @@ func Configure(p *config.Provider) {
 		r.UseAsync = true
 	})
 	p.AddResourceConfigurator("aws_db_parameter_group", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.NameAsIdentifier
 	})
 }

@@ -23,6 +23,7 @@ import (
 // Configure adds configurations for ecrpublic group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ecrpublic_repository", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["repository_name"] = name

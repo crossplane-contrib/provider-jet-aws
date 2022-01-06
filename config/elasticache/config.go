@@ -23,10 +23,12 @@ import (
 // Configure adds configurations for elasticache group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_elasticache_parameter_group", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.NameAsIdentifier
 	})
 
 	p.AddResourceConfigurator("aws_elasticache_cluster", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["cluster_id"] = name
@@ -46,6 +48,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_elasticache_replication_group", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["replication_group_id"] = name
@@ -59,6 +62,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_elasticache_user", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["user_id"] = name
@@ -72,6 +76,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_elasticache_user_group", func(r *config.Resource) {
+		r.Version = "v1alpha2"
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["user_group_id"] = name
