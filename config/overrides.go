@@ -369,7 +369,9 @@ func NamePrefixRemoval() tjconfig.ResourceOption {
 func KnownReferencers() tjconfig.ResourceOption { //nolint:gocyclo
 	return func(r *tjconfig.Resource) {
 		for k, s := range r.TerraformResource.Schema {
-			if s.Computed && !s.Optional {
+			// We shouldn't add referencers for status fields and sensitive fields
+			// since they already have secret referencer.
+			if (s.Computed && !s.Optional) || s.Sensitive {
 				continue
 			}
 			switch {
@@ -423,22 +425,16 @@ func KnownReferencers() tjconfig.ResourceOption { //nolint:gocyclo
 					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
 				}
 			case "kms_key_id":
-				if !r.TerraformResource.Schema["kms_key_id"].Sensitive {
-					r.References["kms_key_id"] = tjconfig.Reference{
-						Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
-					}
+				r.References["kms_key_id"] = tjconfig.Reference{
+					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 				}
 			case "kms_key_arn":
-				if !r.TerraformResource.Schema["kms_key_arn"].Sensitive {
-					r.References["kms_key_arn"] = tjconfig.Reference{
-						Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
-					}
+				r.References["kms_key_arn"] = tjconfig.Reference{
+					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 				}
 			case "kms_key":
-				if !r.TerraformResource.Schema["kms_key"].Sensitive {
-					r.References["kms_key"] = tjconfig.Reference{
-						Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
-					}
+				r.References["kms_key"] = tjconfig.Reference{
+					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 				}
 			}
 		}
