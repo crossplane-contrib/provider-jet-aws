@@ -42,8 +42,15 @@ type RuleAssociationParameters struct {
 	// +kubebuilder:validation:Required
 	ResolverRuleID *string `json:"resolverRuleId" tf:"resolver_rule_id,omitempty"`
 
-	// +kubebuilder:validation:Required
-	VPCID *string `json:"vpcId" tf:"vpc_id,omitempty"`
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC
+	// +kubebuilder:validation:Optional
+	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
 }
 
 // RuleAssociationSpec defines the desired state of RuleAssociation

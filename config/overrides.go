@@ -19,6 +19,8 @@ package config
 import (
 	"strings"
 
+	"github.com/crossplane-contrib/provider-jet-aws/config/common"
+
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/pkg/errors"
 
@@ -359,5 +361,82 @@ func NamePrefixRemoval() tjconfig.ResourceOption {
 			}
 		}
 		r.ExternalName.OmittedFields = append(r.ExternalName.OmittedFields, "name_prefix")
+	}
+}
+
+// KnownReferencers adds referencers for fields that are known and common among
+// more than a few resources.
+func KnownReferencers() tjconfig.ResourceOption { //nolint:gocyclo
+	return func(r *tjconfig.Resource) {
+		for k, s := range r.TerraformResource.Schema {
+			// We shouldn't add referencers for status fields and sensitive fields
+			// since they already have secret referencer.
+			if (s.Computed && !s.Optional) || s.Sensitive {
+				continue
+			}
+			switch {
+			case strings.HasSuffix(k, "role_arn"):
+				r.References[k] = tjconfig.Reference{
+					Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
+					Extractor: common.PathARNExtractor,
+				}
+			case strings.HasSuffix(k, "security_group_ids"):
+				r.References[k] = tjconfig.Reference{
+					Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
+					RefFieldName:      strings.TrimSuffix(name.NewFromSnake(k).Camel, "s") + "Refs",
+					SelectorFieldName: strings.TrimSuffix(name.NewFromSnake(k).Camel, "s") + "Selector",
+				}
+			}
+			switch k {
+			case "vpc_id":
+				r.References["vpc_id"] = tjconfig.Reference{
+					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC",
+				}
+				if r.ShortGroup == "ec2" {
+					// TODO(muvaf): Angryjet should work with the full type path
+					// even when it's its own type, but it doesn't for some
+					// reason and this is a workaround.
+					r.References["vpc_id"] = tjconfig.Reference{
+						Type: "VPC",
+					}
+				}
+			case "subnet_ids":
+				r.References["subnet_ids"] = tjconfig.Reference{
+					Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
+					RefFieldName:      "SubnetIDRefs",
+					SelectorFieldName: "SubnetIDSelector",
+				}
+				if r.ShortGroup == "ec2" {
+					// TODO(muvaf): Angryjet should work with the full type path
+					// even when it's its own type, but it doesn't for some
+					// reason and this is a workaround.
+					r.References["subnet_ids"] = tjconfig.Reference{
+						Type:              "Subnet",
+						RefFieldName:      "SubnetIDRefs",
+						SelectorFieldName: "SubnetIDSelector",
+					}
+				}
+			case "subnet_id":
+				r.References["subnet_id"] = tjconfig.Reference{
+					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
+				}
+			case "security_group_id":
+				r.References["security_group_id"] = tjconfig.Reference{
+					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
+				}
+			case "kms_key_id":
+				r.References["kms_key_id"] = tjconfig.Reference{
+					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
+				}
+			case "kms_key_arn":
+				r.References["kms_key_arn"] = tjconfig.Reference{
+					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
+				}
+			case "kms_key":
+				r.References["kms_key"] = tjconfig.Reference{
+					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
+				}
+			}
+		}
 	}
 }
