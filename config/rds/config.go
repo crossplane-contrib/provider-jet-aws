@@ -18,12 +18,14 @@ package rds
 
 import (
 	"github.com/crossplane/terrajet/pkg/config"
+
+	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for rds group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_rds_cluster", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["cluster_identifier"] = name
@@ -52,7 +54,7 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_db_instance", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["identifier"] = name
@@ -97,7 +99,7 @@ func Configure(p *config.Provider) {
 		r.UseAsync = true
 	})
 	p.AddResourceConfigurator("aws_db_parameter_group", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 	})
 }

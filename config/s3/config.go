@@ -25,7 +25,7 @@ import (
 // Configure adds configurations for s3 group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_s3_bucket", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["bucket"] = name

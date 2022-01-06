@@ -30,7 +30,7 @@ import (
 // Configure adds configurations for eks group.
 func Configure(p *config.Provider) { // nolint:gocyclo
 	p.AddResourceConfigurator("aws_eks_cluster", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 		r.References = config.References{
 			"role_arn": {
@@ -51,7 +51,7 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 		r.UseAsync = true
 	})
 	p.AddResourceConfigurator("aws_eks_node_group", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["node_group_name"] = name
@@ -85,7 +85,7 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 		r.UseAsync = true
 	})
 	p.AddResourceConfigurator("aws_eks_identity_provider_config", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"cluster_name": {
@@ -95,7 +95,7 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 	})
 
 	p.AddResourceConfigurator("aws_eks_fargate_profile", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["fargate_profile_name"] = name
@@ -140,7 +140,7 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 		}
 	})
 	p.AddResourceConfigurator("aws_eks_addon", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, externalName string) {
 				base["addon_name"] = externalName

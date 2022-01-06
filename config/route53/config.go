@@ -20,20 +20,22 @@ import (
 	"strings"
 
 	"github.com/crossplane/terrajet/pkg/config"
+
+	"github.com/crossplane-contrib/provider-jet-aws/config/common"
 )
 
 // Configure route53 resources.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_route53_delegation_set", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 	})
 	p.AddResourceConfigurator("aws_route53_health_check", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 	})
 	p.AddResourceConfigurator("aws_route53_hosted_zone_dnssec", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"hosted_zone_id": config.Reference{
@@ -42,7 +44,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_key_signing_key", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"hosted_zone_id": config.Reference{
@@ -55,7 +57,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_query_log", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"hosted_zone_id": config.Reference{
@@ -64,7 +66,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_record", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"zone_id": config.Reference{
@@ -76,7 +78,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_vpc_association_authorization", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.ExternalName.SetIdentifierArgumentFn = func(base map[string]interface{}, externalName string) {
 			words := strings.Split(externalName, ":")
@@ -96,7 +98,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_zone", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"delegation_set_id": config.Reference{
@@ -108,7 +110,7 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_zone_association", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		// Z123456ABCDEFG:vpc-12345678
 		// Z123456ABCDEFG:vpc-12345678:us-east-2

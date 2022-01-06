@@ -25,7 +25,7 @@ import (
 // Configure adds configurations for ecrs group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ecr_repository", func(r *config.Resource) {
-		r.Version = "v1alpha2"
+		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 		r.References = map[string]config.Reference{
 			"encryption_configuration.kms_key": {
