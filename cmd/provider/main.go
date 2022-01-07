@@ -19,15 +19,18 @@ package main
 import (
 	"os"
 	"path/filepath"
+	"time"
 
+	xpcontroller "github.com/crossplane/crossplane-runtime/pkg/controller"
+	"github.com/crossplane/crossplane-runtime/pkg/feature"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
+	"github.com/crossplane/terrajet/pkg/terraform"
 	tf "github.com/terraform-providers/terraform-provider-aws/aws"
 	"gopkg.in/alecthomas/kingpin.v2"
+	"k8s.io/client-go/tools/leaderelection/resourcelock"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
-
-	"github.com/crossplane/terrajet/pkg/terraform"
 
 	"github.com/crossplane-contrib/provider-jet-aws/apis"
 	"github.com/crossplane-contrib/provider-jet-aws/config"
@@ -44,6 +47,7 @@ func main() {
 		terraformVersion = app.Flag("terraform-version", "Terraform version.").Required().Envar("TERRAFORM_VERSION").String()
 		providerSource   = app.Flag("terraform-provider-source", "Terraform provider source.").Required().Envar("TERRAFORM_PROVIDER_SOURCE").String()
 		providerVersion  = app.Flag("terraform-provider-version", "Terraform provider version.").Required().Envar("TERRAFORM_PROVIDER_VERSION").String()
+		maxReconcileRate = app.Flag("max-reconcile-reate", "The global maximum rate per second at which resources may checked for drift from the desired state.").Default("10").Int()
 	)
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
@@ -61,17 +65,26 @@ func main() {
 	cfg, err := ctrl.GetConfig()
 	kingpin.FatalIfError(err, "Cannot get API server rest config")
 
-	mgr, err := ctrl.NewManager(cfg, ctrl.Options{
-		LeaderElection:   *leaderElection,
-		LeaderElectionID: "crossplane-leader-election-provider-jet-aws",
-		SyncPeriod:       syncPeriod,
+	mgr, err := ctrl.NewManager(ratelimiter.LimitRESTConfig(cfg, *maxReconcileRate), ctrl.Options{
+		LeaderElection:             *leaderElection,
+		LeaderElectionID:           "crossplane-leader-election-provider-jet-aws",
+		SyncPeriod:                 syncPeriod,
+		LeaderElectionResourceLock: resourcelock.LeasesResourceLock,
+		LeaseDuration:              func() *time.Duration { d := 60 * time.Second; return &d }(),
+		RenewDeadline:              func() *time.Duration { d := 50 * time.Second; return &d }(),
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")
+
 	ws := terraform.NewWorkspaceStore(log)
 	setup := clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion)
-
-	rl := ratelimiter.NewGlobal(ratelimiter.DefaultGlobalRPS)
+	o := xpcontroller.Options{
+		Logger:                  log,
+		GlobalRateLimiter:       ratelimiter.NewGlobal(*maxReconcileRate),
+		PollInterval:            1 * time.Minute,
+		MaxConcurrentReconciles: 1,
+		Features:                &feature.Flags{},
+	}
 	kingpin.FatalIfError(apis.AddToScheme(mgr.GetScheme()), "Cannot add AWS APIs to scheme")
-	kingpin.FatalIfError(controller.Setup(mgr, log, rl, setup, ws, config.GetProvider(tf.Provider()), 1), "Cannot setup AWS controllers")
+	kingpin.FatalIfError(controller.Setup(mgr, o, setup, ws, config.GetProvider(tf.Provider())), "Cannot setup AWS controllers")
 	kingpin.FatalIfError(mgr.Start(ctrl.SetupSignalHandler()), "Cannot start controller manager")
 }
