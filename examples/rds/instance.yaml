@@ -24,7 +24,7 @@ spec:
     storageEncrypted: false
     storageType: gp2
     parameterGroupNameRef:
-      name: example-dbparametergroup
+      name: example-parametergroup
   writeConnectionSecretToRef:
     name: example-dbinstance-out
     namespace: default
