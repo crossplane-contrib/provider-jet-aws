@@ -21,24 +21,20 @@ package lbtargetgroup
 import (
 	"time"
 
-	"k8s.io/client-go/util/workqueue"
-	ctrl "sigs.k8s.io/controller-runtime"
-
+	"github.com/crossplane/crossplane-runtime/pkg/controller"
 	"github.com/crossplane/crossplane-runtime/pkg/event"
-	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/reconciler/managed"
 	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
-	"sigs.k8s.io/controller-runtime/pkg/controller"
-
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
 	"github.com/crossplane/terrajet/pkg/terraform"
+	ctrl "sigs.k8s.io/controller-runtime"
 
 	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha2"
 )
 
 // Setup adds a controller that reconciles LBTargetGroup managed resources.
-func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terraform.SetupFn, ws *terraform.WorkspaceStore, cfg *tjconfig.Provider, concurrency int) error {
+func Setup(mgr ctrl.Manager, o controller.Options, s terraform.SetupFn, ws *terraform.WorkspaceStore, cfg *tjconfig.Provider) error {
 	name := managed.ControllerName(v1alpha2.LBTargetGroup_GroupVersionKind.String())
 	var initializers managed.InitializerChain
 	for _, i := range cfg.Resources["aws_lb_target_group"].InitializerFns {
@@ -47,7 +43,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terra
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha2.LBTargetGroup_GroupVersionKind),
 		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s, cfg.Resources["aws_lb_target_group"])),
-		managed.WithLogger(l.WithValues("controller", name)),
+		managed.WithLogger(o.Logger.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
 		managed.WithFinalizer(terraform.NewWorkspaceFinalizer(ws, xpresource.NewAPIFinalizer(mgr.GetClient(), managed.FinalizerName))),
 		managed.WithTimeout(3*time.Minute),
@@ -56,7 +52,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terra
 
 	return ctrl.NewControllerManagedBy(mgr).
 		Named(name).
-		WithOptions(controller.Options{RateLimiter: rl, MaxConcurrentReconciles: concurrency}).
+		WithOptions(o.ForControllerRuntime()).
 		For(&v1alpha2.LBTargetGroup{}).
 		Complete(r)
 }
