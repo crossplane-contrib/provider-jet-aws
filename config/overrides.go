@@ -392,7 +392,7 @@ func KnownReferencers() tjconfig.ResourceOption { //nolint:gocyclo
 				r.References["vpc_id"] = tjconfig.Reference{
 					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC",
 				}
-				if r.ShortGroup == "ec2" {
+				if r.ShortGroup == "ec2" && r.Version == common.VersionV1Alpha2 {
 					// TODO(muvaf): Angryjet should work with the full type path
 					// even when it's its own type, but it doesn't for some
 					// reason and this is a workaround.
@@ -406,7 +406,7 @@ func KnownReferencers() tjconfig.ResourceOption { //nolint:gocyclo
 					RefFieldName:      "SubnetIDRefs",
 					SelectorFieldName: "SubnetIDSelector",
 				}
-				if r.ShortGroup == "ec2" {
+				if r.ShortGroup == "ec2" && r.Version == common.VersionV1Alpha2 {
 					// TODO(muvaf): Angryjet should work with the full type path
 					// even when it's its own type, but it doesn't for some
 					// reason and this is a workaround.

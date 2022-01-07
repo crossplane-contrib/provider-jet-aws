@@ -1,0 +1,369 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.6.2
+  creationTimestamp: null
+  name: maintenancewindowtasks.ssm.aws.jet.crossplane.io
+spec:
+  group: ssm.aws.jet.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - awsjet
+    kind: MaintenanceWindowTask
+    listKind: MaintenanceWindowTaskList
+    plural: maintenancewindowtasks
+    singular: maintenancewindowtask
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: MaintenanceWindowTask is the Schema for the MaintenanceWindowTasks
+          API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: MaintenanceWindowTaskSpec defines the desired state of MaintenanceWindowTask
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource.
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  description:
+                    type: string
+                  maxConcurrency:
+                    type: string
+                  maxErrors:
+                    type: string
+                  name:
+                    type: string
+                  priority:
+                    format: int64
+                    type: integer
+                  region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
+                    type: string
+                  serviceRoleArn:
+                    type: string
+                  serviceRoleArnRef:
+                    description: A Reference to a named object.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                    required:
+                    - name
+                    type: object
+                  serviceRoleArnSelector:
+                    description: A Selector selects an object.
+                    properties:
+                      matchControllerRef:
+                        description: MatchControllerRef ensures an object with the
+                          same controller reference as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                    type: object
+                  targets:
+                    items:
+                      properties:
+                        key:
+                          type: string
+                        values:
+                          items:
+                            type: string
+                          type: array
+                      required:
+                      - key
+                      - values
+                      type: object
+                    type: array
+                  taskArn:
+                    type: string
+                  taskInvocationParameters:
+                    items:
+                      properties:
+                        automationParameters:
+                          items:
+                            properties:
+                              documentVersion:
+                                type: string
+                              parameter:
+                                items:
+                                  properties:
+                                    name:
+                                      type: string
+                                    values:
+                                      items:
+                                        type: string
+                                      type: array
+                                  required:
+                                  - name
+                                  - values
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                        lambdaParameters:
+                          items:
+                            properties:
+                              clientContext:
+                                type: string
+                              payloadSecretRef:
+                                description: A SecretKeySelector is a reference to
+                                  a secret key in an arbitrary namespace.
+                                properties:
+                                  key:
+                                    description: The key to select.
+                                    type: string
+                                  name:
+                                    description: Name of the secret.
+                                    type: string
+                                  namespace:
+                                    description: Namespace of the secret.
+                                    type: string
+                                required:
+                                - key
+                                - name
+                                - namespace
+                                type: object
+                              qualifier:
+                                type: string
+                            type: object
+                          type: array
+                        runCommandParameters:
+                          items:
+                            properties:
+                              cloudwatchConfig:
+                                items:
+                                  properties:
+                                    cloudwatchLogGroupName:
+                                      type: string
+                                    cloudwatchOutputEnabled:
+                                      type: boolean
+                                  type: object
+                                type: array
+                              comment:
+                                type: string
+                              documentHash:
+                                type: string
+                              documentHashType:
+                                type: string
+                              documentVersion:
+                                type: string
+                              notificationConfig:
+                                items:
+                                  properties:
+                                    notificationArn:
+                                      type: string
+                                    notificationEvents:
+                                      items:
+                                        type: string
+                                      type: array
+                                    notificationType:
+                                      type: string
+                                  type: object
+                                type: array
+                              outputS3Bucket:
+                                type: string
+                              outputS3KeyPrefix:
+                                type: string
+                              parameter:
+                                items:
+                                  properties:
+                                    name:
+                                      type: string
+                                    values:
+                                      items:
+                                        type: string
+                                      type: array
+                                  required:
+                                  - name
+                                  - values
+                                  type: object
+                                type: array
+                              serviceRoleArn:
+                                type: string
+                              timeoutSeconds:
+                                format: int64
+                                type: integer
+                            type: object
+                          type: array
+                        stepFunctionsParameters:
+                          items:
+                            properties:
+                              inputSecretRef:
+                                description: A SecretKeySelector is a reference to
+                                  a secret key in an arbitrary namespace.
+                                properties:
+                                  key:
+                                    description: The key to select.
+                                    type: string
+                                  name:
+                                    description: Name of the secret.
+                                    type: string
+                                  namespace:
+                                    description: Namespace of the secret.
+                                    type: string
+                                required:
+                                - key
+                                - name
+                                - namespace
+                                type: object
+                              name:
+                                type: string
+                            type: object
+                          type: array
+                      type: object
+                    type: array
+                  taskType:
+                    type: string
+                  windowId:
+                    type: string
+                required:
+                - maxConcurrency
+                - maxErrors
+                - region
+                - taskArn
+                - taskType
+                - windowId
+                type: object
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+          status:
+            description: MaintenanceWindowTaskStatus defines the observed state of
+              MaintenanceWindowTask.
+            properties:
+              atProvider:
+                properties:
+                  id:
+                    type: string
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
