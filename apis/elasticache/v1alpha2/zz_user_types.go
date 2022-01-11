@@ -46,7 +46,7 @@ type UserParameters struct {
 	NoPasswordRequired *bool `json:"noPasswordRequired,omitempty" tf:"no_password_required,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Passwords []*string `json:"passwords,omitempty" tf:"passwords,omitempty"`
+	PasswordsSecretRef *[]v1.SecretKeySelector `json:"passwordsSecretRef,omitempty" tf:"-"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
