@@ -124,6 +124,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  arn:
+                    type: string
                   id:
                     type: string
                 type: object

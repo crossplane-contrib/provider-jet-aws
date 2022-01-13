@@ -187,6 +187,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  arn:
+                    type: string
                   id:
                     type: string
                   nameServers:

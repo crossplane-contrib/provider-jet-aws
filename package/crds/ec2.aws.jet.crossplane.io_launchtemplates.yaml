@@ -300,6 +300,8 @@ spec:
                       properties:
                         httpEndpoint:
                           type: string
+                        httpProtocolIpv6:
+                          type: string
                         httpPutResponseHopLimit:
                           format: int64
                           type: integer
@@ -348,6 +350,9 @@ spec:
                           items:
                             type: string
                           type: array
+                        networkCardIndex:
+                          format: int64
+                          type: integer
                         networkInterfaceId:
                           type: string
                         networkInterfaceIdRef:

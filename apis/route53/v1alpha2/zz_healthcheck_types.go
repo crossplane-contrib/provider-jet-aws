@@ -26,6 +26,8 @@ import (
 )
 
 type HealthCheckObservation struct {
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
@@ -88,6 +90,9 @@ type HealthCheckParameters struct {
 
 	// +kubebuilder:validation:Optional
 	ResourcePath *string `json:"resourcePath,omitempty" tf:"resource_path,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	RoutingControlArn *string `json:"routingControlArn,omitempty" tf:"routing_control_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SearchString *string `json:"searchString,omitempty" tf:"search_string,omitempty"`

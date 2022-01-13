@@ -72,13 +72,23 @@ spec:
                     type: string
                   customerOwnedIpv4Pool:
                     type: string
+                  enableDns64:
+                    type: boolean
+                  enableResourceNameDnsARecordOnLaunch:
+                    type: boolean
+                  enableResourceNameDnsAaaaRecordOnLaunch:
+                    type: boolean
                   ipv6CidrBlock:
                     type: string
+                  ipv6Native:
+                    type: boolean
                   mapCustomerOwnedIpOnLaunch:
                     type: boolean
                   mapPublicIpOnLaunch:
                     type: boolean
                   outpostArn:
+                    type: string
+                  privateDnsHostnameTypeOnLaunch:
                     type: string
                   region:
                     description: Region is the region you'd like your resource to
@@ -114,7 +124,6 @@ spec:
                         type: object
                     type: object
                 required:
-                - cidrBlock
                 - region
                 type: object
               providerConfigRef:

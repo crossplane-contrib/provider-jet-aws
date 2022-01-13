@@ -257,8 +257,28 @@ spec:
                                       type: string
                                     bucket:
                                       type: string
+                                    metrics:
+                                      items:
+                                        properties:
+                                          minutes:
+                                            format: int64
+                                            type: integer
+                                          status:
+                                            type: string
+                                        type: object
+                                      type: array
                                     replicaKmsKeyId:
                                       type: string
+                                    replicationTime:
+                                      items:
+                                        properties:
+                                          minutes:
+                                            format: int64
+                                            type: integer
+                                          status:
+                                            type: string
+                                        type: object
+                                      type: array
                                     storageClass:
                                       type: string
                                   required:

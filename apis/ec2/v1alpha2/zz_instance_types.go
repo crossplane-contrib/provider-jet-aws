@@ -226,6 +226,9 @@ type InstanceParameters struct {
 	PlacementGroup *string `json:"placementGroup,omitempty" tf:"placement_group,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	PlacementPartitionNumber *int64 `json:"placementPartitionNumber,omitempty" tf:"placement_partition_number,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.

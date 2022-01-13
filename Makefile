@@ -98,6 +98,20 @@ run: go.build
 	@# To see other arguments that can be provided, run the command with --help instead
 	$(GO_OUT_DIR)/provider --debug
 
+go.build: prepare.tfaws
+reviewable: prepare.tfaws
+test: prepare.tfaws
+generate: prepare.tfaws
+build: prepare.tfaws
+lint: prepare.tfaws
+provider-jet-aws.vendor: prepare.tfaws vendor
+
+# must match Docker build file env. variable TERRAFORM_PROVIDER_VERSION in
+# cluster/images/provider-jet-aws-controller/Dockerfile
+TFAWS_REFSPEC ?= v3.71.0
+prepare.tfaws:
+	@WORK_DIR=.work TFAWS_REFSPEC=$(TFAWS_REFSPEC) ./scripts/prepare_tfaws.sh
+
 .PHONY: cobertura submodules fallthrough run crds.clean
 
 # ====================================================================================

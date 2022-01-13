@@ -99,6 +99,8 @@ spec:
                     type: array
                   customerOwnedIpv4Pool:
                     type: string
+                  desyncMitigationMode:
+                    type: string
                   dropInvalidHeaderFields:
                     type: boolean
                   enableCrossZoneLoadBalancing:
@@ -106,6 +108,8 @@ spec:
                   enableDeletionProtection:
                     type: boolean
                   enableHttp2:
+                    type: boolean
+                  enableWafFailOpen:
                     type: boolean
                   idleTimeout:
                     format: int64

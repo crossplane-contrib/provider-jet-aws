@@ -10,7 +10,7 @@ ENV USER_ID=1001
 ## Provider-dependent configuration
 ENV TERRAFORM_VERSION 1.0.5
 ENV TERRAFORM_PROVIDER_SOURCE "hashicorp/aws"
-ENV TERRAFORM_PROVIDER_VERSION 3.56.0
+ENV TERRAFORM_PROVIDER_VERSION 3.71.0
 ENV TERRAFORM_PROVIDER_DOWNLOAD_NAME terraform-provider-aws
 ## End of - Provider-dependent configuration
 

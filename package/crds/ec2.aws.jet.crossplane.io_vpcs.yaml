@@ -76,6 +76,18 @@ spec:
                     type: boolean
                   instanceTenancy:
                     type: string
+                  ipv4IpamPoolId:
+                    type: string
+                  ipv4NetmaskLength:
+                    format: int64
+                    type: integer
+                  ipv6CidrBlock:
+                    type: string
+                  ipv6IpamPoolId:
+                    type: string
+                  ipv6NetmaskLength:
+                    format: int64
+                    type: integer
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
@@ -85,7 +97,6 @@ spec:
                       type: string
                     type: object
                 required:
-                - cidrBlock
                 - region
                 type: object
               providerConfigRef:
@@ -150,8 +161,6 @@ spec:
                   id:
                     type: string
                   ipv6AssociationId:
-                    type: string
-                  ipv6CidrBlock:
                     type: string
                   mainRouteTableId:
                     type: string

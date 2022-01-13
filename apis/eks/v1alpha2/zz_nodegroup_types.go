@@ -136,6 +136,9 @@ type NodeGroupParameters struct {
 	Taint []TaintParameters `json:"taint,omitempty" tf:"taint,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	UpdateConfig []UpdateConfigParameters `json:"updateConfig,omitempty" tf:"update_config,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version,omitempty"`
 }
 
@@ -197,6 +200,18 @@ type TaintParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+}
+
+type UpdateConfigObservation struct {
+}
+
+type UpdateConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
+	MaxUnavailable *int64 `json:"maxUnavailable,omitempty" tf:"max_unavailable,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	MaxUnavailablePercentage *int64 `json:"maxUnavailablePercentage,omitempty" tf:"max_unavailable_percentage,omitempty"`
 }
 
 // NodeGroupSpec defines the desired state of NodeGroup

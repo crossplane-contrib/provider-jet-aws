@@ -180,7 +180,13 @@ type DestinationParameters struct {
 	Bucket *string `json:"bucket" tf:"bucket,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	Metrics []MetricsParameters `json:"metrics,omitempty" tf:"metrics,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	ReplicaKMSKeyID *string `json:"replicaKmsKeyId,omitempty" tf:"replica_kms_key_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ReplicationTime []ReplicationTimeParameters `json:"replicationTime,omitempty" tf:"replication_time,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class,omitempty"`
@@ -276,6 +282,18 @@ type LoggingParameters struct {
 	TargetPrefix *string `json:"targetPrefix,omitempty" tf:"target_prefix,omitempty"`
 }
 
+type MetricsObservation struct {
+}
+
+type MetricsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Minutes *int64 `json:"minutes,omitempty" tf:"minutes,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
+}
+
 type NoncurrentVersionExpirationObservation struct {
 }
 
@@ -319,6 +337,18 @@ type ReplicationConfigurationParameters struct {
 
 	// +kubebuilder:validation:Required
 	Rules []RulesParameters `json:"rules" tf:"rules,omitempty"`
+}
+
+type ReplicationTimeObservation struct {
+}
+
+type ReplicationTimeParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Minutes *int64 `json:"minutes,omitempty" tf:"minutes,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 }
 
 type RuleObservation struct {

@@ -105,6 +105,8 @@ spec:
                       - replicasPerNodeGroup
                       type: object
                     type: array
+                  dataTieringEnabled:
+                    type: boolean
                   engine:
                     type: string
                   engineVersion:

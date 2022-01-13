@@ -40,8 +40,6 @@ type VPCObservation struct {
 
 	IPv6AssociationID *string `json:"ipv6AssociationId,omitempty" tf:"ipv6_association_id,omitempty"`
 
-	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block,omitempty"`
-
 	MainRouteTableID *string `json:"mainRouteTableId,omitempty" tf:"main_route_table_id,omitempty"`
 
 	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id,omitempty"`
@@ -54,8 +52,8 @@ type VPCParameters struct {
 	// +kubebuilder:validation:Optional
 	AssignGeneratedIPv6CidrBlock *bool `json:"assignGeneratedIpv6CidrBlock,omitempty" tf:"assign_generated_ipv6_cidr_block,omitempty"`
 
-	// +kubebuilder:validation:Required
-	CidrBlock *string `json:"cidrBlock" tf:"cidr_block,omitempty"`
+	// +kubebuilder:validation:Optional
+	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	EnableClassiclink *bool `json:"enableClassiclink,omitempty" tf:"enable_classiclink,omitempty"`
@@ -68,6 +66,21 @@ type VPCParameters struct {
 
 	// +kubebuilder:validation:Optional
 	EnableDNSSupport *bool `json:"enableDnsSupport,omitempty" tf:"enable_dns_support,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv4IpamPoolID *string `json:"ipv4IpamPoolId,omitempty" tf:"ipv4_ipam_pool_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv4NetmaskLength *int64 `json:"ipv4NetmaskLength,omitempty" tf:"ipv4_netmask_length,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv6IpamPoolID *string `json:"ipv6IpamPoolId,omitempty" tf:"ipv6_ipam_pool_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv6NetmaskLength *int64 `json:"ipv6NetmaskLength,omitempty" tf:"ipv6_netmask_length,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	InstanceTenancy *string `json:"instanceTenancy,omitempty" tf:"instance_tenancy,omitempty"`

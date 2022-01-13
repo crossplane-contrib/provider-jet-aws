@@ -32,6 +32,8 @@ type InstanceObservation struct {
 
 	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint,omitempty"`
 
+	EngineVersionActual *string `json:"engineVersionActual,omitempty" tf:"engine_version_actual,omitempty"`
+
 	HostedZoneID *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id,omitempty"`
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
@@ -194,6 +196,9 @@ type InstanceParameters struct {
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	ReplicaMode *string `json:"replicaMode,omitempty" tf:"replica_mode,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ReplicateSourceDB *string `json:"replicateSourceDb,omitempty" tf:"replicate_source_db,omitempty"`

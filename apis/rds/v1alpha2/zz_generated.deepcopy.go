@@ -204,6 +204,11 @@ func (in *ClusterParameters) DeepCopyInto(out *ClusterParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.DBInstanceParameterGroupName != nil {
+		in, out := &in.DBInstanceParameterGroupName, &out.DBInstanceParameterGroupName
+		*out = new(string)
+		**out = **in
+	}
 	if in.DBSubnetGroupName != nil {
 		in, out := &in.DBSubnetGroupName, &out.DBSubnetGroupName
 		*out = new(string)
@@ -216,6 +221,11 @@ func (in *ClusterParameters) DeepCopyInto(out *ClusterParameters) {
 	}
 	if in.DeletionProtection != nil {
 		in, out := &in.DeletionProtection, &out.DeletionProtection
+		*out = new(bool)
+		**out = **in
+	}
+	if in.EnableGlobalWriteForwarding != nil {
+		in, out := &in.EnableGlobalWriteForwarding, &out.EnableGlobalWriteForwarding
 		*out = new(bool)
 		**out = **in
 	}
@@ -641,6 +651,11 @@ func (in *InstanceObservation) DeepCopyInto(out *InstanceObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.EngineVersionActual != nil {
+		in, out := &in.EngineVersionActual, &out.EngineVersionActual
+		*out = new(string)
+		**out = **in
+	}
 	if in.HostedZoneID != nil {
 		in, out := &in.HostedZoneID, &out.HostedZoneID
 		*out = new(string)
@@ -945,6 +960,11 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
+		*out = new(string)
+		**out = **in
+	}
+	if in.ReplicaMode != nil {
+		in, out := &in.ReplicaMode, &out.ReplicaMode
 		*out = new(string)
 		**out = **in
 	}

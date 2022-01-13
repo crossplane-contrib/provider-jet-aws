@@ -81,6 +81,9 @@ type ReplicationGroupParameters struct {
 	ClusterMode []ClusterModeParameters `json:"clusterMode,omitempty" tf:"cluster_mode,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	DataTieringEnabled *bool `json:"dataTieringEnabled,omitempty" tf:"data_tiering_enabled,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	Engine *string `json:"engine,omitempty" tf:"engine,omitempty"`
 
 	// +kubebuilder:validation:Optional

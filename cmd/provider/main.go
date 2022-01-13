@@ -22,12 +22,12 @@ import (
 
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
-	tf "github.com/terraform-providers/terraform-provider-aws/aws"
+	"github.com/crossplane/terrajet/pkg/terraform"
 	"gopkg.in/alecthomas/kingpin.v2"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/crossplane/terrajet/pkg/terraform"
+	tf "github.com/hashicorp/terraform-provider-aws/xpprovider"
 
 	"github.com/crossplane-contrib/provider-jet-aws/apis"
 	"github.com/crossplane-contrib/provider-jet-aws/config"

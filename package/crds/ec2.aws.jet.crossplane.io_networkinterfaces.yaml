@@ -102,10 +102,24 @@ spec:
                     type: string
                   interfaceType:
                     type: string
+                  ipv4PrefixCount:
+                    format: int64
+                    type: integer
+                  ipv4Prefixes:
+                    items:
+                      type: string
+                    type: array
                   ipv6AddressCount:
                     format: int64
                     type: integer
                   ipv6Addresses:
+                    items:
+                      type: string
+                    type: array
+                  ipv6PrefixCount:
+                    format: int64
+                    type: integer
+                  ipv6Prefixes:
                     items:
                       type: string
                     type: array
@@ -234,11 +248,15 @@ spec:
             properties:
               atProvider:
                 properties:
+                  arn:
+                    type: string
                   id:
                     type: string
                   macAddress:
                     type: string
                   outpostArn:
+                    type: string
+                  ownerId:
                     type: string
                   privateDnsName:
                     type: string

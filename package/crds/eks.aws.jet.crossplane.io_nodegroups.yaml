@@ -250,6 +250,17 @@ spec:
                       - key
                       type: object
                     type: array
+                  updateConfig:
+                    items:
+                      properties:
+                        maxUnavailable:
+                          format: int64
+                          type: integer
+                        maxUnavailablePercentage:
+                          format: int64
+                          type: integer
+                      type: object
+                    type: array
                   version:
                     type: string
                 required:

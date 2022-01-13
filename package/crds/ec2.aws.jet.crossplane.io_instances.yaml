@@ -261,6 +261,9 @@ spec:
                     type: array
                   placementGroup:
                     type: string
+                  placementPartitionNumber:
+                    format: int64
+                    type: integer
                   privateIp:
                     type: string
                   region:

@@ -70,6 +70,9 @@ type ClusterParameters struct {
 	DBClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	DBInstanceParameterGroupName *string `json:"dbInstanceParameterGroupName,omitempty" tf:"db_instance_parameter_group_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -77,6 +80,9 @@ type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
 	DeletionProtection *bool `json:"deletionProtection,omitempty" tf:"deletion_protection,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	EnableGlobalWriteForwarding *bool `json:"enableGlobalWriteForwarding,omitempty" tf:"enable_global_write_forwarding,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	EnableHTTPEndpoint *bool `json:"enableHttpEndpoint,omitempty" tf:"enable_http_endpoint,omitempty"`

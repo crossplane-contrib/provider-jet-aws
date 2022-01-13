@@ -240,6 +240,8 @@ spec:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
+                  replicaMode:
+                    type: string
                   replicateSourceDb:
                     type: string
                   restoreToPointInTime:
@@ -454,6 +456,8 @@ spec:
                   arn:
                     type: string
                   endpoint:
+                    type: string
+                  engineVersionActual:
                     type: string
                   hostedZoneId:
                     type: string

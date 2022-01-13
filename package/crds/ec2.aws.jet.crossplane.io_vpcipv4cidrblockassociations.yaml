@@ -66,6 +66,11 @@ spec:
                 properties:
                   cidrBlock:
                     type: string
+                  ipv4IpamPoolId:
+                    type: string
+                  ipv4NetmaskLength:
+                    format: int64
+                    type: integer
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
@@ -96,7 +101,6 @@ spec:
                         type: object
                     type: object
                 required:
-                - cidrBlock
                 - region
                 type: object
               providerConfigRef:

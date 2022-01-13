@@ -63,8 +63,6 @@ import (
 	clusterelasticache "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/replicationgroup"
-	user "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/user"
-	usergroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/usergroup"
 	lb "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lb"
 	lblistener "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lblistener"
 	lbtargetgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lbtargetgroup"
@@ -76,7 +74,7 @@ import (
 	policy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/policy"
 	role "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/role"
 	rolepolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/rolepolicyattachment"
-	useriam "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/user"
+	user "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/user"
 	usergroupmembership "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/usergroupmembership"
 	userpolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/userpolicyattachment"
 	key "github.com/crossplane-contrib/provider-jet-aws/internal/controller/kms/key"
@@ -149,8 +147,6 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		clusterelasticache.Setup,
 		parametergroup.Setup,
 		replicationgroup.Setup,
-		user.Setup,
-		usergroup.Setup,
 		lb.Setup,
 		lblistener.Setup,
 		lbtargetgroup.Setup,
@@ -162,7 +158,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		policy.Setup,
 		role.Setup,
 		rolepolicyattachment.Setup,
-		useriam.Setup,
+		user.Setup,
 		usergroupmembership.Setup,
 		userpolicyattachment.Setup,
 		key.Setup,

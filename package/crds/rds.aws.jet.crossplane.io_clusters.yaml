@@ -86,9 +86,13 @@ spec:
                     type: string
                   dbClusterParameterGroupName:
                     type: string
+                  dbInstanceParameterGroupName:
+                    type: string
                   dbSubnetGroupName:
                     type: string
                   deletionProtection:
+                    type: boolean
+                  enableGlobalWriteForwarding:
                     type: boolean
                   enableHttpEndpoint:
                     type: boolean

@@ -206,6 +206,9 @@ type LaunchTemplateMetadataOptionsParameters struct {
 	HTTPEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	HTTPProtocolIPv6 *string `json:"httpProtocolIpv6,omitempty" tf:"http_protocol_ipv6,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	HTTPPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -399,6 +402,9 @@ type NetworkInterfacesParameters struct {
 
 	// +kubebuilder:validation:Optional
 	InterfaceType *string `json:"interfaceType,omitempty" tf:"interface_type,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NetworkCardIndex *int64 `json:"networkCardIndex,omitempty" tf:"network_card_index,omitempty"`
 
 	// +crossplane:generate:reference:type=NetworkInterface
 	// +kubebuilder:validation:Optional

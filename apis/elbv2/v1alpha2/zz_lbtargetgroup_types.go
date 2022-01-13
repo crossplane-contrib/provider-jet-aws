@@ -71,7 +71,10 @@ type LBTargetGroupObservation struct {
 type LBTargetGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
-	DeregistrationDelay *int64 `json:"deregistrationDelay,omitempty" tf:"deregistration_delay,omitempty"`
+	ConnectionTermination *bool `json:"connectionTermination,omitempty" tf:"connection_termination,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	DeregistrationDelay *string `json:"deregistrationDelay,omitempty" tf:"deregistration_delay,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	HealthCheck []HealthCheckParameters `json:"healthCheck,omitempty" tf:"health_check,omitempty"`

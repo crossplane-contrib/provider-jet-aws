@@ -8,9 +8,9 @@ require (
 	github.com/crossplane/crossplane-tools v0.0.0-20210916125540-071de511ae8e
 	github.com/crossplane/provider-aws v0.19.0
 	github.com/crossplane/terrajet v0.3.1
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.7.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.10.1
+	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220106231712-d14b20ba8b08
 	github.com/pkg/errors v0.9.1
-	github.com/terraform-providers/terraform-provider-aws v1.60.1-0.20210811232925-d6f99829ec3f
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	k8s.io/apimachinery v0.22.0
 	k8s.io/client-go v0.22.0
@@ -19,4 +19,4 @@ require (
 	sigs.k8s.io/controller-tools v0.6.2
 )
 
-replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/gdavison/terraform-plugin-sdk/v2 v2.0.2-0.20210714181518-b5a3dc95a675
+replace github.com/hashicorp/terraform-provider-aws => ./.work/.tfaws

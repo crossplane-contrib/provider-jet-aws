@@ -62,9 +62,10 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  connectionTermination:
+                    type: boolean
                   deregistrationDelay:
-                    format: int64
-                    type: integer
+                    type: string
                   healthCheck:
                     items:
                       properties:

@@ -116,6 +116,13 @@ spec:
                         preferences:
                           items:
                             properties:
+                              checkpointDelay:
+                                type: string
+                              checkpointPercentages:
+                                items:
+                                  format: int64
+                                  type: integer
+                                type: array
                               instanceWarmup:
                                 type: string
                               minHealthyPercentage:

@@ -304,6 +304,12 @@ type PreferencesObservation struct {
 type PreferencesParameters struct {
 
 	// +kubebuilder:validation:Optional
+	CheckpointDelay *string `json:"checkpointDelay,omitempty" tf:"checkpoint_delay,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CheckpointPercentages []*int64 `json:"checkpointPercentages,omitempty" tf:"checkpoint_percentages,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	InstanceWarmup *string `json:"instanceWarmup,omitempty" tf:"instance_warmup,omitempty"`
 
 	// +kubebuilder:validation:Optional

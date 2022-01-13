@@ -108,6 +108,8 @@ spec:
                     type: integer
                   resourcePath:
                     type: string
+                  routingControlArn:
+                    type: string
                   searchString:
                     type: string
                   tags:
@@ -169,6 +171,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  arn:
+                    type: string
                   id:
                     type: string
                   tagsAll:

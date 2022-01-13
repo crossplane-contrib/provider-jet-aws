@@ -21,7 +21,7 @@ import (
 	"os"
 	"path/filepath"
 
-	tf "github.com/terraform-providers/terraform-provider-aws/aws"
+	tf "github.com/hashicorp/terraform-provider-aws/xpprovider"
 
 	"github.com/crossplane/terrajet/pkg/pipeline"
 
