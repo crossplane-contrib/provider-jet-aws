@@ -32,6 +32,7 @@ import (
 	"github.com/crossplane-contrib/provider-jet-aws/config/elasticloadbalancing"
 	"github.com/crossplane-contrib/provider-jet-aws/config/iam"
 	"github.com/crossplane-contrib/provider-jet-aws/config/kms"
+	"github.com/crossplane-contrib/provider-jet-aws/config/neptune"
 	"github.com/crossplane-contrib/provider-jet-aws/config/rds"
 	"github.com/crossplane-contrib/provider-jet-aws/config/route53"
 	"github.com/crossplane-contrib/provider-jet-aws/config/s3"
@@ -129,6 +130,16 @@ var IncludedResources = []string{
 
 	// Route53
 	"aws_route53_.*",
+
+	// Neptune
+	"aws_neptune_cluster$",
+	"aws_neptune_cluster_endpoint$",
+	"aws_neptune_cluster_instance$",
+	"aws_neptune_cluster_parameter_group$",
+	"aws_neptune_cluster_snapshot$",
+	"aws_neptune_event_subscription",
+	"aws_neptune_parameter_group$",
+	"aws_neptune_subnet_group$",
 }
 
 var skipList = []string{
@@ -180,6 +191,7 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 		rds.Configure,
 		s3.Configure,
 		route53.Configure,
+		neptune.Configure,
 	} {
 		configure(pc)
 	}

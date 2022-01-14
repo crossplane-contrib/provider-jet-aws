@@ -80,6 +80,14 @@ import (
 	usergroupmembership "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/usergroupmembership"
 	userpolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/userpolicyattachment"
 	key "github.com/crossplane-contrib/provider-jet-aws/internal/controller/kms/key"
+	clusterneptune "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/cluster"
+	clusterendpoint "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/clusterendpoint"
+	clusterinstance "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/clusterinstance"
+	clusterparametergroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/clusterparametergroup"
+	clustersnapshot "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/clustersnapshot"
+	eventsubscription "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/eventsubscription"
+	parametergroupneptune "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/parametergroup"
+	subnetgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/subnetgroup"
 	providerconfig "github.com/crossplane-contrib/provider-jet-aws/internal/controller/providerconfig"
 	clusterrds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/cluster"
 	instancerds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/instance"
@@ -166,6 +174,14 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		usergroupmembership.Setup,
 		userpolicyattachment.Setup,
 		key.Setup,
+		clusterneptune.Setup,
+		clusterendpoint.Setup,
+		clusterinstance.Setup,
+		clusterparametergroup.Setup,
+		clustersnapshot.Setup,
+		eventsubscription.Setup,
+		parametergroupneptune.Setup,
+		subnetgroup.Setup,
 		providerconfig.Setup,
 		clusterrds.Setup,
 		instancerds.Setup,
