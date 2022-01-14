@@ -20,3 +20,5 @@ require (
 )
 
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/gdavison/terraform-plugin-sdk/v2 v2.0.2-0.20210714181518-b5a3dc95a675
+
+replace github.com/crossplane/terrajet => github.com/sergenyalcin/terrajet v0.1.1-0.20220127142712-72b516c4485a

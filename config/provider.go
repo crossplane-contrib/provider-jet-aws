@@ -161,6 +161,7 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 			IdentifierAssignedByAWS(),
 			NamePrefixRemoval(),
 			KnownReferencers(),
+			AddExternalTagsField(),
 		)),
 	)
 
