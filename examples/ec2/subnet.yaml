@@ -6,11 +6,11 @@ spec:
   forProvider:
     region: us-west-1
     availabilityZone: us-west-1b
-    vpcIdRef:
+    vpcidRef:
       name: sample-vpc
     cidrBlock: 172.16.10.0/24
 ---
-apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
+apiVersion: ec2.aws.jet.crossplane.io/v1alpha2
 kind: Subnet
 metadata:
   name: sample-subnet2
@@ -18,6 +18,6 @@ spec:
   forProvider:
     region: us-west-1
     availabilityZone: us-west-1c
-    vpcIdRef:
+    vpcidRef:
       name: sample-vpc
     cidrBlock: 172.16.11.0/24

@@ -144,6 +144,8 @@ func Configure(p *config.Provider) {
 			GetIDFn:           config.ExternalNameAsID,
 		}
 
+		r.UseAsync = true
+
 		r.References = config.References{
 			"db_cluster_identifier": config.Reference{
 				Type: "Cluster",
@@ -153,7 +155,19 @@ func Configure(p *config.Provider) {
 
 	p.AddResourceConfigurator("aws_neptune_event_subscription", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
-		r.ExternalName = config.IdentifierFromProvider
+		r.ExternalName = config.ExternalName{
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["name"] = name
+			},
+
+			OmittedFields: []string{
+				"name",
+				"name_prefix",
+			},
+
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
+		}
 	})
 
 	p.AddResourceConfigurator("aws_neptune_parameter_group", func(r *config.Resource) {
