@@ -81,14 +81,16 @@ type TransitGatewayVPCAttachmentParameters struct {
 	TransitGatewayIDSelector *v1.Selector `json:"transitGatewayIdSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=VPC
+	// +crossplane:generate:reference:refFieldName=VpcIdRef
+	// +crossplane:generate:reference:selectorFieldName=VpcIdSelector
 	// +kubebuilder:validation:Optional
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
+	VpcIdRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
+	VpcIdSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
 
 // TransitGatewayVPCAttachmentSpec defines the desired state of TransitGatewayVPCAttachment

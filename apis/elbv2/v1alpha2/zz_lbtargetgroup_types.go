@@ -118,14 +118,16 @@ type LBTargetGroupParameters struct {
 	TargetType *string `json:"targetType,omitempty" tf:"target_type,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC
+	// +crossplane:generate:reference:refFieldName=VpcIdRef
+	// +crossplane:generate:reference:selectorFieldName=VpcIdSelector
 	// +kubebuilder:validation:Optional
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
+	VpcIdRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
+	VpcIdSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
 
 type LBTargetGroupStickinessObservation struct {

@@ -90,7 +90,7 @@ spec:
                     type: object
                   vpcId:
                     type: string
-                  vpcidRef:
+                  vpcIdRef:
                     description: A Reference to a named object.
                     properties:
                       name:
@@ -99,7 +99,7 @@ spec:
                     required:
                     - name
                     type: object
-                  vpcidSelector:
+                  vpcIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:

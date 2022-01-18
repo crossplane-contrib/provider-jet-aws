@@ -4061,13 +4061,13 @@ func (in *RouteTableParameters) DeepCopyInto(out *RouteTableParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.VPCIDRef != nil {
-		in, out := &in.VPCIDRef, &out.VPCIDRef
+	if in.VpcIdRef != nil {
+		in, out := &in.VpcIdRef, &out.VpcIdRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.VPCIDSelector != nil {
-		in, out := &in.VPCIDSelector, &out.VPCIDSelector
+	if in.VpcIdSelector != nil {
+		in, out := &in.VpcIdSelector, &out.VpcIdSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -4418,13 +4418,13 @@ func (in *SecurityGroupParameters) DeepCopyInto(out *SecurityGroupParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.VPCIDRef != nil {
-		in, out := &in.VPCIDRef, &out.VPCIDRef
+	if in.VpcIdRef != nil {
+		in, out := &in.VpcIdRef, &out.VpcIdRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.VPCIDSelector != nil {
-		in, out := &in.VPCIDSelector, &out.VPCIDSelector
+	if in.VpcIdSelector != nil {
+		in, out := &in.VpcIdSelector, &out.VpcIdSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -4927,13 +4927,13 @@ func (in *SubnetParameters) DeepCopyInto(out *SubnetParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.VPCIDRef != nil {
-		in, out := &in.VPCIDRef, &out.VPCIDRef
+	if in.VpcIdRef != nil {
+		in, out := &in.VpcIdRef, &out.VpcIdRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.VPCIDSelector != nil {
-		in, out := &in.VPCIDSelector, &out.VPCIDSelector
+	if in.VpcIdSelector != nil {
+		in, out := &in.VpcIdSelector, &out.VpcIdSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -6380,13 +6380,13 @@ func (in *TransitGatewayVPCAttachmentParameters) DeepCopyInto(out *TransitGatewa
 		*out = new(string)
 		**out = **in
 	}
-	if in.VPCIDRef != nil {
-		in, out := &in.VPCIDRef, &out.VPCIDRef
+	if in.VpcIdRef != nil {
+		in, out := &in.VpcIdRef, &out.VpcIdRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.VPCIDSelector != nil {
-		in, out := &in.VPCIDSelector, &out.VPCIDSelector
+	if in.VpcIdSelector != nil {
+		in, out := &in.VpcIdSelector, &out.VpcIdSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -6727,13 +6727,13 @@ func (in *VPCEndpointParameters) DeepCopyInto(out *VPCEndpointParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.VPCIDRef != nil {
-		in, out := &in.VPCIDRef, &out.VPCIDRef
+	if in.VpcIdRef != nil {
+		in, out := &in.VpcIdRef, &out.VpcIdRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.VPCIDSelector != nil {
-		in, out := &in.VPCIDSelector, &out.VPCIDSelector
+	if in.VpcIdSelector != nil {
+		in, out := &in.VpcIdSelector, &out.VpcIdSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -6880,13 +6880,13 @@ func (in *VPCIPv4CidrBlockAssociationParameters) DeepCopyInto(out *VPCIPv4CidrBl
 		*out = new(string)
 		**out = **in
 	}
-	if in.VPCIDRef != nil {
-		in, out := &in.VPCIDRef, &out.VPCIDRef
+	if in.VpcIdRef != nil {
+		in, out := &in.VpcIdRef, &out.VpcIdRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.VPCIDSelector != nil {
-		in, out := &in.VPCIDSelector, &out.VPCIDSelector
+	if in.VpcIdSelector != nil {
+		in, out := &in.VpcIdSelector, &out.VpcIdSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
@@ -7289,13 +7289,13 @@ func (in *VPCPeeringConnectionParameters) DeepCopyInto(out *VPCPeeringConnection
 		*out = new(string)
 		**out = **in
 	}
-	if in.VPCIDRef != nil {
-		in, out := &in.VPCIDRef, &out.VPCIDRef
+	if in.VpcIdRef != nil {
+		in, out := &in.VpcIdRef, &out.VpcIdRef
 		*out = new(v1.Reference)
 		**out = **in
 	}
-	if in.VPCIDSelector != nil {
-		in, out := &in.VPCIDSelector, &out.VPCIDSelector
+	if in.VpcIdSelector != nil {
+		in, out := &in.VpcIdSelector, &out.VpcIdSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
