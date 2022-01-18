@@ -1,5 +1,5 @@
 /*
-Copyright 2021 The Crossplane Authors.
+Copyright 2022 The Crossplane Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import (
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_neptune_cluster", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
+
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["cluster_identifier"] = name
@@ -44,10 +45,35 @@ func Configure(p *config.Provider) {
 			GetExternalNameFn: config.IDAsExternalName,
 			GetIDFn:           config.ExternalNameAsID,
 		}
+
+		r.UseAsync = true
+
+		r.References["snapshot_identifier"] = config.Reference{
+			Type: "ClusterSnapshot",
+		}
+
+		r.References["replication_source_identifier"] = config.Reference{
+			Type: "Cluster",
+		}
+
+		r.References["neptune_subnet_group_name"] = config.Reference{
+			Type: "SubnetGroup",
+		}
+
+		r.References["neptune_cluster_parameter_group_name"] = config.Reference{
+			Type: "ClusterParameterGroup",
+		}
+
+		r.References["iam_roles"] = config.Reference{
+			Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
+			RefFieldName:      "IAMRoleIdRefs",
+			SelectorFieldName: "IAMRoleIdSelector",
+		}
 	})
 
 	p.AddResourceConfigurator("aws_neptune_cluster_endpoint", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
+
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["cluster_endpoint_identifier"] = name
@@ -80,15 +106,14 @@ func Configure(p *config.Provider) {
 			},
 		}
 
-		r.References = config.References{
-			"cluster_identifier": config.Reference{
-				Type: "Cluster",
-			},
+		r.References["cluster_identifier"] = config.Reference{
+			Type: "Cluster",
 		}
 	})
 
 	p.AddResourceConfigurator("aws_neptune_cluster_instance", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
+
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["identifier"] = name
@@ -105,32 +130,28 @@ func Configure(p *config.Provider) {
 
 		r.UseAsync = true
 
-		r.References = config.References{
-			"cluster_identifier": config.Reference{
-				Type: "Cluster",
-			},
+		r.References["cluster_identifier"] = config.Reference{
+			Type: "Cluster",
+		}
+
+		r.References["neptune_parameter_group_name"] = config.Reference{
+			Type: "ParameterGroup",
+		}
+
+		r.References["neptune_subnet_group_name"] = config.Reference{
+			Type: "SubnetGroup",
 		}
 	})
 
 	p.AddResourceConfigurator("aws_neptune_cluster_parameter_group", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
-		r.ExternalName = config.ExternalName{
-			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
-				base["name"] = name
-			},
 
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
-
-			GetExternalNameFn: config.IDAsExternalName,
-			GetIDFn:           config.ExternalNameAsID,
-		}
+		r.ExternalName = config.NameAsIdentifier
 	})
 
 	p.AddResourceConfigurator("aws_neptune_cluster_snapshot", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
+
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["db_cluster_snapshot_identifier"] = name
@@ -146,69 +167,32 @@ func Configure(p *config.Provider) {
 
 		r.UseAsync = true
 
-		r.References = config.References{
-			"db_cluster_identifier": config.Reference{
-				Type: "Cluster",
-			},
+		r.References["db_cluster_identifier"] = config.Reference{
+			Type: "Cluster",
 		}
 	})
 
 	p.AddResourceConfigurator("aws_neptune_event_subscription", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
-		r.ExternalName = config.ExternalName{
-			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
-				base["name"] = name
-			},
 
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
-
-			GetExternalNameFn: config.IDAsExternalName,
-			GetIDFn:           config.ExternalNameAsID,
-		}
+		r.ExternalName = config.NameAsIdentifier
 	})
 
 	p.AddResourceConfigurator("aws_neptune_parameter_group", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
-		r.ExternalName = config.ExternalName{
-			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
-				base["name"] = name
-			},
 
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
-
-			GetExternalNameFn: config.IDAsExternalName,
-			GetIDFn:           config.ExternalNameAsID,
-		}
+		r.ExternalName = config.NameAsIdentifier
 	})
 
 	p.AddResourceConfigurator("aws_neptune_subnet_group", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
-		r.ExternalName = config.ExternalName{
-			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
-				base["name"] = name
-			},
 
-			OmittedFields: []string{
-				"name",
-				"name_prefix",
-			},
+		r.ExternalName = config.NameAsIdentifier
 
-			GetExternalNameFn: config.IDAsExternalName,
-			GetIDFn:           config.ExternalNameAsID,
-		}
-
-		r.References = config.References{
-			"subnet_ids": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
-				RefFieldName:      "SubnetIdRefs",
-				SelectorFieldName: "SubnetIdSelector",
-			},
+		r.References["subnet_ids"] = config.Reference{
+			Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
+			RefFieldName:      "SubnetIdRefs",
+			SelectorFieldName: "SubnetIdSelector",
 		}
 	})
 }

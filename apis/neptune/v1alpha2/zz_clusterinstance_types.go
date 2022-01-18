@@ -75,11 +75,25 @@ type ClusterInstanceParameters struct {
 	// +kubebuilder:validation:Required
 	InstanceClass *string `json:"instanceClass" tf:"instance_class,omitempty"`
 
+	// +crossplane:generate:reference:type=ParameterGroup
 	// +kubebuilder:validation:Optional
 	NeptuneParameterGroupName *string `json:"neptuneParameterGroupName,omitempty" tf:"neptune_parameter_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	NeptuneParameterGroupNameRef *v1.Reference `json:"neptuneParameterGroupNameRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	NeptuneParameterGroupNameSelector *v1.Selector `json:"neptuneParameterGroupNameSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=SubnetGroup
+	// +kubebuilder:validation:Optional
 	NeptuneSubnetGroupName *string `json:"neptuneSubnetGroupName,omitempty" tf:"neptune_subnet_group_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NeptuneSubnetGroupNameRef *v1.Reference `json:"neptuneSubnetGroupNameRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	NeptuneSubnetGroupNameSelector *v1.Selector `json:"neptuneSubnetGroupNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`

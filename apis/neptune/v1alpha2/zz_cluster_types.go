@@ -76,6 +76,15 @@ type ClusterParameters struct {
 	IAMDatabaseAuthenticationEnabled *bool `json:"iamDatabaseAuthenticationEnabled,omitempty" tf:"iam_database_authentication_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	IAMRoleIdRefs []v1.Reference `json:"iamRoleIdRefs,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	IAMRoleIdSelector *v1.Selector `json:"iamRoleIdSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role
+	// +crossplane:generate:reference:refFieldName=IAMRoleIdRefs
+	// +crossplane:generate:reference:selectorFieldName=IAMRoleIdSelector
+	// +kubebuilder:validation:Optional
 	IAMRoles []*string `json:"iamRoles,omitempty" tf:"iam_roles,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key
@@ -88,11 +97,25 @@ type ClusterParameters struct {
 	// +kubebuilder:validation:Optional
 	KMSKeyArnSelector *v1.Selector `json:"kmsKeyArnSelector,omitempty" tf:"-"`
 
+	// +crossplane:generate:reference:type=ClusterParameterGroup
 	// +kubebuilder:validation:Optional
 	NeptuneClusterParameterGroupName *string `json:"neptuneClusterParameterGroupName,omitempty" tf:"neptune_cluster_parameter_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	NeptuneClusterParameterGroupNameRef *v1.Reference `json:"neptuneClusterParameterGroupNameRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	NeptuneClusterParameterGroupNameSelector *v1.Selector `json:"neptuneClusterParameterGroupNameSelector,omitempty" tf:"-"`
+
+	// +crossplane:generate:reference:type=SubnetGroup
+	// +kubebuilder:validation:Optional
 	NeptuneSubnetGroupName *string `json:"neptuneSubnetGroupName,omitempty" tf:"neptune_subnet_group_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NeptuneSubnetGroupNameRef *v1.Reference `json:"neptuneSubnetGroupNameRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	NeptuneSubnetGroupNameSelector *v1.Selector `json:"neptuneSubnetGroupNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
@@ -108,14 +131,28 @@ type ClusterParameters struct {
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
+	// +crossplane:generate:reference:type=Cluster
 	// +kubebuilder:validation:Optional
 	ReplicationSourceIdentifier *string `json:"replicationSourceIdentifier,omitempty" tf:"replication_source_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot,omitempty"`
+	ReplicationSourceIdentifierRef *v1.Reference `json:"replicationSourceIdentifierRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
+	ReplicationSourceIdentifierSelector *v1.Selector `json:"replicationSourceIdentifierSelector,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot,omitempty"`
+
+	// +crossplane:generate:reference:type=ClusterSnapshot
+	// +kubebuilder:validation:Optional
 	SnapshotIdentifier *string `json:"snapshotIdentifier,omitempty" tf:"snapshot_identifier,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SnapshotIdentifierRef *v1.Reference `json:"snapshotIdentifierRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SnapshotIdentifierSelector *v1.Selector `json:"snapshotIdentifierSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	StorageEncrypted *bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted,omitempty"`

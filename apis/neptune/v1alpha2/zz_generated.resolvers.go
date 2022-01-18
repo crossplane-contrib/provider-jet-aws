@@ -19,8 +19,9 @@ package v1alpha2
 
 import (
 	"context"
-	v1alpha21 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
-	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2"
+	v1alpha22 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
+	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2"
+	v1alpha21 "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
@@ -34,14 +35,30 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	var mrsp reference.MultiResolutionResponse
 	var err error
 
+	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
+		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.IAMRoles),
+		Extract:       reference.ExternalName(),
+		References:    mg.Spec.ForProvider.IAMRoleIdRefs,
+		Selector:      mg.Spec.ForProvider.IAMRoleIdSelector,
+		To: reference.To{
+			List:    &v1alpha2.RoleList{},
+			Managed: &v1alpha2.Role{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.IAMRoles")
+	}
+	mg.Spec.ForProvider.IAMRoles = reference.ToPtrValues(mrsp.ResolvedValues)
+	mg.Spec.ForProvider.IAMRoleIdRefs = mrsp.ResolvedReferences
+
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.KMSKeyArn),
 		Extract:      reference.ExternalName(),
 		Reference:    mg.Spec.ForProvider.KMSKeyArnRef,
 		Selector:     mg.Spec.ForProvider.KMSKeyArnSelector,
 		To: reference.To{
-			List:    &v1alpha2.KeyList{},
-			Managed: &v1alpha2.Key{},
+			List:    &v1alpha21.KeyList{},
+			Managed: &v1alpha21.Key{},
 		},
 	})
 	if err != nil {
@@ -50,14 +67,78 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.KMSKeyArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.KMSKeyArnRef = rsp.ResolvedReference
 
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.NeptuneClusterParameterGroupName),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.NeptuneClusterParameterGroupNameRef,
+		Selector:     mg.Spec.ForProvider.NeptuneClusterParameterGroupNameSelector,
+		To: reference.To{
+			List:    &ClusterParameterGroupList{},
+			Managed: &ClusterParameterGroup{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.NeptuneClusterParameterGroupName")
+	}
+	mg.Spec.ForProvider.NeptuneClusterParameterGroupName = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.NeptuneClusterParameterGroupNameRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.NeptuneSubnetGroupName),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.NeptuneSubnetGroupNameRef,
+		Selector:     mg.Spec.ForProvider.NeptuneSubnetGroupNameSelector,
+		To: reference.To{
+			List:    &SubnetGroupList{},
+			Managed: &SubnetGroup{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.NeptuneSubnetGroupName")
+	}
+	mg.Spec.ForProvider.NeptuneSubnetGroupName = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.NeptuneSubnetGroupNameRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ReplicationSourceIdentifier),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.ReplicationSourceIdentifierRef,
+		Selector:     mg.Spec.ForProvider.ReplicationSourceIdentifierSelector,
+		To: reference.To{
+			List:    &ClusterList{},
+			Managed: &Cluster{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.ReplicationSourceIdentifier")
+	}
+	mg.Spec.ForProvider.ReplicationSourceIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.ReplicationSourceIdentifierRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SnapshotIdentifier),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.SnapshotIdentifierRef,
+		Selector:     mg.Spec.ForProvider.SnapshotIdentifierSelector,
+		To: reference.To{
+			List:    &ClusterSnapshotList{},
+			Managed: &ClusterSnapshot{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SnapshotIdentifier")
+	}
+	mg.Spec.ForProvider.SnapshotIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.SnapshotIdentifierRef = rsp.ResolvedReference
+
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VPCSecurityGroupIds),
 		Extract:       reference.ExternalName(),
 		References:    mg.Spec.ForProvider.VPCSecurityGroupIdRefs,
 		Selector:      mg.Spec.ForProvider.VPCSecurityGroupIdSelector,
 		To: reference.To{
-			List:    &v1alpha21.SecurityGroupList{},
-			Managed: &v1alpha21.SecurityGroup{},
+			List:    &v1alpha22.SecurityGroupList{},
+			Managed: &v1alpha22.SecurityGroup{},
 		},
 	})
 	if err != nil {
@@ -118,6 +199,38 @@ func (mg *ClusterInstance) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.ClusterIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ClusterIdentifierRef = rsp.ResolvedReference
 
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.NeptuneParameterGroupName),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.NeptuneParameterGroupNameRef,
+		Selector:     mg.Spec.ForProvider.NeptuneParameterGroupNameSelector,
+		To: reference.To{
+			List:    &ParameterGroupList{},
+			Managed: &ParameterGroup{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.NeptuneParameterGroupName")
+	}
+	mg.Spec.ForProvider.NeptuneParameterGroupName = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.NeptuneParameterGroupNameRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.NeptuneSubnetGroupName),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.NeptuneSubnetGroupNameRef,
+		Selector:     mg.Spec.ForProvider.NeptuneSubnetGroupNameSelector,
+		To: reference.To{
+			List:    &SubnetGroupList{},
+			Managed: &SubnetGroup{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.NeptuneSubnetGroupName")
+	}
+	mg.Spec.ForProvider.NeptuneSubnetGroupName = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.NeptuneSubnetGroupNameRef = rsp.ResolvedReference
+
 	return nil
 }
 
@@ -160,8 +273,8 @@ func (mg *SubnetGroup) ResolveReferences(ctx context.Context, c client.Reader) e
 		References:    mg.Spec.ForProvider.SubnetIdRefs,
 		Selector:      mg.Spec.ForProvider.SubnetIdSelector,
 		To: reference.To{
-			List:    &v1alpha21.SubnetList{},
-			Managed: &v1alpha21.Subnet{},
+			List:    &v1alpha22.SubnetList{},
+			Managed: &v1alpha22.Subnet{},
 		},
 	})
 	if err != nil {
