@@ -64,13 +64,11 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_eip", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-		r.References = config.References{
-			"instance": config.Reference{
-				Type: "Instance",
-			},
-			"network_interface": config.Reference{
-				Type: "NetworkInterface",
-			},
+		r.References["instance"] = config.Reference{
+			Type: "Instance",
+		}
+		r.References["network_interface"] = config.Reference{
+			Type: "NetworkInterface",
 		}
 		r.UseAsync = true
 	})
@@ -120,9 +118,6 @@ func Configure(p *config.Provider) {
 		}
 		r.References["transit_gateway_id"] = config.Reference{
 			Type: "TransitGateway",
-		}
-		r.References["vpc_id"] = config.Reference{
-			Type: "VPC",
 		}
 	})
 
@@ -179,9 +174,6 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_vpc_endpoint", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-		r.References["vpc_id"] = config.Reference{
-			Type: "VPC",
-		}
 		r.References["subnet_ids"] = config.Reference{
 			Type:              "Subnet",
 			RefFieldName:      "SubnetIdRefs",
@@ -202,9 +194,6 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_subnet", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-		r.References["vpc_id"] = config.Reference{
-			Type: "VPC",
-		}
 		r.LateInitializer = config.LateInitializer{
 			// NOTE(muvaf): Conflicts with AvailabilityZone. See the following
 			// for more details: https://github.com/crossplane/terrajet/issues/107
@@ -217,9 +206,6 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_network_interface", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-		r.References["vpc_id"] = config.Reference{
-			Type: "VPC",
-		}
 		r.References["subnet_id"] = config.Reference{
 			Type: "Subnet",
 		}
@@ -241,9 +227,6 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_security_group", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-		r.References["vpc_id"] = config.Reference{
-			Type: "VPC",
-		}
 		r.References["egress.security_groups"] = config.Reference{
 			Type:              "SecurityGroup",
 			RefFieldName:      "SecurityGroupRefs",
@@ -267,17 +250,11 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_vpc_ipv4_cidr_block_association", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-		r.References["vpc_id"] = config.Reference{
-			Type: "VPC",
-		}
 	})
 
 	p.AddResourceConfigurator("aws_vpc_peering_connection", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-		r.References["vpc_id"] = config.Reference{
-			Type: "VPC",
-		}
 		r.References["peer_vpc_id"] = config.Reference{
 			Type: "VPC",
 		}
@@ -310,10 +287,6 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_route_table", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-		r.References["vpc_id"] = config.Reference{
-			Type: "VPC",
-		}
-
 		r.References["route.vpc_peering_connection_id"] = config.Reference{
 			Type: "VPCPeeringConnection",
 		}
@@ -342,9 +315,6 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_main_route_table_association", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-		r.References["vpc_id"] = config.Reference{
-			Type: "VPC",
-		}
 		r.References["route_table_id"] = config.Reference{
 			Type: "RouteTable",
 		}

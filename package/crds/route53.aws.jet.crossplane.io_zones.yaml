@@ -106,9 +106,7 @@ spec:
                       properties:
                         vpcId:
                           type: string
-                        vpcRegion:
-                          type: string
-                        vpcidRef:
+                        vpcIdRef:
                           description: A Reference to a named object.
                           properties:
                             name:
@@ -117,7 +115,7 @@ spec:
                           required:
                           - name
                           type: object
-                        vpcidSelector:
+                        vpcIdSelector:
                           description: A Selector selects an object.
                           properties:
                             matchControllerRef:
@@ -132,6 +130,8 @@ spec:
                                 labels is selected.
                               type: object
                           type: object
+                        vpcRegion:
+                          type: string
                       type: object
                     type: array
                 required:

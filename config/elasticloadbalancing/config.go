@@ -69,11 +69,6 @@ func Configure(p *config.Provider) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 		r.ExternalName.OmittedFields = append(r.ExternalName.OmittedFields, "name_prefix")
-		r.References = config.References{
-			"vpc_id": {
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC",
-			},
-		}
 		if s, ok := r.TerraformResource.Schema["name"]; ok {
 			s.Optional = false
 			s.ForceNew = true

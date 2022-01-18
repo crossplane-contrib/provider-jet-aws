@@ -61,8 +61,8 @@ func (mg *FirewallRuleGroupAssociation) ResolveReferences(ctx context.Context, c
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &v1alpha2.VPCList{},
 			Managed: &v1alpha2.VPC{},
@@ -72,7 +72,7 @@ func (mg *FirewallRuleGroupAssociation) ResolveReferences(ctx context.Context, c
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -87,8 +87,8 @@ func (mg *RuleAssociation) ResolveReferences(ctx context.Context, c client.Reade
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &v1alpha2.VPCList{},
 			Managed: &v1alpha2.VPC{},
@@ -98,7 +98,7 @@ func (mg *RuleAssociation) ResolveReferences(ctx context.Context, c client.Reade
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	return nil
 }
