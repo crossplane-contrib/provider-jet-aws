@@ -390,21 +390,25 @@ func KnownReferencers() tjconfig.ResourceOption { //nolint:gocyclo
 			switch k {
 			case "vpc_id":
 				r.References["vpc_id"] = tjconfig.Reference{
-					Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC",
+					Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC",
+					RefFieldName:      "VpcIdRef",
+					SelectorFieldName: "VpcIdSelector",
 				}
 				if r.ShortGroup == "ec2" {
 					// TODO(muvaf): Angryjet should work with the full type path
 					// even when it's its own type, but it doesn't for some
 					// reason and this is a workaround.
 					r.References["vpc_id"] = tjconfig.Reference{
-						Type: "VPC",
+						Type:              "VPC",
+						RefFieldName:      "VpcIdRef",
+						SelectorFieldName: "VpcIdSelector",
 					}
 				}
 			case "subnet_ids":
 				r.References["subnet_ids"] = tjconfig.Reference{
 					Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
-					RefFieldName:      "SubnetIDRefs",
-					SelectorFieldName: "SubnetIDSelector",
+					RefFieldName:      "SubnetIdRefs",
+					SelectorFieldName: "SubnetIdSelector",
 				}
 				if r.ShortGroup == "ec2" {
 					// TODO(muvaf): Angryjet should work with the full type path
@@ -412,8 +416,8 @@ func KnownReferencers() tjconfig.ResourceOption { //nolint:gocyclo
 					// reason and this is a workaround.
 					r.References["subnet_ids"] = tjconfig.Reference{
 						Type:              "Subnet",
-						RefFieldName:      "SubnetIDRefs",
-						SelectorFieldName: "SubnetIDSelector",
+						RefFieldName:      "SubnetIdRefs",
+						SelectorFieldName: "SubnetIdSelector",
 					}
 				}
 			case "subnet_id":

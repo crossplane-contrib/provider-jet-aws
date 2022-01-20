@@ -146,8 +146,8 @@ func (mg *VPCAssociationAuthorization) ResolveReferences(ctx context.Context, c 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &v1alpha21.VPCList{},
 			Managed: &v1alpha21.VPC{},
@@ -157,7 +157,7 @@ func (mg *VPCAssociationAuthorization) ResolveReferences(ctx context.Context, c 
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ZoneID),
@@ -205,8 +205,8 @@ func (mg *Zone) ResolveReferences(ctx context.Context, c client.Reader) error {
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPC[i3].VPCID),
 			Extract:      reference.ExternalName(),
-			Reference:    mg.Spec.ForProvider.VPC[i3].VPCIDRef,
-			Selector:     mg.Spec.ForProvider.VPC[i3].VPCIDSelector,
+			Reference:    mg.Spec.ForProvider.VPC[i3].VpcIdRef,
+			Selector:     mg.Spec.ForProvider.VPC[i3].VpcIdSelector,
 			To: reference.To{
 				List:    &v1alpha21.VPCList{},
 				Managed: &v1alpha21.VPC{},
@@ -216,7 +216,7 @@ func (mg *Zone) ResolveReferences(ctx context.Context, c client.Reader) error {
 			return errors.Wrap(err, "mg.Spec.ForProvider.VPC[i3].VPCID")
 		}
 		mg.Spec.ForProvider.VPC[i3].VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-		mg.Spec.ForProvider.VPC[i3].VPCIDRef = rsp.ResolvedReference
+		mg.Spec.ForProvider.VPC[i3].VpcIdRef = rsp.ResolvedReference
 
 	}
 
@@ -233,8 +233,8 @@ func (mg *ZoneAssociation) ResolveReferences(ctx context.Context, c client.Reade
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &v1alpha21.VPCList{},
 			Managed: &v1alpha21.VPC{},
@@ -244,7 +244,7 @@ func (mg *ZoneAssociation) ResolveReferences(ctx context.Context, c client.Reade
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ZoneID),
