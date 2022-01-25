@@ -99,14 +99,16 @@ type VPCPeeringConnectionParameters struct {
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// +crossplane:generate:reference:type=VPC
+	// +crossplane:generate:reference:refFieldName=VpcIdRef
+	// +crossplane:generate:reference:selectorFieldName=VpcIdSelector
 	// +kubebuilder:validation:Optional
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VPCIDRef *v1.Reference `json:"vpcidRef,omitempty" tf:"-"`
+	VpcIdRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	VPCIDSelector *v1.Selector `json:"vpcidSelector,omitempty" tf:"-"`
+	VpcIdSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
 
 // VPCPeeringConnectionSpec defines the desired state of VPCPeeringConnection

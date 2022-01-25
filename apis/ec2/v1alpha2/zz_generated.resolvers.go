@@ -610,8 +610,8 @@ func (mg *RouteTable) ResolveReferences(ctx context.Context, c client.Reader) er
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &VPCList{},
 			Managed: &VPC{},
@@ -621,7 +621,7 @@ func (mg *RouteTable) ResolveReferences(ctx context.Context, c client.Reader) er
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -715,8 +715,8 @@ func (mg *SecurityGroup) ResolveReferences(ctx context.Context, c client.Reader)
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &VPCList{},
 			Managed: &VPC{},
@@ -726,7 +726,7 @@ func (mg *SecurityGroup) ResolveReferences(ctx context.Context, c client.Reader)
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -767,8 +767,8 @@ func (mg *Subnet) ResolveReferences(ctx context.Context, c client.Reader) error 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &VPCList{},
 			Managed: &VPC{},
@@ -778,7 +778,7 @@ func (mg *Subnet) ResolveReferences(ctx context.Context, c client.Reader) error 
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -978,8 +978,8 @@ func (mg *TransitGatewayVPCAttachment) ResolveReferences(ctx context.Context, c 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &VPCList{},
 			Managed: &VPC{},
@@ -989,7 +989,7 @@ func (mg *TransitGatewayVPCAttachment) ResolveReferences(ctx context.Context, c 
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -1079,8 +1079,8 @@ func (mg *VPCEndpoint) ResolveReferences(ctx context.Context, c client.Reader) e
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &VPCList{},
 			Managed: &VPC{},
@@ -1090,7 +1090,7 @@ func (mg *VPCEndpoint) ResolveReferences(ctx context.Context, c client.Reader) e
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -1105,8 +1105,8 @@ func (mg *VPCIPv4CidrBlockAssociation) ResolveReferences(ctx context.Context, c 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &VPCList{},
 			Managed: &VPC{},
@@ -1116,7 +1116,7 @@ func (mg *VPCIPv4CidrBlockAssociation) ResolveReferences(ctx context.Context, c 
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	return nil
 }
@@ -1147,8 +1147,8 @@ func (mg *VPCPeeringConnection) ResolveReferences(ctx context.Context, c client.
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.VPCIDRef,
-		Selector:     mg.Spec.ForProvider.VPCIDSelector,
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
 		To: reference.To{
 			List:    &VPCList{},
 			Managed: &VPC{},
@@ -1158,7 +1158,7 @@ func (mg *VPCPeeringConnection) ResolveReferences(ctx context.Context, c client.
 		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
 	}
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
 
 	return nil
 }
