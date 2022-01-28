@@ -189,6 +189,8 @@ github.com/crossplane/crossplane-tools v0.0.0-20210916125540-071de511ae8e h1:7UM
 github.com/crossplane/crossplane-tools v0.0.0-20210916125540-071de511ae8e/go.mod h1:3GzY5sP0PVePArghBh5K4fGzS/3kM0R/NAZn5s7LXqw=
 github.com/crossplane/provider-aws v0.19.0 h1:pfjxtuj0ZEllzBnyA7X2MgM62EqSwKCdBwIHPsbPEBM=
 github.com/crossplane/provider-aws v0.19.0/go.mod h1:ntcIkyfgz/y+WgfBmse05S6RnCxK4cmhhtI8a7IzySs=
+github.com/crossplane/terrajet v0.4.0-rc.0.0.20220128111246-e5aaa1790fe6 h1:Msk6WqLQ+anlAjN8PFZun/XOJqAh0zC+PgmlyqqAkrw=
+github.com/crossplane/terrajet v0.4.0-rc.0.0.20220128111246-e5aaa1790fe6/go.mod h1:fFjGal+3iF/D3XaxuTHw0xNHO+UslVhxNkNZITDXz44=
 github.com/dave/jennifer v1.3.0/go.mod h1:fIb+770HOpJ2fmN9EPPKOqm1vMGhB+TwXKMZhrIygKg=
 github.com/dave/jennifer v1.4.1 h1:XyqG6cn5RQsTj3qlWQTKlRGAyrTcsk1kUmWdZBzRjDw=
 github.com/dave/jennifer v1.4.1/go.mod h1:7jEdnm+qBcxl8PC0zyp7vxcpSRnzXSt9r39tpTVGlwA=
@@ -744,8 +746,6 @@ github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQD
 github.com/ryanuber/columnize v0.0.0-20160712163229-9b3edd62028f/go.mod h1:sm1tb6uqfes/u+d4ooFouqFdy9/2g9QGwK3SQygK0Ts=
 github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529/go.mod h1:DxrIzT+xaE7yg65j358z/aeFdxmN0P9QXhEzd20vsDc=
 github.com/sebdah/goldie v1.0.0/go.mod h1:jXP4hmWywNEwZzhMuv2ccnqTSFpuq8iyQhtQdkkZBH4=
-github.com/sergenyalcin/terrajet v0.1.1-0.20220127142712-72b516c4485a h1:IKr7Sk3ZPYelILT33PJaZP3rXD+RVTgW2wMbkeflJvU=
-github.com/sergenyalcin/terrajet v0.1.1-0.20220127142712-72b516c4485a/go.mod h1:fFjGal+3iF/D3XaxuTHw0xNHO+UslVhxNkNZITDXz44=
 github.com/sergi/go-diff v1.0.0/go.mod h1:0CfEIISq7TuYL3j771MWULgwwjU+GofnZX9QAmXWZgo=
 github.com/sergi/go-diff v1.1.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
 github.com/sergi/go-diff v1.2.0 h1:XU+rvMAioB0UC3q1MFrIQy4Vo5/4VsRDQQXHsEya6xQ=
