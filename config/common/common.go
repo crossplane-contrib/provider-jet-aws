@@ -33,6 +33,9 @@ const (
 	// VersionV1Alpha2 is used as minimum version for all manually configured
 	// resources.
 	VersionV1Alpha2 = "v1alpha2"
+
+	// ExternalTagsFieldName is used as field name to set external resource tags.
+	ExternalTagsFieldName = "Tags"
 )
 
 // ARNExtractor extracts ARN of the resources from "status.atProvider.arn" which

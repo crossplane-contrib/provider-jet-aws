@@ -444,3 +444,12 @@ func KnownReferencers() tjconfig.ResourceOption { //nolint:gocyclo
 		}
 	}
 }
+
+// AddExternalTagsField adds ExternalTagsFieldName configuration for resources that have tags field.
+func AddExternalTagsField() tjconfig.ResourceOption {
+	return func(r *tjconfig.Resource) {
+		if s, ok := r.TerraformResource.Schema["tags"]; ok && s.Type == schema.TypeMap {
+			r.InitializerFns = append(r.InitializerFns, tjconfig.TagInitializer)
+		}
+	}
+}

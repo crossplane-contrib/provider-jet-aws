@@ -40,6 +40,10 @@ import (
 // Setup adds a controller that reconciles EBSVolume managed resources.
 func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terraform.SetupFn, ws *terraform.WorkspaceStore, cfg *tjconfig.Provider, concurrency int) error {
 	name := managed.ControllerName(v1alpha2.EBSVolume_GroupVersionKind.String())
+	var initializers managed.InitializerChain
+	for _, i := range cfg.Resources["aws_ebs_volume"].InitializerFns {
+		initializers = append(initializers, i(mgr.GetClient()))
+	}
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha2.EBSVolume_GroupVersionKind),
 		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s, cfg.Resources["aws_ebs_volume"])),
@@ -47,7 +51,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, rl workqueue.RateLimiter, s terra
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
 		managed.WithFinalizer(terraform.NewWorkspaceFinalizer(ws, xpresource.NewAPIFinalizer(mgr.GetClient(), managed.FinalizerName))),
 		managed.WithTimeout(3*time.Minute),
-		managed.WithInitializers(),
+		managed.WithInitializers(initializers),
 	)
 
 	return ctrl.NewControllerManagedBy(mgr).
