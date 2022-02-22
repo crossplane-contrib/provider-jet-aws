@@ -25,6 +25,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/feature"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
+	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
 	"github.com/crossplane/terrajet/pkg/terraform"
 	tf "github.com/terraform-providers/terraform-provider-aws/aws"
 	"gopkg.in/alecthomas/kingpin.v2"
@@ -74,17 +75,19 @@ func main() {
 		RenewDeadline:              func() *time.Duration { d := 50 * time.Second; return &d }(),
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")
-
-	ws := terraform.NewWorkspaceStore(log)
-	setup := clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion)
-	o := xpcontroller.Options{
-		Logger:                  log,
-		GlobalRateLimiter:       ratelimiter.NewGlobal(*maxReconcileRate),
-		PollInterval:            1 * time.Minute,
-		MaxConcurrentReconciles: 1,
-		Features:                &feature.Flags{},
+	o := tjcontroller.Options{
+		Options: xpcontroller.Options{
+			Logger:                  log,
+			GlobalRateLimiter:       ratelimiter.NewGlobal(*maxReconcileRate),
+			PollInterval:            1 * time.Minute,
+			MaxConcurrentReconciles: 1,
+			Features:                &feature.Flags{},
+		},
+		Provider:       config.GetProvider(tf.Provider()),
+		WorkspaceStore: terraform.NewWorkspaceStore(log),
+		SetupFn:        clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion),
 	}
 	kingpin.FatalIfError(apis.AddToScheme(mgr.GetScheme()), "Cannot add AWS APIs to scheme")
-	kingpin.FatalIfError(controller.Setup(mgr, o, setup, ws, config.GetProvider(tf.Provider())), "Cannot setup AWS controllers")
+	kingpin.FatalIfError(controller.Setup(mgr, o), "Cannot setup AWS controllers")
 	kingpin.FatalIfError(mgr.Start(ctrl.SetupSignalHandler()), "Cannot start controller manager")
 }

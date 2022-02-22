@@ -21,11 +21,10 @@ package repository
 import (
 	"time"
 
-	"github.com/crossplane/crossplane-runtime/pkg/controller"
 	"github.com/crossplane/crossplane-runtime/pkg/event"
+	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	"github.com/crossplane/crossplane-runtime/pkg/reconciler/managed"
 	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
-	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
 	"github.com/crossplane/terrajet/pkg/terraform"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -34,21 +33,21 @@ import (
 )
 
 // Setup adds a controller that reconciles Repository managed resources.
-func Setup(mgr ctrl.Manager, o controller.Options, s terraform.SetupFn, ws *terraform.WorkspaceStore, cfg *tjconfig.Provider) error {
+func Setup(mgr ctrl.Manager, o tjcontroller.Options) error {
 	name := managed.ControllerName(v1alpha2.Repository_GroupVersionKind.String())
 	var initializers managed.InitializerChain
-	for _, i := range cfg.Resources["aws_ecr_repository"].InitializerFns {
+	for _, i := range o.Provider.Resources["aws_ecr_repository"].InitializerFns {
 		initializers = append(initializers, i(mgr.GetClient()))
 	}
 	initializers = append(initializers, managed.NewNameAsExternalName(mgr.GetClient()))
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha2.Repository_GroupVersionKind),
-		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), ws, s, cfg.Resources["aws_ecr_repository"],
+		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), o.WorkspaceStore, o.SetupFn, o.Provider.Resources["aws_ecr_repository"],
 			tjcontroller.WithCallbackProvider(tjcontroller.NewAPICallbacks(mgr, xpresource.ManagedKind(v1alpha2.Repository_GroupVersionKind))),
 		)),
 		managed.WithLogger(o.Logger.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
-		managed.WithFinalizer(terraform.NewWorkspaceFinalizer(ws, xpresource.NewAPIFinalizer(mgr.GetClient(), managed.FinalizerName))),
+		managed.WithFinalizer(terraform.NewWorkspaceFinalizer(o.WorkspaceStore, xpresource.NewAPIFinalizer(mgr.GetClient(), managed.FinalizerName))),
 		managed.WithTimeout(3*time.Minute),
 		managed.WithInitializers(initializers),
 	)
@@ -57,5 +56,5 @@ func Setup(mgr ctrl.Manager, o controller.Options, s terraform.SetupFn, ws *terr
 		Named(name).
 		WithOptions(o.ForControllerRuntime()).
 		For(&v1alpha2.Repository{}).
-		Complete(r)
+		Complete(ratelimiter.NewReconciler(name, r, o.GlobalRateLimiter))
 }

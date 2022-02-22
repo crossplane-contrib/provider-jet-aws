@@ -19,9 +19,7 @@ package controller
 import (
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/crossplane/crossplane-runtime/pkg/controller"
-	tjconfig "github.com/crossplane/terrajet/pkg/config"
-	"github.com/crossplane/terrajet/pkg/terraform"
+	"github.com/crossplane/terrajet/pkg/controller"
 
 	attachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/autoscalinggroup"
@@ -115,8 +113,8 @@ import (
 
 // Setup creates all controllers with the supplied logger and adds them to
 // the supplied manager.
-func Setup(mgr ctrl.Manager, o controller.Options, ps terraform.SetupFn, ws *terraform.WorkspaceStore, cfg *tjconfig.Provider) error {
-	for _, setup := range []func(ctrl.Manager, controller.Options, terraform.SetupFn, *terraform.WorkspaceStore, *tjconfig.Provider) error{
+func Setup(mgr ctrl.Manager, o controller.Options) error {
+	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		attachment.Setup,
 		autoscalinggroup.Setup,
 		ebsvolume.Setup,
@@ -206,7 +204,7 @@ func Setup(mgr ctrl.Manager, o controller.Options, ps terraform.SetupFn, ws *ter
 		ruleassociation.Setup,
 		bucket.Setup,
 	} {
-		if err := setup(mgr, o, ps, ws, cfg); err != nil {
+		if err := setup(mgr, o); err != nil {
 			return err
 		}
 	}

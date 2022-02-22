@@ -14,22 +14,20 @@ limitations under the License.
 package providerconfig
 
 import (
-	"github.com/crossplane/terrajet/pkg/config"
-	"github.com/crossplane/terrajet/pkg/terraform"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	"github.com/crossplane/crossplane-runtime/pkg/controller"
 	"github.com/crossplane/crossplane-runtime/pkg/event"
 	"github.com/crossplane/crossplane-runtime/pkg/reconciler/providerconfig"
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
+	"github.com/crossplane/terrajet/pkg/controller"
 
 	"github.com/crossplane-contrib/provider-jet-aws/apis/v1alpha1"
 )
 
 // Setup adds a controller that reconciles ProviderConfigs by accounting for
 // their current usage.
-func Setup(mgr ctrl.Manager, o controller.Options, _ terraform.SetupFn, _ *terraform.WorkspaceStore, _ *config.Provider) error {
+func Setup(mgr ctrl.Manager, o controller.Options) error {
 	name := providerconfig.ControllerName(v1alpha1.ProviderConfigGroupKind)
 
 	of := resource.ProviderConfigKinds{
