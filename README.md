@@ -7,6 +7,8 @@ generation tools and exposes XRM-conformant managed resources for
 
 ## Getting Started
 
+This provider requires a Kubernetes cluster => v1.23.x. 
+
 Install the provider by using the following command after changing the image tag
 to the [latest release](https://github.com/crossplane-contrib/provider-jet-aws/releases):
 ```
