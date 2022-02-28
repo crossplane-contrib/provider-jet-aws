@@ -26,6 +26,10 @@ import (
 type ProviderConfigSpec struct {
 	// Credentials required to authenticate to this provider.
 	Credentials ProviderCredentials `json:"credentials"`
+
+	// AssumeRoleARN to assume with provider credentials
+	// +optional
+	AssumeRoleARN *string `json:"assumeRoleARN,omitempty"`
 }
 
 // ProviderCredentials required to authenticate.
