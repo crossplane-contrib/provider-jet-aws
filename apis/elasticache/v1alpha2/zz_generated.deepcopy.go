@@ -1370,15 +1370,13 @@ func (in *UserParameters) DeepCopyInto(out *UserParameters) {
 		*out = new(bool)
 		**out = **in
 	}
-	if in.Passwords != nil {
-		in, out := &in.Passwords, &out.Passwords
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
+	if in.PasswordsSecretRef != nil {
+		in, out := &in.PasswordsSecretRef, &out.PasswordsSecretRef
+		*out = new([]v1.SecretKeySelector)
+		if **in != nil {
+			in, out := *in, *out
+			*out = make([]v1.SecretKeySelector, len(*in))
+			copy(*out, *in)
 		}
 	}
 	if in.Region != nil {

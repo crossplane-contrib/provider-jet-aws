@@ -65,6 +65,9 @@ func Configure(p *config.Provider) {
 
 	p.AddResourceConfigurator("aws_elasticache_user", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
+		if s, ok := r.TerraformResource.Schema["passwords"]; ok {
+			s.Sensitive = true
+		}
 		r.ExternalName = config.ExternalName{
 			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
 				base["user_id"] = name
