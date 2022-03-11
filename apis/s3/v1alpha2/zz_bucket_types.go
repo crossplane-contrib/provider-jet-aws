@@ -147,7 +147,7 @@ type CorsRuleParameters struct {
 	ExposeHeaders []*string `json:"exposeHeaders,omitempty" tf:"expose_headers,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaxAgeSeconds *int64 `json:"maxAgeSeconds,omitempty" tf:"max_age_seconds,omitempty"`
+	MaxAgeSeconds *float64 `json:"maxAgeSeconds,omitempty" tf:"max_age_seconds,omitempty"`
 }
 
 type DefaultRetentionObservation struct {
@@ -156,13 +156,13 @@ type DefaultRetentionObservation struct {
 type DefaultRetentionParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
+	Days *float64 `json:"days,omitempty" tf:"days,omitempty"`
 
 	// +kubebuilder:validation:Required
 	Mode *string `json:"mode" tf:"mode,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Years *int64 `json:"years,omitempty" tf:"years,omitempty"`
+	Years *float64 `json:"years,omitempty" tf:"years,omitempty"`
 }
 
 type DestinationObservation struct {
@@ -195,7 +195,7 @@ type ExpirationParameters struct {
 	Date *string `json:"date,omitempty" tf:"date,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
+	Days *float64 `json:"days,omitempty" tf:"days,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ExpiredObjectDeleteMarker *bool `json:"expiredObjectDeleteMarker,omitempty" tf:"expired_object_delete_marker,omitempty"`
@@ -237,7 +237,7 @@ type LifecycleRuleObservation struct {
 type LifecycleRuleParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AbortIncompleteMultipartUploadDays *int64 `json:"abortIncompleteMultipartUploadDays,omitempty" tf:"abort_incomplete_multipart_upload_days,omitempty"`
+	AbortIncompleteMultipartUploadDays *float64 `json:"abortIncompleteMultipartUploadDays,omitempty" tf:"abort_incomplete_multipart_upload_days,omitempty"`
 
 	// +kubebuilder:validation:Required
 	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
@@ -282,7 +282,7 @@ type NoncurrentVersionExpirationObservation struct {
 type NoncurrentVersionExpirationParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
+	Days *float64 `json:"days,omitempty" tf:"days,omitempty"`
 }
 
 type NoncurrentVersionTransitionObservation struct {
@@ -291,7 +291,7 @@ type NoncurrentVersionTransitionObservation struct {
 type NoncurrentVersionTransitionParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
+	Days *float64 `json:"days,omitempty" tf:"days,omitempty"`
 
 	// +kubebuilder:validation:Required
 	StorageClass *string `json:"storageClass" tf:"storage_class,omitempty"`
@@ -351,7 +351,7 @@ type RulesParameters struct {
 	Prefix *string `json:"prefix,omitempty" tf:"prefix,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Priority *int64 `json:"priority,omitempty" tf:"priority,omitempty"`
+	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SourceSelectionCriteria []SourceSelectionCriteriaParameters `json:"sourceSelectionCriteria,omitempty" tf:"source_selection_criteria,omitempty"`
@@ -408,7 +408,7 @@ type TransitionParameters struct {
 	Date *string `json:"date,omitempty" tf:"date,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Days *int64 `json:"days,omitempty" tf:"days,omitempty"`
+	Days *float64 `json:"days,omitempty" tf:"days,omitempty"`
 
 	// +kubebuilder:validation:Required
 	StorageClass *string `json:"storageClass" tf:"storage_class,omitempty"`

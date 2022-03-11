@@ -151,15 +151,13 @@ spec:
                         type: object
                     type: object
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   preferredBackupWindow:
                     type: string
                   preferredMaintenanceWindow:
                     type: string
                   promotionTier:
-                    format: int64
-                    type: integer
+                    type: number
                   publiclyAccessible:
                     type: boolean
                   region:

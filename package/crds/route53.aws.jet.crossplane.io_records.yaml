@@ -149,16 +149,14 @@ spec:
                   setIdentifier:
                     type: string
                   ttl:
-                    format: int64
-                    type: integer
+                    type: number
                   type:
                     type: string
                   weightedRoutingPolicy:
                     items:
                       properties:
                         weight:
-                          format: int64
-                          type: integer
+                          type: number
                       required:
                       - weight
                       type: object

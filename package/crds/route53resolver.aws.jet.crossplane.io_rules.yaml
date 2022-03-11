@@ -85,8 +85,7 @@ spec:
                         ip:
                           type: string
                         port:
-                          format: int64
-                          type: integer
+                          type: number
                       required:
                       - ip
                       type: object

@@ -67,8 +67,7 @@ spec:
                     items:
                       properties:
                         deviceIndex:
-                          format: int64
-                          type: integer
+                          type: number
                         instance:
                           type: string
                         instanceRef:
@@ -104,8 +103,7 @@ spec:
                   interfaceType:
                     type: string
                   ipv6AddressCount:
-                    format: int64
-                    type: integer
+                    type: number
                   ipv6Addresses:
                     items:
                       type: string
@@ -117,8 +115,7 @@ spec:
                       type: string
                     type: array
                   privateIpsCount:
-                    format: int64
-                    type: integer
+                    type: number
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.

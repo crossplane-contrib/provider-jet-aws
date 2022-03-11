@@ -89,8 +89,7 @@ spec:
                             type: string
                           type: array
                         maxAgeSeconds:
-                          format: int64
-                          type: integer
+                          type: number
                       required:
                       - allowedMethods
                       - allowedOrigins
@@ -122,8 +121,7 @@ spec:
                     items:
                       properties:
                         abortIncompleteMultipartUploadDays:
-                          format: int64
-                          type: integer
+                          type: number
                         enabled:
                           type: boolean
                         expiration:
@@ -132,8 +130,7 @@ spec:
                               date:
                                 type: string
                               days:
-                                format: int64
-                                type: integer
+                                type: number
                               expiredObjectDeleteMarker:
                                 type: boolean
                             type: object
@@ -144,16 +141,14 @@ spec:
                           items:
                             properties:
                               days:
-                                format: int64
-                                type: integer
+                                type: number
                             type: object
                           type: array
                         noncurrentVersionTransition:
                           items:
                             properties:
                               days:
-                                format: int64
-                                type: integer
+                                type: number
                               storageClass:
                                 type: string
                             required:
@@ -172,8 +167,7 @@ spec:
                               date:
                                 type: string
                               days:
-                                format: int64
-                                type: integer
+                                type: number
                               storageClass:
                                 type: string
                             required:
@@ -207,13 +201,11 @@ spec:
                                 items:
                                   properties:
                                     days:
-                                      format: int64
-                                      type: integer
+                                      type: number
                                     mode:
                                       type: string
                                     years:
-                                      format: int64
-                                      type: integer
+                                      type: number
                                   required:
                                   - mode
                                   type: object
@@ -282,8 +274,7 @@ spec:
                               prefix:
                                 type: string
                               priority:
-                                format: int64
-                                type: integer
+                                type: number
                               sourceSelectionCriteria:
                                 items:
                                   properties:

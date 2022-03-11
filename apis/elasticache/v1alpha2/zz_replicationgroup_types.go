@@ -31,10 +31,10 @@ type ClusterModeObservation struct {
 type ClusterModeParameters struct {
 
 	// +kubebuilder:validation:Optional
-	NumNodeGroups *int64 `json:"numNodeGroups,omitempty" tf:"num_node_groups,omitempty"`
+	NumNodeGroups *float64 `json:"numNodeGroups,omitempty" tf:"num_node_groups,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ReplicasPerNodeGroup *int64 `json:"replicasPerNodeGroup" tf:"replicas_per_node_group,omitempty"`
+	ReplicasPerNodeGroup *float64 `json:"replicasPerNodeGroup" tf:"replicas_per_node_group,omitempty"`
 }
 
 type ReplicationGroupObservation struct {
@@ -115,13 +115,13 @@ type ReplicationGroupParameters struct {
 	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NumberCacheClusters *int64 `json:"numberCacheClusters,omitempty" tf:"number_cache_clusters,omitempty"`
+	NumberCacheClusters *float64 `json:"numberCacheClusters,omitempty" tf:"number_cache_clusters,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ParameterGroupName *string `json:"parameterGroupName,omitempty" tf:"parameter_group_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
@@ -153,7 +153,7 @@ type ReplicationGroupParameters struct {
 	SnapshotName *string `json:"snapshotName,omitempty" tf:"snapshot_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SnapshotRetentionLimit *int64 `json:"snapshotRetentionLimit,omitempty" tf:"snapshot_retention_limit,omitempty"`
+	SnapshotRetentionLimit *float64 `json:"snapshotRetentionLimit,omitempty" tf:"snapshot_retention_limit,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SnapshotWindow *string `json:"snapshotWindow,omitempty" tf:"snapshot_window,omitempty"`

@@ -1073,7 +1073,7 @@ func (in *RoleParameters) DeepCopyInto(out *RoleParameters) {
 	}
 	if in.MaxSessionDuration != nil {
 		in, out := &in.MaxSessionDuration, &out.MaxSessionDuration
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.Path != nil {

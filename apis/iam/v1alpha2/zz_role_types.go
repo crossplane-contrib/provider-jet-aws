@@ -67,7 +67,7 @@ type RoleParameters struct {
 	ManagedPolicyArns []*string `json:"managedPolicyArns,omitempty" tf:"managed_policy_arns,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaxSessionDuration *int64 `json:"maxSessionDuration,omitempty" tf:"max_session_duration,omitempty"`
+	MaxSessionDuration *float64 `json:"maxSessionDuration,omitempty" tf:"max_session_duration,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`

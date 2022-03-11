@@ -44,10 +44,10 @@ type AutoscalingGroupParameters struct {
 	CapacityRebalance *bool `json:"capacityRebalance,omitempty" tf:"capacity_rebalance,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DefaultCooldown *int64 `json:"defaultCooldown,omitempty" tf:"default_cooldown,omitempty"`
+	DefaultCooldown *float64 `json:"defaultCooldown,omitempty" tf:"default_cooldown,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DesiredCapacity *int64 `json:"desiredCapacity,omitempty" tf:"desired_capacity,omitempty"`
+	DesiredCapacity *float64 `json:"desiredCapacity,omitempty" tf:"desired_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	EnabledMetrics []*string `json:"enabledMetrics,omitempty" tf:"enabled_metrics,omitempty"`
@@ -59,7 +59,7 @@ type AutoscalingGroupParameters struct {
 	ForceDeleteWarmPool *bool `json:"forceDeleteWarmPool,omitempty" tf:"force_delete_warm_pool,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	HealthCheckGracePeriod *int64 `json:"healthCheckGracePeriod,omitempty" tf:"health_check_grace_period,omitempty"`
+	HealthCheckGracePeriod *float64 `json:"healthCheckGracePeriod,omitempty" tf:"health_check_grace_period,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	HealthCheckType *string `json:"healthCheckType,omitempty" tf:"health_check_type,omitempty"`
@@ -77,19 +77,19 @@ type AutoscalingGroupParameters struct {
 	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate,omitempty" tf:"launch_template,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaxInstanceLifetime *int64 `json:"maxInstanceLifetime,omitempty" tf:"max_instance_lifetime,omitempty"`
+	MaxInstanceLifetime *float64 `json:"maxInstanceLifetime,omitempty" tf:"max_instance_lifetime,omitempty"`
 
 	// +kubebuilder:validation:Required
-	MaxSize *int64 `json:"maxSize" tf:"max_size,omitempty"`
+	MaxSize *float64 `json:"maxSize" tf:"max_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MetricsGranularity *string `json:"metricsGranularity,omitempty" tf:"metrics_granularity,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MinELBCapacity *int64 `json:"minElbCapacity,omitempty" tf:"min_elb_capacity,omitempty"`
+	MinELBCapacity *float64 `json:"minElbCapacity,omitempty" tf:"min_elb_capacity,omitempty"`
 
 	// +kubebuilder:validation:Required
-	MinSize *int64 `json:"minSize" tf:"min_size,omitempty"`
+	MinSize *float64 `json:"minSize" tf:"min_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MixedInstancesPolicy []MixedInstancesPolicyParameters `json:"mixedInstancesPolicy,omitempty" tf:"mixed_instances_policy,omitempty"`
@@ -142,7 +142,7 @@ type AutoscalingGroupParameters struct {
 	WaitForCapacityTimeout *string `json:"waitForCapacityTimeout,omitempty" tf:"wait_for_capacity_timeout,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	WaitForELBCapacity *int64 `json:"waitForElbCapacity,omitempty" tf:"wait_for_elb_capacity,omitempty"`
+	WaitForELBCapacity *float64 `json:"waitForElbCapacity,omitempty" tf:"wait_for_elb_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	WarmPool []WarmPoolParameters `json:"warmPool,omitempty" tf:"warm_pool,omitempty"`
@@ -157,7 +157,7 @@ type InitialLifecycleHookParameters struct {
 	DefaultResult *string `json:"defaultResult,omitempty" tf:"default_result,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	HeartbeatTimeout *int64 `json:"heartbeatTimeout,omitempty" tf:"heartbeat_timeout,omitempty"`
+	HeartbeatTimeout *float64 `json:"heartbeatTimeout,omitempty" tf:"heartbeat_timeout,omitempty"`
 
 	// +kubebuilder:validation:Required
 	LifecycleTransition *string `json:"lifecycleTransition" tf:"lifecycle_transition,omitempty"`
@@ -199,16 +199,16 @@ type InstancesDistributionParameters struct {
 	OnDemandAllocationStrategy *string `json:"onDemandAllocationStrategy,omitempty" tf:"on_demand_allocation_strategy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	OnDemandBaseCapacity *int64 `json:"onDemandBaseCapacity,omitempty" tf:"on_demand_base_capacity,omitempty"`
+	OnDemandBaseCapacity *float64 `json:"onDemandBaseCapacity,omitempty" tf:"on_demand_base_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	OnDemandPercentageAboveBaseCapacity *int64 `json:"onDemandPercentageAboveBaseCapacity,omitempty" tf:"on_demand_percentage_above_base_capacity,omitempty"`
+	OnDemandPercentageAboveBaseCapacity *float64 `json:"onDemandPercentageAboveBaseCapacity,omitempty" tf:"on_demand_percentage_above_base_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SpotAllocationStrategy *string `json:"spotAllocationStrategy,omitempty" tf:"spot_allocation_strategy,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SpotInstancePools *int64 `json:"spotInstancePools,omitempty" tf:"spot_instance_pools,omitempty"`
+	SpotInstancePools *float64 `json:"spotInstancePools,omitempty" tf:"spot_instance_pools,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SpotMaxPrice *string `json:"spotMaxPrice,omitempty" tf:"spot_max_price,omitempty"`
@@ -307,7 +307,7 @@ type PreferencesParameters struct {
 	InstanceWarmup *string `json:"instanceWarmup,omitempty" tf:"instance_warmup,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MinHealthyPercentage *int64 `json:"minHealthyPercentage,omitempty" tf:"min_healthy_percentage,omitempty"`
+	MinHealthyPercentage *float64 `json:"minHealthyPercentage,omitempty" tf:"min_healthy_percentage,omitempty"`
 }
 
 type TagObservation struct {
@@ -331,10 +331,10 @@ type WarmPoolObservation struct {
 type WarmPoolParameters struct {
 
 	// +kubebuilder:validation:Optional
-	MaxGroupPreparedCapacity *int64 `json:"maxGroupPreparedCapacity,omitempty" tf:"max_group_prepared_capacity,omitempty"`
+	MaxGroupPreparedCapacity *float64 `json:"maxGroupPreparedCapacity,omitempty" tf:"max_group_prepared_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MinSize *int64 `json:"minSize,omitempty" tf:"min_size,omitempty"`
+	MinSize *float64 `json:"minSize,omitempty" tf:"min_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PoolState *string `json:"poolState,omitempty" tf:"pool_state,omitempty"`

@@ -145,8 +145,7 @@ spec:
               atProvider:
                 properties:
                   allocatedStorage:
-                    format: int64
-                    type: integer
+                    type: number
                   availabilityZones:
                     items:
                       type: string
@@ -164,8 +163,7 @@ spec:
                   licenseModel:
                     type: string
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   snapshotType:
                     type: string
                   sourceDbClusterSnapshotArn:

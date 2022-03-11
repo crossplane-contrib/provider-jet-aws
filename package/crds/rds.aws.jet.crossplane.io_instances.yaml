@@ -64,8 +64,7 @@ spec:
               forProvider:
                 properties:
                   allocatedStorage:
-                    format: int64
-                    type: integer
+                    type: number
                   allowMajorVersionUpgrade:
                     type: boolean
                   applyImmediately:
@@ -75,8 +74,7 @@ spec:
                   availabilityZone:
                     type: string
                   backupRetentionPeriod:
-                    format: int64
-                    type: integer
+                    type: number
                   backupWindow:
                     type: string
                   caCertIdentifier:
@@ -112,8 +110,7 @@ spec:
                   instanceClass:
                     type: string
                   iops:
-                    format: int64
-                    type: integer
+                    type: number
                   kmsKeyId:
                     type: string
                   kmsKeyIdRef:
@@ -144,11 +141,9 @@ spec:
                   maintenanceWindow:
                     type: string
                   maxAllocatedStorage:
-                    format: int64
-                    type: integer
+                    type: number
                   monitoringInterval:
-                    format: int64
-                    type: integer
+                    type: number
                   monitoringRoleArn:
                     type: string
                   multiAz:
@@ -230,11 +225,9 @@ spec:
                         type: object
                     type: object
                   performanceInsightsRetentionPeriod:
-                    format: int64
-                    type: integer
+                    type: number
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   publiclyAccessible:
                     type: boolean
                   region:
@@ -455,6 +448,8 @@ spec:
                   arn:
                     type: string
                   endpoint:
+                    type: string
+                  engineVersionActual:
                     type: string
                   hostedZoneId:
                     type: string

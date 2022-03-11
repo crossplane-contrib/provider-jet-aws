@@ -70,8 +70,7 @@ spec:
                   blockOverrideDomain:
                     type: string
                   blockOverrideTtl:
-                    format: int64
-                    type: integer
+                    type: number
                   blockResponse:
                     type: string
                   firewallDomainListId:
@@ -81,8 +80,7 @@ spec:
                   name:
                     type: string
                   priority:
-                    format: int64
-                    type: integer
+                    type: number
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.

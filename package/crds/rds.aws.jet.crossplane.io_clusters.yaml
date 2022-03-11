@@ -72,11 +72,9 @@ spec:
                       type: string
                     type: array
                   backtrackWindow:
-                    format: int64
-                    type: integer
+                    type: number
                   backupRetentionPeriod:
-                    format: int64
-                    type: integer
+                    type: number
                   clusterMembers:
                     items:
                       type: string
@@ -136,8 +134,7 @@ spec:
                   masterUsername:
                     type: string
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   preferredBackupWindow:
                     type: string
                   preferredMaintenanceWindow:
@@ -234,14 +231,11 @@ spec:
                         autoPause:
                           type: boolean
                         maxCapacity:
-                          format: int64
-                          type: integer
+                          type: number
                         minCapacity:
-                          format: int64
-                          type: integer
+                          type: number
                         secondsUntilAutoPause:
-                          format: int64
-                          type: integer
+                          type: number
                         timeoutAction:
                           type: string
                       type: object

@@ -70,8 +70,7 @@ spec:
                       type: string
                     type: array
                   backupRetentionPeriod:
-                    format: int64
-                    type: integer
+                    type: number
                   copyTagsToSnapshot:
                     type: boolean
                   deletionProtection:
@@ -193,8 +192,7 @@ spec:
                         type: object
                     type: object
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   preferredBackupWindow:
                     type: string
                   preferredMaintenanceWindow:

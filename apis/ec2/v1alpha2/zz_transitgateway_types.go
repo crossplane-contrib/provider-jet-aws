@@ -42,7 +42,7 @@ type TransitGatewayObservation struct {
 type TransitGatewayParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AmazonSideAsn *int64 `json:"amazonSideAsn,omitempty" tf:"amazon_side_asn,omitempty"`
+	AmazonSideAsn *float64 `json:"amazonSideAsn,omitempty" tf:"amazon_side_asn,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	AutoAcceptSharedAttachments *string `json:"autoAcceptSharedAttachments,omitempty" tf:"auto_accept_shared_attachments,omitempty"`

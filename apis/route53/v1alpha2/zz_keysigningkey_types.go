@@ -28,7 +28,7 @@ import (
 type KeySigningKeyObservation struct {
 	DigestAlgorithmMnemonic *string `json:"digestAlgorithmMnemonic,omitempty" tf:"digest_algorithm_mnemonic,omitempty"`
 
-	DigestAlgorithmType *int64 `json:"digestAlgorithmType,omitempty" tf:"digest_algorithm_type,omitempty"`
+	DigestAlgorithmType *float64 `json:"digestAlgorithmType,omitempty" tf:"digest_algorithm_type,omitempty"`
 
 	DigestValue *string `json:"digestValue,omitempty" tf:"digest_value,omitempty"`
 
@@ -36,17 +36,17 @@ type KeySigningKeyObservation struct {
 
 	DsRecord *string `json:"dsRecord,omitempty" tf:"ds_record,omitempty"`
 
-	Flag *int64 `json:"flag,omitempty" tf:"flag,omitempty"`
+	Flag *float64 `json:"flag,omitempty" tf:"flag,omitempty"`
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	KeyTag *int64 `json:"keyTag,omitempty" tf:"key_tag,omitempty"`
+	KeyTag *float64 `json:"keyTag,omitempty" tf:"key_tag,omitempty"`
 
 	PublicKey *string `json:"publicKey,omitempty" tf:"public_key,omitempty"`
 
 	SigningAlgorithmMnemonic *string `json:"signingAlgorithmMnemonic,omitempty" tf:"signing_algorithm_mnemonic,omitempty"`
 
-	SigningAlgorithmType *int64 `json:"signingAlgorithmType,omitempty" tf:"signing_algorithm_type,omitempty"`
+	SigningAlgorithmType *float64 `json:"signingAlgorithmType,omitempty" tf:"signing_algorithm_type,omitempty"`
 }
 
 type KeySigningKeyParameters struct {

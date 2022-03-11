@@ -82,8 +82,7 @@ spec:
                   notificationTopicArn:
                     type: string
                   numCacheNodes:
-                    format: int64
-                    type: integer
+                    type: number
                   parameterGroupName:
                     type: string
                   parameterGroupNameRef:
@@ -110,8 +109,7 @@ spec:
                         type: object
                     type: object
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   preferredAvailabilityZones:
                     items:
                       type: string
@@ -137,8 +135,7 @@ spec:
                   snapshotName:
                     type: string
                   snapshotRetentionLimit:
-                    format: int64
-                    type: integer
+                    type: number
                   snapshotWindow:
                     type: string
                   subnetGroupName:
@@ -211,8 +208,7 @@ spec:
                         id:
                           type: string
                         port:
-                          format: int64
-                          type: integer
+                          type: number
                       type: object
                     type: array
                   clusterAddress:

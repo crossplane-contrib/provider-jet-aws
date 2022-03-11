@@ -70,11 +70,9 @@ spec:
                   capacityRebalance:
                     type: boolean
                   defaultCooldown:
-                    format: int64
-                    type: integer
+                    type: number
                   desiredCapacity:
-                    format: int64
-                    type: integer
+                    type: number
                   enabledMetrics:
                     items:
                       type: string
@@ -84,8 +82,7 @@ spec:
                   forceDeleteWarmPool:
                     type: boolean
                   healthCheckGracePeriod:
-                    format: int64
-                    type: integer
+                    type: number
                   healthCheckType:
                     type: string
                   initialLifecycleHook:
@@ -94,8 +91,7 @@ spec:
                         defaultResult:
                           type: string
                         heartbeatTimeout:
-                          format: int64
-                          type: integer
+                          type: number
                         lifecycleTransition:
                           type: string
                         name:
@@ -120,8 +116,7 @@ spec:
                               instanceWarmup:
                                 type: string
                               minHealthyPercentage:
-                                format: int64
-                                type: integer
+                                type: number
                             type: object
                           type: array
                         strategy:
@@ -148,19 +143,15 @@ spec:
                       type: object
                     type: array
                   maxInstanceLifetime:
-                    format: int64
-                    type: integer
+                    type: number
                   maxSize:
-                    format: int64
-                    type: integer
+                    type: number
                   metricsGranularity:
                     type: string
                   minElbCapacity:
-                    format: int64
-                    type: integer
+                    type: number
                   minSize:
-                    format: int64
-                    type: integer
+                    type: number
                   mixedInstancesPolicy:
                     items:
                       properties:
@@ -170,16 +161,13 @@ spec:
                               onDemandAllocationStrategy:
                                 type: string
                               onDemandBaseCapacity:
-                                format: int64
-                                type: integer
+                                type: number
                               onDemandPercentageAboveBaseCapacity:
-                                format: int64
-                                type: integer
+                                type: number
                               spotAllocationStrategy:
                                 type: string
                               spotInstancePools:
-                                format: int64
-                                type: integer
+                                type: number
                               spotMaxPrice:
                                 type: string
                             type: object
@@ -320,17 +308,14 @@ spec:
                   waitForCapacityTimeout:
                     type: string
                   waitForElbCapacity:
-                    format: int64
-                    type: integer
+                    type: number
                   warmPool:
                     items:
                       properties:
                         maxGroupPreparedCapacity:
-                          format: int64
-                          type: integer
+                          type: number
                         minSize:
-                          format: int64
-                          type: integer
+                          type: number
                         poolState:
                           type: string
                       type: object

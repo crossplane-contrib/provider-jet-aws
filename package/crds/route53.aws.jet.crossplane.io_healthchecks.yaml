@@ -64,8 +64,7 @@ spec:
               forProvider:
                 properties:
                   childHealthThreshold:
-                    format: int64
-                    type: integer
+                    type: number
                   childHealthchecks:
                     items:
                       type: string
@@ -79,8 +78,7 @@ spec:
                   enableSni:
                     type: boolean
                   failureThreshold:
-                    format: int64
-                    type: integer
+                    type: number
                   fqdn:
                     type: string
                   insufficientDataHealthStatus:
@@ -92,8 +90,7 @@ spec:
                   measureLatency:
                     type: boolean
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   referenceName:
                     type: string
                   region:
@@ -105,8 +102,7 @@ spec:
                       type: string
                     type: array
                   requestInterval:
-                    format: int64
-                    type: integer
+                    type: number
                   resourcePath:
                     type: string
                   searchString:
@@ -170,6 +166,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  arn:
+                    type: string
                   id:
                     type: string
                   tagsAll:

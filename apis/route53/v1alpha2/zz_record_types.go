@@ -124,7 +124,7 @@ type RecordParameters struct {
 	SetIdentifier *string `json:"setIdentifier,omitempty" tf:"set_identifier,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TTL *int64 `json:"ttl,omitempty" tf:"ttl,omitempty"`
+	TTL *float64 `json:"ttl,omitempty" tf:"ttl,omitempty"`
 
 	// +kubebuilder:validation:Required
 	Type *string `json:"type" tf:"type,omitempty"`
@@ -149,7 +149,7 @@ type WeightedRoutingPolicyObservation struct {
 type WeightedRoutingPolicyParameters struct {
 
 	// +kubebuilder:validation:Required
-	Weight *int64 `json:"weight" tf:"weight,omitempty"`
+	Weight *float64 `json:"weight" tf:"weight,omitempty"`
 }
 
 // RecordSpec defines the desired state of Record

@@ -76,7 +76,7 @@ type EFSVolumeConfigurationParameters struct {
 	TransitEncryption *string `json:"transitEncryption,omitempty" tf:"transit_encryption,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TransitEncryptionPort *int64 `json:"transitEncryptionPort,omitempty" tf:"transit_encryption_port,omitempty"`
+	TransitEncryptionPort *float64 `json:"transitEncryptionPort,omitempty" tf:"transit_encryption_port,omitempty"`
 }
 
 type EphemeralStorageObservation struct {
@@ -85,7 +85,7 @@ type EphemeralStorageObservation struct {
 type EphemeralStorageParameters struct {
 
 	// +kubebuilder:validation:Required
-	SizeInGib *int64 `json:"sizeInGib" tf:"size_in_gib,omitempty"`
+	SizeInGib *float64 `json:"sizeInGib" tf:"size_in_gib,omitempty"`
 }
 
 type FSXWindowsFileServerVolumeConfigurationAuthorizationConfigObservation struct {
@@ -147,7 +147,7 @@ type TaskDefinitionObservation struct {
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Revision *int64 `json:"revision,omitempty" tf:"revision,omitempty"`
+	Revision *float64 `json:"revision,omitempty" tf:"revision,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }

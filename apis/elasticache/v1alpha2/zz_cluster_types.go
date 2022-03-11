@@ -32,7 +32,7 @@ type CacheNodesObservation struct {
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 }
 
 type CacheNodesParameters struct {
@@ -84,7 +84,7 @@ type ClusterParameters struct {
 	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	NumCacheNodes *int64 `json:"numCacheNodes,omitempty" tf:"num_cache_nodes,omitempty"`
+	NumCacheNodes *float64 `json:"numCacheNodes,omitempty" tf:"num_cache_nodes,omitempty"`
 
 	// +crossplane:generate:reference:type=ParameterGroup
 	// +kubebuilder:validation:Optional
@@ -97,7 +97,7 @@ type ClusterParameters struct {
 	ParameterGroupNameSelector *v1.Selector `json:"parameterGroupNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PreferredAvailabilityZones []*string `json:"preferredAvailabilityZones,omitempty" tf:"preferred_availability_zones,omitempty"`
@@ -123,7 +123,7 @@ type ClusterParameters struct {
 	SnapshotName *string `json:"snapshotName,omitempty" tf:"snapshot_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SnapshotRetentionLimit *int64 `json:"snapshotRetentionLimit,omitempty" tf:"snapshot_retention_limit,omitempty"`
+	SnapshotRetentionLimit *float64 `json:"snapshotRetentionLimit,omitempty" tf:"snapshot_retention_limit,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SnapshotWindow *string `json:"snapshotWindow,omitempty" tf:"snapshot_window,omitempty"`

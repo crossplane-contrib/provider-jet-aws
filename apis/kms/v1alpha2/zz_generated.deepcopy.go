@@ -144,7 +144,7 @@ func (in *KeyParameters) DeepCopyInto(out *KeyParameters) {
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.Description != nil {

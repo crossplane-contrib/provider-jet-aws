@@ -64,19 +64,16 @@ spec:
               forProvider:
                 properties:
                   deregistrationDelay:
-                    format: int64
-                    type: integer
+                    type: number
                   healthCheck:
                     items:
                       properties:
                         enabled:
                           type: boolean
                         healthyThreshold:
-                          format: int64
-                          type: integer
+                          type: number
                         interval:
-                          format: int64
-                          type: integer
+                          type: number
                         matcher:
                           type: string
                         path:
@@ -86,11 +83,9 @@ spec:
                         protocol:
                           type: string
                         timeout:
-                          format: int64
-                          type: integer
+                          type: number
                         unhealthyThreshold:
-                          format: int64
-                          type: integer
+                          type: number
                       type: object
                     type: array
                   lambdaMultiValueHeadersEnabled:
@@ -100,8 +95,7 @@ spec:
                   name:
                     type: string
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   preserveClientIp:
                     type: string
                   protocol:
@@ -115,14 +109,12 @@ spec:
                       be created in.
                     type: string
                   slowStart:
-                    format: int64
-                    type: integer
+                    type: number
                   stickiness:
                     items:
                       properties:
                         cookieDuration:
-                          format: int64
-                          type: integer
+                          type: number
                         cookieName:
                           type: string
                         enabled:

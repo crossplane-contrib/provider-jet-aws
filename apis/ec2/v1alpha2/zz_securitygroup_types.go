@@ -36,8 +36,8 @@ type EgressParameters struct {
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	// +kubebuilder:validation:Required
-	FromPort *int64 `json:"fromPort" tf:"from_port"`
+	// +kubebuilder:validation:Optional
+	FromPort *float64 `json:"fromPort,omitempty" tf:"from_port"`
 
 	// +kubebuilder:validation:Optional
 	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
@@ -45,8 +45,8 @@ type EgressParameters struct {
 	// +kubebuilder:validation:Optional
 	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
-	// +kubebuilder:validation:Required
-	Protocol *string `json:"protocol" tf:"protocol"`
+	// +kubebuilder:validation:Optional
+	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
 
 	// +kubebuilder:validation:Optional
 	SecurityGroupRefs []v1.Reference `json:"securityGroupRefs,omitempty" tf:"-"`
@@ -63,8 +63,8 @@ type EgressParameters struct {
 	// +kubebuilder:validation:Optional
 	Self *bool `json:"self,omitempty" tf:"self"`
 
-	// +kubebuilder:validation:Required
-	ToPort *int64 `json:"toPort" tf:"to_port"`
+	// +kubebuilder:validation:Optional
+	ToPort *float64 `json:"toPort,omitempty" tf:"to_port"`
 }
 
 type IngressObservation struct {
@@ -78,8 +78,8 @@ type IngressParameters struct {
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description"`
 
-	// +kubebuilder:validation:Required
-	FromPort *int64 `json:"fromPort" tf:"from_port"`
+	// +kubebuilder:validation:Optional
+	FromPort *float64 `json:"fromPort,omitempty" tf:"from_port"`
 
 	// +kubebuilder:validation:Optional
 	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
@@ -87,8 +87,8 @@ type IngressParameters struct {
 	// +kubebuilder:validation:Optional
 	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
-	// +kubebuilder:validation:Required
-	Protocol *string `json:"protocol" tf:"protocol"`
+	// +kubebuilder:validation:Optional
+	Protocol *string `json:"protocol,omitempty" tf:"protocol"`
 
 	// +kubebuilder:validation:Optional
 	SecurityGroupRefs []v1.Reference `json:"securityGroupRefs,omitempty" tf:"-"`
@@ -105,8 +105,8 @@ type IngressParameters struct {
 	// +kubebuilder:validation:Optional
 	Self *bool `json:"self,omitempty" tf:"self"`
 
-	// +kubebuilder:validation:Required
-	ToPort *int64 `json:"toPort" tf:"to_port"`
+	// +kubebuilder:validation:Optional
+	ToPort *float64 `json:"toPort,omitempty" tf:"to_port"`
 }
 
 type SecurityGroupObservation struct {

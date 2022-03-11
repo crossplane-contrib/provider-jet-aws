@@ -41,7 +41,7 @@ type FirewallRuleParameters struct {
 	BlockOverrideDomain *string `json:"blockOverrideDomain,omitempty" tf:"block_override_domain,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	BlockOverrideTTL *int64 `json:"blockOverrideTtl,omitempty" tf:"block_override_ttl,omitempty"`
+	BlockOverrideTTL *float64 `json:"blockOverrideTtl,omitempty" tf:"block_override_ttl,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	BlockResponse *string `json:"blockResponse,omitempty" tf:"block_response,omitempty"`
@@ -56,7 +56,7 @@ type FirewallRuleParameters struct {
 	Name *string `json:"name" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Required
-	Priority *int64 `json:"priority" tf:"priority,omitempty"`
+	Priority *float64 `json:"priority" tf:"priority,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-

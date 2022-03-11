@@ -75,8 +75,7 @@ spec:
                         description:
                           type: string
                         fromPort:
-                          format: int64
-                          type: integer
+                          type: number
                         ipv6CidrBlocks:
                           items:
                             type: string
@@ -120,12 +119,7 @@ spec:
                         self:
                           type: boolean
                         toPort:
-                          format: int64
-                          type: integer
-                      required:
-                      - fromPort
-                      - protocol
-                      - toPort
+                          type: number
                       type: object
                     type: array
                   ingress:
@@ -138,8 +132,7 @@ spec:
                         description:
                           type: string
                         fromPort:
-                          format: int64
-                          type: integer
+                          type: number
                         ipv6CidrBlocks:
                           items:
                             type: string
@@ -183,12 +176,7 @@ spec:
                         self:
                           type: boolean
                         toPort:
-                          format: int64
-                          type: integer
-                      required:
-                      - fromPort
-                      - protocol
-                      - toPort
+                          type: number
                       type: object
                     type: array
                   name:

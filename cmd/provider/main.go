@@ -27,7 +27,6 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
 	"github.com/crossplane/terrajet/pkg/terraform"
-	tf "github.com/terraform-providers/terraform-provider-aws/aws"
 	"gopkg.in/alecthomas/kingpin.v2"
 	"k8s.io/client-go/tools/leaderelection/resourcelock"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -83,7 +82,7 @@ func main() {
 			MaxConcurrentReconciles: 1,
 			Features:                &feature.Flags{},
 		},
-		Provider:       config.GetProvider(tf.Provider()),
+		Provider:       config.GetProvider(),
 		WorkspaceStore: terraform.NewWorkspaceStore(log),
 		SetupFn:        clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion),
 	}

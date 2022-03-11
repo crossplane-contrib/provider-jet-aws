@@ -177,8 +177,7 @@ spec:
                   digestAlgorithmMnemonic:
                     type: string
                   digestAlgorithmType:
-                    format: int64
-                    type: integer
+                    type: number
                   digestValue:
                     type: string
                   dnskeyRecord:
@@ -186,20 +185,17 @@ spec:
                   dsRecord:
                     type: string
                   flag:
-                    format: int64
-                    type: integer
+                    type: number
                   id:
                     type: string
                   keyTag:
-                    format: int64
-                    type: integer
+                    type: number
                   publicKey:
                     type: string
                   signingAlgorithmMnemonic:
                     type: string
                   signingAlgorithmType:
-                    format: int64
-                    type: integer
+                    type: number
                 type: object
               conditions:
                 description: Conditions of the resource.

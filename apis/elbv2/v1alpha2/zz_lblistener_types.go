@@ -43,7 +43,7 @@ type AuthenticateCognitoParameters struct {
 	SessionCookieName *string `json:"sessionCookieName,omitempty" tf:"session_cookie_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout,omitempty"`
+	SessionTimeout *float64 `json:"sessionTimeout,omitempty" tf:"session_timeout,omitempty"`
 
 	// +kubebuilder:validation:Required
 	UserPoolArn *string `json:"userPoolArn" tf:"user_pool_arn,omitempty"`
@@ -85,7 +85,7 @@ type AuthenticateOidcParameters struct {
 	SessionCookieName *string `json:"sessionCookieName,omitempty" tf:"session_cookie_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SessionTimeout *int64 `json:"sessionTimeout,omitempty" tf:"session_timeout,omitempty"`
+	SessionTimeout *float64 `json:"sessionTimeout,omitempty" tf:"session_timeout,omitempty"`
 
 	// +kubebuilder:validation:Required
 	TokenEndpoint *string `json:"tokenEndpoint" tf:"token_endpoint,omitempty"`
@@ -112,7 +112,7 @@ type DefaultActionParameters struct {
 	Forward []ForwardParameters `json:"forward,omitempty" tf:"forward,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Order *int64 `json:"order,omitempty" tf:"order,omitempty"`
+	Order *float64 `json:"order,omitempty" tf:"order,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Redirect []RedirectParameters `json:"redirect,omitempty" tf:"redirect,omitempty"`
@@ -188,7 +188,7 @@ type LBListenerParameters struct {
 	LoadBalancerArnSelector *v1.Selector `json:"loadBalancerArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
@@ -235,7 +235,7 @@ type StickinessObservation struct {
 type StickinessParameters struct {
 
 	// +kubebuilder:validation:Required
-	Duration *int64 `json:"duration" tf:"duration,omitempty"`
+	Duration *float64 `json:"duration" tf:"duration,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
@@ -257,7 +257,7 @@ type TargetGroupParameters struct {
 	ArnSelector *v1.Selector `json:"arnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	Weight *int64 `json:"weight,omitempty" tf:"weight,omitempty"`
+	Weight *float64 `json:"weight,omitempty" tf:"weight,omitempty"`
 }
 
 // LBListenerSpec defines the desired state of LBListener

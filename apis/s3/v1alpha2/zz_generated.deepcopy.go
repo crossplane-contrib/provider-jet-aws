@@ -456,7 +456,7 @@ func (in *CorsRuleParameters) DeepCopyInto(out *CorsRuleParameters) {
 	}
 	if in.MaxAgeSeconds != nil {
 		in, out := &in.MaxAgeSeconds, &out.MaxAgeSeconds
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 }
@@ -491,7 +491,7 @@ func (in *DefaultRetentionParameters) DeepCopyInto(out *DefaultRetentionParamete
 	*out = *in
 	if in.Days != nil {
 		in, out := &in.Days, &out.Days
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.Mode != nil {
@@ -501,7 +501,7 @@ func (in *DefaultRetentionParameters) DeepCopyInto(out *DefaultRetentionParamete
 	}
 	if in.Years != nil {
 		in, out := &in.Years, &out.Years
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 }
@@ -598,7 +598,7 @@ func (in *ExpirationParameters) DeepCopyInto(out *ExpirationParameters) {
 	}
 	if in.Days != nil {
 		in, out := &in.Days, &out.Days
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.ExpiredObjectDeleteMarker != nil {
@@ -744,7 +744,7 @@ func (in *LifecycleRuleParameters) DeepCopyInto(out *LifecycleRuleParameters) {
 	*out = *in
 	if in.AbortIncompleteMultipartUploadDays != nil {
 		in, out := &in.AbortIncompleteMultipartUploadDays, &out.AbortIncompleteMultipartUploadDays
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.Enabled != nil {
@@ -877,7 +877,7 @@ func (in *NoncurrentVersionExpirationParameters) DeepCopyInto(out *NoncurrentVer
 	*out = *in
 	if in.Days != nil {
 		in, out := &in.Days, &out.Days
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 }
@@ -912,7 +912,7 @@ func (in *NoncurrentVersionTransitionParameters) DeepCopyInto(out *NoncurrentVer
 	*out = *in
 	if in.Days != nil {
 		in, out := &in.Days, &out.Days
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.StorageClass != nil {
@@ -1102,7 +1102,7 @@ func (in *RulesParameters) DeepCopyInto(out *RulesParameters) {
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.SourceSelectionCriteria != nil {
@@ -1305,7 +1305,7 @@ func (in *TransitionParameters) DeepCopyInto(out *TransitionParameters) {
 	}
 	if in.Days != nil {
 		in, out := &in.Days, &out.Days
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.StorageClass != nil {

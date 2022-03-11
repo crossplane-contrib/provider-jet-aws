@@ -78,13 +78,13 @@ type DefaultCapacityProviderStrategyObservation struct {
 type DefaultCapacityProviderStrategyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Base *int64 `json:"base,omitempty" tf:"base,omitempty"`
+	Base *float64 `json:"base,omitempty" tf:"base,omitempty"`
 
 	// +kubebuilder:validation:Required
 	CapacityProvider *string `json:"capacityProvider" tf:"capacity_provider,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Weight *int64 `json:"weight,omitempty" tf:"weight,omitempty"`
+	Weight *float64 `json:"weight,omitempty" tf:"weight,omitempty"`
 }
 
 type ExecuteCommandConfigurationObservation struct {

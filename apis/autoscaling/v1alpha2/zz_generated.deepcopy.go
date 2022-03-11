@@ -321,12 +321,12 @@ func (in *AutoscalingGroupParameters) DeepCopyInto(out *AutoscalingGroupParamete
 	}
 	if in.DefaultCooldown != nil {
 		in, out := &in.DefaultCooldown, &out.DefaultCooldown
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.DesiredCapacity != nil {
 		in, out := &in.DesiredCapacity, &out.DesiredCapacity
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.EnabledMetrics != nil {
@@ -352,7 +352,7 @@ func (in *AutoscalingGroupParameters) DeepCopyInto(out *AutoscalingGroupParamete
 	}
 	if in.HealthCheckGracePeriod != nil {
 		in, out := &in.HealthCheckGracePeriod, &out.HealthCheckGracePeriod
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.HealthCheckType != nil {
@@ -388,12 +388,12 @@ func (in *AutoscalingGroupParameters) DeepCopyInto(out *AutoscalingGroupParamete
 	}
 	if in.MaxInstanceLifetime != nil {
 		in, out := &in.MaxInstanceLifetime, &out.MaxInstanceLifetime
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.MaxSize != nil {
 		in, out := &in.MaxSize, &out.MaxSize
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.MetricsGranularity != nil {
@@ -403,12 +403,12 @@ func (in *AutoscalingGroupParameters) DeepCopyInto(out *AutoscalingGroupParamete
 	}
 	if in.MinELBCapacity != nil {
 		in, out := &in.MinELBCapacity, &out.MinELBCapacity
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.MinSize != nil {
 		in, out := &in.MinSize, &out.MinSize
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.MixedInstancesPolicy != nil {
@@ -526,7 +526,7 @@ func (in *AutoscalingGroupParameters) DeepCopyInto(out *AutoscalingGroupParamete
 	}
 	if in.WaitForELBCapacity != nil {
 		in, out := &in.WaitForELBCapacity, &out.WaitForELBCapacity
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.WarmPool != nil {
@@ -607,7 +607,7 @@ func (in *InitialLifecycleHookParameters) DeepCopyInto(out *InitialLifecycleHook
 	}
 	if in.HeartbeatTimeout != nil {
 		in, out := &in.HeartbeatTimeout, &out.HeartbeatTimeout
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.LifecycleTransition != nil {
@@ -725,12 +725,12 @@ func (in *InstancesDistributionParameters) DeepCopyInto(out *InstancesDistributi
 	}
 	if in.OnDemandBaseCapacity != nil {
 		in, out := &in.OnDemandBaseCapacity, &out.OnDemandBaseCapacity
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.OnDemandPercentageAboveBaseCapacity != nil {
 		in, out := &in.OnDemandPercentageAboveBaseCapacity, &out.OnDemandPercentageAboveBaseCapacity
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.SpotAllocationStrategy != nil {
@@ -740,7 +740,7 @@ func (in *InstancesDistributionParameters) DeepCopyInto(out *InstancesDistributi
 	}
 	if in.SpotInstancePools != nil {
 		in, out := &in.SpotInstancePools, &out.SpotInstancePools
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.SpotMaxPrice != nil {
@@ -1055,7 +1055,7 @@ func (in *PreferencesParameters) DeepCopyInto(out *PreferencesParameters) {
 	}
 	if in.MinHealthyPercentage != nil {
 		in, out := &in.MinHealthyPercentage, &out.MinHealthyPercentage
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 }
@@ -1135,12 +1135,12 @@ func (in *WarmPoolParameters) DeepCopyInto(out *WarmPoolParameters) {
 	*out = *in
 	if in.MaxGroupPreparedCapacity != nil {
 		in, out := &in.MaxGroupPreparedCapacity, &out.MaxGroupPreparedCapacity
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.MinSize != nil {
 		in, out := &in.MinSize, &out.MinSize
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.PoolState != nil {

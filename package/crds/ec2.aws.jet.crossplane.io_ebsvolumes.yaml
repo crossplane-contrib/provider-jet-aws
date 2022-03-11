@@ -68,8 +68,7 @@ spec:
                   encrypted:
                     type: boolean
                   iops:
-                    format: int64
-                    type: integer
+                    type: number
                   kmsKeyId:
                     type: string
                   kmsKeyIdRef:
@@ -104,8 +103,7 @@ spec:
                       be created in.
                     type: string
                   size:
-                    format: int64
-                    type: integer
+                    type: number
                   snapshotId:
                     type: string
                   tags:
@@ -113,8 +111,7 @@ spec:
                       type: string
                     type: object
                   throughput:
-                    format: int64
-                    type: integer
+                    type: number
                   type:
                     type: string
                 required:

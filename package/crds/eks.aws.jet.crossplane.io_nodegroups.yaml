@@ -93,8 +93,7 @@ spec:
                         type: object
                     type: object
                   diskSize:
-                    format: int64
-                    type: integer
+                    type: number
                   forceUpdateVersion:
                     type: boolean
                   instanceTypes:
@@ -190,14 +189,11 @@ spec:
                     items:
                       properties:
                         desiredSize:
-                          format: int64
-                          type: integer
+                          type: number
                         maxSize:
-                          format: int64
-                          type: integer
+                          type: number
                         minSize:
-                          format: int64
-                          type: integer
+                          type: number
                       required:
                       - desiredSize
                       - maxSize
@@ -249,6 +245,15 @@ spec:
                       required:
                       - effect
                       - key
+                      type: object
+                    type: array
+                  updateConfig:
+                    items:
+                      properties:
+                        maxUnavailable:
+                          type: number
+                        maxUnavailablePercentage:
+                          type: number
                       type: object
                     type: array
                   version:

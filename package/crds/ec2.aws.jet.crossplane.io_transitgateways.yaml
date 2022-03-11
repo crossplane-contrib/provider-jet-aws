@@ -64,8 +64,7 @@ spec:
               forProvider:
                 properties:
                   amazonSideAsn:
-                    format: int64
-                    type: integer
+                    type: number
                   autoAcceptSharedAttachments:
                     type: string
                   defaultRouteTableAssociation:
