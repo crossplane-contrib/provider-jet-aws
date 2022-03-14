@@ -31,22 +31,22 @@ type EgressObservation struct {
 type EgressParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks,omitempty"`
+	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks"`
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+	Description *string `json:"description,omitempty" tf:"description"`
 
 	// +kubebuilder:validation:Required
-	FromPort *int64 `json:"fromPort" tf:"from_port,omitempty"`
+	FromPort *int64 `json:"fromPort" tf:"from_port"`
 
 	// +kubebuilder:validation:Optional
-	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks,omitempty"`
+	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
 
 	// +kubebuilder:validation:Optional
-	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids,omitempty"`
+	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
 	// +kubebuilder:validation:Required
-	Protocol *string `json:"protocol" tf:"protocol,omitempty"`
+	Protocol *string `json:"protocol" tf:"protocol"`
 
 	// +kubebuilder:validation:Optional
 	SecurityGroupRefs []v1.Reference `json:"securityGroupRefs,omitempty" tf:"-"`
@@ -58,13 +58,13 @@ type EgressParameters struct {
 	// +crossplane:generate:reference:refFieldName=SecurityGroupRefs
 	// +crossplane:generate:reference:selectorFieldName=SecurityGroupSelector
 	// +kubebuilder:validation:Optional
-	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups,omitempty"`
+	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups"`
 
 	// +kubebuilder:validation:Optional
-	Self *bool `json:"self,omitempty" tf:"self,omitempty"`
+	Self *bool `json:"self,omitempty" tf:"self"`
 
 	// +kubebuilder:validation:Required
-	ToPort *int64 `json:"toPort" tf:"to_port,omitempty"`
+	ToPort *int64 `json:"toPort" tf:"to_port"`
 }
 
 type IngressObservation struct {
@@ -73,22 +73,22 @@ type IngressObservation struct {
 type IngressParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks,omitempty"`
+	CidrBlocks []*string `json:"cidrBlocks,omitempty" tf:"cidr_blocks"`
 
 	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+	Description *string `json:"description,omitempty" tf:"description"`
 
 	// +kubebuilder:validation:Required
-	FromPort *int64 `json:"fromPort" tf:"from_port,omitempty"`
+	FromPort *int64 `json:"fromPort" tf:"from_port"`
 
 	// +kubebuilder:validation:Optional
-	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks,omitempty"`
+	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks"`
 
 	// +kubebuilder:validation:Optional
-	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids,omitempty"`
+	PrefixListIds []*string `json:"prefixListIds,omitempty" tf:"prefix_list_ids"`
 
 	// +kubebuilder:validation:Required
-	Protocol *string `json:"protocol" tf:"protocol,omitempty"`
+	Protocol *string `json:"protocol" tf:"protocol"`
 
 	// +kubebuilder:validation:Optional
 	SecurityGroupRefs []v1.Reference `json:"securityGroupRefs,omitempty" tf:"-"`
@@ -100,13 +100,13 @@ type IngressParameters struct {
 	// +crossplane:generate:reference:refFieldName=SecurityGroupRefs
 	// +crossplane:generate:reference:selectorFieldName=SecurityGroupSelector
 	// +kubebuilder:validation:Optional
-	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups,omitempty"`
+	SecurityGroups []*string `json:"securityGroups,omitempty" tf:"security_groups"`
 
 	// +kubebuilder:validation:Optional
-	Self *bool `json:"self,omitempty" tf:"self,omitempty"`
+	Self *bool `json:"self,omitempty" tf:"self"`
 
 	// +kubebuilder:validation:Required
-	ToPort *int64 `json:"toPort" tf:"to_port,omitempty"`
+	ToPort *int64 `json:"toPort" tf:"to_port"`
 }
 
 type SecurityGroupObservation struct {

@@ -83,14 +83,6 @@ cobertura:
 		grep -v zz_ | \
 		$(GOCOVER_COBERTURA) > $(GO_TEST_OUTPUT)/cobertura-coverage.xml
 
-crds.clean:
-	@$(INFO) cleaning generated CRDs
-	@find package/crds -name '*.yaml' -exec sed -i.sed -e '1,2d' {} \; || $(FAIL)
-	@find package/crds -name '*.yaml.sed' -delete || $(FAIL)
-	@$(OK) cleaned generated CRDs
-
-generate.done: crds.clean
-
 # Update the submodules, such as the common build scripts.
 submodules:
 	@git submodule sync
