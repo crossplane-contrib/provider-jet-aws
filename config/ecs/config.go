@@ -32,6 +32,14 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_ecs_cluster", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
+		r.ExternalName.GetExternalNameFn = func(tfstate map[string]interface{}) (string, error) {
+			// expected id format: arn:aws:ecs:us-west-2:123456789123:cluster/example-cluster
+			w := strings.Split(tfstate["id"].(string), "/")
+			if len(w) != 2 {
+				return "", errors.New("terraform ID should be the ARN of the cluster")
+			}
+			return w[len(w)-1], nil
+		}
 		r.References = config.References{
 			"capacity_providers": config.Reference{
 				Type: "CapacityProvider",
