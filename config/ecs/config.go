@@ -58,10 +58,10 @@ func Configure(p *config.Provider) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 		r.ExternalName.GetExternalNameFn = func(tfstate map[string]interface{}) (string, error) {
-			// cluster-name/service-name
+			// expected id format: arn:aws:ecs:us-east-2:123456789123:service/sample-cluster/sample-service
 			w := strings.Split(tfstate["id"].(string), "/")
-			if len(w) != 2 {
-				return "", errors.New("external name should have the following format: cluster-name/service-name")
+			if len(w) != 3 {
+				return "", errors.New("terraform ID should be the ARN of the service")
 			}
 			return w[len(w)-1], nil
 		}
