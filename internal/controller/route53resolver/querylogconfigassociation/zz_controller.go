@@ -21,6 +21,7 @@ package querylogconfigassociation
 import (
 	"time"
 
+	"github.com/crossplane/crossplane-runtime/pkg/connection"
 	"github.com/crossplane/crossplane-runtime/pkg/event"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	"github.com/crossplane/crossplane-runtime/pkg/reconciler/managed"
@@ -36,6 +37,10 @@ import (
 func Setup(mgr ctrl.Manager, o tjcontroller.Options) error {
 	name := managed.ControllerName(v1alpha1.QueryLogConfigAssociation_GroupVersionKind.String())
 	var initializers managed.InitializerChain
+	cps := []managed.ConnectionPublisher{managed.NewAPISecretPublisher(mgr.GetClient(), mgr.GetScheme())}
+	if o.SecretStoreConfigGVK != nil {
+		cps = append(cps, connection.NewDetailsManager(mgr.GetClient(), *o.SecretStoreConfigGVK))
+	}
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.QueryLogConfigAssociation_GroupVersionKind),
 		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), o.WorkspaceStore, o.SetupFn, o.Provider.Resources["aws_route53_resolver_query_log_config_association"])),
@@ -44,6 +49,7 @@ func Setup(mgr ctrl.Manager, o tjcontroller.Options) error {
 		managed.WithFinalizer(terraform.NewWorkspaceFinalizer(o.WorkspaceStore, xpresource.NewAPIFinalizer(mgr.GetClient(), managed.FinalizerName))),
 		managed.WithTimeout(3*time.Minute),
 		managed.WithInitializers(initializers),
+		managed.WithConnectionPublishers(cps...),
 	)
 
 	return ctrl.NewControllerManagedBy(mgr).
