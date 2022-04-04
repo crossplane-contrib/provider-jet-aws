@@ -109,8 +109,7 @@ spec:
                   enableHttp2:
                     type: boolean
                   idleTimeout:
-                    format: int64
-                    type: integer
+                    type: number
                   internal:
                     type: boolean
                   ipAddressType:

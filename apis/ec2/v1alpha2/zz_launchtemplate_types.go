@@ -49,10 +49,10 @@ type CPUOptionsObservation struct {
 type CPUOptionsParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CoreCount *int64 `json:"coreCount,omitempty" tf:"core_count,omitempty"`
+	CoreCount *float64 `json:"coreCount,omitempty" tf:"core_count,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ThreadsPerCore *int64 `json:"threadsPerCore,omitempty" tf:"threads_per_core,omitempty"`
+	ThreadsPerCore *float64 `json:"threadsPerCore,omitempty" tf:"threads_per_core,omitempty"`
 }
 
 type CapacityReservationSpecificationCapacityReservationTargetObservation struct {
@@ -76,7 +76,7 @@ type EBSParameters struct {
 	Encrypted *string `json:"encrypted,omitempty" tf:"encrypted,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Iops *int64 `json:"iops,omitempty" tf:"iops,omitempty"`
+	Iops *float64 `json:"iops,omitempty" tf:"iops,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key
 	// +kubebuilder:validation:Optional
@@ -92,10 +92,10 @@ type EBSParameters struct {
 	SnapshotID *string `json:"snapshotId,omitempty" tf:"snapshot_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Throughput *int64 `json:"throughput,omitempty" tf:"throughput,omitempty"`
+	Throughput *float64 `json:"throughput,omitempty" tf:"throughput,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	VolumeSize *int64 `json:"volumeSize,omitempty" tf:"volume_size,omitempty"`
+	VolumeSize *float64 `json:"volumeSize,omitempty" tf:"volume_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	VolumeType *string `json:"volumeType,omitempty" tf:"volume_type,omitempty"`
@@ -206,7 +206,7 @@ type LaunchTemplateMetadataOptionsParameters struct {
 	HTTPEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	HTTPPutResponseHopLimit *int64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit,omitempty"`
+	HTTPPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	HTTPTokens *string `json:"httpTokens,omitempty" tf:"http_tokens,omitempty"`
@@ -217,7 +217,7 @@ type LaunchTemplateObservation_2 struct {
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	LatestVersion *int64 `json:"latestVersion,omitempty" tf:"latest_version,omitempty"`
+	LatestVersion *float64 `json:"latestVersion,omitempty" tf:"latest_version,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
@@ -237,7 +237,7 @@ type LaunchTemplateParameters_2 struct {
 	CreditSpecification []LaunchTemplateCreditSpecificationParameters `json:"creditSpecification,omitempty" tf:"credit_specification,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DefaultVersion *int64 `json:"defaultVersion,omitempty" tf:"default_version,omitempty"`
+	DefaultVersion *float64 `json:"defaultVersion,omitempty" tf:"default_version,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
@@ -383,16 +383,16 @@ type NetworkInterfacesParameters struct {
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DeviceIndex *int64 `json:"deviceIndex,omitempty" tf:"device_index,omitempty"`
+	DeviceIndex *float64 `json:"deviceIndex,omitempty" tf:"device_index,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IPv4AddressCount *int64 `json:"ipv4AddressCount,omitempty" tf:"ipv4_address_count,omitempty"`
+	IPv4AddressCount *float64 `json:"ipv4AddressCount,omitempty" tf:"ipv4_address_count,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	IPv4Addresses []*string `json:"ipv4Addresses,omitempty" tf:"ipv4_addresses,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IPv6AddressCount *int64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count,omitempty"`
+	IPv6AddressCount *float64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	IPv6Addresses []*string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses,omitempty"`
@@ -457,7 +457,7 @@ type PlacementParameters struct {
 	HostResourceGroupArn *string `json:"hostResourceGroupArn,omitempty" tf:"host_resource_group_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PartitionNumber *int64 `json:"partitionNumber,omitempty" tf:"partition_number,omitempty"`
+	PartitionNumber *float64 `json:"partitionNumber,omitempty" tf:"partition_number,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SpreadDomain *string `json:"spreadDomain,omitempty" tf:"spread_domain,omitempty"`
@@ -472,7 +472,7 @@ type SpotOptionsObservation struct {
 type SpotOptionsParameters struct {
 
 	// +kubebuilder:validation:Optional
-	BlockDurationMinutes *int64 `json:"blockDurationMinutes,omitempty" tf:"block_duration_minutes,omitempty"`
+	BlockDurationMinutes *float64 `json:"blockDurationMinutes,omitempty" tf:"block_duration_minutes,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	InstanceInterruptionBehavior *string `json:"instanceInterruptionBehavior,omitempty" tf:"instance_interruption_behavior,omitempty"`

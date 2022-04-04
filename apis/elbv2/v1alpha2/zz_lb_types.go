@@ -87,7 +87,7 @@ type LBParameters struct {
 	IPAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IdleTimeout *int64 `json:"idleTimeout,omitempty" tf:"idle_timeout,omitempty"`
+	IdleTimeout *float64 `json:"idleTimeout,omitempty" tf:"idle_timeout,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Internal *bool `json:"internal,omitempty" tf:"internal,omitempty"`

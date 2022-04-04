@@ -32,6 +32,8 @@ type InstanceObservation struct {
 
 	Endpoint *string `json:"endpoint,omitempty" tf:"endpoint,omitempty"`
 
+	EngineVersionActual *string `json:"engineVersionActual,omitempty" tf:"engine_version_actual,omitempty"`
+
 	HostedZoneID *string `json:"hostedZoneId,omitempty" tf:"hosted_zone_id,omitempty"`
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
@@ -50,7 +52,7 @@ type InstanceObservation struct {
 type InstanceParameters struct {
 
 	// +kubebuilder:validation:Optional
-	AllocatedStorage *int64 `json:"allocatedStorage,omitempty" tf:"allocated_storage,omitempty"`
+	AllocatedStorage *float64 `json:"allocatedStorage,omitempty" tf:"allocated_storage,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade,omitempty" tf:"allow_major_version_upgrade,omitempty"`
@@ -65,7 +67,7 @@ type InstanceParameters struct {
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	BackupRetentionPeriod *int64 `json:"backupRetentionPeriod,omitempty" tf:"backup_retention_period,omitempty"`
+	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod,omitempty" tf:"backup_retention_period,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	BackupWindow *string `json:"backupWindow,omitempty" tf:"backup_window,omitempty"`
@@ -116,7 +118,7 @@ type InstanceParameters struct {
 	InstanceClass *string `json:"instanceClass" tf:"instance_class,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Iops *int64 `json:"iops,omitempty" tf:"iops,omitempty"`
+	Iops *float64 `json:"iops,omitempty" tf:"iops,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key
 	// +kubebuilder:validation:Optional
@@ -135,10 +137,10 @@ type InstanceParameters struct {
 	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaxAllocatedStorage *int64 `json:"maxAllocatedStorage,omitempty" tf:"max_allocated_storage,omitempty"`
+	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage,omitempty" tf:"max_allocated_storage,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MonitoringInterval *int64 `json:"monitoringInterval,omitempty" tf:"monitoring_interval,omitempty"`
+	MonitoringInterval *float64 `json:"monitoringInterval,omitempty" tf:"monitoring_interval,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MonitoringRoleArn *string `json:"monitoringRoleArn,omitempty" tf:"monitoring_role_arn,omitempty"`
@@ -182,10 +184,10 @@ type InstanceParameters struct {
 	PerformanceInsightsKMSKeyIDSelector *v1.Selector `json:"performanceInsightsKmsKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	PerformanceInsightsRetentionPeriod *int64 `json:"performanceInsightsRetentionPeriod,omitempty" tf:"performance_insights_retention_period,omitempty"`
+	PerformanceInsightsRetentionPeriod *float64 `json:"performanceInsightsRetentionPeriod,omitempty" tf:"performance_insights_retention_period,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PubliclyAccessible *bool `json:"publiclyAccessible,omitempty" tf:"publicly_accessible,omitempty"`

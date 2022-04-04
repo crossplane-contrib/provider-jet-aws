@@ -21,8 +21,6 @@ import (
 	"os"
 	"path/filepath"
 
-	tf "github.com/terraform-providers/terraform-provider-aws/aws"
-
 	"github.com/crossplane/terrajet/pkg/pipeline"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config"
@@ -37,5 +35,5 @@ func main() {
 	if err != nil {
 		panic(fmt.Sprintf("cannot calculate the absolute path with %s", rootDir))
 	}
-	pipeline.Run(config.GetProvider(tf.Provider()), absRootDir)
+	pipeline.Run(config.GetProvider(), absRootDir)
 }

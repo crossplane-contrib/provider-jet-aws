@@ -32,7 +32,7 @@ type AttachmentObservation struct {
 type AttachmentParameters struct {
 
 	// +kubebuilder:validation:Required
-	DeviceIndex *int64 `json:"deviceIndex" tf:"device_index,omitempty"`
+	DeviceIndex *float64 `json:"deviceIndex" tf:"device_index,omitempty"`
 
 	// +crossplane:generate:reference:type=Instance
 	// +kubebuilder:validation:Optional
@@ -66,7 +66,7 @@ type NetworkInterfaceParameters_2 struct {
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	IPv6AddressCount *int64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count,omitempty"`
+	IPv6AddressCount *float64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	IPv6Addresses []*string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses,omitempty"`
@@ -81,7 +81,7 @@ type NetworkInterfaceParameters_2 struct {
 	PrivateIps []*string `json:"privateIps,omitempty" tf:"private_ips,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	PrivateIpsCount *int64 `json:"privateIpsCount,omitempty" tf:"private_ips_count,omitempty"`
+	PrivateIpsCount *float64 `json:"privateIpsCount,omitempty" tf:"private_ips_count,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-

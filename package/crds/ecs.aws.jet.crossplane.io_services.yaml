@@ -67,13 +67,11 @@ spec:
                     items:
                       properties:
                         base:
-                          format: int64
-                          type: integer
+                          type: number
                         capacityProvider:
                           type: string
                         weight:
-                          format: int64
-                          type: integer
+                          type: number
                       required:
                       - capacityProvider
                       type: object
@@ -123,14 +121,11 @@ spec:
                       type: object
                     type: array
                   deploymentMaximumPercent:
-                    format: int64
-                    type: integer
+                    type: number
                   deploymentMinimumHealthyPercent:
-                    format: int64
-                    type: integer
+                    type: number
                   desiredCount:
-                    format: int64
-                    type: integer
+                    type: number
                   enableEcsManagedTags:
                     type: boolean
                   enableExecuteCommand:
@@ -138,8 +133,7 @@ spec:
                   forceNewDeployment:
                     type: boolean
                   healthCheckGracePeriodSeconds:
-                    format: int64
-                    type: integer
+                    type: number
                   iamRole:
                     type: string
                   iamRoleRef:
@@ -173,8 +167,7 @@ spec:
                         containerName:
                           type: string
                         containerPort:
-                          format: int64
-                          type: integer
+                          type: number
                         elbName:
                           type: string
                         targetGroupArn:
@@ -289,11 +282,9 @@ spec:
                         containerName:
                           type: string
                         containerPort:
-                          format: int64
-                          type: integer
+                          type: number
                         port:
-                          format: int64
-                          type: integer
+                          type: number
                         registryArn:
                           type: string
                       required:

@@ -83,8 +83,7 @@ spec:
                       type: string
                     type: array
                   maxSessionDuration:
-                    format: int64
-                    type: integer
+                    type: number
                   path:
                     type: string
                   permissionsBoundary:

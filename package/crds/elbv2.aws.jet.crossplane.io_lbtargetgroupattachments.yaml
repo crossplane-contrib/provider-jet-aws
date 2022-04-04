@@ -68,8 +68,7 @@ spec:
                   availabilityZone:
                     type: string
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.

@@ -76,8 +76,7 @@ spec:
                               encrypted:
                                 type: string
                               iops:
-                                format: int64
-                                type: integer
+                                type: number
                               kmsKeyId:
                                 type: string
                               kmsKeyIdRef:
@@ -107,11 +106,9 @@ spec:
                               snapshotId:
                                 type: string
                               throughput:
-                                format: int64
-                                type: integer
+                                type: number
                               volumeSize:
-                                format: int64
-                                type: integer
+                                type: number
                               volumeType:
                                 type: string
                             type: object
@@ -140,11 +137,9 @@ spec:
                     items:
                       properties:
                         coreCount:
-                          format: int64
-                          type: integer
+                          type: number
                         threadsPerCore:
-                          format: int64
-                          type: integer
+                          type: number
                       type: object
                     type: array
                   creditSpecification:
@@ -155,8 +150,7 @@ spec:
                       type: object
                     type: array
                   defaultVersion:
-                    format: int64
-                    type: integer
+                    type: number
                   description:
                     type: string
                   disableApiTermination:
@@ -267,8 +261,7 @@ spec:
                           items:
                             properties:
                               blockDurationMinutes:
-                                format: int64
-                                type: integer
+                                type: number
                               instanceInterruptionBehavior:
                                 type: string
                               maxPrice:
@@ -302,8 +295,7 @@ spec:
                         httpEndpoint:
                           type: string
                         httpPutResponseHopLimit:
-                          format: int64
-                          type: integer
+                          type: number
                         httpTokens:
                           type: string
                       type: object
@@ -331,20 +323,17 @@ spec:
                         description:
                           type: string
                         deviceIndex:
-                          format: int64
-                          type: integer
+                          type: number
                         interfaceType:
                           type: string
                         ipv4AddressCount:
-                          format: int64
-                          type: integer
+                          type: number
                         ipv4Addresses:
                           items:
                             type: string
                           type: array
                         ipv6AddressCount:
-                          format: int64
-                          type: integer
+                          type: number
                         ipv6Addresses:
                           items:
                             type: string
@@ -449,8 +438,7 @@ spec:
                         hostResourceGroupArn:
                           type: string
                         partitionNumber:
-                          format: int64
-                          type: integer
+                          type: number
                         spreadDomain:
                           type: string
                         tenancy:
@@ -597,8 +585,7 @@ spec:
                   id:
                     type: string
                   latestVersion:
-                    format: int64
-                    type: integer
+                    type: number
                   tagsAll:
                     additionalProperties:
                       type: string

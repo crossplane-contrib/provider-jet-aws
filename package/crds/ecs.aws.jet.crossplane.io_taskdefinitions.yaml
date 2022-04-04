@@ -71,8 +71,7 @@ spec:
                     items:
                       properties:
                         sizeInGib:
-                          format: int64
-                          type: integer
+                          type: number
                       required:
                       - sizeInGib
                       type: object
@@ -205,8 +204,7 @@ spec:
                               transitEncryption:
                                 type: string
                               transitEncryptionPort:
-                                format: int64
-                                type: integer
+                                type: number
                             required:
                             - fileSystemId
                             type: object
@@ -303,8 +301,7 @@ spec:
                   id:
                     type: string
                   revision:
-                    format: int64
-                    type: integer
+                    type: number
                   tagsAll:
                     additionalProperties:
                       type: string

@@ -84,8 +84,7 @@ spec:
                               sessionCookieName:
                                 type: string
                               sessionTimeout:
-                                format: int64
-                                type: integer
+                                type: number
                               userPoolArn:
                                 type: string
                               userPoolClientId:
@@ -136,8 +135,7 @@ spec:
                               sessionCookieName:
                                 type: string
                               sessionTimeout:
-                                format: int64
-                                type: integer
+                                type: number
                               tokenEndpoint:
                                 type: string
                               userInfoEndpoint:
@@ -171,8 +169,7 @@ spec:
                                 items:
                                   properties:
                                     duration:
-                                      format: int64
-                                      type: integer
+                                      type: number
                                     enabled:
                                       type: boolean
                                   required:
@@ -209,8 +206,7 @@ spec:
                                           type: object
                                       type: object
                                     weight:
-                                      format: int64
-                                      type: integer
+                                      type: number
                                   type: object
                                 type: array
                             required:
@@ -218,8 +214,7 @@ spec:
                             type: object
                           type: array
                         order:
-                          format: int64
-                          type: integer
+                          type: number
                         redirect:
                           items:
                             properties:
@@ -297,8 +292,7 @@ spec:
                         type: object
                     type: object
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   protocol:
                     type: string
                   region:

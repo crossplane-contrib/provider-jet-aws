@@ -97,11 +97,9 @@ spec:
                     items:
                       properties:
                         numNodeGroups:
-                          format: int64
-                          type: integer
+                          type: number
                         replicasPerNodeGroup:
-                          format: int64
-                          type: integer
+                          type: number
                       required:
                       - replicasPerNodeGroup
                       type: object
@@ -148,13 +146,11 @@ spec:
                   notificationTopicArn:
                     type: string
                   numberCacheClusters:
-                    format: int64
-                    type: integer
+                    type: number
                   parameterGroupName:
                     type: string
                   port:
-                    format: int64
-                    type: integer
+                    type: number
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
@@ -201,8 +197,7 @@ spec:
                   snapshotName:
                     type: string
                   snapshotRetentionLimit:
-                    format: int64
-                    type: integer
+                    type: number
                   snapshotWindow:
                     type: string
                   subnetGroupName:

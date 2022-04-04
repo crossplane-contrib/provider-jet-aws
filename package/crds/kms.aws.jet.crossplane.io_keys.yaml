@@ -68,8 +68,7 @@ spec:
                   customerMasterKeySpec:
                     type: string
                   deletionWindowInDays:
-                    format: int64
-                    type: integer
+                    type: number
                   description:
                     type: string
                   enableKeyRotation:

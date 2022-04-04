@@ -55,10 +55,10 @@ type ClusterParameters struct {
 	AvailabilityZones []*string `json:"availabilityZones,omitempty" tf:"availability_zones,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	BacktrackWindow *int64 `json:"backtrackWindow,omitempty" tf:"backtrack_window,omitempty"`
+	BacktrackWindow *float64 `json:"backtrackWindow,omitempty" tf:"backtrack_window,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	BackupRetentionPeriod *int64 `json:"backupRetentionPeriod,omitempty" tf:"backup_retention_period,omitempty"`
+	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod,omitempty" tf:"backup_retention_period,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ClusterMembers []*string `json:"clusterMembers,omitempty" tf:"cluster_members,omitempty"`
@@ -115,7 +115,7 @@ type ClusterParameters struct {
 	MasterUsername *string `json:"masterUsername,omitempty" tf:"master_username,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PreferredBackupWindow *string `json:"preferredBackupWindow,omitempty" tf:"preferred_backup_window,omitempty"`
@@ -230,13 +230,13 @@ type ScalingConfigurationParameters struct {
 	AutoPause *bool `json:"autoPause,omitempty" tf:"auto_pause,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaxCapacity *int64 `json:"maxCapacity,omitempty" tf:"max_capacity,omitempty"`
+	MaxCapacity *float64 `json:"maxCapacity,omitempty" tf:"max_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MinCapacity *int64 `json:"minCapacity,omitempty" tf:"min_capacity,omitempty"`
+	MinCapacity *float64 `json:"minCapacity,omitempty" tf:"min_capacity,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	SecondsUntilAutoPause *int64 `json:"secondsUntilAutoPause,omitempty" tf:"seconds_until_auto_pause,omitempty"`
+	SecondsUntilAutoPause *float64 `json:"secondsUntilAutoPause,omitempty" tf:"seconds_until_auto_pause,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	TimeoutAction *string `json:"timeoutAction,omitempty" tf:"timeout_action,omitempty"`

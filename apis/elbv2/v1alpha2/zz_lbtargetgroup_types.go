@@ -34,10 +34,10 @@ type HealthCheckParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	HealthyThreshold *int64 `json:"healthyThreshold,omitempty" tf:"healthy_threshold,omitempty"`
+	HealthyThreshold *float64 `json:"healthyThreshold,omitempty" tf:"healthy_threshold,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Interval *int64 `json:"interval,omitempty" tf:"interval,omitempty"`
+	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Matcher *string `json:"matcher,omitempty" tf:"matcher,omitempty"`
@@ -52,10 +52,10 @@ type HealthCheckParameters struct {
 	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Timeout *int64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
+	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	UnhealthyThreshold *int64 `json:"unhealthyThreshold,omitempty" tf:"unhealthy_threshold,omitempty"`
+	UnhealthyThreshold *float64 `json:"unhealthyThreshold,omitempty" tf:"unhealthy_threshold,omitempty"`
 }
 
 type LBTargetGroupObservation struct {
@@ -71,7 +71,7 @@ type LBTargetGroupObservation struct {
 type LBTargetGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
-	DeregistrationDelay *int64 `json:"deregistrationDelay,omitempty" tf:"deregistration_delay,omitempty"`
+	DeregistrationDelay *float64 `json:"deregistrationDelay,omitempty" tf:"deregistration_delay,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	HealthCheck []HealthCheckParameters `json:"healthCheck,omitempty" tf:"health_check,omitempty"`
@@ -86,7 +86,7 @@ type LBTargetGroupParameters struct {
 	Name *string `json:"name" tf:"name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PreserveClientIP *string `json:"preserveClientIp,omitempty" tf:"preserve_client_ip,omitempty"`
@@ -106,7 +106,7 @@ type LBTargetGroupParameters struct {
 	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	SlowStart *int64 `json:"slowStart,omitempty" tf:"slow_start,omitempty"`
+	SlowStart *float64 `json:"slowStart,omitempty" tf:"slow_start,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Stickiness []LBTargetGroupStickinessParameters `json:"stickiness,omitempty" tf:"stickiness,omitempty"`
@@ -136,7 +136,7 @@ type LBTargetGroupStickinessObservation struct {
 type LBTargetGroupStickinessParameters struct {
 
 	// +kubebuilder:validation:Optional
-	CookieDuration *int64 `json:"cookieDuration,omitempty" tf:"cookie_duration,omitempty"`
+	CookieDuration *float64 `json:"cookieDuration,omitempty" tf:"cookie_duration,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	CookieName *string `json:"cookieName,omitempty" tf:"cookie_name,omitempty"`

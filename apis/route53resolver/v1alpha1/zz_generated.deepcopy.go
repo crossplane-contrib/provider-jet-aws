@@ -895,7 +895,7 @@ func (in *FirewallRuleGroupAssociationParameters) DeepCopyInto(out *FirewallRule
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -1207,7 +1207,7 @@ func (in *FirewallRuleParameters) DeepCopyInto(out *FirewallRuleParameters) {
 	}
 	if in.BlockOverrideTTL != nil {
 		in, out := &in.BlockOverrideTTL, &out.BlockOverrideTTL
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.BlockResponse != nil {
@@ -1232,7 +1232,7 @@ func (in *FirewallRuleParameters) DeepCopyInto(out *FirewallRuleParameters) {
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -2050,7 +2050,7 @@ func (in *TargetIPParameters) DeepCopyInto(out *TargetIPParameters) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 }

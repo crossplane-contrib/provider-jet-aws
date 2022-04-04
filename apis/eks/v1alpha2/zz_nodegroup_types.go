@@ -78,7 +78,7 @@ type NodeGroupParameters struct {
 	ClusterNameSelector *v1.Selector `json:"clusterNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	DiskSize *int64 `json:"diskSize,omitempty" tf:"disk_size,omitempty"`
+	DiskSize *float64 `json:"diskSize,omitempty" tf:"disk_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ForceUpdateVersion *bool `json:"forceUpdateVersion,omitempty" tf:"force_update_version,omitempty"`
@@ -136,6 +136,9 @@ type NodeGroupParameters struct {
 	Taint []TaintParameters `json:"taint,omitempty" tf:"taint,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	UpdateConfig []UpdateConfigParameters `json:"updateConfig,omitempty" tf:"update_config,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	Version *string `json:"version,omitempty" tf:"version,omitempty"`
 }
 
@@ -175,13 +178,13 @@ type ScalingConfigObservation struct {
 type ScalingConfigParameters struct {
 
 	// +kubebuilder:validation:Required
-	DesiredSize *int64 `json:"desiredSize" tf:"desired_size,omitempty"`
+	DesiredSize *float64 `json:"desiredSize" tf:"desired_size,omitempty"`
 
 	// +kubebuilder:validation:Required
-	MaxSize *int64 `json:"maxSize" tf:"max_size,omitempty"`
+	MaxSize *float64 `json:"maxSize" tf:"max_size,omitempty"`
 
 	// +kubebuilder:validation:Required
-	MinSize *int64 `json:"minSize" tf:"min_size,omitempty"`
+	MinSize *float64 `json:"minSize" tf:"min_size,omitempty"`
 }
 
 type TaintObservation struct {
@@ -197,6 +200,18 @@ type TaintParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value,omitempty"`
+}
+
+type UpdateConfigObservation struct {
+}
+
+type UpdateConfigParameters struct {
+
+	// +kubebuilder:validation:Optional
+	MaxUnavailable *float64 `json:"maxUnavailable,omitempty" tf:"max_unavailable,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	MaxUnavailablePercentage *float64 `json:"maxUnavailablePercentage,omitempty" tf:"max_unavailable_percentage,omitempty"`
 }
 
 // NodeGroupSpec defines the desired state of NodeGroup

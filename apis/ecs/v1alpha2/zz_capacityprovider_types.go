@@ -76,19 +76,19 @@ type ManagedScalingObservation struct {
 type ManagedScalingParameters struct {
 
 	// +kubebuilder:validation:Optional
-	InstanceWarmupPeriod *int64 `json:"instanceWarmupPeriod,omitempty" tf:"instance_warmup_period,omitempty"`
+	InstanceWarmupPeriod *float64 `json:"instanceWarmupPeriod,omitempty" tf:"instance_warmup_period,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MaximumScalingStepSize *int64 `json:"maximumScalingStepSize,omitempty" tf:"maximum_scaling_step_size,omitempty"`
+	MaximumScalingStepSize *float64 `json:"maximumScalingStepSize,omitempty" tf:"maximum_scaling_step_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	MinimumScalingStepSize *int64 `json:"minimumScalingStepSize,omitempty" tf:"minimum_scaling_step_size,omitempty"`
+	MinimumScalingStepSize *float64 `json:"minimumScalingStepSize,omitempty" tf:"minimum_scaling_step_size,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	TargetCapacity *int64 `json:"targetCapacity,omitempty" tf:"target_capacity,omitempty"`
+	TargetCapacity *float64 `json:"targetCapacity,omitempty" tf:"target_capacity,omitempty"`
 }
 
 // CapacityProviderSpec defines the desired state of CapacityProvider

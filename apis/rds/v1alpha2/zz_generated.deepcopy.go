@@ -176,12 +176,12 @@ func (in *ClusterParameters) DeepCopyInto(out *ClusterParameters) {
 	}
 	if in.BacktrackWindow != nil {
 		in, out := &in.BacktrackWindow, &out.BacktrackWindow
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.BackupRetentionPeriod != nil {
 		in, out := &in.BackupRetentionPeriod, &out.BackupRetentionPeriod
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.ClusterMembers != nil {
@@ -294,7 +294,7 @@ func (in *ClusterParameters) DeepCopyInto(out *ClusterParameters) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.PreferredBackupWindow != nil {
@@ -642,6 +642,11 @@ func (in *InstanceObservation) DeepCopyInto(out *InstanceObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.EngineVersionActual != nil {
+		in, out := &in.EngineVersionActual, &out.EngineVersionActual
+		*out = new(string)
+		**out = **in
+	}
 	if in.HostedZoneID != nil {
 		in, out := &in.HostedZoneID, &out.HostedZoneID
 		*out = new(string)
@@ -710,7 +715,7 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	*out = *in
 	if in.AllocatedStorage != nil {
 		in, out := &in.AllocatedStorage, &out.AllocatedStorage
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.AllowMajorVersionUpgrade != nil {
@@ -735,7 +740,7 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	}
 	if in.BackupRetentionPeriod != nil {
 		in, out := &in.BackupRetentionPeriod, &out.BackupRetentionPeriod
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.BackupWindow != nil {
@@ -826,7 +831,7 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -856,12 +861,12 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	}
 	if in.MaxAllocatedStorage != nil {
 		in, out := &in.MaxAllocatedStorage, &out.MaxAllocatedStorage
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.MonitoringInterval != nil {
 		in, out := &in.MonitoringInterval, &out.MonitoringInterval
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.MonitoringRoleArn != nil {
@@ -931,12 +936,12 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	}
 	if in.PerformanceInsightsRetentionPeriod != nil {
 		in, out := &in.PerformanceInsightsRetentionPeriod, &out.PerformanceInsightsRetentionPeriod
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.PubliclyAccessible != nil {
@@ -1481,17 +1486,17 @@ func (in *ScalingConfigurationParameters) DeepCopyInto(out *ScalingConfiguration
 	}
 	if in.MaxCapacity != nil {
 		in, out := &in.MaxCapacity, &out.MaxCapacity
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.MinCapacity != nil {
 		in, out := &in.MinCapacity, &out.MinCapacity
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.SecondsUntilAutoPause != nil {
 		in, out := &in.SecondsUntilAutoPause, &out.SecondsUntilAutoPause
-		*out = new(int64)
+		*out = new(float64)
 		**out = **in
 	}
 	if in.TimeoutAction != nil {

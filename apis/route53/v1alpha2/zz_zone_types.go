@@ -47,6 +47,8 @@ type VPCParameters struct {
 }
 
 type ZoneObservation struct {
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	NameServers []*string `json:"nameServers,omitempty" tf:"name_servers,omitempty"`

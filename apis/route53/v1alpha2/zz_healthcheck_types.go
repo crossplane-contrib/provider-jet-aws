@@ -26,6 +26,8 @@ import (
 )
 
 type HealthCheckObservation struct {
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
@@ -34,7 +36,7 @@ type HealthCheckObservation struct {
 type HealthCheckParameters struct {
 
 	// +kubebuilder:validation:Optional
-	ChildHealthThreshold *int64 `json:"childHealthThreshold,omitempty" tf:"child_health_threshold,omitempty"`
+	ChildHealthThreshold *float64 `json:"childHealthThreshold,omitempty" tf:"child_health_threshold,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ChildHealthchecks []*string `json:"childHealthchecks,omitempty" tf:"child_healthchecks,omitempty"`
@@ -52,7 +54,7 @@ type HealthCheckParameters struct {
 	EnableSni *bool `json:"enableSni,omitempty" tf:"enable_sni,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	FailureThreshold *int64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
+	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Fqdn *string `json:"fqdn,omitempty" tf:"fqdn,omitempty"`
@@ -70,7 +72,7 @@ type HealthCheckParameters struct {
 	MeasureLatency *bool `json:"measureLatency,omitempty" tf:"measure_latency,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ReferenceName *string `json:"referenceName,omitempty" tf:"reference_name,omitempty"`
@@ -84,7 +86,7 @@ type HealthCheckParameters struct {
 	Regions []*string `json:"regions,omitempty" tf:"regions,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	RequestInterval *int64 `json:"requestInterval,omitempty" tf:"request_interval,omitempty"`
+	RequestInterval *float64 `json:"requestInterval,omitempty" tf:"request_interval,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ResourcePath *string `json:"resourcePath,omitempty" tf:"resource_path,omitempty"`

@@ -31,13 +31,13 @@ type CapacityProviderStrategyObservation struct {
 type CapacityProviderStrategyParameters struct {
 
 	// +kubebuilder:validation:Optional
-	Base *int64 `json:"base,omitempty" tf:"base,omitempty"`
+	Base *float64 `json:"base,omitempty" tf:"base,omitempty"`
 
 	// +kubebuilder:validation:Required
 	CapacityProvider *string `json:"capacityProvider" tf:"capacity_provider,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Weight *int64 `json:"weight,omitempty" tf:"weight,omitempty"`
+	Weight *float64 `json:"weight,omitempty" tf:"weight,omitempty"`
 }
 
 type DeploymentCircuitBreakerObservation struct {
@@ -70,7 +70,7 @@ type LoadBalancerParameters struct {
 	ContainerName *string `json:"containerName" tf:"container_name,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ContainerPort *int64 `json:"containerPort" tf:"container_port,omitempty"`
+	ContainerPort *float64 `json:"containerPort" tf:"container_port,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	ELBName *string `json:"elbName,omitempty" tf:"elb_name,omitempty"`
@@ -165,13 +165,13 @@ type ServiceParameters struct {
 	DeploymentController []DeploymentControllerParameters `json:"deploymentController,omitempty" tf:"deployment_controller,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DeploymentMaximumPercent *int64 `json:"deploymentMaximumPercent,omitempty" tf:"deployment_maximum_percent,omitempty"`
+	DeploymentMaximumPercent *float64 `json:"deploymentMaximumPercent,omitempty" tf:"deployment_maximum_percent,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DeploymentMinimumHealthyPercent *int64 `json:"deploymentMinimumHealthyPercent,omitempty" tf:"deployment_minimum_healthy_percent,omitempty"`
+	DeploymentMinimumHealthyPercent *float64 `json:"deploymentMinimumHealthyPercent,omitempty" tf:"deployment_minimum_healthy_percent,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	DesiredCount *int64 `json:"desiredCount,omitempty" tf:"desired_count,omitempty"`
+	DesiredCount *float64 `json:"desiredCount,omitempty" tf:"desired_count,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	EnableEcsManagedTags *bool `json:"enableEcsManagedTags,omitempty" tf:"enable_ecs_managed_tags,omitempty"`
@@ -183,7 +183,7 @@ type ServiceParameters struct {
 	ForceNewDeployment *bool `json:"forceNewDeployment,omitempty" tf:"force_new_deployment,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	HealthCheckGracePeriodSeconds *int64 `json:"healthCheckGracePeriodSeconds,omitempty" tf:"health_check_grace_period_seconds,omitempty"`
+	HealthCheckGracePeriodSeconds *float64 `json:"healthCheckGracePeriodSeconds,omitempty" tf:"health_check_grace_period_seconds,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
@@ -247,10 +247,10 @@ type ServiceRegistriesParameters struct {
 	ContainerName *string `json:"containerName,omitempty" tf:"container_name,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	ContainerPort *int64 `json:"containerPort,omitempty" tf:"container_port,omitempty"`
+	ContainerPort *float64 `json:"containerPort,omitempty" tf:"container_port,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// +kubebuilder:validation:Required
 	RegistryArn *string `json:"registryArn" tf:"registry_arn,omitempty"`

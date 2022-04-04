@@ -72,7 +72,7 @@ type TargetIPParameters struct {
 	IP *string `json:"ip" tf:"ip,omitempty"`
 
 	// +kubebuilder:validation:Optional
-	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 }
 
 // RuleSpec defines the desired state of Rule

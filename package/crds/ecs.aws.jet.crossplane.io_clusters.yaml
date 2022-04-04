@@ -125,13 +125,11 @@ spec:
                     items:
                       properties:
                         base:
-                          format: int64
-                          type: integer
+                          type: number
                         capacityProvider:
                           type: string
                         weight:
-                          format: int64
-                          type: integer
+                          type: number
                       required:
                       - capacityProvider
                       type: object

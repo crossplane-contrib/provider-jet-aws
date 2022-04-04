@@ -84,11 +84,9 @@ spec:
                       type: object
                     type: array
                   cpuCoreCount:
-                    format: int64
-                    type: integer
+                    type: number
                   cpuThreadsPerCore:
-                    format: int64
-                    type: integer
+                    type: number
                   creditSpecification:
                     items:
                       properties:
@@ -108,8 +106,7 @@ spec:
                         encrypted:
                           type: boolean
                         iops:
-                          format: int64
-                          type: integer
+                          type: number
                         kmsKeyId:
                           type: string
                         kmsKeyIdRef:
@@ -143,11 +140,9 @@ spec:
                             type: string
                           type: object
                         throughput:
-                          format: int64
-                          type: integer
+                          type: number
                         volumeSize:
-                          format: int64
-                          type: integer
+                          type: number
                         volumeType:
                           type: string
                       required:
@@ -189,8 +184,7 @@ spec:
                   instanceType:
                     type: string
                   ipv6AddressCount:
-                    format: int64
-                    type: integer
+                    type: number
                   ipv6Addresses:
                     items:
                       type: string
@@ -214,8 +208,7 @@ spec:
                         httpEndpoint:
                           type: string
                         httpPutResponseHopLimit:
-                          format: int64
-                          type: integer
+                          type: number
                         httpTokens:
                           type: string
                       type: object
@@ -228,8 +221,7 @@ spec:
                         deleteOnTermination:
                           type: boolean
                         deviceIndex:
-                          format: int64
-                          type: integer
+                          type: number
                         networkInterfaceId:
                           type: string
                         networkInterfaceIdRef:
@@ -276,8 +268,7 @@ spec:
                         encrypted:
                           type: boolean
                         iops:
-                          format: int64
-                          type: integer
+                          type: number
                         kmsKeyId:
                           type: string
                         kmsKeyIdRef:
@@ -309,11 +300,9 @@ spec:
                             type: string
                           type: object
                         throughput:
-                          format: int64
-                          type: integer
+                          type: number
                         volumeSize:
-                          format: int64
-                          type: integer
+                          type: number
                         volumeType:
                           type: string
                       type: object

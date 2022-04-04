@@ -38,7 +38,7 @@ type SecurityGroupRuleParameters struct {
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Required
-	FromPort *int64 `json:"fromPort" tf:"from_port,omitempty"`
+	FromPort *float64 `json:"fromPort" tf:"from_port,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	IPv6CidrBlocks []*string `json:"ipv6CidrBlocks,omitempty" tf:"ipv6_cidr_blocks,omitempty"`
@@ -71,7 +71,7 @@ type SecurityGroupRuleParameters struct {
 	SourceSecurityGroupID *string `json:"sourceSecurityGroupId,omitempty" tf:"source_security_group_id,omitempty"`
 
 	// +kubebuilder:validation:Required
-	ToPort *int64 `json:"toPort" tf:"to_port,omitempty"`
+	ToPort *float64 `json:"toPort" tf:"to_port,omitempty"`
 
 	// Type of rule, ingress (inbound) or egress (outbound).
 	// +kubebuilder:validation:Required

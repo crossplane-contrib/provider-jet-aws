@@ -17,6 +17,9 @@ limitations under the License.
 package config
 
 import (
+	// Note(ezgidemirel): we are importing this to embed provider schema document
+	_ "embed"
+
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
@@ -37,6 +40,9 @@ import (
 	"github.com/crossplane-contrib/provider-jet-aws/config/route53"
 	"github.com/crossplane-contrib/provider-jet-aws/config/s3"
 )
+
+//go:embed schema.json
+var providerSchema string
 
 // IncludedResources lists all resource patterns included in small set release.
 var IncludedResources = []string{
@@ -157,9 +163,8 @@ var skipList = []string{
 }
 
 // GetProvider returns provider configuration
-func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
-	pc := tjconfig.NewProvider(
-		tfProvider.ResourcesMap, "aws", "github.com/crossplane-contrib/provider-jet-aws",
+func GetProvider() *tjconfig.Provider {
+	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), "aws", "github.com/crossplane-contrib/provider-jet-aws",
 		tjconfig.WithShortName("awsjet"),
 		tjconfig.WithRootGroup("aws.jet.crossplane.io"),
 		tjconfig.WithIncludeList(IncludedResources),

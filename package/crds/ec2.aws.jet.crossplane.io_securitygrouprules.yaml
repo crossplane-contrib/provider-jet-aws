@@ -70,8 +70,7 @@ spec:
                   description:
                     type: string
                   fromPort:
-                    format: int64
-                    type: integer
+                    type: number
                   ipv6CidrBlocks:
                     items:
                       type: string
@@ -116,8 +115,7 @@ spec:
                   sourceSecurityGroupId:
                     type: string
                   toPort:
-                    format: int64
-                    type: integer
+                    type: number
                   type:
                     description: Type of rule, ingress (inbound) or egress (outbound).
                     type: string
