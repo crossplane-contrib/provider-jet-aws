@@ -47,14 +47,15 @@ import (
 
 func main() {
 	var (
-		app              = kingpin.New(filepath.Base(os.Args[0]), "AWS support for Crossplane.").DefaultEnvars()
-		debug            = app.Flag("debug", "Run with debug logging.").Short('d').Bool()
-		syncPeriod       = app.Flag("sync", "Controller manager sync period such as 300ms, 1.5h, or 2h45m").Short('s').Default("1h").Duration()
-		leaderElection   = app.Flag("leader-election", "Use leader election for the controller manager.").Short('l').Default("false").OverrideDefaultFromEnvar("LEADER_ELECTION").Bool()
-		terraformVersion = app.Flag("terraform-version", "Terraform version.").Required().Envar("TERRAFORM_VERSION").String()
-		providerSource   = app.Flag("terraform-provider-source", "Terraform provider source.").Required().Envar("TERRAFORM_PROVIDER_SOURCE").String()
-		providerVersion  = app.Flag("terraform-provider-version", "Terraform provider version.").Required().Envar("TERRAFORM_PROVIDER_VERSION").String()
-		maxReconcileRate = app.Flag("max-reconcile-rate", "The global maximum rate per second at which resources may checked for drift from the desired state.").Default("10").Int()
+		app                = kingpin.New(filepath.Base(os.Args[0]), "AWS support for Crossplane.").DefaultEnvars()
+		debug              = app.Flag("debug", "Run with debug logging.").Short('d').Bool()
+		syncPeriod         = app.Flag("sync", "Controller manager sync period such as 300ms, 1.5h, or 2h45m").Short('s').Default("1h").Duration()
+		leaderElection     = app.Flag("leader-election", "Use leader election for the controller manager.").Short('l').Default("false").OverrideDefaultFromEnvar("LEADER_ELECTION").Bool()
+		terraformVersion   = app.Flag("terraform-version", "Terraform version.").Required().Envar("TERRAFORM_VERSION").String()
+		providerSource     = app.Flag("terraform-provider-source", "Terraform provider source.").Required().Envar("TERRAFORM_PROVIDER_SOURCE").String()
+		providerVersion    = app.Flag("terraform-provider-version", "Terraform provider version.").Required().Envar("TERRAFORM_PROVIDER_VERSION").String()
+		nativeProviderPath = app.Flag("native-provider-path", "Terraform native provider path for shared execution.").Default("").Envar("TERRAFORM_NATIVE_PROVIDER_PATH").String()
+		maxReconcileRate   = app.Flag("max-reconcile-rate", "The global maximum rate per second at which resources may checked for drift from the desired state.").Default("10").Int()
 
 		namespace                  = app.Flag("namespace", "Namespace used to set as default scope in default secret store config.").Default("crossplane-system").Envar("POD_NAMESPACE").String()
 		enableExternalSecretStores = app.Flag("enable-external-secret-stores", "Enable support for ExternalSecretStores.").Default("false").Envar("ENABLE_EXTERNAL_SECRET_STORES").Bool()
@@ -86,6 +87,11 @@ func main() {
 	kingpin.FatalIfError(err, "Cannot create controller manager")
 	kingpin.FatalIfError(apis.AddToScheme(mgr.GetScheme()), "Cannot add AWS APIs to scheme")
 
+	var runner terraform.ProviderRunner = terraform.NewNoOpProviderRunner()
+	if len(*nativeProviderPath) != 0 {
+		runner = terraform.NewSharedProvider(log, *nativeProviderPath, "registry.terraform.io/hashicorp/aws")
+	}
+
 	o := tjcontroller.Options{
 		Options: xpcontroller.Options{
 			Logger:                  log,
@@ -95,7 +101,7 @@ func main() {
 			Features:                &feature.Flags{},
 		},
 		Provider:       config.GetProvider(),
-		WorkspaceStore: terraform.NewWorkspaceStore(log),
+		WorkspaceStore: terraform.NewWorkspaceStore(log, terraform.WithProviderRunner(runner)),
 		SetupFn:        clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion),
 	}
 
