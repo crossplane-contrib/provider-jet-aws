@@ -212,8 +212,8 @@ github.com/crossplane/crossplane-tools v0.0.0-20220310165030-1f43fc12793e h1:HqL
 github.com/crossplane/crossplane-tools v0.0.0-20220310165030-1f43fc12793e/go.mod h1:xFf30hwHd5n0/a0D4ZomId8nxQTTjE0Hc1j4/rWxefc=
 github.com/crossplane/provider-aws v0.23.0 h1:PK5SfgEYY4mu/BrP+AkH5jRG/B/XYF06E+k55NdX6f4=
 github.com/crossplane/provider-aws v0.23.0/go.mod h1:+seFgtg4gbUEhtdYPD7xqlNKkLncGcUFwU/nU2uOM8Y=
-github.com/crossplane/terrajet v0.4.0-rc.0.0.20220325143246-6142eefbcf5b h1:/tYXJht21yzbR0vLEYMGYv01KIPGMYE6kk4c+17ByTY=
-github.com/crossplane/terrajet v0.4.0-rc.0.0.20220325143246-6142eefbcf5b/go.mod h1:PY1geRNxxNXs2RFhGC36N7dDu3wZPhUZmAk6c4gQxAI=
+github.com/crossplane/terrajet v0.4.0-rc.0.0.20220421012850-4f9db892a4ae h1:16m4myvQjkUxx8Rai4CePbrjKZnivLPD8VQ++J8HRyU=
+github.com/crossplane/terrajet v0.4.0-rc.0.0.20220421012850-4f9db892a4ae/go.mod h1:PY1geRNxxNXs2RFhGC36N7dDu3wZPhUZmAk6c4gQxAI=
 github.com/dave/jennifer v1.4.1 h1:XyqG6cn5RQsTj3qlWQTKlRGAyrTcsk1kUmWdZBzRjDw=
 github.com/dave/jennifer v1.4.1/go.mod h1:7jEdnm+qBcxl8PC0zyp7vxcpSRnzXSt9r39tpTVGlwA=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

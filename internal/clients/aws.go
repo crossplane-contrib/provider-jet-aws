@@ -1,8 +1,23 @@
+/*
+Copyright 2022 The Crossplane Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
 package clients
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 
@@ -21,12 +36,10 @@ import (
 )
 
 const (
-	// AWS credentials environment variable names
-	envSessionToken    = "AWS_SESSION_TOKEN"
-	envAccessKeyID     = "AWS_ACCESS_KEY_ID"
-	envSecretAccessKey = "AWS_SECRET_ACCESS_KEY"
-
-	fmtEnvVar = "%s=%s"
+	// Terraform provider configuration keys for AWS credentials
+	keySessionToken    = "token"
+	keyAccessKeyID     = "access_key"
+	keySecretAccessKey = "secret_key"
 )
 
 // TerraformSetupBuilder returns Terraform setup with provider specific
@@ -113,14 +126,11 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			tfCfg["skip_region_validation"] = true
 		}
 
+		// provider configuration for credentials
+		tfCfg[keyAccessKeyID] = creds.AccessKeyID
+		tfCfg[keySecretAccessKey] = creds.SecretAccessKey
+		tfCfg[keySessionToken] = creds.SessionToken
 		ps.Configuration = tfCfg
-		// set credentials environment
-		ps.Env = []string{
-			fmt.Sprintf(fmtEnvVar, envAccessKeyID, creds.AccessKeyID),
-			fmt.Sprintf(fmtEnvVar, envSecretAccessKey, creds.SecretAccessKey),
-			fmt.Sprintf(fmtEnvVar, envSessionToken, creds.SessionToken),
-		}
-
 		return ps, err
 	}
 }
