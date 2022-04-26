@@ -60,6 +60,7 @@ var IncludedResources = []string{
 	"aws_rds_cluster$",
 	"aws_db_instance$",
 	"aws_db_parameter_group$",
+	"aws_db_subnet_group$",
 
 	// S3
 	"aws_s3_bucket$",

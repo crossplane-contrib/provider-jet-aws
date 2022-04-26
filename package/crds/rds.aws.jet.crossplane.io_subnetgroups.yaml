@@ -5,7 +5,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: clusters.rds.aws.jet.crossplane.io
+  name: subnetgroups.rds.aws.jet.crossplane.io
 spec:
   group: rds.aws.jet.crossplane.io
   names:
@@ -13,10 +13,10 @@ spec:
     - crossplane
     - managed
     - awsjet
-    kind: Cluster
-    listKind: ClusterList
-    plural: clusters
-    singular: cluster
+    kind: SubnetGroup
+    listKind: SubnetGroupList
+    plural: subnetgroups
+    singular: subnetgroup
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -35,7 +35,7 @@ spec:
     name: v1alpha2
     schema:
       openAPIV3Schema:
-        description: Cluster is the Schema for the Clusters API
+        description: SubnetGroup is the Schema for the SubnetGroups API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ClusterSpec defines the desired state of Cluster
+            description: SubnetGroupSpec defines the desired state of SubnetGroup
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,219 +63,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  allowMajorVersionUpgrade:
-                    type: boolean
-                  applyImmediately:
-                    type: boolean
-                  availabilityZones:
-                    items:
-                      type: string
-                    type: array
-                  backtrackWindow:
-                    type: number
-                  backupRetentionPeriod:
-                    type: number
-                  clusterMembers:
-                    items:
-                      type: string
-                    type: array
-                  copyTagsToSnapshot:
-                    type: boolean
-                  databaseName:
-                    type: string
-                  dbClusterParameterGroupName:
-                    type: string
-                  dbSubnetGroupName:
-                    type: string
-                  dbSubnetGroupNameRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  dbSubnetGroupNameSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
-                          type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
-                  deletionProtection:
-                    type: boolean
-                  enableHttpEndpoint:
-                    type: boolean
-                  enabledCloudwatchLogsExports:
-                    items:
-                      type: string
-                    type: array
-                  engine:
-                    type: string
-                  engineMode:
-                    type: string
-                  engineVersion:
-                    type: string
-                  finalSnapshotIdentifier:
-                    type: string
-                  globalClusterIdentifier:
-                    type: string
-                  iamDatabaseAuthenticationEnabled:
-                    type: boolean
-                  iamRoles:
-                    items:
-                      type: string
-                    type: array
-                  kmsKeyId:
-                    type: string
-                  masterPasswordSecretRef:
-                    description: A SecretKeySelector is a reference to a secret key
-                      in an arbitrary namespace.
-                    properties:
-                      key:
-                        description: The key to select.
-                        type: string
-                      name:
-                        description: Name of the secret.
-                        type: string
-                      namespace:
-                        description: Namespace of the secret.
-                        type: string
-                    required:
-                    - key
-                    - name
-                    - namespace
-                    type: object
-                  masterUsername:
-                    type: string
-                  port:
-                    type: number
-                  preferredBackupWindow:
-                    type: string
-                  preferredMaintenanceWindow:
+                  description:
                     type: string
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  replicationSourceIdentifier:
-                    type: string
-                  restoreToPointInTime:
-                    items:
-                      properties:
-                        restoreToTime:
-                          type: string
-                        restoreType:
-                          type: string
-                        sourceClusterIdentifier:
-                          type: string
-                        sourceClusterIdentifierRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        sourceClusterIdentifierSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        useLatestRestorableTime:
-                          type: boolean
-                      type: object
-                    type: array
-                  s3Import:
-                    items:
-                      properties:
-                        bucketName:
-                          type: string
-                        bucketNameRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        bucketNameSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        bucketPrefix:
-                          type: string
-                        ingestionRole:
-                          type: string
-                        sourceEngine:
-                          type: string
-                        sourceEngineVersion:
-                          type: string
-                      required:
-                      - ingestionRole
-                      - sourceEngine
-                      - sourceEngineVersion
-                      type: object
-                    type: array
-                  scalingConfiguration:
-                    items:
-                      properties:
-                        autoPause:
-                          type: boolean
-                        maxCapacity:
-                          type: number
-                        minCapacity:
-                          type: number
-                        secondsUntilAutoPause:
-                          type: number
-                        timeoutAction:
-                          type: string
-                      type: object
-                    type: array
-                  skipFinalSnapshot:
-                    type: boolean
-                  snapshotIdentifier:
-                    type: string
-                  sourceRegion:
-                    type: string
-                  storageEncrypted:
-                    type: boolean
-                  tags:
-                    additionalProperties:
-                      type: string
-                    type: object
-                  vpcSecurityGroupIdRefs:
+                  subnetIdRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -286,7 +80,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  vpcSecurityGroupIdSelector:
+                  subnetIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -300,10 +94,14 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  vpcSecurityGroupIds:
+                  subnetIds:
                     items:
                       type: string
                     type: array
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
                 required:
                 - region
                 type: object
@@ -404,23 +202,13 @@ spec:
             - forProvider
             type: object
           status:
-            description: ClusterStatus defines the observed state of Cluster.
+            description: SubnetGroupStatus defines the observed state of SubnetGroup.
             properties:
               atProvider:
                 properties:
                   arn:
                     type: string
-                  clusterResourceId:
-                    type: string
-                  endpoint:
-                    type: string
-                  engineVersionActual:
-                    type: string
-                  hostedZoneId:
-                    type: string
                   id:
-                    type: string
-                  readerEndpoint:
                     type: string
                   tagsAll:
                     additionalProperties:
