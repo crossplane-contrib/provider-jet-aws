@@ -76,6 +76,8 @@ import (
 	usergroupmembership "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/usergroupmembership"
 	userpolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/userpolicyattachment"
 	key "github.com/crossplane-contrib/provider-jet-aws/internal/controller/kms/key"
+	broker "github.com/crossplane-contrib/provider-jet-aws/internal/controller/mq/broker"
+	configuration "github.com/crossplane-contrib/provider-jet-aws/internal/controller/mq/configuration"
 	clusterneptune "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/cluster"
 	clusterendpoint "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/clusterendpoint"
 	clusterinstance "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/clusterinstance"
@@ -170,6 +172,8 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		usergroupmembership.Setup,
 		userpolicyattachment.Setup,
 		key.Setup,
+		broker.Setup,
+		configuration.Setup,
 		clusterneptune.Setup,
 		clusterendpoint.Setup,
 		clusterinstance.Setup,
