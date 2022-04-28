@@ -104,6 +104,7 @@ var IncludedResources = []string{
 	"aws_vpc_ipv4_cidr_block_association$",
 	"aws_vpc_peering_connection$",
 	"aws_route_table_association$",
+	"aws_internet_gateway$",
 
 	// IAM
 	"aws_iam_access_key$",
