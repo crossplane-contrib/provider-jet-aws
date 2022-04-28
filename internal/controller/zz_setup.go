@@ -69,6 +69,7 @@ import (
 	group "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/group"
 	grouppolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/grouppolicyattachment"
 	instanceprofile "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/instanceprofile"
+	openidconnectprovider "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/openidconnectprovider"
 	policy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/policy"
 	role "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/role"
 	rolepolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/rolepolicyattachment"
@@ -163,6 +164,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		group.Setup,
 		grouppolicyattachment.Setup,
 		instanceprofile.Setup,
+		openidconnectprovider.Setup,
 		policy.Setup,
 		role.Setup,
 		rolepolicyattachment.Setup,
