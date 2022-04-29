@@ -89,6 +89,7 @@ import (
 	clusterrds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/cluster"
 	instancerds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/instance"
 	parametergrouprds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/parametergroup"
+	subnetgrouprds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/subnetgroup"
 	delegationset "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/delegationset"
 	healthcheck "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/healthcheck"
 	hostedzonednssec "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53/hostedzonednssec"
@@ -184,6 +185,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		clusterrds.Setup,
 		instancerds.Setup,
 		parametergrouprds.Setup,
+		subnetgrouprds.Setup,
 		delegationset.Setup,
 		healthcheck.Setup,
 		hostedzonednssec.Setup,

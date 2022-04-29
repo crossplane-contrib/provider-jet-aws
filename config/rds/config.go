@@ -49,6 +49,9 @@ func Configure(p *config.Provider) {
 			"restore_to_point_in_time.source_cluster_identifier": {
 				Type: "Cluster",
 			},
+			"db_subnet_group_name": {
+				Type: "SubnetGroup",
+			},
 		}
 		r.UseAsync = true
 	})
@@ -95,10 +98,17 @@ func Configure(p *config.Provider) {
 			"parameter_group_name": {
 				Type: "ParameterGroup",
 			},
+			"db_subnet_group_name": {
+				Type: "SubnetGroup",
+			},
 		}
 		r.UseAsync = true
 	})
 	p.AddResourceConfigurator("aws_db_parameter_group", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
+		r.ExternalName = config.NameAsIdentifier
+	})
+	p.AddResourceConfigurator("aws_db_subnet_group", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 	})
