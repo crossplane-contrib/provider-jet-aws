@@ -120,6 +120,7 @@ var IncludedResources = []string{
 	"aws_iam_user_group_membership$",
 	"aws_iam_user_policy$",
 	"aws_iam_user_policy_attachment$",
+	"aws_iam_openid_connect_provider$",
 
 	// EKS
 	"aws_eks_addon$",
