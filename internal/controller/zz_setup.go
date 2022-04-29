@@ -26,6 +26,7 @@ import (
 	ebsvolume "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/ebsvolume"
 	eip "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/eip"
 	instance "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/instance"
+	internetgateway "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/internetgateway"
 	launchtemplate "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/launchtemplate"
 	networkinterface "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/networkinterface"
 	route "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/route"
@@ -122,6 +123,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		ebsvolume.Setup,
 		eip.Setup,
 		instance.Setup,
+		internetgateway.Setup,
 		launchtemplate.Setup,
 		networkinterface.Setup,
 		route.Setup,
