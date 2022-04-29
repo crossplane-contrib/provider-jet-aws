@@ -20,6 +20,8 @@ import (
 	// Note(ezgidemirel): we are importing this to embed provider schema document
 	_ "embed"
 
+	"github.com/crossplane-contrib/provider-jet-aws/config/mq"
+
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
@@ -149,6 +151,10 @@ var IncludedResources = []string{
 	"aws_neptune_event_subscription",
 	"aws_neptune_parameter_group$",
 	"aws_neptune_subnet_group$",
+
+	// MQ
+	"aws_mq_broker$",
+	"aws_mq_configuration$",
 }
 
 var skipList = []string{
@@ -200,6 +206,7 @@ func GetProvider() *tjconfig.Provider {
 		s3.Configure,
 		route53.Configure,
 		neptune.Configure,
+		mq.Configure,
 	} {
 		configure(pc)
 	}
