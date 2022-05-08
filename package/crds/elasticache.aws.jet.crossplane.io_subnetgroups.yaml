@@ -5,7 +5,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: replicationgroups.elasticache.aws.jet.crossplane.io
+  name: subnetgroups.elasticache.aws.jet.crossplane.io
 spec:
   group: elasticache.aws.jet.crossplane.io
   names:
@@ -13,10 +13,10 @@ spec:
     - crossplane
     - managed
     - awsjet
-    kind: ReplicationGroup
-    listKind: ReplicationGroupList
-    plural: replicationgroups
-    singular: replicationgroup
+    kind: SubnetGroup
+    listKind: SubnetGroupList
+    plural: subnetgroups
+    singular: subnetgroup
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -35,7 +35,7 @@ spec:
     name: v1alpha2
     schema:
       openAPIV3Schema:
-        description: ReplicationGroup is the Schema for the ReplicationGroups API
+        description: SubnetGroup is the Schema for the SubnetGroups API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ReplicationGroupSpec defines the desired state of ReplicationGroup
+            description: SubnetGroupSpec defines the desired state of SubnetGroup
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,101 +63,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applyImmediately:
-                    type: boolean
-                  atRestEncryptionEnabled:
-                    type: boolean
-                  authTokenSecretRef:
-                    description: A SecretKeySelector is a reference to a secret key
-                      in an arbitrary namespace.
-                    properties:
-                      key:
-                        description: The key to select.
-                        type: string
-                      name:
-                        description: Name of the secret.
-                        type: string
-                      namespace:
-                        description: Namespace of the secret.
-                        type: string
-                    required:
-                    - key
-                    - name
-                    - namespace
-                    type: object
-                  autoMinorVersionUpgrade:
-                    type: boolean
-                  automaticFailoverEnabled:
-                    type: boolean
-                  availabilityZones:
-                    items:
-                      type: string
-                    type: array
-                  clusterMode:
-                    items:
-                      properties:
-                        numNodeGroups:
-                          type: number
-                        replicasPerNodeGroup:
-                          type: number
-                      required:
-                      - replicasPerNodeGroup
-                      type: object
-                    type: array
-                  engine:
+                  description:
                     type: string
-                  engineVersion:
-                    type: string
-                  finalSnapshotIdentifier:
-                    type: string
-                  globalReplicationGroupId:
-                    type: string
-                  kmsKeyId:
-                    type: string
-                  kmsKeyIdRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  kmsKeyIdSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
-                          type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
-                  maintenanceWindow:
-                    type: string
-                  multiAzEnabled:
-                    type: boolean
-                  nodeType:
-                    type: string
-                  notificationTopicArn:
-                    type: string
-                  numberCacheClusters:
-                    type: number
-                  parameterGroupName:
-                    type: string
-                  port:
-                    type: number
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  replicationGroupDescription:
-                    type: string
-                  securityGroupIdRefs:
+                  subnetIdRefs:
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -168,7 +80,7 @@ spec:
                       - name
                       type: object
                     type: array
-                  securityGroupIdSelector:
+                  subnetIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -182,58 +94,16 @@ spec:
                           is selected.
                         type: object
                     type: object
-                  securityGroupIds:
+                  subnetIds:
                     items:
                       type: string
                     type: array
-                  securityGroupNames:
-                    items:
-                      type: string
-                    type: array
-                  snapshotArns:
-                    items:
-                      type: string
-                    type: array
-                  snapshotName:
-                    type: string
-                  snapshotRetentionLimit:
-                    type: number
-                  snapshotWindow:
-                    type: string
-                  subnetGroupName:
-                    type: string
-                  subnetGroupNameRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  subnetGroupNameSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
-                          type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
                   tags:
                     additionalProperties:
                       type: string
                     type: object
-                  transitEncryptionEnabled:
-                    type: boolean
                 required:
                 - region
-                - replicationGroupDescription
                 type: object
               providerConfigRef:
                 default:
@@ -332,27 +202,13 @@ spec:
             - forProvider
             type: object
           status:
-            description: ReplicationGroupStatus defines the observed state of ReplicationGroup.
+            description: SubnetGroupStatus defines the observed state of SubnetGroup.
             properties:
               atProvider:
                 properties:
                   arn:
                     type: string
-                  clusterEnabled:
-                    type: boolean
-                  configurationEndpointAddress:
-                    type: string
-                  engineVersionActual:
-                    type: string
                   id:
-                    type: string
-                  memberClusters:
-                    items:
-                      type: string
-                    type: array
-                  primaryEndpointAddress:
-                    type: string
-                  readerEndpointAddress:
                     type: string
                   tagsAll:
                     additionalProperties:

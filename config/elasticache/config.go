@@ -29,6 +29,11 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.NameAsIdentifier
 	})
 
+	p.AddResourceConfigurator("aws_elasticache_subnet_group", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
+		r.ExternalName = config.NameAsIdentifier
+	})
+
 	p.AddResourceConfigurator("aws_elasticache_cluster", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.ExternalName{
@@ -61,6 +66,26 @@ func Configure(p *config.Provider) {
 			GetExternalNameFn: config.IDAsExternalName,
 			GetIDFn:           config.ExternalNameAsID,
 		}
+		r.References = config.References{
+			"subnet_group_name": config.Reference{
+				Type: "SubnetGroup",
+			},
+			"security_group_ids": config.Reference{
+				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
+				RefFieldName:      "SecurityGroupIdRefs",
+				SelectorFieldName: "SecurityGroupIdSelector",
+			},
+			"kms_key_id": {
+				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
+			},
+		}
+		r.LateInitializer = config.LateInitializer{
+			// Conflicting configuration arguments: "number_cache_clusters": conflicts with cluster_mode.0.num_node_groups
+			IgnoredFields: []string{
+				"cluster_mode",
+			},
+		}
+		r.UseAsync = true
 	})
 
 	p.AddResourceConfigurator("aws_elasticache_user", func(r *config.Resource) {
