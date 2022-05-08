@@ -67,8 +67,15 @@ type SecurityGroupRuleParameters struct {
 	// +kubebuilder:validation:Optional
 	Self *bool `json:"self,omitempty" tf:"self,omitempty"`
 
+	// +crossplane:generate:reference:type=SecurityGroup
 	// +kubebuilder:validation:Optional
 	SourceSecurityGroupID *string `json:"sourceSecurityGroupId,omitempty" tf:"source_security_group_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SourceSecurityGroupIDRef *v1.Reference `json:"sourceSecurityGroupIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SourceSecurityGroupIDSelector *v1.Selector `json:"sourceSecurityGroupIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	ToPort *float64 `json:"toPort" tf:"to_port,omitempty"`
