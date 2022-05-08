@@ -60,8 +60,25 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 				"node_group_name",
 				"node_group_name_prefix",
 			},
-			GetExternalNameFn: config.IDAsExternalName,
-			GetIDFn:           config.ExternalNameAsID,
+			GetIDFn: func(_ context.Context, externalName string, parameters map[string]interface{}, _ map[string]interface{}) (string, error) {
+				cl, ok := parameters["cluster_name"].(string)
+				if !ok || cl == "" {
+					return "", errors.New("cannot get cluster_name from parameters")
+				}
+				return fmt.Sprintf("%s:%s", cl, externalName), nil
+			},
+			GetExternalNameFn: func(tfstate map[string]interface{}) (string, error) {
+				id, ok := tfstate["id"].(string)
+				if !ok || id == "" {
+					return "", errors.New("cannot get id from tfstate")
+				}
+				// my_cluster:my_node_group
+				w := strings.Split(id, ":")
+				if len(w) != 2 {
+					return "", errors.New("format of id should be my_cluster:my_node_group")
+				}
+				return w[len(w)-1], nil
+			},
 		}
 		r.References = config.References{
 			"cluster_name": {
@@ -160,10 +177,10 @@ func Configure(p *config.Provider) { // nolint:gocyclo
 				if !ok || id == "" {
 					return "", errors.New("cannot get id from tfstate")
 				}
-				// my_cluster:my_fargate_profile
+				// my_cluster:my_eks_addon
 				w := strings.Split(id, ":")
 				if len(w) != 2 {
-					return "", errors.New("format of id should be my_cluster:my_fargate_profile")
+					return "", errors.New("format of id should be my_cluster:my_eks_addon")
 				}
 				return w[len(w)-1], nil
 			},

@@ -17,3 +17,23 @@ spec:
           }
         ]
       }
+---
+apiVersion: iam.aws.jet.crossplane.io/v1alpha2
+kind: Role
+metadata:
+  name: sample-node-role
+spec:
+  forProvider:
+    assumeRolePolicy: |
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "ec2.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+          }
+        ]
+      }
