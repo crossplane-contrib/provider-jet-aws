@@ -456,6 +456,22 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.GatewayID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.GatewayIDRef,
+		Selector:     mg.Spec.ForProvider.GatewayIDSelector,
+		To: reference.To{
+			List:    &InternetGatewayList{},
+			Managed: &InternetGateway{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.GatewayID")
+	}
+	mg.Spec.ForProvider.GatewayID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.GatewayIDRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.InstanceID),
 		Extract:      reference.ExternalName(),
 		Reference:    mg.Spec.ForProvider.InstanceIDRef,

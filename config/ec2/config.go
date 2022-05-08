@@ -266,6 +266,9 @@ func Configure(p *config.Provider) {
 		r.References["route_table_id"] = config.Reference{
 			Type: "RouteTable",
 		}
+		r.References["gateway_id"] = config.Reference{
+			Type: "InternetGateway",
+		}
 		r.References["instance_id"] = config.Reference{
 			Type: "Instance",
 		}
