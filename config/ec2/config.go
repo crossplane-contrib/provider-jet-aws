@@ -237,6 +237,12 @@ func Configure(p *config.Provider) {
 			RefFieldName:      "SecurityGroupRefs",
 			SelectorFieldName: "SecurityGroupSelector",
 		}
+		r.LateInitializer = config.LateInitializer{
+			IgnoredFields: []string{
+				"ingress",
+				"egress",
+			},
+		}
 	})
 
 	p.AddResourceConfigurator("aws_security_group_rule", func(r *config.Resource) {
