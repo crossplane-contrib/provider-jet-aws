@@ -50,6 +50,9 @@ func Configure(p *config.Provider) {
 			"parameter_group_name": config.Reference{
 				Type: "ParameterGroup",
 			},
+			"subnet_group_name": config.Reference{
+				Type: "SubnetGroup",
+			},
 		}
 		r.UseAsync = true
 	})

@@ -384,6 +384,16 @@ func (in *ClusterParameters) DeepCopyInto(out *ClusterParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.SubnetGroupNameRef != nil {
+		in, out := &in.SubnetGroupNameRef, &out.SubnetGroupNameRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.SubnetGroupNameSelector != nil {
+		in, out := &in.SubnetGroupNameSelector, &out.SubnetGroupNameSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
 		*out = make(map[string]*string, len(*in))
