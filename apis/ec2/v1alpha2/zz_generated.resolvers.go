@@ -121,6 +121,22 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 		mg.Spec.ForProvider.EBSBlockDevice[i3].KMSKeyIDRef = rsp.ResolvedReference
 
 	}
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.KeyName),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.KeyNameRef,
+		Selector:     mg.Spec.ForProvider.KeyNameSelector,
+		To: reference.To{
+			List:    &KeyPairList{},
+			Managed: &KeyPair{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.KeyName")
+	}
+	mg.Spec.ForProvider.KeyName = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.KeyNameRef = rsp.ResolvedReference
+
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.NetworkInterface); i3++ {
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.NetworkInterface[i3].NetworkInterfaceID),

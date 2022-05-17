@@ -50,6 +50,9 @@ func Configure(p *config.Provider) {
 		r.References["ebs_block_device.kms_key_id"] = config.Reference{
 			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
 		}
+		r.References["key_name"] = config.Reference{
+			Type: "KeyPair",
+		}
 		r.LateInitializer = config.LateInitializer{
 			// NOTE(muvaf): These are ignored because they conflict with each other.
 			// See the following for more details: https://github.com/crossplane/terrajet/issues/107
@@ -350,5 +353,20 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_internet_gateway", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
+	})
+
+	p.AddResourceConfigurator("aws_key_pair", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
+		r.ExternalName = config.ExternalName{
+			SetIdentifierArgumentFn: func(base map[string]interface{}, name string) {
+				base["key_name"] = name
+			},
+			GetExternalNameFn: config.IDAsExternalName,
+			GetIDFn:           config.ExternalNameAsID,
+			OmittedFields: []string{
+				"key_name",
+				"key_name_prefix",
+			},
+		}
 	})
 }

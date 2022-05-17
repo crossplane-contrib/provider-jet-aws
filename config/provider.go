@@ -98,6 +98,7 @@ var IncludedResources = []string{
 	"aws_ec2_transit_gateway_vpc_attachment$",
 	"aws_ec2_transit_gateway_vpc_attachment_accepter$",
 	"aws_ec2_transit_gateway_route_table_propagation$",
+	"aws_key_pair$",
 	"aws_vpc$",
 	"aws_security_group$",
 	"aws_security_group_rule$",
