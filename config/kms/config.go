@@ -28,4 +28,12 @@ func Configure(p *config.Provider) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 	})
+
+	p.AddResourceConfigurator("aws_kms_alias", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["target_key_id"] = config.Reference{
+			Type: "Key",
+		}
+	})
 }
