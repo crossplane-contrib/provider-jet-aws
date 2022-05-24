@@ -24,6 +24,7 @@ import (
 	attachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/autoscalinggroup"
 	ebsvolume "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/ebsvolume"
+	egressonlyinternetgateway "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/egressonlyinternetgateway"
 	eip "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/eip"
 	instance "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/instance"
 	internetgateway "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/internetgateway"
@@ -127,6 +128,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		attachment.Setup,
 		autoscalinggroup.Setup,
 		ebsvolume.Setup,
+		egressonlyinternetgateway.Setup,
 		eip.Setup,
 		instance.Setup,
 		internetgateway.Setup,

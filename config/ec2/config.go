@@ -315,6 +315,9 @@ func Configure(p *config.Provider) {
 		r.References["route.instance_id"] = config.Reference{
 			Type: "Instance",
 		}
+		r.References["route.egress_only_gateway_id"] = config.Reference{
+			Type: "EgressOnlyInternetGateway",
+		}
 	})
 
 	p.AddResourceConfigurator("aws_route_table_association", func(r *config.Resource) {
@@ -348,6 +351,11 @@ func Configure(p *config.Provider) {
 	})
 
 	p.AddResourceConfigurator("aws_internet_gateway", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
+		r.ExternalName = config.IdentifierFromProvider
+	})
+
+	p.AddResourceConfigurator("aws_egress_only_internet_gateway", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
 	})
