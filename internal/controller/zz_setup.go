@@ -46,6 +46,7 @@ import (
 	vpcendpoint "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/vpcendpoint"
 	vpcipv4cidrblockassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/vpcipv4cidrblockassociation"
 	vpcpeeringconnection "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/vpcpeeringconnection"
+	vpcpeeringconnectionaccepter "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/vpcpeeringconnectionaccepter"
 	repository "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ecr/repository"
 	repositoryecrpublic "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ecrpublic/repository"
 	capacityprovider "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ecs/capacityprovider"
@@ -145,6 +146,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		vpcendpoint.Setup,
 		vpcipv4cidrblockassociation.Setup,
 		vpcpeeringconnection.Setup,
+		vpcpeeringconnectionaccepter.Setup,
 		repository.Setup,
 		repositoryecrpublic.Setup,
 		capacityprovider.Setup,
