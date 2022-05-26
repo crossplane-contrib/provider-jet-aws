@@ -158,8 +158,15 @@ type ReplicationGroupParameters struct {
 	// +kubebuilder:validation:Optional
 	SnapshotWindow *string `json:"snapshotWindow,omitempty" tf:"snapshot_window,omitempty"`
 
+	// +crossplane:generate:reference:type=SubnetGroup
 	// +kubebuilder:validation:Optional
 	SubnetGroupName *string `json:"subnetGroupName,omitempty" tf:"subnet_group_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SubnetGroupNameRef *v1.Reference `json:"subnetGroupNameRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	SubnetGroupNameSelector *v1.Selector `json:"subnetGroupNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`

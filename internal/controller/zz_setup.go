@@ -60,6 +60,7 @@ import (
 	clusterelasticache "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/cluster"
 	parametergroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/parametergroup"
 	replicationgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/replicationgroup"
+	subnetgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/subnetgroup"
 	user "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/user"
 	usergroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/usergroup"
 	lb "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lb"
@@ -87,7 +88,7 @@ import (
 	clustersnapshot "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/clustersnapshot"
 	eventsubscription "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/eventsubscription"
 	parametergroupneptune "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/parametergroup"
-	subnetgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/subnetgroup"
+	subnetgroupneptune "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/subnetgroup"
 	providerconfig "github.com/crossplane-contrib/provider-jet-aws/internal/controller/providerconfig"
 	clusterrds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/cluster"
 	instancerds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/instance"
@@ -159,6 +160,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		clusterelasticache.Setup,
 		parametergroup.Setup,
 		replicationgroup.Setup,
+		subnetgroup.Setup,
 		user.Setup,
 		usergroup.Setup,
 		lb.Setup,
@@ -186,7 +188,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		clustersnapshot.Setup,
 		eventsubscription.Setup,
 		parametergroupneptune.Setup,
-		subnetgroup.Setup,
+		subnetgroupneptune.Setup,
 		providerconfig.Setup,
 		clusterrds.Setup,
 		instancerds.Setup,

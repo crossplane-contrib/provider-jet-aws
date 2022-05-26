@@ -5,7 +5,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: clusters.elasticache.aws.jet.crossplane.io
+  name: subnetgroups.elasticache.aws.jet.crossplane.io
 spec:
   group: elasticache.aws.jet.crossplane.io
   names:
@@ -13,10 +13,10 @@ spec:
     - crossplane
     - managed
     - awsjet
-    kind: Cluster
-    listKind: ClusterList
-    plural: clusters
-    singular: cluster
+    kind: SubnetGroup
+    listKind: SubnetGroupList
+    plural: subnetgroups
+    singular: subnetgroup
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -35,7 +35,7 @@ spec:
     name: v1alpha2
     schema:
       openAPIV3Schema:
-        description: Cluster is the Schema for the Clusters API
+        description: SubnetGroup is the Schema for the SubnetGroups API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ClusterSpec defines the desired state of Cluster
+            description: SubnetGroupSpec defines the desired state of SubnetGroup
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,93 +63,24 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  applyImmediately:
-                    type: boolean
-                  availabilityZone:
+                  description:
                     type: string
-                  azMode:
-                    type: string
-                  engine:
-                    type: string
-                  engineVersion:
-                    type: string
-                  finalSnapshotIdentifier:
-                    type: string
-                  maintenanceWindow:
-                    type: string
-                  nodeType:
-                    type: string
-                  notificationTopicArn:
-                    type: string
-                  numCacheNodes:
-                    type: number
-                  parameterGroupName:
-                    type: string
-                  parameterGroupNameRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  parameterGroupNameSelector:
-                    description: A Selector selects an object.
-                    properties:
-                      matchControllerRef:
-                        description: MatchControllerRef ensures an object with the
-                          same controller reference as the selecting object is selected.
-                        type: boolean
-                      matchLabels:
-                        additionalProperties:
-                          type: string
-                        description: MatchLabels ensures an object with matching labels
-                          is selected.
-                        type: object
-                    type: object
-                  port:
-                    type: number
-                  preferredAvailabilityZones:
-                    items:
-                      type: string
-                    type: array
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  replicationGroupId:
-                    type: string
-                  securityGroupIds:
+                  subnetIdRefs:
                     items:
-                      type: string
+                      description: A Reference to a named object.
+                      properties:
+                        name:
+                          description: Name of the referenced object.
+                          type: string
+                      required:
+                      - name
+                      type: object
                     type: array
-                  securityGroupNames:
-                    items:
-                      type: string
-                    type: array
-                  snapshotArns:
-                    items:
-                      type: string
-                    type: array
-                  snapshotName:
-                    type: string
-                  snapshotRetentionLimit:
-                    type: number
-                  snapshotWindow:
-                    type: string
-                  subnetGroupName:
-                    type: string
-                  subnetGroupNameRef:
-                    description: A Reference to a named object.
-                    properties:
-                      name:
-                        description: Name of the referenced object.
-                        type: string
-                    required:
-                    - name
-                    type: object
-                  subnetGroupNameSelector:
+                  subnetIdSelector:
                     description: A Selector selects an object.
                     properties:
                       matchControllerRef:
@@ -163,6 +94,10 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  subnetIds:
+                    items:
+                      type: string
+                    type: array
                   tags:
                     additionalProperties:
                       type: string
@@ -267,30 +202,11 @@ spec:
             - forProvider
             type: object
           status:
-            description: ClusterStatus defines the observed state of Cluster.
+            description: SubnetGroupStatus defines the observed state of SubnetGroup.
             properties:
               atProvider:
                 properties:
                   arn:
-                    type: string
-                  cacheNodes:
-                    items:
-                      properties:
-                        address:
-                          type: string
-                        availabilityZone:
-                          type: string
-                        id:
-                          type: string
-                        port:
-                          type: number
-                      type: object
-                    type: array
-                  clusterAddress:
-                    type: string
-                  configurationEndpoint:
-                    type: string
-                  engineVersionActual:
                     type: string
                   id:
                     type: string
