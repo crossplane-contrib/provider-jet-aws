@@ -3781,6 +3781,16 @@ func (in *RouteParameters) DeepCopyInto(out *RouteParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.GatewayIDRef != nil {
+		in, out := &in.GatewayIDRef, &out.GatewayIDRef
+		*out = new(v1.Reference)
+		**out = **in
+	}
+	if in.GatewayIDSelector != nil {
+		in, out := &in.GatewayIDSelector, &out.GatewayIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.InstanceID != nil {
 		in, out := &in.InstanceID, &out.InstanceID
 		*out = new(string)
