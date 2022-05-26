@@ -8,10 +8,10 @@ spec:
     allocatedStorage: 20
     autoMinorVersionUpgrade: true
     backupRetentionPeriod: 14
-    instanceClass: db.t2.micro
+    instanceClass: db.t3.micro
     name: example
     engine: postgres
-    engineVersion: "12.4"
+    engineVersion: "13.1"
     username: adminuser
     passwordSecretRef:
       key: password
@@ -28,12 +28,3 @@ spec:
   writeConnectionSecretToRef:
     name: example-dbinstance-out
     namespace: default
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: example-dbinstance
-  namespace: crossplane-system
-type: Opaque
-data:
-  password: dGVzdFBhc3N3b3JkITEyMw== # testPassword!123
