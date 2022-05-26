@@ -67,6 +67,9 @@ import (
 	lblistener "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lblistener"
 	lbtargetgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lbtargetgroup"
 	lbtargetgroupattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lbtargetgroupattachment"
+	accelerator "github.com/crossplane-contrib/provider-jet-aws/internal/controller/globalaccelerator/accelerator"
+	endpointgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/globalaccelerator/endpointgroup"
+	listener "github.com/crossplane-contrib/provider-jet-aws/internal/controller/globalaccelerator/listener"
 	accesskey "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/accesskey"
 	group "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/group"
 	grouppolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/grouppolicyattachment"
@@ -167,6 +170,9 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		lblistener.Setup,
 		lbtargetgroup.Setup,
 		lbtargetgroupattachment.Setup,
+		accelerator.Setup,
+		endpointgroup.Setup,
+		listener.Setup,
 		accesskey.Setup,
 		group.Setup,
 		grouppolicyattachment.Setup,

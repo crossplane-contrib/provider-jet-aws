@@ -35,6 +35,7 @@ import (
 	"github.com/crossplane-contrib/provider-jet-aws/config/eks"
 	"github.com/crossplane-contrib/provider-jet-aws/config/elasticache"
 	"github.com/crossplane-contrib/provider-jet-aws/config/elasticloadbalancing"
+	"github.com/crossplane-contrib/provider-jet-aws/config/globalaccelerator"
 	"github.com/crossplane-contrib/provider-jet-aws/config/iam"
 	"github.com/crossplane-contrib/provider-jet-aws/config/kms"
 	"github.com/crossplane-contrib/provider-jet-aws/config/neptune"
@@ -156,6 +157,11 @@ var IncludedResources = []string{
 	// MQ
 	"aws_mq_broker$",
 	"aws_mq_configuration$",
+
+	// Global Accelerator
+	"aws_globalaccelerator_accelerator",
+	"aws_globalaccelerator_endpoint_group",
+	"aws_globalaccelerator_listener",
 }
 
 var skipList = []string{
@@ -201,6 +207,7 @@ func GetProvider() *tjconfig.Provider {
 		eks.Configure,
 		elasticache.Configure,
 		elasticloadbalancing.Configure,
+		globalaccelerator.Configure,
 		iam.Configure,
 		kms.Configure,
 		rds.Configure,
