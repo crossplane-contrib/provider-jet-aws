@@ -245,6 +245,9 @@ func Configure(p *config.Provider) {
 		r.References["security_group_id"] = config.Reference{
 			Type: "SecurityGroup",
 		}
+		r.References["source_security_group_id"] = config.Reference{
+			Type: "SecurityGroup",
+		}
 	})
 
 	p.AddResourceConfigurator("aws_vpc_ipv4_cidr_block_association", func(r *config.Resource) {
