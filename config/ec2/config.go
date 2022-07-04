@@ -227,6 +227,16 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_security_group", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
+		// Managed by SecurityGroupRule resource.
+		if s, ok := r.TerraformResource.Schema["ingress"]; ok {
+			s.Optional = false
+			s.Computed = true
+		}
+		// Managed by SecurityGroupRule resource.
+		if s, ok := r.TerraformResource.Schema["egress"]; ok {
+			s.Optional = false
+			s.Computed = true
+		}
 		r.References["egress.security_groups"] = config.Reference{
 			Type:              "SecurityGroup",
 			RefFieldName:      "SecurityGroupRefs",
@@ -236,12 +246,6 @@ func Configure(p *config.Provider) {
 			Type:              "SecurityGroup",
 			RefFieldName:      "SecurityGroupRefs",
 			SelectorFieldName: "SecurityGroupSelector",
-		}
-		r.LateInitializer = config.LateInitializer{
-			IgnoredFields: []string{
-				"ingress",
-				"egress",
-			},
 		}
 	})
 
