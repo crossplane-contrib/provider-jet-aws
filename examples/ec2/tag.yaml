@@ -1,0 +1,17 @@
+###
+# This tag resource should only be used in cases where EC2 resources are created outside Crossplane (e.g., AMIs),
+# being shared via Resource Access Manager (RAM), 
+# or implicitly created by other means (e.g., EKS ClusterSecurityGroup, Transit Gateway VPN Attachments).
+###
+apiVersion: ec2.aws.jet.crossplane.io/v1alpha2
+kind: Tag
+metadata:
+  name: example
+spec:
+  forProvider:
+    region: us-west-1
+    resourceId: sg-07ce66bf8dda6874b
+    key: "karpenter.sh/discovery"
+    value: "sample-eks-cluster"
+  providerConfigRef:
+    name: default
