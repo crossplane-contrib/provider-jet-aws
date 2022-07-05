@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: sagemaker.aws.jet.crossplane.io/v1alpha1
+#kind: UserProfile
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    domainId: ${aws_sagemaker_domain.test.id}
+#    userProfileName: example
+#  providerConfigRef:
+#    name: example

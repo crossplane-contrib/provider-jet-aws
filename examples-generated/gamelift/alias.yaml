@@ -1,0 +1,15 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: gamelift.aws.jet.crossplane.io/v1alpha1
+#kind: Alias
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    description: Example Description
+#    name: example-alias
+#    routingStrategy:
+#    - message: Example Message
+#      type: TERMINAL
+#  providerConfigRef:
+#    name: example

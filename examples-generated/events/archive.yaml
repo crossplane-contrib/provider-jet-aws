@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: events.aws.jet.crossplane.io/v1alpha1
+#kind: Archive
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    eventSourceArn: ${aws_cloudwatch_event_bus.order.arn}
+#    name: order-archive
+#  providerConfigRef:
+#    name: example

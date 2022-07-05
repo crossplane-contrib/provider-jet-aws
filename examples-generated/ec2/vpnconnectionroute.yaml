@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
+#kind: VPNConnectionRoute
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    destinationCidrBlock: 192.168.10.0/24
+#    vpnConnectionId: ${aws_vpn_connection.main.id}
+#  providerConfigRef:
+#    name: example

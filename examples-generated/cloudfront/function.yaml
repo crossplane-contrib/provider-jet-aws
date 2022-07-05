@@ -1,0 +1,15 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: cloudfront.aws.jet.crossplane.io/v1alpha1
+#kind: Function
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    code: ${file("${path.module}/function.js")}
+#    comment: my function
+#    name: test
+#    publish: true
+#    runtime: cloudfront-js-1.0
+#  providerConfigRef:
+#    name: example

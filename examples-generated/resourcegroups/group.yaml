@@ -1,0 +1,24 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: resourcegroups.aws.jet.crossplane.io/v1alpha1
+#kind: Group
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: test-group
+#    resourceQuery:
+#    - query: |
+#        {
+#          "ResourceTypeFilters": [
+#            "AWS::EC2::Instance"
+#          ],
+#          "TagFilters": [
+#            {
+#              "Key": "Stage",
+#              "Values": ["Test"]
+#            }
+#          ]
+#        }
+#  providerConfigRef:
+#    name: example

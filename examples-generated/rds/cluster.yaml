@@ -1,0 +1,24 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: rds.aws.jet.crossplane.io/v1alpha2
+#kind: Cluster
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    availabilityZones:
+#    - us-west-2a
+#    - us-west-2b
+#    - us-west-2c
+#    backupRetentionPeriod: 5
+#    databaseName: mydb
+#    engine: aurora-mysql
+#    engineVersion: 5.7.mysql_aurora.2.03.2
+#    masterPasswordSecretRef:
+#      key: example-key
+#      name: example-secret
+#      namespace: crossplane-system
+#    masterUsername: foo
+#    preferredBackupWindow: 07:00-09:00
+#  providerConfigRef:
+#    name: example

@@ -1,0 +1,18 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: securityhub.aws.jet.crossplane.io/v1alpha1
+#kind: Insight
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    filters:
+#    - awsAccountId:
+#      - comparison: EQUALS
+#        value: "1234567890"
+#      - comparison: EQUALS
+#        value: "09876543210"
+#    groupByAttribute: AwsAccountId
+#    name: example-insight
+#  providerConfigRef:
+#    name: example

@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: opsworks.aws.jet.crossplane.io/v1alpha1
+#kind: UserProfile
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    sshUsername: my_user
+#    userArn: ${aws_iam_user.user.arn}
+#  providerConfigRef:
+#    name: example

@@ -1,0 +1,14 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: rds.aws.jet.crossplane.io/v1alpha1
+#kind: ClusterRoleAssociation
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    dbClusterIdentifier: ${aws_rds_cluster.example.id}
+#    featureName: S3_INTEGRATION
+#    roleArnRef:
+#      name: example
+#  providerConfigRef:
+#    name: example

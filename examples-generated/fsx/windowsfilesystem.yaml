@@ -1,0 +1,17 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: fsx.aws.jet.crossplane.io/v1alpha1
+#kind: WindowsFileSystem
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    activeDirectoryId: ${aws_directory_service_directory.example.id}
+#    kmsKeyIdRef:
+#      name: example
+#    storageCapacity: 300
+#    subnetIdRefs:
+#    - name: example
+#    throughputCapacity: 1024
+#  providerConfigRef:
+#    name: example

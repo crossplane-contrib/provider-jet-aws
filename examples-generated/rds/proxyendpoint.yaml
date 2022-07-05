@@ -1,0 +1,14 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: rds.aws.jet.crossplane.io/v1alpha1
+#kind: ProxyEndpoint
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    dbProxyEndpointName: example
+#    dbProxyName: example
+#    targetRole: READ_ONLY
+#    vpcSubnetIds: ${aws_subnet.test.*.id}
+#  providerConfigRef:
+#    name: example

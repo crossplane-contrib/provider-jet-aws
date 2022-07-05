@@ -1,0 +1,14 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: cloudfront.aws.jet.crossplane.io/v1alpha1
+#kind: KeyGroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    comment: example key group
+#    items:
+#    - ${aws_cloudfront_public_key.example.id}
+#    name: example-key-group
+#  providerConfigRef:
+#    name: example

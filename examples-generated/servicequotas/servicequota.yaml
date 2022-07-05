@@ -1,0 +1,13 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: servicequotas.aws.jet.crossplane.io/v1alpha1
+#kind: ServiceQuota
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    quotaCode: L-F678F1CE
+#    serviceCode: vpc
+#    value: 75
+#  providerConfigRef:
+#    name: example

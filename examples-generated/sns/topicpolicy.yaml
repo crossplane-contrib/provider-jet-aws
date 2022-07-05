@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: sns.aws.jet.crossplane.io/v1alpha1
+#kind: TopicPolicy
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    arn: ${aws_sns_topic.test.arn}
+#    policy: ${data.aws_iam_policy_document.sns_topic_policy.json}
+#  providerConfigRef:
+#    name: example

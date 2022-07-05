@@ -1,0 +1,14 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: elb.aws.jet.crossplane.io/v1alpha1
+#kind: BackendServerPolicy
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    instancePort: 443
+#    loadBalancerName: foobar-terraform-elb
+#    policyNames:
+#    - ${aws_load_balancer_policy.wu-tang-root-ca-backend-auth-policy.policy_name}
+#  providerConfigRef:
+#    name: example

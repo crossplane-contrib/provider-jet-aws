@@ -1,0 +1,26 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: autoscalingplans.aws.jet.crossplane.io/v1alpha1
+#kind: ScalingPlan
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    applicationSource:
+#    - tagFilter:
+#      - key: application
+#        values:
+#        - example
+#    name: example-dynamic-cost-optimization
+#    scalingInstruction:
+#    - maxCapacity: 3
+#      minCapacity: 0
+#      resourceId: ${format("autoScalingGroup/%s", aws_autoscaling_group.example.name)}
+#      scalableDimension: autoscaling:autoScalingGroup:DesiredCapacity
+#      serviceNamespace: autoscaling
+#      targetTrackingConfiguration:
+#      - predefinedScalingMetricSpecification:
+#        - predefinedScalingMetricType: ASGAverageCPUUtilization
+#        targetValue: 70
+#  providerConfigRef:
+#    name: example

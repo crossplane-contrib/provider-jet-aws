@@ -1,0 +1,13 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: guardduty.aws.jet.crossplane.io/v1alpha1
+#kind: InviteAccepter
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    detectorId: ${aws_guardduty_detector.member.id}
+#    masterAccountId: ${aws_guardduty_detector.primary.account_id}
+#    provider: ${aws.member}
+#  providerConfigRef:
+#    name: example
