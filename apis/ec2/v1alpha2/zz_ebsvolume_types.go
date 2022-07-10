@@ -42,6 +42,9 @@ type EBSVolumeParameters struct {
 	Encrypted *bool `json:"encrypted,omitempty" tf:"encrypted,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	FinalSnapshot *bool `json:"finalSnapshot,omitempty" tf:"final_snapshot,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	Iops *float64 `json:"iops,omitempty" tf:"iops,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key

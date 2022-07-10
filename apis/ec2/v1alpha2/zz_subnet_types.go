@@ -48,14 +48,26 @@ type SubnetParameters struct {
 	// +kubebuilder:validation:Optional
 	AvailabilityZoneID *string `json:"availabilityZoneId,omitempty" tf:"availability_zone_id,omitempty"`
 
-	// +kubebuilder:validation:Required
-	CidrBlock *string `json:"cidrBlock" tf:"cidr_block,omitempty"`
+	// +kubebuilder:validation:Optional
+	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	CustomerOwnedIPv4Pool *string `json:"customerOwnedIpv4Pool,omitempty" tf:"customer_owned_ipv4_pool,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	EnableDns64 *bool `json:"enableDns64,omitempty" tf:"enable_dns64,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	EnableResourceNameDNSARecordOnLaunch *bool `json:"enableResourceNameDnsARecordOnLaunch,omitempty" tf:"enable_resource_name_dns_a_record_on_launch,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	EnableResourceNameDNSAaaaRecordOnLaunch *bool `json:"enableResourceNameDnsAaaaRecordOnLaunch,omitempty" tf:"enable_resource_name_dns_aaaa_record_on_launch,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	IPv6CidrBlock *string `json:"ipv6CidrBlock,omitempty" tf:"ipv6_cidr_block,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv6Native *bool `json:"ipv6Native,omitempty" tf:"ipv6_native,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MapCustomerOwnedIPOnLaunch *bool `json:"mapCustomerOwnedIpOnLaunch,omitempty" tf:"map_customer_owned_ip_on_launch,omitempty"`
@@ -65,6 +77,9 @@ type SubnetParameters struct {
 
 	// +kubebuilder:validation:Optional
 	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	PrivateDNSHostnameTypeOnLaunch *string `json:"privateDnsHostnameTypeOnLaunch,omitempty" tf:"private_dns_hostname_type_on_launch,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-

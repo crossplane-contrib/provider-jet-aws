@@ -21,6 +21,9 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/controller"
 
+	alertmanagerdefinition "github.com/crossplane-contrib/provider-jet-aws/internal/controller/amp/alertmanagerdefinition"
+	rulegroupnamespace "github.com/crossplane-contrib/provider-jet-aws/internal/controller/amp/rulegroupnamespace"
+	workspace "github.com/crossplane-contrib/provider-jet-aws/internal/controller/amp/workspace"
 	attachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/autoscalinggroup"
 	ebsvolume "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/ebsvolume"
@@ -70,6 +73,9 @@ import (
 	accelerator "github.com/crossplane-contrib/provider-jet-aws/internal/controller/globalaccelerator/accelerator"
 	endpointgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/globalaccelerator/endpointgroup"
 	listener "github.com/crossplane-contrib/provider-jet-aws/internal/controller/globalaccelerator/listener"
+	roleassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/grafana/roleassociation"
+	workspacegrafana "github.com/crossplane-contrib/provider-jet-aws/internal/controller/grafana/workspace"
+	workspacesamlconfiguration "github.com/crossplane-contrib/provider-jet-aws/internal/controller/grafana/workspacesamlconfiguration"
 	accesskey "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/accesskey"
 	group "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/group"
 	grouppolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/grouppolicyattachment"
@@ -124,6 +130,9 @@ import (
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
+		alertmanagerdefinition.Setup,
+		rulegroupnamespace.Setup,
+		workspace.Setup,
 		attachment.Setup,
 		autoscalinggroup.Setup,
 		ebsvolume.Setup,
@@ -173,6 +182,9 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		accelerator.Setup,
 		endpointgroup.Setup,
 		listener.Setup,
+		roleassociation.Setup,
+		workspacegrafana.Setup,
+		workspacesamlconfiguration.Setup,
 		accesskey.Setup,
 		group.Setup,
 		grouppolicyattachment.Setup,

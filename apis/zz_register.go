@@ -22,6 +22,7 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
+	v1alpha1 "github.com/crossplane-contrib/provider-jet-aws/apis/amp/v1alpha1"
 	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha2"
 	v1alpha2ec2 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
 	v1alpha2ecr "github.com/crossplane-contrib/provider-jet-aws/apis/ecr/v1alpha2"
@@ -31,13 +32,14 @@ import (
 	v1alpha2elasticache "github.com/crossplane-contrib/provider-jet-aws/apis/elasticache/v1alpha2"
 	v1alpha2elbv2 "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha2"
 	v1alpha2globalaccelerator "github.com/crossplane-contrib/provider-jet-aws/apis/globalaccelerator/v1alpha2"
+	v1alpha1grafana "github.com/crossplane-contrib/provider-jet-aws/apis/grafana/v1alpha1"
 	v1alpha2iam "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2"
 	v1alpha2kms "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2"
 	v1alpha2mq "github.com/crossplane-contrib/provider-jet-aws/apis/mq/v1alpha2"
 	v1alpha2neptune "github.com/crossplane-contrib/provider-jet-aws/apis/neptune/v1alpha2"
 	v1alpha2rds "github.com/crossplane-contrib/provider-jet-aws/apis/rds/v1alpha2"
 	v1alpha2route53 "github.com/crossplane-contrib/provider-jet-aws/apis/route53/v1alpha2"
-	v1alpha1 "github.com/crossplane-contrib/provider-jet-aws/apis/route53resolver/v1alpha1"
+	v1alpha1route53resolver "github.com/crossplane-contrib/provider-jet-aws/apis/route53resolver/v1alpha1"
 	v1alpha2s3 "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha2"
 	v1alpha1apis "github.com/crossplane-contrib/provider-jet-aws/apis/v1alpha1"
 )
@@ -45,6 +47,7 @@ import (
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
+		v1alpha1.SchemeBuilder.AddToScheme,
 		v1alpha2.SchemeBuilder.AddToScheme,
 		v1alpha2ec2.SchemeBuilder.AddToScheme,
 		v1alpha2ecr.SchemeBuilder.AddToScheme,
@@ -54,13 +57,14 @@ func init() {
 		v1alpha2elasticache.SchemeBuilder.AddToScheme,
 		v1alpha2elbv2.SchemeBuilder.AddToScheme,
 		v1alpha2globalaccelerator.SchemeBuilder.AddToScheme,
+		v1alpha1grafana.SchemeBuilder.AddToScheme,
 		v1alpha2iam.SchemeBuilder.AddToScheme,
 		v1alpha2kms.SchemeBuilder.AddToScheme,
 		v1alpha2mq.SchemeBuilder.AddToScheme,
 		v1alpha2neptune.SchemeBuilder.AddToScheme,
 		v1alpha2rds.SchemeBuilder.AddToScheme,
 		v1alpha2route53.SchemeBuilder.AddToScheme,
-		v1alpha1.SchemeBuilder.AddToScheme,
+		v1alpha1route53resolver.SchemeBuilder.AddToScheme,
 		v1alpha2s3.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
 	)

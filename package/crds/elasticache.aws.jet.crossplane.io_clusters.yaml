@@ -65,6 +65,8 @@ spec:
                 properties:
                   applyImmediately:
                     type: boolean
+                  autoMinorVersionUpgrade:
+                    type: string
                   availabilityZone:
                     type: string
                   azMode:
@@ -75,6 +77,24 @@ spec:
                     type: string
                   finalSnapshotIdentifier:
                     type: string
+                  logDeliveryConfiguration:
+                    items:
+                      properties:
+                        destination:
+                          type: string
+                        destinationType:
+                          type: string
+                        logFormat:
+                          type: string
+                        logType:
+                          type: string
+                      required:
+                      - destination
+                      - destinationType
+                      - logFormat
+                      - logType
+                      type: object
+                    type: array
                   maintenanceWindow:
                     type: string
                   nodeType:

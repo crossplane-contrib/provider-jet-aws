@@ -167,6 +167,11 @@ func (in *KeyParameters) DeepCopyInto(out *KeyParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.MultiRegion != nil {
+		in, out := &in.MultiRegion, &out.MultiRegion
+		*out = new(bool)
+		**out = **in
+	}
 	if in.Policy != nil {
 		in, out := &in.Policy, &out.Policy
 		*out = new(string)

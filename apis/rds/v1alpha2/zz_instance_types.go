@@ -84,6 +84,9 @@ type InstanceParameters struct {
 	// +kubebuilder:validation:Optional
 	CustomerOwnedIPEnabled *bool `json:"customerOwnedIpEnabled,omitempty" tf:"customer_owned_ip_enabled,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	DBName *string `json:"dbName,omitempty" tf:"db_name,omitempty"`
+
 	// +crossplane:generate:reference:type=SubnetGroup
 	// +kubebuilder:validation:Optional
 	DBSubnetGroupName *string `json:"dbSubnetGroupName,omitempty" tf:"db_subnet_group_name,omitempty"`
@@ -205,6 +208,9 @@ type InstanceParameters struct {
 	Region *string `json:"region" tf:"-"`
 
 	// +kubebuilder:validation:Optional
+	ReplicaMode *string `json:"replicaMode,omitempty" tf:"replica_mode,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	ReplicateSourceDB *string `json:"replicateSourceDb,omitempty" tf:"replicate_source_db,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -266,6 +272,9 @@ type RestoreToPointInTimeParameters struct {
 
 	// +kubebuilder:validation:Optional
 	RestoreTime *string `json:"restoreTime,omitempty" tf:"restore_time,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SourceDBInstanceAutomatedBackupsArn *string `json:"sourceDbInstanceAutomatedBackupsArn,omitempty" tf:"source_db_instance_automated_backups_arn,omitempty"`
 
 	// +crossplane:generate:reference:type=Instance
 	// +kubebuilder:validation:Optional

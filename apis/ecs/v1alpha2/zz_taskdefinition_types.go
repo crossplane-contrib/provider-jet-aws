@@ -142,6 +142,18 @@ type ProxyConfigurationParameters struct {
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
+type RuntimePlatformObservation struct {
+}
+
+type RuntimePlatformParameters struct {
+
+	// +kubebuilder:validation:Optional
+	CPUArchitecture *string `json:"cpuArchitecture,omitempty" tf:"cpu_architecture,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	OperatingSystemFamily *string `json:"operatingSystemFamily,omitempty" tf:"operating_system_family,omitempty"`
+}
+
 type TaskDefinitionObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
@@ -205,6 +217,12 @@ type TaskDefinitionParameters struct {
 
 	// +kubebuilder:validation:Optional
 	RequiresCompatibilities []*string `json:"requiresCompatibilities,omitempty" tf:"requires_compatibilities,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	RuntimePlatform []RuntimePlatformParameters `json:"runtimePlatform,omitempty" tf:"runtime_platform,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SkipDestroy *bool `json:"skipDestroy,omitempty" tf:"skip_destroy,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`

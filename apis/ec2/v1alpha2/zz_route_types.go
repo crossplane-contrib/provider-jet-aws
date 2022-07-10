@@ -41,6 +41,9 @@ type RouteParameters struct {
 	CarrierGatewayID *string `json:"carrierGatewayId,omitempty" tf:"carrier_gateway_id,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	CoreNetworkArn *string `json:"coreNetworkArn,omitempty" tf:"core_network_arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	DestinationCidrBlock *string `json:"destinationCidrBlock,omitempty" tf:"destination_cidr_block,omitempty"`
 
 	// +kubebuilder:validation:Optional

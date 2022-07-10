@@ -157,6 +157,17 @@ spec:
                     items:
                       type: string
                     type: array
+                  runtimePlatform:
+                    items:
+                      properties:
+                        cpuArchitecture:
+                          type: string
+                        operatingSystemFamily:
+                          type: string
+                      type: object
+                    type: array
+                  skipDestroy:
+                    type: boolean
                   tags:
                     additionalProperties:
                       type: string

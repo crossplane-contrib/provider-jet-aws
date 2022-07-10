@@ -214,10 +214,10 @@ spec:
                             - defaultRetention
                             type: object
                           type: array
-                      required:
-                      - objectLockEnabled
                       type: object
                     type: array
+                  objectLockEnabled:
+                    type: boolean
                   policy:
                     type: string
                   region:
@@ -250,8 +250,26 @@ spec:
                                       type: string
                                     bucket:
                                       type: string
+                                    metrics:
+                                      items:
+                                        properties:
+                                          minutes:
+                                            type: number
+                                          status:
+                                            type: string
+                                        type: object
+                                      type: array
                                     replicaKmsKeyId:
                                       type: string
+                                    replicationTime:
+                                      items:
+                                        properties:
+                                          minutes:
+                                            type: number
+                                          status:
+                                            type: string
+                                        type: object
+                                      type: array
                                     storageClass:
                                       type: string
                                   required:
@@ -380,10 +398,6 @@ spec:
                           type: string
                       type: object
                     type: array
-                  websiteDomain:
-                    type: string
-                  websiteEndpoint:
-                    type: string
                 required:
                 - region
                 type: object
@@ -498,6 +512,10 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                  websiteDomain:
+                    type: string
+                  websiteEndpoint:
+                    type: string
                 type: object
               conditions:
                 description: Conditions of the resource.

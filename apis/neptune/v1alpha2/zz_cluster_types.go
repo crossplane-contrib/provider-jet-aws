@@ -46,6 +46,9 @@ type ClusterObservation struct {
 type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
+	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade,omitempty" tf:"allow_major_version_upgrade,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately,omitempty"`
 
 	// +kubebuilder:validation:Optional
