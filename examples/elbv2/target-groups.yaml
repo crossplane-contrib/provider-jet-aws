@@ -1,0 +1,43 @@
+---
+apiVersion: elbv2.aws.jet.crossplane.io/v1alpha2
+kind: LBTargetGroup
+metadata:
+  name: sample-lambda-targetgroup
+spec:
+  forProvider:
+    region: us-west-1
+    name: sample-lambda-targetgroup
+    targetType: lambda
+  providerConfigRef:
+    name: default
+---
+apiVersion: elbv2.aws.jet.crossplane.io/v1alpha2
+kind: LBTargetGroup
+metadata:
+  name: sample-ip-targetgroup
+spec:
+  forProvider:
+    region: us-west-1
+    name: sample-ip-targetgroup
+    targetType: ip
+    port: 80
+    protocol: "HTTP"
+    vpcIdRef: 
+      name: sample-vpc
+  providerConfigRef:
+    name: default
+---
+apiVersion: elbv2.aws.jet.crossplane.io/v1alpha2
+kind: LBTargetGroup
+metadata:
+  name: sample-instance-targetgroup
+spec:
+  forProvider:
+    region: us-west-1
+    name: sample-instance-targetgroup
+    port: 80
+    protocol: "HTTP"
+    vpcIdRef: 
+      name: sample-vpc
+  providerConfigRef:
+    name: default

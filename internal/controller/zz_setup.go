@@ -65,6 +65,8 @@ import (
 	usergroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elasticache/usergroup"
 	lb "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lb"
 	lblistener "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lblistener"
+	lblistenercertificate "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lblistenercertificate"
+	lblistenerrule "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lblistenerrule"
 	lbtargetgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lbtargetgroup"
 	lbtargetgroupattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/elbv2/lbtargetgroupattachment"
 	accelerator "github.com/crossplane-contrib/provider-jet-aws/internal/controller/globalaccelerator/accelerator"
@@ -168,6 +170,8 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		usergroup.Setup,
 		lb.Setup,
 		lblistener.Setup,
+		lblistenercertificate.Setup,
+		lblistenerrule.Setup,
 		lbtargetgroup.Setup,
 		lbtargetgroupattachment.Setup,
 		accelerator.Setup,

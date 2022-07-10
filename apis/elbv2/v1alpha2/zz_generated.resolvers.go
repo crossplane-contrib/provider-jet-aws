@@ -171,6 +171,76 @@ func (mg *LBListener) ResolveReferences(ctx context.Context, c client.Reader) er
 	return nil
 }
 
+// ResolveReferences of this LBListenerCertificate.
+func (mg *LBListenerCertificate) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ListenerArn),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.ListenerArnRef,
+		Selector:     mg.Spec.ForProvider.ListenerArnSelector,
+		To: reference.To{
+			List:    &LBListenerList{},
+			Managed: &LBListener{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.ListenerArn")
+	}
+	mg.Spec.ForProvider.ListenerArn = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.ListenerArnRef = rsp.ResolvedReference
+
+	return nil
+}
+
+// ResolveReferences of this LBListenerRule.
+func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.Action); i3++ {
+		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Action[i3].TargetGroupArn),
+			Extract:      reference.ExternalName(),
+			Reference:    mg.Spec.ForProvider.Action[i3].TargetGroupArnRef,
+			Selector:     mg.Spec.ForProvider.Action[i3].TargetGroupArnSelector,
+			To: reference.To{
+				List:    &LBTargetGroupList{},
+				Managed: &LBTargetGroup{},
+			},
+		})
+		if err != nil {
+			return errors.Wrap(err, "mg.Spec.ForProvider.Action[i3].TargetGroupArn")
+		}
+		mg.Spec.ForProvider.Action[i3].TargetGroupArn = reference.ToPtrValue(rsp.ResolvedValue)
+		mg.Spec.ForProvider.Action[i3].TargetGroupArnRef = rsp.ResolvedReference
+
+	}
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ListenerArn),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.ListenerArnRef,
+		Selector:     mg.Spec.ForProvider.ListenerArnSelector,
+		To: reference.To{
+			List:    &LBListenerList{},
+			Managed: &LBListener{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.ListenerArn")
+	}
+	mg.Spec.ForProvider.ListenerArn = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.ListenerArnRef = rsp.ResolvedReference
+
+	return nil
+}
+
 // ResolveReferences of this LBTargetGroup.
 func (mg *LBTargetGroup) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
