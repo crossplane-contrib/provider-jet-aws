@@ -52,6 +52,8 @@ var IncludedResources = []string{
 	// Elastic Load Balancing v2 (ALB/NLB)
 	"aws_lb$",
 	"aws_lb_listener$",
+	"aws_lb_listener_certificate",
+	"aws_lb_listener_rule$",
 	"aws_lb_target_group$",
 	"aws_lb_target_group_attachment$",
 

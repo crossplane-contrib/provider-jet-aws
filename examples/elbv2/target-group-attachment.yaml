@@ -1,0 +1,18 @@
+---
+apiVersion: elbv2.aws.jet.crossplane.io/v1alpha2
+kind: LBTargetGroupAttachment
+metadata:
+  name: sample-target-group-attachment
+spec:
+  forProvider:
+    region: us-west-1
+    # This is the Instance ID for an instance, or the container ID for an ECS container. 
+    # If the target type is ip, specify an IP address. 
+    # If the target type is lambda, specify the arn of lambda. 
+    # If the target type is alb, specify the arn of alb.
+    targetId: "10.10.10.10"
+    availabilityZone: all
+    targetGroupArnRef:
+      name: sample-ip-targetgroup
+  providerConfigRef:
+    name: default
