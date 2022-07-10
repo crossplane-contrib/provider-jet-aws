@@ -32,7 +32,7 @@ spec:
     - jsonPath: .metadata.creationTimestamp
       name: AGE
       type: date
-    name: v1alpha1
+    name: v1alpha2
     schema:
       openAPIV3Schema:
         description: AlertManagerDefinition is the Schema for the AlertManagerDefinitions

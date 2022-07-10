@@ -18,8 +18,8 @@ limitations under the License.
 
 // +kubebuilder:object:generate=true
 // +groupName=grafana.aws.jet.crossplane.io
-// +versionName=v1alpha1
-package v1alpha1
+// +versionName=v1alpha2
+package v1alpha2
 
 import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
@@ -29,7 +29,7 @@ import (
 // Package type metadata.
 const (
 	CRDGroup   = "grafana.aws.jet.crossplane.io"
-	CRDVersion = "v1alpha1"
+	CRDVersion = "v1alpha2"
 )
 
 var (

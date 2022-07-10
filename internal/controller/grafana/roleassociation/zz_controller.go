@@ -30,19 +30,19 @@ import (
 	"github.com/crossplane/terrajet/pkg/terraform"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	v1alpha1 "github.com/crossplane-contrib/provider-jet-aws/apis/grafana/v1alpha1"
+	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/grafana/v1alpha2"
 )
 
 // Setup adds a controller that reconciles RoleAssociation managed resources.
 func Setup(mgr ctrl.Manager, o tjcontroller.Options) error {
-	name := managed.ControllerName(v1alpha1.RoleAssociation_GroupVersionKind.String())
+	name := managed.ControllerName(v1alpha2.RoleAssociation_GroupVersionKind.String())
 	var initializers managed.InitializerChain
 	cps := []managed.ConnectionPublisher{managed.NewAPISecretPublisher(mgr.GetClient(), mgr.GetScheme())}
 	if o.SecretStoreConfigGVK != nil {
 		cps = append(cps, connection.NewDetailsManager(mgr.GetClient(), *o.SecretStoreConfigGVK))
 	}
 	r := managed.NewReconciler(mgr,
-		xpresource.ManagedKind(v1alpha1.RoleAssociation_GroupVersionKind),
+		xpresource.ManagedKind(v1alpha2.RoleAssociation_GroupVersionKind),
 		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), o.WorkspaceStore, o.SetupFn, o.Provider.Resources["aws_grafana_role_association"])),
 		managed.WithLogger(o.Logger.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
@@ -55,6 +55,6 @@ func Setup(mgr ctrl.Manager, o tjcontroller.Options) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		Named(name).
 		WithOptions(o.ForControllerRuntime()).
-		For(&v1alpha1.RoleAssociation{}).
+		For(&v1alpha2.RoleAssociation{}).
 		Complete(ratelimiter.NewReconciler(name, r, o.GlobalRateLimiter))
 }

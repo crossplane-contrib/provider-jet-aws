@@ -1,0 +1,10 @@
+apiVersion: grafana.aws.jet.crossplane.io/v1alpha2
+kind: Workspace
+metadata:
+  name: sample-workspace
+spec:
+  forProvider:
+    region: us-west-1
+  writeConnectionSecretToRef:
+    name: sample-workspace
+    namespace: default

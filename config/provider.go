@@ -26,6 +26,7 @@ import (
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 
+	"github.com/crossplane-contrib/provider-jet-aws/config/amp"
 	"github.com/crossplane-contrib/provider-jet-aws/config/autoscaling"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ebs"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ec2"
@@ -36,6 +37,7 @@ import (
 	"github.com/crossplane-contrib/provider-jet-aws/config/elasticache"
 	"github.com/crossplane-contrib/provider-jet-aws/config/elasticloadbalancing"
 	"github.com/crossplane-contrib/provider-jet-aws/config/globalaccelerator"
+	"github.com/crossplane-contrib/provider-jet-aws/config/grafana"
 	"github.com/crossplane-contrib/provider-jet-aws/config/iam"
 	"github.com/crossplane-contrib/provider-jet-aws/config/kms"
 	"github.com/crossplane-contrib/provider-jet-aws/config/neptune"
@@ -217,6 +219,7 @@ func GetProvider() *tjconfig.Provider {
 	)
 
 	for _, configure := range []func(provider *tjconfig.Provider){
+		amp.Configure,
 		autoscaling.Configure,
 		ebs.Configure,
 		ec2.Configure,
@@ -227,6 +230,7 @@ func GetProvider() *tjconfig.Provider {
 		elasticache.Configure,
 		elasticloadbalancing.Configure,
 		globalaccelerator.Configure,
+		grafana.Configure,
 		iam.Configure,
 		kms.Configure,
 		rds.Configure,
