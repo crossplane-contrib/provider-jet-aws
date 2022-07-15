@@ -4,7 +4,7 @@ metadata:
   name: sample-workspace
 spec:
   forProvider:
-    region: eu-central-1
+    region: us-west-1
     authenticationProviders: 
       - AWS_SSO
     accountAccessType: "ORGANIZATION"
