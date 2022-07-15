@@ -4,7 +4,14 @@ metadata:
   name: sample-workspace
 spec:
   forProvider:
-    region: us-west-1
-  writeConnectionSecretToRef:
-    name: sample-workspace
-    namespace: default
+    region: eu-central-1
+    authenticationProviders: 
+      - AWS_SSO
+    accountAccessType: "ORGANIZATION"
+    organizationalUnits:
+      - ou-in2k-3hj06d00
+    permissionType: "SERVICE_MANAGED"
+    dataSources:
+      - CLOUDWATCH
+      - PROMETHEUS
+      - AMAZON_OPENSEARCH_SERVICE

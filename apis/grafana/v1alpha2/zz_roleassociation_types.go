@@ -45,8 +45,15 @@ type RoleAssociationParameters struct {
 	// +kubebuilder:validation:Optional
 	UserIds []*string `json:"userIds,omitempty" tf:"user_ids,omitempty"`
 
-	// +kubebuilder:validation:Required
-	WorkspaceID *string `json:"workspaceId" tf:"workspace_id,omitempty"`
+	// +crossplane:generate:reference:type=Workspace
+	// +kubebuilder:validation:Optional
+	WorkspaceID *string `json:"workspaceId,omitempty" tf:"workspace_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	WorkspaceIDRef *v1.Reference `json:"workspaceIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	WorkspaceIDSelector *v1.Selector `json:"workspaceIdSelector,omitempty" tf:"-"`
 }
 
 // RoleAssociationSpec defines the desired state of RoleAssociation

@@ -32,10 +32,20 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_grafana_workspace_saml_configuration", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
+			"workspace_id": config.Reference{
+				Type: "Workspace",
+			},
+		}
 	})
 
 	p.AddResourceConfigurator("aws_grafana_role_association", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
+			"workspace_id": config.Reference{
+				Type: "Workspace",
+			},
+		}
 	})
 }
