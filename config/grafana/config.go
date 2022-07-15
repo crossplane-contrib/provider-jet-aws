@@ -27,6 +27,13 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_grafana_workspace", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
+			"role_arn": config.Reference{
+				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
+				Extractor: common.PathARNExtractor,
+			},
+		}
+
 	})
 
 	p.AddResourceConfigurator("aws_grafana_workspace_saml_configuration", func(r *config.Resource) {
