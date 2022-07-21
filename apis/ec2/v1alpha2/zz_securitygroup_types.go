@@ -112,7 +112,11 @@ type IngressParameters struct {
 type SecurityGroupObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
+	Egress []EgressObservation `json:"egress,omitempty" tf:"egress,omitempty"`
+
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+	Ingress []IngressObservation `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
 	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id,omitempty"`
 
@@ -123,12 +127,6 @@ type SecurityGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	Egress []EgressParameters `json:"egress,omitempty" tf:"egress,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	Ingress []IngressParameters `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
