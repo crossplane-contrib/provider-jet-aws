@@ -1,0 +1,856 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.8.0
+  creationTimestamp: null
+  name: virtualnodes.appmesh.aws.jet.crossplane.io
+spec:
+  group: appmesh.aws.jet.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - awsjet
+    kind: VirtualNode
+    listKind: VirtualNodeList
+    plural: virtualnodes
+    singular: virtualnode
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: VirtualNode is the Schema for the VirtualNodes API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: VirtualNodeSpec defines the desired state of VirtualNode
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource.
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  meshName:
+                    type: string
+                  meshOwner:
+                    type: string
+                  name:
+                    type: string
+                  region:
+                    description: Region is the region you'd like your resource to
+                      be created in.
+                    type: string
+                  spec:
+                    items:
+                      properties:
+                        backend:
+                          items:
+                            properties:
+                              virtualService:
+                                items:
+                                  properties:
+                                    clientPolicy:
+                                      items:
+                                        properties:
+                                          tls:
+                                            items:
+                                              properties:
+                                                certificate:
+                                                  items:
+                                                    properties:
+                                                      file:
+                                                        items:
+                                                          properties:
+                                                            certificateChain:
+                                                              type: string
+                                                            privateKey:
+                                                              type: string
+                                                          required:
+                                                          - certificateChain
+                                                          - privateKey
+                                                          type: object
+                                                        type: array
+                                                      sds:
+                                                        items:
+                                                          properties:
+                                                            secretName:
+                                                              type: string
+                                                          required:
+                                                          - secretName
+                                                          type: object
+                                                        type: array
+                                                    type: object
+                                                  type: array
+                                                enforce:
+                                                  type: boolean
+                                                ports:
+                                                  items:
+                                                    type: number
+                                                  type: array
+                                                validation:
+                                                  items:
+                                                    properties:
+                                                      subjectAlternativeNames:
+                                                        items:
+                                                          properties:
+                                                            match:
+                                                              items:
+                                                                properties:
+                                                                  exact:
+                                                                    items:
+                                                                      type: string
+                                                                    type: array
+                                                                required:
+                                                                - exact
+                                                                type: object
+                                                              type: array
+                                                          required:
+                                                          - match
+                                                          type: object
+                                                        type: array
+                                                      trust:
+                                                        items:
+                                                          properties:
+                                                            acm:
+                                                              items:
+                                                                properties:
+                                                                  certificateAuthorityArns:
+                                                                    items:
+                                                                      type: string
+                                                                    type: array
+                                                                required:
+                                                                - certificateAuthorityArns
+                                                                type: object
+                                                              type: array
+                                                            file:
+                                                              items:
+                                                                properties:
+                                                                  certificateChain:
+                                                                    type: string
+                                                                required:
+                                                                - certificateChain
+                                                                type: object
+                                                              type: array
+                                                            sds:
+                                                              items:
+                                                                properties:
+                                                                  secretName:
+                                                                    type: string
+                                                                required:
+                                                                - secretName
+                                                                type: object
+                                                              type: array
+                                                          type: object
+                                                        type: array
+                                                    required:
+                                                    - trust
+                                                    type: object
+                                                  type: array
+                                              required:
+                                              - validation
+                                              type: object
+                                            type: array
+                                        type: object
+                                      type: array
+                                    virtualServiceName:
+                                      type: string
+                                  required:
+                                  - virtualServiceName
+                                  type: object
+                                type: array
+                            required:
+                            - virtualService
+                            type: object
+                          type: array
+                        backendDefaults:
+                          items:
+                            properties:
+                              clientPolicy:
+                                items:
+                                  properties:
+                                    tls:
+                                      items:
+                                        properties:
+                                          certificate:
+                                            items:
+                                              properties:
+                                                file:
+                                                  items:
+                                                    properties:
+                                                      certificateChain:
+                                                        type: string
+                                                      privateKey:
+                                                        type: string
+                                                    required:
+                                                    - certificateChain
+                                                    - privateKey
+                                                    type: object
+                                                  type: array
+                                                sds:
+                                                  items:
+                                                    properties:
+                                                      secretName:
+                                                        type: string
+                                                    required:
+                                                    - secretName
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
+                                          enforce:
+                                            type: boolean
+                                          ports:
+                                            items:
+                                              type: number
+                                            type: array
+                                          validation:
+                                            items:
+                                              properties:
+                                                subjectAlternativeNames:
+                                                  items:
+                                                    properties:
+                                                      match:
+                                                        items:
+                                                          properties:
+                                                            exact:
+                                                              items:
+                                                                type: string
+                                                              type: array
+                                                          required:
+                                                          - exact
+                                                          type: object
+                                                        type: array
+                                                    required:
+                                                    - match
+                                                    type: object
+                                                  type: array
+                                                trust:
+                                                  items:
+                                                    properties:
+                                                      acm:
+                                                        items:
+                                                          properties:
+                                                            certificateAuthorityArns:
+                                                              items:
+                                                                type: string
+                                                              type: array
+                                                          required:
+                                                          - certificateAuthorityArns
+                                                          type: object
+                                                        type: array
+                                                      file:
+                                                        items:
+                                                          properties:
+                                                            certificateChain:
+                                                              type: string
+                                                          required:
+                                                          - certificateChain
+                                                          type: object
+                                                        type: array
+                                                      sds:
+                                                        items:
+                                                          properties:
+                                                            secretName:
+                                                              type: string
+                                                          required:
+                                                          - secretName
+                                                          type: object
+                                                        type: array
+                                                    type: object
+                                                  type: array
+                                              required:
+                                              - trust
+                                              type: object
+                                            type: array
+                                        required:
+                                        - validation
+                                        type: object
+                                      type: array
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                        listener:
+                          items:
+                            properties:
+                              connectionPool:
+                                items:
+                                  properties:
+                                    grpc:
+                                      items:
+                                        properties:
+                                          maxRequests:
+                                            type: number
+                                        required:
+                                        - maxRequests
+                                        type: object
+                                      type: array
+                                    http:
+                                      items:
+                                        properties:
+                                          maxConnections:
+                                            type: number
+                                          maxPendingRequests:
+                                            type: number
+                                        required:
+                                        - maxConnections
+                                        type: object
+                                      type: array
+                                    http2:
+                                      items:
+                                        properties:
+                                          maxRequests:
+                                            type: number
+                                        required:
+                                        - maxRequests
+                                        type: object
+                                      type: array
+                                    tcp:
+                                      items:
+                                        properties:
+                                          maxConnections:
+                                            type: number
+                                        required:
+                                        - maxConnections
+                                        type: object
+                                      type: array
+                                  type: object
+                                type: array
+                              healthCheck:
+                                items:
+                                  properties:
+                                    healthyThreshold:
+                                      type: number
+                                    intervalMillis:
+                                      type: number
+                                    path:
+                                      type: string
+                                    port:
+                                      type: number
+                                    protocol:
+                                      type: string
+                                    timeoutMillis:
+                                      type: number
+                                    unhealthyThreshold:
+                                      type: number
+                                  required:
+                                  - healthyThreshold
+                                  - intervalMillis
+                                  - protocol
+                                  - timeoutMillis
+                                  - unhealthyThreshold
+                                  type: object
+                                type: array
+                              outlierDetection:
+                                items:
+                                  properties:
+                                    baseEjectionDuration:
+                                      items:
+                                        properties:
+                                          unit:
+                                            type: string
+                                          value:
+                                            type: number
+                                        required:
+                                        - unit
+                                        - value
+                                        type: object
+                                      type: array
+                                    interval:
+                                      items:
+                                        properties:
+                                          unit:
+                                            type: string
+                                          value:
+                                            type: number
+                                        required:
+                                        - unit
+                                        - value
+                                        type: object
+                                      type: array
+                                    maxEjectionPercent:
+                                      type: number
+                                    maxServerErrors:
+                                      type: number
+                                  required:
+                                  - baseEjectionDuration
+                                  - interval
+                                  - maxEjectionPercent
+                                  - maxServerErrors
+                                  type: object
+                                type: array
+                              portMapping:
+                                items:
+                                  properties:
+                                    port:
+                                      type: number
+                                    protocol:
+                                      type: string
+                                  required:
+                                  - port
+                                  - protocol
+                                  type: object
+                                type: array
+                              timeout:
+                                items:
+                                  properties:
+                                    grpc:
+                                      items:
+                                        properties:
+                                          idle:
+                                            items:
+                                              properties:
+                                                unit:
+                                                  type: string
+                                                value:
+                                                  type: number
+                                              required:
+                                              - unit
+                                              - value
+                                              type: object
+                                            type: array
+                                          perRequest:
+                                            items:
+                                              properties:
+                                                unit:
+                                                  type: string
+                                                value:
+                                                  type: number
+                                              required:
+                                              - unit
+                                              - value
+                                              type: object
+                                            type: array
+                                        type: object
+                                      type: array
+                                    http:
+                                      items:
+                                        properties:
+                                          idle:
+                                            items:
+                                              properties:
+                                                unit:
+                                                  type: string
+                                                value:
+                                                  type: number
+                                              required:
+                                              - unit
+                                              - value
+                                              type: object
+                                            type: array
+                                          perRequest:
+                                            items:
+                                              properties:
+                                                unit:
+                                                  type: string
+                                                value:
+                                                  type: number
+                                              required:
+                                              - unit
+                                              - value
+                                              type: object
+                                            type: array
+                                        type: object
+                                      type: array
+                                    http2:
+                                      items:
+                                        properties:
+                                          idle:
+                                            items:
+                                              properties:
+                                                unit:
+                                                  type: string
+                                                value:
+                                                  type: number
+                                              required:
+                                              - unit
+                                              - value
+                                              type: object
+                                            type: array
+                                          perRequest:
+                                            items:
+                                              properties:
+                                                unit:
+                                                  type: string
+                                                value:
+                                                  type: number
+                                              required:
+                                              - unit
+                                              - value
+                                              type: object
+                                            type: array
+                                        type: object
+                                      type: array
+                                    tcp:
+                                      items:
+                                        properties:
+                                          idle:
+                                            items:
+                                              properties:
+                                                unit:
+                                                  type: string
+                                                value:
+                                                  type: number
+                                              required:
+                                              - unit
+                                              - value
+                                              type: object
+                                            type: array
+                                        type: object
+                                      type: array
+                                  type: object
+                                type: array
+                              tls:
+                                items:
+                                  properties:
+                                    certificate:
+                                      items:
+                                        properties:
+                                          acm:
+                                            items:
+                                              properties:
+                                                certificateArn:
+                                                  type: string
+                                              required:
+                                              - certificateArn
+                                              type: object
+                                            type: array
+                                          file:
+                                            items:
+                                              properties:
+                                                certificateChain:
+                                                  type: string
+                                                privateKey:
+                                                  type: string
+                                              required:
+                                              - certificateChain
+                                              - privateKey
+                                              type: object
+                                            type: array
+                                          sds:
+                                            items:
+                                              properties:
+                                                secretName:
+                                                  type: string
+                                              required:
+                                              - secretName
+                                              type: object
+                                            type: array
+                                        type: object
+                                      type: array
+                                    mode:
+                                      type: string
+                                    validation:
+                                      items:
+                                        properties:
+                                          subjectAlternativeNames:
+                                            items:
+                                              properties:
+                                                match:
+                                                  items:
+                                                    properties:
+                                                      exact:
+                                                        items:
+                                                          type: string
+                                                        type: array
+                                                    required:
+                                                    - exact
+                                                    type: object
+                                                  type: array
+                                              required:
+                                              - match
+                                              type: object
+                                            type: array
+                                          trust:
+                                            items:
+                                              properties:
+                                                file:
+                                                  items:
+                                                    properties:
+                                                      certificateChain:
+                                                        type: string
+                                                    required:
+                                                    - certificateChain
+                                                    type: object
+                                                  type: array
+                                                sds:
+                                                  items:
+                                                    properties:
+                                                      secretName:
+                                                        type: string
+                                                    required:
+                                                    - secretName
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
+                                        required:
+                                        - trust
+                                        type: object
+                                      type: array
+                                  required:
+                                  - certificate
+                                  - mode
+                                  type: object
+                                type: array
+                            required:
+                            - portMapping
+                            type: object
+                          type: array
+                        logging:
+                          items:
+                            properties:
+                              accessLog:
+                                items:
+                                  properties:
+                                    file:
+                                      items:
+                                        properties:
+                                          path:
+                                            type: string
+                                        required:
+                                        - path
+                                        type: object
+                                      type: array
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                        serviceDiscovery:
+                          items:
+                            properties:
+                              awsCloudMap:
+                                items:
+                                  properties:
+                                    attributes:
+                                      additionalProperties:
+                                        type: string
+                                      type: object
+                                    namespaceName:
+                                      type: string
+                                    serviceName:
+                                      type: string
+                                  required:
+                                  - namespaceName
+                                  - serviceName
+                                  type: object
+                                type: array
+                              dns:
+                                items:
+                                  properties:
+                                    hostname:
+                                      type: string
+                                  required:
+                                  - hostname
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                      type: object
+                    type: array
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                required:
+                - meshName
+                - name
+                - region
+                - spec
+                type: object
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              publishConnectionDetailsTo:
+                description: PublishConnectionDetailsTo specifies the connection secret
+                  config which contains a name, metadata and a reference to secret
+                  store config to which any connection details for this managed resource
+                  should be written. Connection details frequently include the endpoint,
+                  username, and password required to connect to the managed resource.
+                properties:
+                  configRef:
+                    default:
+                      name: default
+                    description: SecretStoreConfigRef specifies which secret store
+                      config should be used for this ConnectionSecret.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                    required:
+                    - name
+                    type: object
+                  metadata:
+                    description: Metadata is the metadata for connection secret.
+                    properties:
+                      annotations:
+                        additionalProperties:
+                          type: string
+                        description: Annotations are the annotations to be added to
+                          connection secret. - For Kubernetes secrets, this will be
+                          used as "metadata.annotations". - It is up to Secret Store
+                          implementation for others store types.
+                        type: object
+                      labels:
+                        additionalProperties:
+                          type: string
+                        description: Labels are the labels/tags to be added to connection
+                          secret. - For Kubernetes secrets, this will be used as "metadata.labels".
+                          - It is up to Secret Store implementation for others store
+                          types.
+                        type: object
+                      type:
+                        description: Type is the SecretType for the connection secret.
+                          - Only valid for Kubernetes Secret Stores.
+                        type: string
+                    type: object
+                  name:
+                    description: Name is the name of the connection secret.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource. This field is planned to be replaced in a future
+                  release in favor of PublishConnectionDetailsTo. Currently, both
+                  could be set independently and connection details would be published
+                  to both without affecting each other.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+          status:
+            description: VirtualNodeStatus defines the observed state of VirtualNode.
+            properties:
+              atProvider:
+                properties:
+                  arn:
+                    type: string
+                  createdDate:
+                    type: string
+                  id:
+                    type: string
+                  lastUpdatedDate:
+                    type: string
+                  resourceOwner:
+                    type: string
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
