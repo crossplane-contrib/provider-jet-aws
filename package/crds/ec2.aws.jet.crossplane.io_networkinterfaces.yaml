@@ -102,14 +102,38 @@ spec:
                     type: string
                   interfaceType:
                     type: string
+                  ipv4PrefixCount:
+                    type: number
+                  ipv4Prefixes:
+                    items:
+                      type: string
+                    type: array
                   ipv6AddressCount:
                     type: number
+                  ipv6AddressList:
+                    items:
+                      type: string
+                    type: array
+                  ipv6AddressListEnabled:
+                    type: boolean
                   ipv6Addresses:
+                    items:
+                      type: string
+                    type: array
+                  ipv6PrefixCount:
+                    type: number
+                  ipv6Prefixes:
                     items:
                       type: string
                     type: array
                   privateIp:
                     type: string
+                  privateIpList:
+                    items:
+                      type: string
+                    type: array
+                  privateIpListEnabled:
+                    type: boolean
                   privateIps:
                     items:
                       type: string
@@ -284,11 +308,15 @@ spec:
             properties:
               atProvider:
                 properties:
+                  arn:
+                    type: string
                   id:
                     type: string
                   macAddress:
                     type: string
                   outpostArn:
+                    type: string
+                  ownerId:
                     type: string
                   privateDnsName:
                     type: string

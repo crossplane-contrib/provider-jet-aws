@@ -37,3 +37,23 @@ spec:
           }
         ]
       }
+---
+apiVersion: iam.aws.jet.crossplane.io/v1alpha2
+kind: Role
+metadata:
+  name: sample-grafana-role
+spec:
+  forProvider:
+    assumeRolePolicy: |
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "grafana.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+          }
+        ]
+      }

@@ -34,6 +34,15 @@ type DNSEntryObservation struct {
 type DNSEntryParameters struct {
 }
 
+type DNSOptionsObservation struct {
+}
+
+type DNSOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	DNSRecordIPType *string `json:"dnsRecordIpType,omitempty" tf:"dns_record_ip_type,omitempty"`
+}
+
 type VPCEndpointObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
@@ -60,6 +69,12 @@ type VPCEndpointParameters struct {
 
 	// +kubebuilder:validation:Optional
 	AutoAccept *bool `json:"autoAccept,omitempty" tf:"auto_accept,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	DNSOptions []DNSOptionsParameters `json:"dnsOptions,omitempty" tf:"dns_options,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPAddressType *string `json:"ipAddressType,omitempty" tf:"ip_address_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`

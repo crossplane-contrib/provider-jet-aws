@@ -76,6 +76,9 @@ type RouteTableRouteParameters struct {
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block"`
 
 	// +kubebuilder:validation:Optional
+	CoreNetworkArn *string `json:"coreNetworkArn,omitempty" tf:"core_network_arn"`
+
+	// +kubebuilder:validation:Optional
 	DestinationPrefixListID *string `json:"destinationPrefixListId,omitempty" tf:"destination_prefix_list_id"`
 
 	// +kubebuilder:validation:Optional

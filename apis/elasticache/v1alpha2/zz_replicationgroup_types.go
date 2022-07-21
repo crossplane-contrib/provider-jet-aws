@@ -33,8 +33,26 @@ type ClusterModeParameters struct {
 	// +kubebuilder:validation:Optional
 	NumNodeGroups *float64 `json:"numNodeGroups,omitempty" tf:"num_node_groups,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	ReplicasPerNodeGroup *float64 `json:"replicasPerNodeGroup,omitempty" tf:"replicas_per_node_group,omitempty"`
+}
+
+type ReplicationGroupLogDeliveryConfigurationObservation struct {
+}
+
+type ReplicationGroupLogDeliveryConfigurationParameters struct {
+
 	// +kubebuilder:validation:Required
-	ReplicasPerNodeGroup *float64 `json:"replicasPerNodeGroup" tf:"replicas_per_node_group,omitempty"`
+	Destination *string `json:"destination" tf:"destination,omitempty"`
+
+	// +kubebuilder:validation:Required
+	DestinationType *string `json:"destinationType" tf:"destination_type,omitempty"`
+
+	// +kubebuilder:validation:Required
+	LogFormat *string `json:"logFormat" tf:"log_format,omitempty"`
+
+	// +kubebuilder:validation:Required
+	LogType *string `json:"logType" tf:"log_type,omitempty"`
 }
 
 type ReplicationGroupObservation struct {
@@ -69,7 +87,7 @@ type ReplicationGroupParameters struct {
 	AuthTokenSecretRef *v1.SecretKeySelector `json:"authTokenSecretRef,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
-	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade,omitempty" tf:"auto_minor_version_upgrade,omitempty"`
+	AutoMinorVersionUpgrade *string `json:"autoMinorVersionUpgrade,omitempty" tf:"auto_minor_version_upgrade,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	AutomaticFailoverEnabled *bool `json:"automaticFailoverEnabled,omitempty" tf:"automatic_failover_enabled,omitempty"`
@@ -79,6 +97,12 @@ type ReplicationGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
 	ClusterMode []ClusterModeParameters `json:"clusterMode,omitempty" tf:"cluster_mode,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	DataTieringEnabled *bool `json:"dataTieringEnabled,omitempty" tf:"data_tiering_enabled,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Engine *string `json:"engine,omitempty" tf:"engine,omitempty"`
@@ -103,6 +127,9 @@ type ReplicationGroupParameters struct {
 	KMSKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
+	LogDeliveryConfiguration []ReplicationGroupLogDeliveryConfigurationParameters `json:"logDeliveryConfiguration,omitempty" tf:"log_delivery_configuration,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -115,6 +142,12 @@ type ReplicationGroupParameters struct {
 	NotificationTopicArn *string `json:"notificationTopicArn,omitempty" tf:"notification_topic_arn,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	NumCacheClusters *float64 `json:"numCacheClusters,omitempty" tf:"num_cache_clusters,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NumNodeGroups *float64 `json:"numNodeGroups,omitempty" tf:"num_node_groups,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	NumberCacheClusters *float64 `json:"numberCacheClusters,omitempty" tf:"number_cache_clusters,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -123,13 +156,19 @@ type ReplicationGroupParameters struct {
 	// +kubebuilder:validation:Optional
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	PreferredCacheClusterAzs []*string `json:"preferredCacheClusterAzs,omitempty" tf:"preferred_cache_cluster_azs,omitempty"`
+
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
-	// +kubebuilder:validation:Required
-	ReplicationGroupDescription *string `json:"replicationGroupDescription" tf:"replication_group_description,omitempty"`
+	// +kubebuilder:validation:Optional
+	ReplicasPerNodeGroup *float64 `json:"replicasPerNodeGroup,omitempty" tf:"replicas_per_node_group,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ReplicationGroupDescription *string `json:"replicationGroupDescription,omitempty" tf:"replication_group_description,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	SecurityGroupIdRefs []v1.Reference `json:"securityGroupIdRefs,omitempty" tf:"-"`
@@ -173,6 +212,9 @@ type ReplicationGroupParameters struct {
 
 	// +kubebuilder:validation:Optional
 	TransitEncryptionEnabled *bool `json:"transitEncryptionEnabled,omitempty" tf:"transit_encryption_enabled,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	UserGroupIds []*string `json:"userGroupIds,omitempty" tf:"user_group_ids,omitempty"`
 }
 
 // ReplicationGroupSpec defines the desired state of ReplicationGroup

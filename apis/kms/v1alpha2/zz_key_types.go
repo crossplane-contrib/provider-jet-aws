@@ -59,6 +59,9 @@ type KeyParameters struct {
 	KeyUsage *string `json:"keyUsage,omitempty" tf:"key_usage,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	MultiRegion *bool `json:"multiRegion,omitempty" tf:"multi_region,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.

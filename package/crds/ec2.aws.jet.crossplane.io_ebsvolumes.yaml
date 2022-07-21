@@ -67,6 +67,8 @@ spec:
                     type: string
                   encrypted:
                     type: boolean
+                  finalSnapshot:
+                    type: boolean
                   iops:
                     type: number
                   kmsKeyId:

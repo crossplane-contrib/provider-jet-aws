@@ -65,6 +65,15 @@ spec:
                 properties:
                   autoAccept:
                     type: boolean
+                  dnsOptions:
+                    items:
+                      properties:
+                        dnsRecordIpType:
+                          type: string
+                      type: object
+                    type: array
+                  ipAddressType:
+                    type: string
                   policy:
                     type: string
                   privateDnsEnabled:

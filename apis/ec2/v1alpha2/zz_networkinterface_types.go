@@ -46,11 +46,15 @@ type AttachmentParameters struct {
 }
 
 type NetworkInterfaceObservation_2 struct {
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	MacAddress *string `json:"macAddress,omitempty" tf:"mac_address,omitempty"`
 
 	OutpostArn *string `json:"outpostArn,omitempty" tf:"outpost_arn,omitempty"`
+
+	OwnerID *string `json:"ownerId,omitempty" tf:"owner_id,omitempty"`
 
 	PrivateDNSName *string `json:"privateDnsName,omitempty" tf:"private_dns_name,omitempty"`
 
@@ -66,16 +70,40 @@ type NetworkInterfaceParameters_2 struct {
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	IPv4PrefixCount *float64 `json:"ipv4PrefixCount,omitempty" tf:"ipv4_prefix_count,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv4Prefixes []*string `json:"ipv4Prefixes,omitempty" tf:"ipv4_prefixes,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	IPv6AddressCount *float64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	IPv6AddressList []*string `json:"ipv6AddressList,omitempty" tf:"ipv6_address_list,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv6AddressListEnabled *bool `json:"ipv6AddressListEnabled,omitempty" tf:"ipv6_address_list_enabled,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	IPv6Addresses []*string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv6PrefixCount *float64 `json:"ipv6PrefixCount,omitempty" tf:"ipv6_prefix_count,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv6Prefixes []*string `json:"ipv6Prefixes,omitempty" tf:"ipv6_prefixes,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	InterfaceType *string `json:"interfaceType,omitempty" tf:"interface_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	PrivateIPList []*string `json:"privateIpList,omitempty" tf:"private_ip_list,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	PrivateIPListEnabled *bool `json:"privateIpListEnabled,omitempty" tf:"private_ip_list_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PrivateIps []*string `json:"privateIps,omitempty" tf:"private_ips,omitempty"`

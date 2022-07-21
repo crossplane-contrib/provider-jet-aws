@@ -46,6 +46,9 @@ type ClusterObservation struct {
 type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
+	AllocatedStorage *float64 `json:"allocatedStorage,omitempty" tf:"allocated_storage,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade,omitempty" tf:"allow_major_version_upgrade,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -67,7 +70,13 @@ type ClusterParameters struct {
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot,omitempty" tf:"copy_tags_to_snapshot,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	DBClusterInstanceClass *string `json:"dbClusterInstanceClass,omitempty" tf:"db_cluster_instance_class,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	DBClusterParameterGroupName *string `json:"dbClusterParameterGroupName,omitempty" tf:"db_cluster_parameter_group_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	DBInstanceParameterGroupName *string `json:"dbInstanceParameterGroupName,omitempty" tf:"db_instance_parameter_group_name,omitempty"`
 
 	// +crossplane:generate:reference:type=SubnetGroup
 	// +kubebuilder:validation:Optional
@@ -84,6 +93,9 @@ type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
 	DeletionProtection *bool `json:"deletionProtection,omitempty" tf:"deletion_protection,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	EnableGlobalWriteForwarding *bool `json:"enableGlobalWriteForwarding,omitempty" tf:"enable_global_write_forwarding,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	EnableHTTPEndpoint *bool `json:"enableHttpEndpoint,omitempty" tf:"enable_http_endpoint,omitempty"`
@@ -111,6 +123,9 @@ type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
 	IAMRoles []*string `json:"iamRoles,omitempty" tf:"iam_roles,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Iops *float64 `json:"iops,omitempty" tf:"iops,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
@@ -148,6 +163,9 @@ type ClusterParameters struct {
 	ScalingConfiguration []ScalingConfigurationParameters `json:"scalingConfiguration,omitempty" tf:"scaling_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	Serverlessv2ScalingConfiguration []Serverlessv2ScalingConfigurationParameters `json:"serverlessv2ScalingConfiguration,omitempty" tf:"serverlessv2_scaling_configuration,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty" tf:"skip_final_snapshot,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -158,6 +176,9 @@ type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
 	StorageEncrypted *bool `json:"storageEncrypted,omitempty" tf:"storage_encrypted,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	StorageType *string `json:"storageType,omitempty" tf:"storage_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -247,6 +268,18 @@ type ScalingConfigurationParameters struct {
 
 	// +kubebuilder:validation:Optional
 	TimeoutAction *string `json:"timeoutAction,omitempty" tf:"timeout_action,omitempty"`
+}
+
+type Serverlessv2ScalingConfigurationObservation struct {
+}
+
+type Serverlessv2ScalingConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
+	MaxCapacity *float64 `json:"maxCapacity" tf:"max_capacity,omitempty"`
+
+	// +kubebuilder:validation:Required
+	MinCapacity *float64 `json:"minCapacity" tf:"min_capacity,omitempty"`
 }
 
 // ClusterSpec defines the desired state of Cluster

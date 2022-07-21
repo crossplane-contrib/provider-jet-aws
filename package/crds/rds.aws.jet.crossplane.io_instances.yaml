@@ -85,6 +85,8 @@ spec:
                     type: boolean
                   customerOwnedIpEnabled:
                     type: boolean
+                  dbName:
+                    type: string
                   dbSubnetGroupName:
                     type: string
                   dbSubnetGroupNameRef:
@@ -257,12 +259,16 @@ spec:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
+                  replicaMode:
+                    type: string
                   replicateSourceDb:
                     type: string
                   restoreToPointInTime:
                     items:
                       properties:
                         restoreTime:
+                          type: string
+                        sourceDbInstanceAutomatedBackupsArn:
                           type: string
                         sourceDbInstanceIdentifier:
                           type: string

@@ -60,6 +60,9 @@ type ClusterParameters struct {
 	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	AutoMinorVersionUpgrade *string `json:"autoMinorVersionUpgrade,omitempty" tf:"auto_minor_version_upgrade,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -73,6 +76,9 @@ type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
 	FinalSnapshotIdentifier *string `json:"finalSnapshotIdentifier,omitempty" tf:"final_snapshot_identifier,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	LogDeliveryConfiguration []LogDeliveryConfigurationParameters `json:"logDeliveryConfiguration,omitempty" tf:"log_delivery_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MaintenanceWindow *string `json:"maintenanceWindow,omitempty" tf:"maintenance_window,omitempty"`
@@ -140,6 +146,24 @@ type ClusterParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
+}
+
+type LogDeliveryConfigurationObservation struct {
+}
+
+type LogDeliveryConfigurationParameters struct {
+
+	// +kubebuilder:validation:Required
+	Destination *string `json:"destination" tf:"destination,omitempty"`
+
+	// +kubebuilder:validation:Required
+	DestinationType *string `json:"destinationType" tf:"destination_type,omitempty"`
+
+	// +kubebuilder:validation:Required
+	LogFormat *string `json:"logFormat" tf:"log_format,omitempty"`
+
+	// +kubebuilder:validation:Required
+	LogType *string `json:"logType" tf:"log_type,omitempty"`
 }
 
 // ClusterSpec defines the desired state of Cluster

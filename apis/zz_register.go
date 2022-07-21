@@ -22,7 +22,8 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha2"
+	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/amp/v1alpha2"
+	v1alpha2autoscaling "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha2"
 	v1alpha2ec2 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
 	v1alpha2ecr "github.com/crossplane-contrib/provider-jet-aws/apis/ecr/v1alpha2"
 	v1alpha2ecrpublic "github.com/crossplane-contrib/provider-jet-aws/apis/ecrpublic/v1alpha2"
@@ -31,6 +32,7 @@ import (
 	v1alpha2elasticache "github.com/crossplane-contrib/provider-jet-aws/apis/elasticache/v1alpha2"
 	v1alpha2elbv2 "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha2"
 	v1alpha2globalaccelerator "github.com/crossplane-contrib/provider-jet-aws/apis/globalaccelerator/v1alpha2"
+	v1alpha2grafana "github.com/crossplane-contrib/provider-jet-aws/apis/grafana/v1alpha2"
 	v1alpha2iam "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2"
 	v1alpha2kms "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2"
 	v1alpha2mq "github.com/crossplane-contrib/provider-jet-aws/apis/mq/v1alpha2"
@@ -46,6 +48,7 @@ func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha2.SchemeBuilder.AddToScheme,
+		v1alpha2autoscaling.SchemeBuilder.AddToScheme,
 		v1alpha2ec2.SchemeBuilder.AddToScheme,
 		v1alpha2ecr.SchemeBuilder.AddToScheme,
 		v1alpha2ecrpublic.SchemeBuilder.AddToScheme,
@@ -54,6 +57,7 @@ func init() {
 		v1alpha2elasticache.SchemeBuilder.AddToScheme,
 		v1alpha2elbv2.SchemeBuilder.AddToScheme,
 		v1alpha2globalaccelerator.SchemeBuilder.AddToScheme,
+		v1alpha2grafana.SchemeBuilder.AddToScheme,
 		v1alpha2iam.SchemeBuilder.AddToScheme,
 		v1alpha2kms.SchemeBuilder.AddToScheme,
 		v1alpha2mq.SchemeBuilder.AddToScheme,

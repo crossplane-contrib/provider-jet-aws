@@ -129,6 +129,8 @@ spec:
                             properties:
                               capacityReservationId:
                                 type: string
+                              capacityReservationResourceGroupArn:
+                                type: string
                             type: object
                           type: array
                       type: object
@@ -153,6 +155,8 @@ spec:
                     type: number
                   description:
                     type: string
+                  disableApiStop:
+                    type: boolean
                   disableApiTermination:
                     type: boolean
                   ebsOptimized:
@@ -274,6 +278,130 @@ spec:
                           type: array
                       type: object
                     type: array
+                  instanceRequirements:
+                    items:
+                      properties:
+                        acceleratorCount:
+                          items:
+                            properties:
+                              max:
+                                type: number
+                              min:
+                                type: number
+                            type: object
+                          type: array
+                        acceleratorManufacturers:
+                          items:
+                            type: string
+                          type: array
+                        acceleratorNames:
+                          items:
+                            type: string
+                          type: array
+                        acceleratorTotalMemoryMib:
+                          items:
+                            properties:
+                              max:
+                                type: number
+                              min:
+                                type: number
+                            type: object
+                          type: array
+                        acceleratorTypes:
+                          items:
+                            type: string
+                          type: array
+                        bareMetal:
+                          type: string
+                        baselineEbsBandwidthMbps:
+                          items:
+                            properties:
+                              max:
+                                type: number
+                              min:
+                                type: number
+                            type: object
+                          type: array
+                        burstablePerformance:
+                          type: string
+                        cpuManufacturers:
+                          items:
+                            type: string
+                          type: array
+                        excludedInstanceTypes:
+                          items:
+                            type: string
+                          type: array
+                        instanceGenerations:
+                          items:
+                            type: string
+                          type: array
+                        localStorage:
+                          type: string
+                        localStorageTypes:
+                          items:
+                            type: string
+                          type: array
+                        memoryGibPerVcpu:
+                          items:
+                            properties:
+                              max:
+                                type: number
+                              min:
+                                type: number
+                            type: object
+                          type: array
+                        memoryMib:
+                          items:
+                            properties:
+                              max:
+                                type: number
+                              min:
+                                type: number
+                            required:
+                            - min
+                            type: object
+                          type: array
+                        networkInterfaceCount:
+                          items:
+                            properties:
+                              max:
+                                type: number
+                              min:
+                                type: number
+                            type: object
+                          type: array
+                        onDemandMaxPricePercentageOverLowestPrice:
+                          type: number
+                        requireHibernateSupport:
+                          type: boolean
+                        spotMaxPricePercentageOverLowestPrice:
+                          type: number
+                        totalLocalStorageGb:
+                          items:
+                            properties:
+                              max:
+                                type: number
+                              min:
+                                type: number
+                            type: object
+                          type: array
+                        vcpuCount:
+                          items:
+                            properties:
+                              max:
+                                type: number
+                              min:
+                                type: number
+                            required:
+                            - min
+                            type: object
+                          type: array
+                      required:
+                      - memoryMib
+                      - vcpuCount
+                      type: object
+                    type: array
                   instanceType:
                     type: string
                   kernelId:
@@ -289,14 +417,25 @@ spec:
                       - licenseConfigurationArn
                       type: object
                     type: array
+                  maintenanceOptions:
+                    items:
+                      properties:
+                        autoRecovery:
+                          type: string
+                      type: object
+                    type: array
                   metadataOptions:
                     items:
                       properties:
                         httpEndpoint:
                           type: string
+                        httpProtocolIpv6:
+                          type: string
                         httpPutResponseHopLimit:
                           type: number
                         httpTokens:
+                          type: string
+                        instanceMetadataTags:
                           type: string
                       type: object
                     type: array
@@ -332,12 +471,26 @@ spec:
                           items:
                             type: string
                           type: array
+                        ipv4PrefixCount:
+                          type: number
+                        ipv4Prefixes:
+                          items:
+                            type: string
+                          type: array
                         ipv6AddressCount:
                           type: number
                         ipv6Addresses:
                           items:
                             type: string
                           type: array
+                        ipv6PrefixCount:
+                          type: number
+                        ipv6Prefixes:
+                          items:
+                            type: string
+                          type: array
+                        networkCardIndex:
+                          type: number
                         networkInterfaceId:
                           type: string
                         networkInterfaceIdRef:
@@ -442,6 +595,17 @@ spec:
                         spreadDomain:
                           type: string
                         tenancy:
+                          type: string
+                      type: object
+                    type: array
+                  privateDnsNameOptions:
+                    items:
+                      properties:
+                        enableResourceNameDnsARecord:
+                          type: boolean
+                        enableResourceNameDnsAaaaRecord:
+                          type: boolean
+                        hostnameType:
                           type: string
                       type: object
                     type: array

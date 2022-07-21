@@ -77,6 +77,8 @@ spec:
                     type: boolean
                   keyUsage:
                     type: string
+                  multiRegion:
+                    type: boolean
                   policy:
                     type: string
                   region:

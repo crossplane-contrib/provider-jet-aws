@@ -1,0 +1,14 @@
+## RoleAssociation becomes ready - but the Role is not associated:
+## https://github.com/hashicorp/terraform-provider-aws/issues/24166
+apiVersion: grafana.aws.jet.crossplane.io/v1alpha2
+kind: RoleAssociation
+metadata:
+  name: sample-workspace
+spec:
+  forProvider:
+    region: us-west-1
+    role: "ADMIN"
+    groupIds:
+      - 99672eabab-cbf5abfe-260c-469a-b708-144f60904b00
+    workspaceIdRef:
+      name: sample-workspace

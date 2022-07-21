@@ -44,6 +44,9 @@ type CapacityReservationTargetParameters struct {
 
 	// +kubebuilder:validation:Optional
 	CapacityReservationID *string `json:"capacityReservationId,omitempty" tf:"capacity_reservation_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CapacityReservationResourceGroupArn *string `json:"capacityReservationResourceGroupArn,omitempty" tf:"capacity_reservation_resource_group_arn,omitempty"`
 }
 
 type CreditSpecificationObservation struct {
@@ -169,6 +172,9 @@ type InstanceParameters struct {
 	CreditSpecification []CreditSpecificationParameters `json:"creditSpecification,omitempty" tf:"credit_specification,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	DisableAPIStop *bool `json:"disableApiStop,omitempty" tf:"disable_api_stop,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	DisableAPITermination *bool `json:"disableApiTermination,omitempty" tf:"disable_api_termination,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -214,6 +220,9 @@ type InstanceParameters struct {
 	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate,omitempty" tf:"launch_template,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	MaintenanceOptions []MaintenanceOptionsParameters `json:"maintenanceOptions,omitempty" tf:"maintenance_options,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	MetadataOptions []MetadataOptionsParameters `json:"metadataOptions,omitempty" tf:"metadata_options,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -224,6 +233,12 @@ type InstanceParameters struct {
 
 	// +kubebuilder:validation:Optional
 	PlacementGroup *string `json:"placementGroup,omitempty" tf:"placement_group,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	PlacementPartitionNumber *float64 `json:"placementPartitionNumber,omitempty" tf:"placement_partition_number,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	PrivateDNSNameOptions []PrivateDNSNameOptionsParameters `json:"privateDnsNameOptions,omitempty" tf:"private_dns_name_options,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
@@ -282,6 +297,9 @@ type InstanceParameters struct {
 	// +kubebuilder:validation:Optional
 	UserDataBase64 *string `json:"userDataBase64,omitempty" tf:"user_data_base64,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	UserDataReplaceOnChange *bool `json:"userDataReplaceOnChange,omitempty" tf:"user_data_replace_on_change,omitempty"`
+
 	// +crossplane:generate:reference:type=SecurityGroup
 	// +crossplane:generate:reference:refFieldName=SecurityGroupIdRefs
 	// +crossplane:generate:reference:selectorFieldName=SecurityGroupIdSelector
@@ -307,6 +325,15 @@ type LaunchTemplateParameters struct {
 	Version *string `json:"version,omitempty" tf:"version,omitempty"`
 }
 
+type MaintenanceOptionsObservation struct {
+}
+
+type MaintenanceOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	AutoRecovery *string `json:"autoRecovery,omitempty" tf:"auto_recovery,omitempty"`
+}
+
 type MetadataOptionsObservation struct {
 }
 
@@ -320,6 +347,9 @@ type MetadataOptionsParameters struct {
 
 	// +kubebuilder:validation:Optional
 	HTTPTokens *string `json:"httpTokens,omitempty" tf:"http_tokens,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	InstanceMetadataTags *string `json:"instanceMetadataTags,omitempty" tf:"instance_metadata_tags,omitempty"`
 }
 
 type NetworkInterfaceObservation struct {
@@ -333,6 +363,9 @@ type NetworkInterfaceParameters struct {
 	// +kubebuilder:validation:Required
 	DeviceIndex *float64 `json:"deviceIndex" tf:"device_index,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	NetworkCardIndex *float64 `json:"networkCardIndex,omitempty" tf:"network_card_index,omitempty"`
+
 	// +crossplane:generate:reference:type=NetworkInterface
 	// +kubebuilder:validation:Optional
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
@@ -342,6 +375,21 @@ type NetworkInterfaceParameters struct {
 
 	// +kubebuilder:validation:Optional
 	NetworkInterfaceIDSelector *v1.Selector `json:"networkInterfaceIdSelector,omitempty" tf:"-"`
+}
+
+type PrivateDNSNameOptionsObservation struct {
+}
+
+type PrivateDNSNameOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	EnableResourceNameDNSARecord *bool `json:"enableResourceNameDnsARecord,omitempty" tf:"enable_resource_name_dns_a_record,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	EnableResourceNameDNSAaaaRecord *bool `json:"enableResourceNameDnsAaaaRecord,omitempty" tf:"enable_resource_name_dns_aaaa_record,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HostnameType *string `json:"hostnameType,omitempty" tf:"hostname_type,omitempty"`
 }
 
 type RootBlockDeviceObservation struct {

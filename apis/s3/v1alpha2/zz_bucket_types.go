@@ -62,6 +62,10 @@ type BucketObservation struct {
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
+
+	WebsiteDomain *string `json:"websiteDomain,omitempty" tf:"website_domain,omitempty"`
+
+	WebsiteEndpoint *string `json:"websiteEndpoint,omitempty" tf:"website_endpoint,omitempty"`
 }
 
 type BucketParameters struct {
@@ -97,6 +101,9 @@ type BucketParameters struct {
 	ObjectLockConfiguration []ObjectLockConfigurationParameters `json:"objectLockConfiguration,omitempty" tf:"object_lock_configuration,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	ObjectLockEnabled *bool `json:"objectLockEnabled,omitempty" tf:"object_lock_enabled,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	Policy *string `json:"policy,omitempty" tf:"policy,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
@@ -121,12 +128,6 @@ type BucketParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Website []WebsiteParameters `json:"website,omitempty" tf:"website,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	WebsiteDomain *string `json:"websiteDomain,omitempty" tf:"website_domain,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	WebsiteEndpoint *string `json:"websiteEndpoint,omitempty" tf:"website_endpoint,omitempty"`
 }
 
 type CorsRuleObservation struct {
@@ -180,7 +181,13 @@ type DestinationParameters struct {
 	Bucket *string `json:"bucket" tf:"bucket,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	Metrics []MetricsParameters `json:"metrics,omitempty" tf:"metrics,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	ReplicaKMSKeyID *string `json:"replicaKmsKeyId,omitempty" tf:"replica_kms_key_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ReplicationTime []ReplicationTimeParameters `json:"replicationTime,omitempty" tf:"replication_time,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	StorageClass *string `json:"storageClass,omitempty" tf:"storage_class,omitempty"`
@@ -276,6 +283,18 @@ type LoggingParameters struct {
 	TargetPrefix *string `json:"targetPrefix,omitempty" tf:"target_prefix,omitempty"`
 }
 
+type MetricsObservation struct {
+}
+
+type MetricsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Minutes *float64 `json:"minutes,omitempty" tf:"minutes,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
+}
+
 type NoncurrentVersionExpirationObservation struct {
 }
 
@@ -302,8 +321,8 @@ type ObjectLockConfigurationObservation struct {
 
 type ObjectLockConfigurationParameters struct {
 
-	// +kubebuilder:validation:Required
-	ObjectLockEnabled *string `json:"objectLockEnabled" tf:"object_lock_enabled,omitempty"`
+	// +kubebuilder:validation:Optional
+	ObjectLockEnabled *string `json:"objectLockEnabled,omitempty" tf:"object_lock_enabled,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	Rule []RuleParameters `json:"rule,omitempty" tf:"rule,omitempty"`
@@ -319,6 +338,18 @@ type ReplicationConfigurationParameters struct {
 
 	// +kubebuilder:validation:Required
 	Rules []RulesParameters `json:"rules" tf:"rules,omitempty"`
+}
+
+type ReplicationTimeObservation struct {
+}
+
+type ReplicationTimeParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Minutes *float64 `json:"minutes,omitempty" tf:"minutes,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 }
 
 type RuleObservation struct {

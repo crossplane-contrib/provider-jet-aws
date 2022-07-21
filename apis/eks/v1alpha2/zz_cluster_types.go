@@ -114,6 +114,9 @@ type KubernetesNetworkConfigObservation struct {
 type KubernetesNetworkConfigParameters struct {
 
 	// +kubebuilder:validation:Optional
+	IPFamily *string `json:"ipFamily,omitempty" tf:"ip_family,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	ServiceIPv4Cidr *string `json:"serviceIpv4Cidr,omitempty" tf:"service_ipv4_cidr,omitempty"`
 }
 

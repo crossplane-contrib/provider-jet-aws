@@ -79,6 +79,8 @@ spec:
                             properties:
                               capacityReservationId:
                                 type: string
+                              capacityReservationResourceGroupArn:
+                                type: string
                             type: object
                           type: array
                       type: object
@@ -94,6 +96,8 @@ spec:
                           type: string
                       type: object
                     type: array
+                  disableApiStop:
+                    type: boolean
                   disableApiTermination:
                     type: boolean
                   ebsBlockDevice:
@@ -202,6 +206,13 @@ spec:
                           type: string
                       type: object
                     type: array
+                  maintenanceOptions:
+                    items:
+                      properties:
+                        autoRecovery:
+                          type: string
+                      type: object
+                    type: array
                   metadataOptions:
                     items:
                       properties:
@@ -210,6 +221,8 @@ spec:
                         httpPutResponseHopLimit:
                           type: number
                         httpTokens:
+                          type: string
+                        instanceMetadataTags:
                           type: string
                       type: object
                     type: array
@@ -221,6 +234,8 @@ spec:
                         deleteOnTermination:
                           type: boolean
                         deviceIndex:
+                          type: number
+                        networkCardIndex:
                           type: number
                         networkInterfaceId:
                           type: string
@@ -254,6 +269,19 @@ spec:
                     type: array
                   placementGroup:
                     type: string
+                  placementPartitionNumber:
+                    type: number
+                  privateDnsNameOptions:
+                    items:
+                      properties:
+                        enableResourceNameDnsARecord:
+                          type: boolean
+                        enableResourceNameDnsAaaaRecord:
+                          type: boolean
+                        hostnameType:
+                          type: string
+                      type: object
+                    type: array
                   privateIp:
                     type: string
                   region:
@@ -402,6 +430,8 @@ spec:
                     type: string
                   userDataBase64:
                     type: string
+                  userDataReplaceOnChange:
+                    type: boolean
                   volumeTags:
                     additionalProperties:
                       type: string

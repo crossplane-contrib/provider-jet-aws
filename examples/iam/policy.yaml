@@ -1,0 +1,24 @@
+apiVersion: iam.aws.jet.crossplane.io/v1alpha2
+kind: Policy
+metadata:
+  name: sample-grafana-policy
+spec:
+  forProvider:
+    policy: |
+      {
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Action": [
+                      "aps:ListWorkspaces",
+                      "aps:DescribeWorkspace",
+                      "aps:QueryMetrics",
+                      "aps:GetLabels",
+                      "aps:GetSeries",
+                      "aps:GetMetricMetadata"
+                  ],
+                  "Resource": "*"
+              }
+          ]
+      }
