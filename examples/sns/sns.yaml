@@ -1,0 +1,21 @@
+apiVersion: sns.aws.jet.crossplane.io/v1alpha2
+kind: Topic
+metadata:
+  name: sample-topic
+spec:
+  forProvider:
+    name: sample-topic
+    region: us-west-2
+---
+apiVersion: sns.aws.jet.crossplane.io/v1alpha2
+kind: TopicSubscription
+metadata:
+  name: sample-topic-sample-queue-scription
+spec:
+  forProvider:
+    topicArnRef:
+      name: sample-topic
+    protocol: "sqs"
+    endpoint: "arn:aws:sqs:us-west-2:1023456789012:sample-queue"
+    region: us-west-2
+

@@ -39,6 +39,8 @@ import (
 	v1alpha2route53 "github.com/crossplane-contrib/provider-jet-aws/apis/route53/v1alpha2"
 	v1alpha1 "github.com/crossplane-contrib/provider-jet-aws/apis/route53resolver/v1alpha1"
 	v1alpha2s3 "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha2"
+	v1alpha2sns "github.com/crossplane-contrib/provider-jet-aws/apis/sns/v1alpha2"
+	v1alpha2sqs "github.com/crossplane-contrib/provider-jet-aws/apis/sqs/v1alpha2"
 	v1alpha1apis "github.com/crossplane-contrib/provider-jet-aws/apis/v1alpha1"
 )
 
@@ -62,6 +64,8 @@ func init() {
 		v1alpha2route53.SchemeBuilder.AddToScheme,
 		v1alpha1.SchemeBuilder.AddToScheme,
 		v1alpha2s3.SchemeBuilder.AddToScheme,
+		v1alpha2sns.SchemeBuilder.AddToScheme,
+		v1alpha2sqs.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
 	)
 }

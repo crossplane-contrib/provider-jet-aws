@@ -42,6 +42,8 @@ import (
 	"github.com/crossplane-contrib/provider-jet-aws/config/rds"
 	"github.com/crossplane-contrib/provider-jet-aws/config/route53"
 	"github.com/crossplane-contrib/provider-jet-aws/config/s3"
+	"github.com/crossplane-contrib/provider-jet-aws/config/sns"
+	"github.com/crossplane-contrib/provider-jet-aws/config/sqs"
 )
 
 //go:embed schema.json
@@ -162,6 +164,15 @@ var IncludedResources = []string{
 	"aws_globalaccelerator_accelerator",
 	"aws_globalaccelerator_endpoint_group",
 	"aws_globalaccelerator_listener",
+
+	// SNS
+	"aws_sns_topic",
+	"aws_sns_topic_policy",
+	"aws_sns_topic_subscription",
+
+	// SQS
+	"aws_sqs_queue",
+	"aws_sqs_queue_policy",
 }
 
 var skipList = []string{
@@ -215,6 +226,8 @@ func GetProvider() *tjconfig.Provider {
 		route53.Configure,
 		neptune.Configure,
 		mq.Configure,
+		sns.Configure,
+		sqs.Configure,
 	} {
 		configure(pc)
 	}

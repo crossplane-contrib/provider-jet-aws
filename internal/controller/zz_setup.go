@@ -118,6 +118,11 @@ import (
 	rule "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53resolver/rule"
 	ruleassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53resolver/ruleassociation"
 	bucket "github.com/crossplane-contrib/provider-jet-aws/internal/controller/s3/bucket"
+	topic "github.com/crossplane-contrib/provider-jet-aws/internal/controller/sns/topic"
+	topicpolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/sns/topicpolicy"
+	topicsubscription "github.com/crossplane-contrib/provider-jet-aws/internal/controller/sns/topicsubscription"
+	queue "github.com/crossplane-contrib/provider-jet-aws/internal/controller/sqs/queue"
+	queuepolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/sqs/queuepolicy"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -221,6 +226,11 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		rule.Setup,
 		ruleassociation.Setup,
 		bucket.Setup,
+		topic.Setup,
+		topicpolicy.Setup,
+		topicsubscription.Setup,
+		queue.Setup,
+		queuepolicy.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err

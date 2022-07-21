@@ -1,0 +1,8 @@
+apiVersion: sqs.aws.jet.crossplane.io/v1alpha2
+kind: Queue
+metadata:
+  name: sample-queue
+spec:
+  forProvider:
+    region: us-west-2
+    name: sample-queue
