@@ -35,6 +35,7 @@ import (
 	securitygroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/securitygroup"
 	securitygrouprule "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/securitygrouprule"
 	subnet "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/subnet"
+	tag "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/tag"
 	transitgateway "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/transitgateway"
 	transitgatewayroute "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/transitgatewayroute"
 	transitgatewayroutetable "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/transitgatewayroutetable"
@@ -138,6 +139,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		securitygroup.Setup,
 		securitygrouprule.Setup,
 		subnet.Setup,
+		tag.Setup,
 		transitgateway.Setup,
 		transitgatewayroute.Setup,
 		transitgatewayroutetable.Setup,

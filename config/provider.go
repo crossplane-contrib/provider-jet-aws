@@ -110,6 +110,7 @@ var IncludedResources = []string{
 	"aws_vpc_peering_connection$",
 	"aws_route_table_association$",
 	"aws_internet_gateway$",
+	"aws_ec2_tag$",
 
 	// IAM
 	"aws_iam_access_key$",
