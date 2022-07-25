@@ -4518,10 +4518,20 @@ func (in *SecurityGroupObservation) DeepCopyInto(out *SecurityGroupObservation) 
 		*out = new(string)
 		**out = **in
 	}
+	if in.Egress != nil {
+		in, out := &in.Egress, &out.Egress
+		*out = make([]EgressObservation, len(*in))
+		copy(*out, *in)
+	}
 	if in.ID != nil {
 		in, out := &in.ID, &out.ID
 		*out = new(string)
 		**out = **in
+	}
+	if in.Ingress != nil {
+		in, out := &in.Ingress, &out.Ingress
+		*out = make([]IngressObservation, len(*in))
+		copy(*out, *in)
 	}
 	if in.OwnerID != nil {
 		in, out := &in.OwnerID, &out.OwnerID
@@ -4562,20 +4572,6 @@ func (in *SecurityGroupParameters) DeepCopyInto(out *SecurityGroupParameters) {
 		in, out := &in.Description, &out.Description
 		*out = new(string)
 		**out = **in
-	}
-	if in.Egress != nil {
-		in, out := &in.Egress, &out.Egress
-		*out = make([]EgressParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
-	if in.Ingress != nil {
-		in, out := &in.Ingress, &out.Ingress
-		*out = make([]IngressParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
 	}
 	if in.Name != nil {
 		in, out := &in.Name, &out.Name
