@@ -755,10 +755,14 @@ func (tr *Instance) LateInitialize(attrs []byte) (bool, error) {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
 	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+	opts = append(opts, resource.WithNameFilter("AssociatePublicIPAddress"))
+	opts = append(opts, resource.WithNameFilter("IPv6AddressCount"))
+	opts = append(opts, resource.WithNameFilter("IPv6Addresses"))
 	opts = append(opts, resource.WithNameFilter("NetworkInterface"))
 	opts = append(opts, resource.WithNameFilter("PrivateIP"))
 	opts = append(opts, resource.WithNameFilter("SourceDestCheck"))
 	opts = append(opts, resource.WithNameFilter("SubnetID"))
+	opts = append(opts, resource.WithNameFilter("VPCSecurityGroupIds"))
 
 	li := resource.NewGenericLateInitializer(opts...)
 	return li.LateInitialize(&tr.Spec.ForProvider, params)

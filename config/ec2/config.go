@@ -58,6 +58,10 @@ func Configure(p *config.Provider) {
 				"network_interface",
 				"private_ip",
 				"source_dest_check",
+				"associate_public_ip_address",
+				"vpc_security_group_ids",
+				"ipv6_addresses",
+				"ipv6_address_count",
 			},
 		}
 	})
