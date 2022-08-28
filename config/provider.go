@@ -21,6 +21,7 @@ import (
 	_ "embed"
 
 	"github.com/crossplane-contrib/provider-jet-aws/config/mq"
+	"github.com/crossplane-contrib/provider-jet-aws/config/networkfirewall"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
@@ -162,6 +163,13 @@ var IncludedResources = []string{
 	"aws_globalaccelerator_accelerator",
 	"aws_globalaccelerator_endpoint_group",
 	"aws_globalaccelerator_listener",
+
+	// Networkfirewall
+	"aws_networkfirewall_firewall",
+	"aws_networkfirewall_firewall_policy",
+	"aws_networkfirewall_logging_configuration",
+	"aws_networkfirewall_resource_policy",
+	"aws_networkfirewall_rule_group",
 }
 
 var skipList = []string{
@@ -214,6 +222,7 @@ func GetProvider() *tjconfig.Provider {
 		s3.Configure,
 		route53.Configure,
 		neptune.Configure,
+		networkfirewall.Configure,
 		mq.Configure,
 	} {
 		configure(pc)

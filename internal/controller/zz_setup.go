@@ -92,6 +92,11 @@ import (
 	eventsubscription "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/eventsubscription"
 	parametergroupneptune "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/parametergroup"
 	subnetgroupneptune "github.com/crossplane-contrib/provider-jet-aws/internal/controller/neptune/subnetgroup"
+	firewall "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/firewall"
+	firewallpolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/firewallpolicy"
+	loggingconfiguration "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/loggingconfiguration"
+	resourcepolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/resourcepolicy"
+	rulegroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/rulegroup"
 	providerconfig "github.com/crossplane-contrib/provider-jet-aws/internal/controller/providerconfig"
 	clusterrds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/cluster"
 	instancerds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/instance"
@@ -195,6 +200,11 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		eventsubscription.Setup,
 		parametergroupneptune.Setup,
 		subnetgroupneptune.Setup,
+		firewall.Setup,
+		firewallpolicy.Setup,
+		loggingconfiguration.Setup,
+		resourcepolicy.Setup,
+		rulegroup.Setup,
 		providerconfig.Setup,
 		clusterrds.Setup,
 		instancerds.Setup,
