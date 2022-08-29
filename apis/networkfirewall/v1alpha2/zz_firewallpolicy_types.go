@@ -108,8 +108,15 @@ type StatefulRuleGroupReferenceObservation struct {
 
 type StatefulRuleGroupReferenceParameters struct {
 
-	// +kubebuilder:validation:Required
-	ResourceArn *string `json:"resourceArn" tf:"resource_arn,omitempty"`
+	// +crossplane:generate:reference:type=RuleGroup
+	// +kubebuilder:validation:Optional
+	ResourceArn *string `json:"resourceArn,omitempty" tf:"resource_arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ResourceArnRef *v1.Reference `json:"resourceArnRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	ResourceArnSelector *v1.Selector `json:"resourceArnSelector,omitempty" tf:"-"`
 }
 
 type StatelessCustomActionObservation struct {
@@ -132,8 +139,15 @@ type StatelessRuleGroupReferenceParameters struct {
 	// +kubebuilder:validation:Required
 	Priority *float64 `json:"priority" tf:"priority,omitempty"`
 
-	// +kubebuilder:validation:Required
-	ResourceArn *string `json:"resourceArn" tf:"resource_arn,omitempty"`
+	// +crossplane:generate:reference:type=RuleGroup
+	// +kubebuilder:validation:Optional
+	ResourceArn *string `json:"resourceArn,omitempty" tf:"resource_arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ResourceArnRef *v1.Reference `json:"resourceArnRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	ResourceArnSelector *v1.Selector `json:"resourceArnSelector,omitempty" tf:"-"`
 }
 
 // FirewallPolicySpec defines the desired state of FirewallPolicy

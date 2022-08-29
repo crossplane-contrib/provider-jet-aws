@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 
 	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha2"
+	v1alpha2cloudwatchlogs "github.com/crossplane-contrib/provider-jet-aws/apis/cloudwatchlogs/v1alpha2"
 	v1alpha2ec2 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
 	v1alpha2ecr "github.com/crossplane-contrib/provider-jet-aws/apis/ecr/v1alpha2"
 	v1alpha2ecrpublic "github.com/crossplane-contrib/provider-jet-aws/apis/ecrpublic/v1alpha2"
@@ -47,6 +48,7 @@ func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha2.SchemeBuilder.AddToScheme,
+		v1alpha2cloudwatchlogs.SchemeBuilder.AddToScheme,
 		v1alpha2ec2.SchemeBuilder.AddToScheme,
 		v1alpha2ecr.SchemeBuilder.AddToScheme,
 		v1alpha2ecrpublic.SchemeBuilder.AddToScheme,

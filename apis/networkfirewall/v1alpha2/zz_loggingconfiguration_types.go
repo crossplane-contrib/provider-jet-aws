@@ -55,8 +55,15 @@ type LoggingConfigurationObservation struct {
 
 type LoggingConfigurationParameters struct {
 
-	// +kubebuilder:validation:Required
-	FirewallArn *string `json:"firewallArn" tf:"firewall_arn,omitempty"`
+	// +crossplane:generate:reference:type=Firewall
+	// +kubebuilder:validation:Optional
+	FirewallArn *string `json:"firewallArn,omitempty" tf:"firewall_arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	FirewallArnRef *v1.Reference `json:"firewallArnRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	FirewallArnSelector *v1.Selector `json:"firewallArnSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Required
 	LoggingConfiguration []LoggingConfigurationLoggingConfigurationParameters `json:"loggingConfiguration" tf:"logging_configuration,omitempty"`

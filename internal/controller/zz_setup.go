@@ -23,6 +23,7 @@ import (
 
 	attachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/autoscalinggroup"
+	group "github.com/crossplane-contrib/provider-jet-aws/internal/controller/cloudwatchlogs/group"
 	ebsvolume "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/ebsvolume"
 	eip "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/eip"
 	instance "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/instance"
@@ -71,7 +72,7 @@ import (
 	endpointgroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/globalaccelerator/endpointgroup"
 	listener "github.com/crossplane-contrib/provider-jet-aws/internal/controller/globalaccelerator/listener"
 	accesskey "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/accesskey"
-	group "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/group"
+	groupiam "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/group"
 	grouppolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/grouppolicyattachment"
 	instanceprofile "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/instanceprofile"
 	openidconnectprovider "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/openidconnectprovider"
@@ -95,7 +96,6 @@ import (
 	firewall "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/firewall"
 	firewallpolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/firewallpolicy"
 	loggingconfiguration "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/loggingconfiguration"
-	resourcepolicy "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/resourcepolicy"
 	rulegroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/networkfirewall/rulegroup"
 	providerconfig "github.com/crossplane-contrib/provider-jet-aws/internal/controller/providerconfig"
 	clusterrds "github.com/crossplane-contrib/provider-jet-aws/internal/controller/rds/cluster"
@@ -131,6 +131,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		attachment.Setup,
 		autoscalinggroup.Setup,
+		group.Setup,
 		ebsvolume.Setup,
 		eip.Setup,
 		instance.Setup,
@@ -179,7 +180,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		endpointgroup.Setup,
 		listener.Setup,
 		accesskey.Setup,
-		group.Setup,
+		groupiam.Setup,
 		grouppolicyattachment.Setup,
 		instanceprofile.Setup,
 		openidconnectprovider.Setup,
@@ -203,7 +204,6 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		firewall.Setup,
 		firewallpolicy.Setup,
 		loggingconfiguration.Setup,
-		resourcepolicy.Setup,
 		rulegroup.Setup,
 		providerconfig.Setup,
 		clusterrds.Setup,

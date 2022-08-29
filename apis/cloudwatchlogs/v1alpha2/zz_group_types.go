@@ -25,69 +25,89 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
-type ResourcePolicyObservation struct {
+type GroupObservation struct {
+	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
+
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 }
 
-type ResourcePolicyParameters struct {
+type GroupParameters struct {
 
-	// +kubebuilder:validation:Required
-	Policy *string `json:"policy" tf:"policy,omitempty"`
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key
+	// +kubebuilder:validation:Optional
+	KMSKeyID *string `json:"kmsKeyId,omitempty" tf:"kms_key_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	KMSKeyIDRef *v1.Reference `json:"kmsKeyIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	KMSKeyIDSelector *v1.Selector `json:"kmsKeyIdSelector,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NamePrefix *string `json:"namePrefix,omitempty" tf:"name_prefix,omitempty"`
 
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
 	Region *string `json:"region" tf:"-"`
 
-	// +kubebuilder:validation:Required
-	ResourceArn *string `json:"resourceArn" tf:"resource_arn,omitempty"`
+	// +kubebuilder:validation:Optional
+	RetentionInDays *float64 `json:"retentionInDays,omitempty" tf:"retention_in_days,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
-// ResourcePolicySpec defines the desired state of ResourcePolicy
-type ResourcePolicySpec struct {
+// GroupSpec defines the desired state of Group
+type GroupSpec struct {
 	v1.ResourceSpec `json:",inline"`
-	ForProvider     ResourcePolicyParameters `json:"forProvider"`
+	ForProvider     GroupParameters `json:"forProvider"`
 }
 
-// ResourcePolicyStatus defines the observed state of ResourcePolicy.
-type ResourcePolicyStatus struct {
+// GroupStatus defines the observed state of Group.
+type GroupStatus struct {
 	v1.ResourceStatus `json:",inline"`
-	AtProvider        ResourcePolicyObservation `json:"atProvider,omitempty"`
+	AtProvider        GroupObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// ResourcePolicy is the Schema for the ResourcePolicys API
+// Group is the Schema for the Groups API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,awsjet}
-type ResourcePolicy struct {
+type Group struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              ResourcePolicySpec   `json:"spec"`
-	Status            ResourcePolicyStatus `json:"status,omitempty"`
+	Spec              GroupSpec   `json:"spec"`
+	Status            GroupStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// ResourcePolicyList contains a list of ResourcePolicys
-type ResourcePolicyList struct {
+// GroupList contains a list of Groups
+type GroupList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []ResourcePolicy `json:"items"`
+	Items           []Group `json:"items"`
 }
 
 // Repository type metadata.
 var (
-	ResourcePolicy_Kind             = "ResourcePolicy"
-	ResourcePolicy_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: ResourcePolicy_Kind}.String()
-	ResourcePolicy_KindAPIVersion   = ResourcePolicy_Kind + "." + CRDGroupVersion.String()
-	ResourcePolicy_GroupVersionKind = CRDGroupVersion.WithKind(ResourcePolicy_Kind)
+	Group_Kind             = "Group"
+	Group_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Group_Kind}.String()
+	Group_KindAPIVersion   = Group_Kind + "." + CRDGroupVersion.String()
+	Group_GroupVersionKind = CRDGroupVersion.WithKind(Group_Kind)
 )
 
 func init() {
-	SchemeBuilder.Register(&ResourcePolicy{}, &ResourcePolicyList{})
+	SchemeBuilder.Register(&Group{}, &GroupList{})
 }

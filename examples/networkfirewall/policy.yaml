@@ -10,4 +10,13 @@ spec:
       - statelessDefaultActions:
           - "aws:forward_to_sfe"
         statelessFragmentDefaultActions:
-          - "aws:forward_to_sfe"
+          - "aws:pass"
+        statelessRuleGroupReference:
+          - resourceArnRef:
+              name: forward-all
+            priority: 1
+        statefulRuleGroupReference:
+          - resourceArnRef:
+              name: domain-whitelist
+          - resourceArnRef:
+              name: deny

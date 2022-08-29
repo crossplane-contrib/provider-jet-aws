@@ -19,35 +19,8 @@ package v1alpha2
 
 import resource "github.com/crossplane/crossplane-runtime/pkg/resource"
 
-// GetItems of this FirewallList.
-func (l *FirewallList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this FirewallPolicyList.
-func (l *FirewallPolicyList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this LoggingConfigurationList.
-func (l *LoggingConfigurationList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this RuleGroupList.
-func (l *RuleGroupList) GetItems() []resource.Managed {
+// GetItems of this GroupList.
+func (l *GroupList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

@@ -1,0 +1,19 @@
+apiVersion: cloudwatchlogs.aws.jet.crossplane.io/v1alpha2
+kind: Group
+metadata:
+  name: firewall-alerts
+spec:
+  forProvider:
+    region: us-west-1
+    name: aws-network-firewall/firewall/alerts
+    retentionInDays: 14
+---
+apiVersion: cloudwatchlogs.aws.jet.crossplane.io/v1alpha2
+kind: Group
+metadata:
+  name: firewall-flows
+spec:
+  forProvider:
+    region: us-west-1
+    name: aws-network-firewall/firewall/flows
+    retentionInDays: 14

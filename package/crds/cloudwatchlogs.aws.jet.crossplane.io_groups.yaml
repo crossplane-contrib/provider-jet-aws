@@ -5,18 +5,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: resourcepolicies.networkfirewall.aws.jet.crossplane.io
+  name: groups.cloudwatchlogs.aws.jet.crossplane.io
 spec:
-  group: networkfirewall.aws.jet.crossplane.io
+  group: cloudwatchlogs.aws.jet.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - awsjet
-    kind: ResourcePolicy
-    listKind: ResourcePolicyList
-    plural: resourcepolicies
-    singular: resourcepolicy
+    kind: Group
+    listKind: GroupList
+    plural: groups
+    singular: group
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -35,7 +35,7 @@ spec:
     name: v1alpha2
     schema:
       openAPIV3Schema:
-        description: ResourcePolicy is the Schema for the ResourcePolicys API
+        description: Group is the Schema for the Groups API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ResourcePolicySpec defines the desired state of ResourcePolicy
+            description: GroupSpec defines the desired state of Group
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,18 +63,47 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  policy:
+                  kmsKeyId:
+                    type: string
+                  kmsKeyIdRef:
+                    description: A Reference to a named object.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                    required:
+                    - name
+                    type: object
+                  kmsKeyIdSelector:
+                    description: A Selector selects an object.
+                    properties:
+                      matchControllerRef:
+                        description: MatchControllerRef ensures an object with the
+                          same controller reference as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                    type: object
+                  name:
+                    type: string
+                  namePrefix:
                     type: string
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  resourceArn:
-                    type: string
+                  retentionInDays:
+                    type: number
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
                 required:
-                - policy
                 - region
-                - resourceArn
                 type: object
               providerConfigRef:
                 default:
@@ -173,12 +202,18 @@ spec:
             - forProvider
             type: object
           status:
-            description: ResourcePolicyStatus defines the observed state of ResourcePolicy.
+            description: GroupStatus defines the observed state of Group.
             properties:
               atProvider:
                 properties:
+                  arn:
+                    type: string
                   id:
                     type: string
+                  tagsAll:
+                    additionalProperties:
+                      type: string
+                    type: object
                 type: object
               conditions:
                 description: Conditions of the resource.

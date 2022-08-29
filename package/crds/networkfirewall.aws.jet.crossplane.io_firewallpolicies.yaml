@@ -73,8 +73,30 @@ spec:
                             properties:
                               resourceArn:
                                 type: string
-                            required:
-                            - resourceArn
+                              resourceArnRef:
+                                description: A Reference to a named object.
+                                properties:
+                                  name:
+                                    description: Name of the referenced object.
+                                    type: string
+                                required:
+                                - name
+                                type: object
+                              resourceArnSelector:
+                                description: A Selector selects an object.
+                                properties:
+                                  matchControllerRef:
+                                    description: MatchControllerRef ensures an object
+                                      with the same controller reference as the selecting
+                                      object is selected.
+                                    type: boolean
+                                  matchLabels:
+                                    additionalProperties:
+                                      type: string
+                                    description: MatchLabels ensures an object with
+                                      matching labels is selected.
+                                    type: object
+                                type: object
                             type: object
                           type: array
                         statelessCustomAction:
@@ -125,9 +147,32 @@ spec:
                                 type: number
                               resourceArn:
                                 type: string
+                              resourceArnRef:
+                                description: A Reference to a named object.
+                                properties:
+                                  name:
+                                    description: Name of the referenced object.
+                                    type: string
+                                required:
+                                - name
+                                type: object
+                              resourceArnSelector:
+                                description: A Selector selects an object.
+                                properties:
+                                  matchControllerRef:
+                                    description: MatchControllerRef ensures an object
+                                      with the same controller reference as the selecting
+                                      object is selected.
+                                    type: boolean
+                                  matchLabels:
+                                    additionalProperties:
+                                      type: string
+                                    description: MatchLabels ensures an object with
+                                      matching labels is selected.
+                                    type: object
+                                type: object
                             required:
                             - priority
-                            - resourceArn
                             type: object
                           type: array
                       required:

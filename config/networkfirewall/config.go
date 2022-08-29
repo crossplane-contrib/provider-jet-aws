@@ -49,20 +49,33 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_networkfirewall_firewall_policy", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
+
+		r.References = config.References{
+			"firewall_policy.stateless_rule_group_reference.resource_arn": {
+				Type: "RuleGroup",
+			},
+			"firewall_policy.stateful_rule_group_reference.resource_arn": {
+				Type: "RuleGroup",
+			},
+		}
 	})
 
 	p.AddResourceConfigurator("aws_networkfirewall_logging_configuration", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
-	})
 
-	p.AddResourceConfigurator("aws_networkfirewall_resource_policy", func(r *config.Resource) {
-		r.Version = common.VersionV1Alpha2
-		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
+			"firewall_arn": {
+				Type: "Firewall",
+			},
+		}
+
 	})
 
 	p.AddResourceConfigurator("aws_networkfirewall_rule_group", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
+
+		r.UseAsync = true
 	})
 }

@@ -1,0 +1,19 @@
+apiVersion: networkfirewall.aws.jet.crossplane.io/v1alpha2
+kind: LoggingConfiguration
+metadata:
+  name: firewall
+spec:
+  forProvider:
+    region: us-west-1
+    firewallArnRef:
+      name: firewall
+    loggingConfiguration:
+      - logDestinationConfig:
+          - logDestination:
+              logGroup: "aws-network-firewall/firewall/alerts"
+            logDestinationType: CloudWatchLogs
+            logType: ALERT
+          - logDestination:
+              logGroup: "aws-network-firewall/firewall/flows"
+            logDestinationType: CloudWatchLogs
+            logType: FLOW
