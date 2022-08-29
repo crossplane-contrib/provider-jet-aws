@@ -172,7 +172,7 @@ var IncludedResources = []string{
 	"aws_networkfirewall_resource_policy",
 	"aws_networkfirewall_rule_group",
 
-	//Cloudwatch
+	// Cloudwatch
 	"aws_cloudwatch_log_group",
 }
 
