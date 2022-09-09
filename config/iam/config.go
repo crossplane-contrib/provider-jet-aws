@@ -63,6 +63,11 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_iam_role", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
+		// Managed by RolePolicyAttachment resource.
+		if s, ok := r.TerraformResource.Schema["managed_policy_arns"]; ok {
+			s.Optional = false
+			s.Computed = true
+		}
 	})
 
 	p.AddResourceConfigurator("aws_iam_role_policy_attachment", func(r *config.Resource) {

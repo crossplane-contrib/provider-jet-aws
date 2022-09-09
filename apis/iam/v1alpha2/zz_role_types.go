@@ -44,6 +44,8 @@ type RoleObservation struct {
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	ManagedPolicyArns []*string `json:"managedPolicyArns,omitempty" tf:"managed_policy_arns,omitempty"`
+
 	TagsAll map[string]*string `json:"tagsAll,omitempty" tf:"tags_all,omitempty"`
 
 	UniqueID *string `json:"uniqueId,omitempty" tf:"unique_id,omitempty"`
@@ -62,9 +64,6 @@ type RoleParameters struct {
 
 	// +kubebuilder:validation:Optional
 	InlinePolicy []InlinePolicyParameters `json:"inlinePolicy,omitempty" tf:"inline_policy,omitempty"`
-
-	// +kubebuilder:validation:Optional
-	ManagedPolicyArns []*string `json:"managedPolicyArns,omitempty" tf:"managed_policy_arns,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MaxSessionDuration *float64 `json:"maxSessionDuration,omitempty" tf:"max_session_duration,omitempty"`

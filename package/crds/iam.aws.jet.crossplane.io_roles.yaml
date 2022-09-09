@@ -78,10 +78,6 @@ spec:
                           type: string
                       type: object
                     type: array
-                  managedPolicyArns:
-                    items:
-                      type: string
-                    type: array
                   maxSessionDuration:
                     type: number
                   path:
@@ -202,6 +198,10 @@ spec:
                     type: string
                   id:
                     type: string
+                  managedPolicyArns:
+                    items:
+                      type: string
+                    type: array
                   tagsAll:
                     additionalProperties:
                       type: string
