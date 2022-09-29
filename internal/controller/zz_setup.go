@@ -30,6 +30,7 @@ import (
 	eip "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/eip"
 	instance "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/instance"
 	internetgateway "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/internetgateway"
+	keypair "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/keypair"
 	launchtemplate "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/launchtemplate"
 	networkinterface "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/networkinterface"
 	route "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/route"
@@ -139,6 +140,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		eip.Setup,
 		instance.Setup,
 		internetgateway.Setup,
+		keypair.Setup,
 		launchtemplate.Setup,
 		networkinterface.Setup,
 		route.Setup,

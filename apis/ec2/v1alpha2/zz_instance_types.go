@@ -213,8 +213,15 @@ type InstanceParameters struct {
 	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type,omitempty"`
 
+	// +crossplane:generate:reference:type=KeyPair
 	// +kubebuilder:validation:Optional
 	KeyName *string `json:"keyName,omitempty" tf:"key_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	KeyNameRef *v1.Reference `json:"keyNameRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	KeyNameSelector *v1.Selector `json:"keyNameSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	LaunchTemplate []LaunchTemplateParameters `json:"launchTemplate,omitempty" tf:"launch_template,omitempty"`
