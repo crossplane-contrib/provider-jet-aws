@@ -47,3 +47,14 @@ spec:
     policyArn: arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
     roleRef:
       name: sample-node-role
+---
+apiVersion: iam.aws.jet.crossplane.io/v1alpha2
+kind: RolePolicyAttachment
+metadata:
+  name: sample-grafana-policy
+spec:
+  forProvider:
+    roleRef:
+      name: sample-grafana-role
+    policyArnRef:
+      name: sample-grafana-policy

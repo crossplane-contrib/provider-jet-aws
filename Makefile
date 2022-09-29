@@ -6,9 +6,9 @@ PROJECT_REPO := github.com/crossplane-contrib/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.0.5
 export TERRAFORM_PROVIDER_SOURCE := hashicorp/aws
-export TERRAFORM_PROVIDER_VERSION := 3.56.0
+export TERRAFORM_PROVIDER_VERSION := 4.22.0
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-aws
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://github.com/hashicorp/terraform-provider-aws/releases/download/v3.56.0
+export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://github.com/hashicorp/terraform-provider-aws/releases/download/v4.22.0
 
 PLATFORMS ?= linux_amd64 linux_arm64
 

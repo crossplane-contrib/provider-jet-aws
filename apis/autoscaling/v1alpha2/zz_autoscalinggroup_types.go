@@ -25,6 +25,30 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
+type AcceleratorCountObservation struct {
+}
+
+type AcceleratorCountParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
+type AcceleratorTotalMemoryMibObservation struct {
+}
+
+type AcceleratorTotalMemoryMibParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
 type AutoscalingGroupObservation struct {
 	Arn *string `json:"arn,omitempty" tf:"arn,omitempty"`
 
@@ -44,7 +68,13 @@ type AutoscalingGroupParameters struct {
 	CapacityRebalance *bool `json:"capacityRebalance,omitempty" tf:"capacity_rebalance,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	Context *string `json:"context,omitempty" tf:"context,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	DefaultCooldown *float64 `json:"defaultCooldown,omitempty" tf:"default_cooldown,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	DefaultInstanceWarmup *float64 `json:"defaultInstanceWarmup,omitempty" tf:"default_instance_warmup,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	DesiredCapacity *float64 `json:"desiredCapacity,omitempty" tf:"desired_capacity,omitempty"`
@@ -148,6 +178,18 @@ type AutoscalingGroupParameters struct {
 	WarmPool []WarmPoolParameters `json:"warmPool,omitempty" tf:"warm_pool,omitempty"`
 }
 
+type BaselineEBSBandwidthMbpsObservation struct {
+}
+
+type BaselineEBSBandwidthMbpsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
 type InitialLifecycleHookObservation struct {
 }
 
@@ -188,6 +230,84 @@ type InstanceRefreshParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Triggers []*string `json:"triggers,omitempty" tf:"triggers,omitempty"`
+}
+
+type InstanceRequirementsObservation struct {
+}
+
+type InstanceRequirementsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	AcceleratorCount []AcceleratorCountParameters `json:"acceleratorCount,omitempty" tf:"accelerator_count,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	AcceleratorManufacturers []*string `json:"acceleratorManufacturers,omitempty" tf:"accelerator_manufacturers,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	AcceleratorNames []*string `json:"acceleratorNames,omitempty" tf:"accelerator_names,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	AcceleratorTotalMemoryMib []AcceleratorTotalMemoryMibParameters `json:"acceleratorTotalMemoryMib,omitempty" tf:"accelerator_total_memory_mib,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	AcceleratorTypes []*string `json:"acceleratorTypes,omitempty" tf:"accelerator_types,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	BareMetal *string `json:"bareMetal,omitempty" tf:"bare_metal,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	BaselineEBSBandwidthMbps []BaselineEBSBandwidthMbpsParameters `json:"baselineEbsBandwidthMbps,omitempty" tf:"baseline_ebs_bandwidth_mbps,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	BurstablePerformance *string `json:"burstablePerformance,omitempty" tf:"burstable_performance,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CPUManufacturers []*string `json:"cpuManufacturers,omitempty" tf:"cpu_manufacturers,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ExcludedInstanceTypes []*string `json:"excludedInstanceTypes,omitempty" tf:"excluded_instance_types,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	InstanceGenerations []*string `json:"instanceGenerations,omitempty" tf:"instance_generations,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	LocalStorage *string `json:"localStorage,omitempty" tf:"local_storage,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	LocalStorageTypes []*string `json:"localStorageTypes,omitempty" tf:"local_storage_types,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	MemoryGibPerVcpu []MemoryGibPerVcpuParameters `json:"memoryGibPerVcpu,omitempty" tf:"memory_gib_per_vcpu,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	MemoryMib []MemoryMibParameters `json:"memoryMib,omitempty" tf:"memory_mib,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NetworkInterfaceCount []NetworkInterfaceCountParameters `json:"networkInterfaceCount,omitempty" tf:"network_interface_count,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice,omitempty" tf:"on_demand_max_price_percentage_over_lowest_price,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	RequireHibernateSupport *bool `json:"requireHibernateSupport,omitempty" tf:"require_hibernate_support,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice,omitempty" tf:"spot_max_price_percentage_over_lowest_price,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	TotalLocalStorageGb []TotalLocalStorageGbParameters `json:"totalLocalStorageGb,omitempty" tf:"total_local_storage_gb,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	VcpuCount []VcpuCountParameters `json:"vcpuCount,omitempty" tf:"vcpu_count,omitempty"`
+}
+
+type InstanceReusePolicyObservation struct {
+}
+
+type InstanceReusePolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
+	ReuseOnScaleIn *bool `json:"reuseOnScaleIn,omitempty" tf:"reuse_on_scale_in,omitempty"`
 }
 
 type InstancesDistributionObservation struct {
@@ -244,6 +364,30 @@ type LaunchTemplateSpecificationParameters struct {
 	Version *string `json:"version,omitempty" tf:"version,omitempty"`
 }
 
+type MemoryGibPerVcpuObservation struct {
+}
+
+type MemoryGibPerVcpuParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
+type MemoryMibObservation struct {
+}
+
+type MemoryMibParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
 type MixedInstancesPolicyLaunchTemplateObservation struct {
 }
 
@@ -268,6 +412,18 @@ type MixedInstancesPolicyParameters struct {
 	LaunchTemplate []MixedInstancesPolicyLaunchTemplateParameters `json:"launchTemplate" tf:"launch_template,omitempty"`
 }
 
+type NetworkInterfaceCountObservation struct {
+}
+
+type NetworkInterfaceCountParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
 type OverrideLaunchTemplateSpecificationObservation struct {
 }
 
@@ -289,6 +445,9 @@ type OverrideObservation struct {
 type OverrideParameters struct {
 
 	// +kubebuilder:validation:Optional
+	InstanceRequirements []InstanceRequirementsParameters `json:"instanceRequirements,omitempty" tf:"instance_requirements,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -304,10 +463,19 @@ type PreferencesObservation struct {
 type PreferencesParameters struct {
 
 	// +kubebuilder:validation:Optional
+	CheckpointDelay *string `json:"checkpointDelay,omitempty" tf:"checkpoint_delay,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CheckpointPercentages []*float64 `json:"checkpointPercentages,omitempty" tf:"checkpoint_percentages,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	InstanceWarmup *string `json:"instanceWarmup,omitempty" tf:"instance_warmup,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MinHealthyPercentage *float64 `json:"minHealthyPercentage,omitempty" tf:"min_healthy_percentage,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SkipMatching *bool `json:"skipMatching,omitempty" tf:"skip_matching,omitempty"`
 }
 
 type TagObservation struct {
@@ -325,10 +493,37 @@ type TagParameters struct {
 	Value *string `json:"value" tf:"value,omitempty"`
 }
 
+type TotalLocalStorageGbObservation struct {
+}
+
+type TotalLocalStorageGbParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
+type VcpuCountObservation struct {
+}
+
+type VcpuCountParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
 type WarmPoolObservation struct {
 }
 
 type WarmPoolParameters struct {
+
+	// +kubebuilder:validation:Optional
+	InstanceReusePolicy []InstanceReusePolicyParameters `json:"instanceReusePolicy,omitempty" tf:"instance_reuse_policy,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MaxGroupPreparedCapacity *float64 `json:"maxGroupPreparedCapacity,omitempty" tf:"max_group_prepared_capacity,omitempty"`

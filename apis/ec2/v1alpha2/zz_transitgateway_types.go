@@ -59,6 +59,9 @@ type TransitGatewayParameters struct {
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// +kubebuilder:validation:Optional
+	MulticastSupport *string `json:"multicastSupport,omitempty" tf:"multicast_support,omitempty"`
+
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required
@@ -66,6 +69,9 @@ type TransitGatewayParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	TransitGatewayCidrBlocks []*string `json:"transitGatewayCidrBlocks,omitempty" tf:"transit_gateway_cidr_blocks,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	VPNEcmpSupport *string `json:"vpnEcmpSupport,omitempty" tf:"vpn_ecmp_support,omitempty"`

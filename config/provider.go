@@ -26,6 +26,7 @@ import (
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 
+	"github.com/crossplane-contrib/provider-jet-aws/config/amp"
 	"github.com/crossplane-contrib/provider-jet-aws/config/autoscaling"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ebs"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ec2"
@@ -36,6 +37,7 @@ import (
 	"github.com/crossplane-contrib/provider-jet-aws/config/elasticache"
 	"github.com/crossplane-contrib/provider-jet-aws/config/elasticloadbalancing"
 	"github.com/crossplane-contrib/provider-jet-aws/config/globalaccelerator"
+	"github.com/crossplane-contrib/provider-jet-aws/config/grafana"
 	"github.com/crossplane-contrib/provider-jet-aws/config/iam"
 	"github.com/crossplane-contrib/provider-jet-aws/config/kms"
 	"github.com/crossplane-contrib/provider-jet-aws/config/neptune"
@@ -142,7 +144,16 @@ var IncludedResources = []string{
 	"aws_ebs_volume$",
 
 	// Route53
-	"aws_route53_.*",
+	"aws_route53_delegation_set$",
+	"aws_route53_health_check$",
+	"aws_route53_hosted_zone_dnssec$",
+	"aws_route53_key_signing_key$",
+	"aws_route53_query_log$",
+	"aws_route53_record$",
+	"aws_route53_vpc_association_authorization$",
+	"aws_route53_zone$",
+	"aws_route53_zone_association$",
+	"aws_route53_resolver_.*",
 
 	// Neptune
 	"aws_neptune_cluster$",
@@ -162,6 +173,16 @@ var IncludedResources = []string{
 	"aws_globalaccelerator_accelerator",
 	"aws_globalaccelerator_endpoint_group",
 	"aws_globalaccelerator_listener",
+
+	// AWS Managed Grafana
+	"aws_grafana_workspace$",
+	"aws_grafana_role_association$",
+	"aws_grafana_workspace_saml_configuration$",
+
+	// AWS Managed Prometheus
+	"aws_prometheus_alert_manager_definition$",
+	"aws_prometheus_rule_group_namespace$",
+	"aws_prometheus_workspace$",
 }
 
 var skipList = []string{
@@ -198,6 +219,7 @@ func GetProvider() *tjconfig.Provider {
 	)
 
 	for _, configure := range []func(provider *tjconfig.Provider){
+		amp.Configure,
 		autoscaling.Configure,
 		ebs.Configure,
 		ec2.Configure,
@@ -208,6 +230,7 @@ func GetProvider() *tjconfig.Provider {
 		elasticache.Configure,
 		elasticloadbalancing.Configure,
 		globalaccelerator.Configure,
+		grafana.Configure,
 		iam.Configure,
 		kms.Configure,
 		rds.Configure,

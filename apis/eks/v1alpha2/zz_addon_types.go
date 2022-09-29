@@ -52,6 +52,9 @@ type AddonParameters struct {
 	// +kubebuilder:validation:Optional
 	ClusterNameSelector *v1.Selector `json:"clusterNameSelector,omitempty" tf:"-"`
 
+	// +kubebuilder:validation:Optional
+	Preserve *bool `json:"preserve,omitempty" tf:"preserve,omitempty"`
+
 	// Region is the region you'd like your resource to be created in.
 	// +terrajet:crd:field:TFTag=-
 	// +kubebuilder:validation:Required

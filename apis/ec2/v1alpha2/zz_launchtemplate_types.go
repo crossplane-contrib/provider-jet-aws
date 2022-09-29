@@ -25,6 +25,42 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
 
+type AcceleratorCountObservation struct {
+}
+
+type AcceleratorCountParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
+type AcceleratorTotalMemoryMibObservation struct {
+}
+
+type AcceleratorTotalMemoryMibParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
+type BaselineEBSBandwidthMbpsObservation struct {
+}
+
+type BaselineEBSBandwidthMbpsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
 type BlockDeviceMappingsObservation struct {
 }
 
@@ -62,6 +98,9 @@ type CapacityReservationSpecificationCapacityReservationTargetParameters struct 
 
 	// +kubebuilder:validation:Optional
 	CapacityReservationID *string `json:"capacityReservationId,omitempty" tf:"capacity_reservation_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CapacityReservationResourceGroupArn *string `json:"capacityReservationResourceGroupArn,omitempty" tf:"capacity_reservation_resource_group_arn,omitempty"`
 }
 
 type EBSObservation struct {
@@ -167,6 +206,75 @@ type InstanceMarketOptionsParameters struct {
 	SpotOptions []SpotOptionsParameters `json:"spotOptions,omitempty" tf:"spot_options,omitempty"`
 }
 
+type InstanceRequirementsObservation struct {
+}
+
+type InstanceRequirementsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	AcceleratorCount []AcceleratorCountParameters `json:"acceleratorCount,omitempty" tf:"accelerator_count,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	AcceleratorManufacturers []*string `json:"acceleratorManufacturers,omitempty" tf:"accelerator_manufacturers,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	AcceleratorNames []*string `json:"acceleratorNames,omitempty" tf:"accelerator_names,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	AcceleratorTotalMemoryMib []AcceleratorTotalMemoryMibParameters `json:"acceleratorTotalMemoryMib,omitempty" tf:"accelerator_total_memory_mib,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	AcceleratorTypes []*string `json:"acceleratorTypes,omitempty" tf:"accelerator_types,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	BareMetal *string `json:"bareMetal,omitempty" tf:"bare_metal,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	BaselineEBSBandwidthMbps []BaselineEBSBandwidthMbpsParameters `json:"baselineEbsBandwidthMbps,omitempty" tf:"baseline_ebs_bandwidth_mbps,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	BurstablePerformance *string `json:"burstablePerformance,omitempty" tf:"burstable_performance,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CPUManufacturers []*string `json:"cpuManufacturers,omitempty" tf:"cpu_manufacturers,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ExcludedInstanceTypes []*string `json:"excludedInstanceTypes,omitempty" tf:"excluded_instance_types,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	InstanceGenerations []*string `json:"instanceGenerations,omitempty" tf:"instance_generations,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	LocalStorage *string `json:"localStorage,omitempty" tf:"local_storage,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	LocalStorageTypes []*string `json:"localStorageTypes,omitempty" tf:"local_storage_types,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	MemoryGibPerVcpu []MemoryGibPerVcpuParameters `json:"memoryGibPerVcpu,omitempty" tf:"memory_gib_per_vcpu,omitempty"`
+
+	// +kubebuilder:validation:Required
+	MemoryMib []MemoryMibParameters `json:"memoryMib" tf:"memory_mib,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NetworkInterfaceCount []NetworkInterfaceCountParameters `json:"networkInterfaceCount,omitempty" tf:"network_interface_count,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice,omitempty" tf:"on_demand_max_price_percentage_over_lowest_price,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	RequireHibernateSupport *bool `json:"requireHibernateSupport,omitempty" tf:"require_hibernate_support,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice,omitempty" tf:"spot_max_price_percentage_over_lowest_price,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	TotalLocalStorageGb []TotalLocalStorageGbParameters `json:"totalLocalStorageGb,omitempty" tf:"total_local_storage_gb,omitempty"`
+
+	// +kubebuilder:validation:Required
+	VcpuCount []VcpuCountParameters `json:"vcpuCount" tf:"vcpu_count,omitempty"`
+}
+
 type LaunchTemplateCapacityReservationSpecificationObservation struct {
 }
 
@@ -197,6 +305,15 @@ type LaunchTemplateEnclaveOptionsParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 }
 
+type LaunchTemplateMaintenanceOptionsObservation struct {
+}
+
+type LaunchTemplateMaintenanceOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	AutoRecovery *string `json:"autoRecovery,omitempty" tf:"auto_recovery,omitempty"`
+}
+
 type LaunchTemplateMetadataOptionsObservation struct {
 }
 
@@ -206,10 +323,16 @@ type LaunchTemplateMetadataOptionsParameters struct {
 	HTTPEndpoint *string `json:"httpEndpoint,omitempty" tf:"http_endpoint,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	HTTPProtocolIPv6 *string `json:"httpProtocolIpv6,omitempty" tf:"http_protocol_ipv6,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	HTTPPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit,omitempty" tf:"http_put_response_hop_limit,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	HTTPTokens *string `json:"httpTokens,omitempty" tf:"http_tokens,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	InstanceMetadataTags *string `json:"instanceMetadataTags,omitempty" tf:"instance_metadata_tags,omitempty"`
 }
 
 type LaunchTemplateObservation_2 struct {
@@ -243,6 +366,9 @@ type LaunchTemplateParameters_2 struct {
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	DisableAPIStop *bool `json:"disableApiStop,omitempty" tf:"disable_api_stop,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	DisableAPITermination *bool `json:"disableApiTermination,omitempty" tf:"disable_api_termination,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -273,6 +399,9 @@ type LaunchTemplateParameters_2 struct {
 	InstanceMarketOptions []InstanceMarketOptionsParameters `json:"instanceMarketOptions,omitempty" tf:"instance_market_options,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	InstanceRequirements []InstanceRequirementsParameters `json:"instanceRequirements,omitempty" tf:"instance_requirements,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type,omitempty"`
 
 	// +kubebuilder:validation:Optional
@@ -283,6 +412,9 @@ type LaunchTemplateParameters_2 struct {
 
 	// +kubebuilder:validation:Optional
 	LicenseSpecification []LicenseSpecificationParameters `json:"licenseSpecification,omitempty" tf:"license_specification,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	MaintenanceOptions []LaunchTemplateMaintenanceOptionsParameters `json:"maintenanceOptions,omitempty" tf:"maintenance_options,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	MetadataOptions []LaunchTemplateMetadataOptionsParameters `json:"metadataOptions,omitempty" tf:"metadata_options,omitempty"`
@@ -301,6 +433,9 @@ type LaunchTemplateParameters_2 struct {
 
 	// +kubebuilder:validation:Optional
 	Placement []PlacementParameters `json:"placement,omitempty" tf:"placement,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	PrivateDNSNameOptions []LaunchTemplatePrivateDNSNameOptionsParameters `json:"privateDnsNameOptions,omitempty" tf:"private_dns_name_options,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	RAMDiskID *string `json:"ramDiskId,omitempty" tf:"ram_disk_id,omitempty"`
@@ -347,6 +482,21 @@ type LaunchTemplateParameters_2 struct {
 	VpcSecurityGroupIdSelector *v1.Selector `json:"vpcSecurityGroupIdSelector,omitempty" tf:"-"`
 }
 
+type LaunchTemplatePrivateDNSNameOptionsObservation struct {
+}
+
+type LaunchTemplatePrivateDNSNameOptionsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	EnableResourceNameDNSARecord *bool `json:"enableResourceNameDnsARecord,omitempty" tf:"enable_resource_name_dns_a_record,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	EnableResourceNameDNSAaaaRecord *bool `json:"enableResourceNameDnsAaaaRecord,omitempty" tf:"enable_resource_name_dns_aaaa_record,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HostnameType *string `json:"hostnameType,omitempty" tf:"hostname_type,omitempty"`
+}
+
 type LicenseSpecificationObservation struct {
 }
 
@@ -356,6 +506,30 @@ type LicenseSpecificationParameters struct {
 	LicenseConfigurationArn *string `json:"licenseConfigurationArn" tf:"license_configuration_arn,omitempty"`
 }
 
+type MemoryGibPerVcpuObservation struct {
+}
+
+type MemoryGibPerVcpuParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
+type MemoryMibObservation struct {
+}
+
+type MemoryMibParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Min *float64 `json:"min" tf:"min,omitempty"`
+}
+
 type MonitoringObservation struct {
 }
 
@@ -363,6 +537,18 @@ type MonitoringParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+}
+
+type NetworkInterfaceCountObservation struct {
+}
+
+type NetworkInterfaceCountParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
 }
 
 type NetworkInterfacesObservation struct {
@@ -392,13 +578,28 @@ type NetworkInterfacesParameters struct {
 	IPv4Addresses []*string `json:"ipv4Addresses,omitempty" tf:"ipv4_addresses,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	IPv4PrefixCount *float64 `json:"ipv4PrefixCount,omitempty" tf:"ipv4_prefix_count,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv4Prefixes []*string `json:"ipv4Prefixes,omitempty" tf:"ipv4_prefixes,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	IPv6AddressCount *float64 `json:"ipv6AddressCount,omitempty" tf:"ipv6_address_count,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	IPv6Addresses []*string `json:"ipv6Addresses,omitempty" tf:"ipv6_addresses,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	IPv6PrefixCount *float64 `json:"ipv6PrefixCount,omitempty" tf:"ipv6_prefix_count,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	IPv6Prefixes []*string `json:"ipv6Prefixes,omitempty" tf:"ipv6_prefixes,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	InterfaceType *string `json:"interfaceType,omitempty" tf:"interface_type,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NetworkCardIndex *float64 `json:"networkCardIndex,omitempty" tf:"network_card_index,omitempty"`
 
 	// +crossplane:generate:reference:type=NetworkInterface
 	// +kubebuilder:validation:Optional
@@ -497,6 +698,30 @@ type TagSpecificationsParameters struct {
 
 	// +kubebuilder:validation:Optional
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
+}
+
+type TotalLocalStorageGbObservation struct {
+}
+
+type TotalLocalStorageGbParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Min *float64 `json:"min,omitempty" tf:"min,omitempty"`
+}
+
+type VcpuCountObservation struct {
+}
+
+type VcpuCountParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Max *float64 `json:"max,omitempty" tf:"max,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Min *float64 `json:"min" tf:"min,omitempty"`
 }
 
 // LaunchTemplateSpec defines the desired state of LaunchTemplate

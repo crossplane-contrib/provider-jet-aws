@@ -86,7 +86,7 @@ spec:
                     - namespace
                     type: object
                   autoMinorVersionUpgrade:
-                    type: boolean
+                    type: string
                   automaticFailoverEnabled:
                     type: boolean
                   availabilityZones:
@@ -100,10 +100,12 @@ spec:
                           type: number
                         replicasPerNodeGroup:
                           type: number
-                      required:
-                      - replicasPerNodeGroup
                       type: object
                     type: array
+                  dataTieringEnabled:
+                    type: boolean
+                  description:
+                    type: string
                   engine:
                     type: string
                   engineVersion:
@@ -137,6 +139,24 @@ spec:
                           is selected.
                         type: object
                     type: object
+                  logDeliveryConfiguration:
+                    items:
+                      properties:
+                        destination:
+                          type: string
+                        destinationType:
+                          type: string
+                        logFormat:
+                          type: string
+                        logType:
+                          type: string
+                      required:
+                      - destination
+                      - destinationType
+                      - logFormat
+                      - logType
+                      type: object
+                    type: array
                   maintenanceWindow:
                     type: string
                   multiAzEnabled:
@@ -145,16 +165,26 @@ spec:
                     type: string
                   notificationTopicArn:
                     type: string
+                  numCacheClusters:
+                    type: number
+                  numNodeGroups:
+                    type: number
                   numberCacheClusters:
                     type: number
                   parameterGroupName:
                     type: string
                   port:
                     type: number
+                  preferredCacheClusterAzs:
+                    items:
+                      type: string
+                    type: array
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
+                  replicasPerNodeGroup:
+                    type: number
                   replicationGroupDescription:
                     type: string
                   securityGroupIdRefs:
@@ -231,9 +261,12 @@ spec:
                     type: object
                   transitEncryptionEnabled:
                     type: boolean
+                  userGroupIds:
+                    items:
+                      type: string
+                    type: array
                 required:
                 - region
-                - replicationGroupDescription
                 type: object
               providerConfigRef:
                 default:

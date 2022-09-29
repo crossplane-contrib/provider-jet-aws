@@ -509,6 +509,11 @@ func (in *HealthCheckParameters) DeepCopyInto(out *HealthCheckParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.RoutingControlArn != nil {
+		in, out := &in.RoutingControlArn, &out.RoutingControlArn
+		*out = new(string)
+		**out = **in
+	}
 	if in.SearchString != nil {
 		in, out := &in.SearchString, &out.SearchString
 		*out = new(string)

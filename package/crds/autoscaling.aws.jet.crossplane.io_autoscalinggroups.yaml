@@ -69,7 +69,11 @@ spec:
                     type: array
                   capacityRebalance:
                     type: boolean
+                  context:
+                    type: string
                   defaultCooldown:
+                    type: number
+                  defaultInstanceWarmup:
                     type: number
                   desiredCapacity:
                     type: number
@@ -113,10 +117,18 @@ spec:
                         preferences:
                           items:
                             properties:
+                              checkpointDelay:
+                                type: string
+                              checkpointPercentages:
+                                items:
+                                  type: number
+                                type: array
                               instanceWarmup:
                                 type: string
                               minHealthyPercentage:
                                 type: number
+                              skipMatching:
+                                type: boolean
                             type: object
                           type: array
                         strategy:
@@ -189,6 +201,123 @@ spec:
                               override:
                                 items:
                                   properties:
+                                    instanceRequirements:
+                                      items:
+                                        properties:
+                                          acceleratorCount:
+                                            items:
+                                              properties:
+                                                max:
+                                                  type: number
+                                                min:
+                                                  type: number
+                                              type: object
+                                            type: array
+                                          acceleratorManufacturers:
+                                            items:
+                                              type: string
+                                            type: array
+                                          acceleratorNames:
+                                            items:
+                                              type: string
+                                            type: array
+                                          acceleratorTotalMemoryMib:
+                                            items:
+                                              properties:
+                                                max:
+                                                  type: number
+                                                min:
+                                                  type: number
+                                              type: object
+                                            type: array
+                                          acceleratorTypes:
+                                            items:
+                                              type: string
+                                            type: array
+                                          bareMetal:
+                                            type: string
+                                          baselineEbsBandwidthMbps:
+                                            items:
+                                              properties:
+                                                max:
+                                                  type: number
+                                                min:
+                                                  type: number
+                                              type: object
+                                            type: array
+                                          burstablePerformance:
+                                            type: string
+                                          cpuManufacturers:
+                                            items:
+                                              type: string
+                                            type: array
+                                          excludedInstanceTypes:
+                                            items:
+                                              type: string
+                                            type: array
+                                          instanceGenerations:
+                                            items:
+                                              type: string
+                                            type: array
+                                          localStorage:
+                                            type: string
+                                          localStorageTypes:
+                                            items:
+                                              type: string
+                                            type: array
+                                          memoryGibPerVcpu:
+                                            items:
+                                              properties:
+                                                max:
+                                                  type: number
+                                                min:
+                                                  type: number
+                                              type: object
+                                            type: array
+                                          memoryMib:
+                                            items:
+                                              properties:
+                                                max:
+                                                  type: number
+                                                min:
+                                                  type: number
+                                              type: object
+                                            type: array
+                                          networkInterfaceCount:
+                                            items:
+                                              properties:
+                                                max:
+                                                  type: number
+                                                min:
+                                                  type: number
+                                              type: object
+                                            type: array
+                                          onDemandMaxPricePercentageOverLowestPrice:
+                                            type: number
+                                          requireHibernateSupport:
+                                            type: boolean
+                                          spotMaxPricePercentageOverLowestPrice:
+                                            type: number
+                                          totalLocalStorageGb:
+                                            items:
+                                              properties:
+                                                max:
+                                                  type: number
+                                                min:
+                                                  type: number
+                                              type: object
+                                            type: array
+                                          vcpuCount:
+                                            items:
+                                              properties:
+                                                max:
+                                                  type: number
+                                                min:
+                                                  type: number
+                                              type: object
+                                            type: array
+                                        type: object
+                                      type: array
                                     instanceType:
                                       type: string
                                     launchTemplateSpecification:
@@ -312,6 +441,13 @@ spec:
                   warmPool:
                     items:
                       properties:
+                        instanceReusePolicy:
+                          items:
+                            properties:
+                              reuseOnScaleIn:
+                                type: boolean
+                            type: object
+                          type: array
                         maxGroupPreparedCapacity:
                           type: number
                         minSize:

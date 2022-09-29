@@ -63,6 +63,8 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  allowMajorVersionUpgrade:
+                    type: boolean
                   applyImmediately:
                     type: boolean
                   availabilityZones:

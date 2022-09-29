@@ -105,6 +105,8 @@ spec:
                     type: number
                   resourcePath:
                     type: string
+                  routingControlArn:
+                    type: string
                   searchString:
                     type: string
                   tags:

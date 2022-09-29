@@ -75,6 +75,8 @@ spec:
                     type: string
                   dnsSupport:
                     type: string
+                  multicastSupport:
+                    type: string
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
@@ -83,6 +85,10 @@ spec:
                     additionalProperties:
                       type: string
                     type: object
+                  transitGatewayCidrBlocks:
+                    items:
+                      type: string
+                    type: array
                   vpnEcmpSupport:
                     type: string
                 required:

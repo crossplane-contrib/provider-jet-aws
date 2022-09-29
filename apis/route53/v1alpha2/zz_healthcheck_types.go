@@ -92,6 +92,9 @@ type HealthCheckParameters struct {
 	ResourcePath *string `json:"resourcePath,omitempty" tf:"resource_path,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	RoutingControlArn *string `json:"routingControlArn,omitempty" tf:"routing_control_arn,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	SearchString *string `json:"searchString,omitempty" tf:"search_string,omitempty"`
 
 	// +kubebuilder:validation:Optional
