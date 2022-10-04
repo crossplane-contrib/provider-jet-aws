@@ -1,0 +1,12 @@
+---
+apiVersion: directconnect.aws.jet.crossplane.io/v1alpha1
+kind: Connection
+metadata:
+  name: aws-dx-connection
+spec:
+  forProvider:
+    region: eu-central-1
+    name: aws
+    bandwidth: 1Gbps
+    location: TODO
+    providerName: optional

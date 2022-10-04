@@ -28,6 +28,7 @@ import (
 
 	"github.com/crossplane-contrib/provider-jet-aws/config/amp"
 	"github.com/crossplane-contrib/provider-jet-aws/config/autoscaling"
+	"github.com/crossplane-contrib/provider-jet-aws/config/directconnect"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ebs"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ec2"
 	"github.com/crossplane-contrib/provider-jet-aws/config/ecr"
@@ -183,6 +184,18 @@ var IncludedResources = []string{
 	"aws_prometheus_alert_manager_definition$",
 	"aws_prometheus_rule_group_namespace$",
 	"aws_prometheus_workspace$",
+
+	// AWS DirectConnect (without hosted connections)
+	"aws_dx_bgp_peer$",
+	"aws_dx_connection$",
+	"aws_dx_connection_association$",
+	"aws_dx_gateway$",
+	"aws_dx_gateway_association$",
+	// "aws_dx_gateway_association_proposal$",
+	"aws_dx_private_virtual_interface$",
+	"aws_dx_public_virtual_interface$",
+	"aws_dx_transit_virtual_interface$",
+	"aws_dx_lag$",
 }
 
 var skipList = []string{
@@ -238,6 +251,7 @@ func GetProvider() *tjconfig.Provider {
 		route53.Configure,
 		neptune.Configure,
 		mq.Configure,
+		directconnect.Configure,
 	} {
 		configure(pc)
 	}
