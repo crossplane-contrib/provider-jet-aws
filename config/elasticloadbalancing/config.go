@@ -46,6 +46,11 @@ func Configure(p *config.Provider) {
 				Type: "github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
 			},
 		}
+		r.LateInitializer = config.LateInitializer{
+			IgnoredFields: []string{
+				"access_logs",
+			},
+		}
 		r.UseAsync = true
 	})
 
@@ -61,6 +66,35 @@ func Configure(p *config.Provider) {
 			},
 			"default_action.forward.target_group.arn": {
 				Type: "LBTargetGroup",
+			},
+		}
+	})
+
+	p.AddResourceConfigurator("aws_lb_listener_rule", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
+			"listener_arn": {
+				Type: "LBListener",
+			},
+
+			"action.target_group_arn": {
+				Type: "LBTargetGroup",
+			},
+
+			"action.forward.targetGroup.arn": {
+				Type: "LBTargetGroup",
+			},
+		}
+
+	})
+
+	p.AddResourceConfigurator("aws_lb_listener_certificate", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
+		r.ExternalName = config.IdentifierFromProvider
+		r.References = config.References{
+			"listener_arn": {
+				Type: "LBListener",
 			},
 		}
 	})
