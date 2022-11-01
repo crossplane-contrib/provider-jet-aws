@@ -24,7 +24,7 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/common"
+	"github.com/dkb-bank/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for neptune group
@@ -65,7 +65,7 @@ func Configure(p *config.Provider) {
 		}
 
 		r.References["iam_roles"] = config.Reference{
-			Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
+			Type:              "github.com/dkb-bank/provider-jet-aws/apis/iam/v1alpha2.Role",
 			RefFieldName:      "IAMRoleIdRefs",
 			SelectorFieldName: "IAMRoleIdSelector",
 		}
@@ -190,7 +190,7 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.NameAsIdentifier
 
 		r.References["subnet_ids"] = config.Reference{
-			Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
+			Type:              "github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
 			RefFieldName:      "SubnetIdRefs",
 			SelectorFieldName: "SubnetIdSelector",
 		}

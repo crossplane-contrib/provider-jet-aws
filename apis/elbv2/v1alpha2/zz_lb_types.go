@@ -30,7 +30,7 @@ type AccessLogsObservation struct {
 
 type AccessLogsParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha2.Bucket
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/s3/v1alpha2.Bucket
 	// +kubebuilder:validation:Optional
 	Bucket *string `json:"bucket,omitempty" tf:"bucket,omitempty"`
 
@@ -115,7 +115,7 @@ type LBParameters struct {
 	// +kubebuilder:validation:Optional
 	SecurityGroupSelector *v1.Selector `json:"securityGroupSelector,omitempty" tf:"-"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup
 	// +crossplane:generate:reference:refFieldName=SecurityGroupRefs
 	// +crossplane:generate:reference:selectorFieldName=SecurityGroupSelector
 	// +kubebuilder:validation:Optional
@@ -130,7 +130,7 @@ type LBParameters struct {
 	// +kubebuilder:validation:Optional
 	SubnetSelector *v1.Selector `json:"subnetSelector,omitempty" tf:"-"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.Subnet
 	// +crossplane:generate:reference:refFieldName=SubnetRefs
 	// +crossplane:generate:reference:selectorFieldName=SubnetSelector
 	// +kubebuilder:validation:Optional
@@ -155,7 +155,7 @@ type SubnetMappingParameters struct {
 	// +kubebuilder:validation:Optional
 	PrivateIPv4Address *string `json:"privateIpv4Address,omitempty" tf:"private_ipv4_address,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.Subnet
 	// +kubebuilder:validation:Optional
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
 

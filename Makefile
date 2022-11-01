@@ -2,7 +2,7 @@
 # Setup Project
 
 PROJECT_NAME := provider-jet-aws
-PROJECT_REPO := github.com/crossplane-contrib/$(PROJECT_NAME)
+PROJECT_REPO := github.com/dkb-bank/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.0.5
 export TERRAFORM_PROVIDER_SOURCE := hashicorp/aws
@@ -49,7 +49,7 @@ GO111MODULE = on
 # ====================================================================================
 # Setup Images
 
-DOCKER_REGISTRY ?= crossplane
+DOCKER_REGISTRY ?= platformdkbcf
 IMAGES = provider-jet-aws provider-jet-aws-controller
 -include build/makelib/image.mk
 

@@ -33,8 +33,8 @@ type EncryptionConfigurationParameters struct {
 	// +kubebuilder:validation:Optional
 	EncryptionType *string `json:"encryptionType,omitempty" tf:"encryption_type,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/kms/v1alpha2.Key
+	// +crossplane:generate:reference:extractor=github.com/dkb-bank/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	KMSKey *string `json:"kmsKey,omitempty" tf:"kms_key,omitempty"`
 

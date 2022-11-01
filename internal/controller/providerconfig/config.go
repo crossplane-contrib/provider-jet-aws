@@ -22,7 +22,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
 	"github.com/crossplane/terrajet/pkg/controller"
 
-	"github.com/crossplane-contrib/provider-jet-aws/apis/v1alpha1"
+	"github.com/dkb-bank/provider-jet-aws/apis/v1alpha1"
 )
 
 // Setup adds a controller that reconciles ProviderConfigs by accounting for

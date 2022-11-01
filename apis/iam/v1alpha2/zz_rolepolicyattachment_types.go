@@ -32,7 +32,7 @@ type RolePolicyAttachmentObservation struct {
 type RolePolicyAttachmentParameters struct {
 
 	// +crossplane:generate:reference:type=Policy
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
+	// +crossplane:generate:reference:extractor=github.com/dkb-bank/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	PolicyArn *string `json:"policyArn,omitempty" tf:"policy_arn,omitempty"`
 

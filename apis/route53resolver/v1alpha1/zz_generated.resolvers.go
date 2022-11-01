@@ -19,8 +19,8 @@ package v1alpha1
 
 import (
 	"context"
-	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
+	v1alpha2 "github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )

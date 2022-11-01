@@ -19,7 +19,7 @@ package autoscaling
 import (
 	"github.com/crossplane/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/common"
+	"github.com/dkb-bank/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for autoscaling group.
@@ -28,7 +28,7 @@ func Configure(p *config.Provider) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 		r.References["vpc_zone_identifier"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
+			Type: "github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
 		}
 		r.UseAsync = true
 
@@ -49,7 +49,7 @@ func Configure(p *config.Provider) {
 			Type: "AutoscalingGroup",
 		}
 		r.References["alb_target_group_arn"] = config.Reference{
-			Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha2.LBTargetGroup",
+			Type:      "github.com/dkb-bank/provider-jet-aws/apis/elbv2/v1alpha2.LBTargetGroup",
 			Extractor: common.PathARNExtractor,
 		}
 	})

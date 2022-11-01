@@ -19,7 +19,7 @@ package grafana
 import (
 	"github.com/crossplane/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/common"
+	"github.com/dkb-bank/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for grafana group.
@@ -29,7 +29,7 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.IdentifierFromProvider
 		r.References = config.References{
 			"role_arn": config.Reference{
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role",
+				Type:      "github.com/dkb-bank/provider-jet-aws/apis/iam/v1alpha2.Role",
 				Extractor: common.PathARNExtractor,
 			},
 		}

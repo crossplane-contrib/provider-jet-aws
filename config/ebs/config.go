@@ -19,7 +19,7 @@ package ebs
 import (
 	"github.com/crossplane/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/common"
+	"github.com/dkb-bank/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for ebs group.
@@ -28,7 +28,7 @@ func Configure(p *config.Provider) {
 		r.Version = common.VersionV1Alpha2
 		r.References = map[string]config.Reference{
 			"kms_key_id": {
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
+				Type: "github.com/dkb-bank/provider-jet-aws/apis/kms/v1alpha2.Key",
 			},
 		}
 	})

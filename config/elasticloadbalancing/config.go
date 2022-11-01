@@ -19,7 +19,7 @@ package elasticloadbalancing
 import (
 	"github.com/crossplane/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/common"
+	"github.com/dkb-bank/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for elasticloadbalancing group.
@@ -30,20 +30,20 @@ func Configure(p *config.Provider) {
 		r.ExternalName.OmittedFields = append(r.ExternalName.OmittedFields, "name_prefix")
 		r.References = config.References{
 			"security_groups": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
+				Type:              "github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup",
 				RefFieldName:      "SecurityGroupRefs",
 				SelectorFieldName: "SecurityGroupSelector",
 			},
 			"subnets": {
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
+				Type:              "github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
 				RefFieldName:      "SubnetRefs",
 				SelectorFieldName: "SubnetSelector",
 			},
 			"access_logs.bucket": {
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/s3/v1alpha2.Bucket",
+				Type: "github.com/dkb-bank/provider-jet-aws/apis/s3/v1alpha2.Bucket",
 			},
 			"subnet_mapping.subnet_id": {
-				Type: "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
+				Type: "github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.Subnet",
 			},
 		}
 		r.UseAsync = true

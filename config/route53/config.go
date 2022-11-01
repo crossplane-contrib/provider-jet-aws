@@ -21,7 +21,7 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/common"
+	"github.com/dkb-bank/provider-jet-aws/config/common"
 )
 
 // Configure route53 resources.
@@ -48,8 +48,8 @@ func Configure(p *config.Provider) {
 			Type: "Zone",
 		}
 		r.References["key_management_service_arn"] = config.Reference{
-			Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
-			Extractor: "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.KMSKeyARN()",
+			Type:      "github.com/dkb-bank/provider-jet-aws/apis/kms/v1alpha2.Key",
+			Extractor: "github.com/dkb-bank/provider-jet-aws/apis/kms/v1alpha2.KMSKeyARN()",
 		}
 	})
 	p.AddResourceConfigurator("aws_route53_query_log", func(r *config.Resource) {
@@ -92,7 +92,7 @@ func Configure(p *config.Provider) {
 				Type: "DelegationSet",
 			},
 			"vpc.vpc_id": config.Reference{
-				Type:              "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.VPC",
+				Type:              "github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.VPC",
 				RefFieldName:      "VpcIdRef",
 				SelectorFieldName: "VpcIdSelector",
 			},
