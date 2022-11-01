@@ -30,8 +30,8 @@ type AutoScalingGroupProviderObservation struct {
 
 type AutoScalingGroupProviderParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha2.AutoscalingGroup
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/autoscaling/v1alpha2.AutoscalingGroup
+	// +crossplane:generate:reference:extractor=github.com/dkb-bank/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	AutoScalingGroupArn *string `json:"autoScalingGroupArn,omitempty" tf:"auto_scaling_group_arn,omitempty"`
 

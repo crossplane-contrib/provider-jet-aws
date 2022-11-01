@@ -1,4 +1,4 @@
-module github.com/crossplane-contrib/provider-jet-aws
+module github.com/dkb-bank/provider-jet-aws
 
 go 1.17
 

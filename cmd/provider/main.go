@@ -37,12 +37,12 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/crossplane-contrib/provider-jet-aws/apis"
-	"github.com/crossplane-contrib/provider-jet-aws/apis/v1alpha1"
-	"github.com/crossplane-contrib/provider-jet-aws/config"
-	"github.com/crossplane-contrib/provider-jet-aws/internal/clients"
-	"github.com/crossplane-contrib/provider-jet-aws/internal/controller"
-	"github.com/crossplane-contrib/provider-jet-aws/internal/features"
+	"github.com/dkb-bank/provider-jet-aws/apis"
+	"github.com/dkb-bank/provider-jet-aws/apis/v1alpha1"
+	"github.com/dkb-bank/provider-jet-aws/config"
+	"github.com/dkb-bank/provider-jet-aws/internal/clients"
+	"github.com/dkb-bank/provider-jet-aws/internal/controller"
+	"github.com/dkb-bank/provider-jet-aws/internal/features"
 )
 
 func main() {

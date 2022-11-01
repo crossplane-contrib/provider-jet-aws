@@ -20,30 +20,30 @@ import (
 	// Note(ezgidemirel): we are importing this to embed provider schema document
 	_ "embed"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/mq"
+	"github.com/dkb-bank/provider-jet-aws/config/mq"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/amp"
-	"github.com/crossplane-contrib/provider-jet-aws/config/autoscaling"
-	"github.com/crossplane-contrib/provider-jet-aws/config/ebs"
-	"github.com/crossplane-contrib/provider-jet-aws/config/ec2"
-	"github.com/crossplane-contrib/provider-jet-aws/config/ecr"
-	"github.com/crossplane-contrib/provider-jet-aws/config/ecrpublic"
-	"github.com/crossplane-contrib/provider-jet-aws/config/ecs"
-	"github.com/crossplane-contrib/provider-jet-aws/config/eks"
-	"github.com/crossplane-contrib/provider-jet-aws/config/elasticache"
-	"github.com/crossplane-contrib/provider-jet-aws/config/elasticloadbalancing"
-	"github.com/crossplane-contrib/provider-jet-aws/config/globalaccelerator"
-	"github.com/crossplane-contrib/provider-jet-aws/config/grafana"
-	"github.com/crossplane-contrib/provider-jet-aws/config/iam"
-	"github.com/crossplane-contrib/provider-jet-aws/config/kms"
-	"github.com/crossplane-contrib/provider-jet-aws/config/neptune"
-	"github.com/crossplane-contrib/provider-jet-aws/config/rds"
-	"github.com/crossplane-contrib/provider-jet-aws/config/route53"
-	"github.com/crossplane-contrib/provider-jet-aws/config/s3"
+	"github.com/dkb-bank/provider-jet-aws/config/amp"
+	"github.com/dkb-bank/provider-jet-aws/config/autoscaling"
+	"github.com/dkb-bank/provider-jet-aws/config/ebs"
+	"github.com/dkb-bank/provider-jet-aws/config/ec2"
+	"github.com/dkb-bank/provider-jet-aws/config/ecr"
+	"github.com/dkb-bank/provider-jet-aws/config/ecrpublic"
+	"github.com/dkb-bank/provider-jet-aws/config/ecs"
+	"github.com/dkb-bank/provider-jet-aws/config/eks"
+	"github.com/dkb-bank/provider-jet-aws/config/elasticache"
+	"github.com/dkb-bank/provider-jet-aws/config/elasticloadbalancing"
+	"github.com/dkb-bank/provider-jet-aws/config/globalaccelerator"
+	"github.com/dkb-bank/provider-jet-aws/config/grafana"
+	"github.com/dkb-bank/provider-jet-aws/config/iam"
+	"github.com/dkb-bank/provider-jet-aws/config/kms"
+	"github.com/dkb-bank/provider-jet-aws/config/neptune"
+	"github.com/dkb-bank/provider-jet-aws/config/rds"
+	"github.com/dkb-bank/provider-jet-aws/config/route53"
+	"github.com/dkb-bank/provider-jet-aws/config/s3"
 )
 
 //go:embed schema.json
@@ -188,8 +188,8 @@ var IncludedResources = []string{
 var skipList = []string{
 	"aws_waf_rule_group$",              // Too big CRD schema
 	"aws_wafregional_rule_group$",      // Too big CRD schema
-	"aws_glue_connection$",             // See https://github.com/crossplane-contrib/terrajet/issues/100
-	"aws_mwaa_environment$",            // See https://github.com/crossplane-contrib/terrajet/issues/100
+	"aws_glue_connection$",             // See https://github.com/dkb-bank/terrajet/issues/100
+	"aws_mwaa_environment$",            // See https://github.com/dkb-bank/terrajet/issues/100
 	"aws_ecs_tag$",                     // tags are already managed by ecs resources.
 	"aws_alb$",                         // identical with aws_lb
 	"aws_alb_target_group_attachment$", // identical with aws_lb_target_group_attachment
@@ -201,7 +201,7 @@ var skipList = []string{
 
 // GetProvider returns provider configuration
 func GetProvider() *tjconfig.Provider {
-	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), "aws", "github.com/crossplane-contrib/provider-jet-aws",
+	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), "aws", "github.com/dkb-bank/provider-jet-aws",
 		tjconfig.WithShortName("awsjet"),
 		tjconfig.WithRootGroup("aws.jet.crossplane.io"),
 		tjconfig.WithIncludeList(IncludedResources),

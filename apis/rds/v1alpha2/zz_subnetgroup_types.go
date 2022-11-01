@@ -49,7 +49,7 @@ type SubnetGroupParameters struct {
 	// +kubebuilder:validation:Optional
 	SubnetIdSelector *v1.Selector `json:"subnetIdSelector,omitempty" tf:"-"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.Subnet
 	// +crossplane:generate:reference:refFieldName=SubnetIdRefs
 	// +crossplane:generate:reference:selectorFieldName=SubnetIdSelector
 	// +kubebuilder:validation:Optional

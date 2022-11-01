@@ -31,8 +31,8 @@ type AttachmentObservation struct {
 
 type AttachmentParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/elbv2/v1alpha2.LBTargetGroup
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/elbv2/v1alpha2.LBTargetGroup
+	// +crossplane:generate:reference:extractor=github.com/dkb-bank/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	ALBTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn,omitempty"`
 

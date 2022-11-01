@@ -19,7 +19,7 @@ package ecr
 import (
 	"github.com/crossplane/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/common"
+	"github.com/dkb-bank/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for ecrs group.
@@ -29,7 +29,7 @@ func Configure(p *config.Provider) {
 		r.ExternalName = config.NameAsIdentifier
 		r.References = map[string]config.Reference{
 			"encryption_configuration.kms_key": {
-				Type:      "github.com/crossplane-contrib/provider-jet-aws/apis/kms/v1alpha2.Key",
+				Type:      "github.com/dkb-bank/provider-jet-aws/apis/kms/v1alpha2.Key",
 				Extractor: common.PathARNExtractor,
 			},
 		}

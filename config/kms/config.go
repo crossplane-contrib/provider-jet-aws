@@ -19,7 +19,7 @@ package kms
 import (
 	"github.com/crossplane/terrajet/pkg/config"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config/common"
+	"github.com/dkb-bank/provider-jet-aws/config/common"
 )
 
 // Configure adds configurations for kms group.

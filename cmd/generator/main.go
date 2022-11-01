@@ -23,7 +23,7 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/pipeline"
 
-	"github.com/crossplane-contrib/provider-jet-aws/config"
+	"github.com/dkb-bank/provider-jet-aws/config"
 )
 
 func main() {

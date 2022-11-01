@@ -93,7 +93,7 @@ type NetworkConfigurationParameters struct {
 	// +kubebuilder:validation:Optional
 	SecurityGroupSelector *v1.Selector `json:"securityGroupSelector,omitempty" tf:"-"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.SecurityGroup
 	// +crossplane:generate:reference:refFieldName=SecurityGroupRefs
 	// +crossplane:generate:reference:selectorFieldName=SecurityGroupSelector
 	// +kubebuilder:validation:Optional
@@ -105,7 +105,7 @@ type NetworkConfigurationParameters struct {
 	// +kubebuilder:validation:Optional
 	SubnetSelector *v1.Selector `json:"subnetSelector,omitempty" tf:"-"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2.Subnet
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2.Subnet
 	// +crossplane:generate:reference:refFieldName=SubnetRefs
 	// +crossplane:generate:reference:selectorFieldName=SubnetSelector
 	// +kubebuilder:validation:Optional
@@ -148,7 +148,7 @@ type ServiceParameters struct {
 	CapacityProviderStrategy []CapacityProviderStrategyParameters `json:"capacityProviderStrategy,omitempty" tf:"capacity_provider_strategy,omitempty"`
 
 	// +crossplane:generate:reference:type=Cluster
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
+	// +crossplane:generate:reference:extractor=github.com/dkb-bank/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	Cluster *string `json:"cluster,omitempty" tf:"cluster,omitempty"`
 
@@ -185,8 +185,8 @@ type ServiceParameters struct {
 	// +kubebuilder:validation:Optional
 	HealthCheckGracePeriodSeconds *float64 `json:"healthCheckGracePeriodSeconds,omitempty" tf:"health_check_grace_period_seconds,omitempty"`
 
-	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-jet-aws/apis/iam/v1alpha2.Role
-	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-jet-aws/config/common.ARNExtractor()
+	// +crossplane:generate:reference:type=github.com/dkb-bank/provider-jet-aws/apis/iam/v1alpha2.Role
+	// +crossplane:generate:reference:extractor=github.com/dkb-bank/provider-jet-aws/config/common.ARNExtractor()
 	// +kubebuilder:validation:Optional
 	IAMRole *string `json:"iamRole,omitempty" tf:"iam_role,omitempty"`
 
