@@ -151,6 +151,72 @@ func (mg *EIP) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this EgressOnlyInternetGateway.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *EgressOnlyInternetGateway) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this EgressOnlyInternetGateway.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *EgressOnlyInternetGateway) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this Instance.
 func (mg *Instance) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)

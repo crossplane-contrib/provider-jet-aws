@@ -5,7 +5,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: routetables.ec2.aws.jet.crossplane.io
+  name: egressonlyinternetgateways.ec2.aws.jet.crossplane.io
 spec:
   group: ec2.aws.jet.crossplane.io
   names:
@@ -13,10 +13,10 @@ spec:
     - crossplane
     - managed
     - awsjet
-    kind: RouteTable
-    listKind: RouteTableList
-    plural: routetables
-    singular: routetable
+    kind: EgressOnlyInternetGateway
+    listKind: EgressOnlyInternetGatewayList
+    plural: egressonlyinternetgateways
+    singular: egressonlyinternetgateway
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -35,7 +35,8 @@ spec:
     name: v1alpha2
     schema:
       openAPIV3Schema:
-        description: RouteTable is the Schema for the RouteTables API
+        description: EgressOnlyInternetGateway is the Schema for the EgressOnlyInternetGateways
+          API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +51,8 @@ spec:
           metadata:
             type: object
           spec:
-            description: RouteTableSpec defines the desired state of RouteTable
+            description: EgressOnlyInternetGatewaySpec defines the desired state of
+              EgressOnlyInternetGateway
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,167 +65,10 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  propagatingVgws:
-                    items:
-                      type: string
-                    type: array
                   region:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
-                  route:
-                    items:
-                      properties:
-                        carrierGatewayId:
-                          type: string
-                        cidrBlock:
-                          type: string
-                        coreNetworkArn:
-                          type: string
-                        destinationPrefixListId:
-                          type: string
-                        egressOnlyGatewayId:
-                          type: string
-                        egressOnlyGatewayIdRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        egressOnlyGatewayIdSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        gatewayId:
-                          type: string
-                        instanceId:
-                          type: string
-                        instanceIdRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        instanceIdSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        ipv6CidrBlock:
-                          type: string
-                        localGatewayId:
-                          type: string
-                        natGatewayId:
-                          type: string
-                        networkInterfaceId:
-                          type: string
-                        networkInterfaceIdRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        networkInterfaceIdSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        transitGatewayId:
-                          type: string
-                        vpcEndpointId:
-                          type: string
-                        vpcEndpointIdRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        vpcEndpointIdSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                        vpcPeeringConnectionId:
-                          type: string
-                        vpcPeeringConnectionIdRef:
-                          description: A Reference to a named object.
-                          properties:
-                            name:
-                              description: Name of the referenced object.
-                              type: string
-                          required:
-                          - name
-                          type: object
-                        vpcPeeringConnectionIdSelector:
-                          description: A Selector selects an object.
-                          properties:
-                            matchControllerRef:
-                              description: MatchControllerRef ensures an object with
-                                the same controller reference as the selecting object
-                                is selected.
-                              type: boolean
-                            matchLabels:
-                              additionalProperties:
-                                type: string
-                              description: MatchLabels ensures an object with matching
-                                labels is selected.
-                              type: object
-                          type: object
-                      type: object
-                    type: array
                   tags:
                     additionalProperties:
                       type: string
@@ -353,15 +198,12 @@ spec:
             - forProvider
             type: object
           status:
-            description: RouteTableStatus defines the observed state of RouteTable.
+            description: EgressOnlyInternetGatewayStatus defines the observed state
+              of EgressOnlyInternetGateway.
             properties:
               atProvider:
                 properties:
-                  arn:
-                    type: string
                   id:
-                    type: string
-                  ownerId:
                     type: string
                   tagsAll:
                     additionalProperties:

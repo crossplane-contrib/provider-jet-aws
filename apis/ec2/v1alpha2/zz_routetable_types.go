@@ -81,8 +81,15 @@ type RouteTableRouteParameters struct {
 	// +kubebuilder:validation:Optional
 	DestinationPrefixListID *string `json:"destinationPrefixListId,omitempty" tf:"destination_prefix_list_id"`
 
+	// +crossplane:generate:reference:type=EgressOnlyInternetGateway
 	// +kubebuilder:validation:Optional
 	EgressOnlyGatewayID *string `json:"egressOnlyGatewayId,omitempty" tf:"egress_only_gateway_id"`
+
+	// +kubebuilder:validation:Optional
+	EgressOnlyGatewayIDRef *v1.Reference `json:"egressOnlyGatewayIdRef,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	EgressOnlyGatewayIDSelector *v1.Selector `json:"egressOnlyGatewayIdSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	GatewayID *string `json:"gatewayId,omitempty" tf:"gateway_id"`

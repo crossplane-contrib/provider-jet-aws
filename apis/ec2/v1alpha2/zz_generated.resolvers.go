@@ -95,6 +95,32 @@ func (mg *EIP) ResolveReferences(ctx context.Context, c client.Reader) error {
 	return nil
 }
 
+// ResolveReferences of this EgressOnlyInternetGateway.
+func (mg *EgressOnlyInternetGateway) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.VpcIdRef,
+		Selector:     mg.Spec.ForProvider.VpcIdSelector,
+		To: reference.To{
+			List:    &VPCList{},
+			Managed: &VPC{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.VPCID")
+	}
+	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.VpcIdRef = rsp.ResolvedReference
+
+	return nil
+}
+
 // ResolveReferences of this Instance.
 func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
@@ -577,6 +603,24 @@ func (mg *RouteTable) ResolveReferences(ctx context.Context, c client.Reader) er
 	var rsp reference.ResolutionResponse
 	var err error
 
+	for i3 := 0; i3 < len(mg.Spec.ForProvider.Route); i3++ {
+		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Route[i3].EgressOnlyGatewayID),
+			Extract:      reference.ExternalName(),
+			Reference:    mg.Spec.ForProvider.Route[i3].EgressOnlyGatewayIDRef,
+			Selector:     mg.Spec.ForProvider.Route[i3].EgressOnlyGatewayIDSelector,
+			To: reference.To{
+				List:    &EgressOnlyInternetGatewayList{},
+				Managed: &EgressOnlyInternetGateway{},
+			},
+		})
+		if err != nil {
+			return errors.Wrap(err, "mg.Spec.ForProvider.Route[i3].EgressOnlyGatewayID")
+		}
+		mg.Spec.ForProvider.Route[i3].EgressOnlyGatewayID = reference.ToPtrValue(rsp.ResolvedValue)
+		mg.Spec.ForProvider.Route[i3].EgressOnlyGatewayIDRef = rsp.ResolvedReference
+
+	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Route); i3++ {
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Route[i3].InstanceID),
