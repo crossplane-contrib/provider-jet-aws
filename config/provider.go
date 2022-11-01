@@ -139,6 +139,7 @@ var IncludedResources = []string{
 
 	// KMS
 	"aws_kms_key$",
+	"aws_kms_alias$",
 
 	// EBS
 	"aws_ebs_volume$",

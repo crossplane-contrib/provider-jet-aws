@@ -87,6 +87,7 @@ import (
 	useriam "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/user"
 	usergroupmembership "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/usergroupmembership"
 	userpolicyattachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/iam/userpolicyattachment"
+	alias "github.com/crossplane-contrib/provider-jet-aws/internal/controller/kms/alias"
 	key "github.com/crossplane-contrib/provider-jet-aws/internal/controller/kms/key"
 	broker "github.com/crossplane-contrib/provider-jet-aws/internal/controller/mq/broker"
 	configuration "github.com/crossplane-contrib/provider-jet-aws/internal/controller/mq/configuration"
@@ -196,6 +197,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		useriam.Setup,
 		usergroupmembership.Setup,
 		userpolicyattachment.Setup,
+		alias.Setup,
 		key.Setup,
 		broker.Setup,
 		configuration.Setup,
