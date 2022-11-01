@@ -20,7 +20,9 @@ import (
 	// Note(ezgidemirel): we are importing this to embed provider schema document
 	_ "embed"
 
+	"github.com/dkb-bank/provider-jet-aws/config/cloudwatch"
 	"github.com/dkb-bank/provider-jet-aws/config/mq"
+	"github.com/dkb-bank/provider-jet-aws/config/networkfirewall"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
@@ -186,20 +188,31 @@ var IncludedResources = []string{
 	"aws_prometheus_alert_manager_definition$",
 	"aws_prometheus_rule_group_namespace$",
 	"aws_prometheus_workspace$",
+
+	// Networkfirewall
+	"aws_networkfirewall_firewall",
+	"aws_networkfirewall_firewall_policy",
+	"aws_networkfirewall_logging_configuration",
+	"aws_networkfirewall_resource_policy",
+	"aws_networkfirewall_rule_group",
+
+	// Cloudwatch
+	"aws_cloudwatch_log_group",
 }
 
 var skipList = []string{
-	"aws_waf_rule_group$",              // Too big CRD schema
-	"aws_wafregional_rule_group$",      // Too big CRD schema
-	"aws_glue_connection$",             // See https://github.com/dkb-bank/terrajet/issues/100
-	"aws_mwaa_environment$",            // See https://github.com/dkb-bank/terrajet/issues/100
-	"aws_ecs_tag$",                     // tags are already managed by ecs resources.
-	"aws_alb$",                         // identical with aws_lb
-	"aws_alb_target_group_attachment$", // identical with aws_lb_target_group_attachment
-	"aws_iam_policy_attachment$",       // identical with aws_iam_*_policy_attachment resources.
-	"aws_iam_group_policy$",            // identical with aws_iam_*_policy_attachment resources.
-	"aws_iam_role_policy$",             // identical with aws_iam_*_policy_attachment resources.
-	"aws_iam_user_policy$",             // identical with aws_iam_*_policy_attachment resources.
+	"aws_waf_rule_group$",                  // Too big CRD schema
+	"aws_wafregional_rule_group$",          // Too big CRD schema
+	"aws_glue_connection$",                 // See https://github.com/crossplane-contrib/terrajet/issues/100
+	"aws_mwaa_environment$",                // See https://github.com/crossplane-contrib/terrajet/issues/100
+	"aws_ecs_tag$",                         // tags are already managed by ecs resources.
+	"aws_alb$",                             // identical with aws_lb
+	"aws_alb_target_group_attachment$",     // identical with aws_lb_target_group_attachment
+	"aws_iam_policy_attachment$",           // identical with aws_iam_*_policy_attachment resources.
+	"aws_iam_group_policy$",                // identical with aws_iam_*_policy_attachment resources.
+	"aws_iam_role_policy$",                 // identical with aws_iam_*_policy_attachment resources.
+	"aws_iam_user_policy$",                 // identical with aws_iam_*_policy_attachment resources.
+	"aws_networkfirewall_resource_policy$", // identical use aws iam policy
 }
 
 // GetProvider returns provider configuration
@@ -241,6 +254,8 @@ func GetProvider() *tjconfig.Provider {
 		route53.Configure,
 		neptune.Configure,
 		mq.Configure,
+		networkfirewall.Configure,
+		cloudwatch.Configure,
 	} {
 		configure(pc)
 	}

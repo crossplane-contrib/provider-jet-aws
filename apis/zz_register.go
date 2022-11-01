@@ -24,6 +24,7 @@ import (
 
 	v1alpha2 "github.com/dkb-bank/provider-jet-aws/apis/amp/v1alpha2"
 	v1alpha2autoscaling "github.com/dkb-bank/provider-jet-aws/apis/autoscaling/v1alpha2"
+	v1alpha2cloudwatchlogs "github.com/dkb-bank/provider-jet-aws/apis/cloudwatchlogs/v1alpha2"
 	v1alpha2ec2 "github.com/dkb-bank/provider-jet-aws/apis/ec2/v1alpha2"
 	v1alpha2ecr "github.com/dkb-bank/provider-jet-aws/apis/ecr/v1alpha2"
 	v1alpha2ecrpublic "github.com/dkb-bank/provider-jet-aws/apis/ecrpublic/v1alpha2"
@@ -37,6 +38,7 @@ import (
 	v1alpha2kms "github.com/dkb-bank/provider-jet-aws/apis/kms/v1alpha2"
 	v1alpha2mq "github.com/dkb-bank/provider-jet-aws/apis/mq/v1alpha2"
 	v1alpha2neptune "github.com/dkb-bank/provider-jet-aws/apis/neptune/v1alpha2"
+	v1alpha2networkfirewall "github.com/dkb-bank/provider-jet-aws/apis/networkfirewall/v1alpha2"
 	v1alpha2rds "github.com/dkb-bank/provider-jet-aws/apis/rds/v1alpha2"
 	v1alpha2route53 "github.com/dkb-bank/provider-jet-aws/apis/route53/v1alpha2"
 	v1alpha1 "github.com/dkb-bank/provider-jet-aws/apis/route53resolver/v1alpha1"
@@ -49,6 +51,7 @@ func init() {
 	AddToSchemes = append(AddToSchemes,
 		v1alpha2.SchemeBuilder.AddToScheme,
 		v1alpha2autoscaling.SchemeBuilder.AddToScheme,
+		v1alpha2cloudwatchlogs.SchemeBuilder.AddToScheme,
 		v1alpha2ec2.SchemeBuilder.AddToScheme,
 		v1alpha2ecr.SchemeBuilder.AddToScheme,
 		v1alpha2ecrpublic.SchemeBuilder.AddToScheme,
@@ -62,6 +65,7 @@ func init() {
 		v1alpha2kms.SchemeBuilder.AddToScheme,
 		v1alpha2mq.SchemeBuilder.AddToScheme,
 		v1alpha2neptune.SchemeBuilder.AddToScheme,
+		v1alpha2networkfirewall.SchemeBuilder.AddToScheme,
 		v1alpha2rds.SchemeBuilder.AddToScheme,
 		v1alpha2route53.SchemeBuilder.AddToScheme,
 		v1alpha1.SchemeBuilder.AddToScheme,
