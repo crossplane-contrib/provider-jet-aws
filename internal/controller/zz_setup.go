@@ -26,6 +26,7 @@ import (
 	workspace "github.com/dkb-bank/provider-jet-aws/internal/controller/amp/workspace"
 	attachment "github.com/dkb-bank/provider-jet-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/dkb-bank/provider-jet-aws/internal/controller/autoscaling/autoscalinggroup"
+	group "github.com/dkb-bank/provider-jet-aws/internal/controller/cloudwatchlogs/group"
 	ebsvolume "github.com/dkb-bank/provider-jet-aws/internal/controller/ec2/ebsvolume"
 	eip "github.com/dkb-bank/provider-jet-aws/internal/controller/ec2/eip"
 	instance "github.com/dkb-bank/provider-jet-aws/internal/controller/ec2/instance"
@@ -77,7 +78,7 @@ import (
 	workspacegrafana "github.com/dkb-bank/provider-jet-aws/internal/controller/grafana/workspace"
 	workspacesamlconfiguration "github.com/dkb-bank/provider-jet-aws/internal/controller/grafana/workspacesamlconfiguration"
 	accesskey "github.com/dkb-bank/provider-jet-aws/internal/controller/iam/accesskey"
-	group "github.com/dkb-bank/provider-jet-aws/internal/controller/iam/group"
+	groupiam "github.com/dkb-bank/provider-jet-aws/internal/controller/iam/group"
 	grouppolicyattachment "github.com/dkb-bank/provider-jet-aws/internal/controller/iam/grouppolicyattachment"
 	instanceprofile "github.com/dkb-bank/provider-jet-aws/internal/controller/iam/instanceprofile"
 	openidconnectprovider "github.com/dkb-bank/provider-jet-aws/internal/controller/iam/openidconnectprovider"
@@ -98,6 +99,10 @@ import (
 	eventsubscription "github.com/dkb-bank/provider-jet-aws/internal/controller/neptune/eventsubscription"
 	parametergroupneptune "github.com/dkb-bank/provider-jet-aws/internal/controller/neptune/parametergroup"
 	subnetgroupneptune "github.com/dkb-bank/provider-jet-aws/internal/controller/neptune/subnetgroup"
+	firewall "github.com/dkb-bank/provider-jet-aws/internal/controller/networkfirewall/firewall"
+	firewallpolicy "github.com/dkb-bank/provider-jet-aws/internal/controller/networkfirewall/firewallpolicy"
+	loggingconfiguration "github.com/dkb-bank/provider-jet-aws/internal/controller/networkfirewall/loggingconfiguration"
+	rulegroup "github.com/dkb-bank/provider-jet-aws/internal/controller/networkfirewall/rulegroup"
 	providerconfig "github.com/dkb-bank/provider-jet-aws/internal/controller/providerconfig"
 	clusterrds "github.com/dkb-bank/provider-jet-aws/internal/controller/rds/cluster"
 	instancerds "github.com/dkb-bank/provider-jet-aws/internal/controller/rds/instance"
@@ -135,6 +140,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		workspace.Setup,
 		attachment.Setup,
 		autoscalinggroup.Setup,
+		group.Setup,
 		ebsvolume.Setup,
 		eip.Setup,
 		instance.Setup,
@@ -186,7 +192,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		workspacegrafana.Setup,
 		workspacesamlconfiguration.Setup,
 		accesskey.Setup,
-		group.Setup,
+		groupiam.Setup,
 		grouppolicyattachment.Setup,
 		instanceprofile.Setup,
 		openidconnectprovider.Setup,
@@ -207,6 +213,10 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		eventsubscription.Setup,
 		parametergroupneptune.Setup,
 		subnetgroupneptune.Setup,
+		firewall.Setup,
+		firewallpolicy.Setup,
+		loggingconfiguration.Setup,
+		rulegroup.Setup,
 		providerconfig.Setup,
 		clusterrds.Setup,
 		instancerds.Setup,

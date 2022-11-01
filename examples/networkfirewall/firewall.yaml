@@ -1,0 +1,17 @@
+apiVersion: networkfirewall.aws.jet.crossplane.io/v1alpha2
+kind: Firewall
+metadata:
+  name: firewall
+spec:
+  forProvider:
+    region: us-west-1
+    name: firewall
+    firewallPolicyArnRef:
+      name: default-policy
+    vpcIdRef:
+      name: sample-vpc
+    subnetMapping:
+      - subnetIdRef:
+          name: sample-subnet1 
+      - subnetIdRef:
+          name: sample-subnet2

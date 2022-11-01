@@ -1,0 +1,27 @@
+apiVersion: networkfirewall.aws.jet.crossplane.io/v1alpha2
+kind: RuleGroup
+metadata:
+  name: domain-whitelist
+spec:
+  forProvider:
+    region: us-west-1
+    capacity: 200
+    name: ALLOW-DOMAINLIST
+    type: STATEFUL
+    ruleGroup:
+      - ruleVariables:
+        - ipSets:
+          - key: "HOME_NET"
+            ipSet:
+              - definition:
+                - "10.10.10.0/24"
+                - "172.16.1.0/24"
+        rulesSource:
+          - rulesSourceList:
+            - targets:
+                - "github.io"
+                - "crossplane.io"
+              targetTypes:
+                - "TLS_SNI"
+                - "HTTP_HOST"
+              generatedRulesType: "ALLOWLIST"

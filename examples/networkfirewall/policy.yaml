@@ -1,0 +1,22 @@
+apiVersion: networkfirewall.aws.jet.crossplane.io/v1alpha2
+kind: FirewallPolicy
+metadata:
+  name: default-policy
+spec:
+  forProvider:
+    region: us-west-1
+    name: default-policy
+    firewallPolicy:
+      - statelessDefaultActions:
+          - "aws:forward_to_sfe"
+        statelessFragmentDefaultActions:
+          - "aws:pass"
+        statelessRuleGroupReference:
+          - resourceArnRef:
+              name: forward-all
+            priority: 1
+        statefulRuleGroupReference:
+          - resourceArnRef:
+              name: domain-whitelist
+          - resourceArnRef:
+              name: deny
