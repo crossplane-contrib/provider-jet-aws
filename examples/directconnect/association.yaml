@@ -1,0 +1,13 @@
+---
+apiVersion: directconnect.aws.jet.crossplane.io/v1alpha1
+kind: ConnectionAssociation
+metadata:
+  name: aws-dx-tgw-association
+spec:
+  forProvider:
+    region: eu-central-1
+    name: ipv4
+    dxGatewayRef:
+      name: aws-dx-gateway
+    associatedGatewayRef:
+      name: aws-tgw

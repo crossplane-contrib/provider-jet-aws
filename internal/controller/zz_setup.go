@@ -26,6 +26,15 @@ import (
 	workspace "github.com/crossplane-contrib/provider-jet-aws/internal/controller/amp/workspace"
 	attachment "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/attachment"
 	autoscalinggroup "github.com/crossplane-contrib/provider-jet-aws/internal/controller/autoscaling/autoscalinggroup"
+	bgppeer "github.com/crossplane-contrib/provider-jet-aws/internal/controller/directconnect/bgppeer"
+	connection "github.com/crossplane-contrib/provider-jet-aws/internal/controller/directconnect/connection"
+	connectionassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/directconnect/connectionassociation"
+	gateway "github.com/crossplane-contrib/provider-jet-aws/internal/controller/directconnect/gateway"
+	gatewayassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/directconnect/gatewayassociation"
+	lag "github.com/crossplane-contrib/provider-jet-aws/internal/controller/directconnect/lag"
+	privatevirtualinterface "github.com/crossplane-contrib/provider-jet-aws/internal/controller/directconnect/privatevirtualinterface"
+	publicvirtualinterface "github.com/crossplane-contrib/provider-jet-aws/internal/controller/directconnect/publicvirtualinterface"
+	transitvirtualinterface "github.com/crossplane-contrib/provider-jet-aws/internal/controller/directconnect/transitvirtualinterface"
 	ebsvolume "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/ebsvolume"
 	eip "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/eip"
 	instance "github.com/crossplane-contrib/provider-jet-aws/internal/controller/ec2/instance"
@@ -135,6 +144,15 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		workspace.Setup,
 		attachment.Setup,
 		autoscalinggroup.Setup,
+		bgppeer.Setup,
+		connection.Setup,
+		connectionassociation.Setup,
+		gateway.Setup,
+		gatewayassociation.Setup,
+		lag.Setup,
+		privatevirtualinterface.Setup,
+		publicvirtualinterface.Setup,
+		transitvirtualinterface.Setup,
 		ebsvolume.Setup,
 		eip.Setup,
 		instance.Setup,

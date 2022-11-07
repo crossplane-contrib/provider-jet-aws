@@ -1,0 +1,10 @@
+---
+apiVersion: directconnect.aws.jet.crossplane.io/v1alpha1
+kind: Gateway
+metadata:
+  name: aws-dx-gateway
+spec:
+  forProvider:
+    region: eu-central-1
+    name: dx-gateway
+    amazonSideAsn: TODO

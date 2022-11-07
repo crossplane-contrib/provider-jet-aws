@@ -24,6 +24,7 @@ import (
 
 	v1alpha2 "github.com/crossplane-contrib/provider-jet-aws/apis/amp/v1alpha2"
 	v1alpha2autoscaling "github.com/crossplane-contrib/provider-jet-aws/apis/autoscaling/v1alpha2"
+	v1alpha2directconnect "github.com/crossplane-contrib/provider-jet-aws/apis/directconnect/v1alpha2"
 	v1alpha2ec2 "github.com/crossplane-contrib/provider-jet-aws/apis/ec2/v1alpha2"
 	v1alpha2ecr "github.com/crossplane-contrib/provider-jet-aws/apis/ecr/v1alpha2"
 	v1alpha2ecrpublic "github.com/crossplane-contrib/provider-jet-aws/apis/ecrpublic/v1alpha2"
@@ -49,6 +50,7 @@ func init() {
 	AddToSchemes = append(AddToSchemes,
 		v1alpha2.SchemeBuilder.AddToScheme,
 		v1alpha2autoscaling.SchemeBuilder.AddToScheme,
+		v1alpha2directconnect.SchemeBuilder.AddToScheme,
 		v1alpha2ec2.SchemeBuilder.AddToScheme,
 		v1alpha2ecr.SchemeBuilder.AddToScheme,
 		v1alpha2ecrpublic.SchemeBuilder.AddToScheme,

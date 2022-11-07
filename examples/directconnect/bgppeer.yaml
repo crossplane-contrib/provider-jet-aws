@@ -1,0 +1,18 @@
+---
+apiVersion: directconnect.aws.jet.crossplane.io/v1alpha1
+kind: BGPPeer
+metadata:
+  name: aws-ipv4-peering
+  annotations:
+    crossplane.io/external-name: todo/aws-ipv4-peering
+spec:
+  forProvider:
+    region: eu-central-1
+    name: ipv4
+    addressFamily: ipv4
+    amazonAddress: optional
+    bgpAsn: TODO
+    bgpAuthKey: optional
+    customerAddress: optional
+    virtualInterfaceRef: 
+      name: aws-dx-tvif
