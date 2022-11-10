@@ -13,6 +13,8 @@ generation tools and exposes XRM-conformant managed resources for
 
 ## Getting Started
 
+This provider requires Kubernetes v1.23.x or greater. This is due to an issue when creating a large number of CRDs in previous versions.
+
 Install the provider by using the following command after changing the image tag
 to the [latest release](https://github.com/crossplane-contrib/provider-jet-aws/releases):
 ```
