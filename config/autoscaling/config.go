@@ -25,6 +25,11 @@ import (
 // Configure adds configurations for autoscaling group.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_autoscaling_group", func(r *config.Resource) {
+		r.LateInitializer = config.LateInitializer{
+			IgnoredFields: []string{
+				"availability_zones",
+			},
+		}
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.NameAsIdentifier
 		r.References["vpc_zone_identifier"] = config.Reference{
