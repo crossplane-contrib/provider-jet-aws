@@ -220,6 +220,7 @@ func Configure(p *config.Provider) {
 		r.LateInitializer = config.LateInitializer{
 			IgnoredFields: []string{
 				"interface_type",
+				"ipv6_address_count",
 			},
 		}
 	})
