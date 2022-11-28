@@ -315,6 +315,12 @@ func Configure(p *config.Provider) {
 		r.References["route.instance_id"] = config.Reference{
 			Type: "Instance",
 		}
+		r.References["route.gateway_id"] = config.Reference{
+			Type: "InternetGateway",
+		}
+		r.References["route.nat_gateway_id"] = config.Reference{
+			Type: "NATGateway",
+		}
 	})
 
 	p.AddResourceConfigurator("aws_route_table_association", func(r *config.Resource) {
@@ -350,5 +356,16 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_internet_gateway", func(r *config.Resource) {
 		r.Version = common.VersionV1Alpha2
 		r.ExternalName = config.IdentifierFromProvider
+	})
+
+	p.AddResourceConfigurator("aws_nat_gateway", func(r *config.Resource) {
+		r.Version = common.VersionV1Alpha2
+		r.ExternalName = config.IdentifierFromProvider
+		r.References["subnet_id"] = config.Reference{
+			Type: "Subnet",
+		}
+		r.References["allocation_id"] = config.Reference{
+			Type: "NetworkInterface",
+		}
 	})
 }
