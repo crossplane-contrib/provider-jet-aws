@@ -1,0 +1,13 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: ec2.aws.jet.crossplane.io/v1alpha2
+#kind: EIP
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    instanceRef:
+#      name: example
+#    vpc: true
+#  providerConfigRef:
+#    name: example

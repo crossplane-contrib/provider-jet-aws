@@ -1,0 +1,16 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: docdb.aws.jet.crossplane.io/v1alpha1
+#kind: ClusterParameterGroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    description: docdb cluster parameter group
+#    family: docdb3.6
+#    name: example
+#    parameter:
+#    - name: tls
+#      value: enabled
+#  providerConfigRef:
+#    name: example

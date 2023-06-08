@@ -1,0 +1,25 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: sfn.aws.jet.crossplane.io/v1alpha1
+#kind: StateMachine
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    definition: |
+#      {
+#        "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+#        "StartAt": "HelloWorld",
+#        "States": {
+#          "HelloWorld": {
+#            "Type": "Task",
+#            "Resource": "${aws_lambda_function.lambda.arn}",
+#            "End": true
+#          }
+#        }
+#      }
+#    name: my-state-machine
+#    roleArnRef:
+#      name: example
+#  providerConfigRef:
+#    name: example

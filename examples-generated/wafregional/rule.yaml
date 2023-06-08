@@ -1,0 +1,16 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: wafregional.aws.jet.crossplane.io/v1alpha1
+#kind: Rule
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    metricName: tfWAFRule
+#    name: tfWAFRule
+#    predicate:
+#    - dataId: ${aws_wafregional_ipset.ipset.id}
+#      negated: false
+#      type: IPMatch
+#  providerConfigRef:
+#    name: example

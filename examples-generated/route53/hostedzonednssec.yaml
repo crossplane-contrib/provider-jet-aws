@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: route53.aws.jet.crossplane.io/v1alpha2
+#kind: HostedZoneDNSSEC
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    hostedZoneIdRef:
+#      name: example
+#  providerConfigRef:
+#    name: example

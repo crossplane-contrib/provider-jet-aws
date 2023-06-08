@@ -1,0 +1,28 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: apprunner.aws.jet.crossplane.io/v1alpha1
+#kind: Service
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    serviceName: example
+#    sourceConfiguration:
+#    - authenticationConfiguration:
+#      - connectionArn: ${aws_apprunner_connection.example.arn}
+#      codeRepository:
+#      - codeConfiguration:
+#        - codeConfigurationValues:
+#          - buildCommand: python setup.py develop
+#            port: "8000"
+#            runtime: python3
+#            startCommand: python runapp.py
+#          configurationSource: API
+#        repositoryUrl: https://github.com/example/my-example-python-app
+#        sourceCodeVersion:
+#        - type: BRANCH
+#          value: main
+#    tags:
+#      Name: example-apprunner-service
+#  providerConfigRef:
+#    name: example

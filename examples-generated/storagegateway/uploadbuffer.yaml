@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: storagegateway.aws.jet.crossplane.io/v1alpha1
+#kind: UploadBuffer
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    diskPath: ${data.aws_storagegateway_local_disk.test.disk_path}
+#    gatewayArn: ${aws_storagegateway_gateway.test.arn}
+#  providerConfigRef:
+#    name: example

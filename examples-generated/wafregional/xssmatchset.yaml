@@ -1,0 +1,18 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: wafregional.aws.jet.crossplane.io/v1alpha1
+#kind: XSSMatchSet
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: xss_match_set
+#    xssMatchTuple:
+#    - fieldToMatch:
+#      - type: URI
+#      textTransformation: NONE
+#    - fieldToMatch:
+#      - type: QUERY_STRING
+#      textTransformation: NONE
+#  providerConfigRef:
+#    name: example

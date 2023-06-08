@@ -1,0 +1,19 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: ecs.aws.jet.crossplane.io/v1alpha2
+#kind: CapacityProvider
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    autoScalingGroupProvider:
+#    - autoScalingGroupArnRef:
+#        name: example
+#      managedScaling:
+#      - maximumScalingStepSize: 1000
+#        minimumScalingStepSize: 1
+#        status: ENABLED
+#        targetCapacity: 10
+#      managedTerminationProtection: ENABLED
+#  providerConfigRef:
+#    name: example

@@ -1,0 +1,19 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: route53resolver.aws.jet.crossplane.io/v1alpha1
+#kind: FirewallRule
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    action: BLOCK
+#    blockOverrideDnsType: CNAME
+#    blockOverrideDomain: example.com
+#    blockOverrideTtl: 1
+#    blockResponse: OVERRIDE
+#    firewallDomainListId: ${aws_route53_resolver_firewall_domain_list.example.id}
+#    firewallRuleGroupId: ${aws_route53_resolver_firewall_rule_group.example.id}
+#    name: example
+#    priority: 100
+#  providerConfigRef:
+#    name: example

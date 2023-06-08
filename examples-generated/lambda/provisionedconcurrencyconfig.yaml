@@ -1,0 +1,13 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: lambda.aws.jet.crossplane.io/v1alpha1
+#kind: ProvisionedConcurrencyConfig
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    functionName: ${aws_lambda_alias.example.function_name}
+#    provisionedConcurrentExecutions: 1
+#    qualifier: my_alias
+#  providerConfigRef:
+#    name: example

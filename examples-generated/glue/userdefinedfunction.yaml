@@ -1,0 +1,19 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: glue.aws.jet.crossplane.io/v1alpha1
+#kind: UserDefinedFunction
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    catalogId: ${aws_glue_catalog_database.example.catalog_id}
+#    className: class
+#    databaseName: MyCatalogDatabase
+#    name: my_func
+#    ownerName: owner
+#    ownerType: GROUP
+#    resourceUris:
+#    - resourceType: ARCHIVE
+#      uri: uri
+#  providerConfigRef:
+#    name: example

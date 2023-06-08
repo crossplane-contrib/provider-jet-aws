@@ -1,0 +1,16 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: apigateway.aws.jet.crossplane.io/v1alpha1
+#kind: MethodSettings
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    methodPath: '*/*'
+#    restApiId: ${aws_api_gateway_rest_api.example.id}
+#    settings:
+#    - loggingLevel: ERROR
+#      metricsEnabled: true
+#    stageName: ${aws_api_gateway_stage.example.stage_name}
+#  providerConfigRef:
+#    name: example

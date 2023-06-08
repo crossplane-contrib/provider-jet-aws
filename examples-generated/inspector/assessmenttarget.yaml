@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: inspector.aws.jet.crossplane.io/v1alpha1
+#kind: AssessmentTarget
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    name: assessment target
+#    resourceGroupArn: ${aws_inspector_resource_group.bar.arn}
+#  providerConfigRef:
+#    name: example

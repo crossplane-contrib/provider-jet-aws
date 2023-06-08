@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: codecommit.aws.jet.crossplane.io/v1alpha1
+#kind: Repository
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    description: This is the Sample App Repository
+#    repositoryName: MyTestRepository
+#  providerConfigRef:
+#    name: example

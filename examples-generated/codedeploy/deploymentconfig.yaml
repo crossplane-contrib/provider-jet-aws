@@ -1,0 +1,14 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: codedeploy.aws.jet.crossplane.io/v1alpha1
+#kind: DeploymentConfig
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    deploymentConfigName: test-deployment-config
+#    minimumHealthyHosts:
+#    - type: HOST_COUNT
+#      value: 2
+#  providerConfigRef:
+#    name: example

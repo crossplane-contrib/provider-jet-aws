@@ -1,0 +1,15 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: sagemaker.aws.jet.crossplane.io/v1alpha1
+#kind: Model
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    executionRoleArnRef:
+#      name: example
+#    name: my-model
+#    primaryContainer:
+#    - image: ${data.aws_sagemaker_prebuilt_ecr_image.test.registry_path}
+#  providerConfigRef:
+#    name: example

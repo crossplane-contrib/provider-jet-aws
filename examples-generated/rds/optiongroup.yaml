@@ -1,0 +1,24 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: rds.aws.jet.crossplane.io/v1alpha1
+#kind: OptionGroup
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    engineName: sqlserver-ee
+#    majorEngineVersion: "11.00"
+#    name: option-group-test-terraform
+#    option:
+#    - optionName: Timezone
+#      optionSettings:
+#      - name: TIME_ZONE
+#        value: UTC
+#    - optionName: SQLSERVER_BACKUP_RESTORE
+#      optionSettings:
+#      - name: IAM_ROLE_ARN
+#        value: ${aws_iam_role.example.arn}
+#    - optionName: TDE
+#    optionGroupDescription: Terraform Option Group
+#  providerConfigRef:
+#    name: example

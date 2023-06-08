@@ -1,0 +1,11 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: securityhub.aws.jet.crossplane.io/v1alpha1
+#kind: StandardsSubscription
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    standardsArn: arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0
+#  providerConfigRef:
+#    name: example

@@ -1,0 +1,12 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: route53resolver.aws.jet.crossplane.io/v1alpha1
+#kind: Rule
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    domainName: subdomain.example.com
+#    ruleType: SYSTEM
+#  providerConfigRef:
+#    name: example

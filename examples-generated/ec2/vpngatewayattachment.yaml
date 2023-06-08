@@ -1,0 +1,13 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: ec2.aws.jet.crossplane.io/v1alpha1
+#kind: VPNGatewayAttachment
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    vpcidRef:
+#      name: example
+#    vpnGatewayId: ${aws_vpn_gateway.vpn.id}
+#  providerConfigRef:
+#    name: example

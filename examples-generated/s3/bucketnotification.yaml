@@ -1,0 +1,16 @@
+# This example manifest is auto-generated, and has not been tested.
+# Please make the necessary adjustments before using it.
+#apiVersion: s3.aws.jet.crossplane.io/v1alpha1
+#kind: BucketNotification
+#metadata:
+#  name: example
+#spec:
+#  forProvider:
+#    bucket: ${aws_s3_bucket.bucket.id}
+#    topic:
+#    - events:
+#      - s3:ObjectCreated:*
+#      filterSuffix: .log
+#      topicArn: ${aws_sns_topic.topic.arn}
+#  providerConfigRef:
+#    name: example
