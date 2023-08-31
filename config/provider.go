@@ -110,6 +110,7 @@ var IncludedResources = []string{
 	"aws_vpc_endpoint$",
 	"aws_vpc_ipv4_cidr_block_association$",
 	"aws_vpc_peering_connection$",
+	"aws_vpc_peering_connection_accepter$",
 	"aws_route_table_association$",
 	"aws_internet_gateway$",
 
